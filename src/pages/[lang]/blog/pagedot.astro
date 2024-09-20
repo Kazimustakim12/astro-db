@@ -1,0 +1,57 @@
+---
+import BlogCard from '@/components/page/blog/BlogCard.astro'
+import Layout from '@/layouts/Layout.astro'
+import axios from 'axios'
+export const prerender = false
+
+// Extract the language code and page number from the URL
+const lang = Astro.params.lang || 'en' // Default to 'ar' if no language is provided
+const currentPage = Astro.params.page || 'page/1' // Extract 'page' from the dynamic route
+const numberCurrentPage = +currentPage.split('/')[1]
+// Number of posts per page
+const PER_PAGE = 10
+// API call to fetch posts with pagination and language
+const apiUrl = `${import.meta.env.WORDPRESS_REST_POST_API_URL}?per_page=${PER_PAGE}&page=${numberCurrentPage}&lang=${lang}`
+let posts = []
+let totalPages = 1
+
+try {
+	const response = await axios.get(apiUrl)
+	posts = response.data
+	totalPages = response.headers['x-wp-totalpages']
+} catch (error) {
+	console.error('Error fetching posts:', error)
+}
+---
+
+<Layout>
+	<h1>Blog in {lang}</h1>
+
+	<!-- Render the posts -->
+	{
+		posts.map((post) => (
+			<BlogCard post={post}/>
+			
+			<a href={`/${lang}/blog/${post.slug}`} key={post.id}>
+				<article>
+					<h2>{post.title.rendered}</h2>
+					<div set:html={post.excerpt.rendered} />
+				</article>
+			</a>
+		))
+	}
+
+	<!-- Pagination Component -->
+	<nav>
+		{
+			Array.from({ length: totalPages }).map((_, index) => (
+				<a
+					href={`/${lang}/blog/page/${index + 1}`}
+					class={numberCurrentPage == index + 1 ? 'active' : ''}
+				>
+					{index + 1}
+				</a>
+			))
+		}
+	</nav>
+</Layout>

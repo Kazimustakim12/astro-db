@@ -1,0 +1,165 @@
+---
+import { Image } from 'astro:assets'
+import startTradingImage from '../../../images/start_trading.webp'
+import Button from '@/components/Button.astro'
+---
+
+<section class="py-9 md:py-14">
+	<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+		<div class="text-center">
+			<p
+				class="mb-6 text-sm font-bold uppercase tracking-widest text-gray-700 dark:text-neutral-400"
+			>
+				How It Works
+			</p>
+
+			<h1 class="text-5xl font-bold text-dbgreen-900">
+				<span class="text-neutral-800 dark:text-white">Start Trading in </span>4 easy steps
+			</h1>
+			<p
+				class="mx-auto mt-4 max-w-2xl text-lg font-normal text-gray-700 dark:text-neutral-400 lg:text-xl lg:leading-8"
+			>
+				Create your account with us and launch it with just 4 easy steps
+			</p>
+		</div>
+		<div class="mx-auto mt-12 max-w-5xl">
+			<div class="grid grid-cols-1 gap-10 md:grid-cols-2 lg:items-center lg:gap-16">
+				<div class="aspect-w-16 aspect-h-9 lg:aspect-none">
+					<Image
+						class="w-full rounded-xl object-cover"
+						alt="start_trading"
+						src={startTradingImage}
+					/>
+				</div>
+				<!-- End Col -->
+
+				<!-- Timeline -->
+				<div>
+					<!-- Heading -->
+					<div class="mb-4">
+						<h3 class="text-xs font-bold uppercase text-dbgreen-900">Steps</h3>
+					</div>
+					<!-- End Heading -->
+
+					<!-- Item -->
+					<div class="ms-1 flex gap-x-5">
+						<!-- Icon -->
+						<div
+							class="relative after:absolute after:bottom-0 after:start-4 after:top-8 after:w-px after:-translate-x-[0.5px] after:bg-neutral-300 last:after:hidden dark:after:bg-neutral-700"
+						>
+							<div class="relative z-10 flex size-8 items-center justify-center">
+								<span
+									class="flex size-8 shrink-0 items-center justify-center rounded-full border border-neutral-300 text-xs font-bold uppercase text-dbgreen-900 dark:border-neutral-700"
+								>
+									1
+								</span>
+							</div>
+						</div>
+						<!-- End Icon -->
+
+						<!-- Right Content -->
+						<div class="grow pb-8 pt-0.5 sm:pb-12">
+							<p class="text-sm text-neutral-400 lg:text-base">
+								<span class="font-semibold text-black dark:text-white">Register:</span>
+								Sign up for a free DB INVEST account and instantly get access to a demo account with
+								$10,000 demo funds to try out the platform.
+							</p>
+						</div>
+						<!-- End Right Content -->
+					</div>
+					<!-- End Item -->
+					<!-- Item -->
+					<div class="ms-1 flex gap-x-5">
+						<!-- Icon -->
+						<div
+							class="relative after:absolute after:bottom-0 after:start-4 after:top-8 after:w-px after:-translate-x-[0.5px] after:bg-neutral-300 last:after:hidden dark:after:bg-neutral-700"
+						>
+							<div class="relative z-10 flex size-8 items-center justify-center">
+								<span
+									class="flex size-8 shrink-0 items-center justify-center rounded-full border border-neutral-300 text-xs font-bold uppercase text-dbgreen-900 dark:border-neutral-700"
+								>
+									2
+								</span>
+							</div>
+						</div>
+						<!-- End Icon -->
+
+						<!-- Right Content -->
+						<div class="grow pb-8 pt-0.5 sm:pb-12">
+							<p class="text-sm text-neutral-400 lg:text-base">
+								<span class="font-semibold text-black dark:text-white">Verify:</span>
+								Fill in the questionnaire about your trading experience and send us your proof of ID
+								and residence.
+							</p>
+						</div>
+						<!-- End Right Content -->
+					</div>
+					<!-- End Item -->
+					<!-- Item -->
+					<div class="ms-1 flex gap-x-5">
+						<!-- Icon -->
+						<div
+							class="relative after:absolute after:bottom-0 after:start-4 after:top-8 after:w-px after:-translate-x-[0.5px] after:bg-neutral-300 last:after:hidden dark:after:bg-neutral-700"
+						>
+							<div class="relative z-10 flex size-8 items-center justify-center">
+								<span
+									class="flex size-8 shrink-0 items-center justify-center rounded-full border border-neutral-300 text-xs font-bold uppercase text-dbgreen-900 dark:border-neutral-700"
+								>
+									3
+								</span>
+							</div>
+						</div>
+						<!-- End Icon -->
+
+						<!-- Right Content -->
+						<div class="grow pb-8 pt-0.5 sm:pb-12">
+							<p class="text-sm text-neutral-400 lg:text-base">
+								<span class="font-semibold text-black dark:text-white">Fund:</span>
+								Make a deposit via any funding method you prefer to start trading with real money on
+								db Investing.
+							</p>
+						</div>
+						<!-- End Right Content -->
+					</div>
+					<!-- End Item -->
+					<!-- Item -->
+					<div class="ms-1 flex gap-x-5">
+						<!-- Icon -->
+						<div
+							class="relative after:absolute after:bottom-0 after:start-4 after:top-8 after:w-px after:-translate-x-[0.5px] after:bg-neutral-300 last:after:hidden dark:after:bg-neutral-700"
+						>
+							<div class="relative z-10 flex size-8 items-center justify-center">
+								<span
+									class="flex size-8 shrink-0 items-center justify-center rounded-full border border-neutral-300 text-xs font-bold uppercase text-dbgreen-900 dark:border-neutral-700"
+								>
+									4
+								</span>
+							</div>
+						</div>
+						<!-- End Icon -->
+
+						<!-- Right Content -->
+						<div class="grow pb-8 pt-0.5 sm:pb-12">
+							<p class="text-sm text-neutral-400 lg:text-base">
+								<span class="font-semibold text-black dark:text-white">Trade:</span>
+								Open and close trades on your own or simply autocopy the top traders and let them do
+								the rest.
+							</p>
+						</div>
+						<!-- End Right Content -->
+					</div>
+					<!-- End Item -->
+
+					<Button
+						text="Start Trading Now "
+						primary={false}
+						rippleEffect="true"
+						primary="true"
+						buttonIcon='<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"> <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" color="currentColor" > <path d="M20 13V8h-5"></path> <path d="m20 8l-5 5c-.883.883-1.324 1.324-1.865 1.373q-.135.012-.27 0c-.541-.05-.982-.49-1.865-1.373s-1.324-1.324-1.865-1.373a1.5 1.5 0 0 0-.27 0c-.541.05-.982.49-1.865 1.373l-3 3"></path> </g> </svg>'
+					/>
+				</div>
+			</div>
+			<!-- End Timeline -->
+		</div>
+	</div>
+</section>

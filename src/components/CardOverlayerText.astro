@@ -1,0 +1,37 @@
+---
+import type { ImageMetadata } from 'astro'
+import { Image } from 'astro:assets'
+import Button from '@/components/Button.astro'
+interface Props {
+	imagePath: string
+	altText: string
+	title: string
+	link: string
+	id: number
+}
+
+const { link, imagePath, altText, title } = Astro.props
+
+const images = import.meta.glob<{ default: ImageMetadata }>('/src/images/*.{jpeg,jpg,png,gif}')
+if (!images[imagePath])
+	throw new Error(`"${imagePath}" does not exist in glob: "src/images/*.{jpeg,jpg,png,gif}"`)
+---
+
+<div class="relative h-[300px] overflow-hidden rounded-xl shadow-sm">
+	<Image
+		src={images[imagePath]()}
+		class="h-full w-full rounded-xl object-cover"
+		alt={title}
+		loading="eager"
+	/>
+	<div class="absolute inset-0 end-0 start-0 top-0 overflow-hidden bg-black/45">
+		<div class="flex h-full flex-col justify-between p-4 md:p-5">
+			<h3 class="text-3xl font-bold text-white">
+				{title}
+			</h3>
+			<div>
+				<Button text="View More" primary={false} rippleEffect="true" primary="true" href={link} />
+			</div>
+		</div>
+	</div>
+</div>

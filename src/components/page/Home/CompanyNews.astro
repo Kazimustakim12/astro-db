@@ -1,0 +1,133 @@
+---
+import Autoplay from 'embla-carousel-autoplay'
+
+const dbProduct = [
+	{
+		id: 1,
+		title: 'Forex',
+		src: '/src/images/forex_img.png',
+		link: '/forex/'
+	},
+	{
+		id: 2,
+		title: 'Indices',
+		src: '/src/images/indices_img.png',
+		link: ''
+	},
+	{
+		id: 3,
+		title: 'Commodities',
+		src: '/src/images/Commodities_img.png',
+		link: ''
+	},
+	{
+		id: 4,
+		title: 'Metals',
+		src: '/src/images/metal_img.jpg',
+		link: ''
+	},
+	{
+		id: 5,
+		title: 'Stocks',
+		src: '/src/images/stock-product_img.png',
+		link: ''
+	},
+	{
+		id: 6,
+		title: 'Stocks-6',
+		src: '/src/images/stock-product_img.png',
+		link: ''
+	},
+	{
+		id: 7,
+		title: 'Stocks-7',
+		src: '/src/images/stock-product_img.png',
+		link: ''
+	}
+]
+
+import CardOverlayerText from '../../CardOverlayerText.astro'
+---
+
+<section class="py-9 md:py-14">
+	<div class="container">
+		<div class="rounded-xl bg-gradient-to-b from-[#00c260] to-[#017a3d] p-4 sm:p-6">
+			<div class="mb-4 flex flex-col justify-between gap-4 lg:flex-row">
+				<div class="">
+					<h1 class="text-5xl font-bold text-white sm:text-6xl">
+						Updates
+						<span class="text-black">News </span>
+					</h1>
+				</div>
+				<div class="max-w-[600px]">
+					<p class="text-base text-white">
+						Trade confidently with DB Investing's cutting-edge platforms for unparalleled stability.
+						Subscribe for tight pricing and top-tier liquidity from leading Banks and Prime Brokers.
+					</p>
+				</div>
+			</div>
+			<div class="pt-4">
+				<div class="companySlider h-full overflow-hidden">
+					<div class="companySlider__container flex">
+						{
+							dbProduct.map((product, index) => {
+								return (
+									<div class="companySlider__slide">
+										<CardOverlayerText
+											imagePath={product.src}
+											title={product.title}
+											id={product.id}
+											altText={product.title}
+											link={product.link}
+										/>
+									</div>
+								)
+							})
+						}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<style>
+	.companySlider {
+		overflow: hidden;
+		margin: auto;
+		--slide-spacing: 1rem;
+		--slide-size: 32%;
+	}
+	@media (max-width: 1023px) {
+		.companySlider {
+			--slide-size: 50%;
+		}
+	}
+	@media (max-width: 767px) {
+		.companySlider {
+			--slide-size: 100%;
+		}
+	}
+	.companySlider__container {
+		display: flex;
+		/* gap: var(--slide-spacing); */
+	}
+	.companySlider__slide {
+		transform: translate3d(0, 0, 0);
+		flex: 0 0 var(--slide-size);
+		min-width: 0;
+		/* padding-left: var(--slide-spacing); */
+		margin-inline-end: 10px; /* Space after the slide */
+		margin-inline-start: 10px; /* Space before the slide */
+	}
+</style>
+
+<script>
+	import EmblaCarousel from 'embla-carousel'
+	import Autoplay from 'embla-carousel-autoplay'
+
+	const emblaNode = document.querySelector('.companySlider')
+	const options = { loop: true, dragFree: false, align: 'start' }
+	const plugins = [Autoplay()]
+	const emblaApi = EmblaCarousel(emblaNode, options, plugins)
+</script>

@@ -1,0 +1,174 @@
+---
+import { Image } from 'astro:assets'
+import TrustPilotLogo from '../../../images/trustpilot_logo.png'
+import ReviewIoLogo from '../../../icons/reviewsio-logo-svg.svg'
+import siteJabberLogo from '../../../icons/sitejabber-logo-svg.svg'
+import brokerViewLogo from '../../../images/brokerView-logo.png'
+import investingLogo from '../../../icons/Investing_logo.svg'
+import TrustPayment from '../../../images/trustPaymentDarkLogo.png'
+import MatchTrade from '../../../icons/mtt_logo.svg'
+import ABSALogo from '../../../icons/ABSA_Group_Limited_Logo.svg'
+import equitiCapital from '../../../icons/equitiCapital.svg'
+import InvestingLogo from '../../../icons/Investing.com.svg'
+import Brokeree from '../../../icons/brokeree.svg'
+import shuftiPro from '../../../icons/shuftiPro.svg'
+import AmezonService from '../../../icons/AmazonWebservices_Logo.svg'
+import MetaQoute from '../../../images/metaQouteLogo.png'
+import Marquee from '@/components/magicui/marquee'
+
+const TrustArray = [
+	{
+		src: MetaQoute,
+		alt: 'MetaQoute',
+		link: ''
+	},
+	{
+		src: AmezonService,
+		alt: 'AmezonService',
+		link: ''
+	},
+	{
+		src: shuftiPro,
+		alt: 'shuftiPro',
+		link: ''
+	},
+	{
+		src: Brokeree,
+		alt: 'Brokeree',
+		link: ''
+	},
+	{
+		src: InvestingLogo,
+		alt: 'InvestingLogo',
+		link: ''
+	},
+	{
+		src: equitiCapital,
+		alt: 'equitiCapital',
+		link: ''
+	},
+	{
+		src: ABSALogo,
+		alt: 'ABSALogo',
+		link: ''
+	},
+	{
+		src: MatchTrade,
+		alt: 'MatchTrade',
+		link: ''
+	},
+	{
+		src: TrustPayment,
+		alt: 'TrustPayment',
+		link: ''
+	},
+	{
+		src: TrustPilotLogo,
+		alt: 'TrustPilot',
+		link: ''
+	},
+	{
+		src: ReviewIoLogo,
+		link: '',
+		alt: 'Reviews.io'
+	},
+	{
+		src: siteJabberLogo,
+		alt: 'SiteJabber',
+		link: ''
+	},
+	{
+		src: brokerViewLogo,
+		alt: 'BrokerView',
+		link: ''
+	},
+	{
+		src: investingLogo,
+		alt: 'Investing.co',
+		link: ''
+	}
+]
+---
+
+<section class="relative py-9 sm:py-9 lg:py-12 xl:py-12">
+	<div class="container mx-auto">
+		<div
+			class="lab-bg absolute inset-0 size-full bg-[radial-gradient(#00000010_1px,transparent_1px)] [background-size:16px_16px] dark:bg-[radial-gradient(#ffffff12_1px,transparent_1px)]"
+		>
+		</div>
+		<div class="relative grid items-center gap-6 lg:grid-cols-12 lg:gap-9">
+			<div class="lg:col-span-4 xl:col-span-3">
+				<div class="lg:pe-6 xl:pe-12">
+					<p class="text-5xl font-bold text-dbgreen-900 sm:text-6xl">
+						Our Partners
+						<span
+							class="ms-1 inline-flex items-center gap-x-1 rounded-full bg-gray-200 px-2 py-0.5 text-xs font-medium leading-4 text-gray-800 dark:bg-neutral-800 dark:text-neutral-300"
+						>
+							<svg
+								class="size-4 shrink-0"
+								xmlns="http://www.w3.org/2000/svg"
+								width="16"
+								height="16"
+								fill="currentColor"
+								viewBox="0 0 16 16"
+							>
+								<path
+									d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01-.622-.636zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708z"
+								></path>
+							</svg>
+							+10 verified Company
+						</span>
+					</p>
+				</div>
+			</div>
+			<div
+				class="relative overflow-hidden lg:col-span-8 lg:before:absolute lg:before:-start-8 lg:before:top-0 lg:before:h-full lg:before:w-px lg:before:bg-gray-200 lg:before:dark:bg-neutral-700 xl:col-span-9"
+			>
+				<div class="trustBy h-full overflow-hidden">
+					<!-- <div class="trustBy __container flex">
+						<Marquee pauseOnHover>
+							{
+								TrustArray.map((item, index) => (
+									<div class="rounded-xl text-center">
+										<Image
+											src={item.src}
+											class="h-full w-[220px] object-contain px-6 contrast-0 invert-0 transition-all hover:brightness-0 hover:contrast-100 dark:invert"
+											alt={item.alt}
+											loading="lazy"
+										/>
+									</div>
+								))
+							}
+						</Marquee>
+					</div> -->
+					<div
+						class="bg-background relative flex w-full flex-col items-center justify-center overflow-hidden rounded-lg md:shadow-xl"
+					>
+						<Marquee pauseOnHover class="[--duration:20s]">
+							{
+								TrustArray.map((item, index) => (
+									<div class="rounded-xl text-center">
+										<Image
+											src={item.src}
+											class="h-full w-[220px] object-contain px-6 contrast-0 invert-0 transition-all hover:brightness-0 hover:contrast-100 dark:invert"
+											alt={item.alt}
+											loading="lazy"
+										/>
+									</div>
+								))
+							}
+						</Marquee>
+						<div
+							class="pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-white dark:from-neutral-900"
+						>
+						</div>
+						<div
+							class="pointer-events-none absolute inset-y-0 right-0 w-1/3 bg-gradient-to-l from-white dark:from-neutral-900"
+						>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

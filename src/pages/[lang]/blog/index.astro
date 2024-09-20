@@ -1,0 +1,50 @@
+---
+export const prerender = true
+import { LOCALES, type Lang } from '@/i18n'
+import Layout from '@/layouts/Layout.astro'
+import { getAllSlug, getAllUris, getSinglrPostById } from '@/lib/api'
+import { Image } from 'astro:assets'
+const { lang, slug } = Astro.params
+
+export async function getStaticPaths() {
+	let data = await getAllUris()
+	let posts = data?.posts?.nodes
+	return posts.map((post) => ({
+		params: { lang: post.languageCode, slug: post.slug },
+		props: { post: post }
+	}))
+}
+const data = await getSinglrPostById(slug)
+---
+
+<Layout>
+	<h1>{slug}</h1>
+</Layout>
+
+<style is:global>
+	.wp-block-image img {
+		width: 100%;
+		height: auto;
+	}
+</style>
+<style>
+	img.featured-image {
+		width: 100%;
+		border-radius: 10px;
+		height: auto;
+	}
+	.post-details {
+		color: darkgrey;
+		font-weight: 300;
+	}
+	a.term-link {
+		display: inline-block;
+		height: 1.5rem;
+		padding: 0.75rem;
+		margin: 0.5rem 0.5rem 0.5rem 0;
+		background: linear-gradient(90deg, #0076dc 0%, #7a1ba6 100%);
+		color: #fff;
+		border-radius: 10px;
+		font-weight: bold;
+	}
+</style>

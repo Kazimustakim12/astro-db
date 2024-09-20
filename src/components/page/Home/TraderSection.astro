@@ -1,0 +1,214 @@
+---
+import { Icon } from 'astro-icon/components'
+import { Image } from 'astro:assets'
+import MetaTradeImage from '../../../images/mt5_bg_img.png'
+---
+
+<section class="pb-9 pt-12 md:py-14">
+	<div class="container">
+		<div class="relative">
+			<div class="mb-7">
+				<h1 class="text-5xl font-bold text-dbgreen-900 sm:text-6xl">
+					<span class="text-neutral-800 dark:text-white">MT5 & Sirix</span> WebTrader
+				</h1>
+			</div>
+			<div class="relative z-10 grid grid-cols-6 gap-3">
+				<div
+					class="bg-background relative col-span-full overflow-hidden rounded-2xl border-2 p-4 transition hover:border-dbgreen-900 dark:border-neutral-600 dark:hover:border-dbgreen-900 sm:p-8 md:p-5 lg:col-span-3"
+				>
+					<div class="h-full">
+						<div class="relative z-10 flex h-full flex-col justify-between space-y-8 lg:space-y-6">
+							<div
+								class="relative flex aspect-square size-12 items-center justify-center rounded-full border before:absolute before:-inset-2 before:rounded-full before:border dark:border-white/10 dark:bg-white/5 dark:before:border-white/5 dark:before:bg-white/5"
+							>
+								<!-- <Icon name="market_icon" class="" href="#" /> -->
+								<iconify-icon
+									icon="hugeicons:market-analysis"
+									width="30"
+									height="30"
+									class="text-dbgreen-900"></iconify-icon>
+							</div>
+							<div class="space-y-2">
+								<h2 class="text-xl font-bold text-neutral-800 dark:text-white">
+									Daily Market Analysis & Researches
+								</h2>
+								<p class="text-base text-neutral-700 dark:text-neutral-300">
+									Insightful analysis on systemic themes underlying the markets and traders
+									perspective on these developments
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div
+					class="bg-background relative col-span-full overflow-hidden rounded-2xl border-2 p-4 hover:border-dbgreen-900 dark:border-neutral-600 dark:hover:border-dbgreen-900 sm:p-8 md:p-5 lg:col-span-3"
+				>
+					<div class="h-full">
+						<div class="relative z-10 flex h-full flex-col justify-between space-y-8 lg:space-y-6">
+							<div
+								class="relative flex aspect-square size-12 items-center justify-center rounded-full border before:absolute before:-inset-2 before:rounded-full before:border dark:border-white/10 dark:bg-white/5 dark:before:border-white/5 dark:before:bg-white/5"
+							>
+								<!-- <Icon name="market_icon" class="" href="#" /> -->
+								<iconify-icon icon="cil:education" width="30" height="30" class="text-dbgreen-900"
+								></iconify-icon>
+							</div>
+							<div class="space-y-2">
+								<h2 class="text-xl font-bold text-neutral-800 dark:text-white">
+									Education, Ebooks & Webinars
+								</h2>
+								<p class="text-base text-neutral-700 dark:text-neutral-300">
+									Whatever your skill level, we’ve got the tools and resources to help improve your
+									trading
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div
+					class="bg-background relative col-span-full overflow-hidden rounded-2xl border-2 p-4 transition hover:border-dbgreen-900 dark:border-neutral-600 dark:hover:border-dbgreen-900 sm:p-8 md:p-5 lg:col-span-6"
+				>
+					<div class="h-full">
+						<div class="relative z-10 flex h-full flex-col justify-between space-y-8 lg:space-y-6">
+							<div class="max-w-full space-y-2 md:max-w-[60%]">
+								<p class="text-base text-neutral-700 dark:text-neutral-300">
+									Trade the financial global markets from anywhere with the best multi-asset trading
+									platform.
+								</p>
+								<h2 class="text-xl font-bold text-neutral-800 dark:text-white">Available on:</h2>
+								<div class="flex gap-[6px]">
+									<div
+										class="flex size-9 items-center justify-center rounded-lg border border-gray-200 text-sm font-semibold text-gray-800 hover:bg-gray-100 disabled:pointer-events-none disabled:opacity-50 hs-dark-mode-active:flex dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-700"
+									>
+										<!-- <Icon name="market_icon" class="" href="#" /> -->
+										<iconify-icon icon="bxl:android" width="30" height="30" class="text-[#82bc01]"
+										></iconify-icon>
+									</div>
+									<div
+										class="flex size-9 items-center justify-center rounded-lg border border-gray-200 text-sm font-semibold text-gray-800 hover:bg-gray-100 disabled:pointer-events-none disabled:opacity-50 hs-dark-mode-active:flex dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-700"
+									>
+										<!-- <Icon name="market_icon" class="" href="#" /> -->
+										<iconify-icon
+											icon="mdi:microsoft-windows"
+											width="30"
+											height="30"
+											class="text-[#0077d5]"></iconify-icon>
+									</div>
+									<div
+										class="flex size-9 items-center justify-center rounded-lg border border-gray-200 text-sm font-semibold text-gray-800 hover:bg-gray-100 disabled:pointer-events-none disabled:opacity-50 hs-dark-mode-active:flex dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-700"
+									>
+										<!-- <Icon name="market_icon" class="" href="#" /> -->
+										<iconify-icon
+											icon="grommet-icons:apple-app-store"
+											width="30"
+											height="30"
+											class="text-[#0d95f5]"></iconify-icon>
+									</div>
+									<div
+										class="flex size-9 items-center justify-center rounded-lg border border-gray-200 text-sm font-semibold text-gray-800 hover:bg-gray-100 disabled:pointer-events-none disabled:opacity-50 hs-dark-mode-active:flex dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-700"
+									>
+										<!-- <Icon name="market_icon" class="" href="#" /> -->
+										<iconify-icon
+											icon="ic:baseline-apple"
+											width="30"
+											height="30"
+											class="text-black dark:text-white"></iconify-icon>
+									</div>
+								</div>
+							</div>
+							<!-- <Button
+								className="btn_gradient mt-6 w-36 text-white dark:text-white"
+								client:visible
+							>
+								Learn more
+							</Button> -->
+						</div>
+					</div>
+					<Image
+						src={MetaTradeImage}
+						alt="mt5-img"
+						loading="lazy"
+						class="absolute bottom-0 right-0 top-0 hidden md:block lg:w-[100%] xl:w-[70%]"
+					/>
+				</div>
+				<div
+					class="bg-background relative col-span-full flex overflow-hidden rounded-2xl border-2 p-4 hover:border-dbgreen-900 dark:border-neutral-600 dark:hover:border-dbgreen-900 sm:p-8 md:p-5 lg:col-span-2"
+				>
+					<div class="h-full">
+						<div class="relative z-10 flex h-full flex-col justify-between space-y-8 lg:space-y-6">
+							<div
+								class="relative flex aspect-square size-12 items-center justify-center rounded-full border before:absolute before:-inset-2 before:rounded-full before:border dark:border-white/10 dark:bg-white/5 dark:before:border-white/5 dark:before:bg-white/5"
+							>
+								<!-- <Icon name="market_icon" class="" href="#" /> -->
+								<iconify-icon
+									icon="majesticons:monitor-line"
+									width="30"
+									height="30"
+									class="text-dbgreen-900"></iconify-icon>
+							</div>
+							<div class="space-y-2">
+								<h2 class="text-xl font-bold text-neutral-800 dark:text-white">
+									World-renowned Platforms & Tools
+								</h2>
+								<p class="text-base text-neutral-700 dark:text-neutral-300">
+									Leading trading technology can be used to perfect your strategies and help you
+									become a more profitable trader
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div
+					class="bg-background relative col-span-full overflow-hidden rounded-2xl border-2 p-4 hover:border-dbgreen-900 dark:border-neutral-600 dark:hover:border-dbgreen-900 sm:col-span-full sm:p-8 md:p-5 lg:col-span-2"
+				>
+					<div class="h-full">
+						<div class="relative z-10 flex h-full flex-col justify-between space-y-8 lg:space-y-6">
+							<div
+								class="relative flex aspect-square size-12 items-center justify-center rounded-full border before:absolute before:-inset-2 before:rounded-full before:border dark:border-white/10 dark:bg-white/5 dark:before:border-white/5 dark:before:bg-white/5"
+							>
+								<!-- <Icon name="market_icon" class="" href="#" /> -->
+								<iconify-icon
+									icon="fluent:payment-16-filled"
+									width="30"
+									height="30"
+									class="text-dbgreen-900"></iconify-icon>
+							</div>
+							<div class="space-y-2">
+								<h2 class="text-xl font-bold text-neutral-800 dark:text-white">
+									Popular Deposit & Withdrawal methods
+								</h2>
+								<p class="text-base text-neutral-700 dark:text-neutral-300">
+									Broad variety of payments systems to deposit and withdraw your funds in a secure
+									and cost-free environment
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div
+					class="bg-background relative col-span-full overflow-hidden rounded-2xl border-2 p-4 hover:border-dbgreen-900 dark:border-neutral-600 dark:hover:border-dbgreen-900 sm:col-span-full sm:p-8 md:p-5 lg:col-span-2"
+				>
+					<div class="h-full">
+						<div class="relative z-10 flex h-full flex-col justify-between space-y-8 lg:space-y-6">
+							<div
+								class="relative flex aspect-square size-12 items-center justify-center rounded-full border before:absolute before:-inset-2 before:rounded-full before:border dark:border-white/10 dark:bg-white/5 dark:before:border-white/5 dark:before:bg-white/5"
+							>
+								<!-- <Icon name="market_icon" class="" href="#" /> -->
+								<iconify-icon
+									icon="streamline:call-center-support-service-solid"
+									width="30"
+									height="30"
+									class="text-dbgreen-900"></iconify-icon>
+							</div>
+							<div class="space-y-2">
+								<h2 class="text-xl font-bold text-neutral-800 dark:text-white">24/5 Support</h2>
+								<p class="text-base text-neutral-700 dark:text-neutral-300">
+									Our Support ready to answer to any questions at your language in seconds
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

@@ -1,0 +1,157 @@
+---
+import type { ImageMetadata } from 'astro'
+import { Image } from 'astro:assets'
+const images = import.meta.glob<{ default: ImageMetadata }>('/src/images/*.{jpeg,jpg,png,gif}')
+const marketList = [
+	{
+		title: 'Forex',
+		description:
+			'Forex is often called a stock exchange, but it is not. This is an international over-the-counter market. It does not have a link to any place of bidding. In fact, it is a virtual market in which you can make currency transactions from anywhere in the world.',
+		link: '/forex/',
+		image: '/src/images/forex_tab.png',
+		id: 'forex_tab',
+		active: 'active'
+	},
+	{
+		title: 'Metals',
+		description:
+			'Trading precious metals is not only about buying bars of gold or silver. Try CFDs on precious metals as your trading alternative. Customizable account, live charts, and analytical tools are covered!',
+		link: '/metals/',
+		image: '/src/images/metals_tab.png',
+		id: 'metals_tab'
+	},
+	{
+		title: 'Indices',
+		description:
+			'The indicator calculated on the basis of a specific basket of shares is called a stock index. It is necessary to understand exactly which securities form each indicator. By using the same tools that are utilized in calculating the indicator, the trader can form a more accurate prediction. The stock index is a powerful indicator that shows the overall trends and rates of change in the market share prices of a specific sector of the economy. For example, an increase in oil prices is likely to lead to an increase in the value of assets of oil producing companies.',
+		link: '/indices/',
+		image: '/src/images/indices_tab.png',
+		id: 'indices_tab'
+	},
+	{
+		title: 'Commodities',
+		description:
+			'Trading on the commodity exchange engages traders around the world and is very similar to trading in the stock market or Forex, but there are some differences.',
+		link: '/commodities/',
+		image: '/src/images/commodities_tab.png',
+		id: 'commodities_tab'
+	},
+	{
+		title: 'Stocks',
+		description:
+			'Start Trading long or short CFDs on stocks with the worlds most traded global companies, including Amazon, Meta Platforms, inc., Apple, Microsoft and Alphabet. Investing in CFDs allow you to trade the value of the company’s stocks without owning the underlying shares, giving you several advantages over traditional stock trading.',
+		link: '/stocks/',
+		image: '/src/images/forex_tab.png',
+		id: 'Stocks_tab'
+	},
+	{
+		title: 'crypto',
+		description:
+			'DB Investing offers you to explore the tech-powered cryptocurrency market through trading CFDs on Bitcoin, Ethereum, and other popular digital currencies. Choose a platform and account that fit your trading style and experience, set your goals at DB Investing, and go!',
+		link: '/crypto/',
+		image: '/src/images/crypto_tab.png',
+		id: 'crypto_tab'
+	}
+]
+---
+
+<section class="md:py-14">
+	<div class="container relative mx-auto">
+		<div class="relative rounded-2xl bg-gray-100 p-4 shadow-xl dark:bg-neutral-700 lg:p-12 xl:p-16">
+			<div class="mb-7">
+				<h1 class="text-5xl font-bold text-dbgreen-900 sm:text-6xl">
+					<span class="capitalize text-neutral-800 dark:text-white">Our</span> Products
+				</h1>
+				<p class="mt-3 text-neutral-800 dark:text-neutral-200">
+					Confidently trade with DB Investing cutting-edge trading platforms offering groundbreaking
+					levels of stability and reliability. Subscribe and execute on the tightest pricing and
+					liquidity coming from top-tier Banks and Prime Brokers.
+				</p>
+			</div>
+			<nav
+				class="m-auto mb-8 flex max-w-[100%] flex-wrap items-center justify-center gap-3 gap-x-3 md:max-w-[85%] lg:max-w-[70%]"
+				aria-label="Tabs"
+				role="tablist"
+				aria-orientation="horizontal"
+			>
+				{
+					marketList.map((item) => {
+						return (
+							<button
+								type="button"
+								class={`inline-flex items-center gap-x-2 rounded-lg border border-dbgreen-900 bg-transparent px-4 py-3 text-center text-sm font-bold text-dbgreen-900 hover:text-dbgreen-900 focus:text-dbgreen-900 focus:outline-none disabled:pointer-events-none disabled:opacity-50 hs-tab-active:bg-dbgreen-900 hs-tab-active:text-white hs-tab-active:hover:text-white dark:text-dbgreen-900 dark:hover:text-dbgreen-900 hs-tab-active:dark:text-white ${item.active} font-bold capitalize`}
+								id={item.id}
+								data-hs-tab={`#${item.id}_${item.title}`}
+								aria-controls={`${item.id}_${item.title}`}
+								role="tab"
+							>
+								{item.title}
+							</button>
+						)
+					})
+				}
+			</nav>
+
+			<div class="mt-3">
+				{
+					marketList.map((item) => {
+						return (
+							<div
+								id={`${item.id}_${item.title}`}
+								role="tabpanel"
+								aria-labelledby={item.id}
+								class={item.active ? '' : 'hidden'}
+							>
+								<div class="row">
+									<div class="mx-auto max-w-[85rem] p-0">
+										<div class="grid lg:grid-cols-5 lg:items-center lg:gap-x-8 xl:gap-x-12">
+											<div class="order-1 lg:order-[0] lg:col-span-3">
+												<h1 class="block text-2xl font-bold capitalize text-gray-800 dark:text-white sm:text-2xl md:text-4xl lg:text-4xl">
+													{item.title} trading
+												</h1>
+												<p class="mt-3 text-lg text-gray-800 dark:text-neutral-400">
+													{item.description}
+												</p>
+												<button
+													type="button"
+													class="btn_gradient mt-6 inline-flex items-center gap-x-2 rounded-lg border border-gray-200 px-4 py-3 text-sm font-medium text-white shadow-sm hover:bg-gray-50 focus:bg-gray-50 focus:outline-none disabled:pointer-events-none disabled:opacity-50 dark:border-neutral-700 dark:text-white dark:focus:bg-neutral-700"
+												>
+													Learn More
+													<svg
+														class="size-4 shrink-0"
+														xmlns="http://www.w3.org/2000/svg"
+														width="24"
+														height="24"
+														viewBox="0 0 24 24"
+														fill="none"
+														stroke="currentColor"
+														stroke-width="2"
+														stroke-linecap="round"
+														stroke-linejoin="round"
+													>
+														<path d="M5 12h14" />
+														<path d="m12 5 7 7-7 7" />
+													</svg>
+												</button>
+											</div>
+											<div class="m-auto mt-0 lg:col-span-2 lg:mt-0">
+												<Image
+													src={images[item.image]()}
+													class="h-[15rem] w-full rounded-xl object-cover lg:h-[20rem]"
+													alt={item.title}
+													loading="eager"
+												/>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						)
+					})
+				}
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- test -->

@@ -1,0 +1,391 @@
+---
+import { Icon } from 'astro-icon/components'
+import LanguageSelect from './i18n/LanguageSelect.astro'
+import LanguageSelectReact from '@/components/i18n/LanguageSelectReact'
+const FooterNavLinks = [
+	{
+		link: '#1',
+		label: 'About',
+		sublinks: [
+			{
+				label: 'Compnay',
+				link: '/company'
+			},
+			{
+				label: 'Contact',
+				link: '/contact '
+			},
+			{
+				label: 'Career',
+				link: '/career '
+			},
+			{
+				label: 'Partnerships',
+				link: '/partnerships '
+			}
+		]
+	},
+	{
+		link: '#2',
+		label: 'Markets',
+		sublinks: [
+			{
+				label: 'Forex',
+				link: '/forex'
+			},
+			{
+				label: 'Metals',
+				link: '/metals '
+			},
+			{
+				label: 'Indices',
+				link: '/Indices '
+			},
+			{
+				label: 'Commodities',
+				link: '/commodities '
+			},
+			{
+				label: 'Stocks',
+				link: '/stocks '
+			}
+		]
+	},
+	{
+		link: '#3',
+		label: 'Accounts',
+		sublinks: [
+			{
+				label: 'STP',
+				link: '/stp'
+			},
+			{
+				label: 'ECN',
+				link: '/ecn'
+			},
+			{
+				label: 'Islamic',
+				link: '/Islamic '
+			},
+			{
+				label: 'Islamic Plus',
+				link: '/islamic '
+			},
+			{
+				label: 'Demo',
+				link: '/demo '
+			}
+		]
+	},
+
+	{
+		link: '#5',
+		label: 'Education',
+		sublinks: [
+			{
+				label: 'Ebooks',
+				link: '/stp'
+			},
+			{
+				label: 'Webinar Live Streaming',
+				link: '/ecn'
+			},
+			{
+				label: 'Webinar calendar',
+				link: '/Islamic '
+			},
+			{
+				label: 'Spotify Podcast',
+				link: '/islamic '
+			}
+		]
+	},
+	{
+		link: '#6',
+		label: 'Help Center',
+		sublinks: [
+			{
+				label: 'Payment Methods',
+				link: '/stp'
+			},
+			{
+				label: 'FAQs',
+				link: '/ecn'
+			},
+			{
+				label: 'Regulation',
+				link: '/Islamic '
+			},
+			{
+				label: 'Legal Documents',
+				link: '/islamic '
+			},
+			{
+				label: 'Privacy Policy',
+				link: '/islamic '
+			},
+			{
+				label: 'Risk Disclosure',
+				link: '/islamic '
+			},
+			{
+				label: 'Terms & Conditions',
+				link: '/islamic '
+			},
+			{
+				label: 'DB News',
+				link: '/islamic '
+			}
+		]
+	},
+	{
+		link: '#4',
+		label: 'Trading',
+		sublinks: [
+			{
+				label: 'Merta Trader 5',
+				link: '/stp'
+			},
+			{
+				label: 'Economic Calendar',
+				link: '/ecn'
+			},
+			{
+				label: 'Market news',
+				link: '/Islamic '
+			},
+			{
+				label: 'PAMM / MAM',
+				link: '/islamic '
+			},
+			{
+				label: 'Social Copy trading ',
+				link: '/demo '
+			},
+			{
+				label: 'FIX API ',
+				link: '/demo '
+			},
+			{
+				label: 'Trading Hours',
+				link: '/demo '
+			},
+			{
+				label: 'Trading Conditions',
+				link: '/demo '
+			},
+			{
+				label: 'Forex Calculations',
+				link: '/demo '
+			},
+			{
+				label: 'Economic Calendar Tutorial',
+				link: '/demo '
+			}
+		]
+	}
+]
+
+const companyAward = [
+	{
+		iconName: 'award1',
+		label: 'Ufawards'
+	},
+	{
+		iconName: 'award2',
+		label: 'Top-100'
+	},
+	{
+		iconName: 'award3',
+		label: 'Innovative-Egypt-Expo'
+	},
+	{
+		iconName: 'award4',
+		label: 'Fastest-Forex-Expo'
+	},
+	{
+		iconName: 'award5',
+		label: 'Best_Global_MT5_Broker'
+	},
+	{
+		iconName: 'award6',
+		label: 'Best_Forex_Summit_Dubai'
+	}
+]
+---
+
+<!-- ========== FOOTER ========== -->
+<footer class="mx-auto mt-auto w-full bg-gray-100 py-10 dark:bg-neutral-800">
+	<div class="container px-4 sm:px-6">
+		<div class="flex w-full flex-col justify-between gap-3 sm:flex-row">
+			<a
+				class="flex-none text-xl font-semibold dark:text-white"
+				href="/"
+				aria-label="Brand"
+				data-hs-theme-click-value="light"
+			>
+				{
+					(
+						<>
+							<Icon
+								name="logo_dark"
+								width={200}
+								height={80}
+								class="hs-dark-mode hs-dark-mode-active:hidden"
+								href="#"
+							/>
+							<Icon
+								name="logo_light"
+								width={200}
+								height={80}
+								class="hs-dark-mode hidden hs-dark-mode-active:flex"
+								href="#"
+							/>
+						</>
+					)
+				}
+			</a>
+			<div class="awards flex flex-wrap justify-start gap-1 sm:justify-end">
+				{
+					companyAward.map((item) => {
+						return (
+							<span>
+								<Icon name={item.iconName} width={80} height={80} class="" />
+							</span>
+						)
+					})
+				}
+			</div>
+		</div>
+		<hr class="mb-5 mt-5 border-t border-gray-200 dark:border-neutral-700" />
+		<!-- Grid -->
+		<div class="mb-0 grid grid-cols-2 gap-6 md:grid-cols-4 lg:grid-cols-6">
+			{
+				FooterNavLinks.map((link) => {
+					return (
+						<div class="text-left">
+							<h4 class="text-xs font-bold uppercase text-dbgreen-900 dark:text-dbgreen-900">
+								{link.label}
+							</h4>
+
+							<div class="mt-3 grid space-y-3 text-sm">
+								{link.sublinks.map((sublink) => {
+									return (
+										<p>
+											<a
+												class="inline-flex gap-x-2 text-gray-600 hover:text-gray-800 focus:text-gray-800 focus:outline-none dark:text-neutral-400 dark:hover:text-neutral-200 dark:focus:text-neutral-200"
+												href="#"
+											>
+												{sublink.label}
+											</a>
+										</p>
+									)
+								})}
+							</div>
+						</div>
+					)
+				})
+			}
+			<div class="flex w-full gap-3 md:flex-wrap">
+				<!-- End Col -->
+			</div>
+		</div>
+		<!-- End Grid -->
+		<hr class="mb-5 mt-5 border-t border-gray-200 text-white dark:border-neutral-700" />
+		<div class="risk space-y-2">
+			<p class="text-[14px] font-light">
+				<strong class="font-bold">DB Investing</strong> is a brand name of the entities below that are
+				part of the Invest Group Global Holding.
+			</p>
+			<p class="text-[12px] font-light">
+				<span></span>
+				<strong class="font-bold">DB Invest Limited </strong> is a Security Dealer registered, authorized
+				and regulated company by the Financial Services Authority (FSA) in Seychelles with license SD053.
+			</p>
+			<p class="text-[12px] font-light">
+				<span></span>
+				<strong class="font-bold">DBInvest Financial Services LLC, </strong> registered, authorized and
+				regulated company by the Securities & Commodities Authority (SCA) in the United Arab Emirates
+				with license 20200000197, category 5, Arrangement and advice. Emaar Square Building 4, Office
+				402, Downtown. Dubai, UAE.
+			</p>
+			<p class="text-[12px] font-light">
+				<span></span>
+				<strong class="font-bold">Dream Big Investing Limited,</strong> 2, Soji Adepegba close, Ikeja.
+				Lagos, Nigeria.
+			</p>
+			<p class="text-[12px] font-light">
+				<span></span>
+				<strong class="font-bold">Enigma081 LTD,</strong> 206, Arch, Makarios III Ave., Chrysalia Building,
+				2nd floor, Limassol, Cyprus.
+			</p>
+			<p class="text-[12px] font-light">
+				<span></span>
+				<strong class="font-bold">Dream Big Financial Consultation LTD,</strong> Unit no. F26, Building
+				no. 3, Makram Ebeid ST, 6th Floor, office 17, Nasr City, Cairo. Egypt.
+			</p>
+		</div>
+		<div class="mt-3">
+			<p class="text-[12px] font-light">
+				<strong class="font-bold">Risk Warning:</strong> CFDs are complex instruments and come with a
+				high risk of losing money rapidly due to leverage. 36.67% of retail investor accounts win money
+				when trading CFDs with this provider. You should consider whether you understand how CFDs work
+				and whether you can afford to take the high risk of losing your money.
+			</p>
+		</div>
+		<p class="my-4 text-[12px] font-light">
+			Trading in financial instruments may result in losses as well as profits. Past performance
+			does not guarantee future results. trading in derivatives (e.g. options, futures, and swap
+			contracts) could result in the loss of the whole capital invested. forex, CFDs and derivatives
+			are leveraged products and involve a high level of risk. Trading in leveraged instruments can
+			result in losses greater than the initial invested capital. ensure you fully understand the
+			risks involved and seek independent advice if necessary, taking into account your investment
+			objectives and level of experience. You should not risk more than you are prepared to lose.
+			Never risk medical and other emergency funds, retirement savings, funds set aside for purposes
+			such as home ownership and funds required to meet your living expenses. Please read our <a
+				href="/terms-conditions/"
+				class="text-dbgreen-900">Client Agreement</a
+			> and
+			<a href="/risk-disclosure-statement/" class="text-dbgreen-900">Risk Warning</a>
+			carefully before conducting any trades.
+		</p>
+		<div class="mt-3">
+			<p class="text-[12px] font-light">
+				<strong class="font-bold">Restricted Jurisdictions: </strong> We do not establish accounts to
+				residents of certain jurisdictions including the European Union, United States or any particular
+				country or jurisdiction where such distribution or use would be contrary to local law or regulation.
+				For further details please see <a href="/terms-conditions/" class="text-dbgreen-900">
+					Terms & Conditions
+				</a>
+			</p>
+		</div>
+		<p class="my-4 text-[12px] font-light">
+			This site is operated and owned by DB Invest Limited, Abis Centre, Office 15, Avenue D’Arhoa,
+			Providence Industrial Estate. Mahe, Seychelles. The company Enigma081 Limited, is Appointed as
+			an Independent Representative and Distributor.
+		</p>
+		<div class="mt-5 border-t border-gray-200 pt-5 dark:border-neutral-700">
+			<div class="sm:flex sm:items-center sm:justify-between">
+				<div class="flex flex-wrap items-center gap-3">
+					<LanguageSelect />
+					<div class="space-x-4 text-sm">
+						<a
+							class="inline-flex gap-x-2 text-gray-600 hover:text-gray-800 focus:text-gray-800 focus:outline-none dark:text-neutral-400 dark:hover:text-neutral-200 dark:focus:text-neutral-200"
+							href="#">Terms</a
+						>
+						<a
+							class="inline-flex gap-x-2 text-gray-600 hover:text-gray-800 focus:text-gray-800 focus:outline-none dark:text-neutral-400 dark:hover:text-neutral-200 dark:focus:text-neutral-200"
+							href="#">Privacy</a
+						>
+						<a
+							class="inline-flex gap-x-2 text-gray-600 hover:text-gray-800 focus:text-gray-800 focus:outline-none dark:text-neutral-400 dark:hover:text-neutral-200 dark:focus:text-neutral-200"
+							href="#">Status</a
+						>
+					</div>
+				</div>
+				<!-- End Col -->
+			</div>
+		</div>
+	</div>
+</footer>
+<!-- ========== END FOOTER ========== -->

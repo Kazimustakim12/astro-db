@@ -1,0 +1,91 @@
+---
+import { cn } from '@/lib/utils'
+import type { SVGProps } from 'react'
+
+interface BtnProps {
+	class?: string
+	buttonIcon?: string
+	text: string
+	primary?: boolean
+	rippleEffect?: boolean
+	target?: string
+	href?: string
+	key: string
+}
+const {
+	key,
+	class: className,
+	buttonIcon,
+	text,
+	rippleEffect,
+	primary,
+	href,
+	target
+} = Astro.props as BtnProps
+---
+
+{
+	href ? (
+		<a
+			href={href}
+			target={target}
+			class={cn(
+				rippleEffect && 'ripple',
+				primary ? 'btn_gradient text-white' : 'text-white dark:text-black',
+				'inline-flex items-center gap-x-2 rounded-lg bg-black px-4 py-3 text-sm font-medium shadow-sm focus:bg-neutral-800 focus:outline-none disabled:pointer-events-none disabled:opacity-50 dark:bg-white dark:focus:bg-neutral-100',
+				className
+			)}
+			data-ripple={rippleEffect}
+		>
+			{buttonIcon && <span set:html={buttonIcon} />}
+			{text}
+		</a>
+	) : (
+		<button
+			class={cn(
+				rippleEffect && 'ripple',
+				primary ? 'btn_gradient text-white' : 'text-white dark:text-black',
+				'inline-flex items-center gap-x-2 rounded-lg bg-black px-4 py-3 text-sm font-medium shadow-sm focus:bg-neutral-800 focus:outline-none disabled:pointer-events-none disabled:opacity-50 dark:bg-white dark:focus:bg-neutral-100',
+				className
+			)}
+			data-ripple={rippleEffect}
+		>
+			{buttonIcon && <span set:html={buttonIcon} />}
+			{text}
+		</button>
+	)
+}
+
+<script>
+	document.addEventListener('DOMContentLoaded', () => {
+		const ripplebutton = document.querySelectorAll('.ripple')
+		if (ripplebutton.length > 0) {
+			ripplebutton.forEach((ele) => {
+				ele.addEventListener('click', function (e: MouseEvent): void {
+					// Make sure e.target is an element
+					const target = e.target as HTMLElement
+					if (!target) return // If target is null or undefined, exit early
+
+					// Check if this gets logged
+					const x = e.clientX
+					const y = e.clientY
+
+					const rect = target.getBoundingClientRect()
+					const xInside = x - rect.left
+					const yInside = y - rect.top
+
+					const circle = document.createElement('span')
+					circle.classList.add('rippleCircle')
+					circle.style.top = yInside + 'px'
+					circle.style.left = xInside + 'px'
+
+					// Ensure 'this' is correctly typed
+					const button = this as HTMLElement
+					button.appendChild(circle)
+
+					setTimeout(() => circle.remove(), 500)
+				})
+			})
+		}
+	})
+</script>

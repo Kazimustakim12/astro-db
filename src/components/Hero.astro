@@ -1,0 +1,231 @@
+---
+import { Image } from 'astro:assets'
+import HeroImg from '../images/hero_img.png'
+import WordRotate from './magicui/word-rotate'
+import Button from './Button.astro'
+import { LOCALES, useTranslations, type Lang } from '@/i18n'
+const t = useTranslations(Astro.currentLocale as Lang)
+---
+
+<!-- Hero -->
+<div
+	class="relative z-20 overflow-hidden py-12 before:absolute before:start-1/2 before:top-0 before:-z-[1] before:size-full before:-translate-x-1/2 before:transform before:bg-[url('../icons/squared-bg-element_white.svg')] before:bg-top before:bg-repeat before:opacity-25 dark:before:bg-[url('../icons/squared-bg-element.svg')]"
+>
+	<div class="container mx-auto flex justify-between">
+		<div class="w-full">
+			<!-- Announcement Banner -->
+			<div class="flex justify-start">
+				<a
+					class="inline-flex items-center gap-x-2 rounded-full border border-gray-200 bg-white p-2 px-3 text-xs text-gray-600 transition hover:border-gray-300 focus:border-gray-300 focus:outline-none dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-400 dark:hover:border-neutral-600 dark:focus:border-neutral-600"
+					href="/explore"
+					>{
+						t({
+							ja: '',
+							en: 'Explore the Market Product',
+							'zh-cn': '',
+							ar: 'yes how are you '
+						})
+					}
+					<!-- {Explore the Market Product} -->
+					<span class="flex items-center gap-x-1">
+						<span
+							class="border-s border-gray-200 ps-2 text-dbgreen-900 dark:border-neutral-700 dark:text-dbgreen-900"
+							>Explore</span
+						>
+						<svg
+							class="size-4 shrink-0 text-dbgreen-900"
+							xmlns="http://www.w3.org/2000/svg"
+							width="24"
+							height="24"
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="currentColor"
+							stroke-width="2"
+							stroke-linecap="round"
+							stroke-linejoin="round"><path d="m9 18 6-6-6-6"></path></svg
+						>
+					</span>
+				</a>
+			</div>
+			<!-- End Announcement Banner -->
+
+			<!-- Title -->
+			<div class="mt-5 max-w-2xl">
+				<WordRotate
+					className="text-6xl font-bold text-dbgreen-900 dark:text-dbgreen-900 md:text-5xl lg:text-7xl"
+					words={['Trade', 'Grow', 'Succeed']}
+					client:visible
+				/>
+				<span
+					class="block text-6xl font-bold text-gray-800 dark:text-neutral-200 md:text-5xl lg:text-7xl"
+				>
+					with DB Investing.
+				</span>
+			</div>
+			<!-- End Title -->
+
+			<div class="mt-5 max-w-3xl text-left">
+				<p class="text-lg text-gray-600 dark:text-neutral-400">
+					Explore limitless opportunities across global markets. With our secure platform, expert
+					guidance, and flexible trading solutions.
+				</p>
+			</div>
+
+			<!-- Buttons -->
+			<div class="mt-8 flex w-fit flex-col gap-3 sm:flex-row">
+				<Button
+					primary={true}
+					rippleEffect={true}
+					text="Create an Account Now"
+					class="rounded-full"
+					href="#"
+					buttonIcon={' <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" ><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2" ><path stroke-dasharray="20" stroke-dashoffset="20" d="M3 21V20C3 17.7909 4.79086 16 7 16H11C13.2091 16 15 17.7909 15 20V21" ><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.4s" values="20;0" ></animate></path><path stroke-dasharray="20" stroke-dashoffset="20" d="M9 13C7.34315 13 6 11.6569 6 10C6 8.34315 7.34315 7 9 7C10.6569 7 12 8.34315 12 10C12 11.6569 10.6569 13 9 13Z" ><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.5s" dur="0.4s" values="20;0" ></animate></path><path stroke-dasharray="8" stroke-dashoffset="8" d="M15 6H21" ><animate fill="freeze" attributeName="stroke-dashoffset" begin="1s" dur="0.2s" values="8;0" ></animate></path><path stroke-dasharray="8" stroke-dashoffset="8" d="M18 3V9" ><animate fill="freeze" attributeName="stroke-dashoffset" begin="1.2s" dur="0.2s" values="8;0" ></animate></path></g></svg>'}
+				/>
+				<div class="mt-2 text-center text-[14px] font-thin text-neutral-500 dark:text-neutral-300">
+					or try a&nbsp; <a href="#" class="text-red-600"> Free Demo Account</a>
+
+					<br /><span class="mt-0 text-center"
+						><a href="#" class="text-[11px]">Terms and Conditions apply</a></span
+					>
+				</div>
+			</div>
+			<!-- End Buttons -->
+
+			<!-- Regulated By  -->
+			<div>
+				<h4 class="my-6 text-lg font-normal text-gray-800 dark:text-neutral-200">
+					<svg
+						class="mr-1 inline"
+						xmlns="http://www.w3.org/2000/svg"
+						width="24"
+						height="24"
+						viewBox="0 0 1024 1024"
+						><path
+							fill="currentColor"
+							d="M866.9 169.9L527.1 54.1C523 52.7 517.5 52 512 52s-11 .7-15.1 2.1L157.1 169.9c-8.3 2.8-15.1 12.4-15.1 21.2v482.4c0 8.8 5.7 20.4 12.6 25.9L499.3 968c3.5 2.7 8 4.1 12.6 4.1s9.2-1.4 12.6-4.1l344.7-268.6c6.9-5.4 12.6-17 12.6-25.9V191.1c.2-8.8-6.6-18.3-14.9-21.2M810 654.3L512 886.5L214 654.3V226.7l298-101.6l298 101.6zm-405.8-201c-3-4.1-7.8-6.6-13-6.6H336c-6.5 0-10.3 7.4-6.5 12.7l126.4 174a16.1 16.1 0 0 0 26 0l212.6-292.7c3.8-5.3 0-12.7-6.5-12.7h-55.2c-5.1 0-10 2.5-13 6.6L468.9 542.4z"
+						></path></svg
+					>DB Investing Ltd is regulated by
+				</h4>
+				<div class="grid gap-4 sm:grid-cols-2 sm:gap-6 lg:grid-cols-2">
+					<!-- Card -->
+					<div
+						class="flex flex-col rounded-xl border bg-white shadow-sm dark:border-neutral-800 dark:bg-neutral-900"
+					>
+						<div class="flex justify-between gap-x-3 p-4 md:p-5">
+							<div>
+								<p class="text-xs uppercase tracking-wide text-gray-500 dark:text-neutral-500">
+									Seychelles
+								</p>
+								<div class="mt-2 flex items-center gap-x-2">
+									<h3 class="text-xl font-medium text-gray-800 dark:text-neutral-200 sm:text-2xl">
+										FSA
+									</h3>
+									<span class="items-base flex gap-x-1 text-green-600">
+										<!-- <svg
+											class="inline-block size-5 self-center"
+											xmlns="http://www.w3.org/2000/svg"
+											width="24"
+											height="24"
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="2"
+											stroke-linecap="round"
+											stroke-linejoin="round"
+											><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"
+											></polyline><polyline points="16 7 22 7 22 13"
+											></polyline></svg
+										> -->
+										<span class="inline-block text-[14px]"> Financial Services Authority </span>
+									</span>
+								</div>
+							</div>
+						</div>
+
+						<a
+							class="inline-flex items-center justify-between rounded-b-xl border-t border-gray-200 px-4 py-3 text-sm text-gray-600 hover:bg-gray-50 focus:bg-gray-50 focus:outline-none dark:border-neutral-800 dark:text-neutral-400 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800 md:px-5"
+							href="#"
+						>
+							View Licence
+							<svg
+								class="size-4 shrink-0"
+								xmlns="http://www.w3.org/2000/svg"
+								width="24"
+								height="24"
+								viewBox="0 0 24 24"
+								fill="none"
+								stroke="currentColor"
+								stroke-width="2"
+								stroke-linecap="round"
+								stroke-linejoin="round"><path d="m9 18 6-6-6-6"></path></svg
+							>
+						</a>
+					</div>
+					<!-- End Card -->
+					<!-- Card -->
+					<div
+						class="flex flex-col rounded-xl border bg-white shadow-sm dark:border-neutral-800 dark:bg-neutral-900"
+					>
+						<div class="flex justify-between gap-x-3 p-4 md:p-5">
+							<div>
+								<p class="text-xs uppercase tracking-wide text-gray-500 dark:text-neutral-500">
+									United Arab Emirates
+								</p>
+								<div class="mt-2 flex items-center gap-x-2">
+									<h3 class="text-xl font-medium text-gray-800 dark:text-neutral-200 sm:text-2xl">
+										SCA
+									</h3>
+									<span class="flex items-center gap-x-1 text-green-600">
+										<!-- <svg
+											class="inline-block size-5 self-center"
+											xmlns="http://www.w3.org/2000/svg"
+											width="24"
+											height="24"
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="2"
+											stroke-linecap="round"
+											stroke-linejoin="round"
+											><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"
+											></polyline><polyline points="16 7 22 7 22 13"
+											></polyline></svg
+										> -->
+										<span class="inline-block text-[14px]">
+											Securities and Commodities Authority
+										</span>
+									</span>
+								</div>
+							</div>
+						</div>
+
+						<a
+							class="inline-flex items-center justify-between rounded-b-xl border-t border-gray-200 px-4 py-3 text-sm text-gray-600 hover:bg-gray-50 focus:bg-gray-50 focus:outline-none dark:border-neutral-800 dark:text-neutral-400 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800 md:px-5"
+							href="#"
+						>
+							View Licence
+							<svg
+								class="size-4 shrink-0"
+								xmlns="http://www.w3.org/2000/svg"
+								width="24"
+								height="24"
+								viewBox="0 0 24 24"
+								fill="none"
+								stroke="currentColor"
+								stroke-width="2"
+								stroke-linecap="round"
+								stroke-linejoin="round"><path d="m9 18 6-6-6-6"></path></svg
+							>
+						</a>
+					</div>
+					<!-- End Card -->
+				</div>
+				<!-- End Grid -->
+			</div>
+		</div>
+		<div class="hidden max-w-[40%] lg:flex lg:items-center lg:justify-center">
+			<Image src={HeroImg} alt="hero img" class="w-full" />
+		</div>
+	</div>
+</div>
+<!-- End Hero -->

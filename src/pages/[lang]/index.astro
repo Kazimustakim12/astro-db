@@ -1,20 +1,15 @@
 ---
 import { LOCALES, useTranslations, type Lang } from '@/i18n'
-const t = useTranslations(Astro.currentLocale as Lang)
-import { getRelativeLocaleUrl } from 'astro:i18n'
-
 import CompanyIntro from '@/components/page/Home/CompanyIntro.astro'
 import TraderSection from '@/components/page/Home/TraderSection.astro'
 import CompanyNews from '@/components/page/Home/CompanyNews.astro'
 import MarketsTab from '@/components/page/Home/MarketsTab.astro'
 import IbBroker from '@/components/page/Home/IbBroker.astro'
-import Trustby from '@/components/page/Home/Trustby.astro'
+import Patners from '@/components/page/Home/Partners.astro'
 import StartTrading from '@/components/page/Home/StartTrading.astro'
-import OurPartner from '@/components/page/Home/OurPartner.astro'
-import Hero from '@/components/Hero.astro'
+import OurPayment from '@/components/page/Home/OurPayment.astro'
+import Hero from '@/components/page/Home/Hero.astro'
 import Layout from '@/layouts/Layout.astro'
-
-const locale = Astro.currentLocale as Lang
 export const getStaticPaths = () =>
 	Object.keys(LOCALES).map((lang) => ({
 		params: { lang }
@@ -27,8 +22,8 @@ export const getStaticPaths = () =>
 	<MarketsTab />
 	<TraderSection />
 	<CompanyNews />
-	<Trustby />
+	<Patners />
 	<IbBroker />
 	<StartTrading />
-	<OurPartner />
+	<OurPayment />
 </Layout>

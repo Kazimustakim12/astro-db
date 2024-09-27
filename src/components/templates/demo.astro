@@ -4,15 +4,5 @@ import { LOCALES, type Lang } from '@/i18n'
 import { getAllSlug, getAllUris } from '@/lib/api'
 const { lang, slug } = Astro.params
 
-// console.log(lang, 'lang from server')
-// const data = await getAllSlug(lang)
-// const posts = data?.posts?.nodes
-// console.log(posts, 'list of posts')
-// const singlePostResponse = await getNodeByURI()
-
 const data = await getAllUris(lang)
-// const posts = data?.posts?.nodes
-// console.log(data, 'list of posts')
 ---
-
-<!-- <h1>{slug}</h1> -->

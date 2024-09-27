@@ -1,9 +1,8 @@
-// src/lib/apolloClient.ts
-import { ApolloClient, InMemoryCache } from '@apollo/client'
-
+// import pkg from '@apollo/client'
+import { ApolloClient, InMemoryCache } from '@apollo/client/core/core.cjs'
 const client = new ApolloClient({
-	uri: import.meta.env.WPGRAPHQL_API_URL,
-	cache: new InMemoryCache()
+	uri: 'https://dev.dbinvesting.com/graphql',
+	cache: new InMemoryCache({})
 })
 
 export default client

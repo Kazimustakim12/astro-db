@@ -2,10 +2,9 @@
 import { Icon } from 'astro-icon/components'
 import { Image } from 'astro:assets'
 import CompanyImage from '../images/companyImage.jpg'
-import Button from './Button.astro'
+import Button from './ui/Button.astro'
 import LanguageSelect from './i18n/LanguageSelect.astro'
 import { useTranslations, type Lang } from '@/i18n'
-
 const t = useTranslations(Astro.currentLocale as Lang)
 import { getRelativeLocaleUrl } from 'astro:i18n'
 const locale = Astro.currentLocale as Lang
@@ -14,6 +13,7 @@ const isActive = (path: string) => getRelativeLocaleUrl(locale, path) === Astro.
 
 <!-- ========== HEADER ========== -->
 <header
+	data-aos="fade-down-sm"
 	class="page-header relative top-0 z-[62] flex w-full flex-col flex-wrap border-b border-gray-200 bg-white dark:border-neutral-700 dark:bg-neutral-800 md:flex-nowrap md:justify-start"
 >
 	<!-- Topbar -->
@@ -31,9 +31,8 @@ const isActive = (path: string) => getRelativeLocaleUrl(locale, path) === Astro.
 		>
 			<a
 				class="flex-none text-xl font-semibold dark:text-white"
-				href="/about"
+				href={`/${locale}`}
 				aria-label="Brand"
-				data-hs-theme-click-value="light"
 			>
 				{
 					(
@@ -63,16 +62,17 @@ const isActive = (path: string) => getRelativeLocaleUrl(locale, path) === Astro.
 					rippleEffect={true}
 					text={t({
 						en: 'Open An Account',
-						ar: 'افتح حساب',
+						ar: 'فتح حساب',
 						es: 'Abrir una cuenta',
 						fr: 'Ouvrir un compte',
 						hi: 'खाता खोलें',
 						id: 'Buka Akun',
 						ms: 'Buka Akaun',
 						th: 'เปิดบัญชี',
-						vi: 'Mở một tài khoản',
+						vi: 'Mở tài khoản',
 						bn: 'একটি অ্যাকাউন্ট খুলুন',
-						'zh-cn': '开设账户'
+						'zh-cn': '开设账户',
+						'pt-br': 'Abrir uma conta'
 					})}
 					class="hidden rounded-full sm:block"
 				/>
@@ -92,16 +92,17 @@ const isActive = (path: string) => getRelativeLocaleUrl(locale, path) === Astro.
 							{
 								t({
 									en: 'Menu',
-									ar: 'قائمة الطعام',
+									ar: 'القائمة',
 									es: 'Menú',
 									fr: 'Menu',
-									hi: 'मेनू',
+									hi: 'मेन्यू',
 									id: 'Menu',
 									ms: 'Menu',
 									th: 'เมนู',
 									vi: 'Thực đơn',
 									bn: 'মেনু',
-									'zh-cn': '菜单'
+									'zh-cn': '菜单',
+									'pt-br': 'Menu'
 								})
 							}
 
@@ -109,7 +110,8 @@ const isActive = (path: string) => getRelativeLocaleUrl(locale, path) === Astro.
 								class="size-4 hs-overlay-open:hidden"
 								icon="mingcute:dots-fill"
 								width="16"
-								height="16"></iconify-icon>
+								height="16"
+							></iconify-icon>
 						</button>
 					</div>
 					<!-- LIGHT DARK BUTTON START-->
@@ -122,12 +124,14 @@ const isActive = (path: string) => getRelativeLocaleUrl(locale, path) === Astro.
 							icon="line-md:sunny-outline-to-moon-transition"
 							width="16"
 							height="16"
-							class="size-4 flex-shrink-0 dark:hidden"></iconify-icon>
+							class="size-4 flex-shrink-0 dark:hidden"
+						></iconify-icon>
 						<iconify-icon
 							class="hidden size-4 flex-shrink-0 dark:block"
 							icon="line-md:moon-to-sunny-outline-transition"
 							width="16"
-							height="16"></iconify-icon>
+							height="16"
+						></iconify-icon>
 					</button>
 					<!-- darkmode button -->
 
@@ -173,20 +177,24 @@ const isActive = (path: string) => getRelativeLocaleUrl(locale, path) === Astro.
 						<div
 							class="flex items-center justify-between border-b border-b-neutral-300 p-2 dark:border-b-neutral-700 lg:hidden"
 						>
-							<h3 id="hs-header-base-label" class="font-bold text-gray-800 dark:text-white">
+							<h3
+								id="hs-header-base-label"
+								class="font-bold text-gray-800 dark:text-white"
+							>
 								{
 									t({
-										en: 'Menu title',
+										en: 'Menu Title',
 										ar: 'عنوان القائمة',
 										es: 'Título del menú',
 										fr: 'Titre du menu',
 										hi: 'मेनू शीर्षक',
-										id: 'Judul menu',
-										ms: 'Tajuk menu',
+										id: 'Judul Menu',
+										ms: 'Tajuk Menu',
 										th: 'ชื่อเมนู',
-										vi: 'Tiêu đề thực đơn',
+										vi: 'Tiêu đề menu',
 										bn: 'মেনু শিরোনাম',
-										'zh-cn': '菜单标题'
+										'zh-cn': '菜单标题',
+										'pt-br': 'Título do Menu'
 									})
 								}
 							</h3>
@@ -240,34 +248,29 @@ const isActive = (path: string) => getRelativeLocaleUrl(locale, path) === Astro.
 												d="M248 210h-18V94h2a6 6 0 0 0 0-12h-50V46h2a6 6 0 0 0 0-12H40a6 6 0 0 0 0 12h2v164H24a6 6 0 0 0 0 12h224a6 6 0 0 0 0-12M218 94v116h-36V94ZM54 46h116v164h-28v-50a6 6 0 0 0-6-6H88a6 6 0 0 0-6 6v50H54Zm76 164H94v-44h36ZM74 80a6 6 0 0 1 6-6h16a6 6 0 0 1 0 12H80a6 6 0 0 1-6-6m48 0a6 6 0 0 1 6-6h16a6 6 0 0 1 0 12h-16a6 6 0 0 1-6-6m-42 46a6 6 0 0 1 0-12h16a6 6 0 0 1 0 12Zm42-6a6 6 0 0 1 6-6h16a6 6 0 0 1 0 12h-16a6 6 0 0 1-6-6"
 											></path></svg
 										>
-										<!-- <iconify-icon
-										class="me-3 block shrink-0 lg:me-2 lg:hidden"
-										icon="ph:building-office-light"
-										width="20"
-										height="20"
-										style="color: black"
-									></iconify-icon> -->
 
 										{
 											t({
 												en: 'Company',
-												ar: 'الشركة',
+												ar: 'شركة',
 												es: 'Empresa',
-												fr: 'Entreprise',
+												fr: 'Société',
 												hi: 'कंपनी',
 												id: 'Perusahaan',
 												ms: 'Syarikat',
 												th: 'บริษัท',
 												vi: 'Công ty',
 												bn: 'কোম্পানি',
-												'zh-cn': '公司'
+												'zh-cn': '公司',
+												'pt-br': 'Empresa'
 											})
 										}
 										<iconify-icon
 											width="16"
 											height="16"
 											class="ms-auto size-4 shrink-0 duration-300 hs-dropdown-open:-rotate-180 lg:ms-1 lg:hs-dropdown-open:rotate-0"
-											icon="iconamoon:arrow-down-2"></iconify-icon>
+											icon="iconamoon:arrow-down-2"
+										></iconify-icon>
 									</button>
 
 									<div
@@ -276,27 +279,36 @@ const isActive = (path: string) => getRelativeLocaleUrl(locale, path) === Astro.
 										aria-orientation="vertical"
 										aria-labelledby="hs-header-base-dropdown"
 									>
-										<div class="grid grid-cols-1 gap-3 pt-2 lg:grid-cols-5 lg:gap-0 lg:pt-0">
+										<div
+											class="grid grid-cols-1 gap-3 pt-2 lg:grid-cols-5 lg:gap-0 lg:pt-0"
+										>
 											<div class="col-span-2">
 												<div class="space-y-0.5 py-1 md:px-1 lg:p-3">
-													<a class="navLinkStyle" href="#"
-														>{
+													<a
+														class="navLinkStyle"
+														href="#"
+													>
+														{
 															t({
 																en: 'Why DBinvesting',
-																ar: 'لماذا DBinvesting؟',
-																es: '¿Por qué DBinvesting?',
-																fr: 'Pourquoi DBinvesting?',
-																hi: 'डीबीइन्वेस्टिंग क्यों?',
-																id: 'Mengapa DBinvesting?',
-																ms: 'Mengapa DBinvesting?',
-																th: 'เหตุใดจึงควรเลือก DBinvesting?',
-																vi: 'Tại sao nên chọn DBinvesting?',
-																bn: 'কেন DBinvesting?',
-																'zh-cn': '为什么选择 DBinvesting？'
+																ar: 'لماذا DBinvesting',
+																es: 'Por qué DBinvesting',
+																fr: 'Pourquoi DBinvesting',
+																hi: 'DBinvesting क्यों',
+																id: 'Mengapa DBinvesting',
+																ms: 'Mengapa DBinvesting',
+																th: 'ทำไมถึงเลือก DBinvesting',
+																vi: 'Tại sao lại chọn DBinvesting',
+																bn: 'DBinvesting কেন',
+																'zh-cn': '为什么选择 DBinvesting',
+																'pt-br': 'Por que DBinvesting'
 															})
 														}</a
 													>
-													<a class="navLinkStyle" href="#">
+													<a
+														class="navLinkStyle"
+														href="#"
+													>
 														{
 															t({
 																en: 'About Us',
@@ -307,32 +319,40 @@ const isActive = (path: string) => getRelativeLocaleUrl(locale, path) === Astro.
 																id: 'Tentang Kami',
 																ms: 'Tentang Kami',
 																th: 'เกี่ยวกับเรา',
-																vi: 'Giới thiệu về chúng tôi',
+																vi: 'Về Chúng Tôi',
 																bn: 'আমাদের সম্পর্কে',
-																'zh-cn': '关于我们'
+																'zh-cn': '关于我们',
+																'pt-br': 'Sobre Nós'
 															})
 														}
 													</a>
 
-													<a class="navLinkStyle" href="#">
+													<a
+														class="navLinkStyle"
+														href="#"
+													>
 														{
 															t({
 																en: 'Contact Us',
 																ar: 'اتصل بنا',
-																es: 'Contacta con nosotros',
+																es: 'Contáctanos',
 																fr: 'Contactez-nous',
 																hi: 'हमसे संपर्क करें',
-																id: 'Hubungi kami',
-																ms: 'Hubungi kami',
+																id: 'Hubungi Kami',
+																ms: 'Hubungi Kami',
 																th: 'ติดต่อเรา',
 																vi: 'Liên hệ với chúng tôi',
-																bn: 'আমাদের সাথে যোগাযোগ করুন',
-																'zh-cn': '联系我们'
+																bn: 'আমাদের যোগাযোগ করুন',
+																'zh-cn': '联系我们',
+																'pt-br': 'Entre em contato conosco'
 															})
 														}
 													</a>
 
-													<a class="navLinkStyle" href="#">
+													<a
+														class="navLinkStyle"
+														href="#"
+													>
 														{
 															t({
 																en: 'Careers',
@@ -340,50 +360,62 @@ const isActive = (path: string) => getRelativeLocaleUrl(locale, path) === Astro.
 																es: 'Carreras',
 																fr: 'Carrières',
 																hi: 'करियर',
-																id: 'Karier',
+																id: 'Karir',
 																ms: 'Kerjaya',
-																th: 'อาชีพการงาน',
-																vi: 'Nghề nghiệp',
-																bn: 'কেরিয়ার',
-																'zh-cn': '职业'
+																th: 'อาชีพ',
+																vi: 'Sự nghiệp',
+																bn: 'ক্যারিয়ার',
+																'zh-cn': '职业',
+																'pt-br': 'Carreiras'
 															})
 														}
 													</a>
-													<a class="navLinkStyle" href="#">
+													<a
+														class="navLinkStyle"
+														href="#"
+													>
 														{
 															t({
 																en: 'Awards',
-																ar: 'الجوائز',
+																ar: 'جوائز',
 																es: 'Premios',
-																fr: 'Récompenses',
+																fr: 'Prix',
 																hi: 'पुरस्कार',
 																id: 'Penghargaan',
 																ms: 'Anugerah',
 																th: 'รางวัล',
 																vi: 'Giải thưởng',
 																bn: 'পুরস্কার',
-																'zh-cn': '奖项'
+																'zh-cn': '奖项',
+																'pt-br': 'Prêmios'
 															})
 														}
 													</a>
-													<a class="navLinkStyle" href="#">
+													<a
+														class="navLinkStyle"
+														href="#"
+													>
 														{
 															t({
 																en: 'Regulation',
-																ar: 'التنظيم',
+																ar: 'تنظيم',
 																es: 'Regulación',
-																fr: 'Règlement',
-																hi: 'विनियमन',
-																id: 'Peraturan',
-																ms: 'peraturan',
-																th: 'ระเบียบข้อบังคับ',
+																fr: 'Réglementation',
+																hi: 'नियमन',
+																id: 'Regulasi',
+																ms: 'Peraturan',
+																th: 'ระเบียบ',
 																vi: 'Quy định',
-																bn: 'প্রবিধান',
-																'zh-cn': '规定'
+																bn: 'নিয়ম',
+																'zh-cn': '规章',
+																'pt-br': 'Regulamentação'
 															})
 														}
 													</a>
-													<a class="navLinkStyle" href="#">
+													<a
+														class="navLinkStyle"
+														href="#"
+													>
 														{
 															t({
 																en: 'Partnership',
@@ -396,14 +428,17 @@ const isActive = (path: string) => getRelativeLocaleUrl(locale, path) === Astro.
 																th: 'ความร่วมมือ',
 																vi: 'Quan hệ đối tác',
 																bn: 'অংশীদারিত্ব',
-																'zh-cn': '合伙'
+																'zh-cn': '合伙',
+																'pt-br': 'Parceria'
 															})
 														}
 													</a>
 												</div>
 											</div>
 											<div class="col-span-3 hidden lg:block">
-												<div class="relative h-full overflow-hidden shadow-sm">
+												<div
+													class="relative h-full overflow-hidden shadow-sm"
+												>
 													<Image
 														src={CompanyImage}
 														class="h-full w-full object-cover"
@@ -413,8 +448,12 @@ const isActive = (path: string) => getRelativeLocaleUrl(locale, path) === Astro.
 													<div
 														class="absolute inset-0 end-0 start-0 top-0 overflow-hidden bg-black/45"
 													>
-														<div class="flex h-full flex-col justify-between p-4 md:p-5">
-															<h3 class="text-3xl font-bold text-white">
+														<div
+															class="flex h-full flex-col justify-between p-4 md:p-5"
+														>
+															<h3
+																class="text-3xl font-bold text-white"
+															>
 																{
 																	t({
 																		en: 'Choose the Global Market Leader',
@@ -427,7 +466,10 @@ const isActive = (path: string) => getRelativeLocaleUrl(locale, path) === Astro.
 																		th: 'เลือกผู้นำตลาดโลก',
 																		vi: 'Chọn Nhà lãnh đạo thị trường toàn cầu',
 																		bn: 'গ্লোবাল মার্কেট লিডার বেছে নিন',
-																		'zh-cn': '选择全球市场领导者'
+																		'zh-cn':
+																			'选择全球市场领导者',
+																		'pt-br':
+																			'Escolha o Líder de Mercado Global'
 																	})
 																}
 															</h3>
@@ -436,7 +478,9 @@ const isActive = (path: string) => getRelativeLocaleUrl(locale, path) === Astro.
 																	href=""
 																	class="btn_gradient inline h-[50px] items-center justify-center gap-2.5 rounded-[28px] px-5 py-2.5"
 																>
-																	<span class="text-center text-base font-bold text-white">
+																	<span
+																		class="text-center text-base font-bold text-white"
+																	>
 																		{
 																			t({
 																				en: 'Join Us',
@@ -449,7 +493,9 @@ const isActive = (path: string) => getRelativeLocaleUrl(locale, path) === Astro.
 																				th: 'เข้าร่วมกับเรา',
 																				vi: 'Tham gia cùng chúng tôi',
 																				bn: 'আমাদের সাথে যোগ দিন',
-																				'zh-cn': '加入我们'
+																				'zh-cn': '加入我们',
+																				'pt-br':
+																					'Junte-se a nós'
 																			})
 																		}
 																	</span>
@@ -504,7 +550,8 @@ const isActive = (path: string) => getRelativeLocaleUrl(locale, path) === Astro.
 												th: 'การลงทุน',
 												vi: 'Đầu tư',
 												bn: 'বিনিয়োগ করছে',
-												'zh-cn': '投资'
+												'zh-cn': '投资',
+												'pt-br': 'Investindo'
 											})
 										}
 										<svg
@@ -517,7 +564,8 @@ const isActive = (path: string) => getRelativeLocaleUrl(locale, path) === Astro.
 											stroke="currentColor"
 											stroke-width="2"
 											stroke-linecap="round"
-											stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg
+											stroke-linejoin="round"
+											><path d="m6 9 6 6 6-6"></path></svg
 										>
 									</button>
 									<div
@@ -527,7 +575,9 @@ const isActive = (path: string) => getRelativeLocaleUrl(locale, path) === Astro.
 										aria-labelledby="hs-header-base-mega-menu-medium"
 									>
 										<div class="">
-											<div class="grid grid-cols-1 pt-2 lg:grid-cols-9 lg:gap-0 lg:pt-0">
+											<div
+												class="grid grid-cols-1 pt-2 lg:grid-cols-9 lg:gap-0 lg:pt-0"
+											>
 												<div class="col-span-3 lg:p-3">
 													<div class="flex flex-col">
 														<div
@@ -550,7 +600,8 @@ const isActive = (path: string) => getRelativeLocaleUrl(locale, path) === Astro.
 																		th: 'ตลาด',
 																		vi: 'Thị trường',
 																		bn: 'বাজার',
-																		'zh-cn': '市场'
+																		'zh-cn': '市场',
+																		'pt-br': 'Mercados'
 																	})
 																}
 																<svg
@@ -563,7 +614,9 @@ const isActive = (path: string) => getRelativeLocaleUrl(locale, path) === Astro.
 																	stroke="currentColor"
 																	stroke-width="2"
 																	stroke-linecap="round"
-																	stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg
+																	stroke-linejoin="round"
+																	><path d="m6 9 6 6 6-6"
+																	></path></svg
 																>
 															</button>
 															<!-- hs menu -->
@@ -574,7 +627,10 @@ const isActive = (path: string) => getRelativeLocaleUrl(locale, path) === Astro.
 																aria-labelledby="hs-header-base-dropdown-sub"
 															>
 																<div class="space-y-1 p-1">
-																	<a class="navLinkStyle" href="#">
+																	<a
+																		class="navLinkStyle"
+																		href="#"
+																	>
 																		{
 																			t({
 																				en: 'Contract Specs',
@@ -587,12 +643,17 @@ const isActive = (path: string) => getRelativeLocaleUrl(locale, path) === Astro.
 																				th: 'ข้อมูลจำเพาะของสัญญา',
 																				vi: 'Thông số kỹ thuật hợp đồng',
 																				bn: 'চুক্তির চশমা',
-																				'zh-cn': '合约规格'
+																				'zh-cn': '合约规格',
+																				'pt-br':
+																					'Especificações do Contrato'
 																			})
 																		}
 																	</a>
 
-																	<a class="navLinkStyle" href="#">
+																	<a
+																		class="navLinkStyle"
+																		href="#"
+																	>
 																		{
 																			t({
 																				en: 'Forex',
@@ -605,17 +666,21 @@ const isActive = (path: string) => getRelativeLocaleUrl(locale, path) === Astro.
 																				th: 'ฟอเร็กซ์',
 																				vi: 'Ngoại hối',
 																				bn: 'ফরেক্স',
-																				'zh-cn': '外汇'
+																				'zh-cn': '外汇',
+																				'pt-br': 'Forex'
 																			})
 																		}
 																	</a>
 
-																	<a class="navLinkStyle" href="#">
+																	<a
+																		class="navLinkStyle"
+																		href="#"
+																	>
 																		{
 																			t({
 																				en: 'Metals',
 																				ar: 'المعادن',
-																				es: 'Rieles',
+																				es: 'Metales',
 																				fr: 'Métaux',
 																				hi: 'धातुओं',
 																				id: 'Logam',
@@ -623,11 +688,15 @@ const isActive = (path: string) => getRelativeLocaleUrl(locale, path) === Astro.
 																				th: 'ฟอเร็กซ์',
 																				vi: 'Kim loại',
 																				bn: 'ধাতু',
-																				'zh-cn': '金属'
+																				'zh-cn': '金属',
+																				'pt-br': 'Metais'
 																			})
 																		}
 																	</a>
-																	<a class="navLinkStyle" href="#">
+																	<a
+																		class="navLinkStyle"
+																		href="#"
+																	>
 																		{
 																			t({
 																				en: 'Indices',
@@ -640,11 +709,15 @@ const isActive = (path: string) => getRelativeLocaleUrl(locale, path) === Astro.
 																				th: 'ดัชนี',
 																				vi: 'Chỉ số',
 																				bn: 'সূচক',
-																				'zh-cn': '指数'
+																				'zh-cn': '指数',
+																				'pt-br': 'Índices'
 																			})
 																		}
 																	</a>
-																	<a class="navLinkStyle" href="#">
+																	<a
+																		class="navLinkStyle"
+																		href="#"
+																	>
 																		{
 																			t({
 																				en: 'Stocks',
@@ -657,11 +730,15 @@ const isActive = (path: string) => getRelativeLocaleUrl(locale, path) === Astro.
 																				th: 'หุ้น',
 																				vi: 'Cổ phiếu',
 																				bn: 'স্টক',
-																				'zh-cn': '股票'
+																				'zh-cn': '股票',
+																				'pt-br': 'Ações'
 																			})
 																		}
 																	</a>
-																	<a class="navLinkStyle" href="#">
+																	<a
+																		class="navLinkStyle"
+																		href="#"
+																	>
 																		{
 																			t({
 																				en: 'Commodities',
@@ -674,11 +751,16 @@ const isActive = (path: string) => getRelativeLocaleUrl(locale, path) === Astro.
 																				th: 'สินค้าโภคภัณฑ์',
 																				vi: 'Hàng hóa',
 																				bn: 'পণ্যসামগ্রী',
-																				'zh-cn': '商品'
+																				'zh-cn': '商品',
+																				'pt-br':
+																					'Commodities'
 																			})
 																		}
 																	</a>
-																	<a class="navLinkStyle" href="#">
+																	<a
+																		class="navLinkStyle"
+																		href="#"
+																	>
 																		{
 																			t({
 																				en: 'Cryptocurrencies',
@@ -691,7 +773,9 @@ const isActive = (path: string) => getRelativeLocaleUrl(locale, path) === Astro.
 																				th: 'สกุลเงินดิจิตอล',
 																				vi: 'Tiền điện tử',
 																				bn: 'ক্রিপ্টোকারেন্সি',
-																				'zh-cn': '加密货币'
+																				'zh-cn': '加密货币',
+																				'pt-br':
+																					'Criptomoedas'
 																			})
 																		}
 																	</a>
@@ -723,7 +807,8 @@ const isActive = (path: string) => getRelativeLocaleUrl(locale, path) === Astro.
 																			th: 'บัญชี',
 																			vi: 'Tài khoản',
 																			bn: 'হিসাব',
-																			'zh-cn': '帐户'
+																			'zh-cn': '帐户',
+																			'pt-br': 'Contas'
 																		})
 																	}
 																	<svg
@@ -736,7 +821,9 @@ const isActive = (path: string) => getRelativeLocaleUrl(locale, path) === Astro.
 																		stroke="currentColor"
 																		stroke-width="2"
 																		stroke-linecap="round"
-																		stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg
+																		stroke-linejoin="round"
+																		><path d="m6 9 6 6 6-6"
+																		></path></svg
 																	>
 																</button>
 																<!-- hs menu -->
@@ -747,7 +834,10 @@ const isActive = (path: string) => getRelativeLocaleUrl(locale, path) === Astro.
 																	aria-labelledby="hs-header-base-dropdown-sub"
 																>
 																	<div class="space-y-1 p-1">
-																		<a class="navLinkStyle" href="#">
+																		<a
+																			class="navLinkStyle"
+																			href="#"
+																		>
 																			{
 																				t({
 																					en: 'Type of Account',
@@ -760,12 +850,18 @@ const isActive = (path: string) => getRelativeLocaleUrl(locale, path) === Astro.
 																					th: 'ประเภทบัญชี',
 																					vi: 'Loại tài khoản',
 																					bn: 'অ্যাকাউন্টের ধরন',
-																					'zh-cn': '账户类型'
+																					'zh-cn':
+																						'账户类型',
+																					'pt-br':
+																						'Tipo de Conta'
 																				})
 																			}
 																		</a>
 
-																		<a class="navLinkStyle" href="#">
+																		<a
+																			class="navLinkStyle"
+																			href="#"
+																		>
 																			{
 																				t({
 																					en: 'Demo',
@@ -778,7 +874,9 @@ const isActive = (path: string) => getRelativeLocaleUrl(locale, path) === Astro.
 																					th: 'การสาธิต',
 																					vi: 'Thử nghiệm',
 																					bn: 'ডেমো',
-																					'zh-cn': '演示'
+																					'zh-cn': '演示',
+																					'pt-br':
+																						'Demonstração'
 																				})
 																			}
 																		</a>
@@ -809,7 +907,8 @@ const isActive = (path: string) => getRelativeLocaleUrl(locale, path) === Astro.
 																			th: 'แพลตฟอร์ม',
 																			vi: 'Nền tảng',
 																			bn: 'প্ল্যাটফর্ম',
-																			'zh-cn': '平台'
+																			'zh-cn': '平台',
+																			'pt-br': 'Plataformas'
 																		})
 																	}
 
@@ -823,7 +922,9 @@ const isActive = (path: string) => getRelativeLocaleUrl(locale, path) === Astro.
 																		stroke="currentColor"
 																		stroke-width="2"
 																		stroke-linecap="round"
-																		stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg
+																		stroke-linejoin="round"
+																		><path d="m6 9 6 6 6-6"
+																		></path></svg
 																	>
 																</button>
 																<!-- hs menu -->
@@ -834,7 +935,10 @@ const isActive = (path: string) => getRelativeLocaleUrl(locale, path) === Astro.
 																	aria-labelledby="hs-header-base-dropdown-sub"
 																>
 																	<div class="space-y-1 p-1">
-																		<a class="navLinkStyle" href="#">
+																		<a
+																			class="navLinkStyle"
+																			href="#"
+																		>
 																			{
 																				t({
 																					en: 'MetaTrade 5',
@@ -847,7 +951,10 @@ const isActive = (path: string) => getRelativeLocaleUrl(locale, path) === Astro.
 																					th: 'เมตาเทรดเดอร์ 5',
 																					vi: 'MetaTrader 5',
 																					bn: 'মেটাট্রেডার 5',
-																					'zh-cn': 'MetaTrader 5'
+																					'zh-cn':
+																						'MetaTrader 5',
+																					'pt-br':
+																						'MetaTrade 5'
 																				})
 																			}
 																		</a>
@@ -878,7 +985,8 @@ const isActive = (path: string) => getRelativeLocaleUrl(locale, path) === Astro.
 																			th: 'เครื่องมือ',
 																			vi: 'Công cụ',
 																			bn: 'টুলস',
-																			'zh-cn': '工具'
+																			'zh-cn': '工具',
+																			'pt-br': 'Ferramentas'
 																		})
 																	}
 
@@ -892,7 +1000,9 @@ const isActive = (path: string) => getRelativeLocaleUrl(locale, path) === Astro.
 																		stroke="currentColor"
 																		stroke-width="2"
 																		stroke-linecap="round"
-																		stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg
+																		stroke-linejoin="round"
+																		><path d="m6 9 6 6 6-6"
+																		></path></svg
 																	>
 																</button>
 																<!-- hs menu -->
@@ -903,7 +1013,10 @@ const isActive = (path: string) => getRelativeLocaleUrl(locale, path) === Astro.
 																	aria-labelledby="hs-header-base-dropdown-sub"
 																>
 																	<div class="space-y-1 p-1">
-																		<a class="navLinkStyle" href="#">
+																		<a
+																			class="navLinkStyle"
+																			href="#"
+																		>
 																			{
 																				t({
 																					en: 'Economic Calendar',
@@ -916,12 +1029,18 @@ const isActive = (path: string) => getRelativeLocaleUrl(locale, path) === Astro.
 																					th: 'ปฏิทินเศรษฐกิจ',
 																					vi: 'Lịch kinh tế',
 																					bn: 'অর্থনৈতিক ক্যালেন্ডার',
-																					'zh-cn': '经济日历'
+																					'zh-cn':
+																						'经济日历',
+																					'pt-br':
+																						'Calendário Econômico'
 																				})
 																			}
 																		</a>
 
-																		<a class="navLinkStyle" href="#">
+																		<a
+																			class="navLinkStyle"
+																			href="#"
+																		>
 																			{
 																				t({
 																					en: 'Market News',
@@ -934,7 +1053,10 @@ const isActive = (path: string) => getRelativeLocaleUrl(locale, path) === Astro.
 																					th: 'ข่าวสารการตลาด',
 																					vi: 'Tin tức thị trường',
 																					bn: 'বাজারের খবর',
-																					'zh-cn': '市场新闻'
+																					'zh-cn':
+																						'市场新闻',
+																					'pt-br':
+																						'Notícias do Mercado'
 																				})
 																			}
 																		</a>
@@ -967,7 +1089,8 @@ const isActive = (path: string) => getRelativeLocaleUrl(locale, path) === Astro.
 																			th: 'การซื้อขาย',
 																			vi: 'Giao dịch',
 																			bn: 'ট্রেডিং',
-																			'zh-cn': '贸易'
+																			'zh-cn': '贸易',
+																			'pt-br': 'Negociação'
 																		})
 																	}
 
@@ -981,7 +1104,9 @@ const isActive = (path: string) => getRelativeLocaleUrl(locale, path) === Astro.
 																		stroke="currentColor"
 																		stroke-width="2"
 																		stroke-linecap="round"
-																		stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg
+																		stroke-linejoin="round"
+																		><path d="m6 9 6 6 6-6"
+																		></path></svg
 																	>
 																</button>
 																<!-- hs menu -->
@@ -992,7 +1117,10 @@ const isActive = (path: string) => getRelativeLocaleUrl(locale, path) === Astro.
 																	aria-labelledby="hs-header-base-dropdown-sub"
 																>
 																	<div class="space-y-1 p-1">
-																		<a class="navLinkStyle" href="#">
+																		<a
+																			class="navLinkStyle"
+																			href="#"
+																		>
 																			{
 																				t({
 																					en: 'Social Copy Trading',
@@ -1005,12 +1133,18 @@ const isActive = (path: string) => getRelativeLocaleUrl(locale, path) === Astro.
 																					th: 'การซื้อขายแบบคัดลอกทางสังคม',
 																					vi: 'Giao dịch sao chép xã hội',
 																					bn: 'সোশ্যাল কপি ট্রেডিং',
-																					'zh-cn': '社交复制交易'
+																					'zh-cn':
+																						'社交复制交易',
+																					'pt-br':
+																						'Negociação Social Copy'
 																				})
 																			}
 																		</a>
 
-																		<a class="navLinkStyle" href="#">
+																		<a
+																			class="navLinkStyle"
+																			href="#"
+																		>
 																			{
 																				t({
 																					en: 'FIX API',
@@ -1023,12 +1157,18 @@ const isActive = (path: string) => getRelativeLocaleUrl(locale, path) === Astro.
 																					th: 'แก้ไข API',
 																					vi: 'Sửa lỗi API',
 																					bn: 'ফিক্স এপিআই',
-																					'zh-cn': '修复API'
+																					'zh-cn':
+																						'修复API',
+																					'pt-br':
+																						'API FIX'
 																				})
 																			}
 																		</a>
 
-																		<a class="navLinkStyle" href="#">
+																		<a
+																			class="navLinkStyle"
+																			href="#"
+																		>
 																			{
 																				t({
 																					en: 'Trading Hours',
@@ -1041,11 +1181,17 @@ const isActive = (path: string) => getRelativeLocaleUrl(locale, path) === Astro.
 																					th: 'ชั่วโมงการซื้อขาย',
 																					vi: 'Giờ giao dịch',
 																					bn: 'ট্রেডিং ঘন্টা',
-																					'zh-cn': '交易时间'
+																					'zh-cn':
+																						'交易时间',
+																					'pt-br':
+																						'Horários de Negociação'
 																				})
 																			}
 																		</a>
-																		<a class="navLinkStyle" href="#">
+																		<a
+																			class="navLinkStyle"
+																			href="#"
+																		>
 																			{
 																				t({
 																					en: 'Trading Conditions',
@@ -1058,11 +1204,17 @@ const isActive = (path: string) => getRelativeLocaleUrl(locale, path) === Astro.
 																					th: 'เงื่อนไขการซื้อขาย',
 																					vi: 'Điều kiện giao dịch',
 																					bn: 'ট্রেডিং শর্তাবলী',
-																					'zh-cn': '交易条件'
+																					'zh-cn':
+																						'交易条件',
+																					'pt-br':
+																						'Condições de Negociação'
 																				})
 																			}
 																		</a>
-																		<a class="navLinkStyle" href="#">
+																		<a
+																			class="navLinkStyle"
+																			href="#"
+																		>
 																			{
 																				t({
 																					en: 'Trading Conditions',
@@ -1075,11 +1227,17 @@ const isActive = (path: string) => getRelativeLocaleUrl(locale, path) === Astro.
 																					th: 'เงื่อนไขการซื้อขาย',
 																					vi: 'Điều kiện giao dịch',
 																					bn: 'ট্রেডিং শর্তাবলী',
-																					'zh-cn': '交易条件'
+																					'zh-cn':
+																						'交易条件',
+																					'pt-br':
+																						'Condições de Negociação'
 																				})
 																			}
 																		</a>
-																		<a class="navLinkStyle" href="#">
+																		<a
+																			class="navLinkStyle"
+																			href="#"
+																		>
 																			{
 																				t({
 																					en: 'Economic Calendar Tutorial',
@@ -1092,7 +1250,10 @@ const isActive = (path: string) => getRelativeLocaleUrl(locale, path) === Astro.
 																					th: 'แบบฝึกหัดปฏิทินเศรษฐกิจ',
 																					vi: 'Hướng dẫn Lịch kinh tế',
 																					bn: 'অর্থনৈতিক ক্যালেন্ডার টিউটোরিয়াল',
-																					'zh-cn': '经济日历教程'
+																					'zh-cn':
+																						'经济日历教程',
+																					'pt-br':
+																						'Tutorial do Calendário Econômico'
 																				})
 																			}
 																		</a>
@@ -1104,14 +1265,18 @@ const isActive = (path: string) => getRelativeLocaleUrl(locale, path) === Astro.
 												</div>
 
 												<div class="col-span-9 hidden lg:block">
-													<div class="relative h-[80px] overflow-hidden shadow-sm">
+													<div
+														class="relative h-[80px] overflow-hidden shadow-sm"
+													>
 														<div
 															class="btn_gradient absolute inset-0 end-0 start-0 top-0 overflow-hidden"
 														>
 															<div
 																class="flex h-full flex-row items-center justify-between p-4 md:p-5"
 															>
-																<h3 class="text-2xl font-bold text-white">
+																<h3
+																	class="text-2xl font-bold text-white"
+																>
 																	{
 																		t({
 																			en: 'Trade with the Best Multi-Asset',
@@ -1124,7 +1289,10 @@ const isActive = (path: string) => getRelativeLocaleUrl(locale, path) === Astro.
 																			th: 'ซื้อขายกับสินทรัพย์หลายประเภทที่ดีที่สุด',
 																			vi: 'Giao dịch với Tài sản Đa dạng Tốt nhất',
 																			bn: 'সেরা মাল্টি-অ্যাসেটের সাথে ট্রেড করুন',
-																			'zh-cn': '与最佳多元资产进行交易'
+																			'zh-cn':
+																				'与最佳多元资产进行交易',
+																			'pt-br':
+																				'Negocie com o Melhor Multi-Ativo'
 																		})
 																	}
 																</h3>
@@ -1148,7 +1316,10 @@ const isActive = (path: string) => getRelativeLocaleUrl(locale, path) === Astro.
 																					th: 'เข้าร่วมกับเรา',
 																					vi: 'Tham gia cùng chúng tôi',
 																					bn: 'আমাদের সাথে যোগ দিন',
-																					'zh-cn': '加入我们'
+																					'zh-cn':
+																						'加入我们',
+																					'pt-br':
+																						'Junte-se a nós'
 																				})
 																			}
 																		</span>
@@ -1198,7 +1369,8 @@ const isActive = (path: string) => getRelativeLocaleUrl(locale, path) === Astro.
 												th: 'สถาบันการศึกษา',
 												vi: 'Học viện',
 												bn: 'একাডেমী',
-												'zh-cn': '学院'
+												'zh-cn': '学院',
+												'pt-br': 'Academia'
 											})
 										}
 
@@ -1206,7 +1378,8 @@ const isActive = (path: string) => getRelativeLocaleUrl(locale, path) === Astro.
 											width="16"
 											height="16"
 											class="ms-auto size-4 shrink-0 duration-300 hs-dropdown-open:-rotate-180 lg:ms-1 lg:hs-dropdown-open:rotate-0"
-											icon="iconamoon:arrow-down-2"></iconify-icon>
+											icon="iconamoon:arrow-down-2"
+										></iconify-icon>
 									</button>
 
 									<div
@@ -1215,10 +1388,15 @@ const isActive = (path: string) => getRelativeLocaleUrl(locale, path) === Astro.
 										aria-orientation="vertical"
 										aria-labelledby="hs-header-base-dropdown"
 									>
-										<div class="grid grid-cols-1 gap-3 pt-2 lg:grid-cols-5 lg:gap-0 lg:pt-0">
+										<div
+											class="grid grid-cols-1 gap-3 pt-2 lg:grid-cols-5 lg:gap-0 lg:pt-0"
+										>
 											<div class="col-span-2">
 												<div class="space-y-0.5 py-1 md:px-1 lg:p-3">
-													<a class="navLinkStyle" href="#">
+													<a
+														class="navLinkStyle"
+														href="#"
+													>
 														{
 															t({
 																en: 'Ebooks',
@@ -1231,11 +1409,15 @@ const isActive = (path: string) => getRelativeLocaleUrl(locale, path) === Astro.
 																th: 'อีบุ๊ค',
 																vi: 'Sách điện tử',
 																bn: 'ইবুক',
-																'zh-cn': '电子书'
+																'zh-cn': '电子书',
+																'pt-br': 'Ebooks'
 															})
 														}
 													</a>
-													<a class="navLinkStyle" href="#">
+													<a
+														class="navLinkStyle"
+														href="#"
+													>
 														{
 															t({
 																en: 'Live Webinars and Seminars',
@@ -1248,12 +1430,17 @@ const isActive = (path: string) => getRelativeLocaleUrl(locale, path) === Astro.
 																th: 'สัมมนาออนไลน์และสัมมนาสด',
 																vi: 'Hội thảo và hội nghị trực tuyến',
 																bn: 'লাইভ ওয়েবিনার এবং সেমিনার',
-																'zh-cn': '现场网络研讨会和研讨会'
+																'zh-cn': '现场网络研讨会和研讨会',
+																'pt-br':
+																	'Webinars e Seminários ao Vivo'
 															})
 														}
 													</a>
 
-													<a class="navLinkStyle" href="#">
+													<a
+														class="navLinkStyle"
+														href="#"
+													>
 														{
 															t({
 																en: 'Market Analyst Ebooks',
@@ -1266,12 +1453,17 @@ const isActive = (path: string) => getRelativeLocaleUrl(locale, path) === Astro.
 																th: 'หนังสืออิเล็กทรอนิกส์สำหรับนักวิเคราะห์ตลาด',
 																vi: 'Sách điện tử về phân tích thị trường',
 																bn: 'বাজার বিশ্লেষক ইবুক',
-																'zh-cn': '市场分析师电子书'
+																'zh-cn': '市场分析师电子书',
+																'pt-br':
+																	'Ebooks de Analista de Mercado'
 															})
 														}
 													</a>
 
-													<a class="navLinkStyle" href="#">
+													<a
+														class="navLinkStyle"
+														href="#"
+													>
 														{
 															t({
 																en: 'YouTube and Spotify Poadcast',
@@ -1284,11 +1476,16 @@ const isActive = (path: string) => getRelativeLocaleUrl(locale, path) === Astro.
 																th: 'YouTube และ Spotify พอดแคสต์',
 																vi: 'Podcast YouTube và Spotify',
 																bn: 'YouTube এবং Spotify পডকাস্ট',
-																'zh-cn': 'YouTube 和 Spotify 播客'
+																'zh-cn': 'YouTube 和 Spotify 播客',
+																'pt-br':
+																	'Podcast do YouTube e Spotify'
 															})
 														}
 													</a>
-													<a class="navLinkStyle" href="#">
+													<a
+														class="navLinkStyle"
+														href="#"
+													>
 														{
 															t({
 																en: 'Platform Tutorials',
@@ -1301,14 +1498,17 @@ const isActive = (path: string) => getRelativeLocaleUrl(locale, path) === Astro.
 																th: 'บทช่วยสอนเกี่ยวกับแพลตฟอร์ม',
 																vi: 'Hướng dẫn nền tảng',
 																bn: 'প্ল্যাটফর্ম টিউটোরিয়াল',
-																'zh-cn': '平台教程'
+																'zh-cn': '平台教程',
+																'pt-br': 'Tutoriais da Plataforma'
 															})
 														}
 													</a>
 												</div>
 											</div>
 											<div class="col-span-3 hidden lg:block">
-												<div class="relative h-full overflow-hidden shadow-sm">
+												<div
+													class="relative h-full overflow-hidden shadow-sm"
+												>
 													<Image
 														src={CompanyImage}
 														class="h-full w-full object-cover"
@@ -1318,8 +1518,12 @@ const isActive = (path: string) => getRelativeLocaleUrl(locale, path) === Astro.
 													<div
 														class="absolute inset-0 end-0 start-0 top-0 overflow-hidden bg-black/45"
 													>
-														<div class="flex h-full flex-col justify-between p-4 md:p-5">
-															<h3 class="text-3xl font-bold text-white">
+														<div
+															class="flex h-full flex-col justify-between p-4 md:p-5"
+														>
+															<h3
+																class="text-3xl font-bold text-white"
+															>
 																{
 																	t({
 																		en: 'Platform Tutorials',
@@ -1332,7 +1536,10 @@ const isActive = (path: string) => getRelativeLocaleUrl(locale, path) === Astro.
 																		th: 'เรียนรู้กับโบรกเกอร์ที่ดีที่สุดของเรา',
 																		vi: 'Tìm hiểu để trở thành Nhà môi giới tốt nhất của chúng tôi',
 																		bn: 'আমাদের সেরা ব্রোকার জন্য শিখুন',
-																		'zh-cn': '了解我们的最佳经纪商'
+																		'zh-cn':
+																			'了解我们的最佳经纪商',
+																		'pt-br':
+																			'Tutoriais da Plataforma'
 																	})
 																}
 															</h3>
@@ -1341,7 +1548,9 @@ const isActive = (path: string) => getRelativeLocaleUrl(locale, path) === Astro.
 																	href="#"
 																	class="btn_gradient inline h-[50px] items-center justify-center gap-2.5 rounded-[28px] px-5 py-2.5"
 																>
-																	<span class="text-center text-base font-bold text-white">
+																	<span
+																		class="text-center text-base font-bold text-white"
+																	>
 																		{
 																			t({
 																				en: 'Join Us',
@@ -1354,7 +1563,9 @@ const isActive = (path: string) => getRelativeLocaleUrl(locale, path) === Astro.
 																				th: 'เข้าร่วมกับเรา',
 																				vi: 'Tham gia cùng chúng tôi',
 																				bn: 'আমাদের সাথে যোগ দিন',
-																				'zh-cn': '加入我们'
+																				'zh-cn': '加入我们',
+																				'pt-br':
+																					'Junte-se a nós'
 																			})
 																		}
 																	</span>
@@ -1393,7 +1604,11 @@ const isActive = (path: string) => getRelativeLocaleUrl(locale, path) === Astro.
 												stroke-linejoin="round"
 												stroke-width="1.5"
 												color="currentColor"
-												><circle cx="12" cy="12" r="10"></circle><path
+												><circle
+													cx="12"
+													cy="12"
+													r="10"
+												></circle><path
 													d="M10 9a2 2 0 1 1 3.683 1.08C13.085 11.01 12 11.896 12 13v.5m-.008 3.5h.009"
 												></path></g
 											></svg
@@ -1410,7 +1625,8 @@ const isActive = (path: string) => getRelativeLocaleUrl(locale, path) === Astro.
 												th: 'ศูนย์ช่วยเหลือ',
 												vi: 'Trung tâm trợ giúp',
 												bn: 'সহায়তা কেন্দ্র',
-												'zh-cn': '帮助中心'
+												'zh-cn': '帮助中心',
+												'pt-br': 'Central de Ajuda'
 											})
 										}
 
@@ -1418,7 +1634,8 @@ const isActive = (path: string) => getRelativeLocaleUrl(locale, path) === Astro.
 											width="16"
 											height="16"
 											class="ms-auto size-4 shrink-0 duration-300 hs-dropdown-open:-rotate-180 lg:ms-1 lg:hs-dropdown-open:rotate-0"
-											icon="iconamoon:arrow-down-2"></iconify-icon>
+											icon="iconamoon:arrow-down-2"
+										></iconify-icon>
 									</button>
 
 									<div
@@ -1427,10 +1644,15 @@ const isActive = (path: string) => getRelativeLocaleUrl(locale, path) === Astro.
 										aria-orientation="vertical"
 										aria-labelledby="hs-header-base-dropdown"
 									>
-										<div class="grid grid-cols-1 gap-3 pt-2 lg:grid-cols-5 lg:gap-0 lg:pt-0">
+										<div
+											class="grid grid-cols-1 gap-3 pt-2 lg:grid-cols-5 lg:gap-0 lg:pt-0"
+										>
 											<div class="col-span-2">
 												<div class="space-y-0.5 py-1 md:px-1 lg:p-3">
-													<a class="navLinkStyle" href="#">
+													<a
+														class="navLinkStyle"
+														href="#"
+													>
 														{
 															t({
 																en: 'FAQ',
@@ -1443,11 +1665,15 @@ const isActive = (path: string) => getRelativeLocaleUrl(locale, path) === Astro.
 																th: 'คำถามที่พบบ่อย',
 																vi: 'Câu hỏi thường gặp',
 																bn: 'FAQ',
-																'zh-cn': '常问问题'
+																'zh-cn': '常问问题',
+																'pt-br': 'FAQ'
 															})
 														}
 													</a>
-													<a class="navLinkStyle" href="#">
+													<a
+														class="navLinkStyle"
+														href="#"
+													>
 														{
 															t({
 																en: 'Payment Methods',
@@ -1460,12 +1686,16 @@ const isActive = (path: string) => getRelativeLocaleUrl(locale, path) === Astro.
 																th: 'วิธีการชำระเงิน',
 																vi: 'Phương thức thanh toán',
 																bn: 'পেমেন্ট পদ্ধতি',
-																'zh-cn': '付款方式'
+																'zh-cn': '付款方式',
+																'pt-br': 'Métodos de Pagamento'
 															})
 														}
 													</a>
 
-													<a class="navLinkStyle" href="#">
+													<a
+														class="navLinkStyle"
+														href="#"
+													>
 														{
 															t({
 																en: 'Legal Document',
@@ -1478,12 +1708,16 @@ const isActive = (path: string) => getRelativeLocaleUrl(locale, path) === Astro.
 																th: 'เอกสารทางกฎหมาย',
 																vi: 'Văn bản pháp lý',
 																bn: 'আইনি দলিল',
-																'zh-cn': '法律文件'
+																'zh-cn': '法律文件',
+																'pt-br': 'Documento Legal'
 															})
 														}
 													</a>
 
-													<a class="navLinkStyle" href="#">
+													<a
+														class="navLinkStyle"
+														href="#"
+													>
 														{
 															t({
 																en: 'Privacy Policy',
@@ -1496,11 +1730,15 @@ const isActive = (path: string) => getRelativeLocaleUrl(locale, path) === Astro.
 																th: 'นโยบายความเป็นส่วนตัว',
 																vi: 'Chính sách bảo mật',
 																bn: 'গোপনীয়তা নীতি',
-																'zh-cn': '隐私政策'
+																'zh-cn': '隐私政策',
+																'pt-br': 'Política de Privacidade'
 															})
 														}
 													</a>
-													<a class="navLinkStyle" href="#">
+													<a
+														class="navLinkStyle"
+														href="#"
+													>
 														{
 															t({
 																en: 'Risk Disclosure',
@@ -1513,11 +1751,15 @@ const isActive = (path: string) => getRelativeLocaleUrl(locale, path) === Astro.
 																th: 'การเปิดเผยความเสี่ยง',
 																vi: 'Tiết lộ rủi ro',
 																bn: 'ঝুঁকি প্রকাশ',
-																'zh-cn': '风险披露'
+																'zh-cn': '风险披露',
+																'pt-br': 'Divulgação de Risco'
 															})
 														}
 													</a>
-													<a class="navLinkStyle" href="#">
+													<a
+														class="navLinkStyle"
+														href="#"
+													>
 														{
 															t({
 																en: 'Insurance Coverage',
@@ -1530,11 +1772,15 @@ const isActive = (path: string) => getRelativeLocaleUrl(locale, path) === Astro.
 																th: 'ความคุ้มครองประกันภัย',
 																vi: 'Bảo hiểm',
 																bn: 'বীমা কভারেজ',
-																'zh-cn': '保险范围'
+																'zh-cn': '保险范围',
+																'pt-br': 'Cobertura de Seguro'
 															})
 														}
 													</a>
-													<a class="navLinkStyle" href="#">
+													<a
+														class="navLinkStyle"
+														href="#"
+													>
 														{
 															t({
 																en: 'Terms & Conditions',
@@ -1547,14 +1793,17 @@ const isActive = (path: string) => getRelativeLocaleUrl(locale, path) === Astro.
 																th: 'ข้อกำหนดและเงื่อนไข',
 																vi: 'Điều khoản & Điều kiện',
 																bn: 'শর্তাবলী',
-																'zh-cn': '条款和条件'
+																'zh-cn': '条款和条件',
+																'pt-br': 'Termos e Condições'
 															})
 														}
 													</a>
 												</div>
 											</div>
 											<div class="col-span-3 hidden lg:block">
-												<div class="relative h-full overflow-hidden shadow-sm">
+												<div
+													class="relative h-full overflow-hidden shadow-sm"
+												>
 													<Image
 														src={CompanyImage}
 														class="h-full w-full object-cover"
@@ -1564,8 +1813,12 @@ const isActive = (path: string) => getRelativeLocaleUrl(locale, path) === Astro.
 													<div
 														class="absolute inset-0 end-0 start-0 top-0 overflow-hidden bg-black/45"
 													>
-														<div class="flex h-full flex-col justify-between p-4 md:p-5">
-															<h3 class="text-3xl font-bold text-white">
+														<div
+															class="flex h-full flex-col justify-between p-4 md:p-5"
+														>
+															<h3
+																class="text-3xl font-bold text-white"
+															>
 																{
 																	t({
 																		en: 'Choose the Global Market Leader',
@@ -1578,7 +1831,9 @@ const isActive = (path: string) => getRelativeLocaleUrl(locale, path) === Astro.
 																		th: 'ข้อกำหนดและเงื่อนไข',
 																		vi: 'Điều khoản & Điều kiện',
 																		bn: 'শর্তাবলী',
-																		'zh-cn': '条款和条件'
+																		'zh-cn': '条款和条件',
+																		'pt-br':
+																			'Escolha o Líder de Mercado Global'
 																	})
 																}
 															</h3>
@@ -1587,7 +1842,9 @@ const isActive = (path: string) => getRelativeLocaleUrl(locale, path) === Astro.
 																	href="#"
 																	class="btn_gradient inline h-[50px] items-center justify-center gap-2.5 rounded-[28px] px-5 py-2.5"
 																>
-																	<span class="text-center text-base font-bold text-white">
+																	<span
+																		class="text-center text-base font-bold text-white"
+																	>
 																		{
 																			t({
 																				en: 'Join Us',
@@ -1600,7 +1857,9 @@ const isActive = (path: string) => getRelativeLocaleUrl(locale, path) === Astro.
 																				th: 'เข้าร่วมกับเรา',
 																				vi: 'Tham gia cùng chúng tôi',
 																				bn: 'আমাদের সাথে যোগ দিন',
-																				'zh-cn': '加入我们'
+																				'zh-cn': '加入我们',
+																				'pt-br':
+																					'Junte-se a nós'
 																			})
 																		}
 																	</span>
@@ -1631,8 +1890,8 @@ const isActive = (path: string) => getRelativeLocaleUrl(locale, path) === Astro.
 										stroke-linejoin="round"
 										><path
 											d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"
-										></path><path d="M18 14h-8"></path><path d="M15 18h-5"></path><path
-											d="M10 6h8v4h-8V6Z"></path></svg
+										></path><path d="M18 14h-8"></path><path d="M15 18h-5"
+										></path><path d="M10 6h8v4h-8V6Z"></path></svg
 									>
 									{
 										t({
@@ -1646,7 +1905,8 @@ const isActive = (path: string) => getRelativeLocaleUrl(locale, path) === Astro.
 											th: 'ข่าวเศรษฐกิจ DB',
 											vi: 'Tin tức kinh tế DB',
 											bn: 'ডিবি ইকোনমি নিউজ',
-											'zh-cn': 'DB 经济新闻'
+											'zh-cn': 'DB 经济新闻',
+											'pt-br': 'Notícias da Economia DB'
 										})
 									}
 								</a>
@@ -1683,17 +1943,3 @@ const isActive = (path: string) => getRelativeLocaleUrl(locale, path) === Astro.
 	}
 </style>
 <!-- script -->
-<script>
-	import { handleToggleClick } from 'astro-theme-toggle'
-	document.getElementById('theme-toggle')?.addEventListener('click', handleToggleClick)
-	const header = document.querySelector('.page-header')
-	const toggleClass = 'is-sticky'
-	window.addEventListener('scroll', () => {
-		const currentScroll = window.pageYOffset
-		if (currentScroll > 80) {
-			header.classList.add(toggleClass)
-		} else {
-			header.classList.remove(toggleClass)
-		}
-	})
-</script>

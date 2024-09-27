@@ -1,5 +1,5 @@
 ---
- export const prerender = true
+export const prerender = true
 import { ViewTransitions } from 'astro:transitions'
 import Header from '../components/Header.astro'
 import Footer from '@/components/Footer.astro'
@@ -7,34 +7,47 @@ import LocaleHtmlHead from '@/components/i18n/LocaleHtmlHead.astro'
 import LocaleSuggest from '@/components/i18n/LocaleSuggest.astro'
 import { ThemeScript } from 'astro-theme-toggle'
 import '../styles/tailwind.css'
+import 'aos/dist/aos.css'
 interface Props {
 	title?: string
 	description?: string
 	frontmatter?: undefined
-	
 }
 
 const { title, description } = Astro.props.frontmatter || Astro.props
 import { SITE_TITLE, SITE_DESCRIPTION, X_ACCOUNT } from '@/consts'
 import { useTranslations, LOCALES, getLocalePaths, type Lang } from '@/i18n'
-import { prefetch } from 'astro:prefetch'
 
 const t = useTranslations(Astro.currentLocale as Lang)
 const locale = Astro.currentLocale as Lang
 const localeTitle = title ? `${title} - ${t(SITE_TITLE)}` : t(SITE_TITLE)
 const localeDescription = description || t(SITE_DESCRIPTION)
-
 ---
 
 <!doctype html>
-<html lang={LOCALES[locale].lang || locale} dir={LOCALES[locale].dir || null}>
+<html
+	lang={LOCALES[locale].lang || locale}
+	dir={LOCALES[locale].dir || null}
+>
 	<head>
 		<meta charset="UTF-8" />
 		<title>{localeTitle}</title>
-		<meta name="description" content={localeDescription} />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="sitemap" href="/sitemap-index.xml" />
-		<meta name="generator" content={Astro.generator} />
+		<meta
+			name="description"
+			content={localeDescription}
+		/>
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1"
+		/>
+		<link
+			rel="sitemap"
+			href="/sitemap-index.xml"
+		/>
+		<meta
+			name="generator"
+			content={Astro.generator}
+		/>
 		<ThemeScript />
 
 		{
@@ -47,27 +60,60 @@ const localeDescription = description || t(SITE_DESCRIPTION)
 			))
 		}
 		<!-- OGP -->
-		<meta property="og:type" content="website" />
-		<meta property="og:title" content={localeTitle} />
-		<meta property="og:site_name" content={localeTitle} />
-		<meta property="og:description" content={localeDescription} />
-		<meta property="og:image" content={Astro.site + 'ogp.png'} />
-		<meta property="og:url" content={Astro.url} />
-		<meta property="og:locale" content={LOCALES[locale].lang || locale} />
-		<meta name="twitter:card" content="summary" />
-		<meta name="twitter:site" content={t(X_ACCOUNT)} />
+		<meta
+			property="og:type"
+			content="website"
+		/>
+		<meta
+			property="og:title"
+			content={localeTitle}
+		/>
+		<meta
+			property="og:site_name"
+			content={localeTitle}
+		/>
+		<meta
+			property="og:description"
+			content={localeDescription}
+		/>
+		<meta
+			property="og:image"
+			content={Astro.site + 'ogp.png'}
+		/>
+		<meta
+			property="og:url"
+			content={Astro.url}
+		/>
+		<meta
+			property="og:locale"
+			content={LOCALES[locale].lang || locale}
+		/>
+		<meta
+			name="twitter:card"
+			content="summary"
+		/>
+		<meta
+			name="twitter:site"
+			content={t(X_ACCOUNT)}
+		/>
 		<!-- External Resource -->
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			rel="preconnect"
+			href="https://fonts.googleapis.com"
+		/>
+		<link
+			rel="preconnect"
+			href="https://fonts.gstatic.com"
+			crossorigin
+		/>
 		<link
 			rel="preload"
 			as="style"
 			fetchpriority="high"
 			href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
 		/>
-		
+
 		<LocaleHtmlHead />
-		<!-- <ViewTransitions /> -->
 	</head>
 	<body class="bg-white dark:bg-neutral-900">
 		<LocaleSuggest />
@@ -81,14 +127,32 @@ const localeDescription = description || t(SITE_DESCRIPTION)
 			</div>
 		</main>
 		<Footer />
-		
-
-		{ import.meta.env.DEV && <style>:root { scroll-behavior: auto }</style> }
 		<script>
 			import 'preline/dist/preline.js'
+			import 'iconify-icon'
+			import '@/assets/scripts/lenisSmoothScroll.js'
+			import AOS from 'aos'
+			AOS.init()
 		</script>
 		<script>
-			import 'iconify-icon'
+			import { handleToggleClick } from 'astro-theme-toggle'
+
+			document.getElementById('theme-toggle')?.addEventListener('click', handleToggleClick)
+			// document.addEventListener('astro:after-swap', () =>
+			// 	document
+			// 		.getElementById('theme-toggle')
+			// 		?.addEventListener('click', handleToggleClick)
+			// )
+			const header = document.querySelector('.page-header')
+			const toggleClass = 'is-sticky'
+			window.addEventListener('scroll', () => {
+				const currentScroll = window.pageYOffset
+				if (currentScroll > 80) {
+					header?.classList.add(toggleClass)
+				} else {
+					header?.classList.remove(toggleClass)
+				}
+			})
 		</script>
 	</body>
 </html>

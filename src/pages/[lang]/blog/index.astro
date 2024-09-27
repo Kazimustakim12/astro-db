@@ -1,50 +1,91 @@
 ---
-export const prerender = true
-import { LOCALES, type Lang } from '@/i18n'
-import Layout from '@/layouts/Layout.astro'
-import { getAllSlug, getAllUris, getSinglrPostById } from '@/lib/api'
-import { Image } from 'astro:assets'
-const { lang, slug } = Astro.params
+import BlogLayoutSideBar from '@/components/page/blog/BlogLayoutSideBar.astro'
+import BlogList from '@/components/page/blog/BlogList'
+import { LOCALES, useTranslations, type Lang } from '@/i18n'
 
-export async function getStaticPaths() {
-	let data = await getAllUris()
-	let posts = data?.posts?.nodes
-	return posts.map((post) => ({
-		params: { lang: post.languageCode, slug: post.slug },
-		props: { post: post }
+// export const prerender = false
+const lang = Astro.params.lang || 'en'
+const t = useTranslations(Astro.currentLocale as Lang)
+const title = t({
+	en: 'Blog',
+	ar: 'افتح حساب',
+	es: 'Abrir una cuenta',
+	fr: 'Ouvrir un compte',
+	hi: 'खाता खोलें',
+	id: 'Buka Akun',
+	ms: 'Buka Akaun',
+	th: 'เปิดบัญชี',
+	vi: 'Mở một tài khoản',
+	bn: 'একটি অ্যাকাউন্ট খুলুন',
+	'zh-cn': '开设账户'
+})
+
+export const getStaticPaths = () =>
+	Object.keys(LOCALES).map((lang) => ({
+		params: { lang }
 	}))
-}
-const data = await getSinglrPostById(slug)
 ---
 
-<Layout>
-	<h1>{slug}</h1>
-</Layout>
-
-<style is:global>
-	.wp-block-image img {
-		width: 100%;
-		height: auto;
-	}
-</style>
-<style>
-	img.featured-image {
-		width: 100%;
-		border-radius: 10px;
-		height: auto;
-	}
-	.post-details {
-		color: darkgrey;
-		font-weight: 300;
-	}
-	a.term-link {
-		display: inline-block;
-		height: 1.5rem;
-		padding: 0.75rem;
-		margin: 0.5rem 0.5rem 0.5rem 0;
-		background: linear-gradient(90deg, #0076dc 0%, #7a1ba6 100%);
-		color: #fff;
-		border-radius: 10px;
-		font-weight: bold;
-	}
-</style>
+<BlogLayoutSideBar title={title}>
+	<!-- Content -->
+	<div
+		class="lg:col-span-2"
+		slot="articleContent"
+	>
+		<div class="py-8 lg:pe-8">
+			<div class="space-y-5 lg:space-y-8">
+				<div class="mx-auto mb-10 max-w-2xl text-center lg:mb-14">
+					<h2
+						class="text-2xl font-bold dark:text-white md:text-4xl md:leading-tight"
+						data-aos="fade-up-sm"
+					>
+						{
+							t({
+								en: 'DB Economy News',
+								ar: 'أخبار الاقتصاد DB',
+								es: 'Noticias de la Economía DB',
+								fr: 'Actualités Économiques DB',
+								hi: 'DB अर्थव्यवस्था समाचार',
+								id: 'Berita Ekonomi DB',
+								ms: 'Berita Ekonomi DB',
+								th: 'ข่าวเศรษฐกิจ DB',
+								vi: 'Tin Tức Kinh Tế DB',
+								bn: 'DB অর্থনীতি সংবাদ',
+								'zh-cn': 'DB经济新闻',
+								'pt-br': 'Notícias da Economia DB'
+							})
+						}
+					</h2>
+					<p
+						class="mt-1 text-gray-600 dark:text-neutral-400"
+						data-aos="fade-up-sm"
+					>
+						{
+							t({
+								en: 'Finance and economics explained simply',
+								ar: 'المالية والاقتصاد موضحة ببساطة',
+								es: 'Finanzas y economía explicadas de manera simple',
+								fr: 'Finance et économie expliquées simplement',
+								hi: 'वित्त और अर्थशास्त्र को सरलता से समझाया गया',
+								id: 'Keuangan dan ekonomi dijelaskan dengan sederhana',
+								ms: 'Kewangan dan ekonomi diterangkan dengan mudah',
+								th: 'การเงินและเศรษฐศาสตร์อธิบายอย่างง่ายดาย',
+								vi: 'Tài chính và kinh tế được giải thích đơn giản',
+								bn: 'আর্থিক এবং অর্থনীতি সহজভাবে বোঝানো হয়েছে',
+								'zh-cn': '简单解释金融和经济',
+								'pt-br': 'Finanças e economia explicadas de forma simples'
+							})
+						}
+					</p>
+				</div>
+				<div>
+					<BlogList
+						client:load
+						lang={lang}
+					/>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- End Content -->
+</BlogLayoutSideBar>

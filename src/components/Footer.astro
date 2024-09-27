@@ -1,186 +1,733 @@
 ---
 import { Icon } from 'astro-icon/components'
 import LanguageSelect from './i18n/LanguageSelect.astro'
-import LanguageSelectReact from '@/components/i18n/LanguageSelectReact'
+import { useTranslations, type Lang } from '@/i18n'
+const t = useTranslations(Astro.currentLocale as Lang)
+
 const FooterNavLinks = [
 	{
 		link: '#1',
-		label: 'About',
+		label: t({
+			en: 'About',
+			ar: 'حول',
+			es: 'Acerca de',
+			fr: 'À propos',
+			hi: 'के बारे में',
+			id: 'Tentang',
+			ms: 'Tentang',
+			th: 'เกี่ยวกับ',
+			vi: 'Về',
+			bn: 'সম্পর্কে',
+			'zh-cn': '关于',
+			'pt-br': 'Sobre'
+		}),
 		sublinks: [
 			{
-				label: 'Compnay',
+				label: t({
+					en: 'Company',
+					ar: 'شركة',
+					es: 'Empresa',
+					fr: 'Société',
+					hi: 'कंपनी',
+					id: 'Perusahaan',
+					ms: 'Syarikat',
+					th: 'บริษัท',
+					vi: 'Công ty',
+					bn: 'কোম্পানি',
+					'zh-cn': '公司',
+					'pt-br': 'Empresa'
+				}),
 				link: '/company'
 			},
 			{
-				label: 'Contact',
-				link: '/contact '
+				label: t({
+					en: 'Contact',
+					ar: 'اتصل',
+					es: 'Contacto',
+					fr: 'Contact',
+					hi: 'संपर्क करें',
+					id: 'Kontak',
+					ms: 'Hubungi',
+					th: 'ติดต่อ',
+					vi: 'Liên hệ',
+					bn: 'যোগাযোগ',
+					'zh-cn': '联系',
+					'pt-br': 'Contato'
+				}),
+				link: '/contact'
 			},
 			{
-				label: 'Career',
-				link: '/career '
+				label: t({
+					en: 'Career',
+					ar: 'مهنة',
+					es: 'Carrera',
+					fr: 'Carrière',
+					hi: 'करियर',
+					id: 'Karir',
+					ms: 'Kerjaya',
+					th: 'อาชีพ',
+					vi: 'Nghề nghiệp',
+					bn: 'ক্যারিয়ার',
+					'zh-cn': '职业',
+					'pt-br': 'Carreira'
+				}),
+				link: '/career'
 			},
 			{
-				label: 'Partnerships',
-				link: '/partnerships '
+				label: t({
+					en: 'Partnerships',
+					ar: 'شراكات',
+					es: 'Asociaciones',
+					fr: 'Partenariats',
+					hi: 'भागीदारी',
+					id: 'Kemitraan',
+					ms: 'Perkongsian',
+					th: 'ความร่วมมือ',
+					vi: 'Đối tác',
+					bn: 'অংশীদারিত্ব',
+					'zh-cn': '合作伙伴',
+					'pt-br': 'Parcerias'
+				}),
+				link: '/partnerships'
 			}
 		]
 	},
 	{
 		link: '#2',
-		label: 'Markets',
+		label: t({
+			en: 'Markets',
+			ar: 'أسواق',
+			es: 'Mercados',
+			fr: 'Marchés',
+			hi: 'बाजार',
+			id: 'Pasar',
+			ms: 'Pasaran',
+			th: 'ตลาด',
+			vi: 'Thị trường',
+			bn: 'বাজার',
+			'zh-cn': '市场',
+			'pt-br': 'Mercados'
+		}),
 		sublinks: [
 			{
-				label: 'Forex',
+				label: t({
+					en: 'Forex',
+					ar: 'فوركس',
+					es: 'Forex',
+					fr: 'Forex',
+					hi: 'फॉरेक्स',
+					id: 'Forex',
+					ms: 'Forex',
+					th: 'ฟอเร็กซ์',
+					vi: 'Forex',
+					bn: 'ফরেক্স',
+					'zh-cn': '外汇',
+					'pt-br': 'Forex'
+				}),
 				link: '/forex'
 			},
 			{
-				label: 'Metals',
-				link: '/metals '
+				label: t({
+					en: 'Metals',
+					ar: 'معادن',
+					es: 'Metales',
+					fr: 'Métaux',
+					hi: 'धातु',
+					id: 'Logam',
+					ms: 'Logam',
+					th: 'โลหะ',
+					vi: 'Kim loại',
+					bn: 'ধাতু',
+					'zh-cn': '金属',
+					'pt-br': 'Metais'
+				}),
+				link: '/metals'
 			},
 			{
-				label: 'Indices',
-				link: '/Indices '
+				label: t({
+					en: 'Indices',
+					ar: 'مؤشرات',
+					es: 'Índices',
+					fr: 'Indices',
+					hi: 'सूचकांक',
+					id: 'Indeks',
+					ms: 'Indeks',
+					th: 'ดัชนี',
+					vi: 'Chỉ số',
+					bn: 'সূচক',
+					'zh-cn': '指数',
+					'pt-br': 'Índices'
+				}),
+				link: '/indices'
 			},
 			{
-				label: 'Commodities',
-				link: '/commodities '
+				label: t({
+					en: 'Commodities',
+					ar: 'سلع',
+					es: 'Materias Primas',
+					fr: 'Marchandises',
+					hi: 'कमोडिटी',
+					id: 'Komoditas',
+					ms: 'Komoditi',
+					th: 'สินค้าโภคภัณฑ์',
+					vi: 'Hàng hóa',
+					bn: 'মাল',
+					'zh-cn': '商品',
+					'pt-br': 'Commodities'
+				}),
+				link: '/commodities'
 			},
 			{
-				label: 'Stocks',
-				link: '/stocks '
+				label: t({
+					en: 'Stocks',
+					ar: 'أسهم',
+					es: 'Acciones',
+					fr: 'Actions',
+					hi: 'शेयर',
+					id: 'Saham',
+					ms: 'Saham',
+					th: 'หุ้น',
+					vi: 'Cổ phiếu',
+					bn: 'শেয়ার',
+					'zh-cn': '股票',
+					'pt-br': 'Ações'
+				}),
+				link: '/stocks'
 			}
 		]
 	},
 	{
 		link: '#3',
-		label: 'Accounts',
+		label: t({
+			en: 'Accounts',
+			ar: 'حسابات',
+			es: 'Cuentas',
+			fr: 'Comptes',
+			hi: 'खाते',
+			id: 'Akun',
+			ms: 'Akaun',
+			th: 'บัญชี',
+			vi: 'Tài khoản',
+			bn: 'অ্যাকাউন্ট',
+			'zh-cn': '账户',
+			'pt-br': 'Contas'
+		}),
 		sublinks: [
 			{
-				label: 'STP',
+				label: t({
+					en: 'STP',
+					ar: 'STP',
+					es: 'STP',
+					fr: 'STP',
+					hi: 'STP',
+					id: 'STP',
+					ms: 'STP',
+					th: 'STP',
+					vi: 'STP',
+					bn: 'STP',
+					'zh-cn': 'STP',
+					'pt-br': 'STP'
+				}),
 				link: '/stp'
 			},
 			{
-				label: 'ECN',
+				label: t({
+					en: 'ECN',
+					ar: 'ECN',
+					es: 'ECN',
+					fr: 'ECN',
+					hi: 'ECN',
+					id: 'ECN',
+					ms: 'ECN',
+					th: 'ECN',
+					vi: 'ECN',
+					bn: 'ECN',
+					'zh-cn': 'ECN',
+					'pt-br': 'ECN'
+				}),
 				link: '/ecn'
 			},
 			{
-				label: 'Islamic',
-				link: '/Islamic '
+				label: t({
+					en: 'Islamic',
+					ar: 'إسلامي',
+					es: 'Islámico',
+					fr: 'Islamique',
+					hi: 'इस्लामी',
+					id: 'Islam',
+					ms: 'Islam',
+					th: 'อิสลาม',
+					vi: 'Hồi giáo',
+					bn: 'ইসলামী',
+					'zh-cn': '伊斯兰',
+					'pt-br': 'Islâmico'
+				}),
+				link: '/islamic'
 			},
 			{
-				label: 'Islamic Plus',
-				link: '/islamic '
+				label: t({
+					en: 'Islamic Plus',
+					ar: 'إسلامي بلس',
+					es: 'Islamic Plus',
+					fr: 'Islamique Plus',
+					hi: 'इस्लामी प्लस',
+					id: 'Islamic Plus',
+					ms: 'Islamic Plus',
+					th: 'อิสลามพลัส',
+					vi: 'Islamic Plus',
+					bn: 'ইসলামী প্লাস',
+					'zh-cn': '伊斯兰加',
+					'pt-br': 'Islamic Plus'
+				}),
+				link: '/islamic'
 			},
 			{
-				label: 'Demo',
-				link: '/demo '
+				label: t({
+					en: 'Demo',
+					ar: 'تجريبي',
+					es: 'Demo',
+					fr: 'Démonstration',
+					hi: 'डेमो',
+					id: 'Demo',
+					ms: 'Demo',
+					th: 'เดโม',
+					vi: 'Demo',
+					bn: 'ডেমো',
+					'zh-cn': '演示',
+					'pt-br': 'Demonstração'
+				}),
+				link: '/demo'
 			}
 		]
 	},
-
 	{
 		link: '#5',
-		label: 'Education',
+		label: t({
+			en: 'Education',
+			ar: 'تعليم',
+			es: 'Educación',
+			fr: 'Éducation',
+			hi: 'शिक्षा',
+			id: 'Pendidikan',
+			ms: 'Pendidikan',
+			th: 'การศึกษา',
+			vi: 'Giáo dục',
+			bn: 'শিক্ষা',
+			'zh-cn': '教育',
+			'pt-br': 'Educação'
+		}),
 		sublinks: [
 			{
-				label: 'Ebooks',
+				label: t({
+					en: 'Ebooks',
+					ar: 'كتب إلكترونية',
+					es: 'Ebooks',
+					fr: 'Ebooks',
+					hi: 'ईबुक',
+					id: 'Ebook',
+					ms: 'Ebook',
+					th: 'Ebook',
+					vi: 'Ebook',
+					bn: 'ইবুক',
+					'zh-cn': '电子书',
+					'pt-br': 'Ebooks'
+				}),
 				link: '/stp'
 			},
 			{
-				label: 'Webinar Live Streaming',
+				label: t({
+					en: 'Webinar Live Streaming',
+					ar: 'بث مباشر للويبينار',
+					es: 'Transmisión en vivo de Webinar',
+					fr: 'Diffusion en direct de Webinar',
+					hi: 'वेबिनार लाइव स्ट्रीमिंग',
+					id: 'Streaming Webinar',
+					ms: 'Streaming Webinar',
+					th: 'เว็บบินาร์ถ่ายทอดสด',
+					vi: 'Truyền hình trực tiếp Webinar',
+					bn: 'ওয়েবিনার লাইভ স্ট্রিমিং',
+					'zh-cn': '网络研讨会直播',
+					'pt-br': 'Streaming ao vivo de Webinar'
+				}),
 				link: '/ecn'
 			},
 			{
-				label: 'Webinar calendar',
-				link: '/Islamic '
+				label: t({
+					en: 'Webinar calendar',
+					ar: 'تقويم الويبينار',
+					es: 'Calendario de Webinar',
+					fr: 'Calendrier des Webinars',
+					hi: 'वेबिनार कैलेंडर',
+					id: 'Kalender Webinar',
+					ms: 'Kalender Webinar',
+					th: 'ปฏิทินเว็บบินาร์',
+					vi: 'Lịch Webinar',
+					bn: 'ওয়েবিনার ক্যালেন্ডার',
+					'zh-cn': '网络研讨会日历',
+					'pt-br': 'Calendário de Webinar'
+				}),
+				link: '/islamic'
 			},
 			{
-				label: 'Spotify Podcast',
-				link: '/islamic '
+				label: t({
+					en: 'Spotify Podcast',
+					ar: 'بودكاست سبوتيفاي',
+					es: 'Podcast de Spotify',
+					fr: 'Podcast Spotify',
+					hi: 'स्पॉटिफाई पॉडकास्ट',
+					id: 'Podcast Spotify',
+					ms: 'Podcast Spotify',
+					th: 'พอดแคสต์สปอติฟาย',
+					vi: 'Podcast Spotify',
+					bn: 'স্পটিফাই পডকাস্ট',
+					'zh-cn': 'Spotify 播客',
+					'pt-br': 'Podcast Spotify'
+				}),
+				link: '/islamic'
 			}
 		]
 	},
 	{
 		link: '#6',
-		label: 'Help Center',
+		label: t({
+			en: 'Help Center',
+			ar: 'مركز المساعدة',
+			es: 'Centro de Ayuda',
+			fr: "Centre d'Aide",
+			hi: 'सहायता केंद्र',
+			id: 'Pusat Bantuan',
+			ms: 'Pusat Bantuan',
+			th: 'ศูนย์ช่วยเหลือ',
+			vi: 'Trung tâm hỗ trợ',
+			bn: 'সাহায্য কেন্দ্র',
+			'zh-cn': '帮助中心',
+			'pt-br': 'Central de Ajuda'
+		}),
 		sublinks: [
 			{
-				label: 'Payment Methods',
+				label: t({
+					en: 'Payment Methods',
+					ar: 'طرق الدفع',
+					es: 'Métodos de Pago',
+					fr: 'Méthodes de Paiement',
+					hi: 'भुगतान के तरीके',
+					id: 'Metode Pembayaran',
+					ms: 'Kaedah Pembayaran',
+					th: 'วิธีการชำระเงิน',
+					vi: 'Phương thức thanh toán',
+					bn: 'পেমেন্ট পদ্ধতি',
+					'zh-cn': '付款方式',
+					'pt-br': 'Métodos de Pagamento'
+				}),
 				link: '/stp'
 			},
 			{
-				label: 'FAQs',
+				label: t({
+					en: 'FAQs',
+					ar: 'أسئلة مكررة',
+					es: 'Preguntas Frecuentes',
+					fr: 'Questions Fréquemment Posées',
+					hi: 'अक्सर पूछे जाने वाले प्रश्न',
+					id: 'FAQ',
+					ms: 'FAQ',
+					th: 'คำถามที่พบบ่อย',
+					vi: 'Câu hỏi thường gặp',
+					bn: 'সচরাচর জিজ্ঞাসা',
+					'zh-cn': '常见问题',
+					'pt-br': 'FAQs'
+				}),
 				link: '/ecn'
 			},
 			{
-				label: 'Regulation',
-				link: '/Islamic '
+				label: t({
+					en: 'Regulation',
+					ar: 'التنظيم',
+					es: 'Regulación',
+					fr: 'Réglementation',
+					hi: 'नियमन',
+					id: 'Regulasi',
+					ms: 'Regulasi',
+					th: 'การควบคุม',
+					vi: 'Quy định',
+					bn: 'নিয়ম',
+					'zh-cn': '监管',
+					'pt-br': 'Regulação'
+				}),
+				link: '/islamic'
 			},
 			{
-				label: 'Legal Documents',
-				link: '/islamic '
+				label: t({
+					en: 'Legal Documents',
+					ar: 'المستندات القانونية',
+					es: 'Documentos Legales',
+					fr: 'Documents Légaux',
+					hi: 'कानूनी दस्तावेज',
+					id: 'Dokumen Hukum',
+					ms: 'Dokumen Undang-Undang',
+					th: 'เอกสารทางกฎหมาย',
+					vi: 'Tài liệu pháp lý',
+					bn: 'আইনগত নথি',
+					'zh-cn': '法律文件',
+					'pt-br': 'Documentos Legais'
+				}),
+				link: '/islamic'
 			},
 			{
-				label: 'Privacy Policy',
-				link: '/islamic '
+				label: t({
+					en: 'Privacy Policy',
+					ar: 'سياسة الخصوصية',
+					es: 'Política de Privacidad',
+					fr: 'Politique de Confidentialité',
+					hi: 'गोपनीयता नीति',
+					id: 'Kebijakan Privasi',
+					ms: 'Dasar Privasi',
+					th: 'นโยบายความเป็นส่วนตัว',
+					vi: 'Chính sách bảo mật',
+					bn: 'গোপনীয়তা নীতি',
+					'zh-cn': '隐私政策',
+					'pt-br': 'Política de Privacidade'
+				}),
+				link: '/islamic'
 			},
 			{
-				label: 'Risk Disclosure',
-				link: '/islamic '
+				label: t({
+					en: 'Risk Disclosure',
+					ar: 'إفشاء المخاطر',
+					es: 'Divulgación de Riesgos',
+					fr: 'Divulgation des Risques',
+					hi: 'जोखिम का प्रकटीकरण',
+					id: 'Pengungkapan Risiko',
+					ms: 'Pendedahan Risiko',
+					th: 'การเปิดเผยความเสี่ยง',
+					vi: 'Công bố rủi ro',
+					bn: 'ঝুঁকি প্রকাশ',
+					'zh-cn': '风险披露',
+					'pt-br': 'Divulgação de Risco'
+				}),
+				link: '/islamic'
 			},
 			{
-				label: 'Terms & Conditions',
-				link: '/islamic '
+				label: t({
+					en: 'Terms & Conditions',
+					ar: 'الشروط والأحكام',
+					es: 'Términos y Condiciones',
+					fr: 'Conditions Générales',
+					hi: 'नियम एवं शर्तें',
+					id: 'Syarat & Ketentuan',
+					ms: 'Syarat & Ketentuan',
+					th: 'ข้อกำหนดและเงื่อนไข',
+					vi: 'Điều khoản và Điều kiện',
+					bn: 'শর্তাবলী',
+					'zh-cn': '条款与条件',
+					'pt-br': 'Termos e Condições'
+				}),
+				link: '/islamic'
 			},
 			{
-				label: 'DB News',
-				link: '/islamic '
+				label: t({
+					en: 'DB News',
+					ar: 'أخبار DB',
+					es: 'Noticias de DB',
+					fr: 'Actualités de DB',
+					hi: 'डीबी समाचार',
+					id: 'Berita DB',
+					ms: 'Berita DB',
+					th: 'ข่าว DB',
+					vi: 'Tin tức DB',
+					bn: 'ডিবি নিউজ',
+					'zh-cn': 'DB新闻',
+					'pt-br': 'Notícias DB'
+				}),
+				link: '/islamic'
 			}
 		]
 	},
 	{
 		link: '#4',
-		label: 'Trading',
+		label: t({
+			en: 'Trading',
+			ar: 'تداول',
+			es: 'Comercio',
+			fr: 'Négociation',
+			hi: 'व्यापार',
+			id: 'Perdagangan',
+			ms: 'Perdagangan',
+			th: 'การซื้อขาย',
+			vi: 'Giao dịch',
+			bn: 'বাণিজ্য',
+			'zh-cn': '交易',
+			'pt-br': 'Negociação'
+		}),
 		sublinks: [
 			{
-				label: 'Merta Trader 5',
+				label: t({
+					en: 'Meta Trader 5',
+					ar: 'ميتاتريدر 5',
+					es: 'Meta Trader 5',
+					fr: 'Meta Trader 5',
+					hi: 'मेटा ट्रेडर 5',
+					id: 'Meta Trader 5',
+					ms: 'Meta Trader 5',
+					th: 'Meta Trader 5',
+					vi: 'Meta Trader 5',
+					bn: 'মেটা ট্রেডার 5',
+					'zh-cn': 'Meta Trader 5',
+					'pt-br': 'Meta Trader 5'
+				}),
 				link: '/stp'
 			},
 			{
-				label: 'Economic Calendar',
+				label: t({
+					en: 'Economic Calendar',
+					ar: 'التقويم الاقتصادي',
+					es: 'Calendario Económico',
+					fr: 'Calendrier Économique',
+					hi: 'आर्थिक कैलेंडर',
+					id: 'Kalender Ekonomi',
+					ms: 'Kalender Ekonomi',
+					th: 'ปฏิทินเศรษฐกิจ',
+					vi: 'Lịch Kinh tế',
+					bn: 'অর্থনৈতিক ক্যালেন্ডার',
+					'zh-cn': '经济日历',
+					'pt-br': 'Calendário Econômico'
+				}),
 				link: '/ecn'
 			},
 			{
-				label: 'Market news',
-				link: '/Islamic '
+				label: t({
+					en: 'Market news',
+					ar: 'أخبار السوق',
+					es: 'Noticias del Mercado',
+					fr: 'Actualités du Marché',
+					hi: 'बाजार समाचार',
+					id: 'Berita Pasar',
+					ms: 'Berita Pasaran',
+					th: 'ข่าวตลาด',
+					vi: 'Tin tức thị trường',
+					bn: 'বাজারের খবর',
+					'zh-cn': '市场新闻',
+					'pt-br': 'Notícias do Mercado'
+				}),
+				link: '/Islamic'
 			},
 			{
-				label: 'PAMM / MAM',
-				link: '/islamic '
+				label: t({
+					en: 'PAMM / MAM',
+					ar: 'PAMM / MAM',
+					es: 'PAMM / MAM',
+					fr: 'PAMM / MAM',
+					hi: 'PAMM / MAM',
+					id: 'PAMM / MAM',
+					ms: 'PAMM / MAM',
+					th: 'PAMM / MAM',
+					vi: 'PAMM / MAM',
+					bn: 'PAMM / MAM',
+					'zh-cn': 'PAMM / MAM',
+					'pt-br': 'PAMM / MAM'
+				}),
+				link: '/islamic'
 			},
 			{
-				label: 'Social Copy trading ',
-				link: '/demo '
+				label: t({
+					en: 'Social Copy trading',
+					ar: 'تداول النسخ الاجتماعي',
+					es: 'Comercio de Copia Social',
+					fr: 'Trading Social Copy',
+					hi: 'सोशल कॉपी ट्रेडिंग',
+					id: 'Perdagangan Salinan Sosial',
+					ms: 'Salinan Perdagangan Sosial',
+					th: 'การซื้อขายคัดลอกทางสังคม',
+					vi: 'Giao dịch sao chép xã hội',
+					bn: 'সামাজিক কপি ট্রেডিং',
+					'zh-cn': '社交复制交易',
+					'pt-br': 'Social Copy trading'
+				}),
+				link: '/demo'
 			},
 			{
-				label: 'FIX API ',
-				link: '/demo '
+				label: t({
+					en: 'FIX API',
+					ar: 'FIX API',
+					es: 'FIX API',
+					fr: 'FIX API',
+					hi: 'FIX API',
+					id: 'FIX API',
+					ms: 'FIX API',
+					th: 'FIX API',
+					vi: 'FIX API',
+					bn: 'FIX API',
+					'zh-cn': 'FIX API',
+					'pt-br': 'FIX API'
+				}),
+				link: '/demo'
 			},
 			{
-				label: 'Trading Hours',
-				link: '/demo '
+				label: t({
+					en: 'Trading Hours',
+					ar: 'ساعات التداول',
+					es: 'Horas de Negociación',
+					fr: 'Heures de Négociation',
+					hi: 'व्यापार के घंटे',
+					id: 'Jam Perdagangan',
+					ms: 'Waktu Perdagangan',
+					th: 'เวลาซื้อขาย',
+					vi: 'Giờ giao dịch',
+					bn: 'বাণিজ্যের ঘন্টা',
+					'zh-cn': '交易时间',
+					'pt-br': 'Horas de Negociação'
+				}),
+				link: '/demo'
 			},
 			{
-				label: 'Trading Conditions',
-				link: '/demo '
+				label: t({
+					en: 'Trading Conditions',
+					ar: 'شروط التداول',
+					es: 'Condiciones de Comercio',
+					fr: 'Conditions de Négociation',
+					hi: 'व्यापार की शर्तें',
+					id: 'Syarat Perdagangan',
+					ms: 'Syarat Perdagangan',
+					th: 'เงื่อนไขการซื้อขาย',
+					vi: 'Điều kiện giao dịch',
+					bn: 'বাণিজ্যের শর্তাবলী',
+					'zh-cn': '交易条件',
+					'pt-br': 'Condições de Negociação'
+				}),
+				link: '/demo'
 			},
 			{
-				label: 'Forex Calculations',
-				link: '/demo '
+				label: t({
+					en: 'Forex Calculations',
+					ar: 'حسابات الفوركس',
+					es: 'Cálculos de Forex',
+					fr: 'Calculs de Forex',
+					hi: 'फॉरेक्स गणनाएँ',
+					id: 'Perhitungan Forex',
+					ms: 'Pengiraan Forex',
+					th: 'การคำนวณฟอเร็กซ์',
+					vi: 'Tính toán Forex',
+					bn: 'ফরেক্স গণনা',
+					'zh-cn': '外汇计算',
+					'pt-br': 'Cálculos de Forex'
+				}),
+				link: '/demo'
 			},
 			{
-				label: 'Economic Calendar Tutorial',
-				link: '/demo '
+				label: t({
+					en: 'Economic Calendar Tutorial',
+					ar: 'برنامج تعليمي للتقويم الاقتصادي',
+					es: 'Tutorial del Calendario Económico',
+					fr: 'Tutoriel du Calendrier Économique',
+					hi: 'आर्थिक कैलेंडर ट्यूटोरियल',
+					id: 'Tutorial Kalender Ekonomi',
+					ms: 'Tutorial Kalender Ekonomi',
+					th: 'บทแนะนำปฏิทินเศรษฐกิจ',
+					vi: 'Hướng dẫn lịch kinh tế',
+					bn: 'অর্থনৈতিক ক্যালেন্ডার টিউটোরিয়াল',
+					'zh-cn': '经济日历教程',
+					'pt-br': 'Tutorial do Calendário Econômico'
+				}),
+				link: '/demo'
 			}
 		]
 	}
@@ -219,6 +766,7 @@ const companyAward = [
 	<div class="container px-4 sm:px-6">
 		<div class="flex w-full flex-col justify-between gap-3 sm:flex-row">
 			<a
+				data-aos=""
 				class="flex-none text-xl font-semibold dark:text-white"
 				href="/"
 				aria-label="Brand"
@@ -250,7 +798,12 @@ const companyAward = [
 					companyAward.map((item) => {
 						return (
 							<span>
-								<Icon name={item.iconName} width={80} height={80} class="" />
+								<Icon
+									name={item.iconName}
+									width={80}
+									height={80}
+									class=""
+								/>
 							</span>
 						)
 					})
@@ -259,7 +812,7 @@ const companyAward = [
 		</div>
 		<hr class="mb-5 mt-5 border-t border-gray-200 dark:border-neutral-700" />
 		<!-- Grid -->
-		<div class="mb-0 grid grid-cols-2 gap-6 md:grid-cols-4 lg:grid-cols-6">
+		<div class="mb-0 grid grid-cols-2 gap-6 px-6 md:grid-cols-4 lg:grid-cols-6">
 			{
 				FooterNavLinks.map((link) => {
 					return (
@@ -294,75 +847,415 @@ const companyAward = [
 		<hr class="mb-5 mt-5 border-t border-gray-200 text-white dark:border-neutral-700" />
 		<div class="risk space-y-2">
 			<p class="text-[14px] font-light">
-				<strong class="font-bold">DB Investing</strong> is a brand name of the entities below that are
-				part of the Invest Group Global Holding.
+				<strong class="font-bold">DB Investing</strong>
+				{
+					t({
+						en: 'is a brand name of the entities below that are part of the Invest Group Global Holding.',
+						ar: 'هو اسم العلامة التجارية للكيانات أدناه التي هي جزء من مجموعة إنفست غلوبال هولدينغ.',
+						es: 's un nombre comercial de las entidades a continuación que forman parte de Invest Group Global Holding.',
+						fr: 'est un nom de marque des entités ci-dessous qui font partie d"Invest Group Global Holding.',
+						hi: 'नीचे दी गई संस्थाओं का ब्रांड नाम है जो इन्वेस्ट ग्रुप ग्लोबल होल्डिंग का हिस्सा हैं।',
+						id: 'adalah nama merek dari entitas di bawah ini yang merupakan bagian dari Invest Group Global Holding.',
+						ms: 'adalah nama jenama bagi entiti di bawah ini yang merupakan sebahagian daripada Invest Group Global Holding.',
+						th: 'เป็นชื่อแบรนด์ของหน่วยงานด้านล่างนี้ที่เป็นส่วนหนึ่งของ Invest Group Global Holding',
+						vi: 'là tên thương hiệu của các thực thể bên dưới thuộc Tập đoàn Đầu tư Toàn cầu.',
+						bn: 'হল নীচে উল্লেখিত সত্তার একটি ব্র্যান্ড নাম যা ইনভেস্ট গ্রুপ গ্লোবাল হোল্ডিং-এর অংশ।',
+						'zh-cn':
+							'是以下实体的品牌名称，它们是 Invest Group Global Holding 的一部分',
+						'pt-br':
+							'é um nome comercial das entidades abaixo que fazem parte do Invest Group Global Holding.'
+					})
+				}
 			</p>
 			<p class="text-[12px] font-light">
 				<span></span>
-				<strong class="font-bold">DB Invest Limited </strong> is a Security Dealer registered, authorized
-				and regulated company by the Financial Services Authority (FSA) in Seychelles with license SD053.
+				<strong class="font-bold">DB Invest Limited </strong>
+				{
+					t({
+						en: 'is a Security Dealer registered, authorized and regulated company by the Financial Services Authority (FSA) in Seychelles with license SD053.',
+						ar: 'هي شركة تاجر أوراق مالية مسجلة ومرخصة ومنظمة من قبل هيئة الخدمات المالية (FSA) في سيشيل برخصة SD053.',
+						es: 'es una empresa de comercio de valores registrada, autorizada y regulada por la Autoridad de Servicios Financieros (FSA) en Seychelles con la licencia SD053.',
+						fr: 'est un courtier en valeurs mobilières enregistré, autorisé et réglementé par l’Autorité des Services Financiers (FSA) aux Seychelles avec la licence SD053.',
+						hi: 'यह एक सुरक्षा डीलर है जो सेशेल्स में वित्तीय सेवा प्राधिकरण (FSA) द्वारा पंजीकृत, अधिकृत और नियंत्रित कंपनी है, जिसका लाइसेंस SD053 है।',
+						id: 'adalah perusahaan Dealer Keamanan yang terdaftar, disetujui, dan diatur oleh Otoritas Jasa Keuangan (FSA) di Seychelles dengan lisensi SD053.',
+						ms: 'adalah syarikat Peniaga Sekuriti yang berdaftar, diluluskan dan dikawal selia oleh Autoriti Perkhidmatan Kewangan (FSA) di Seychelles dengan lesen SD053.',
+						th: 'เป็นบริษัทผู้ค้าหลักทรัพย์ที่จดทะเบียน ได้รับอนุญาต และอยู่ภายใต้การควบคุมโดยหน่วยงานบริการทางการเงิน (FSA) ในเซเชลส์ โดยมีใบอนุญาต SD053',
+						vi: 'là một Nhà giao dịch Chứng khoán được đăng ký, được ủy quyền và được quản lý bởi Cơ quan Dịch vụ Tài chính (FSA) ở Seychelles với giấy phép SD053.',
+						bn: 'এটি একটি সিকিউরিটি ডিলার যা সেশেলসে ফাইন্যান্সিয়াল সার্ভিসেস অথরিটি (FSA) দ্বারা নিবন্ধিত, অনুমোদিত এবং নিয়ন্ত্রিত কোম্পানি, যার লাইসেন্স SD053।',
+						'zh-cn':
+							'是一家注册、授权和受塞舌尔金融服务局（FSA）监管的证券交易商，许可证号为 SD053。',
+						'pt-br':
+							'é uma empresa de Negociação de Valores Mobiliários registrada, autorizada e regulamentada pela Autoridade de Serviços Financeiros (FSA) nas Seychelles com licença SD053.'
+					})
+				}
 			</p>
 			<p class="text-[12px] font-light">
 				<span></span>
-				<strong class="font-bold">DBInvest Financial Services LLC, </strong> registered, authorized and
-				regulated company by the Securities & Commodities Authority (SCA) in the United Arab Emirates
-				with license 20200000197, category 5, Arrangement and advice. Emaar Square Building 4, Office
-				402, Downtown. Dubai, UAE.
+				<strong class="font-bold">
+					{
+						t({
+							en: 'DBInvest Financial Services LLC,',
+							ar: 'DBInvest خدمات المالية ذ.م.م،',
+							es: 'DBInvest Servicios Financieros LLC,',
+							fr: 'DBInvest Services Financiers LLC,',
+							hi: 'DBInvest वित्तीय सेवाएँ LLC,',
+							id: 'DBInvest Layanan Keuangan LLC,',
+							ms: 'DBInvest Perkhidmatan Kewangan LLC,',
+							th: 'DBInvest บริการทางการเงิน LLC,',
+							vi: 'DBInvest Dịch vụ Tài chính LLC,',
+							bn: 'DBInvest আর্থিক সেবা LLC,',
+							'zh-cn': 'DBInvest金融服务有限责任公司，',
+							'pt-br': 'DBInvest Serviços Financeiros LLC,'
+						})
+					}
+				</strong>
+				{
+					t({
+						en: 'registered, authorized and regulated company by the Securities & Commodities Authority (SCA) in the United Arab Emirates with license 20200000197, category 5, Arrangement and advice. Emaar Square Building 4, Office 402, Downtown. Dubai, UAE.',
+						ar: 'شركة مسجلة ومرخصة ومنظمة من قبل هيئة الأوراق المالية والسلع (SCA) في دولة الإمارات العربية المتحدة برخصة 20200000197، الفئة 5، الترتيب والنصائح. مبنى إعمار سكوير 4، مكتب 402، وسط المدينة. دبي، الإمارات العربية المتحدة.',
+						es: 'empresa registrada, autorizada y regulada por la Autoridad de Valores y Materias Primas (SCA) en los Emiratos Árabes Unidos con licencia 20200000197, categoría 5, Arreglo y asesoramiento. Edificio Emaar Square 4, Oficina 402, Downtown. Dubái, EAU.',
+						fr: 'société enregistrée, autorisée et réglementée par l’Autorité des Valeurs Mobilières et des Marchandises (SCA) aux Émirats Arabes Unis avec la licence 20200000197, catégorie 5, Arrangement et conseils. Bâtiment Emaar Square 4, Bureau 402, Centre-ville. Dubaï, Émirats Arabes Unis.',
+						hi: 'संयुक्त अरब अमीरात में प्रतिभूति और वस्तुओं के प्राधिकरण (SCA) द्वारा पंजीकृत, अधिकृत और विनियमित कंपनी, लाइसेंस 20200000197, श्रेणी 5, व्यवस्था और सलाह। ईमार स्क्वायर बिल्डिंग 4, कार्यालय 402, डाउनटाउन। दुबई, यूएई।',
+						id: 'perusahaan terdaftar, disetujui, dan diatur oleh Otoritas Sekuritas dan Komoditas (SCA) di Uni Emirat Arab dengan lisensi 20200000197, kategori 5, Pengaturan dan saran. Gedung Emaar Square 4, Kantor 402, Pusat Kota. Dubai, UEA.',
+						ms: 'syarikat berdaftar, diluluskan dan dikawal selia oleh Autoriti Sekuriti dan Komoditi (SCA) di Emiriah Arab Bersatu dengan lesen 20200000197, kategori 5, Pengaturan dan nasihat. Bangunan Emaar Square 4, Pejabat 402, Pusat Bandar. Dubai, UAE.',
+						th: 'บริษัทที่จดทะเบียน ได้รับอนุญาต และอยู่ภายใต้การควบคุมโดยหน่วยงานกำกับดูแลหลักทรัพย์และสินค้าโภคภัณฑ์ (SCA) ในสหรัฐอาหรับเอมิเรตส์ โดยมีใบอนุญาต 20200000197 หมวด 5 การจัดเตรียมและคำแนะนำ อาคาร Emaar Square 4, สำนักงาน 402, ย่านใจกลางเมือง ดูไบ สหรัฐอาหรับเอมิเรตส์',
+						vi: 'công ty được đăng ký, ủy quyền và quản lý bởi Cơ quan Chứng khoán và Hàng hóa (SCA) ở Các Tiểu vương quốc Ả Rập Thống nhất với giấy phép 20200000197, loại 5, Sắp xếp và tư vấn. Tòa nhà Emaar Square 4, Văn phòng 402, Trung tâm Thành phố. Dubai, UAE.',
+						bn: 'সংযুক্ত আরব আমিরাতের সিকিউরিটিজ অ্যান্ড কমোডিটিজ অথরিটি (SCA) দ্বারা নিবন্ধিত, অনুমোদিত এবং নিয়ন্ত্রিত কোম্পানি, লাইসেন্স 20200000197, ক্যাটেগরি 5, ব্যবস্থাপনা এবং পরামর্শ। এমার স্কয়ার বিল্ডিং 4, অফিস 402, ডাউনটাউন। দুবাই, ইউএई।',
+						'zh-cn':
+							'在阿拉伯联合酋长国由证券和商品管理局（SCA）注册、授权和监管的公司，许可证号为20200000197，类别5，安排和建议。Emaar Square大厦4号，402办公室，市中心。迪拜，阿联酋。',
+						'pt-br':
+							'empresa registrada, autorizada e regulamentada pela Autoridade de Valores Mobiliários e Commodities (SCA) nos Emirados Árabes Unidos com licença 20200000197, categoria 5, Arranjo e aconselhamento. Edifício Emaar Square 4, Escritório 402, Centro. Dubai, EAU.'
+					})
+				}
 			</p>
 			<p class="text-[12px] font-light">
 				<span></span>
-				<strong class="font-bold">Dream Big Investing Limited,</strong> 2, Soji Adepegba close, Ikeja.
-				Lagos, Nigeria.
+				<strong class="font-bold">
+					{
+						t({
+							en: 'Dream Big Investing Limited,',
+							ar: 'Dream Big Investing Limited،',
+							es: 'Dream Big Investing Limited,',
+							fr: 'Dream Big Investing Limited,',
+							hi: 'ड्रीम बिग इन्वेस्टिंग लिमिटेड,',
+							id: 'Dream Big Investing Limited,',
+							ms: 'Dream Big Investing Limited,',
+							th: 'Dream Big Investing Limited,',
+							vi: 'Dream Big Investing Limited,',
+							bn: 'ড্রিম বিগ ইনভেস্টিং লিমিটেড,',
+							'zh-cn': 'Dream Big Investing Limited，',
+							'pt-br': 'Dream Big Investing Limited,'
+						})
+					}
+				</strong>
+				{
+					t({
+						en: '2, Soji Adepegba close, Ikeja. Lagos, Nigeria.',
+						ar: '2، ممر سوجي أديبيغبا، إيكيجا. لاغوس، نيجيريا.',
+						es: '2, Soji Adepegba cerca, Ikeja. Lagos, Nigeria.',
+						fr: '2, Soji Adepegba près, Ikeja. Lagos, Nigeria.',
+						hi: '2, सोजी अडेपिग्बा क्लोज़, इकेजा। लागोस, नाइजीरिया।',
+						id: '2, Soji Adepegba dekat, Ikeja. Lagos, Nigeria.',
+						ms: '2, Soji Adepegba dekat, Ikeja. Lagos, Nigeria.',
+						th: '2, Soji Adepegba ใกล้, Ikeja. ลากอส, ไนจีเรีย.',
+						vi: '2, Soji Adepegba gần, Ikeja. Lagos, Nigeria.',
+						bn: '২, সোজি অ্যাডেপেগবা ক্লোজ, ইকেজা। লেগোস, নাইজেরিয়া।',
+						'zh-cn': '2, Soji Adepegba 附近，Ikeja。尼日利亚拉各斯。',
+						'pt-br': '2, Soji Adepegba perto, Ikeja. Lagos, Nigéria.'
+					})
+				}
 			</p>
 			<p class="text-[12px] font-light">
 				<span></span>
-				<strong class="font-bold">Enigma081 LTD,</strong> 206, Arch, Makarios III Ave., Chrysalia Building,
-				2nd floor, Limassol, Cyprus.
+				<strong class="font-bold">
+					{
+						t({
+							en: 'Enigma081 LTD,',
+							ar: 'Enigma081 المحدودة،',
+							es: 'Enigma081 S.R.L.,',
+							fr: 'Enigma081 SARL,',
+							hi: 'Enigma081 लिमिटेड,',
+							id: 'Enigma081 LTD,',
+							ms: 'Enigma081 Sdn Bhd,',
+							th: 'Enigma081 จำกัด,',
+							vi: 'Enigma081 LTD,',
+							bn: 'Enigma081 লিমিটেড,',
+							'zh-cn': 'Enigma081有限公司，',
+							'pt-br': 'Enigma081 LTDA,'
+						})
+					}
+				</strong>
+				{
+					t({
+						en: '206, Arch, Makarios III Ave., Chrysalia Building, 2nd floor, Limassol, Cyprus.',
+						ar: '206، أرش، شارع مكاريوس الثالث، مبنى كريساليا، الطابق الثاني، ليماسول، قبرص.',
+						es: '206, Arch, Avenida Makarios III, Edificio Chrysalia, 2º piso, Limassol, Chipre.',
+						fr: '206, Arch, Avenue Makarios III, Bâtiment Chrysalia, 2ème étage, Limassol, Chypre.',
+						hi: '206, आर्च, मकैरियोस III एवेन्यू, क्रिसालिया बिल्डिंग, दूसरी मंजिल, लिमासोल, साइप्रस।',
+						id: '206, Arch, Jalan Makarios III, Gedung Chrysalia, lantai 2, Limassol, Siprus.',
+						ms: '206, Arch, Jalan Makarios III, Bangunan Chrysalia, tingkat 2, Limassol, Cyprus.',
+						th: '206, Arch, ถนน Makarios III, อาคาร Chrysalia, ชั้น 2, ลิมาสซอล, ไซปรัส.',
+						vi: '206, Arch, Đại lộ Makarios III, Tòa nhà Chrysalia, tầng 2, Limassol, Cyprus.',
+						bn: '২০৬, আর্ক, মকারিয়োস III অ্যাভ, ক্রাইসালিয়া বিল্ডিং, ২য় তলা, লিমাসল, সাইপ্রাস।',
+						'zh-cn':
+							'206，Arch，Makarios III 大道，Chrysalia 大厦，二楼，利马索尔，塞浦路斯。',
+						'pt-br':
+							'206, Arch, Avenida Makarios III, Edifício Chrysalia, 2º andar, Limassol, Chipre.'
+					})
+				}
 			</p>
 			<p class="text-[12px] font-light">
 				<span></span>
-				<strong class="font-bold">Dream Big Financial Consultation LTD,</strong> Unit no. F26, Building
-				no. 3, Makram Ebeid ST, 6th Floor, office 17, Nasr City, Cairo. Egypt.
+				<strong class="font-bold">
+					{
+						t({
+							en: 'Dream Big Financial Consultation LTD,',
+							ar: 'Dream Big الاستشارات المالية المحدودة،',
+							es: 'Dream Big Consultoría Financiera LTD,',
+							fr: 'Dream Big Consultation Financière SARL,',
+							hi: 'ड्रीम बिग फाइनेंशियल कंसल्टेशन लिमिटेड,',
+							id: 'Dream Big Konsultasi Keuangan LTD,',
+							ms: 'Dream Big Perunding Kewangan Sdn Bhd,',
+							th: 'Dream Big การให้คำปรึกษาด้านการเงิน จำกัด,',
+							vi: 'Dream Big Tư vấn Tài chính LTD,',
+							bn: 'ড্রিম বিগ ফাইন্যান্সিয়াল কনসালটেশন লিমিটেড,',
+							'zh-cn': 'Dream Big 财务咨询有限公司，',
+							'pt-br': 'Dream Big Consultoria Financeira LTDA,'
+						})
+					}
+				</strong>{
+					t({
+						en: 'Unit no. F26, Building no. 3, Makram Ebeid ST, 6th Floor, office 17, Nasr City, Cairo, Egypt.',
+						ar: 'وحدة رقم F26، مبنى رقم 3، شارع مكرم عبيد، الطابق السادس، مكتب 17، مدينة نصر، القاهرة، مصر.',
+						es: 'Unidad n.º F26, Edificio n.º 3, Calle Makram Ebeid, 6.º Piso, oficina 17, Ciudad Nasr, El Cairo, Egipto.',
+						fr: 'Unité n° F26, Bâtiment n° 3, Rue Makram Ebeid, 6ème étage, bureau 17, Nasr City, Le Caire, Égypte.',
+						hi: 'यूनिट नंबर F26, बिल्डिंग नंबर 3, मक़्रम इबेद एसटी, 6वीं मंजिल, कार्यालय 17, नासर सिटी, काहिरा, मिस्र।',
+						id: 'Unit no. F26, Bangunan no. 3, Jalan Makram Ebeid, Lantai 6, kantor 17, Kota Nasr, Kairo, Mesir.',
+						ms: 'Unit no. F26, Bangunan no. 3, Jalan Makram Ebeid, Tingkat 6, pejabat 17, Nasr City, Kaherah, Mesir.',
+						th: 'ห้องหมายเลข F26, อาคารหมายเลข 3, ถนนมาครัม เอเบด, ชั้น 6, สำนักงาน 17, นัสร์ซิตี้, ไคโร, อียิปต์.',
+						vi: 'Đơn vị số F26, Tòa nhà số 3, Đường Makram Ebeid, Tầng 6, văn phòng 17, Thành phố Nasr, Cairo, Ai Cập.',
+						bn: 'ইউনিট নম্বর F26, বিল্ডিং নম্বর 3, মকরাম ইবেদ স্ট্রি, 6 তলা, অফিস 17, নাসর সিটি, কায়রো, মিসর।',
+						'zh-cn':
+							'单元号 F26，建筑号 3，Makram Ebeid 街，6楼，17号办公室，Nasr City，开罗，埃及。',
+						'pt-br':
+							'Unidade n.º F26, Edifício n.º 3, Rua Makram Ebeid, 6º andar, escritório 17, Cidade Nasr, Cairo, Egito.'
+					})
+				}
 			</p>
 		</div>
 		<div class="mt-3">
 			<p class="text-[12px] font-light">
-				<strong class="font-bold">Risk Warning:</strong> CFDs are complex instruments and come with a
-				high risk of losing money rapidly due to leverage. 36.67% of retail investor accounts win money
-				when trading CFDs with this provider. You should consider whether you understand how CFDs work
-				and whether you can afford to take the high risk of losing your money.
+				<strong class="font-bold">
+					{
+						t({
+							en: 'Risk Warning:',
+							ar: 'تحذير المخاطر:',
+							es: 'Advertencia de riesgo:',
+							fr: 'Avertissement de risque :',
+							hi: 'जोखिम चेतावनी:',
+							id: 'Peringatan Risiko:',
+							ms: 'Amaran Risiko:',
+							th: 'คำเตือนความเสี่ยง:',
+							vi: 'Cảnh báo rủi ro:',
+							bn: 'ঝুঁকির সতর্কতা:',
+							'zh-cn': '风险警告：',
+							'pt-br': 'Aviso de Risco:'
+						})
+					}</strong
+				>
+				{
+					t({
+						en: 'CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage. 36.67% of retail investor accounts win money when trading CFDs with this provider. You should consider whether you understand how CFDs work and whether you can afford to take the high risk of losing your money.',
+						ar: 'العقود مقابل الفروقات أدوات معقدة وتأتي مع مخاطر عالية لفقدان المال بسرعة بسبب الرفع المالي. 36.67% من حسابات المستثمرين الأفراد تربح المال عند تداول العقود مقابل الفروقات مع هذه الجهة. يجب أن تأخذ في الاعتبار ما إذا كنت تفهم كيفية عمل العقود مقابل الفروقات وما إذا كنت تستطيع تحمل المخاطر العالية لفقدان أموالك.',
+						es: 'Los CFDs son instrumentos complejos y conllevan un alto riesgo de perder dinero rápidamente debido al apalancamiento. El 36.67% de las cuentas de inversores minoristas ganan dinero al operar con CFDs con este proveedor. Debe considerar si comprende cómo funcionan los CFDs y si puede permitirse asumir el alto riesgo de perder su dinero.',
+						fr: 'Les CFD sont des instruments complexes et comportent un risque élevé de perte d’argent rapidement en raison de l’effet de levier. 36,67 % des comptes d’investisseurs de détail gagnent de l’argent en négociant des CFD avec ce fournisseur. Vous devez vous demander si vous comprenez comment fonctionnent les CFD et si vous pouvez vous permettre de prendre le risque élevé de perdre votre argent.',
+						hi: 'CFD जटिल उपकरण हैं और उच्च जोखिम के साथ आते हैं जिससे तेजी से पैसे खोने का खतरा होता है। इस प्रदाता के साथ CFD व्यापार करते समय 36.67% खुदरा निवेशक खातों को पैसा मिलता है। आपको विचार करना चाहिए कि क्या आप समझते हैं कि CFDs कैसे काम करते हैं और क्या आप पैसे खोने के उच्च जोखिम को उठाने का जोखिम उठा सकते हैं।',
+						id: 'CFD adalah instrumen kompleks dan datang dengan risiko tinggi kehilangan uang dengan cepat karena leverage. 36,67% akun investor ritel mendapatkan uang saat memperdagangkan CFD dengan penyedia ini. Anda harus mempertimbangkan apakah Anda memahami cara kerja CFD dan apakah Anda dapat mengambil risiko tinggi kehilangan uang Anda.',
+						ms: 'CFD adalah instrumen kompleks dan datang dengan risiko tinggi kehilangan wang dengan cepat disebabkan oleh leverage. 36.67% daripada akaun pelabur runcit memperoleh wang semasa berdagang CFD dengan penyedia ini. Anda harus mempertimbangkan sama ada anda memahami cara CFD berfungsi dan sama ada anda mampu mengambil risiko tinggi kehilangan wang anda.',
+						th: 'CFD เป็นเครื่องมือที่ซับซ้อนและมาพร้อมกับความเสี่ยงสูงในการสูญเสียเงินอย่างรวดเร็วเนื่องจากเลเวอเรจ 36.67% ของบัญชีนักลงทุนค้าปลีกทำเงินได้เมื่อซื้อขาย CFD กับผู้ให้บริการนี้ คุณควรพิจารณาว่าคุณเข้าใจว่าการซื้อขาย CFD ทำงานอย่างไรและคุณสามารถรับความเสี่ยงสูงในการสูญเสียเงินของคุณได้หรือไม่',
+						vi: 'CFD là những công cụ phức tạp và đi kèm với rủi ro cao về việc mất tiền nhanh chóng do đòn bẩy. 36,67% tài khoản nhà đầu tư bán lẻ kiếm được tiền khi giao dịch CFD với nhà cung cấp này. Bạn nên xem xét liệu bạn có hiểu cách thức hoạt động của CFD và liệu bạn có thể chấp nhận rủi ro cao trong việc mất tiền của mình hay không.',
+						bn: 'CFD জটিল যন্ত্র এবং লিভারেজের কারণে দ্রুত অর্থ হারানোর উচ্চ ঝুঁকি নিয়ে আসে। এই প্রদানকারীর সাথে CFD ব্যবসা করার সময় ৩৬.৬৭% খুচরা বিনিয়োগকারীর অ্যাকাউন্ট অর্থ উপার্জন করে। আপনাকে বিবেচনা করা উচিত যে আপনি জানেন কি ভাবে CFD কাজ করে এবং আপনি আপনার অর্থ হারানোর উচ্চ ঝুঁকি নিতে পারেন কিনা।',
+						'zh-cn':
+							'差价合约是一种复杂的金融工具，因杠杆作用而面临迅速亏损的高风险。与该供应商交易差价合约时，36.67%的零售投资者账户会盈利。您应考虑自己是否了解差价合约的工作原理，以及是否能够承担快速失去资金的高风险。',
+						'pt-br':
+							'Os CFDs são instrumentos complexos e apresentam um alto risco de perda rápida de dinheiro devido à alavancagem. 36,67% das contas de investidores de varejo ganham dinheiro ao negociar CFDs com este fornecedor. Você deve considerar se entende como os CFDs funcionam e se pode arcar com o alto risco de perder seu dinheiro.'
+					})
+				}
 			</p>
 		</div>
 		<p class="my-4 text-[12px] font-light">
-			Trading in financial instruments may result in losses as well as profits. Past performance
-			does not guarantee future results. trading in derivatives (e.g. options, futures, and swap
-			contracts) could result in the loss of the whole capital invested. forex, CFDs and derivatives
-			are leveraged products and involve a high level of risk. Trading in leveraged instruments can
-			result in losses greater than the initial invested capital. ensure you fully understand the
-			risks involved and seek independent advice if necessary, taking into account your investment
-			objectives and level of experience. You should not risk more than you are prepared to lose.
-			Never risk medical and other emergency funds, retirement savings, funds set aside for purposes
-			such as home ownership and funds required to meet your living expenses. Please read our <a
+			{
+				t({
+					en: 'Trading in financial instruments may result in losses as well as profits. Past performance does not guarantee future results. Trading in derivatives (e.g. options, futures, and swap contracts) could result in the loss of the whole capital invested. Forex, CFDs and derivatives are leveraged products and involve a high level of risk. Trading in leveraged instruments can result in losses greater than the initial invested capital. Ensure you fully understand the risks involved and seek independent advice if necessary, taking into account your investment objectives and level of experience. You should not risk more than you are prepared to lose. Never risk medical and other emergency funds, retirement savings, funds set aside for purposes such as home ownership and funds required to meet your living expenses. Please read our',
+					ar: 'التداول في الأدوات المالية قد يؤدي إلى خسائر فضلاً عن الأرباح. الأداء السابق لا يضمن النتائج المستقبلية. يمكن أن يؤدي التداول في المشتقات (مثل الخيارات والعقود الآجلة وعقود المقايضة) إلى فقدان كامل رأس المال المستثمر. الفوركس والعقود مقابل الفروقات والمشتقات هي منتجات ذات رافعة مالية وتنطوي على مستوى عالٍ من المخاطر. يمكن أن يؤدي التداول في الأدوات ذات الرافعة المالية إلى خسائر أكبر من رأس المال المستثمر الأولي. تأكد من أنك تفهم تمامًا المخاطر المعنية واطلب المشورة المستقلة إذا لزم الأمر، مع مراعاة أهداف استثمارك ومستوى خبرتك. لا يجب أن تخاطر بأكثر مما أنت مستعد لخسارته. لا تخاطر أبدًا بأموال الطوارئ الطبية وغيرها، ومدخرات التقاعد، والأموال المخصصة لأغراض مثل تملك المنازل، والأموال المطلوبة لتلبية نفقات المعيشة الخاصة بك. يرجى قراءة',
+					es: 'El comercio de instrumentos financieros puede resultar en pérdidas así como en ganancias. El rendimiento pasado no garantiza resultados futuros. El comercio de derivados (por ejemplo, opciones, futuros y contratos de intercambio) podría resultar en la pérdida del capital total invertido. Forex, CFDs y derivados son productos apalancados y conllevan un alto nivel de riesgo. El comercio de instrumentos apalancados puede resultar en pérdidas mayores que el capital invertido inicialmente. Asegúrese de comprender completamente los riesgos involucrados y busque asesoramiento independiente si es necesario, teniendo en cuenta sus objetivos de inversión y su nivel de experiencia. No debe arriesgar más de lo que está dispuesto a perder. Nunca arriesgue fondos médicos y de emergencia, ahorros para la jubilación, fondos reservados para fines como la adquisición de vivienda y fondos necesarios para cubrir sus gastos de subsistencia. Por favor, lea nuestro',
+					fr: 'Le trading d’instruments financiers peut entraîner des pertes ainsi que des bénéfices. Les performances passées ne garantissent pas les résultats futurs. Le trading de dérivés (par exemple, options, contrats à terme et contrats swap) pourrait entraîner la perte de l’intégralité du capital investi. Le forex, les CFD et les dérivés sont des produits à effet de levier et comportent un niveau de risque élevé. Le trading d’instruments à effet de levier peut entraîner des pertes supérieures au capital investi initialement. Assurez-vous de bien comprendre les risques encourus et demandez un conseil indépendant si nécessaire, en tenant compte de vos objectifs d’investissement et de votre niveau d’expérience. Vous ne devez pas risquer plus que ce que vous êtes prêt à perdre. Ne risquez jamais des fonds médicaux et autres fonds d’urgence, des économies de retraite, des fonds réservés à des fins telles que la propriété d’une maison et des fonds nécessaires pour couvrir vos frais de subsistance. Veuillez lire notre',
+					hi: 'वित्तीय उपकरणों में ट्रेडिंग से लाभ के साथ-साथ नुकसान भी हो सकते हैं। अतीत का प्रदर्शन भविष्य के परिणामों की गारंटी नहीं देता है। व्युत्पन्नों (जैसे विकल्प, वायदा और स्वैप अनुबंध) में ट्रेडिंग से पूरे निवेशित पूंजी का नुकसान हो सकता है। फॉरेक्स, CFD और व्युत्पन्न लीवरेज्ड उत्पाद हैं और उच्च स्तर के जोखिम को शामिल करते हैं। लीवरेज वाले उपकरणों में ट्रेडिंग से प्रारंभिक निवेशित पूंजी से अधिक नुकसान हो सकता है। सुनिश्चित करें कि आप शामिल जोखिमों को पूरी तरह से समझते हैं और यदि आवश्यक हो तो स्वतंत्र सलाह लें, अपने निवेश लक्ष्यों और अनुभव के स्तर को ध्यान में रखते हुए। आपको उससे अधिक जोखिम नहीं उठाना चाहिए जितना आप खोने के लिए तैयार हैं। कभी भी चिकित्सा और अन्य आपातकालीन फंड, रिटायरमेंट बचत, घर के स्वामित्व जैसे उद्देश्यों के लिए अलग रखी गई निधियों और अपने जीवन यापन के खर्चों को पूरा करने के लिए आवश्यक निधियों को जोखिम में न डालें। कृपया हमारे',
+					id: 'Perdagangan instrumen keuangan dapat mengakibatkan kerugian serta keuntungan. Kinerja masa lalu tidak menjamin hasil di masa depan. Perdagangan derivatif (misalnya, opsi, berjangka, dan kontrak swap) dapat mengakibatkan kehilangan seluruh modal yang diinvestasikan. Forex, CFD, dan derivatif adalah produk yang diperdagangkan dengan leverage dan melibatkan tingkat risiko yang tinggi. Perdagangan dalam instrumen yang diperdagangkan dengan leverage dapat mengakibatkan kerugian yang lebih besar daripada modal yang diinvestasikan secara awal. Pastikan Anda sepenuhnya memahami risiko yang terlibat dan mencari nasihat independen jika perlu, dengan mempertimbangkan tujuan investasi dan tingkat pengalaman Anda. Anda tidak boleh mengambil risiko lebih dari yang Anda siapkan untuk kehilangan. Jangan pernah mengambil risiko dengan dana darurat medis dan lainnya, tabungan pensiun, dana yang disisihkan untuk tujuan seperti kepemilikan rumah, dan dana yang diperlukan untuk memenuhi biaya hidup Anda. Harap baca',
+					ms: 'Perdagangan dalam instrumen kewangan boleh mengakibatkan kerugian serta keuntungan. Prestasi lalu tidak menjamin hasil masa depan. Perdagangan dalam derivatif (contohnya, opsyen, niaga hadapan, dan kontrak swap) boleh mengakibatkan kehilangan keseluruhan modal yang dilaburkan. Forex, CFD dan derivatif adalah produk yang mempunyai leverage dan melibatkan tahap risiko yang tinggi. Perdagangan dalam instrumen yang mempunyai leverage boleh mengakibatkan kerugian yang lebih besar daripada modal yang dilaburkan pada awalnya. Pastikan anda memahami sepenuhnya risiko yang terlibat dan mendapatkan nasihat bebas jika perlu, dengan mengambil kira objektif pelaburan dan tahap pengalaman anda. Anda tidak seharusnya mengambil risiko lebih daripada yang anda bersedia untuk kehilangan. Jangan sekali-kali mengambil risiko dengan dana kecemasan perubatan dan lain-lain, simpanan persaraan, dana yang disisihkan untuk tujuan seperti pemilikan rumah dan dana yang diperlukan untuk memenuhi perbelanjaan hidup anda. Sila baca',
+					th: 'การซื้อขายในเครื่องมือทางการเงินอาจส่งผลให้เกิดการขาดทุนเช่นเดียวกับผลกำไร ผลการดำเนินงานในอดีตไม่รับประกันผลลัพธ์ในอนาคต การซื้อขายในอนุพันธ์ (เช่น ตัวเลือก สัญญาซื้อขายล่วงหน้า และสัญญาสลับ) อาจส่งผลให้สูญเสียเงินลงทุนทั้งหมด ฟอเร็กซ์ CFD และอนุพันธ์เป็นผลิตภัณฑ์ที่มีเลเวอเรจและมีความเสี่ยงสูง การซื้อขายในเครื่องมือที่มีเลเวอเรจอาจส่งผลให้ขาดทุนมากกว่าทุนที่ลงทุนในเบื้องต้น ให้แน่ใจว่าคุณเข้าใจความเสี่ยงที่เกี่ยวข้องทั้งหมดและขอคำแนะนำอิสระหากจำเป็น โดยคำนึงถึงวัตถุประสงค์การลงทุนและระดับประสบการณ์ของคุณ คุณไม่ควรเสี่ยงมากกว่าที่คุณเตรียมที่จะสูญเสีย อย่ารับความเสี่ยงในเงินฉุกเฉินด้านการแพทย์และอื่นๆ เงินออมเพื่อการเกษียณ เงินที่เก็บไว้สำหรับวัตถุประสงค์ เช่น การเป็นเจ้าของบ้าน และเงินที่จำเป็นในการใช้จ่ายในชีวิตประจำวัน โปรดอ่าน',
+					vi: 'Giao dịch trong các công cụ tài chính có thể dẫn đến thua lỗ cũng như lợi nhuận. Hiệu suất trong quá khứ không đảm bảo kết quả trong tương lai. Giao dịch trong các công cụ phái sinh (ví dụ: quyền chọn, hợp đồng tương lai và hợp đồng hoán đổi) có thể dẫn đến việc mất toàn bộ vốn đầu tư. Forex, CFD và các công cụ phái sinh là các sản phẩm có đòn bẩy và liên quan đến mức độ rủi ro cao. Giao dịch trong các công cụ có đòn bẩy có thể dẫn đến thua lỗ lớn hơn số vốn đầu tư ban đầu. Bạn nên đảm bảo rằng bạn hiểu đầy đủ các rủi ro liên quan và tìm kiếm lời khuyên độc lập nếu cần, với việc xem xét mục tiêu đầu tư và mức độ kinh nghiệm của bạn. Bạn không nên mạo hiểm nhiều hơn mức bạn chuẩn bị để mất. Không bao giờ mạo hiểm với quỹ y tế và quỹ khẩn cấp khác, tiền tiết kiệm hưu trí, quỹ được dành riêng cho các mục đích như sở hữu nhà và quỹ cần thiết để đáp ứng chi phí sinh hoạt của bạn. Vui lòng đọc',
+					bn: 'আর্থিক যন্ত্রে ব্যবসা লাভ এবং ক্ষতি উভয়ই হতে পারে। পূর্বের পারফরম্যান্স ভবিষ্যতের ফলাফল নিশ্চিত করে না। ডেরিভেটিভে (যেমন অপশন, ফিউচার এবং সোয়াপ চুক্তি) ব্যবসা করা পুরোপুরি বিনিয়োগ করা মূলধনের ক্ষতির কারণ হতে পারে। ফরেক্স, CFD এবং ডেরিভেটিভগুলি লিভারেজযুক্ত পণ্য এবং উচ্চ স্তরের ঝুঁকির সাথে জড়িত। লিভারেজযুক্ত যন্ত্রে ট্রেডিং শুরুতে বিনিয়োগের মূলধনের চেয়ে বড় ক্ষতির কারণ হতে পারে। নিশ্চিত করুন যে আপনি জড়িত ঝুঁকিগুলি সম্পূর্ণরূপে বুঝতে পারছেন এবং প্রয়োজন হলে স্বাধীন পরামর্শ নিন, আপনার বিনিয়োগের উদ্দেশ্য এবং অভিজ্ঞতার স্তরের কথা মনে রেখে। আপনি যা হারাতে প্রস্তুত তা থেকে বেশি ঝুঁকি নেওয়া উচিত নয়। কখনওই চিকিৎসা এবং অন্যান্য জরুরি তহবিল, অবসর সঞ্চয়, বাড়ির মালিকানা এবং আপনার জীবনযাত্রার খরচ পূরণ করতে প্রয়োজনীয় তহবিলের জন্য আলাদা করা তহবিলের ঝুঁকি নেবেন না। অনুগ্রহ করে আমাদের পড়ুন',
+					'zh-cn':
+						'在金融工具上交易可能导致损失，也可能带来利润。过去的表现并不保证未来的结果。交易衍生品（例如期权、期货和掉期合约）可能会导致投资的全部资本损失。外汇、差价合约和衍生品是杠杆产品，涉及较高的风险。交易杠杆工具可能导致损失超过最初投资的资本。确保您完全了解所涉及的风险，并在必要时寻求独立建议，同时考虑到您的投资目标和经验水平。您不应承担超出您准备承受的损失风险。切勿冒险使用医疗和其他紧急资金、退休储蓄、为购房等目的预留的资金以及满足生活开支所需的资金。请阅读我们的',
+					'pt-br':
+						'A negociação de instrumentos financeiros pode resultar em perdas, bem como lucros. O desempenho passado não garante resultados futuros. A negociação de derivativos (por exemplo, opções, futuros e contratos de swap) pode resultar na perda de todo o capital investido. Forex, CFDs e derivativos são produtos alavancados e envolvem um alto nível de risco. A negociação em instrumentos alavancados pode resultar em perdas superiores ao capital investido inicialmente. Certifique-se de que você compreende totalmente os riscos envolvidos e busque aconselhamento independente, se necessário, levando em consideração seus objetivos de investimento e seu nível de experiência. Você não deve arriscar mais do que está disposto a perder. Nunca arrisque fundos médicos e outros de emergência, economias para aposentadoria, fundos reservados para fins como a compra de imóveis e fundos necessários para cobrir suas despesas de vida. Por favor, leia nosso'
+				})
+			}
+			<a
 				href="/terms-conditions/"
-				class="text-dbgreen-900">Client Agreement</a
-			> and
-			<a href="/risk-disclosure-statement/" class="text-dbgreen-900">Risk Warning</a>
-			carefully before conducting any trades.
+				class="text-dbgreen-900"
+				>{
+					t({
+						en: 'Client Agreement',
+						ar: 'اتفاقية العميل',
+						es: 'Acuerdo del cliente',
+						fr: 'Contrat client',
+						hi: 'क्लाइंट एग्रीमेंट',
+						id: 'Perjanjian Klien',
+						ms: 'Perjanjian Klien',
+						th: 'ข้อตกลงลูกค้า',
+						vi: 'Thỏa thuận khách hàng',
+						bn: 'ক্লায়েন্ট চুক্তি',
+						'zh-cn': '客户协议',
+						'pt-br': 'Acordo do Cliente'
+					})
+				}</a
+			>
+			{
+				t({
+					en: 'and',
+					ar: 'و',
+					es: 'y',
+					fr: 'et',
+					hi: 'और',
+					id: 'dan',
+					ms: 'dan',
+					th: 'และ',
+					vi: 'và',
+					bn: 'এবং',
+					'zh-cn': '和',
+					'pt-br': 'e'
+				})
+			}
+			<a
+				href="/risk-disclosure-statement/"
+				class="text-dbgreen-900"
+			>
+				{
+					t({
+						en: 'Risk Warning',
+						ar: 'تحذير المخاطر',
+						es: 'Advertencia de riesgo',
+						fr: 'Avertissement sur les risques',
+						hi: 'जोखिम चेतावनी',
+						id: 'Peringatan Risiko',
+						ms: 'Amaran Risiko',
+						th: 'คำเตือนความเสี่ยง',
+						vi: 'Cảnh báo rủi ro',
+						bn: 'ঝুঁকির সতর্কতা',
+						'zh-cn': '风险警告',
+						'pt-br': 'Aviso de Risco'
+					})
+				}
+			</a>
+			{
+				t({
+					en: 'carefully before conducting any trades.',
+					ar: 'بعناية قبل إجراء أي عمليات تداول.',
+					es: 'cuidadosamente antes de realizar cualquier operación.',
+					fr: 'avec attention avant d’effectuer des transactions.',
+					hi: 'ध्यान से किसी भी व्यापार को करने से पहले।',
+					id: 'dengan cermat sebelum melakukan perdagangan apa pun.',
+					ms: 'dengan teliti sebelum melakukan sebarang perdagangan.',
+					th: 'อย่างระมัดระวังก่อนดำเนินการซื้อขายใด ๆ',
+					vi: 'cẩn thận trước khi thực hiện bất kỳ giao dịch nào.',
+					bn: 'যেকোনো ব্যবসা করার আগে সাবধানে।',
+					'zh-cn': '在进行任何交易之前，请仔细。',
+					'pt-br': 'cuidadosamente antes de realizar qualquer operação.'
+				})
+			}
 		</p>
 		<div class="mt-3">
 			<p class="text-[12px] font-light">
-				<strong class="font-bold">Restricted Jurisdictions: </strong> We do not establish accounts to
-				residents of certain jurisdictions including the European Union, United States or any particular
-				country or jurisdiction where such distribution or use would be contrary to local law or regulation.
-				For further details please see <a href="/terms-conditions/" class="text-dbgreen-900">
-					Terms & Conditions
+				<strong class="font-bold">
+					{
+						t({
+							en: 'Restricted Jurisdictions:',
+							ar: 'الولايات القضائية المحظورة:',
+							es: 'Jurisdicciones Restringidas:',
+							fr: 'Jurisdictions Restreintes :',
+							hi: 'प्रतिबंधित क्षेत्राधिकार:',
+							id: 'Yurisdiksi Terbatas:',
+							ms: 'Yurisdiksi Terhad:',
+							th: 'เขตอำนาจที่ถูกจำกัด:',
+							vi: 'Khu vực pháp lý bị hạn chế:',
+							bn: 'সীমাবদ্ধ অধিকারক্ষেত্র:',
+							'zh-cn': '受限制的司法管辖区：',
+							'pt-br': 'Jurisdções Restritas:'
+						})
+					}
+				</strong>
+				{
+					t({
+						en: 'We do not establish accounts to residents of certain jurisdictions including the European Union, United States or any particular country or jurisdiction where such distribution or use would be contrary to local law or regulation. For further details please see',
+						ar: 'نحن لا نقوم بإنشاء حسابات للمقيمين في بعض الولايات القضائية بما في ذلك الاتحاد الأوروبي، الولايات المتحدة أو أي دولة أو ولاية قضائية معينة حيث سيكون توزيع أو استخدام مثل هذا الأمر مخالفًا للقانون أو اللوائح المحلية. لمزيد من التفاصيل، يرجى الاطلاع على',
+						es: 'No establecemos cuentas para residentes de ciertas jurisdicciones, incluyendo la Unión Europea, Estados Unidos o cualquier país o jurisdicción en particular donde dicha distribución o uso sea contrario a la ley o regulación local. Para más detalles, consulte',
+						fr: 'Nous ne créons pas de comptes pour les résidents de certaines juridictions, y compris l’Union européenne, les États-Unis ou tout pays ou juridiction où une telle distribution ou utilisation serait contraire à la loi ou à la réglementation locale. Pour plus de détails, veuillez consulter',
+						hi: 'हम कुछ अधिकार क्षेत्रों के निवासियों के लिए खाते स्थापित नहीं करते हैं, जिनमें यूरोपीय संघ, संयुक्त राज्य अमेरिका या कोई विशेष देश या अधिकार क्षेत्र शामिल है जहाँ इस प्रकार का वितरण या उपयोग स्थानीय कानून या विनियम के खिलाफ होगा। अधिक जानकारी के लिए कृपया देखें',
+						id: 'Kami tidak membuka akun untuk penduduk di yurisdiksi tertentu termasuk Uni Eropa, Amerika Serikat, atau negara atau yurisdiksi tertentu di mana distribusi atau penggunaan tersebut bertentangan dengan hukum atau peraturan setempat. Untuk informasi lebih lanjut, silakan lihat',
+						ms: 'Kami tidak membuka akaun untuk penduduk di yurisdiksi tertentu termasuk Kesatuan Eropah, Amerika Syarikat atau mana-mana negara atau yurisdiksi tertentu di mana pengedaran atau penggunaan tersebut bertentangan dengan undang-undang atau peraturan tempatan. Untuk maklumat lanjut, sila lihat',
+						th: 'เราไม่เปิดบัญชีสำหรับผู้ที่อาศัยอยู่ในบางเขตอำนาจศาล รวมถึงสหภาพยุโรป สหรัฐอเมริกา หรือประเทศหรือเขตอำนาจศาลใด ๆ ที่การกระจายหรือการใช้งานดังกล่าวจะขัดต่อกฎหมายหรือข้อบังคับในท้องถิ่น สำหรับรายละเอียดเพิ่มเติมโปรดดูที่',
+						vi: 'Chúng tôi không mở tài khoản cho cư dân của một số khu vực pháp lý bao gồm Liên minh Châu Âu, Hoa Kỳ hoặc bất kỳ quốc gia hoặc khu vực pháp lý nào mà việc phân phối hoặc sử dụng như vậy sẽ trái với pháp luật hoặc quy định địa phương. Để biết thêm chi tiết, vui lòng xem',
+						bn: 'আমরা কিছু ক্ষেত্রের অধিকারী যারা ইউরোপীয় ইউনিয়ন, যুক্তরাষ্ট্র বা কোন বিশেষ দেশ বা ক্ষেত্রের অধিকারী যেখানে এই ধরনের বিতরণ বা ব্যবহার স্থানীয় আইন বা প্রবিধানের বিরুদ্ধে হবে তাদের জন্য অ্যাকাউন্ট প্রতিষ্ঠা করি না। আরও বিস্তারিত জানার জন্য দয়া করে দেখুন',
+						'zh-cn':
+							'我们不为某些地区的居民建立账户，包括欧盟、美国或任何特定国家或地区，在这些地方，此类分发或使用将违反当地法律或法规。有关更多详细信息，请参阅',
+						'pt-br':
+							'Não estabelecemos contas para residentes de certas jurisdições, incluindo a União Europeia, Estados Unidos ou qualquer país ou jurisdição em particular onde tal distribuição ou uso seria contrário à lei ou regulamentação local. Para mais detalhes, consulte'
+					})
+				}
+				<a
+					href="/terms-conditions/"
+					class="text-dbgreen-900"
+				>
+					{
+						t({
+							en: 'Terms & Conditions',
+							ar: 'الشروط والأحكام',
+							es: 'Términos y Condiciones',
+							fr: 'Termes et Conditions',
+							hi: 'शर्तें और नियम',
+							id: 'Syarat & Ketentuan',
+							ms: 'Terma & Syarat',
+							th: 'ข้อกำหนดและเงื่อนไข',
+							vi: 'Điều khoản & Điều kiện',
+							bn: 'শর্তাবলী',
+							'zh-cn': '条款与条件',
+							'pt-br': 'Termos e Condições'
+						})
+					}
 				</a>
 			</p>
 		</div>
 		<p class="my-4 text-[12px] font-light">
-			This site is operated and owned by DB Invest Limited, Abis Centre, Office 15, Avenue D’Arhoa,
-			Providence Industrial Estate. Mahe, Seychelles. The company Enigma081 Limited, is Appointed as
-			an Independent Representative and Distributor.
+			{
+				t({
+					en: 'This site is operated and owned by DB Invest Limited, Abis Centre, Office 15, Avenue D’Arhoa, Providence Industrial Estate. Mahe, Seychelles. The company Enigma081 Limited is appointed as an Independent Representative and Distributor.',
+					ar: 'تُدار هذه الموقع وتملكه شركة DB Invest Limited، مركز أبس، المكتب 15، شارع داروا، المنطقة الصناعية بروفيدنس. ماهي، سيشيل. تم تعيين شركة Enigma081 Limited كممثل ومستشار مستقل.',
+					es: 'Este sitio es operado y propiedad de DB Invest Limited, Abis Centre, Oficina 15, Avenida D’Arhoa, Providence Industrial Estate. Mahe, Seychelles. La empresa Enigma081 Limited está nombrada como Representante y Distribuidor Independiente.',
+					fr: 'Ce site est géré et détenu par DB Invest Limited, Abis Centre, Bureau 15, Avenue D’Arhoa, Providence Industrial Estate. Mahé, Seychelles. La société Enigma081 Limited est désignée comme Représentant Indépendant et Distributeur.',
+					hi: 'यह साइट DB Invest Limited, अबिस सेंटर, कार्यालय 15, एवेन्यू डी’आरोआ, प्रॉविडेंस इंडस्ट्रियल एस्टेट, महे, सेशेल्स द्वारा संचालित और स्वामित्व में है। कंपनी Enigma081 Limited को एक स्वतंत्र प्रतिनिधि और वितरक के रूप में नियुक्त किया गया है।',
+					id: 'Situs ini dioperasikan dan dimiliki oleh DB Invest Limited, Abis Centre, Kantor 15, Avenue D’Arhoa, Providence Industrial Estate. Mahe, Seychelles. Perusahaan Enigma081 Limited ditunjuk sebagai Perwakilan dan Distributor Independen.',
+					ms: 'Laman ini dioperasikan dan dimiliki oleh DB Invest Limited, Abis Centre, Pejabat 15, Avenue D’Arhoa, Providence Industrial Estate. Mahe, Seychelles. Syarikat Enigma081 Limited dilantik sebagai Wakil dan Pengedar Bebas.',
+					th: 'เว็บไซต์นี้ดำเนินการและเป็นเจ้าของโดย DB Invest Limited, Abis Centre, สำนักงาน 15, Avenue D’Arhoa, Providence Industrial Estate. มาเฮ, เซเชลส์. บริษัท Enigma081 Limited ได้รับการแต่งตั้งเป็นตัวแทนและผู้จัดจำหน่ายอิสระ.',
+					vi: 'Trang web này được điều hành và sở hữu bởi DB Invest Limited, Abis Centre, Văn phòng 15, Đường D’Arhoa, Khu công nghiệp Providence. Mahe, Seychelles. Công ty Enigma081 Limited được chỉ định làm Đại diện và Nhà phân phối Độc lập.',
+					bn: 'এই সাইটটি DB Invest Limited, আবিস সেন্টার, অফিস 15, অ্যাভিনিউ ডি’আরহোয়া, প্রভিডেন্স ইন্ডাস্ট্রিয়াল এস্টেট, মাহে, সেশেলস দ্বারা পরিচালিত এবং মালিকানাধীন। কোম্পানি Enigma081 Limited কে একটি স্বাধীন প্রতিনিধি এবং বিতরণকারী হিসেবে নিয়োগ দেওয়া হয়েছে।',
+					'zh-cn':
+						'本网站由 DB Invest Limited 运营和拥有，地址为 Abis Centre, Office 15, Avenue D’Arhoa, Providence Industrial Estate. Mahe, Seychelles。公司 Enigma081 Limited 被任命为独立代表和分销商。',
+					'pt-br':
+						'Este site é operado e de propriedade da DB Invest Limited, Abis Centre, Escritório 15, Avenida D’Arhoa, Providence Industrial Estate. Mahe, Seychelles. A empresa Enigma081 Limited é nomeada como Representante e Distribuidor Independente.'
+				})
+			}
 		</p>
 		<div class="mt-5 border-t border-gray-200 pt-5 dark:border-neutral-700">
 			<div class="sm:flex sm:items-center sm:justify-between">
@@ -371,16 +1264,65 @@ const companyAward = [
 					<div class="space-x-4 text-sm">
 						<a
 							class="inline-flex gap-x-2 text-gray-600 hover:text-gray-800 focus:text-gray-800 focus:outline-none dark:text-neutral-400 dark:hover:text-neutral-200 dark:focus:text-neutral-200"
-							href="#">Terms</a
+							href="#"
+						>
+							{
+								t({
+									en: 'Terms',
+									ar: 'الشروط',
+									es: 'Términos',
+									fr: 'Conditions',
+									hi: 'शर्तें',
+									id: 'Syarat',
+									ms: 'Terma',
+									th: 'ข้อกำหนด',
+									vi: 'Điều khoản',
+									bn: 'শর্তাবলী',
+									'zh-cn': '条款',
+									'pt-br': 'Termos'
+								})
+							}</a
 						>
 						<a
 							class="inline-flex gap-x-2 text-gray-600 hover:text-gray-800 focus:text-gray-800 focus:outline-none dark:text-neutral-400 dark:hover:text-neutral-200 dark:focus:text-neutral-200"
-							href="#">Privacy</a
-						>
+							href="#"
+							>{
+								t({
+									en: 'Privacy',
+									ar: 'الخصوصية',
+									es: 'Privacidad',
+									fr: 'Confidentialité',
+									hi: 'गोपनीयता',
+									id: 'Privasi',
+									ms: 'Privasi',
+									th: 'ความเป็นส่วนตัว',
+									vi: 'Quyền riêng tư',
+									bn: 'গোপনীয়তা',
+									'zh-cn': '隐私',
+									'pt-br': 'Privacidade'
+								})
+							}
+						</a>
 						<a
 							class="inline-flex gap-x-2 text-gray-600 hover:text-gray-800 focus:text-gray-800 focus:outline-none dark:text-neutral-400 dark:hover:text-neutral-200 dark:focus:text-neutral-200"
-							href="#">Status</a
-						>
+							href="#"
+							>{
+								t({
+									en: 'Status',
+									ar: 'الحالة',
+									es: 'Estado',
+									fr: 'Statut',
+									hi: 'स्थिति',
+									id: 'Status',
+									ms: 'Status',
+									th: 'สถานะ',
+									vi: 'Trạng thái',
+									bn: 'অবস্থা',
+									'zh-cn': '状态',
+									'pt-br': 'Status'
+								})
+							}
+						</a>
 					</div>
 				</div>
 				<!-- End Col -->

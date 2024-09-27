@@ -1,0 +1,157 @@
+---
+import SocialShareButton from '@/components/ui/SocialShareButton.astro'
+import { formatDate } from '@/lib/utils'
+import { Image } from 'astro:assets'
+const { lang } = Astro.params
+const { post } = Astro.props
+const tagsList = post?.tags?.edges || []
+const categoriesList = post?.categories?.edges || []
+---
+
+<!-- Content -->
+<div class="lg:col-span-2">
+	<div class="py-8 lg:pe-8">
+		<div class="space-y-5 lg:space-y-8">
+			<a
+				class="inline-flex items-center gap-x-1.5 text-sm text-gray-600 decoration-2 hover:underline focus:underline focus:outline-none dark:text-dbgreen-900"
+				href={`/${lang}/blog`}
+				data-aos="fade-up-sm"
+			>
+				<svg
+					class="size-4 shrink-0"
+					xmlns="http://www.w3.org/2000/svg"
+					width="24"
+					height="24"
+					viewBox="0 0 24 24"
+					fill="none"
+					stroke="currentColor"
+					stroke-width="2"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					><path d="m15 18-6-6 6-6"></path></svg
+				>
+				Back to Blog
+			</a>
+
+			<Image
+				src={post?.featuredImage?.node?.sourceUrl}
+				alt={post.title}
+				height={480}
+				width={780}
+				class="h-full w-full rounded-lg object-cover shadow-md"
+				data-aos="fade-up-sm"
+			/>
+
+			<h2
+				class="text-3xl font-bold dark:text-white lg:text-5xl"
+				data-aos="fade-up-sm"
+				data-aos-delay="50"
+			>
+				{post.title}
+			</h2>
+			<div class="flex items-center justify-between gap-x-5">
+				<div class="flex w-full max-w-[60%] flex-wrap gap-2">
+					{
+						categoriesList.map((cat: any, index: number) => {
+							return (
+								<a
+									class="inline-flex items-center gap-x-1.5 rounded-lg bg-dbgreen-50 px-3 py-1.5 text-xs font-medium text-dbgreen-900 dark:bg-neutral-50/10 dark:text-dbgreen-800"
+									href={`/${post?.languageCode}/category/${cat?.node?.slug}`}
+									data-aos-delay={`${index + 1}00`}
+									data-aos="fade-up-sm"
+								>
+									{cat.node.name}
+								</a>
+							)
+						})
+					}
+				</div>
+				<p
+					data-aos="fade-up-sm"
+					data-aos-delay={100}
+					class="flex items-center gap-2 text-xs text-gray-800 dark:text-neutral-200 sm:text-sm"
+				>
+					<span
+						><iconify-icon
+							icon="formkit:datetime"
+							width="15"
+							height="15"
+							class="text-black dark:text-white"
+						></iconify-icon></span
+					>
+					{formatDate(post.date)}
+				</p>
+			</div>
+			<div>
+				<div
+					class="post-content"
+					set:html={post.content}
+				/>
+			</div>
+
+			<div
+				class="flex flex-col gap-y-5 lg:flex-row lg:items-center lg:justify-between lg:gap-y-0"
+			>
+				<!-- Badges/Tags -->
+				<div>
+					{
+						tagsList.map((tag: any) => {
+							return (
+								<a
+									class="m-0.5 inline-flex items-center gap-1.5 rounded-full bg-gray-100 px-3 py-2 text-sm text-gray-800 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none dark:bg-neutral-800 dark:text-neutral-200 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700"
+									href={`/${post?.languageCode}/tag/${tag?.node?.slug}`}
+								>
+									{tag.node.name}
+								</a>
+							)
+						})
+					}
+				</div>
+				<!-- End Badges/Tags -->
+
+				<div class="flex items-center justify-end gap-x-1.5">
+					<!-- Button -->
+					<div class="hs-tooltip inline-block">
+						<button
+							type="button"
+							class="hs-tooltip-toggle flex items-center gap-x-2 text-sm text-gray-500 hover:text-gray-800 focus:text-gray-800 focus:outline-none dark:text-neutral-400 dark:hover:text-neutral-200 dark:focus:text-neutral-200"
+						>
+							<svg
+								class="size-4 shrink-0"
+								xmlns="http://www.w3.org/2000/svg"
+								width="24"
+								height="24"
+								viewBox="0 0 24 24"
+								fill="none"
+								stroke="currentColor"
+								stroke-width="2"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								><path
+									d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"
+								></path></svg
+							>
+							875
+							<span
+								class="hs-tooltip-content invisible absolute z-10 inline-block rounded bg-gray-900 px-2 py-1 text-xs font-medium text-white opacity-0 shadow-sm transition-opacity hs-tooltip-shown:visible hs-tooltip-shown:opacity-100 dark:bg-black"
+								role="tooltip"
+							>
+								Like
+							</span>
+						</button>
+					</div>
+					<!-- Button -->
+
+					<div class="mx-3 block h-3 border-e border-gray-300 dark:border-neutral-600">
+					</div>
+
+					<!-- Button -->
+					<SocialShareButton pageTitle={post.title} />
+
+					<!-- Button -->
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- End Content -->

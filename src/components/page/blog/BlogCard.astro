@@ -1,10 +1,9 @@
 ---
 import { Image } from 'astro:assets'
 
-const { post } = Astro.props
+const { post, key } = Astro.props
 import { LOCALES, useTranslations, type Lang } from '@/i18n'
 const locale = Astro.currentLocale as Lang
-console.log('blog data ', post)
 ---
 
 <!-- Card -->
@@ -29,7 +28,10 @@ console.log('blog data ', post)
 			>
 				{post.title}
 			</h3>
-			<p class="mt-5 text-gray-600 dark:text-neutral-400" set:html={post.excerpt} />
+			<p
+				class="mt-5 text-gray-600 dark:text-neutral-400"
+				set:html={post.excerpt}
+			/>
 		</div>
 		<div class="mt-auto flex items-center gap-x-3">
 			<img

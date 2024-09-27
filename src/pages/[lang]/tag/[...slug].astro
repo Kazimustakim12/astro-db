@@ -1,0 +1,35 @@
+---
+import BlogLayoutSideBar from '@/components/page/blog/BlogLayoutSideBar.astro'
+import BlogList from '@/components/page/blog/BlogList'
+
+export const prerender = false
+const lang = Astro.params.lang || 'en'
+const tagName = Astro.params.slug || ''
+---
+
+<BlogLayoutSideBar>
+	<div
+		class="lg:col-span-2"
+		slot="articleContent"
+	>
+		<div class="py-8 lg:pe-8">
+			<div class="space-y-5 lg:space-y-8">
+				<div class="mx-auto mb-10 max-w-2xl text-center lg:mb-14">
+					<h2 class="text-2xl font-bold dark:text-white md:text-4xl md:leading-tight">
+						Tag: {tagName}
+					</h2>
+					<p class="mt-1 text-gray-600 dark:text-neutral-400">
+						Finance and economics explained simply
+					</p>
+				</div>
+				<div>
+					<BlogList
+						client:load
+						lang={lang}
+						tagName={tagName}
+					/>
+				</div>
+			</div>
+		</div>
+	</div>
+</BlogLayoutSideBar>

@@ -1,0 +1,14 @@
+---
+export const prerender = true
+import { LOCALES } from '@/i18n'
+import Layout from '@/layouts/Layout.astro'
+
+export const getStaticPaths = () =>
+	Object.keys(LOCALES).map((lang) => ({
+		params: { lang }
+	}))
+---
+
+<Layout title="DB Investing - Dream Big Investing">
+	<h1>About page</h1>
+</Layout>

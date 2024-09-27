@@ -2,22 +2,47 @@
 import { Icon } from 'astro-icon/components'
 import { Image } from 'astro:assets'
 import MetaTradeImage from '../../../images/mt5_bg_img.png'
+import { useTranslations, type Lang } from '@/i18n'
+const t = useTranslations(Astro.currentLocale as Lang)
 ---
 
 <section class="pb-9 pt-12 md:py-14">
 	<div class="container">
 		<div class="relative">
 			<div class="mb-7">
-				<h1 class="text-5xl font-bold text-dbgreen-900 sm:text-6xl">
-					<span class="text-neutral-800 dark:text-white">MT5 & Sirix</span> WebTrader
+				<h1
+					class="text-5xl font-bold text-dbgreen-900 sm:text-6xl"
+					data-aos="fade-up-sm"
+				>
+					<span class="text-neutral-800 dark:text-white">MT5</span>
+					{
+						t({
+							en: 'WebTrader',
+							ar: 'ويب تريدر',
+							es: 'WebTrader',
+							fr: 'WebTrader',
+							hi: 'वेबट्रेडर',
+							id: 'WebTrader',
+							ms: 'WebTrader',
+							th: 'เว็บเทรดเดอร์',
+							vi: 'WebTrader',
+							bn: 'ওয়েবট্রেডার',
+							'zh-cn': '网络交易平台',
+							'pt-br': 'WebTrader'
+						})
+					}
 				</h1>
 			</div>
 			<div class="relative z-10 grid grid-cols-6 gap-3">
 				<div
+					data-aos="fade-up-sm"
+					data-aos-delay="100"
 					class="bg-background relative col-span-full overflow-hidden rounded-2xl border-2 p-4 transition hover:border-dbgreen-900 dark:border-neutral-600 dark:hover:border-dbgreen-900 sm:p-8 md:p-5 lg:col-span-3"
 				>
 					<div class="h-full">
-						<div class="relative z-10 flex h-full flex-col justify-between space-y-8 lg:space-y-6">
+						<div
+							class="relative z-10 flex h-full flex-col justify-between space-y-8 lg:space-y-6"
+						>
 							<div
 								class="relative flex aspect-square size-12 items-center justify-center rounded-full border before:absolute before:-inset-2 before:rounded-full before:border dark:border-white/10 dark:bg-white/5 dark:before:border-white/5 dark:before:bg-white/5"
 							>
@@ -26,61 +51,173 @@ import MetaTradeImage from '../../../images/mt5_bg_img.png'
 									icon="hugeicons:market-analysis"
 									width="30"
 									height="30"
-									class="text-dbgreen-900"></iconify-icon>
-							</div>
-							<div class="space-y-2">
-								<h2 class="text-xl font-bold text-neutral-800 dark:text-white">
-									Daily Market Analysis & Researches
-								</h2>
-								<p class="text-base text-neutral-700 dark:text-neutral-300">
-									Insightful analysis on systemic themes underlying the markets and traders
-									perspective on these developments
-								</p>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div
-					class="bg-background relative col-span-full overflow-hidden rounded-2xl border-2 p-4 hover:border-dbgreen-900 dark:border-neutral-600 dark:hover:border-dbgreen-900 sm:p-8 md:p-5 lg:col-span-3"
-				>
-					<div class="h-full">
-						<div class="relative z-10 flex h-full flex-col justify-between space-y-8 lg:space-y-6">
-							<div
-								class="relative flex aspect-square size-12 items-center justify-center rounded-full border before:absolute before:-inset-2 before:rounded-full before:border dark:border-white/10 dark:bg-white/5 dark:before:border-white/5 dark:before:bg-white/5"
-							>
-								<!-- <Icon name="market_icon" class="" href="#" /> -->
-								<iconify-icon icon="cil:education" width="30" height="30" class="text-dbgreen-900"
+									class="text-dbgreen-900"
 								></iconify-icon>
 							</div>
 							<div class="space-y-2">
 								<h2 class="text-xl font-bold text-neutral-800 dark:text-white">
-									Education, Ebooks & Webinars
+									{
+										t({
+											en: 'Daily Market Analysis & Researches',
+											ar: 'تحليل وأبحاث السوق اليومية',
+											es: 'Análisis y estudios del mercado diario',
+											fr: 'Analyse et recherches quotidiennes du marché',
+											hi: 'दैनिक बाजार विश्लेषण और अनुसंधान',
+											id: 'Analisis Pasar Harian & Riset',
+											ms: 'Analisis Pasaran Harian & Penyelidikan',
+											th: 'การวิเคราะห์และวิจัยตลาดรายวัน',
+											vi: 'Phân tích & Nghiên cứu Thị trường Hàng ngày',
+											bn: 'দৈনিক বাজার বিশ্লেষণ এবং গবেষণা',
+											'zh-cn': '每日市场分析与研究',
+											'pt-br': 'Análise e Pesquisas de Mercado Diárias'
+										})
+									}
 								</h2>
 								<p class="text-base text-neutral-700 dark:text-neutral-300">
-									Whatever your skill level, we’ve got the tools and resources to help improve your
-									trading
+									{
+										t({
+											en: 'Insightful analysis on systemic themes underlying the markets and traders perspective on these developments',
+											ar: 'تحليل عميق حول المواضيع النظامية الأساسية التي تؤثر على الأسواق ووجهة نظر المتداولين حول هذه التطورات',
+											es: 'Análisis perspicaz sobre los temas sistémicos que subyacen en los mercados y la perspectiva de los traders sobre estos desarrollos',
+											fr: 'Analyse perspicace des thèmes systémiques sous-jacents aux marchés et perspective des traders sur ces développements',
+											hi: 'बाजारों के पीछे के प्रणालीगत विषयों पर जानकारीपूर्ण विश्लेषण और व्यापारियों के दृष्टिकोण पर ये विकास',
+											id: 'Analisis mendalam tentang tema sistemik yang mendasari pasar dan perspektif trader tentang perkembangan ini',
+											ms: 'Analisis yang mendalam mengenai tema sistemik yang mendasari pasaran dan perspektif pedagang mengenai perkembangan ini',
+											th: 'การวิเคราะห์เชิงลึกเกี่ยวกับธีมระบบที่อยู่เบื้องหลังตลาดและมุมมองของผู้ค้าเกี่ยวกับการพัฒนาเหล่านี้',
+											vi: 'Phân tích sâu sắc về các chủ đề hệ thống dưới nền tảng của thị trường và quan điểm của các nhà giao dịch về những phát triển này',
+											bn: 'বাজারের পিছনের সিস্টেমেটিক থিমগুলির উপর অন্তর্দৃষ্টিপূর্ণ বিশ্লেষণ এবং ট্রেডারদের এই উন্নয়নের উপর দৃষ্টিভঙ্গি',
+											'zh-cn':
+												'对市场背后系统主题的深刻分析，以及交易者对这些发展的看法',
+											'pt-br':
+												'Análise perspicaz sobre os temas sistêmicos subjacentes aos mercados e a perspectiva dos traders sobre esses desenvolvimentos'
+										})
+									}
 								</p>
 							</div>
 						</div>
 					</div>
 				</div>
 				<div
+					data-aos="fade-up-sm"
+					data-aos-delay="200"
+					class="bg-background relative col-span-full overflow-hidden rounded-2xl border-2 p-4 hover:border-dbgreen-900 dark:border-neutral-600 dark:hover:border-dbgreen-900 sm:p-8 md:p-5 lg:col-span-3"
+				>
+					<div class="h-full">
+						<div
+							class="relative z-10 flex h-full flex-col justify-between space-y-8 lg:space-y-6"
+						>
+							<div
+								class="relative flex aspect-square size-12 items-center justify-center rounded-full border before:absolute before:-inset-2 before:rounded-full before:border dark:border-white/10 dark:bg-white/5 dark:before:border-white/5 dark:before:bg-white/5"
+							>
+								<!-- <Icon name="market_icon" class="" href="#" /> -->
+								<iconify-icon
+									icon="cil:education"
+									width="30"
+									height="30"
+									class="text-dbgreen-900"
+								></iconify-icon>
+							</div>
+							<div class="space-y-2">
+								<h2 class="text-xl font-bold text-neutral-800 dark:text-white">
+									{
+										t({
+											en: 'Education, Ebooks & Webinars',
+											ar: 'التعليم، الكتب الإلكترونية والندوات عبر الإنترنت',
+											es: 'Educación, Ebooks y Webinars',
+											fr: 'Éducation, Ebooks et Webinaires',
+											hi: 'शिक्षा, ईबुक और वेबिनार',
+											id: 'Pendidikan, Ebooks & Webinar',
+											ms: 'Pendidikan, Ebooks & Webinar',
+											th: 'การศึกษา, Ebooks และการสัมมนาผ่านเว็บ',
+											vi: 'Giáo dục, Sách điện tử & Hội thảo trực tuyến',
+											bn: 'শিক্ষা, ইবুক এবং ওয়েবিনার',
+											'zh-cn': '教育、电子书和网络研讨会',
+											'pt-br': 'Educação, Ebooks e Webinars'
+										})
+									}
+								</h2>
+								<p class="text-base text-neutral-700 dark:text-neutral-300">
+									{
+										t({
+											en: 'Whatever your skill level, we’ve got the tools and resources to help improve your trading.',
+											ar: 'بغض النظر عن مستوى مهارتك، لدينا الأدوات والموارد لمساعدتك في تحسين تداولك.',
+											es: 'Cualquiera que sea tu nivel de habilidad, tenemos las herramientas y recursos para ayudarte a mejorar tu trading.',
+											fr: 'Quel que soit votre niveau de compétence, nous avons les outils et les ressources pour vous aider à améliorer votre trading.',
+											hi: 'आपकी कौशल स्तर चाहे जो भी हो, हमारे पास आपके ट्रेडिंग को सुधारने के लिए उपकरण और संसाधन हैं।',
+											id: 'Apa pun tingkat keterampilan Anda, kami memiliki alat dan sumber daya untuk membantu meningkatkan perdagangan Anda.',
+											ms: 'Apa jua tahap kemahiran anda, kami mempunyai alat dan sumber untuk membantu meningkatkan perdagangan anda.',
+											th: 'ไม่ว่าคุณจะมีระดับทักษะใด เรามีเครื่องมือและทรัพยากรที่จะช่วยปรับปรุงการซื้อขายของคุณ',
+											vi: 'Dù bạn có kỹ năng ở mức độ nào, chúng tôi cũng có công cụ và tài nguyên để giúp cải thiện giao dịch của bạn.',
+											bn: 'আপনার দক্ষতার স্তর যাই হোক না কেন, আপনার ট্রেডিং উন্নত করতে আমাদের কাছে সরঞ্জাম এবং সম্পদ রয়েছে।',
+											'zh-cn':
+												'无论您的技能水平如何，我们都有工具和资源来帮助改善您的交易。',
+											'pt-br':
+												'Independentemente do seu nível de habilidade, temos as ferramentas e recursos para ajudá-lo a melhorar sua negociação.'
+										})
+									}
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div
+					data-aos="fade-up-sm"
+					data-aos-delay="250"
 					class="bg-background relative col-span-full overflow-hidden rounded-2xl border-2 p-4 transition hover:border-dbgreen-900 dark:border-neutral-600 dark:hover:border-dbgreen-900 sm:p-8 md:p-5 lg:col-span-6"
 				>
 					<div class="h-full">
-						<div class="relative z-10 flex h-full flex-col justify-between space-y-8 lg:space-y-6">
+						<div
+							class="relative z-10 flex h-full flex-col justify-between space-y-8 lg:space-y-6"
+						>
 							<div class="max-w-full space-y-2 md:max-w-[60%]">
 								<p class="text-base text-neutral-700 dark:text-neutral-300">
-									Trade the financial global markets from anywhere with the best multi-asset trading
-									platform.
+									{
+										t({
+											en: 'Trade the financial global markets from anywhere with the best multi-asset trading platform.',
+											ar: 'تداول الأسواق المالية العالمية من أي مكان باستخدام أفضل منصة تداول متعددة الأصول.',
+											es: 'Opera en los mercados financieros globales desde cualquier lugar con la mejor plataforma de trading multi-activos.',
+											fr: 'Tradez sur les marchés financiers mondiaux depuis n’importe où avec la meilleure plateforme de trading multi-actifs.',
+											hi: 'सबसे अच्छी मल्टी-एसेट ट्रेडिंग प्लेटफॉर्म के साथ किसी भी जगह से वैश्विक वित्तीय बाजारों में ट्रेड करें।',
+											id: 'Perdagangkan pasar keuangan global dari mana saja dengan platform perdagangan multi-aset terbaik.',
+											ms: 'Perdagangan pasaran kewangan global dari mana sahaja dengan platform perdagangan pelbagai aset terbaik.',
+											th: 'ซื้อขายตลาดการเงินทั่วโลกจากทุกที่ด้วยแพลตฟอร์มการซื้อขายหลายสินทรัพย์ที่ดีที่สุด',
+											vi: 'Giao dịch các thị trường tài chính toàn cầu từ bất kỳ đâu với nền tảng giao dịch đa tài sản tốt nhất.',
+											bn: 'সেরা মাল্টি-অ্যাসেট ট্রেডিং প্ল্যাটফর্মের সাহায্যে বিশ্বের যে কোনো স্থান থেকে আর্থিক গ্লোবাল মার্কেটে ট্রেড করুন।',
+											'zh-cn':
+												'通过最好的多资产交易平台，在任何地方交易全球金融市场。',
+											'pt-br':
+												'Negocie os mercados financeiros globais de qualquer lugar com a melhor plataforma de negociação multiativos.'
+										})
+									}
 								</p>
-								<h2 class="text-xl font-bold text-neutral-800 dark:text-white">Available on:</h2>
+								<h2 class="text-xl font-bold text-neutral-800 dark:text-white">
+									{
+										t({
+											en: 'Available on:',
+											ar: 'متوفر على:',
+											es: 'Disponible en:',
+											fr: 'Disponible sur:',
+											hi: 'उपलब्ध है:',
+											id: 'Tersedia di:',
+											ms: 'Tersedia di:',
+											th: 'มีให้บริการที่:',
+											vi: 'Có sẵn trên:',
+											bn: 'প্রাপ্য:',
+											'zh-cn': '可用:',
+											'pt-br': 'Disponível em:'
+										})
+									}
+								</h2>
 								<div class="flex gap-[6px]">
 									<div
 										class="flex size-9 items-center justify-center rounded-lg border border-gray-200 text-sm font-semibold text-gray-800 hover:bg-gray-100 disabled:pointer-events-none disabled:opacity-50 hs-dark-mode-active:flex dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-700"
 									>
 										<!-- <Icon name="market_icon" class="" href="#" /> -->
-										<iconify-icon icon="bxl:android" width="30" height="30" class="text-[#82bc01]"
+										<iconify-icon
+											icon="bxl:android"
+											width="30"
+											height="30"
+											class="text-[#82bc01]"
 										></iconify-icon>
 									</div>
 									<div
@@ -91,7 +228,8 @@ import MetaTradeImage from '../../../images/mt5_bg_img.png'
 											icon="mdi:microsoft-windows"
 											width="30"
 											height="30"
-											class="text-[#0077d5]"></iconify-icon>
+											class="text-[#0077d5]"
+										></iconify-icon>
 									</div>
 									<div
 										class="flex size-9 items-center justify-center rounded-lg border border-gray-200 text-sm font-semibold text-gray-800 hover:bg-gray-100 disabled:pointer-events-none disabled:opacity-50 hs-dark-mode-active:flex dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-700"
@@ -101,7 +239,8 @@ import MetaTradeImage from '../../../images/mt5_bg_img.png'
 											icon="grommet-icons:apple-app-store"
 											width="30"
 											height="30"
-											class="text-[#0d95f5]"></iconify-icon>
+											class="text-[#0d95f5]"
+										></iconify-icon>
 									</div>
 									<div
 										class="flex size-9 items-center justify-center rounded-lg border border-gray-200 text-sm font-semibold text-gray-800 hover:bg-gray-100 disabled:pointer-events-none disabled:opacity-50 hs-dark-mode-active:flex dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-700"
@@ -111,7 +250,8 @@ import MetaTradeImage from '../../../images/mt5_bg_img.png'
 											icon="ic:baseline-apple"
 											width="30"
 											height="30"
-											class="text-black dark:text-white"></iconify-icon>
+											class="text-black dark:text-white"
+										></iconify-icon>
 									</div>
 								</div>
 							</div>
@@ -131,10 +271,14 @@ import MetaTradeImage from '../../../images/mt5_bg_img.png'
 					/>
 				</div>
 				<div
+					data-aos="fade-up-sm"
+					data-aos-delay="300"
 					class="bg-background relative col-span-full flex overflow-hidden rounded-2xl border-2 p-4 hover:border-dbgreen-900 dark:border-neutral-600 dark:hover:border-dbgreen-900 sm:p-8 md:p-5 lg:col-span-2"
 				>
 					<div class="h-full">
-						<div class="relative z-10 flex h-full flex-col justify-between space-y-8 lg:space-y-6">
+						<div
+							class="relative z-10 flex h-full flex-col justify-between space-y-8 lg:space-y-6"
+						>
 							<div
 								class="relative flex aspect-square size-12 items-center justify-center rounded-full border before:absolute before:-inset-2 before:rounded-full before:border dark:border-white/10 dark:bg-white/5 dark:before:border-white/5 dark:before:bg-white/5"
 							>
@@ -143,25 +287,61 @@ import MetaTradeImage from '../../../images/mt5_bg_img.png'
 									icon="majesticons:monitor-line"
 									width="30"
 									height="30"
-									class="text-dbgreen-900"></iconify-icon>
+									class="text-dbgreen-900"
+								></iconify-icon>
 							</div>
 							<div class="space-y-2">
 								<h2 class="text-xl font-bold text-neutral-800 dark:text-white">
-									World-renowned Platforms & Tools
+									{
+										t({
+											en: 'World-renowned Platforms & Tools',
+											ar: 'منصات وأدوات مشهورة عالميًا',
+											es: 'Plataformas y herramientas de renombre mundial',
+											fr: 'Plateformes et outils de renommée mondiale',
+											hi: 'विश्व प्रसिद्ध प्लेटफ़ॉर्म और उपकरण',
+											id: 'Platform dan Alat Terkenal di Dunia',
+											ms: 'Platform dan Alat Terkenal di Dunia',
+											th: 'แพลตฟอร์มและเครื่องมือที่มีชื่อเสียงระดับโลก',
+											vi: 'Nền tảng và công cụ nổi tiếng thế giới',
+											bn: 'বিশ্ববিখ্যাত প্ল্যাটফর্ম এবং সরঞ্জাম',
+											'zh-cn': '世界知名平台和工具',
+											'pt-br': 'Plataformas e ferramentas de renome mundial'
+										})
+									}
 								</h2>
 								<p class="text-base text-neutral-700 dark:text-neutral-300">
-									Leading trading technology can be used to perfect your strategies and help you
-									become a more profitable trader
+									{
+										t({
+											en: 'Leading trading technology can be used to perfect your strategies and help you become a more profitable trader',
+											ar: 'يمكن استخدام تكنولوجيا التداول الرائدة لإتقان استراتيجياتك ومساعدتك على أن تصبح تاجرًا أكثر ربحية',
+											es: 'La tecnología de trading líder se puede utilizar para perfeccionar tus estrategias y ayudarte a convertirte en un trader más rentable',
+											fr: 'La technologie de trading de pointe peut être utilisée pour perfectionner vos stratégies et vous aider à devenir un trader plus rentable',
+											hi: 'अग्रणी ट्रेडिंग तकनीक का उपयोग आपकी रणनीतियों को सही करने और आपको अधिक लाभदायक व्यापारी बनने में मदद के लिए किया जा सकता है',
+											id: 'Teknologi trading terkemuka dapat digunakan untuk menyempurnakan strategi Anda dan membantu Anda menjadi trader yang lebih menguntungkan',
+											ms: 'Teknologi perdagangan terkemuka boleh digunakan untuk memperbaiki strategi anda dan membantu anda menjadi pedagang yang lebih menguntungkan',
+											th: 'เทคโนโลยีการซื้อขายชั้นนำสามารถใช้เพื่อทำให้กลยุทธ์ของคุณสมบูรณ์แบบและช่วยให้คุณเป็นนักเทรดที่ทำกำไรได้มากขึ้น',
+											vi: 'Công nghệ giao dịch hàng đầu có thể được sử dụng để hoàn thiện chiến lược của bạn và giúp bạn trở thành một nhà giao dịch có lợi nhuận hơn',
+											bn: 'নেতৃস্থানীয় ট্রেডিং প্রযুক্তি আপনার কৌশলগুলি নিখুঁত করতে এবং আপনাকে আরও লাভজনক ব্যবসায়ী হতে সাহায্য করতে ব্যবহৃত হতে পারে',
+											'zh-cn':
+												'领先的交易技术可以用来完善您的策略，并帮助您成为更有利可图的交易者',
+											'pt-br':
+												'Tecnologia de negociação de ponta pode ser usada para aperfeiçoar suas estratégias e ajudá-lo a se tornar um trader mais lucrativo'
+										})
+									}
 								</p>
 							</div>
 						</div>
 					</div>
 				</div>
 				<div
+					data-aos="fade-up-sm"
+					data-aos-delay="400"
 					class="bg-background relative col-span-full overflow-hidden rounded-2xl border-2 p-4 hover:border-dbgreen-900 dark:border-neutral-600 dark:hover:border-dbgreen-900 sm:col-span-full sm:p-8 md:p-5 lg:col-span-2"
 				>
 					<div class="h-full">
-						<div class="relative z-10 flex h-full flex-col justify-between space-y-8 lg:space-y-6">
+						<div
+							class="relative z-10 flex h-full flex-col justify-between space-y-8 lg:space-y-6"
+						>
 							<div
 								class="relative flex aspect-square size-12 items-center justify-center rounded-full border before:absolute before:-inset-2 before:rounded-full before:border dark:border-white/10 dark:bg-white/5 dark:before:border-white/5 dark:before:bg-white/5"
 							>
@@ -170,25 +350,61 @@ import MetaTradeImage from '../../../images/mt5_bg_img.png'
 									icon="fluent:payment-16-filled"
 									width="30"
 									height="30"
-									class="text-dbgreen-900"></iconify-icon>
+									class="text-dbgreen-900"
+								></iconify-icon>
 							</div>
 							<div class="space-y-2">
 								<h2 class="text-xl font-bold text-neutral-800 dark:text-white">
-									Popular Deposit & Withdrawal methods
+									{
+										t({
+											en: 'Popular Deposit & Withdrawal methods',
+											ar: 'طرق الإيداع والسحب الشائعة',
+											es: 'Métodos populares de depósito y retiro',
+											fr: 'Méthodes de dépôt et de retrait populaires',
+											hi: 'लोकप्रिय जमा और निकासी विधियाँ',
+											id: 'Metode Deposit & Withdrawal Populer',
+											ms: 'Kaedah Deposit & Pengeluaran Popular',
+											th: 'วิธีการฝากและถอนยอดนิยม',
+											vi: 'Phương thức gửi và rút tiền phổ biến',
+											bn: 'জনপ্রিয় জমা ও তোলার পদ্ধতি',
+											'zh-cn': '热门存款和取款方式',
+											'pt-br': 'Métodos populares de depósito e retirada'
+										})
+									}
 								</h2>
 								<p class="text-base text-neutral-700 dark:text-neutral-300">
-									Broad variety of payments systems to deposit and withdraw your funds in a secure
-									and cost-free environment
+									{
+										t({
+											en: 'Broad variety of payments systems to deposit and withdraw your funds in a secure and cost-free environment',
+											ar: 'مجموعة واسعة من أنظمة الدفع لإيداع وسحب أموالك في بيئة آمنة وخالية من التكاليف',
+											es: 'Amplia variedad de sistemas de pago para depositar y retirar sus fondos en un entorno seguro y sin costo',
+											fr: 'Large variété de systèmes de paiement pour déposer et retirer vos fonds dans un environnement sécurisé et sans frais',
+											hi: 'एक सुरक्षित और बिना लागत वाले वातावरण में अपने फंड जमा और निकालने के लिए भुगतान प्रणाली की विस्तृत श्रृंखला',
+											id: 'Beragam sistem pembayaran untuk menyetor dan menarik dana Anda dalam lingkungan yang aman dan tanpa biaya',
+											ms: 'Pelbagai sistem pembayaran untuk mendeposit dan mengeluarkan dana anda dalam persekitaran yang selamat dan tanpa kos',
+											th: 'ความหลากหลายของระบบการชำระเงินในการฝากและถอนเงินของคุณในสภาพแวดล้อมที่ปลอดภัยและไม่มีค่าใช้จ่าย',
+											vi: 'Nhiều hệ thống thanh toán để gửi và rút tiền của bạn trong môi trường an toàn và không mất phí',
+											bn: 'একটি নিরাপদ এবং ব্যয়ের বাইরে পরিবেশে আপনার তহবিল জমা এবং তোলার জন্য বিস্তৃত পেমেন্ট সিস্টেম',
+											'zh-cn':
+												'广泛的支付系统以安全和无成本的环境存入和提取您的资金',
+											'pt-br':
+												'Ampla variedade de sistemas de pagamento para depositar e retirar seus fundos em um ambiente seguro e sem custo'
+										})
+									}
 								</p>
 							</div>
 						</div>
 					</div>
 				</div>
 				<div
+					data-aos="fade-up-sm"
+					data-aos-delay="500"
 					class="bg-background relative col-span-full overflow-hidden rounded-2xl border-2 p-4 hover:border-dbgreen-900 dark:border-neutral-600 dark:hover:border-dbgreen-900 sm:col-span-full sm:p-8 md:p-5 lg:col-span-2"
 				>
 					<div class="h-full">
-						<div class="relative z-10 flex h-full flex-col justify-between space-y-8 lg:space-y-6">
+						<div
+							class="relative z-10 flex h-full flex-col justify-between space-y-8 lg:space-y-6"
+						>
 							<div
 								class="relative flex aspect-square size-12 items-center justify-center rounded-full border before:absolute before:-inset-2 before:rounded-full before:border dark:border-white/10 dark:bg-white/5 dark:before:border-white/5 dark:before:bg-white/5"
 							>
@@ -197,12 +413,47 @@ import MetaTradeImage from '../../../images/mt5_bg_img.png'
 									icon="streamline:call-center-support-service-solid"
 									width="30"
 									height="30"
-									class="text-dbgreen-900"></iconify-icon>
+									class="text-dbgreen-900"
+								></iconify-icon>
 							</div>
 							<div class="space-y-2">
-								<h2 class="text-xl font-bold text-neutral-800 dark:text-white">24/5 Support</h2>
+								<h2 class="text-xl font-bold text-neutral-800 dark:text-white">
+									{
+										{
+											en: '24/5 Support',
+											ar: 'دعم 24/5',
+											es: 'Soporte 24/5',
+											fr: 'Support 24/5',
+											hi: '24/5 सहायता',
+											id: 'Dukungan 24/5',
+											ms: 'Sokongan 24/5',
+											th: 'การสนับสนุน 24/5',
+											vi: 'Hỗ trợ 24/5',
+											bn: '24/5 সমর্থন',
+											'zh-cn': '24/5 支持',
+											'pt-br': 'Suporte 24/5'
+										}
+									}
+								</h2>
 								<p class="text-base text-neutral-700 dark:text-neutral-300">
-									Our Support ready to answer to any questions at your language in seconds
+									{
+										t({
+											en: 'Our Support is ready to answer any questions in your language in seconds.',
+											ar: 'فريق الدعم لدينا جاهز للإجابة على أي أسئلة بلغتك في ثوانٍ.',
+											es: 'Nuestro soporte está listo para responder cualquier pregunta en tu idioma en segundos.',
+											fr: 'Notre support est prêt à répondre à toutes vos questions dans votre langue en quelques secondes.',
+											hi: 'हमारा समर्थन आपके किसी भी प्रश्न का उत्तर आपकी भाषा में सेकंडों में देने के लिए तैयार है।',
+											id: 'Dukungan kami siap menjawab pertanyaan apa pun dalam bahasa Anda dalam hitungan detik.',
+											ms: 'Sokongan kami sedia menjawab sebarang pertanyaan dalam bahasa anda dalam beberapa saat.',
+											th: 'ฝ่ายสนับสนุนของเราพร้อมที่จะตอบคำถามใด ๆ ในภาษาของคุณในไม่กี่วินาที',
+											vi: 'Hỗ trợ của chúng tôi sẵn sàng trả lời bất kỳ câu hỏi nào bằng ngôn ngữ của bạn chỉ trong vài giây.',
+											bn: 'আমাদের সমর্থন আপনার ভাষায় কয়েক সেকেন্ডের মধ্যে যে কোনও প্রশ্নের উত্তর দিতে প্রস্তুত।',
+											'zh-cn':
+												'我们的支持团队随时准备以您的语言在几秒钟内回答任何问题。',
+											'pt-br':
+												'Nosso suporte está pronto para responder a qualquer dúvida no seu idioma em segundos.'
+										})
+									}
 								</p>
 							</div>
 						</div>

@@ -1,0 +1,86 @@
+---
+import Layout from '@/layouts/Layout.astro'
+import client from '@/lib/apolloClient'
+import BlogSingle from '@/components/page/blog/BlogSingle.astro'
+import gql from 'graphql-tag'
+import BlogLayoutSideBar from '@/components/page/blog/BlogLayoutSideBar.astro'
+export const prerender = false
+const { slug } = Astro.params
+const GET_SINGLE_POSTS = gql`
+	query SinglePost($id: ID = "${slug}") {
+          post(idType: SLUG, id: $id) {
+    date
+    content(format: RENDERED)
+    title
+    languageCode
+    date
+    tags {
+      edges {
+        node {
+           id
+           name
+           slug
+        }
+      }
+    }
+    categories {
+      edges {
+        node {
+          id
+          name
+          slug
+          uri
+        }
+      }
+    }
+    featuredImage {
+      node {
+        sourceUrl
+      }
+    }
+  }
+        }
+`
+const { lang } = Astro.params
+const { data, error, loading } = await client.query({
+	query: GET_SINGLE_POSTS,
+	variables: {
+		id: slug
+	}
+})
+
+//  assign the post info to singlePost variable for usability
+const singlePost = data && data.post
+---
+
+<BlogLayoutSideBar title={singlePost?.title}>
+	{
+		loading ? (
+			<h1>loaddig</h1>
+		): singlePost !== null && Object.keys(singlePost).length > 0  ?  (
+			data && (
+				<BlogSingle
+					post={singlePost}
+					slot="articleContent"
+				/>
+			)
+		) : <div class="lg:col-span-2 mt-5">
+      <div class=" animate-pulse flex">
+						<div class="shrink-0">
+							<span class="block size-12 rounded-full bg-gray-200 dark:bg-neutral-700"></span>
+						</div>
+
+						<div class="ms-4 mt-2 w-full">
+							<p class="h-4 rounded-full bg-gray-200 dark:bg-neutral-700"></p>
+
+							<ul class="mt-5 space-y-3">
+								<li class="h-4 w-full rounded-full bg-gray-200 dark:bg-neutral-700"></li>
+								<li class="h-4 w-full rounded-full bg-gray-200 dark:bg-neutral-700"></li>
+								<li class="h-4 w-full rounded-full bg-gray-200 dark:bg-neutral-700"></li>
+								<li class="h-4 w-full rounded-full bg-gray-200 dark:bg-neutral-700"></li>
+							</ul>
+						</div>
+					</div>
+    </div>
+	} 
+</BlogLayoutSideBar>

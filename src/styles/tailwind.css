@@ -9,6 +9,70 @@
 	.navLinkStyle {
 		@apply flex items-center rounded-lg p-2 text-sm text-gray-800 hover:bg-gray-100 hover:text-dbgreen-900 focus:bg-gray-100 focus:outline-none dark:text-neutral-400 dark:hover:bg-neutral-700 dark:hover:text-dbgreen-900 dark:focus:bg-neutral-700 dark:focus:text-neutral-300 md:px-3;
 	}
+
+	.post-content > * {
+		@apply mb-8;
+	}
+	.post-content ul {
+		@apply list-disc;
+	}
+	.post-content ul li {
+		@apply list-item list-disc marker:text-dbgreen-600;
+	}
+	.post-content .wp-block-quote {
+		@apply my-4 rounded-lg border-s-4 border-dbgreen-600 bg-dbgreen-500 p-4;
+	}
+	.post-content .wp-block-quote p {
+		@apply relative mb-4 text-xl italic;
+	}
+	.post-content .wp-block-quote cite {
+		@apply relative pl-5 text-sm not-italic before:absolute before:left-0 before:top-[50%] before:h-[2px] before:w-3 before:bg-dbgreen-600;
+	}
+	.post-content .is-layout-flex {
+		@apply flex;
+	}
+	.post-content h1 {
+		@apply text-3xl;
+	}
+	.post-content h2 {
+		@apply text-2xl;
+	}
+	.post-content h3 {
+		@apply text-lg;
+	}
+	.post-content .wp-block-media-text > * {
+		@apply w-full md:w-1/2;
+	}
+	.post-content .wp-block-media-text {
+		@apply items-center gap-6 sm:flex;
+	}
+	.post-content .wp-block-file__button {
+		@apply mx-2 rounded-md bg-dbgreen-600 p-2 px-3 text-white;
+	}
+	.post-content table {
+		@apply w-full border-collapse border border-slate-400 bg-white text-sm shadow-sm;
+	}
+	.post-content thead th {
+		@apply px-6 py-3;
+	}
+	.post-content thead tr {
+		@apply bg-gray-200 text-xs uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-400;
+	}
+	.post-content tr {
+		@apply border-b bg-white dark:bg-gray-800;
+	}
+	.post-content td {
+		@apply whitespace-nowrap px-6 py-4 font-medium text-gray-900;
+	}
+	.post-content details {
+		@apply border-b border-gray-200;
+	}
+	.post-content details summary {
+		@apply mb-2 flex cursor-pointer items-center font-bold marker:visible marker:text-dbgreen-600;
+	}
+	.post-content details summary ~ * {
+		@apply mb-4;
+	}
 }
 .btn_gradient {
 	background: linear-gradient(
@@ -45,4 +109,28 @@
 		transform: translate(-50%, -50%) scale(3);
 		opacity: 0;
 	}
+}
+
+[data-aos='fade-up-sm'] {
+	transform: translate3d(0, 20px, 0);
+}
+
+[data-aos='fade-down-sm'] {
+	transform: translate3d(0, -20px, 0);
+}
+
+[data-aos='zoom-in-up-sm'] {
+	transform: translateZ(0) scale(0.95);
+}
+
+[data-aos='fade-left-sm'] {
+	transform: translate3d(-15px, 0, 0);
+	-webkit-transform: translate3d(-15px, 0, 0);
+	-moz-transform: translate3d(-15px, 0, 0);
+	-ms-transform: translate3d(-15px, 0, 0);
+	-o-transform: translate3d(-15px, 0, 0);
+}
+
+[data-aos='fade-right-sm'] {
+	transform: translate3d(15px, 0, 0);
 }

@@ -1,13 +1,13 @@
 import { defineConfig } from 'astro/config'
 import tailwind from '@astrojs/tailwind'
 import icon from 'astro-icon'
-
+import node from '@astrojs/node'
 import react from '@astrojs/react'
 
-import cloudflare from '@astrojs/cloudflare'
+// import cloudflare from '@astrojs/cloudflare'
 
-// https://astro.build/config
 export default defineConfig({
+	site: 'http://localhost:4321/',
 	integrations: [
 		tailwind({ nesting: true, applyBaseStyles: false }),
 		icon({
@@ -21,8 +21,6 @@ export default defineConfig({
 		react()
 	],
 
-	output: 'hybrid',
-
 	i18n: {
 		defaultLocale: 'en',
 		locales: ['en', 'fr', 'zh-hans', 'ar', 'es', 'hi', 'id', 'ms', 'th', 'vi', 'bn', 'pt-br'],
@@ -31,6 +29,11 @@ export default defineConfig({
 			redirectToDefaultLocale: false
 		}
 	},
-
-	adapter: cloudflare()
+	output: 'hybrid',
+	adapter: node({
+		mode: 'standalone'
+	}),
+	image: {
+		domains: ['astro.build', 'dev.dbinvesting.com']
+	}
 })

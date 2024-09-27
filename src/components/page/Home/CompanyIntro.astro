@@ -1,31 +1,272 @@
 ---
 import Marquee from '@/components/magicui/marquee'
-import { Image } from 'astro:assets'
-
+import { useTranslations, type Lang } from '@/i18n'
+const t = useTranslations(Astro.currentLocale as Lang)
 const detailsLoop = [
-	{ title: '0.01 Pips', sub: 'TIGHT SPREADS FROM' },
-	{ title: '24/5', sub: 'MULTILINGUAL CUSTOMER SUPPORT' },
-	{ title: '$0', sub: 'Free funding option' },
-	{ title: 'Balance Protection', sub: 'Negative' },
-	{ title: '1:1000', sub: 'Leverage' },
-	{ title: 'FSA', sub: 'Regulated' },
-	{ title: '20.000$', sub: 'Insurance for each client' },
-	{ title: '50$', sub: 'Minimum Deposit' }
+	{
+		title: t({
+			en: '0.01 Pips',
+			ar: '0.01 نقطة',
+			es: '0.01 Pips',
+			fr: '0.01 Pips',
+			hi: '0.01 पिप्स',
+			id: '0,01 Pips',
+			ms: '0.01 Pips',
+			th: '0.01 พิพส์',
+			vi: '0,01 Pips',
+			bn: '0.01 পিপস',
+			'zh-cn': '0.01 点',
+			'pt-br': '0,01 Pips'
+		}),
+		sub: t({
+			en: 'TIGHT SPREADS FROM',
+			ar: 'فروقات ضيقة تبدأ من',
+			es: 'DIFERENCIAS CERRADAS A PARTIR DE',
+			fr: 'ÉCARTS ÉTROITS À PARTIR DE',
+			hi: 'संकुचित स्प्रेड्स से',
+			id: 'SPREAD SEMPITAN DARI',
+			ms: 'PENYEBARAN KETAT DARI',
+			th: 'สเปรดแคบจาก',
+			vi: 'CHÊNH LỆCH HẸP TỪ',
+			bn: 'টাইট স্প্রেডগুলি থেকে',
+			'zh-cn': '紧密点差从',
+			'pt-br': 'DIFERENÇAS APERTADAS A PARTIR DE'
+		})
+	},
+	{
+		title: t({
+			en: '24/5',
+			ar: '24/5',
+			es: '24/5',
+			fr: '24/5',
+			hi: '24/5',
+			id: '24/5',
+			ms: '24/5',
+			th: '24/5',
+			vi: '24/5',
+			bn: '24/5',
+			'zh-cn': '24/5',
+			'pt-br': '24/5'
+		}),
+		sub: t({
+			en: 'MULTILINGUAL CUSTOMER SUPPORT',
+			ar: 'دعم العملاء متعدد اللغات',
+			es: 'SOPORTE AL CLIENTE MULTILINGÜE',
+			fr: 'SUPPORT CLIENT MULTILINGUE',
+			hi: 'बहुभाषी ग्राहक सहायता',
+			id: 'DUKUNGAN KLIEN MULTI BAHASA',
+			ms: 'SOKONGAN PELANGGAN MULTI BAHASA',
+			th: 'การสนับสนุนลูกค้าหลายภาษา',
+			vi: 'HỖ TRỢ KHÁCH HÀNG ĐA NGÔN NGỮ',
+			bn: 'একাধিক ভাষার গ্রাহক সহায়তা',
+			'zh-cn': '多语言客户支持',
+			'pt-br': 'SUPORTE AO CLIENTE MULTILÍNGUE'
+		})
+	},
+	{
+		title: t({
+			en: '$0',
+			ar: '0$',
+			es: '$0',
+			fr: '$0',
+			hi: '$0',
+			id: '$0',
+			ms: '$0',
+			th: '$0',
+			vi: '$0',
+			bn: '$0',
+			'zh-cn': '$0',
+			'pt-br': '$0'
+		}),
+		sub: t({
+			en: 'Free funding option',
+			ar: 'خيار تمويل مجاني',
+			es: 'Opción de financiación gratuita',
+			fr: 'Option de financement gratuite',
+			hi: 'निशुल्क फंडिंग विकल्प',
+			id: 'Opsi pendanaan gratis',
+			ms: 'Pilihan pembiayaan percuma',
+			th: 'ตัวเลือกการระดมทุนฟรี',
+			vi: 'Tùy chọn tài trợ miễn phí',
+			bn: 'ফ্রি ফান্ডিং বিকল্প',
+			'zh-cn': '免费资金选项',
+			'pt-br': 'Opção de financiamento gratuito'
+		})
+	},
+	{
+		title: t({
+			en: 'Balance Protection',
+			ar: 'حماية الرصيد',
+			es: 'Protección de saldo',
+			fr: 'Protection du solde',
+			hi: 'बैलेंस सुरक्षा',
+			id: 'Perlindungan Saldo',
+			ms: 'Perlindungan Baki',
+			th: 'การปกป้องยอดคงเหลือ',
+			vi: 'Bảo vệ số dư',
+			bn: 'ব্যালেন্স সুরক্ষা',
+			'zh-cn': '余额保护',
+			'pt-br': 'Proteção de Saldo'
+		}),
+		sub: t({
+			en: 'Negative',
+			ar: 'سلبية',
+			es: 'Negativo',
+			fr: 'Négatif',
+			hi: 'नकारात्मक',
+			id: 'Negatif',
+			ms: 'Negatif',
+			th: 'ลบ',
+			vi: 'Âm',
+			bn: 'নেগেটিভ',
+			'zh-cn': '负',
+			'pt-br': 'Negativo'
+		})
+	},
+	{
+		title: t({
+			en: '1:1000',
+			ar: '1:1000',
+			es: '1:1000',
+			fr: '1:1000',
+			hi: '1:1000',
+			id: '1:1000',
+			ms: '1:1000',
+			th: '1:1000',
+			vi: '1:1000',
+			bn: '1:1000',
+			'zh-cn': '1:1000',
+			'pt-br': '1:1000'
+		}),
+		sub: t({
+			en: 'Leverage',
+			ar: 'الرافعة المالية',
+			es: 'Apalancamiento',
+			fr: 'Effet de levier',
+			hi: 'लिवरेज',
+			id: 'Leverage',
+			ms: 'Leveraj',
+			th: 'เลเวอเรจ',
+			vi: 'Đòn bẩy',
+			bn: 'লিভারেজ',
+			'zh-cn': '杠杆',
+			'pt-br': 'Alavancagem'
+		})
+	},
+	{
+		title: t({
+			en: 'FSA',
+			ar: 'FSA',
+			es: 'FSA',
+			fr: 'FSA',
+			hi: 'FSA',
+			id: 'FSA',
+			ms: 'FSA',
+			th: 'FSA',
+			vi: 'FSA',
+			bn: 'FSA',
+			'zh-cn': 'FSA',
+			'pt-br': 'FSA'
+		}),
+		sub: t({
+			en: 'Regulated',
+			ar: 'منظم',
+			es: 'Regulado',
+			fr: 'Réglementé',
+			hi: 'नियामित',
+			id: 'Diatur',
+			ms: 'Terkawal',
+			th: 'อยู่ภายใต้การควบคุม',
+			vi: 'Được quản lý',
+			bn: 'নিয়ন্ত্রিত',
+			'zh-cn': '受监管',
+			'pt-br': 'Regulado'
+		})
+	},
+	{
+		title: t({
+			en: '20.000$',
+			ar: '20.000$',
+			es: '20.000$',
+			fr: '20.000$',
+			hi: '20.000$',
+			id: '20.000$',
+			ms: '20.000$',
+			th: '20.000$',
+			vi: '20.000$',
+			bn: '20.000$',
+			'zh-cn': '20.000$',
+			'pt-br': '20.000$'
+		}),
+		sub: t({
+			en: 'Insurance for each client',
+			ar: 'تأمين لكل عميل',
+			es: 'Seguro para cada cliente',
+			fr: 'Assurance pour chaque client',
+			hi: 'प्रत्येक ग्राहक के लिए बीमा',
+			id: 'Asuransi untuk setiap klien',
+			ms: 'Insurans untuk setiap pelanggan',
+			th: 'ประกันสำหรับลูกค้าแต่ละราย',
+			vi: 'Bảo hiểm cho mỗi khách hàng',
+			bn: 'প্রতিটি ক্লায়েন্টের জন্য বীমা',
+			'zh-cn': '每个客户的保险',
+			'pt-br': 'Seguro para cada cliente'
+		})
+	},
+	{
+		title: t({
+			en: '50$',
+			ar: '50$',
+			es: '50$',
+			fr: '50$',
+			hi: '50$',
+			id: '50$',
+			ms: '50$',
+			th: '50$',
+			vi: '50$',
+			bn: '50$',
+			'zh-cn': '50$',
+			'pt-br': '50$'
+		}),
+		sub: t({
+			en: 'Minimum Deposit',
+			ar: 'الحد الأدنى للإيداع',
+			es: 'Depósito Mínimo',
+			fr: 'Dépôt Minimum',
+			hi: 'न्यूनतम जमा',
+			id: 'Setoran Minimum',
+			ms: 'Deposit Minimum',
+			th: 'เงินฝากขั้นต่ำ',
+			vi: 'Số tiền gửi tối thiểu',
+			bn: 'নূন্যতম আমানত',
+			'zh-cn': '最低存款',
+			'pt-br': 'Depósito Mínimo'
+		})
+	}
 ]
 ---
 
 <!-- Clients -->
 <section
-	class="xl:py-18 border-b-1 border-t-1 mb-14 bg-gray-100 py-[18px] dark:border-neutral-700 dark:bg-neutral-800"
+	class="xl:py-18 border-b-1 border-t-1 mb-14 bg-gray-100 dark:border-neutral-700 dark:bg-neutral-800"
+	data-aos="fade-up-sm"
+	data-delay="50"
 >
-	<div class="">
-		<div class="relative overflow-hidden">
-			<Marquee pauseOnHover gap="0">
+	<div class="relative overflow-hidden">
+		<div
+			class="bg-background relative flex w-full flex-col items-center justify-center overflow-hidden py-[18px] md:shadow-xl"
+		>
+			<Marquee
+				pauseOnHover
+				class="[--duration:40s]"
+			>
 				{
 					detailsLoop.map((item, index) => (
 						<div class="flex min-w-[260px] items-center justify-center border-r border-r-neutral-200 p-3 dark:border-r-neutral-700">
 							<div class="flex w-full flex-col items-center justify-center rounded-xl text-center">
-								<h3 class="mb-2 text-2xl font-bold capitalize text-dbgreen-900">{item.title}</h3>
+								<h3 class="mb-2 text-2xl font-bold capitalize text-dbgreen-900">
+									{item.title}
+								</h3>
 								<span class="text-sm font-thin uppercase tracking-wide text-black dark:text-white">
 									{item.sub}
 								</span>
@@ -34,6 +275,15 @@ const detailsLoop = [
 					))
 				}
 			</Marquee>
+
+			<div
+				class="pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-white dark:from-neutral-900"
+			>
+			</div>
+			<div
+				class="pointer-events-none absolute inset-y-0 right-0 w-1/3 bg-gradient-to-l from-white dark:from-neutral-900"
+			>
+			</div>
 		</div>
 	</div>
 </section>

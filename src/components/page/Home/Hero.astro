@@ -1,0 +1,544 @@
+---
+import { Image } from 'astro:assets'
+import HeroImg from '@/images/hero_img.png'
+import WordRotate from '../../magicui/word-rotate'
+import Button from '../../ui/Button.astro'
+import { LOCALES, useTranslations, type Lang } from '@/i18n'
+const t = useTranslations(Astro.currentLocale as Lang)
+---
+
+<!-- Hero -->
+<div
+	class="relative z-20 overflow-hidden py-12 before:absolute before:start-1/2 before:top-0 before:-z-[1] before:size-full before:-translate-x-1/2 before:transform before:bg-[url('/src/icons/squared-bg-element_white.svg')] before:bg-top before:bg-repeat before:opacity-25 dark:before:bg-[url('/src/icons/squared-bg-element.svg')]"
+>
+	<div class="container mx-auto flex justify-between">
+		<div class="w-full">
+			<!-- Announcement Banner -->
+			<div
+				class="flex justify-start"
+				data-aos="fade-up-sm"
+			>
+				<a
+					class="inline-flex items-center gap-x-2 rounded-full border border-gray-200 bg-white p-2 px-3 text-xs text-gray-600 transition hover:border-gray-300 focus:border-gray-300 focus:outline-none dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-400 dark:hover:border-neutral-600 dark:focus:border-neutral-600"
+					href="/explore"
+					>{
+						t({
+							en: 'Explore the Market Product',
+							ar: 'استكشف منتج السوق',
+							es: 'Explorar el Producto del Mercado',
+							fr: 'Explorer le Produit du Marché',
+							hi: 'बाजार उत्पाद का अन्वेषण करें',
+							id: 'Jelajahi Produk Pasar',
+							ms: 'Terokai Produk Pasaran',
+							th: 'สำรวจผลิตภัณฑ์ตลาด',
+							vi: 'Khám Phá Sản Phẩm Thị Trường',
+							bn: 'মার্কেট প্রোডাক্ট আবিষ্কার করুন',
+							'zh-cn': '探索市场产品',
+							'pt-br': 'Explorar o Produto do Mercado'
+						})
+					}
+					<!-- {Explore the Market Product} -->
+					<span class="flex items-center gap-x-1">
+						<span
+							class="border-s border-gray-200 ps-2 text-dbgreen-900 dark:border-neutral-700 dark:text-dbgreen-900"
+							>{
+								t({
+									en: 'Explore',
+									ar: 'استكشف',
+									es: 'Explorar',
+									fr: 'Explorer',
+									hi: 'अन्वेषण करें',
+									id: 'Jelajahi',
+									ms: 'Terokai',
+									th: 'สำรวจ',
+									vi: 'Khám Phá',
+									bn: 'অন্বেষণ করুন',
+									'zh-cn': '探索',
+									'pt-br': 'Explorar'
+								})
+							}</span
+						>
+						<svg
+							class="rtl: size-4 shrink-0 text-dbgreen-900 rtl:rotate-180"
+							xmlns="http://www.w3.org/2000/svg"
+							width="24"
+							height="24"
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="currentColor"
+							stroke-width="2"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							><path d="m9 18 6-6-6-6"></path></svg
+						>
+					</span>
+				</a>
+			</div>
+			<!-- End Announcement Banner -->
+
+			<!-- Title -->
+			<div
+				class="mt-5 max-w-2xl"
+				data-aos="fade-up-sm"
+			>
+				<WordRotate
+					className="text-6xl font-bold text-dbgreen-900 dark:text-dbgreen-900 md:text-5xl lg:text-7xl"
+					words={[
+						t({
+							en: 'Trade',
+							ar: 'تجارة',
+							es: 'Comercio',
+							fr: 'Échange',
+							hi: 'व्यापार',
+							id: 'Perdagangan',
+							ms: 'Perdagangan',
+							th: 'การค้า',
+							vi: 'Giao dịch',
+							bn: 'বাণিজ্য',
+							'zh-cn': '交易',
+							'pt-br': 'Negociar'
+						}),
+						t({
+							en: 'Grow',
+							ar: 'نمو',
+							es: 'Crecer',
+							fr: 'Grandir',
+							hi: 'बढ़ो',
+							id: 'Berkembang',
+							ms: 'Berkembang',
+							th: 'เติบโต',
+							vi: 'Phát triển',
+							bn: 'বৃদ্ধি',
+							'zh-cn': '成长',
+							'pt-br': 'Crescer'
+						}),
+						t({
+							en: 'Succeed',
+							ar: 'ينجح',
+							es: 'Tener éxito',
+							fr: 'Réussir',
+							hi: 'सफल होना',
+							id: 'Sukses',
+							ms: 'Berjaya',
+							th: 'ประสบความสำเร็จ',
+							vi: 'Thành công',
+							bn: 'সফল হওয়া',
+							'zh-cn': '成功',
+							'pt-br': 'Ter sucesso'
+						})
+					]}
+					client:visible
+				/>
+				<span
+					class="block text-6xl font-bold text-gray-800 dark:text-neutral-200 md:text-5xl lg:text-7xl"
+				>
+					{
+						t({
+							en: 'with DB Investing',
+							ar: 'مع DB Investing',
+							es: 'con DB Investing',
+							fr: 'avec DB Investing',
+							hi: 'DB Investing के साथ',
+							id: 'dengan DB Investing',
+							ms: 'dengan DB Investing',
+							th: 'กับ DB Investing',
+							vi: 'với DB Investing',
+							bn: 'DB Investing এর সাথে',
+							'zh-cn': '与 DB Investing 一起',
+							'pt-br': 'com DB Investing'
+						})
+					}
+				</span>
+			</div>
+			<!-- End Title -->
+
+			<div
+				class="mt-5 max-w-3xl text-left"
+				data-aos="fade-up-sm"
+			>
+				<p class="text-lg text-gray-600 dark:text-neutral-400">
+					{
+						t({
+							en: 'Explore limitless opportunities across global markets. With our secure platform, expert guidance, and flexible trading solutions.',
+							ar: 'استكشف الفرص اللامحدودة عبر الأسواق العالمية. مع منصتنا الآمنة، والإرشادات الخبيرة، وحلول التداول المرنة.',
+							es: 'Explora oportunidades ilimitadas en los mercados globales. Con nuestra plataforma segura, orientación experta y soluciones de trading flexibles.',
+							fr: 'Explorez des opportunités illimitées sur les marchés mondiaux. Avec notre plateforme sécurisée, des conseils d’experts et des solutions de trading flexibles.',
+							hi: 'वैश्विक बाजारों में असीमित अवसरों की खोज करें। हमारी सुरक्षित प्लेटफ़ॉर्म, विशेषज्ञ मार्गदर्शन और लचीले व्यापार समाधान के साथ।',
+							id: 'Jelajahi peluang tanpa batas di pasar global. Dengan platform aman kami, panduan ahli, dan solusi perdagangan yang fleksibel.',
+							ms: 'Terokai peluang tanpa had di pasaran global. Dengan platform selamat kami, panduan pakar, dan penyelesaian perdagangan yang fleksibel.',
+							th: 'สำรวจโอกาสไม่จำกัดในตลาดโลก ด้วยแพลตฟอร์มที่ปลอดภัยของเรา คำแนะนำจากผู้เชี่ยวชาญ และโซลูชันการซื้อขายที่ยืดหยุ่น',
+							vi: 'Khám phá những cơ hội vô hạn trên các thị trường toàn cầu. Với nền tảng an toàn của chúng tôi, hướng dẫn từ chuyên gia và các giải pháp giao dịch linh hoạt.',
+							bn: 'গ্লোবাল মার্কেটের মধ্যে অসীম সুযোগগুলি অন্বেষণ করুন। আমাদের নিরাপদ প্ল্যাটফর্ম, বিশেষজ্ঞ নির্দেশিকা এবং নমনীয় ট্রেডিং সমাধানের সাথে।',
+							'zh-cn':
+								'在全球市场上探索无限的机会。使用我们安全的平台、专家指导和灵活的交易解决方案。',
+							'pt-br':
+								'Explore oportunidades ilimitadas nos mercados globais. Com nossa plataforma segura, orientação especializada e soluções de negociação flexíveis.'
+						})
+					}
+				</p>
+			</div>
+
+			<!-- Buttons -->
+			<div
+				class="mt-8 flex w-fit flex-col gap-3 sm:flex-row"
+				data-aos="fade-up-sm"
+			>
+				<Button
+					primary={true}
+					rippleEffect={true}
+					text={t({
+						en: 'Create an Account Now',
+						ar: 'أنشئ حسابًا الآن',
+						es: 'Crea una cuenta ahora',
+						fr: 'Créez un compte maintenant',
+						hi: 'अब एक खाता बनाएं',
+						id: 'Buat Akun Sekarang',
+						ms: 'Buat Akaun Sekarang',
+						th: 'สร้างบัญชีตอนนี้',
+						vi: 'Tạo tài khoản ngay bây giờ',
+						bn: 'এখন একটি অ্যাকাউন্ট তৈরি করুন',
+						'zh-cn': '立即创建账户',
+						'pt-br': 'Crie uma Conta Agora'
+					})}
+					class="rounded-full"
+					href="#"
+					buttonIcon={' <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" ><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2" ><path stroke-dasharray="20" stroke-dashoffset="20" d="M3 21V20C3 17.7909 4.79086 16 7 16H11C13.2091 16 15 17.7909 15 20V21" ><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.4s" values="20;0" ></animate></path><path stroke-dasharray="20" stroke-dashoffset="20" d="M9 13C7.34315 13 6 11.6569 6 10C6 8.34315 7.34315 7 9 7C10.6569 7 12 8.34315 12 10C12 11.6569 10.6569 13 9 13Z" ><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.5s" dur="0.4s" values="20;0" ></animate></path><path stroke-dasharray="8" stroke-dashoffset="8" d="M15 6H21" ><animate fill="freeze" attributeName="stroke-dashoffset" begin="1s" dur="0.2s" values="8;0" ></animate></path><path stroke-dasharray="8" stroke-dashoffset="8" d="M18 3V9" ><animate fill="freeze" attributeName="stroke-dashoffset" begin="1.2s" dur="0.2s" values="8;0" ></animate></path></g></svg>'}
+				/>
+				<div
+					class="mt-2 text-center text-[14px] font-thin text-neutral-500 dark:text-neutral-300"
+					data-aos="fade-up-sm"
+				>
+					{
+						t({
+							en: 'or try a',
+							ar: 'أو جرب',
+							es: 'o prueba un',
+							fr: 'ou essayez un',
+							hi: 'या एक आज़माएँ',
+							id: 'atau coba sebuah',
+							ms: 'atau cuba sebuah',
+							th: 'หรือลอง',
+							vi: 'hoặc thử một',
+							bn: 'অথবা একটি চেষ্টা করুন',
+							'zh-cn': '或尝试一个',
+							'pt-br': 'ou experimente um'
+						})
+					} &nbsp; <a
+						href="#"
+						class="text-red-600"
+					>
+						{
+							t({
+								en: 'Free Demo Account',
+								ar: 'حساب تجريبي مجاني',
+								es: 'Cuenta demo gratuita',
+								fr: 'Compte de démonstration gratuit',
+								hi: 'नि:शुल्क डेमो खाता',
+								id: 'Akun Demo Gratis',
+								ms: 'Akaun Demo Percuma',
+								th: 'บัญชีสาธิตฟรี',
+								vi: 'Tài khoản demo miễn phí',
+								bn: 'ফ্রি ডেমো অ্যাকাউন্ট',
+								'zh-cn': '免费模拟账户',
+								'pt-br': 'Conta Demo Gratuita'
+							})
+						}</a
+					>
+
+					<br /><span class="mt-0 text-center"
+						><a
+							href="#"
+							class="text-[11px]"
+							>{
+								t({
+									en: 'Terms and Conditions apply',
+									ar: 'تطبق الشروط والأحكام',
+									es: 'Se aplican términos y condiciones',
+									fr: 'Des termes et conditions s"appliquent',
+									hi: 'शर्तें और नियम लागू होते हैं',
+									id: 'Syarat dan Ketentuan berlaku',
+									ms: 'Terma dan Syarat terpakai',
+									th: 'ข้อตกลงและเงื่อนไขใช้ได้',
+									vi: 'Điều khoản và điều kiện áp dụng',
+									bn: 'শর্তাবলী প্রযোজ্য',
+									'zh-cn': '条款和条件适用',
+									'pt-br': 'Termos e Condições aplicam-se'
+								})
+							}</a
+						></span
+					>
+				</div>
+			</div>
+			<!-- End Buttons -->
+
+			<!-- Regulated By  -->
+			<div>
+				<h4
+					class="my-6 text-lg font-normal text-gray-800 dark:text-neutral-200"
+					data-aos="fade-up-sm"
+				>
+					<svg
+						class="mr-1 inline"
+						xmlns="http://www.w3.org/2000/svg"
+						width="24"
+						height="24"
+						viewBox="0 0 1024 1024"
+						><path
+							fill="currentColor"
+							d="M866.9 169.9L527.1 54.1C523 52.7 517.5 52 512 52s-11 .7-15.1 2.1L157.1 169.9c-8.3 2.8-15.1 12.4-15.1 21.2v482.4c0 8.8 5.7 20.4 12.6 25.9L499.3 968c3.5 2.7 8 4.1 12.6 4.1s9.2-1.4 12.6-4.1l344.7-268.6c6.9-5.4 12.6-17 12.6-25.9V191.1c.2-8.8-6.6-18.3-14.9-21.2M810 654.3L512 886.5L214 654.3V226.7l298-101.6l298 101.6zm-405.8-201c-3-4.1-7.8-6.6-13-6.6H336c-6.5 0-10.3 7.4-6.5 12.7l126.4 174a16.1 16.1 0 0 0 26 0l212.6-292.7c3.8-5.3 0-12.7-6.5-12.7h-55.2c-5.1 0-10 2.5-13 6.6L468.9 542.4z"
+						></path></svg
+					>
+					{
+						t({
+							en: 'DB Investing Ltd is regulated by',
+							ar: 'تخضع DB Investing Ltd لـ',
+							es: 'DB Investing Ltd está regulada por',
+							fr: 'DB Investing Ltd est régulée par',
+							hi: 'DB Investing Ltd को विनियमित किया गया है',
+							id: 'DB Investing Ltd diatur oleh',
+							ms: 'DB Investing Ltd dikawal selia oleh',
+							th: 'DB Investing Ltd อยู่ภายใต้การควบคุมโดย',
+							vi: 'DB Investing Ltd được quản lý bởi',
+							bn: 'DB Investing Ltd এর নিয়ন্ত্রণাধীন',
+							'zh-cn': 'DB Investing Ltd 受监管于',
+							'pt-br': 'DB Investing Ltd é regulamentada por'
+						})
+					}
+				</h4>
+				<div class="grid gap-4 sm:grid-cols-2 sm:gap-6 lg:grid-cols-2">
+					<!-- Card -->
+					<div
+						class="flex flex-col rounded-xl border bg-white shadow-sm dark:border-neutral-800 dark:bg-neutral-900"
+						data-aos="fade-up-sm"
+						data-aos-delay="100"
+					>
+						<div class="flex justify-between gap-x-3 p-4 md:p-5">
+							<div>
+								<p
+									class="text-xs uppercase tracking-wide text-gray-500 dark:text-neutral-500"
+								>
+									{
+										t({
+											en: 'Seychelles',
+											ar: 'سيشيل',
+											es: 'Seychelles',
+											fr: 'Seychelles',
+											hi: 'सेशेल्स',
+											id: 'Seychelles',
+											ms: 'Seychelles',
+											th: 'เซเชลส์',
+											vi: 'Seychelles',
+											bn: 'সিশেলস',
+											'zh-cn': '塞舌尔',
+											'pt-br': 'Seychelles'
+										})
+									}
+								</p>
+								<div class="mt-2 flex items-center gap-x-2">
+									<h3
+										class="text-xl font-medium text-gray-800 dark:text-neutral-200 sm:text-2xl"
+									>
+										FSA
+									</h3>
+									<span class="items-base flex gap-x-1 text-green-600">
+										<!-- <svg
+											class="inline-block size-5 self-center"
+											xmlns="http://www.w3.org/2000/svg"
+											width="24"
+											height="24"
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="2"
+											stroke-linecap="round"
+											stroke-linejoin="round"
+											><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"
+											></polyline><polyline points="16 7 22 7 22 13"
+											></polyline></svg
+										> -->
+										<span class="inline-block text-[14px]">
+											{
+												t({
+													en: 'Financial Services Authority',
+													ar: 'هيئة الخدمات المالية',
+													es: 'Autoridad de Servicios Financieros',
+													fr: 'Autorité des services financiers',
+													hi: 'वित्तीय सेवाएं प्राधिकरण',
+													id: 'Otoritas Jasa Keuangan',
+													ms: 'Suruhanjaya Perkhidmatan Kewangan',
+													th: 'หน่วยงานบริการทางการเงิน',
+													vi: 'Cơ quan Dịch vụ Tài chính',
+													bn: 'ফাইন্যান্সিয়াল সার্ভিসেস অথরিটি',
+													'zh-cn': '金融服务局',
+													'pt-br': 'Autoridade de Serviços Financeiros'
+												})
+											}
+										</span>
+									</span>
+								</div>
+							</div>
+						</div>
+
+						<a
+							class="inline-flex items-center justify-between rounded-b-xl border-t border-gray-200 px-4 py-3 text-sm text-gray-600 hover:bg-gray-50 focus:bg-gray-50 focus:outline-none dark:border-neutral-800 dark:text-neutral-400 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800 md:px-5"
+							href="#"
+						>
+							{
+								t({
+									en: 'View Licence',
+									ar: 'عرض الترخيص',
+									es: 'Ver Licencia',
+									fr: 'Voir la licence',
+									hi: 'लाइसेंस देखें',
+									id: 'Lihat Lisensi',
+									ms: 'Lihat Lesen',
+									th: 'ดูใบอนุญาต',
+									vi: 'Xem Giấy phép',
+									bn: 'লাইসেন্স দেখুন',
+									'zh-cn': '查看许可证',
+									'pt-br': 'Ver Licença'
+								})
+							}
+							<svg
+								class="size-4 shrink-0"
+								xmlns="http://www.w3.org/2000/svg"
+								width="24"
+								height="24"
+								viewBox="0 0 24 24"
+								fill="none"
+								stroke="currentColor"
+								stroke-width="2"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								><path d="m9 18 6-6-6-6"></path></svg
+							>
+						</a>
+					</div>
+					<!-- End Card -->
+					<!-- Card -->
+					<div
+						class="flex flex-col rounded-xl border bg-white shadow-sm dark:border-neutral-800 dark:bg-neutral-900"
+						data-aos="fade-up-sm"
+						data-aos-delay="150"
+					>
+						<div class="flex justify-between gap-x-3 p-4 md:p-5">
+							<div>
+								<p
+									class="text-xs uppercase tracking-wide text-gray-500 dark:text-neutral-500"
+								>
+									{
+										t({
+											en: 'United Arab Emirates',
+											ar: 'الإمارات العربية المتحدة',
+											es: 'Emiratos Árabes Unidos',
+											fr: 'Émirats arabes unis',
+											hi: 'संयुक्त अरब अमीरात',
+											id: 'Uni Emirat Arab',
+											ms: 'Emiriah Arab Bersatu',
+											th: 'สหรัฐอาหรับเอมิเรตส์',
+											vi: 'Các Tiểu vương quốc Ả Rập Thống nhất',
+											bn: 'সংযুক্ত আরব আমিরাত',
+											'zh-cn': '阿拉伯联合酋长国',
+											'pt-br': 'Emirados Árabes Unidos'
+										})
+									}
+								</p>
+								<div class="mt-2 flex items-center gap-x-2">
+									<h3
+										class="text-xl font-medium text-gray-800 dark:text-neutral-200 sm:text-2xl"
+									>
+										SCA
+									</h3>
+									<span class="flex items-center gap-x-1 text-green-600">
+										<!-- <svg
+											class="inline-block size-5 self-center"
+											xmlns="http://www.w3.org/2000/svg"
+											width="24"
+											height="24"
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="2"
+											stroke-linecap="round"
+											stroke-linejoin="round"
+											><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"
+											></polyline><polyline points="16 7 22 7 22 13"
+											></polyline></svg
+										> -->
+										<span class="inline-block text-[14px]">
+											{
+												t({
+													en: 'Securities and Commodities Authority',
+													ar: 'هيئة الأوراق المالية والسلع',
+													es: 'Autoridad de Valores y Productos Básicos',
+													fr: 'Autorité des valeurs mobilières et des marchandises',
+													hi: 'सिक्योरिटीज और कमोडिटीज प्राधिकरण',
+													id: 'Otoritas Sekuritas dan Komoditas',
+													ms: 'Suruhanjaya Sekuriti dan Komoditi',
+													th: 'หน่วยงานหลักทรัพย์และสินค้าโภคภัณฑ์',
+													vi: 'Cơ quan Chứng khoán và Hàng hóa',
+													bn: 'সিকিউরিটিজ এবং পণ্য কর্তৃপক্ষ',
+													'zh-cn': '证券与商品管理局',
+													'pt-br':
+														'Autoridade de Valores Mobiliários e Commodities'
+												})
+											}
+										</span>
+									</span>
+								</div>
+							</div>
+						</div>
+
+						<a
+							class="inline-flex items-center justify-between rounded-b-xl border-t border-gray-200 px-4 py-3 text-sm text-gray-600 hover:bg-gray-50 focus:bg-gray-50 focus:outline-none dark:border-neutral-800 dark:text-neutral-400 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800 md:px-5"
+							href="#"
+						>
+							{
+								t({
+									en: 'View Licence',
+									ar: 'عرض الترخيص',
+									es: 'Ver Licencia',
+									fr: 'Voir la licence',
+									hi: 'लाइसेंस देखें',
+									id: 'Lihat Lisensi',
+									ms: 'Lihat Lesen',
+									th: 'ดูใบอนุญาต',
+									vi: 'Xem Giấy phép',
+									bn: 'লাইসেন্স দেখুন',
+									'zh-cn': '查看许可证',
+									'pt-br': 'Ver Licença'
+								})
+							}
+							<svg
+								class="size-4 shrink-0"
+								xmlns="http://www.w3.org/2000/svg"
+								width="24"
+								height="24"
+								viewBox="0 0 24 24"
+								fill="none"
+								stroke="currentColor"
+								stroke-width="2"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								><path d="m9 18 6-6-6-6"></path></svg
+							>
+						</a>
+					</div>
+					<!-- End Card -->
+				</div>
+				<!-- End Grid -->
+			</div>
+		</div>
+		<div
+			class="hidden max-w-[40%] lg:flex lg:items-center lg:justify-center"
+			data-aos="fade-right-sm"
+		>
+			<Image
+				src={HeroImg}
+				alt="hero img"
+				class="w-full"
+			/>
+		</div>
+	</div>
+</div>
+<!-- End Hero -->

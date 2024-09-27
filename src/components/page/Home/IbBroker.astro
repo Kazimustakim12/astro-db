@@ -1,49 +1,130 @@
 ---
 import { Image } from 'astro:assets'
 import IBImage from '../../../images/db_trading_portal.png'
-import BrichureImg from '../../../images/book-for-landing-brochure.jpg'
+import { useTranslations, type Lang } from '@/i18n'
+import Button from '@/components/ui/Button.astro'
+const t = useTranslations(Astro.currentLocale as Lang)
 ---
 
 <section class="py-9 md:py-14">
 	<div class="container mx-auto">
 		<div class="grid lg:grid-cols-7 lg:items-center lg:gap-x-8 xl:gap-x-12">
 			<div class="lg:col-span-3">
-				<h1 class="text-5xl font-bold text-dbgreen-900">
-					Introducing <span class="text-neutral-800 dark:text-white">Brokers (IB)</span>
+				<h1
+					class="text-5xl font-bold text-dbgreen-900"
+					data-aos="fade-up-sm"
+				>
+					{
+						t({
+							en: 'Introducing',
+							ar: 'نقدم',
+							es: 'Presentando',
+							fr: 'Présentation',
+							hi: 'परिचय',
+							id: 'Memperkenalkan',
+							ms: 'Memperkenalkan',
+							th: 'แนะนำ',
+							vi: 'Giới thiệu',
+							bn: 'পরিচয়',
+							'zh-cn': '介绍',
+							'pt-br': 'Apresentando'
+						})
+					}
+					<span class="text-neutral-800 dark:text-white"
+						>{
+							t({
+								en: 'Broker',
+								ar: 'وسيط',
+								es: 'Corredor',
+								fr: 'Courtier',
+								hi: 'ब्रोकर',
+								id: 'Pialang',
+								ms: 'Broker',
+								th: 'โบรกเกอร์',
+								vi: 'Nhà môi giới',
+								bn: 'ব্রোকার',
+								'zh-cn': '经纪人',
+								'pt-br': 'Corretor'
+							})
+						} (IB)</span
+					>
 				</h1>
 				<p class="mt-3 text-lg text-gray-800 dark:text-neutral-400">
-					Become a DB Investing IB today and earn one of the highest IB rebates in the industry and
-					increase your profits with the highest rebates & commissions.
+					{
+						t({
+							en: 'Become a DB Investing IB today and earn one of the highest IB rebates in the industry and increase your profits with the highest rebates & commissions.',
+							ar: 'كن شريكًا في DB Investing اليوم واحصل على أحد أعلى العمولات في الصناعة وزد أرباحك مع أعلى العمولات والمكافآت.',
+							es: 'Conviértete en un IB de DB Investing hoy y gana uno de los mayores reembolsos de IB en la industria y aumenta tus ganancias con los mayores reembolsos y comisiones.',
+							fr: "Devenez un IB de DB Investing aujourd'hui et gagnez l'un des plus hauts remboursements d'IB de l'industrie et augmentez vos profits avec les plus hauts remboursements et commissions.",
+							hi: 'आज ही DB Investing IB बनें और उद्योग में सबसे उच्च IB रिफंड में से एक कमाएं और सबसे उच्च रिफंड और कमीशन के साथ अपने लाभ को बढ़ाएं।',
+							id: 'Jadilah IB DB Investing hari ini dan dapatkan salah satu rebate IB tertinggi di industri dan tingkatkan keuntungan Anda dengan rebate & komisi tertinggi.',
+							ms: 'Jadilah IB DB Investing hari ini dan peroleh salah satu rebate IB tertinggi dalam industri dan tingkatkan keuntungan anda dengan rebate & komisen tertinggi.',
+							th: 'กลายเป็น IB ของ DB Investing วันนี้และรับหนึ่งในค่าคอมมิชชั่น IB ที่สูงที่สุดในอุตสาหกรรมและเพิ่มผลกำไรของคุณด้วยค่าคอมมิชชั่นและเงินคืนสูงสุด',
+							vi: 'Trở thành IB của DB Investing hôm nay và kiếm một trong những khoản hoàn lại IB cao nhất trong ngành và tăng lợi nhuận của bạn với các khoản hoàn lại và hoa hồng cao nhất.',
+							bn: 'আজ DB Investing IB হন এবং শিল্পের অন্যতম উচ্চ IB ফেরত উপার্জন করুন এবং সর্বোচ্চ ফেরত ও কমিশনের সাথে আপনার মুনাফা বাড়ান।',
+							'zh-cn':
+								'今天成为DB Investing的IB，获得行业中最高的IB返点之一，并通过最高的返点和佣金增加您的利润。',
+							'pt-br':
+								'Torne-se um IB da DB Investing hoje e ganhe um dos maiores reembolsos de IB da indústria e aumente seus lucros com os maiores reembolsos e comissões.'
+						})
+					}
 				</p>
 				<div class="mt-12 lg:mt-12">
 					<div class="mt-4 flex flex-wrap gap-7 gap-x-8">
-						<a
-							href="#"
-							type="button"
-							class="inline-flex items-center gap-x-2 rounded-full border border-transparent bg-dbgreen-900 px-4 py-3 text-sm font-medium text-white shadow-xl hover:bg-dbgreen-900 focus:bg-dbgreen-900 focus:outline-none disabled:pointer-events-none disabled:opacity-50"
-							><iconify-icon icon="line-md:arrow-right" width="20" height="20" style="color: white"
-							></iconify-icon>
-							Become an Introducer Broker
-						</a>
-						<!-- exaple -->
-						<!-- end example -->
-						<a
-							href="#"
-							type="button"
-							class="inline-flex items-center gap-x-2 rounded-full border border-transparent bg-dbgreen-900 px-4 py-3 text-sm font-medium text-white shadow-xl hover:bg-dbgreen-900 focus:bg-dbgreen-900 focus:outline-none disabled:pointer-events-none disabled:opacity-50"
-						>
-							<iconify-icon
-								icon="line-md:downloading-loop"
-								width="20"
-								height="20"
-								style="color: white"
-								class=""></iconify-icon>
-							Download PDF File
-						</a>
+						<Button
+							data-aos="fade-up-sm"
+							data-aos-delay="50"
+							text={t({
+								en: 'Become an Introducer Broker',
+								ar: 'كن وسيطًا مقدمًا',
+								es: 'Conviértete en un Corredor Introducer',
+								fr: 'Devenez un Courtier Introducer',
+								hi: 'एक परिचयकर्ता ब्रोकर बनें',
+								id: 'Jadilah Pialang Pengenalan',
+								ms: 'Jadilah Pembroker Pengenalan',
+								th: 'กลายเป็นผู้แนะนำโบรกเกอร์',
+								vi: 'Trở thành Nhà môi giới Giới thiệu',
+								bn: 'একটি পরিচায়ক ব্রোকার হন',
+								'zh-cn': '成为介绍经纪人',
+								'pt-br': 'Torne-se um Corretor Introduzido'
+							})}
+							primary={false}
+							rippleEffect="true"
+							primary="true"
+							class="rounded-full"
+							buttonIcon="<iconify-icon icon='line-md:arrow-right' width='20' height='20' style='color: white'/>"
+						/>
+						<Button
+							data-aos="fade-up-sm"
+							data-aos-delay="150"
+							text={t({
+								en: 'Download PDF File',
+								ar: 'تحميل ملف PDF',
+								es: 'Descargar archivo PDF',
+								fr: 'Télécharger le fichier PDF',
+								hi: 'पीडीएफ फ़ाइल डाउनलोड करें',
+								id: 'Unduh File PDF',
+								ms: 'Muat Turun Fail PDF',
+								th: 'ดาวน์โหลดไฟล์ PDF',
+								vi: 'Tải xuống tệp PDF',
+								bn: 'পিডিএফ ফাইল ডাউনলোড করুন',
+								'zh-cn': '下载PDF文件',
+								'pt-br': 'Baixar arquivo PDF'
+							})}
+							primary={false}
+							rippleEffect="true"
+							primary="true"
+							class="rounded-full"
+							buttonIcon="<iconify-icon icon='line-md:downloading-loop' width='20' height='20' style='color: white'></iconify-icon>"
+						/>
 					</div>
 				</div>
 			</div>
-			<div class="mt-10 lg:col-span-4 lg:mt-0">
+			<div
+				class="mt-10 lg:col-span-4 lg:mt-0"
+				data-aos="fade-up-sm"
+				data-aos-delay="500"
+			>
 				<Image
 					src={IBImage}
 					class="m-auto rounded-xl object-cover drop-shadow-2xl"
@@ -52,17 +133,5 @@ import BrichureImg from '../../../images/book-for-landing-brochure.jpg'
 				/>
 			</div>
 		</div>
-
-		<!-- Brouche Image  -->
-		<!-- <div class="pt-12 sm:pt-16 lg:pt-20 xl:pt-24">
-			<a href="#">
-				<Image
-					src={BrichureImg}
-					class="m-auto h-[300px] w-full rounded-xl object-cover drop-shadow-2xl"
-					alt="brokerImage"
-					loading="lazy"
-				/>
-			</a>
-		</div> -->
 	</div>
 </section>

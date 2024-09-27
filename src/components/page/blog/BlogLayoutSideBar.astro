@@ -1,0 +1,436 @@
+---
+import Layout from '@/layouts/Layout.astro'
+import gql from 'graphql-tag'
+import client from '@/lib/apolloClient'
+import { Image } from 'astro:assets'
+import Button from '@/components/ui/Button.astro'
+import { formatDate } from '@/lib/utils'
+import { useTranslations, type Lang } from '@/i18n'
+const t = useTranslations(Astro.currentLocale as Lang)
+const GET_TOP_MARKET_NEWS = gql`
+	query GET_TOP_MARKET_NEWS($first: Int, $language: String!) {
+		posts(where: { language: $language, categoryName: "market-news" }, first: $first) {
+			edges {
+				cursor
+				node {
+					id
+					date
+					slug
+					title
+					languageCode
+					featuredImage {
+						node {
+							srcSet
+							sourceUrl
+							altText
+							mediaDetails {
+								height
+								width
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+`
+
+const GET_TOP_COMPANY_NEWS = gql`
+	query GET_TOP_COMPANY_NEWS($first: Int, $language: String!) {
+		posts(where: { language: $language, categoryName: "company-news" }, first: $first) {
+			edges {
+				cursor
+				node {
+					id
+					date
+					slug
+					title
+					languageCode
+					featuredImage {
+						node {
+							srcSet
+							sourceUrl
+							altText
+							mediaDetails {
+								height
+								width
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+`
+const lang = Astro.params.lang || 'en'
+
+const {
+	data: marketNews,
+	loading: marketLoading,
+	error: marketError
+} = await client.query({
+	query: GET_TOP_MARKET_NEWS,
+	variables: {
+		language: lang,
+		first: 3
+	}
+})
+const {
+	data: compnayNews,
+	loading: compnayLoading,
+	error: compnayError
+} = await client.query({
+	query: GET_TOP_COMPANY_NEWS,
+	variables: {
+		language: lang,
+		first: 3
+	}
+})
+const TopMarketNews = marketNews?.posts?.edges || []
+const TopCompanyNews = compnayNews?.posts?.edges || []
+const { title, searchValue } = Astro.props
+---
+
+<Layout title={title}>
+	<!-- Blog Article -->
+	<div class="mx-auto max-w-[85rem] px-4 sm:px-6 lg:px-8">
+		<div class="grid gap-y-8 lg:grid-cols-3 lg:gap-x-6 lg:gap-y-0">
+			<!-- Content -->
+			<slot
+				name="articleContent"
+				transition:name="articleContent"
+			/>
+			<!-- End Content -->
+			<!-- Sidebar -->
+			<div
+				data-aos="fade-up-sm"
+				class="dark:from-neutral-800 lg:col-span-1 lg:h-full lg:w-full lg:bg-gradient-to-r lg:from-gray-50 lg:via-transparent lg:to-transparent"
+			>
+				<div class="sticky start-0 top-0 py-8 lg:ps-8">
+					<!-- Search Box -->
+					<div
+						class="group mb-8 flex items-center justify-end gap-x-3 border-b border-gray-200 pb-8 dark:border-neutral-700"
+					>
+						<form
+							id="searchDB"
+							class="w-full"
+						>
+							<div class="w-full">
+								<label
+									for="hs-trailing-button-add-on-with-icon-and-button"
+									class="sr-only"
+									>Search</label
+								>
+								<div class="relative flex w-full rounded-lg shadow-sm">
+									<input
+										type="search"
+										name="search"
+										value={searchValue}
+										placeholder={t({
+											en: 'Search..',
+											ar: 'بحث..',
+											es: 'Buscar..',
+											fr: 'Recherche..',
+											hi: 'खोजें..',
+											id: 'Cari..',
+											ms: 'Cari..',
+											th: 'ค้นหา..',
+											vi: 'Tìm kiếm..',
+											bn: 'অনুসন্ধান করুন..',
+											'zh-cn': '搜索..',
+											'pt-br': 'Pesquisar..'
+										})}
+										id="hs-trailing-button-add-on-with-icon-and-button"
+										name="hs-trailing-button-add-on-with-icon-and-button"
+										class="block w-full rounded-s-lg border-gray-200 px-4 py-3 ps-11 text-sm shadow-sm focus:z-10 focus:border-dbgreen-500 focus:ring-dbgreen-500 disabled:pointer-events-none disabled:opacity-50 dark:border-neutral-700 dark:bg-neutral-900 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
+									/>
+									<div
+										class="pointer-events-none absolute inset-y-0 start-0 z-20 flex items-center ps-4"
+									>
+										<svg
+											class="size-4 shrink-0 text-gray-400 dark:text-neutral-500"
+											xmlns="http://www.w3.org/2000/svg"
+											width="24"
+											height="24"
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="2"
+											stroke-linecap="round"
+											stroke-linejoin="round"
+										>
+											<circle
+												cx="11"
+												cy="11"
+												r="8"
+											></circle>
+											<path d="m21 21-4.3-4.3"></path>
+										</svg>
+									</div>
+									<Button
+										primary={true}
+										rippleEffect={true}
+										text={t({
+											en: 'Search',
+											ar: 'بحث',
+											es: 'Buscar',
+											fr: 'Recherche',
+											hi: 'खोजें',
+											id: 'Cari',
+											ms: 'Cari',
+											th: 'ค้นหา',
+											vi: 'Tìm kiếm',
+											bn: 'অনুসন্ধান করুন',
+											'zh-cn': '搜索',
+											'pt-br': 'Pesquisar'
+										})}
+										class="w-[90px]"
+									/>
+									<!-- <button
+									type="button"
+									class="inline-flex items-center justify-center gap-x-2 rounded-e-md border border-transparent bg-dbgreen-800 px-4 py-3 text-sm font-semibold text-white focus-within:outline-none hover:bg-dbgreen-900 focus:bg-dbgreen-700 focus:outline-none focus-visible:border-dbgreen-900 disabled:pointer-events-none disabled:opacity-50"
+									>Search</button
+								> -->
+								</div>
+							</div>
+						</form>
+					</div>
+					<!-- Search Box End -->
+					<!-- Compnay news   -->
+					<h3
+						class="mb-4 text-xl font-semibold capitalize text-gray-800 dark:text-neutral-200"
+					>
+						{
+							t({
+								en: 'Latest Company News',
+								ar: 'أحدث أخبار الشركة',
+								es: 'Últimas noticias de la empresa',
+								fr: "Dernières nouvelles de l'entreprise",
+								hi: 'कंपनी की नवीनतम समाचार',
+								id: 'Berita Perusahaan Terbaru',
+								ms: 'Berita Syarikat Terkini',
+								th: 'ข่าวบริษัทล่าสุด',
+								vi: 'Tin tức công ty mới nhất',
+								bn: 'সর্বশেষ কোম্পানির খবর',
+								'zh-cn': '最新公司新闻',
+								'pt-br': 'Últimas notícias da empresa'
+							})
+						}
+					</h3>
+
+					<div class="space-y-6">
+						<!-- Top BLog  -->
+						{
+							compnayLoading ? (
+								<div class="flex animate-pulse">
+									<div class="shrink-0">
+										<span class="block size-12 rounded-full bg-gray-200 dark:bg-neutral-700" />
+									</div>
+
+									<div class="ms-4 mt-2 w-full">
+										<p
+											class="h-4 rounded-full bg-gray-200 dark:bg-neutral-700"
+											style="width: 40%;"
+										/>
+
+										<ul class="mt-5 space-y-3">
+											<li class="h-4 w-full rounded-full bg-gray-200 dark:bg-neutral-700" />
+											<li class="h-4 w-full rounded-full bg-gray-200 dark:bg-neutral-700" />
+											<li class="h-4 w-full rounded-full bg-gray-200 dark:bg-neutral-700" />
+											<li class="h-4 w-full rounded-full bg-gray-200 dark:bg-neutral-700" />
+										</ul>
+									</div>
+								</div>
+							) : TopCompanyNews.length > 0 ? (
+								TopCompanyNews.map((topnode, index) => {
+									const post = topnode.node
+									return (
+										<a
+											class="group flex items-center gap-x-6 focus:outline-none"
+											href={`/${lang}/blog/${post.slug}/`}
+											data-aos="fade-up-sm"
+											data-delay={`${index + 1}00`}
+										>
+											<div class="grow space-y-1">
+												<span class="text-sm font-bold text-gray-800 group-hover:text-dbgreen-800 group-focus:text-dbgreen-800 dark:text-neutral-300 dark:group-hover:text-dbgreen-800 dark:group-focus:text-dbgreen-800">
+													{post.title}
+												</span>
+												<p class="flex items-center gap-2 text-[12px] text-gray-800 dark:text-neutral-300">
+													<iconify-icon
+														icon="formkit:datetime"
+														width="15"
+														height="15"
+														class="text-black dark:text-white"
+													/>
+													{formatDate(post.date)}
+												</p>
+											</div>
+
+											<div class="relative shrink-0 overflow-hidden rounded-lg">
+												<Image
+													src={post?.featuredImage?.node?.sourceUrl}
+													alt={post?.featuredImage?.node?.altText}
+													width={100}
+													height={100}
+												/>
+												{/* <img
+													src={post?.featuredImage?.node?.mediaItemUrl}
+													alt={post?.featuredImage?.node?.altText}
+													srcset={post?.featuredImage?.node?.srcSet}
+													: marketLoading="lazy"
+												/> */}
+											</div>
+										</a>
+									)
+								})
+							) : (
+								<p>
+									{t({
+										en: 'No Post Available',
+										ar: 'لا توجد منشورات متاحة',
+										es: 'No hay publicaciones disponibles',
+										fr: 'Aucun article disponible',
+										hi: 'कोई पोस्ट उपलब्ध नहीं है',
+										id: 'Tidak ada Pos Tersedia',
+										ms: 'Tiada Pos Tersedia',
+										th: 'ไม่มีโพสต์ที่มีอยู่',
+										vi: 'Không có bài đăng nào',
+										bn: 'কোনও পোস্ট উপলব্ধ নেই',
+										'zh-cn': '没有可用的帖子',
+										'pt-br': 'Nenhuma postagem disponível'
+									})}
+								</p>
+							)
+						}
+					</div>
+					<!-- Compnay news End  -->
+					<hr class="mb-5 mt-5 border-t border-gray-200 dark:border-neutral-700" />
+					<!-- Compnay news   -->
+					<h3
+						class="mb-3 pt-3 text-xl font-semibold capitalize text-gray-800 dark:text-neutral-200"
+					>
+						{
+							t({
+								en: 'Latest Market News',
+								ar: 'أحدث أخبار السوق',
+								es: 'Últimas noticias del mercado',
+								fr: 'Dernières nouvelles du marché',
+								hi: 'बाजार की नवीनतम समाचार',
+								id: 'Berita Pasar Terbaru',
+								ms: 'Berita Pasaran Terkini',
+								th: 'ข่าวตลาดล่าสุด',
+								vi: 'Tin tức thị trường mới nhất',
+								bn: 'সর্বশেষ বাজারের খবর',
+								'zh-cn': '最新市场新闻',
+								'pt-br': 'Últimas notícias do mercado'
+							})
+						}
+					</h3>
+
+					<div class="space-y-6">
+						<!-- Top BLog  -->
+						{
+							marketLoading ? (
+								<div class="flex animate-pulse">
+									<div class="shrink-0">
+										<span class="block size-12 rounded-full bg-gray-200 dark:bg-neutral-700" />
+									</div>
+
+									<div class="ms-4 mt-2 w-full">
+										<p
+											class="h-4 rounded-full bg-gray-200 dark:bg-neutral-700"
+											style="width: 40%;"
+										/>
+
+										<ul class="mt-5 space-y-3">
+											<li class="h-4 w-full rounded-full bg-gray-200 dark:bg-neutral-700" />
+											<li class="h-4 w-full rounded-full bg-gray-200 dark:bg-neutral-700" />
+											<li class="h-4 w-full rounded-full bg-gray-200 dark:bg-neutral-700" />
+											<li class="h-4 w-full rounded-full bg-gray-200 dark:bg-neutral-700" />
+										</ul>
+									</div>
+								</div>
+							) : TopMarketNews.length > 0 ? (
+								TopMarketNews.map((topnode, index) => {
+									const post = topnode.node
+									return (
+										<a
+											class="group flex items-center gap-x-6 focus:outline-none"
+											href={`/${lang}/blog/${post.slug}/`}
+											data-aos="fade-up-sm"
+											data-delay={`${index + 1}00`}
+										>
+											<div class="grow space-y-1">
+												<span class="text-sm font-bold text-gray-800 group-hover:text-dbgreen-800 group-focus:text-dbgreen-800 dark:text-neutral-300 dark:group-hover:text-dbgreen-800 dark:group-focus:text-dbgreen-800">
+													{post.title}
+												</span>
+												<p class="flex items-center gap-2 text-[12px] text-gray-800 dark:text-neutral-300">
+													<iconify-icon
+														icon="formkit:datetime"
+														width="15"
+														height="15"
+														class="text-black dark:text-white"
+													/>
+													{formatDate(post.date)}
+												</p>
+											</div>
+
+											<div class="relative shrink-0 overflow-hidden rounded-lg">
+												<Image
+													src={post?.featuredImage?.node?.sourceUrl}
+													alt={post?.featuredImage?.node?.altText}
+													width={100}
+													height={100}
+												/>
+												{/* <img
+													src={post?.featuredImage?.node?.mediaItemUrl}
+													alt={post?.featuredImage?.node?.altText}
+													srcset={post?.featuredImage?.node?.srcSet}
+													: marketLoading="lazy"
+												/> */}
+											</div>
+										</a>
+									)
+								})
+							) : (
+								<p>
+									{t({
+										en: 'No Post Available',
+										ar: 'لا توجد منشورات متاحة',
+										es: 'No hay publicaciones disponibles',
+										fr: 'Aucun article disponible',
+										hi: 'कोई पोस्ट उपलब्ध नहीं है',
+										id: 'Tidak ada Pos Tersedia',
+										ms: 'Tiada Pos Tersedia',
+										th: 'ไม่มีโพสต์ที่มีอยู่',
+										vi: 'Không có bài đăng nào',
+										bn: 'কোনও পোস্ট উপলব্ধ নেই',
+										'zh-cn': '没有可用的帖子',
+										'pt-br': 'Nenhuma postagem disponível'
+									})}
+								</p>
+							)
+						}
+					</div>
+					<!-- Compnay news End  -->
+				</div>
+			</div>
+			<!-- End Sidebar -->
+		</div>
+	</div>
+	<!-- End Blog Article -->
+</Layout>
+<script>
+	import DOMPurify from 'dompurify'
+	const form = document.querySelector('#searchDB')
+	form?.addEventListener('submit', (e) => {
+		e.preventDefault()
+		const formData = new FormData(form)
+		const searchTerm = DOMPurify.sanitize(formData.get('search')?.toString())
+		if (!searchTerm || searchTerm.length === 0) return
+		const lang = window.location.pathname.split('/')[1]
+		const url = new URL(`${lang}/search`, window.location.origin)
+		url.searchParams.set('q', searchTerm)
+		window.location.assign(url.toString())
+	})
+</script>

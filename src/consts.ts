@@ -6,7 +6,7 @@ import { type Multilingual } from '@/i18n'
 export const SITE_TITLE: string | Multilingual = 'DB Investing - Dream Big Investing'
 
 export const SITE_DESCRIPTION: string | Multilingual = {
-	en: 'A starter template for Astro with i18n support.',
+	en: 'DB Investing is an online trading platform that offers users access to various financial markets, including forex, stocks, indices, and commodities. It provides trading tools, educational resources, and advanced technology to help traders execute trades efficiently. The platform is designed for both beginner and experienced traders, offering features such as multiple account types, competitive spreads, and leverage options. DBInvesting aims to deliver a user-friendly experience with access to MetaTrader 5, a widely recognized trading software, and a customer support team available to assist with inquiries.',
 	ja: 'i18n 対応の Astro スターターテンプレート。',
 	'zh-cn': '具有 i18n 支持的 Astro 入门模板。',
 	ar: 'قالب بداية لـ Astro مع دعم i18n.'

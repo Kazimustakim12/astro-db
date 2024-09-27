@@ -1,6 +1,11 @@
 ---
-import Autoplay from 'embla-carousel-autoplay'
-
+import CardOverlayerText from '../../ui/CardOverlayerText.astro'
+import { useTranslations, type Lang } from '@/i18n'
+import client from '@/lib/apolloClient'
+import { formatDate } from '@/lib/utils'
+import { Image } from 'astro:assets'
+const t = useTranslations(Astro.currentLocale as Lang)
+import gql from 'graphql-tag'
 const dbProduct = [
 	{
 		id: 1,
@@ -46,7 +51,53 @@ const dbProduct = [
 	}
 ]
 
-import CardOverlayerText from '../../CardOverlayerText.astro'
+const GET_TOP_COMPANY_NEWS = gql`
+	query GET_TOP_COMPANY_NEWS($first: Int, $language: String!) {
+		posts(where: { language: $language, categoryName: "company-news" }, first: $first) {
+			edges {
+				cursor
+				node {
+					id
+					date
+					slug
+					title
+					languageCode
+					featuredImage {
+						node {
+							srcSet
+							sourceUrl
+							altText
+							mediaDetails {
+								height
+								width
+							}
+						}
+					}
+					author {
+						node {
+							id
+							name
+							url
+						}
+					}
+				}
+			}
+		}
+	}
+`
+const lang = Astro.params.lang || 'en'
+const {
+	data: compnayNews,
+	loading: compnayLoading,
+	error: compnayError
+} = await client.query({
+	query: GET_TOP_COMPANY_NEWS,
+	variables: {
+		language: lang,
+		first: 6
+	}
+})
+const TopCompanyNews = compnayNews?.posts?.edges || []
 ---
 
 <section class="py-9 md:py-14">
@@ -55,34 +106,133 @@ import CardOverlayerText from '../../CardOverlayerText.astro'
 			<div class="mb-4 flex flex-col justify-between gap-4 lg:flex-row">
 				<div class="">
 					<h1 class="text-5xl font-bold text-white sm:text-6xl">
-						Updates
-						<span class="text-black">News </span>
+						{
+							t({
+								en: 'Updates',
+								ar: 'تحديثات',
+								es: 'Actualizaciones',
+								fr: 'Mises à jour',
+								hi: 'अपडेट्स',
+								id: 'Pembaruan',
+								ms: 'Kemas kini',
+								th: 'การอัปเดต',
+								vi: 'Cập nhật',
+								bn: 'আপডেট',
+								'zh-cn': '更新',
+								'pt-br': 'Atualizações'
+							})
+						}
+						<span class="text-black"
+							>{
+								t({
+									en: 'News',
+									ar: 'أخبار',
+									es: 'Noticias',
+									fr: 'Nouvelles',
+									hi: 'समाचार',
+									id: 'Berita',
+									ms: 'Berita',
+									th: 'ข่าว',
+									vi: 'Tin tức',
+									bn: 'সংবাদ',
+									'zh-cn': '新闻',
+									'pt-br': 'Notícias'
+								})
+							}
+						</span>
 					</h1>
 				</div>
 				<div class="max-w-[600px]">
 					<p class="text-base text-white">
-						Trade confidently with DB Investing's cutting-edge platforms for unparalleled stability.
-						Subscribe for tight pricing and top-tier liquidity from leading Banks and Prime Brokers.
+						{
+							t({
+								en: "Trade confidently with DB Investing's cutting-edge platforms for unparalleled stability. Subscribe for tight pricing and top-tier liquidity from leading Banks and Prime Brokers.",
+								ar: 'تداول بثقة مع منصات DB Investing المتطورة لتحقيق استقرار لا مثيل له. اشترك للحصول على تسعير ضيق وسيولة من الدرجة الأولى من البنوك الرئيسية والوسطاء الرئيسيين.',
+								es: 'Opera con confianza con las plataformas de vanguardia de DB Investing para una estabilidad sin igual. Suscríbete para obtener precios ajustados y liquidez de primer nivel de los principales bancos y corredores primarios.',
+								fr: 'Tradez en toute confiance avec les plateformes de pointe de DB Investing pour une stabilité inégalée. Abonnez-vous pour des prix serrés et une liquidité de premier ordre provenant des banques et courtiers principaux.',
+								hi: 'DB Investing के अत्याधुनिक प्लेटफार्मों के साथ आत्मविश्वास के साथ व्यापार करें जो अद्वितीय स्थिरता के लिए हैं। प्रमुख बैंकों और प्राइम ब्रोकरों से तंग मूल्य निर्धारण और शीर्ष श्रेणी की तरलता के लिए सदस्यता लें।',
+								id: 'Perdagangan dengan percaya diri menggunakan platform canggih DB Investing untuk stabilitas yang tiada bandingnya. Berlangganan untuk harga ketat dan likuiditas terbaik dari bank terkemuka dan broker utama.',
+								ms: 'Berdagang dengan yakin menggunakan platform canggih DB Investing untuk kestabilan yang tiada tandingan. Langgan untuk harga ketat dan kecairan teratas dari bank terkemuka dan broker utama.',
+								th: 'เทรดอย่างมั่นใจกับแพลตฟอร์มล้ำสมัยของ DB Investing เพื่อความเสถียรที่ไม่มีใครเทียบได้ สมัครสมาชิกเพื่อรับราคาที่แน่นหนาและสภาพคล่องระดับสูงจากธนาคารชั้นนำและโบรกเกอร์ชั้นนำ',
+								vi: 'Giao dịch tự tin với các nền tảng tiên tiến của DB Investing để có độ ổn định vô song. Đăng ký để có mức giá chặt chẽ và thanh khoản hàng đầu từ các ngân hàng hàng đầu và các nhà môi giới chính.',
+								bn: 'DB Investing-এর অত্যাধুনিক প্ল্যাটফর্মের সাথে আত্মবিশ্বাসের সাথে ব্যবসা করুন যা অতুলনীয় স্থিতিশীলতার জন্য। প্রধান ব্যাংক এবং প্রাইম ব্রোকারদের কাছ থেকে টাইট প্রাইসিং এবং শীর্ষ স্তরের তরলতার জন্য সাবস্ক্রাইব করুন।',
+								'zh-cn':
+									'与DB Investing的尖端平台自信交易，以实现无与伦比的稳定性。订阅以获得来自领先银行和主要经纪人的紧密定价和顶级流动性。',
+								'pt-br':
+									'Negocie com confiança com as plataformas de ponta da DB Investing para uma estabilidade incomparável. Inscreva-se para preços apertados e liquidez de primeira linha de bancos líderes e corretores primários.'
+							})
+						}
 					</p>
 				</div>
 			</div>
 			<div class="pt-4">
 				<div class="companySlider h-full overflow-hidden">
-					<div class="companySlider__container flex">
+					<div
+						class="companySlider__container flex rtl:flex-row-reverse rtl:justify-start"
+					>
+						<!-- {
+							// dbProduct.map((product, index) => {
+							// 	return (
+							// 		<div class="companySlider__slide">
+							// 			<CardOverlayerText
+							// 				imagePath={product.src}
+							// 				title={product.title}
+							// 				id={product.id}
+							// 				altText={product.title}
+							// 				link={product.link}
+							// 			/>
+							// 		</div>
+							// 	)
+							// })
+						} -->
 						{
-							dbProduct.map((product, index) => {
-								return (
-									<div class="companySlider__slide">
-										<CardOverlayerText
-											imagePath={product.src}
-											title={product.title}
-											id={product.id}
-											altText={product.title}
-											link={product.link}
-										/>
+							compnayLoading ? (
+								<div class="flex animate-pulse">
+									<div class="shrink-0">
+										<span class="block size-12 rounded-full bg-gray-200 dark:bg-neutral-700" />
 									</div>
-								)
-							})
+
+									<div class="ms-4 mt-2 w-full">
+										<p
+											class="h-4 rounded-full bg-gray-200 dark:bg-neutral-700"
+											style="width: 40%;"
+										/>
+
+										<ul class="mt-5 space-y-3">
+											<li class="h-4 w-full rounded-full bg-gray-200 dark:bg-neutral-700" />
+											<li class="h-4 w-full rounded-full bg-gray-200 dark:bg-neutral-700" />
+											<li class="h-4 w-full rounded-full bg-gray-200 dark:bg-neutral-700" />
+											<li class="h-4 w-full rounded-full bg-gray-200 dark:bg-neutral-700" />
+										</ul>
+									</div>
+								</div>
+							) : TopCompanyNews.length > 0 ? (
+								TopCompanyNews.map((topnode) => {
+									const post = topnode.node
+									return (
+										<div class="companySlider__slide">
+											<CardOverlayerText post={post} />
+										</div>
+									)
+								})
+							) : (
+								<p>
+									{t({
+										en: 'No Post Available',
+										ar: 'لا توجد منشورات متاحة',
+										es: 'No hay publicaciones disponibles',
+										fr: 'Aucun article disponible',
+										hi: 'कोई पोस्ट उपलब्ध नहीं है',
+										id: 'Tidak ada Pos Tersedia',
+										ms: 'Tiada Pos Tersedia',
+										th: 'ไม่มีโพสต์ที่มีอยู่',
+										vi: 'Không có bài đăng nào',
+										bn: 'কোনও পোস্ট উপলব্ধ নেই',
+										'zh-cn': '没有可用的帖子',
+										'pt-br': 'Nenhuma postagem disponível'
+									})}
+								</p>
+							)
 						}
 					</div>
 				</div>
@@ -111,6 +261,9 @@ import CardOverlayerText from '../../CardOverlayerText.astro'
 	.companySlider__container {
 		display: flex;
 		/* gap: var(--slide-spacing); */
+		/* Reverse slides */
+		/* flex-direction: row-reverse;
+		justify-content: flex-start; */
 	}
 	.companySlider__slide {
 		transform: translate3d(0, 0, 0);

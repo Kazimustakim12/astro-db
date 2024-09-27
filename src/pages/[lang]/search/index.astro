@@ -1,0 +1,62 @@
+---
+import BlogLayoutSideBar from '@/components/page/blog/BlogLayoutSideBar.astro'
+import BlogList from '@/components/page/blog/BlogList'
+import { LOCALES, useTranslations, type Lang } from '@/i18n'
+export const prerender = false
+// export const prerender = false
+const lang = Astro.params.lang || 'en'
+const t = useTranslations(Astro.currentLocale as Lang)
+const title = t({
+	en: 'Blog',
+	ar: 'افتح حساب',
+	es: 'Abrir una cuenta',
+	fr: 'Ouvrir un compte',
+	hi: 'खाता खोलें',
+	id: 'Buka Akun',
+	ms: 'Buka Akaun',
+	th: 'เปิดบัญชี',
+	vi: 'Mở một tài khoản',
+	bn: 'একটি অ্যাকাউন্ট খুলুন',
+	'zh-cn': '开设账户'
+})
+
+const searchValue = Astro.url.searchParams.get('q') || ''
+console.log(searchValue, 'searchValue')
+
+// export const getStaticPaths = () =>
+// 	Object.keys(LOCALES).map((lang) => ({
+// 		params: { lang }
+// 	}))
+---
+
+<BlogLayoutSideBar
+	title={title}
+	searchValue={searchValue}
+>
+	<!-- Content -->
+	<div
+		class="lg:col-span-2"
+		slot="articleContent"
+	>
+		<div class="py-8 lg:pe-8">
+			<div class="space-y-5 lg:space-y-8">
+				<div class="mx-auto mb-10 max-w-2xl text-center lg:mb-14">
+					<h2 class="text-2xl font-bold dark:text-white md:text-4xl md:leading-tight">
+						Search : {searchValue}
+					</h2>
+					<p class="mt-1 text-gray-600 dark:text-neutral-400">
+						Finance and economics explained simply
+					</p>
+				</div>
+				<div>
+					<BlogList
+						client:load
+						lang={lang}
+						search={searchValue}
+					/>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- End Content -->
+</BlogLayoutSideBar>

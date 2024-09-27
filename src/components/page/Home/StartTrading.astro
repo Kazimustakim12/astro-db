@@ -1,7 +1,9 @@
 ---
 import { Image } from 'astro:assets'
 import startTradingImage from '../../../images/start_trading.webp'
-import Button from '@/components/Button.astro'
+import Button from '@/components/ui/Button.astro'
+import { useTranslations, type Lang } from '@/i18n'
+const t = useTranslations(Astro.currentLocale as Lang)
 ---
 
 <section class="py-9 md:py-14">
@@ -9,22 +11,94 @@ import Button from '@/components/Button.astro'
 		<div class="text-center">
 			<p
 				class="mb-6 text-sm font-bold uppercase tracking-widest text-gray-700 dark:text-neutral-400"
+				data-aos="fade-up-sm"
 			>
-				How It Works
+				{
+					t({
+						en: 'How It Works',
+						ar: 'كيف تعمل',
+						es: 'Cómo funciona',
+						fr: 'Comment ça marche',
+						hi: 'यह कैसे काम करता है',
+						id: 'Cara Kerjanya',
+						ms: 'Bagaimana Ia Berfungsi',
+						th: 'มันทำงานอย่างไร',
+						vi: 'Cách thức hoạt động',
+						bn: 'এটি কিভাবে কাজ করে',
+						'zh-cn': '它是如何工作的',
+						'pt-br': 'Como Funciona'
+					})
+				}
 			</p>
 
-			<h1 class="text-5xl font-bold text-dbgreen-900">
-				<span class="text-neutral-800 dark:text-white">Start Trading in </span>4 easy steps
+			<h1
+				class="text-5xl font-bold text-dbgreen-900"
+				data-aos="fade-up-sm"
+			>
+				<span class="text-neutral-800 dark:text-white">
+					{
+						t({
+							en: 'Start Trading in',
+							ar: 'ابدأ التداول في',
+							es: 'Comienza a operar en',
+							fr: 'Commencez à trader dans',
+							hi: '4 आसान चरणों में ट्रेडिंग शुरू करें',
+							id: 'Mulai Trading dalam',
+							ms: 'Mula Berniaga dalam',
+							th: 'เริ่มต้นการซื้อขายใน',
+							vi: 'Bắt đầu giao dịch trong',
+							bn: 'ট্রেডিং শুরু করুন',
+							'zh-cn': '开始交易',
+							'pt-br': 'Comece a negociar em'
+						})
+					}</span
+				>
+				{
+					t({
+						en: '4 easy steps',
+						ar: '4 خطوات سهلة',
+						es: '4 pasos sencillos',
+						fr: '4 étapes faciles',
+						hi: '4 आसान चरणों',
+						id: '4 langkah mudah',
+						ms: '4 langkah mudah',
+						th: '4 ขั้นตอนง่าย ๆ',
+						vi: '4 bước dễ dàng',
+						bn: '4 সহজ পদক্ষেপ',
+						'zh-cn': '4个简单步骤',
+						'pt-br': '4 passos fáceis'
+					})
+				}
 			</h1>
 			<p
+				data-aos="fade-up-sm"
 				class="mx-auto mt-4 max-w-2xl text-lg font-normal text-gray-700 dark:text-neutral-400 lg:text-xl lg:leading-8"
 			>
-				Create your account with us and launch it with just 4 easy steps
+				{
+					t({
+						en: 'Create your account with us and launch it with just 4 easy steps',
+						ar: 'أنشئ حسابك معنا وانطلق به في 4 خطوات سهلة فقط',
+						es: 'Crea tu cuenta con nosotros y lánzala en solo 4 pasos sencillos',
+						fr: 'Créez votre compte chez nous et lancez-le en seulement 4 étapes faciles',
+						hi: 'हमारे साथ अपना खाता बनाएं और केवल 4 आसान चरणों में इसे लॉन्च करें',
+						id: 'Buat akun Anda bersama kami dan luncurkan dengan hanya 4 langkah mudah',
+						ms: 'Buat akaun anda bersama kami dan laksanakan hanya dalam 4 langkah mudah',
+						th: 'สร้างบัญชีกับเราและเริ่มต้นด้วย 4 ขั้นตอนง่าย ๆ',
+						vi: 'Tạo tài khoản của bạn với chúng tôi và khởi động nó chỉ với 4 bước dễ dàng',
+						bn: 'আমাদের সাথে আপনার অ্যাকাউন্ট তৈরি করুন এবং মাত্র 4টি সহজ পদক্ষেপে এটি চালু করুন',
+						'zh-cn': '与我们创建您的账户，并仅需4个简单步骤即可启动它',
+						'pt-br': 'Crie sua conta conosco e lance-a em apenas 4 etapas fáceis'
+					})
+				}
 			</p>
 		</div>
 		<div class="mx-auto mt-12 max-w-5xl">
 			<div class="grid grid-cols-1 gap-10 md:grid-cols-2 lg:items-center lg:gap-16">
-				<div class="aspect-w-16 aspect-h-9 lg:aspect-none">
+				<div
+					class="aspect-w-16 aspect-h-9 lg:aspect-none"
+					data-aos="fade-left-sm"
+					data-aos-delay="50"
+				>
 					<Image
 						class="w-full rounded-xl object-cover"
 						alt="start_trading"
@@ -37,12 +111,36 @@ import Button from '@/components/Button.astro'
 				<div>
 					<!-- Heading -->
 					<div class="mb-4">
-						<h3 class="text-xs font-bold uppercase text-dbgreen-900">Steps</h3>
+						<h3
+							class="text-xs font-bold uppercase text-dbgreen-900"
+							data-aos="fade-up-sm"
+						>
+							{
+								t({
+									en: 'Steps',
+									ar: 'خطوات',
+									es: 'Pasos',
+									fr: 'Étapes',
+									hi: 'कदम',
+									id: 'Langkah',
+									ms: 'Langkah',
+									th: 'ขั้นตอน',
+									vi: 'Bước',
+									bn: 'ধাপ',
+									'zh-cn': '步骤',
+									'pt-br': 'Passos'
+								})
+							}
+						</h3>
 					</div>
 					<!-- End Heading -->
 
 					<!-- Item -->
-					<div class="ms-1 flex gap-x-5">
+					<div
+						class="ms-1 flex gap-x-5"
+						data-aos="fade-up-sm"
+						data-aos-delay="100"
+					>
 						<!-- Icon -->
 						<div
 							class="relative after:absolute after:bottom-0 after:start-4 after:top-8 after:w-px after:-translate-x-[0.5px] after:bg-neutral-300 last:after:hidden dark:after:bg-neutral-700"
@@ -60,16 +158,53 @@ import Button from '@/components/Button.astro'
 						<!-- Right Content -->
 						<div class="grow pb-8 pt-0.5 sm:pb-12">
 							<p class="text-sm text-neutral-400 lg:text-base">
-								<span class="font-semibold text-black dark:text-white">Register:</span>
-								Sign up for a free DB INVEST account and instantly get access to a demo account with
-								$10,000 demo funds to try out the platform.
+								<span class="font-semibold text-black dark:text-white">
+									{
+										t({
+											en: 'Register:',
+											ar: 'سجل:',
+											es: 'Registrarse:',
+											fr: 'S"inscrire :',
+											hi: 'रजिस्टर करें:',
+											id: 'Daftar:',
+											ms: 'Daftar:',
+											th: 'ลงทะเบียน:',
+											vi: 'Đăng ký:',
+											bn: 'নিবন্ধন করুন:',
+											'zh-cn': '注册：',
+											'pt-br': 'Registrar:'
+										})
+									}
+								</span>
+								{
+									t({
+										en: 'Sign up for a free DB INVEST account and instantly get access to a demo account with $10,000 demo funds to try out the platform.',
+										ar: 'سجل للحصول على حساب DB INVEST مجاني واحصل على إمكانية الوصول الفوري إلى حساب تجريبي يحتوي على 10,000 دولار من الأموال التجريبية لتجربة المنصة.',
+										es: 'Regístrate para obtener una cuenta gratuita de DB INVEST y obtén acceso instantáneo a una cuenta demo con $10,000 en fondos demo para probar la plataforma.',
+										fr: 'Inscrivez-vous pour un compte gratuit DB INVEST et accédez instantanément à un compte démo avec 10 000 $ de fonds démo pour essayer la plateforme.',
+										hi: 'DB INVEST का एक मुफ्त खाता बनाने के लिए साइन अप करें और तुरंत $10,000 के डेमो फंड के साथ एक डेमो खाते तक पहुंच प्राप्त करें ताकि आप प्लेटफ़ॉर्म का परीक्षण कर सकें।',
+										id: 'Daftar untuk akun DB INVEST gratis dan langsung dapatkan akses ke akun demo dengan dana demo $10,000 untuk mencoba platform.',
+										ms: 'Daftar untuk akaun DB INVEST percuma dan segera dapatkan akses kepada akaun demo dengan dana demo $10,000 untuk mencuba platform.',
+										th: 'ลงทะเบียนเพื่อสร้างบัญชี DB INVEST ฟรีและรับการเข้าถึงบัญชีทดลองที่มีเงินทดลอง $10,000 เพื่อทดลองใช้แพลตฟอร์ม',
+										vi: 'Đăng ký tài khoản DB INVEST miễn phí và ngay lập tức nhận quyền truy cập vào tài khoản demo với 10.000 đô la quỹ demo để thử nghiệm nền tảng.',
+										bn: 'একটি ফ্রি DB INVEST অ্যাকাউন্টের জন্য সাইন আপ করুন এবং $10,000 ডেমো তহবিলের সাথে একটি ডেমো অ্যাক্সেসের জন্য তাৎক্ষণিকভাবে অ্যাক্সেস পান যাতে প্ল্যাটফর্মটি পরীক্ষা করা যায়।',
+										'zh-cn':
+											'注册一个免费的DB INVEST账户，即可立即访问带有10,000美元虚拟资金的模拟账户，试用平台。',
+										'pt-br':
+											'Inscreva-se para uma conta gratuita DB INVEST e obtenha acesso instantâneo a uma conta demo com $10.000 em fundos demo para experimentar a plataforma.'
+									})
+								}
 							</p>
 						</div>
 						<!-- End Right Content -->
 					</div>
 					<!-- End Item -->
 					<!-- Item -->
-					<div class="ms-1 flex gap-x-5">
+					<div
+						class="ms-1 flex gap-x-5"
+						data-aos="fade-up-sm"
+						data-aos-delay="200"
+					>
 						<!-- Icon -->
 						<div
 							class="relative after:absolute after:bottom-0 after:start-4 after:top-8 after:w-px after:-translate-x-[0.5px] after:bg-neutral-300 last:after:hidden dark:after:bg-neutral-700"
@@ -87,16 +222,53 @@ import Button from '@/components/Button.astro'
 						<!-- Right Content -->
 						<div class="grow pb-8 pt-0.5 sm:pb-12">
 							<p class="text-sm text-neutral-400 lg:text-base">
-								<span class="font-semibold text-black dark:text-white">Verify:</span>
-								Fill in the questionnaire about your trading experience and send us your proof of ID
-								and residence.
+								<span class="font-semibold text-black dark:text-white">
+									{
+										t({
+											en: 'Verify:',
+											ar: 'تحقق من:',
+											es: 'Verificar:',
+											fr: 'Vérifiez:',
+											hi: 'सत्यापित करें:',
+											id: 'Verifikasi:',
+											ms: 'Sahkan:',
+											th: 'ตรวจสอบ:',
+											vi: 'Xác minh:',
+											bn: 'যাচাই করুন:',
+											'zh-cn': '验证：',
+											'pt-br': 'Verifique:'
+										})
+									}
+								</span>
+								{
+									t({
+										en: 'Fill in the questionnaire about your trading experience and send us your proof of ID and residence.',
+										ar: 'املأ الاستبيان حول خبرتك في التداول وأرسل لنا إثبات الهوية والإقامة الخاصة بك.',
+										es: 'Complete el cuestionario sobre su experiencia en trading y envíenos su comprobante de identificación y residencia.',
+										fr: "Remplissez le questionnaire sur votre expérience de trading et envoyez-nous votre preuve d'identité et de résidence.",
+										hi: 'अपने ट्रेडिंग अनुभव के बारे में प्रश्नावली भरें और हमें अपनी पहचान और निवास का प्रमाण भेजें।',
+										id: 'Isi kuesioner tentang pengalaman trading Anda dan kirimkan bukti identitas dan tempat tinggal Anda.',
+										ms: 'Isi kuesioner tentang pengalaman dagangan anda dan hantarkan bukti pengenalan dan alamat anda kepada kami.',
+										th: 'กรอกแบบสอบถามเกี่ยวกับประสบการณ์การซื้อขายของคุณและส่งหลักฐานการระบุตัวตนและที่อยู่ของคุณให้เรา',
+										vi: 'Điền vào bảng câu hỏi về kinh nghiệm giao dịch của bạn và gửi cho chúng tôi chứng minh danh tính và địa chỉ cư trú của bạn.',
+										bn: 'আপনার ট্রেডিং অভিজ্ঞতা সম্পর্কিত প্রশ্নাবলী পূরণ করুন এবং আমাদের আপনার পরিচয় এবং আবাসের প্রমাণ পাঠান।',
+										'zh-cn':
+											'填写关于您交易经验的问卷，并向我们提供您的身份证明和居住证明。',
+										'pt-br':
+											'Preencha o questionário sobre sua experiência em trading e envie-nos sua prova de identidade e residência.'
+									})
+								}
 							</p>
 						</div>
 						<!-- End Right Content -->
 					</div>
 					<!-- End Item -->
 					<!-- Item -->
-					<div class="ms-1 flex gap-x-5">
+					<div
+						class="ms-1 flex gap-x-5"
+						data-aos="fade-up-sm"
+						data-aos-delay="300"
+					>
 						<!-- Icon -->
 						<div
 							class="relative after:absolute after:bottom-0 after:start-4 after:top-8 after:w-px after:-translate-x-[0.5px] after:bg-neutral-300 last:after:hidden dark:after:bg-neutral-700"
@@ -114,16 +286,53 @@ import Button from '@/components/Button.astro'
 						<!-- Right Content -->
 						<div class="grow pb-8 pt-0.5 sm:pb-12">
 							<p class="text-sm text-neutral-400 lg:text-base">
-								<span class="font-semibold text-black dark:text-white">Fund:</span>
-								Make a deposit via any funding method you prefer to start trading with real money on
-								db Investing.
+								<span class="font-semibold text-black dark:text-white">
+									{
+										t({
+											en: 'Fund:',
+											ar: 'تمويل:',
+											es: 'Fondos:',
+											fr: 'Financer:',
+											hi: 'फंड:',
+											id: 'Dana:',
+											ms: 'Dana:',
+											th: 'กองทุน:',
+											vi: 'Quỹ:',
+											bn: 'ফান্ড:',
+											'zh-cn': '资金：',
+											'pt-br': 'Fundo:'
+										})
+									}</span
+								>
+								{
+									t({
+										en: 'Make a deposit via any funding method you prefer to start trading with real money on DB Investing.',
+										ar: 'قم بإيداع عبر أي وسيلة تمويل تفضلها لبدء التداول بأموال حقيقية على DB Investing.',
+										es: 'Realiza un depósito a través de cualquier método de financiación que prefieras para comenzar a operar con dinero real en DB Investing.',
+										fr: 'Effectuez un dépôt via le moyen de financement de votre choix pour commencer à trader avec de l’argent réel sur DB Investing.',
+										hi: 'अपने पसंदीदा किसी भी फंडिंग विधि के माध्यम से जमा करें और DB Investing पर वास्तविक पैसे के साथ व्यापार करना शुरू करें।',
+										id: 'Lakukan setoran melalui metode pendanaan mana pun yang Anda pilih untuk mulai berdagang dengan uang nyata di DB Investing.',
+										ms: 'Buat deposit melalui mana-mana kaedah pembiayaan yang anda pilih untuk mula berdagang dengan wang sebenar di DB Investing.',
+										th: 'ฝากเงินผ่านวิธีการใดก็ได้ที่คุณต้องการเพื่อเริ่มการซื้อขายด้วยเงินจริงที่ DB Investing',
+										vi: 'Thực hiện gửi tiền qua bất kỳ phương thức tài trợ nào bạn chọn để bắt đầu giao dịch bằng tiền thật trên DB Investing.',
+										bn: 'আপনার পছন্দের যে কোনো ফান্ডিং পদ্ধতির মাধ্যমে একটি জমা করুন এবং DB Investing-এ বাস্তব অর্থের সাথে ব্যবসা শুরু করুন।',
+										'zh-cn':
+											'通过您首选的任何资金方式存款，以便在 DB Investing 上开始使用真实资金进行交易。',
+										'pt-br':
+											'Faça um depósito por meio de qualquer método de financiamento que preferir para começar a negociar com dinheiro real no DB Investing.'
+									})
+								}
 							</p>
 						</div>
 						<!-- End Right Content -->
 					</div>
 					<!-- End Item -->
 					<!-- Item -->
-					<div class="ms-1 flex gap-x-5">
+					<div
+						class="ms-1 flex gap-x-5"
+						data-aos="fade-up-sm"
+						data-aos-delay="400"
+					>
 						<!-- Icon -->
 						<div
 							class="relative after:absolute after:bottom-0 after:start-4 after:top-8 after:w-px after:-translate-x-[0.5px] after:bg-neutral-300 last:after:hidden dark:after:bg-neutral-700"
@@ -141,9 +350,42 @@ import Button from '@/components/Button.astro'
 						<!-- Right Content -->
 						<div class="grow pb-8 pt-0.5 sm:pb-12">
 							<p class="text-sm text-neutral-400 lg:text-base">
-								<span class="font-semibold text-black dark:text-white">Trade:</span>
-								Open and close trades on your own or simply autocopy the top traders and let them do
-								the rest.
+								<span class="font-semibold text-black dark:text-white">
+									{
+										t({
+											en: 'Trade',
+											ar: 'تداول',
+											es: 'Comercio',
+											fr: 'Trader',
+											hi: 'व्यापार',
+											id: 'Perdagangan',
+											ms: 'Perdagangan',
+											th: 'การซื้อขาย',
+											vi: 'Giao dịch',
+											bn: 'বাণিজ্য',
+											'zh-cn': '交易',
+											'pt-br': 'Negociar'
+										})
+									}
+								</span>
+								{
+									t({
+										en: 'Open and close trades on your own or simply autocopy the top traders and let them do the rest.',
+										ar: 'افتح وأغلق الصفقات بنفسك أو ببساطة انسخ أفضل المتداولين واتركهم يقومون بالباقي.',
+										es: 'Abre y cierra operaciones por tu cuenta o simplemente autocopia a los mejores traders y deja que ellos hagan el resto.',
+										fr: 'Ouvrez et fermez des transactions par vous-même ou copiez simplement automatiquement les meilleurs traders et laissez-les faire le reste.',
+										hi: 'अपने दम पर ट्रेड खोलें और बंद करें या बस शीर्ष व्यापारियों को ऑटोकॉपी करें और उन्हें बाकी करने दें।',
+										id: 'Buka dan tutup perdagangan sendiri atau cukup salin otomatis trader teratas dan biarkan mereka melakukan sisanya.',
+										ms: 'Buka dan tutup perdagangan anda sendiri atau hanya salin secara automatik pedagang teratas dan biarkan mereka melakukan yang lain.',
+										th: 'เปิดและปิดการซื้อขายด้วยตนเองหรือเพียงแค่คัดลอกนักเทรดชั้นนำและให้พวกเขาทำที่เหลือ',
+										vi: 'Mở và đóng giao dịch theo cách của bạn hoặc chỉ cần sao chép tự động các nhà giao dịch hàng đầu và để họ làm phần còn lại.',
+										bn: 'নিজে ট্রেড খুলুন এবং বন্ধ করুন অথবা শুধু শীর্ষ ট্রেডারদের অটোকপি করুন এবং তাদের বাকি কাজ করতে দিন।',
+										'zh-cn':
+											'自己开关交易，或者简单地自动复制顶级交易者，让他们做其余的工作。',
+										'pt-br':
+											'Abra e feche negociações por conta própria ou simplesmente copie automaticamente os principais traders e deixe-os fazer o resto.'
+									})
+								}
 							</p>
 						</div>
 						<!-- End Right Content -->
@@ -151,7 +393,22 @@ import Button from '@/components/Button.astro'
 					<!-- End Item -->
 
 					<Button
-						text="Start Trading Now "
+						data-aos="fade-up-sm"
+						data-aos-delay="500"
+						text={t({
+							en: 'Start Trading Now',
+							ar: 'ابدأ التداول الآن',
+							es: 'Comienza a operar ahora',
+							fr: 'Commencez à trader maintenant',
+							hi: 'अभी व्यापार शुरू करें',
+							id: 'Mulai Perdagangan Sekarang',
+							ms: 'Mulakan Perdagangan Sekarang',
+							th: 'เริ่มซื้อขายตอนนี้',
+							vi: 'Bắt đầu giao dịch ngay',
+							bn: 'এখন ট্রেড শুরু করুন',
+							'zh-cn': '立即开始交易',
+							'pt-br': 'Comece a negociar agora'
+						})}
 						primary={false}
 						rippleEffect="true"
 						primary="true"

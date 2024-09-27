@@ -103,9 +103,10 @@ const defaultLocale = DEFAULT_LOCALE
 				const browserLang = navigator.language.toLowerCase()
 
 				if (langs.includes(browserLang)) {
-					location.href = `${baseUrl + browserLang}/`
+					// location.href = `${baseUrl + browserLang}/`
 				} else if (langs.includes(browserLang.split('-')[0])) {
 					location.href = `${baseUrl + browserLang.split('-')[0]}/`
+					console.log(browserLang.split('-')[0], 'browserLang')
 				} else {
 					location.href = `${baseUrl + defaultLocale}/`
 				}

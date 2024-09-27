@@ -5,8 +5,9 @@ import node from '@astrojs/node'
 import react from '@astrojs/react'
 import cloudflare from '@astrojs/cloudflare';
 
+import vercel from '@astrojs/vercel/serverless';
+
 export default defineConfig({
-    site: 'http://localhost:4321/',
     integrations: [
         tailwind({ nesting: true, applyBaseStyles: false }),
         icon({
@@ -29,7 +30,9 @@ export default defineConfig({
         }
     },
     output: 'hybrid',
-    adapter: cloudflare(),
+    adapter: node({
+      mode: 'standalone'
+    }),
     image: {
         domains: ['astro.build', 'dev.dbinvesting.com']
     }

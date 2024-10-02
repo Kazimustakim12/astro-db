@@ -1,0 +1,278 @@
+---
+import SocialShareButton from '@/components/ui/SocialShareButton.astro'
+import DummyPlaceHolderImage from '@/images/placeholder-img.png'
+import { Image } from 'astro:assets'
+const { lang } = Astro.params
+const { event } = Astro.props
+const categoriesList = event?.eventsCategories?.nodes || []
+const formatOptions = {
+	year: 'numeric',
+	month: 'short',
+	day: '2-digit',
+	hour: '2-digit',
+	minute: '2-digit',
+	hour12: true // Use 12-hour format with AM/PM
+}
+// Get visitor's time zone
+const userTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone
+// Create Date objects (assuming the provided dates are in UTC)
+const startDatelocal = new Date(event.startDate + 'Z') // Add 'Z' to indicate UTC
+const endDatelocal = new Date(event.endDate + 'Z')
+
+// Localize Dates with custom format
+const localizedStart = startDatelocal.toLocaleString(lang, {
+	year: 'numeric',
+	month: 'short',
+	day: '2-digit',
+	hour12: true,
+	hour: '2-digit',
+	minute: '2-digit',
+	timeZone: userTimeZone
+})
+const localizedEnd = endDatelocal.toLocaleString(lang, {
+	year: 'numeric',
+	month: 'short',
+	day: '2-digit',
+	hour12: true,
+	hour: '2-digit',
+	minute: '2-digit',
+	timeZone: userTimeZone
+})
+const todayDate = new Date()
+const endDate = new Date(event.endDate)
+console.log(event, 'data in single')
+---
+
+<!-- Content -->
+<div class="lg:col-span-2">
+	<div class="py-14 lg:pe-8">
+		<div class="space-y-5 lg:space-y-8">
+			<a
+				class="inline-flex items-center gap-x-1.5 text-sm text-gray-600 decoration-2 hover:underline focus:underline focus:outline-none dark:text-dbgreen-900"
+				href={`/${lang}/event`}
+				data-aos="fade-up-sm"
+			>
+				<svg
+					class="size-4 shrink-0"
+					xmlns="http://www.w3.org/2000/svg"
+					width="24"
+					height="24"
+					viewBox="0 0 24 24"
+					fill="none"
+					stroke="currentColor"
+					stroke-width="2"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					><path d="m15 18-6-6 6-6"></path></svg
+				>
+				Back to Event
+			</a>
+			<hr class="mb-5 border-t border-gray-200 dark:border-neutral-700" />
+			<div>
+				{
+					todayDate > endDate ? (
+						<span class="px-1 text-red-600">Event Ended</span>
+					) : (
+						<span class="px-1 text-green-600">Upcoming Event</span>
+					)
+				}
+			</div>
+			<div class="flex">
+				<div class="w-full max-w-[480px]">
+					<Image
+						src={event?.featuredImage !== null
+							? event?.featuredImage?.node?.sourceUrl
+							: DummyPlaceHolderImage}
+						alt={event.title}
+						height={480}
+						width={780}
+						class="h-full w-full rounded-lg object-cover shadow-md"
+						data-aos="fade-up-sm"
+					/>
+				</div>
+				<div
+					class="p-7"
+					data-aos="fade-up-sm"
+				>
+					<p class="text-xl font-semibold">Details:</p>
+					<hr class="mb-5 border-t border-gray-200 dark:border-neutral-700" />
+					<div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+						<div>
+							<h3
+								class="mb-2 text-xl font-semibold text-green-700 dark:text-green-600"
+							>
+								organizers
+							</h3>
+							<p class="mb-1 font-semibold">Name:</p>
+							<div class="mb-2">
+								{
+									event.organizers.edges?.map((item: any) => {
+										return (
+											<>
+												<p>{item.node?.author?.node?.name}</p>
+											</>
+										)
+									})
+								}
+							</div>
+							<p class="mb-1 font-semibold">Phone:</p>
+							<div class="mb-2">
+								{
+									event.organizers.edges?.map((item: any) => {
+										return (
+											<>
+												<p>{item.node?.phone}</p>
+											</>
+										)
+									})
+								}
+							</div>
+							<p class="mb-1 font-semibold">Email:</p>
+							<div class="mb-2">
+								{
+									event.organizers.edges?.map((item: any) => {
+										return (
+											<>
+												<p>{item.node?.email}</p>
+											</>
+										)
+									})
+								}
+							</div>
+						</div>
+						{
+							event?.venue?.address === null || event?.venue === null ? null : (
+								<div>
+									<h3 class="mb-2 text-xl font-semibold text-green-700 dark:text-green-600">
+										Venue
+									</h3>
+									<div class="mb-2">
+										<span>{event?.venue?.address}</span>
+										<span>{event?.venue?.city}</span>
+										<span>{event?.venue?.country}</span>
+									</div>
+								</div>
+							)
+						}
+					</div>
+				</div>
+			</div>
+
+			<h2
+				class="text-3xl font-bold dark:text-white lg:text-5xl"
+				data-aos="fade-up-sm"
+				data-aos-delay="50"
+			>
+				{event.title}
+			</h2>
+			<div class="flex items-center justify-between gap-x-5">
+				{
+					categoriesList.length > 0 && (
+						<div class="flex flex-wrap gap-2">
+							{categoriesList.map((cat: any, index: number) => {
+								return (
+									<p
+										class="inline-flex items-center gap-x-1.5 rounded-lg bg-dbgreen-50 px-3 py-1.5 text-xs font-medium text-dbgreen-900 dark:bg-neutral-50/10 dark:text-dbgreen-800"
+										data-aos-delay={`${index + 1}00`}
+										data-aos="fade-up-sm"
+									>
+										{cat.name}
+									</p>
+								)
+							})}
+						</div>
+					)
+				}
+				<div
+					class="my-4 flex flex-wrap gap-2 font-semibold text-green-700 dark:text-green-400"
+				>
+					<span>{localizedStart} </span>
+
+					<span>{localizedEnd} </span>
+				</div>
+			</div>
+			<div>
+				<div
+					class="event-content"
+					set:html={event.content}
+				/>
+			</div>
+		</div>
+		<div class="mt-5">
+			<p class="my-3 text-xl font-semibold text-green-700 dark:text-green-600">
+				Watch Live on Our Social Media:
+			</p>
+			<div class="flex flex-wrap gap-2">
+				<a href="">
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						width="34.14"
+						height="24"
+						viewBox="0 0 256 180"
+						><path
+							fill="#f00"
+							d="M250.346 28.075A32.18 32.18 0 0 0 227.69 5.418C207.824 0 127.87 0 127.87 0S47.912.164 28.046 5.582A32.18 32.18 0 0 0 5.39 28.24c-6.009 35.298-8.34 89.084.165 122.97a32.18 32.18 0 0 0 22.656 22.657c19.866 5.418 99.822 5.418 99.822 5.418s79.955 0 99.82-5.418a32.18 32.18 0 0 0 22.657-22.657c6.338-35.348 8.291-89.1-.164-123.134"
+						></path><path
+							fill="#fff"
+							d="m102.421 128.06l66.328-38.418l-66.328-38.418z"
+						></path></svg
+					>
+				</a>
+				<a href="">
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						width="24"
+						height="24"
+						viewBox="0 0 256 256"
+						><path
+							fill="#1877f2"
+							d="M256 128C256 57.308 198.692 0 128 0S0 57.308 0 128c0 63.888 46.808 116.843 108 126.445V165H75.5v-37H108V99.8c0-32.08 19.11-49.8 48.348-49.8C170.352 50 185 52.5 185 52.5V84h-16.14C152.959 84 148 93.867 148 103.99V128h35.5l-5.675 37H148v89.445c61.192-9.602 108-62.556 108-126.445"
+						></path><path
+							fill="#fff"
+							d="m177.825 165l5.675-37H148v-24.01C148 93.866 152.959 84 168.86 84H185V52.5S170.352 50 156.347 50C127.11 50 108 67.72 108 99.8V128H75.5v37H108v89.445A129 129 0 0 0 128 256a129 129 0 0 0 20-1.555V165z"
+						></path></svg
+					>
+				</a>
+				<a href="">
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						width="24"
+						height="24"
+						viewBox="0 0 128 128"
+						><path
+							fill="#0076b2"
+							d="M116 3H12a8.91 8.91 0 0 0-9 8.8v104.42a8.91 8.91 0 0 0 9 8.78h104a8.93 8.93 0 0 0 9-8.81V11.77A8.93 8.93 0 0 0 116 3"
+						></path><path
+							fill="#fff"
+							d="M21.06 48.73h18.11V107H21.06zm9.06-29a10.5 10.5 0 1 1-10.5 10.49a10.5 10.5 0 0 1 10.5-10.49m20.41 29h17.36v8h.24c2.42-4.58 8.32-9.41 17.13-9.41C103.6 47.28 107 59.35 107 75v32H88.89V78.65c0-6.75-.12-15.44-9.41-15.44s-10.87 7.36-10.87 15V107H50.53z"
+						></path></svg
+					>
+				</a>
+				<a href="">
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						width="21"
+						height="24"
+						viewBox="0 0 448 512"
+						><path
+							fill="currentColor"
+							d="M64 32C28.7 32 0 60.7 0 96v320c0 35.3 28.7 64 64 64h320c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64zm297.1 84L257.3 234.6L379.4 396h-95.6L209 298.1L123.3 396H75.8l111-126.9L69.7 116h98l67.7 89.5l78.2-89.5zm-37.8 251.6L153.4 142.9h-28.3l171.8 224.7h26.3z"
+						></path></svg
+					>
+				</a>
+			</div>
+		</div>
+		<hr class="mb-5 mt-5 border-t border-gray-200 dark:border-neutral-700" />
+
+		<div class="flex flex-col gap-y-5 lg:flex-row lg:items-center lg:justify-end lg:gap-y-0">
+			<div class="flex items-center justify-end gap-x-1.5">
+				<!-- Button -->
+				<SocialShareButton pageTitle={event.title} />
+
+				<!-- Button -->
+			</div>
+		</div>
+	</div>
+
+	<!-- End Content -->
+</div>

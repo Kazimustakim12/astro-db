@@ -1,0 +1,23 @@
+---
+import { json } from '@astrojs/http'
+import axios from 'axios'
+
+// Cloudflare Workers will receive the request with the query params
+const lang = Astro.url.searchParams.get('lang')
+const slug = Astro.url.searchParams.get('slug')
+
+// API request to WordPress API
+const apiUrl = `https://dev.dbinvesting.com/wp-json/wp/v2/posts?slug=${slug}&lang=${lang}`
+
+let postData = null
+
+try {
+	const response = await axios.get(apiUrl)
+	postData = response.data.length ? response.data[0] : null
+} catch (error) {
+	console.error('Error fetching post:', error)
+	return json({ error: 'Error fetching post' }, { status: 500 })
+}
+
+return json(postData)
+---

@@ -1,7 +1,7 @@
 ---
-import BlogLayoutSideBar from '@/components/page/blog/BlogLayoutSideBar.astro'
-import BlogList from '@/components/page/blog/BlogList'
 import { LOCALES, useTranslations, type Lang } from '@/i18n'
+import EventList from '@/components/page/event/EventList'
+import EventLayoutSideBar from '@/components/page/event/EventLayoutSideBar.astro'
 
 // export const prerender = false
 const lang = Astro.params.lang || 'en'
@@ -26,11 +26,11 @@ export const getStaticPaths = () =>
 	}))
 ---
 
-<BlogLayoutSideBar title={title}>
+<EventLayoutSideBar title={title}>
 	<!-- Content -->
 	<div
 		class="lg:col-span-2"
-		slot="articleContent"
+		slot="eventContent"
 	>
 		<div class="py-14 lg:pe-8">
 			<div class="space-y-5 lg:space-y-8">
@@ -41,7 +41,7 @@ export const getStaticPaths = () =>
 					>
 						{
 							t({
-								en: 'DB Economy News',
+								en: 'Live Events & Webinar',
 								ar: 'أخبار الاقتصاد DB',
 								es: 'Noticias de la Economía DB',
 								fr: 'Actualités Économiques DB',
@@ -56,30 +56,9 @@ export const getStaticPaths = () =>
 							})
 						}
 					</h2>
-					<p
-						class="mt-1 text-gray-600 dark:text-neutral-400"
-						data-aos="fade-up-sm"
-					>
-						{
-							t({
-								en: 'Finance and economics explained simply',
-								ar: 'المالية والاقتصاد موضحة ببساطة',
-								es: 'Finanzas y economía explicadas de manera simple',
-								fr: 'Finance et économie expliquées simplement',
-								hi: 'वित्त और अर्थशास्त्र को सरलता से समझाया गया',
-								id: 'Keuangan dan ekonomi dijelaskan dengan sederhana',
-								ms: 'Kewangan dan ekonomi diterangkan dengan mudah',
-								th: 'การเงินและเศรษฐศาสตร์อธิบายอย่างง่ายดาย',
-								vi: 'Tài chính và kinh tế được giải thích đơn giản',
-								bn: 'আর্থিক এবং অর্থনীতি সহজভাবে বোঝানো হয়েছে',
-								'zh-cn': '简单解释金融和经济',
-								'pt-br': 'Finanças e economia explicadas de forma simples'
-							})
-						}
-					</p>
 				</div>
 				<div>
-					<BlogList
+					<EventList
 						client:load
 						lang={lang}
 					/>
@@ -88,4 +67,4 @@ export const getStaticPaths = () =>
 		</div>
 	</div>
 	<!-- End Content -->
-</BlogLayoutSideBar>
+</EventLayoutSideBar>

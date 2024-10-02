@@ -1,0 +1,135 @@
+---
+import { Image } from 'astro:assets'
+import BonusImg from '../../images/bonus_img.jpg'
+---
+
+<div
+	class="bg-dark hidden grid-cols-1 grid-rows-12 gap-4 p-8 lg:grid lg:grid-cols-4 lg:grid-rows-6 xl:px-48"
+>
+	<div class="relative col-span-1 row-span-4 rounded-xl bg-blue-100">
+		<h1 class="absolute left-4 top-4 mr-12 text-xs font-semibold text-black">
+			Develop together with science-based mentah health experts
+		</h1>
+		<Image
+			class="absolute bottom-0 rounded-2xl"
+			src={BonusImg}
+			width={100}
+			height={100}
+			alt="text"
+		/>
+	</div>
+	<div
+		class="col-span-2 row-span-1 grid grid-cols-4 grid-rows-1 rounded-xl border border-white/50"
+	>
+		<div class="rounded-bl-xl rounded-tl-xl bg-red-100 text-red-100">.</div>
+		<div class="bg-yellow-200 text-yellow-200">.</div>
+		<div class="bg-blue-600 text-blue-600">.</div>
+		<div class="rounded-br-xl rounded-tr-xl bg-green-500 text-green-500">.</div>
+	</div>
+	<div class="relative col-span-1 row-span-2 rounded-xl bg-blue-500">
+		<h1 class="absolute left-4 top-4 flex text-6xl">200+</h1>
+		<div class="absolute bottom-4 left-4 flex flex-row items-center pt-12">
+			<Image
+				class="rounded-full bg-yellow-200"
+				src={BonusImg}
+				width={20}
+				height={20}
+				alt="text"
+			/>
+			<Image
+				class="rounded-full bg-red-200"
+				src={BonusImg}
+				width={20}
+				alt="text"
+				height={20}
+			/>
+			<Image
+				class="rounded-full bg-blue-200"
+				src={BonusImg}
+				width={30}
+				height={30}
+				alt="text"
+			/>
+			<p class="px-1 text-xs">threapist avalible for personal threapist</p>
+		</div>
+	</div>
+	<div
+		class="relative col-span-2 row-span-3 rounded-xl bg-gradient-to-t from-green-100 via-yellow-100 to-pink-100"
+	>
+		<span class="absolute left-4 top-4 text-xs font-semibold text-black">
+			www.minmentor.com
+		</span>
+		<h1
+			class="text-dark absolute left-4 top-12 mt-3 items-center justify-center text-5xl font-thin"
+		>
+			Meets <br /> AI for Your <br /> Inner Balance
+		</h1>
+		<span class="absolute bottom-4 left-4 text-xs text-black">
+			Develop together with <br /> science based mental health <br />{' '}
+			experts
+		</span>
+		<Image
+			width={50}
+			height={50}
+			src={BonusImg}
+			alt="text"
+			class="absolute bottom-0"
+		/>
+		<Image
+			width={50}
+			height={50}
+			src={BonusImg}
+			alt="text"
+			class="absolute bottom-0"
+		/>
+
+		<Image
+			width={50}
+			height={50}
+			src={BonusImg}
+			alt="text"
+			class="absolute bottom-0"
+		/>
+	</div>
+	<div class="relative col-span-1 row-span-4 rounded-xl bg-blue-100">
+		<p class="absolute left-4 top-4 text-xs text-black">
+			Harmony <br /> Redefined, <br />
+			by AI
+		</p>
+		<button
+			class="absolute right-4 top-6 cursor-pointer rounded-xl border border-blue-500 px-1 py-1 text-xs text-blue-500 duration-700 hover:bg-blue-500 hover:text-white"
+		>
+			BALANCE
+		</button>
+		<Image
+			width={50}
+			height={50}
+			src={BonusImg}
+			alt="text"
+			class="absolute bottom-0"
+		/>
+	</div>
+	<div class="relative col-span-1 row-span-2 rounded-xl bg-blue-500">
+		<button
+			class="hover:text-light absolute left-2 top-2 rounded-xl bg-white px-2 py-1 text-xs text-blue-500 duration-500 hover:bg-red-400"
+			>Top Rated App</button
+		>
+		<h1 class="absolute right-4 top-6 text-4xl">4.8</h1>
+		<Image
+			width={50}
+			height={50}
+			src={BonusImg}
+			alt="text"
+			class="absolute bottom-0"
+		/>
+	</div>
+	<div class="relative col-span-2 row-span-2 items-center justify-center rounded-xl bg-green-400">
+		<Image
+			width={50}
+			height={50}
+			src={BonusImg}
+			alt="text"
+			class="absolute bottom-0"
+		/>
+	</div>
+</div>

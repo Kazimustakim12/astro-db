@@ -11,7 +11,10 @@ const baseUrl = import.meta.env.PROD ? Astro.site : '/'
 const defaultLocale = DEFAULT_LOCALE
 ---
 
-<html lang={DEFAULT_LOCALE}>
+<html
+	lang={DEFAULT_LOCALE}
+	class="light"
+>
 	<head>
 		<meta charset="UTF-8" />
 		<title>redirect...</title>

@@ -84,6 +84,9 @@
 		#8dc63f 98.85%
 	);
 }
+.fc-daygrid-event {
+	white-space: initial;
+}
 
 .ripple {
 	overflow: hidden;
@@ -102,6 +105,27 @@
 	border-radius: 50%;
 	transform: translate(-50%, -50%) scale(0);
 	animation: rippleScale 0.5s ease-out;
+}
+
+.animate-countinsecond {
+	animation: count-in 1s ease-in 0s infinite;
+}
+
+@keyframes count-in {
+	0% {
+		opacity: 0;
+		transform: translate3d(0, -80%, 0);
+	}
+
+	50% {
+		opacity: 1;
+		transform: translate3d(0, 0, 0);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translate3d(0, 0, 0);
+	}
 }
 
 @keyframes rippleScale {

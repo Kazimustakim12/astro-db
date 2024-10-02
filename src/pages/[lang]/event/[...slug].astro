@@ -1,0 +1,95 @@
+---
+import client from '@/lib/apolloClient'
+import EventSingle from '@/components/page/event/EventSingle.astro'
+import gql from 'graphql-tag'
+
+import EventLayoutSideBar from '@/components/page/event/EventLayoutSideBar.astro'
+export const prerender = false
+const { slug } = Astro.params
+const GET_SINGLE_EVENT = gql`
+	query SingleEvent($id: ID = "${slug}") {
+    event(idType: SLUG, id: $id) {
+            id
+            endDate
+            date
+            startDate
+            title
+            timezone
+            status
+            hideFromUpcoming
+            link
+            phone
+            slug
+            excerpt
+            content
+            eventsCategories {
+                nodes {
+                    name
+                }
+            }
+            venue {
+                address
+                country
+                city
+            }
+            organizers {
+                edges {
+                    node {
+                    id
+                    phone
+                    email
+                    website
+                    author {
+                        node {
+                        name
+                        }
+                    }
+                    }
+                }
+            }
+            featuredImage {
+                node {
+                    srcSet
+                    sourceUrl
+                    altText
+                    mediaDetails {
+                    height
+                    width
+                    }
+                }
+            }
+        }
+    }
+`
+const { lang } = Astro.params
+const { data, error, loading } = await client.query({
+	query: GET_SINGLE_EVENT,
+	variables: {
+		id: slug
+	},
+    fetchPolicy:'network-only'
+})
+
+//  assign the post info to singlEvent variable for usability
+const singlEvent = data && data.event
+console.log(singlEvent, 'data for isngle event')
+---
+
+<EventLayoutSideBar title={singlEvent?.title}>
+	{
+		loading ? (
+			<h1>loaddig</h1>
+		) : singlEvent !== null && Object.keys(singlEvent).length > 0 ? (
+			data && (
+				<EventSingle
+					event={singlEvent}
+					slot="eventContent"
+				/>
+			)
+		) : (
+			<div class="mt-5 lg:col-span-2">
+				<p>No Data Found...</p>
+			</div>
+		)
+	}
+</EventLayoutSideBar>

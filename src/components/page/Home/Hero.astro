@@ -4,6 +4,8 @@ import HeroImg from '@/images/hero_img.png'
 import WordRotate from '../../magicui/word-rotate'
 import Button from '../../ui/Button.astro'
 import { LOCALES, useTranslations, type Lang } from '@/i18n'
+import FSAImage from '@/images/fsa_logo_new.png'
+import SCAImage from '@/images/sca_logo.png'
 const t = useTranslations(Astro.currentLocale as Lang)
 ---
 
@@ -308,7 +310,7 @@ const t = useTranslations(Astro.currentLocale as Lang)
 				<div class="grid gap-4 sm:grid-cols-2 sm:gap-6 lg:grid-cols-2">
 					<!-- Card -->
 					<div
-						class="flex flex-col rounded-xl border bg-white shadow-sm dark:border-neutral-800 dark:bg-neutral-900"
+						class="flex flex-col justify-between rounded-xl border bg-white shadow-sm dark:border-neutral-800 dark:bg-neutral-900"
 						data-aos="fade-up-sm"
 						data-aos-delay="100"
 					>
@@ -341,21 +343,6 @@ const t = useTranslations(Astro.currentLocale as Lang)
 										FSA
 									</h3>
 									<span class="items-base flex gap-x-1 text-green-600">
-										<!-- <svg
-											class="inline-block size-5 self-center"
-											xmlns="http://www.w3.org/2000/svg"
-											width="24"
-											height="24"
-											viewBox="0 0 24 24"
-											fill="none"
-											stroke="currentColor"
-											stroke-width="2"
-											stroke-linecap="round"
-											stroke-linejoin="round"
-											><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"
-											></polyline><polyline points="16 7 22 7 22 13"
-											></polyline></svg
-										> -->
 										<span class="inline-block text-[14px]">
 											{
 												t({
@@ -377,8 +364,15 @@ const t = useTranslations(Astro.currentLocale as Lang)
 									</span>
 								</div>
 							</div>
+							<div>
+								<Image
+									src={FSAImage}
+									width={80}
+									height={60}
+									alt="fsa-image"
+								/>
+							</div>
 						</div>
-
 						<a
 							class="inline-flex items-center justify-between rounded-b-xl border-t border-gray-200 px-4 py-3 text-sm text-gray-600 hover:bg-gray-50 focus:bg-gray-50 focus:outline-none dark:border-neutral-800 dark:text-neutral-400 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800 md:px-5"
 							href="#"
@@ -417,7 +411,7 @@ const t = useTranslations(Astro.currentLocale as Lang)
 					<!-- End Card -->
 					<!-- Card -->
 					<div
-						class="flex flex-col rounded-xl border bg-white shadow-sm dark:border-neutral-800 dark:bg-neutral-900"
+						class="flex flex-col justify-between rounded-xl border bg-white shadow-sm dark:border-neutral-800 dark:bg-neutral-900"
 						data-aos="fade-up-sm"
 						data-aos-delay="150"
 					>
@@ -486,6 +480,14 @@ const t = useTranslations(Astro.currentLocale as Lang)
 										</span>
 									</span>
 								</div>
+							</div>
+							<div>
+								<Image
+									src={SCAImage}
+									width={80}
+									height={80}
+									alt="fsa-image"
+								/>
 							</div>
 						</div>
 

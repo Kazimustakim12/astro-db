@@ -1,0 +1,477 @@
+---
+import { Icon } from 'astro-icon/components'
+import { LOCALES, useTranslations, type Lang } from '@/i18n'
+const t = useTranslations(Astro.currentLocale as Lang)
+const navlinks = [
+	{
+		link: '#1',
+		label: ,
+		megaMenu: false,
+		links: [
+			{ link: '/docs', label: t({ en: 'Why DBinvesting', ar: 'لماذا DBinvesting؟' }) },
+			{ link: '/about', label: 'About Us' },
+			{ link: '/contact', label: 'Contact Us' },
+			{ link: '/career', label: 'Career' },
+			{ link: '/partnersip', label: 'Partnersip' }
+		]
+	},
+	{
+		link: '#2',
+		label: 'Investing',
+		megaMenu: true,
+		links: [
+			{
+				link: '#2/1',
+				label: 'Markets',
+				icon: 'fluent-mdl2:world',
+				links: [
+					{ link: '/forex', label: 'Forex' },
+					{ link: '/metals', label: 'Metals' },
+					{ link: '/indices', label: 'Indices' },
+					{ link: '/commodities', label: 'Commodities' },
+					{ link: '/stocks', label: 'Stocks' }
+				]
+			},
+			{
+				link: '#2/2',
+				label: 'Trading',
+				icon: 'hugeicons:trade-up',
+				links: [
+					{
+						link: '/economic-calender',
+						label: 'Socail Copy Trading  '
+					},
+					{ link: '/market-news', label: 'FIX Api' },
+					{ link: '/market-news', label: 'Trading Hours' },
+					{ link: '/market-news', label: 'Trading Conditions' },
+					{ link: '/market-news', label: 'Forex Calculation ' },
+					{
+						link: '/market-news',
+						label: 'Economic Calendar Tutorial'
+					}
+				]
+			},
+			{
+				link: '#2/3',
+				label: 'Accounts',
+				icon: 'icon-park-outline:market-analysis',
+				links: [
+					{ link: '/accounts', label: 'Types of Account' },
+					{ link: '/demo', label: 'Demo' }
+				]
+			},
+			{
+				link: '#2/4',
+				label: 'Platforms',
+				icon: 'ep:platform',
+				links: [
+					{ link: '/metatrader', label: 'Meta Trder 5' },
+					{ link: '/sirix', label: 'Sirix' }
+				]
+			},
+			{
+				link: '#2/5',
+				label: 'Tools',
+				icon: 'gravity-ui:key',
+				links: [
+					{ link: '/economic-calender', label: 'Economic calender ' },
+					{ link: '/market-news', label: 'Market News' }
+				]
+			}
+		]
+	},
+	{
+		link: '#3',
+		label: 'Academy',
+		megaMenu: false,
+		links: [
+			{ link: '/ebooks', label: 'Ebooks' },
+			{ link: '/webinar', label: 'Event & Webinars' },
+			{ link: '/podcast', label: 'Spotify Podcast' }
+		]
+	},
+	{
+		link: '#4',
+		label: 'Help Center',
+		megaMenu: false,
+		links: [
+			{ link: '/payment-methods', label: 'Payment Methods' },
+			{ link: '/faqs', label: 'FAQs' },
+			{ link: '/regulation', label: 'Regulation' },
+			{ link: '/legal-documents', label: 'Legal Documents' },
+			{ link: '/privacy-policy', label: 'Privacy Policy ' },
+			{ link: '/risk-disclosure', label: 'Risk Disclosure ' },
+			{ link: '/terms-and-condition', label: 'Terms & Conditions' }
+		]
+	},
+	{
+		link: '/blog',
+		label: 'DB News',
+		megaMenu: false
+	}
+]
+---
+
+<!-- ========== END START ========== -->
+<header
+	class="z-50 flex w-full flex-wrap border-b border-gray-300 bg-white py-3 text-sm dark:border-neutral-700 dark:bg-neutral-800 md:flex-nowrap md:justify-start md:py-0"
+>
+	<nav class="container mx-auto w-full px-4 md:px-6 lg:px-6" aria-label="Global">
+		<div class="relative md:flex md:items-center md:justify-between">
+			<div class="flex w-full items-center justify-between">
+				<a
+					class="flex-none text-xl font-semibold dark:text-white"
+					href="/"
+					aria-label="Brand"
+					data-hs-theme-click-value="light"
+				>
+					{
+						(
+							<>
+								<Icon
+									name="logo_dark"
+									width={150}
+									height={80}
+									class="hs-dark-mode hs-dark-mode-active:hidden"
+									href="#"
+								/>
+								<Icon
+									name="logo_light"
+									width={150}
+									height={80}
+									class="hs-dark-mode hidden hs-dark-mode-active:flex"
+									href="#"
+								/>
+							</>
+						)
+					}
+				</a>
+				<div class="ms-auto flex items-center sm:order-3 sm:ms-0">
+					<!-- <button
+						type="button"
+						class="btn_gradient inline-flex items-center gap-x-2 rounded-full px-4 py-3 text-sm font-medium text-white shadow-sm disabled:pointer-events-none disabled:opacity-50 lg:hidden"
+					>
+						Open an Account
+					</button> -->
+					<div
+						class="flex gap-2 ps-3 dark:border-neutral-700 sm:my-3 sm:ms-3 sm:border-s sm:border-gray-300 sm:ps-3"
+					>
+						<div class="lg:hidden">
+							<button
+								type="button"
+								class="inline-flex items-center justify-center gap-2 rounded-lg border bg-white p-2 align-middle text-xs font-medium text-gray-700 shadow-sm transition-all hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2 focus:ring-offset-white dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-400 dark:hover:bg-neutral-800 dark:hover:text-white dark:focus:ring-offset-gray-800"
+								data-hs-overlay="#navbar-offcanvas-menu"
+								aria-controls="navbar-offcanvas-menu"
+								aria-label="Toggle navigation"
+							>
+								Menu
+								<svg
+									class="size-4 hs-overlay-open:hidden"
+									xmlns="http://www.w3.org/2000/svg"
+									width="24"
+									height="24"
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="2"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+								>
+									<circle cx="12" cy="12" r="1"></circle>
+									<circle cx="12" cy="5" r="1"></circle>
+									<circle cx="12" cy="19" r="1"></circle>
+								</svg>
+							</button>
+						</div>
+						<button
+							type="button"
+							class="hs-dark-mode flex size-9 items-center justify-center rounded-lg border border-gray-200 text-sm font-semibold text-gray-800 hover:bg-gray-100 disabled:pointer-events-none disabled:opacity-50 hs-dark-mode-active:hidden dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-700"
+							data-hs-theme-click-value="dark"
+						>
+							<svg
+								class="size-4 flex-shrink-0"
+								xmlns="http://www.w3.org/2000/svg"
+								width="24"
+								height="24"
+								viewBox="0 0 24 24"
+								fill="none"
+								stroke="currentColor"
+								stroke-width="2"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+							>
+								<path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+							</svg>
+						</button>
+						<button
+							type="button"
+							class="hs-dark-mode hidden size-9 items-center justify-center rounded-lg border border-gray-200 text-sm font-semibold text-gray-800 hover:bg-gray-100 disabled:pointer-events-none disabled:opacity-50 hs-dark-mode-active:flex dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-700"
+							data-hs-theme-click-value="light"
+						>
+							<svg
+								class="size-4 flex-shrink-0"
+								xmlns="http://www.w3.org/2000/svg"
+								width="24"
+								height="24"
+								viewBox="0 0 24 24"
+								fill="none"
+								stroke="currentColor"
+								stroke-width="2"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+							>
+								<circle cx="12" cy="12" r="4"></circle>
+								<path d="M12 2v2"></path>
+								<path d="M12 20v2"></path>
+								<path d="m4.93 4.93 1.41 1.41"></path>
+								<path d="m17.66 17.66 1.41 1.41"></path>
+								<path d="M2 12h2"></path>
+								<path d="M20 12h2"></path>
+								<path d="m6.34 17.66-1.41 1.41"></path>
+								<path d="m19.07 4.93-1.41 1.41"></path>
+							</svg>
+						</button>
+						<button
+							type="button"
+							class="flex size-9 items-center justify-center rounded-lg border border-gray-200 text-sm font-semibold text-gray-800 hover:bg-gray-100 disabled:pointer-events-none disabled:opacity-50 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-700"
+						>
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								width="24"
+								height="24"
+								viewBox="0 0 24 24"
+								class="size-4 flex-shrink-0 hs-collapse-open:hidden"
+							>
+								<path
+									fill="currentColor"
+									d="M12 4a4 4 0 0 1 4 4a4 4 0 0 1-4 4a4 4 0 0 1-4-4a4 4 0 0 1 4-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4"
+								></path>
+							</svg>
+						</button>
+					</div>
+				</div>
+				<div
+					id="navbar-offcanvas-menu"
+					class="hs-overlay fixed start-0 top-0 z-[60] hidden h-full w-full max-w-xs grow basis-full -translate-x-full transform border-e bg-white transition-all duration-300 hs-overlay-open:translate-x-0 dark:border-r-gray-700 dark:bg-neutral-800 sm:basis-auto lg:static lg:z-40 lg:order-2 lg:block lg:h-auto lg:w-auto lg:max-w-none lg:translate-x-0 lg:border-r-transparent lg:transition-none lg:dark:border-r-transparent"
+					tabindex="-1"
+					aria-controls="navbar-offcanvas-menu"
+					data-hs-overlay-close-on-resize
+				>
+					<div
+						class="flex h-[100dvh] flex-col overflow-hidden overflow-y-auto lg:h-auto [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-gray-300 dark:[&::-webkit-scrollbar-thumb]:bg-neutral-500 [&::-webkit-scrollbar-track]:bg-gray-100 dark:[&::-webkit-scrollbar-track]:bg-neutral-700 [&::-webkit-scrollbar]:w-2"
+					>
+						<div
+							class="flex items-center justify-between border-b px-4 py-3 dark:border-neutral-700 lg:hidden"
+						>
+							<h3 class="font-bold text-gray-800 dark:text-white">Menu</h3>
+							<button
+								type="button"
+								class="inline-flex size-8 flex-shrink-0 items-center justify-center rounded-lg text-sm text-gray-500 hover:text-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 focus:ring-offset-white dark:text-neutral-500 dark:hover:text-neutral-400 dark:focus:ring-neutral-700 dark:focus:ring-offset-gray-800"
+								data-hs-overlay="#navbar-offcanvas-menu"
+							>
+								<span class="sr-only"> Close offcanvas </span>
+								<svg
+									class="size-4 flex-shrink-0"
+									xmlns="http://www.w3.org/2000/svg"
+									width="24"
+									height="24"
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="2"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+								>
+									<path d="M18 6 6 18"></path>
+									<path d="m6 6 12 12"></path>
+								</svg>
+							</button>
+						</div>
+						<div
+							class="flex w-full flex-col justify-between overflow-hidden overflow-y-auto ps-4 md:max-h-[80dvh] lg:flex-row lg:items-center lg:ps-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-gray-300 dark:[&::-webkit-scrollbar-thumb]:bg-neutral-500 [&::-webkit-scrollbar-track]:bg-gray-100 dark:[&::-webkit-scrollbar-track]:bg-neutral-700 [&::-webkit-scrollbar]:w-2"
+						>
+							<div
+								class="flex flex-col gap-3 md:py-0 lg:flex-row lg:items-center lg:justify-start lg:ps-4"
+							>
+								<!-- {navItems} -->
+								{
+									navlinks.map((link) => {
+										const subNavItems = link.links?.map((item) => {
+											return (
+												<a
+													class="flex items-center gap-x-3.5 rounded-lg px-3 py-2 text-sm text-gray-800 hover:bg-gray-100 focus:ring-2 focus:ring-blue-500 dark:text-neutral-400 dark:hover:bg-neutral-700 dark:hover:text-neutral-300"
+													href={item.link}
+												>
+													{item.label}
+												</a>
+											)
+										})
+										if (subNavItems && link.megaMenu === false) {
+											return (
+												<div class="hs-dropdown py-3 [--adaptive:none] [--strategy:static] md:px-0 lg:py-3 lg:[--strategy:absolute] lg:[--trigger:hover]">
+													<button
+														type="button"
+														class="flex w-full items-center font-medium text-gray-800 hover:text-gray-600 dark:text-neutral-200 dark:hover:text-neutral-500"
+													>
+														{link.label}
+														<svg
+															class="ms-2 size-4 flex-shrink-0"
+															xmlns="http://www.w3.org/2000/svg"
+															width="24"
+															height="24"
+															viewBox="0 0 24 24"
+															fill="none"
+															stroke="currentColor"
+															stroke-width="2"
+															stroke-linecap="round"
+															stroke-linejoin="round"
+														>
+															<path d="m6 9 6 6 6-6" />
+														</svg>
+													</button>
+													<div class="hs-dropdown-menu duration-[0.1ms] lg:duration-[150ms] top-full z-10 hidden rounded-lg bg-white px-3 py-2 opacity-0 transition-[opacity,margin] before:absolute before:-top-5 before:start-0 before:h-5 before:w-full hs-dropdown-open:opacity-100 dark:divide-neutral-700 dark:border-neutral-700 dark:bg-neutral-800 lg:w-auto lg:border lg:px-2 lg:shadow-md lg:dark:border">
+														{subNavItems}
+													</div>
+												</div>
+											)
+										}
+										if (link.megaMenu === true) {
+											return (
+												<div class="hs-dropdown py-3 [--adaptive:none] [--strategy:static] md:px-0 lg:py-3 lg:[--strategy:absolute] lg:[--trigger:hover]">
+													<button
+														type="button"
+														class="flex w-full items-center font-medium text-gray-800 hover:text-gray-600 dark:text-neutral-200 dark:hover:text-neutral-500"
+													>
+														{link.label}
+														<svg
+															class="ms-2 size-4 flex-shrink-0"
+															xmlns="http://www.w3.org/2000/svg"
+															width="24"
+															height="24"
+															viewBox="0 0 24 24"
+															fill="none"
+															stroke="currentColor"
+															stroke-width="2"
+															stroke-linecap="round"
+															stroke-linejoin="round"
+														>
+															<path d="m6 9 6 6 6-6" />
+														</svg>
+													</button>
+													<div class="hs-dropdown-menu duration-[0.1ms] lg:duration-[150ms] top-full z-10 hidden overflow-hidden rounded-lg bg-white opacity-0 transition-[opacity,margin] before:absolute before:-top-5 before:start-0 before:h-5 before:w-full hs-dropdown-open:opacity-100 dark:divide-neutral-700 dark:border-neutral-700 dark:bg-neutral-800 lg:w-[750px] lg:border lg:shadow-md lg:dark:border">
+														<div class="grid grid-cols-2 lg:grid-cols-9">
+															{link.links?.map((iteminner) => {
+																const innerSubMenuLink = iteminner?.links?.map((subitem) => {
+																	return (
+																		<a
+																			class="flex items-center gap-x-3.5 rounded-lg px-3 py-2 text-sm text-gray-800 hover:bg-gray-100 focus:ring-2 focus:ring-blue-500 dark:text-neutral-400 dark:hover:bg-neutral-700 dark:hover:text-neutral-300"
+																			href={subitem.link}
+																		>
+																			{subitem.label}
+																		</a>
+																	)
+																})
+																return (
+																	<div class="col-span-full md:col-span-3">
+																		<div class="flex flex-col px-3 py-6 md:px-6">
+																			<div class="">
+																				<div class="mb-2 flex items-center text-xs font-semibold uppercase text-gray-800 dark:text-neutral-200">
+																					<span class="mr-2 flex size-9 items-center justify-center rounded-lg border border-gray-200 text-sm font-semibold text-gray-800 hover:bg-gray-100 disabled:pointer-events-none disabled:opacity-50 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-700">
+																						<iconify-icon
+																							class="text-dbgreen-900"
+																							icon={iteminner.icon}
+																							width="24"
+																							height="24"
+																						/>
+																					</span>
+																					{iteminner?.label}
+																				</div>
+																				{innerSubMenuLink}
+																			</div>
+																		</div>
+																	</div>
+																)
+															})}
+														</div>
+													</div>
+												</div>
+											)
+										}
+										return (
+											<a
+												class="py-3 font-medium text-gray-800 hover:text-gray-600 dark:text-neutral-200 dark:hover:text-neutral-500"
+												href={link.link}
+											>
+												{link.label}
+											</a>
+										)
+									})
+								}
+							</div>
+							<div class="hidden gap-2 lg:flex">
+								<button
+									type="button"
+									class="btn_gradient inline-flex items-center gap-x-2 rounded-full px-4 py-3 text-sm font-medium text-white shadow-sm disabled:pointer-events-none disabled:opacity-50"
+								>
+									Open an Account
+								</button>
+							</div>
+						</div>
+						<div
+							class="mt-auto flex flex-wrap items-center justify-start gap-1 border-t px-4 py-3 align-bottom dark:border-neutral-700 lg:hidden"
+						>
+							<span
+								class="flex size-9 items-center justify-center rounded-lg border border-gray-200 text-sm font-semibold text-gray-800 hover:bg-gray-100 disabled:pointer-events-none disabled:opacity-50 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-700"
+							>
+								<iconify-icon icon="logos:facebook" width="24"></iconify-icon>
+							</span>
+							<span
+								class="flex size-9 items-center justify-center rounded-lg border border-gray-200 text-sm font-semibold text-gray-800 hover:bg-gray-100 disabled:pointer-events-none disabled:opacity-50 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-700"
+							>
+								<iconify-icon icon="logos:telegram" width="24"></iconify-icon>
+							</span>
+							<span
+								class="flex size-9 items-center justify-center rounded-lg border border-gray-200 text-sm font-semibold text-gray-800 hover:bg-gray-100 disabled:pointer-events-none disabled:opacity-50 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-700"
+							>
+								<iconify-icon icon="logos:tiktok-icon" width="20"></iconify-icon>
+							</span>
+							<span
+								class="flex size-9 items-center justify-center rounded-lg border border-gray-200 text-sm font-semibold text-gray-800 hover:bg-gray-100 disabled:pointer-events-none disabled:opacity-50 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-700"
+							>
+								<iconify-icon icon="logos:whatsapp-icon" width="24"></iconify-icon>
+							</span>
+							<span
+								class="flex size-9 items-center justify-center rounded-lg border border-gray-200 text-sm font-semibold text-gray-800 hover:bg-gray-100 disabled:pointer-events-none disabled:opacity-50 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-700"
+							>
+								<iconify-icon icon="logos:youtube-icon" width="24"></iconify-icon>
+							</span>
+							<span
+								class="flex size-9 items-center justify-center rounded-lg border border-gray-200 text-sm font-semibold text-gray-800 hover:bg-gray-100 disabled:pointer-events-none disabled:opacity-50 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-700"
+							>
+								<iconify-icon icon="logos:linkedin-icon" width="24"></iconify-icon>
+							</span>
+							<span
+								class="flex size-9 items-center justify-center rounded-lg border border-gray-200 text-sm font-semibold text-gray-800 hover:bg-gray-100 disabled:pointer-events-none disabled:opacity-50 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-700"
+							>
+								<iconify-icon icon="pajamas:twitter" width="24" class="dark:text-white"
+								></iconify-icon>
+							</span>
+							<span
+								class="flex size-9 items-center justify-center rounded-lg border border-gray-200 text-sm font-semibold text-gray-800 hover:bg-gray-100 disabled:pointer-events-none disabled:opacity-50 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-700"
+							>
+								<iconify-icon icon="hugeicons:threads" width="24"></iconify-icon>
+							</span>
+
+							<span
+								class="flex size-9 items-center justify-center rounded-lg border border-gray-200 text-sm font-semibold text-gray-800 hover:bg-gray-100 disabled:pointer-events-none disabled:opacity-50 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-700"
+							>
+								<iconify-icon icon="ic:baseline-phone" width="24"></iconify-icon>
+							</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</nav>
+</header>
+<!-- ========== END HEADER ========== -->

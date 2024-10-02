@@ -1416,7 +1416,10 @@ const isActive = (path: string) => getRelativeLocaleUrl(locale, path) === Astro.
 													</a>
 													<a
 														class="navLinkStyle"
-														href="#"
+														href={getRelativeLocaleUrl(
+															locale,
+															'/event'
+														)}
 													>
 														{
 															t({

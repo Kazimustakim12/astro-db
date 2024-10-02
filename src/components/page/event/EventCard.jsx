@@ -1,0 +1,67 @@
+import { formatDate } from '@fullcalendar/core/index.js'
+import React from 'react'
+
+const EventCard = ({ event, lang = 'en' }) => {
+	const todayDate = new Date()
+	const endDate = new Date(event.endDate)
+	return (
+		<article className="h-full">
+			<a
+				className="group relative flex h-full flex-col rounded-xl border border-gray-200 p-5 transition duration-300 hover:border-transparent hover:shadow-lg focus:border-transparent focus:shadow-lg focus:outline-none dark:border-neutral-700 dark:hover:border-transparent dark:hover:shadow-black/40 dark:focus:border-transparent dark:focus:shadow-black/40"
+				href={`/${lang}/event/${event.slug}/`}
+				aria-label={event.title}
+			>
+				<div className="aspect-w-16 aspect-h-11">
+					<img
+						className="rounded-md"
+						src={event?.featuredImage?.node?.mediaItemUrl}
+						alt={event?.featuredImage?.node?.altText}
+						srcSet={event?.featuredImage?.node?.srcSet}
+						loading="lazy"
+						width={event?.featuredImage?.node?.mediaDetails?.width}
+						height={event?.featuredImage?.node?.mediaDetails?.height}
+					/>
+				</div>
+				<div className="pb-2 pt-4">
+					{todayDate > endDate ? (
+						<span className="px-1 text-red-600">Event Ended</span>
+					) : (
+						<span className="px-1 text-green-600">Upcoming Event</span>
+					)}
+				</div>
+				<div className="flex flex-wrap gap-2">
+					<span>
+						{formatDate(event.startDate, {
+							month: 'short',
+							day: '2-digit',
+							year: 'numeric',
+							locale: lang
+						})}
+					</span>
+					<span>
+						{formatDate(event.startDate, {
+							timeZoneName: 'shortGeneric',
+							locale: lang
+						})}{' '}
+						-{' '}
+						{formatDate(event.endDate, {
+							timeZoneName: 'shortGeneric',
+							locale: lang
+						})}
+					</span>
+				</div>
+				<div className="mb-2 mt-2">
+					<h3 className="text-xl font-semibold text-gray-800 dark:text-neutral-300 dark:group-hover:text-white">
+						{event.title}
+					</h3>
+					<p
+						className="mt-5 line-clamp-4 text-gray-600 dark:text-neutral-400"
+						dangerouslySetInnerHTML={{ __html: event.excerpt }}
+					/>
+				</div>
+			</a>
+		</article>
+	)
+}
+
+export default EventCard

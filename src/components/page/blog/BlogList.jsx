@@ -148,7 +148,7 @@ const BlogList = ({ lang, categoryName = '', tagName = '', search = '' }) => {
 							)
 						})}
 					</div>
-					<nav className="mt-4 mt-8 flex items-center justify-center gap-3" aria-label="Pagination">
+					<nav className="mt-8 flex items-center justify-center gap-3" aria-label="Pagination">
 						{posts.pageInfo.hasPreviousPage ? (
 							<button
 								type="button"

@@ -1,0 +1,350 @@
+---
+import { Safari } from '@/components/magicui/SafariMock'
+import Button from '@/components/ui/Button.astro'
+import { LOCALES, useTranslations, type Lang } from '@/i18n'
+import Layout from '@/layouts/Layout.astro'
+const t = useTranslations(Astro.currentLocale as Lang)
+import MetaTraderMockImage from '@/images/mettrader-mock.png'
+import { Iphone15Pro } from '@/components/magicui/Iphone15Pro'
+import { Image } from 'astro:assets'
+import TradingHardImg from '@/images/trading-is-hard-creative.png'
+import BeatImg from '@/images/winner.png'
+import HowItWorkImg from '@/images/How-it-works-creative.png'
+
+export const getStaticPaths = () =>
+	Object.keys(LOCALES).map((lang) => ({
+		params: { lang }
+	}))
+---
+
+<Layout title="Social Trading On ZuluTrader">
+	<section>
+		<!-- Hero -->
+		<div class="container relative mx-auto px-4 py-10 sm:px-6 lg:px-8">
+			<!-- Grid -->
+			<div class="grid gap-4 pb-20 md:items-center md:gap-8 lg:grid-cols-2 xl:gap-20">
+				<div>
+					<h1
+						class="block text-3xl font-bold text-gray-800 dark:text-white sm:text-4xl lg:text-6xl lg:leading-tight"
+					>
+						Social Trading with <span class="text-green-500">ZuluTrade</span>
+					</h1>
+					<h3 class="text-2xl font-semibold">Go long or short? Go Zulu!</h3>
+					<p class="mt-3 text-lg text-gray-800 dark:text-neutral-400">
+						Join the most transparent social trading network! Copy Top Performing
+						Leaders from different Brokers easily and reach your investment goals!
+					</p>
+
+					<!-- Buttons -->
+					<div class="mt-7 grid w-full gap-3 sm:inline-flex">
+						<Button
+							primary={true}
+							rippleEffect={true}
+							text="Open Zulu Account"
+							class="rounded-full"
+							href="#"
+							buttonIcon={' <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" ><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2" ><path stroke-dasharray="20" stroke-dashoffset="20" d="M3 21V20C3 17.7909 4.79086 16 7 16H11C13.2091 16 15 17.7909 15 20V21" ><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.4s" values="20;0" ></animate></path><path stroke-dasharray="20" stroke-dashoffset="20" d="M9 13C7.34315 13 6 11.6569 6 10C6 8.34315 7.34315 7 9 7C10.6569 7 12 8.34315 12 10C12 11.6569 10.6569 13 9 13Z" ><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.5s" dur="0.4s" values="20;0" ></animate></path><path stroke-dasharray="8" stroke-dashoffset="8" d="M15 6H21" ><animate fill="freeze" attributeName="stroke-dashoffset" begin="1s" dur="0.2s" values="8;0" ></animate></path><path stroke-dasharray="8" stroke-dashoffset="8" d="M18 3V9" ><animate fill="freeze" attributeName="stroke-dashoffset" begin="1.2s" dur="0.2s" values="8;0" ></animate></path></g></svg>'}
+						/>
+					</div>
+					<!-- End Buttons -->
+
+					<div class="mt-6 grid grid-cols-3 gap-x-5 lg:mt-10">
+						<!-- awward -->
+						<div class="ourAward relative col-span-1">
+							<div class="maskIcon relative">
+								<span class="award-text">UF AWARDS</span><span class="award-text"
+									>CYPRUS, 2022</span
+								>
+							</div>
+							<h4 class="awwardName text-center font-bold">
+								Best Social Trading <span>Solution</span>
+							</h4>
+						</div>
+						<!-- awward End  -->
+						<!-- awward -->
+						<div class="ourAward relative col-span-1">
+							<div class="maskIcon relative">
+								<span class="award-text">FOREX EXPO</span><span class="award-text"
+									>DUBAI, 2022</span
+								>
+							</div>
+							<h4 class="awwardName text-center font-bold">
+								Best Social Wealth
+								<span>Management Platform</span>
+							</h4>
+						</div>
+						<!-- awward End  -->
+						<!-- awward -->
+						<div class="ourAward relative col-span-1">
+							<div class="maskIcon relative">
+								<span class="award-text">UF AWARDS</span><span class="award-text"
+									>DUBAI, 2023</span
+								>
+							</div>
+							<h4 class="awwardName text-center font-bold">
+								Best Social Trading <span>Solution in MEA</span>
+							</h4>
+						</div>
+						<!-- awward End  -->
+					</div>
+					<!-- End Review -->
+				</div>
+				<!-- End Col -->
+
+				<div class="relative">
+					<Safari
+						url="dbinvesting.zulutrade.com"
+						className="size-full"
+						ifrmaeSrc="https://www.zulutrade.com/widgets/performance"
+					/>
+				</div>
+				<!-- End Col -->
+			</div>
+			<!-- End Grid -->
+			<!-- Grid -->
+			<div class="grid gap-4 pb-20 md:grid-cols-2 md:items-center md:gap-8 xl:gap-2">
+				<div class="relative ms-4 flex justify-center">
+					<Image
+						src={TradingHardImg}
+						alt="Trade img "
+					/>
+				</div>
+
+				<div>
+					<h1
+						class="block text-3xl font-bold text-gray-800 dark:text-white sm:text-4xl lg:text-5xl lg:leading-tight"
+					>
+						Truth is... <br /><span class="text-green-500">Trading is not easy</span>
+					</h1>
+
+					<!-- List -->
+					<ul class="mt-4 space-y-2 text-sm sm:text-base">
+						<li class="flex gap-x-3">
+							<span
+								class="mt-0.5 flex size-5 items-center justify-center rounded-full bg-blue-50 text-dbgreen-600 dark:bg-dbgreen-800/30 dark:text-dbgreen-500"
+							>
+								<svg
+									class="size-3.5 shrink-0"
+									xmlns="http://www.w3.org/2000/svg"
+									width="24"
+									height="24"
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="2"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									><polyline points="20 6 9 17 4 12"></polyline></svg
+								>
+							</span>
+							<span class="text-gray-800 dark:text-neutral-200">
+								Studying the market takes time
+							</span>
+						</li>
+						<li class="flex gap-x-3">
+							<span
+								class="mt-0.5 flex size-5 items-center justify-center rounded-full bg-blue-50 text-dbgreen-600 dark:bg-dbgreen-800/30 dark:text-dbgreen-500"
+							>
+								<svg
+									class="size-3.5 shrink-0"
+									xmlns="http://www.w3.org/2000/svg"
+									width="24"
+									height="24"
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="2"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									><polyline points="20 6 9 17 4 12"></polyline></svg
+								>
+							</span>
+							<span class="text-gray-800 dark:text-neutral-200">
+								Building and maintaining a trading strategy is hard
+							</span>
+						</li>
+					</ul>
+					<!-- End List -->
+					<p class="mt-3 text-lg text-gray-800 dark:text-neutral-400">
+						That’s why only 11-26% of manual investors end up winning.
+					</p>
+				</div>
+			</div>
+			<!-- End Grid -->
+			<!-- Grid -->
+			<div class="grid gap-4 md:grid-cols-2 md:items-center md:gap-8 xl:gap-20">
+				<div>
+					<h1
+						class="block text-3xl font-bold text-gray-800 dark:text-white sm:text-4xl lg:text-5xl lg:leading-tight"
+					>
+						Beat the odds with <br /><span class="text-green-500">Copy Trading</span>
+					</h1>
+
+					<p class="mt-3 text-lg text-gray-800 dark:text-neutral-400">
+						Did you know that 73% of our investors make profit when copying top leaders
+						correctly?
+					</p>
+					<Button
+						href="https://dbinvesting.zulutrade.com/register/"
+						data-aos="fade-up-sm"
+						data-aos-delay="150"
+						text="Try it Yourself"
+						primary={false}
+						rippleEffect="true"
+						primary="true"
+						class="mt-5 rounded-full"
+						buttonIcon="<iconify-icon icon='line-md:downloading-loop' width='20' height='20' style='color: white'></iconify-icon>"
+					/>
+				</div>
+				<div class="relative ms-4 flex justify-center">
+					<Image
+						src={BeatImg}
+						alt="Trade img "
+					/>
+				</div>
+			</div>
+			<!-- End Grid -->
+			<!-- Grid -->
+			<div class="grid gap-4 pt-20 md:grid-cols-2 md:items-center md:gap-8 xl:gap-2">
+				<div class="relative ms-4 flex justify-center">
+					<Image
+						src={HowItWorkImg}
+						alt="Trade img "
+					/>
+				</div>
+
+				<div>
+					<h1
+						class="block text-3xl font-bold text-gray-800 dark:text-white sm:text-4xl lg:text-5xl lg:leading-tight"
+					>
+						How it <span class="text-green-500"> works</span>
+					</h1>
+
+					<!-- List -->
+					<ul class="mt-4 space-y-2 text-sm sm:text-base">
+						<li class="flex gap-x-3">
+							<span
+								class="mt-0.5 flex size-8 items-center justify-center rounded-full bg-blue-50 text-dbgreen-600 dark:bg-dbgreen-800/30 dark:text-dbgreen-500"
+							>
+								<iconify-icon
+									class="shrink-0"
+									width="30px"
+									height="30px"
+									icon="mynaui:one-waves"
+								></iconify-icon>
+							</span>
+							<span class="text-gray-800 dark:text-neutral-200">
+								Leaders join ZuluTrade, connect their account and share their
+								trading strategy
+							</span>
+						</li>
+						<li class="flex gap-x-3">
+							<span
+								class="mt-0.5 flex size-8 items-center justify-center rounded-full bg-blue-50 text-dbgreen-600 dark:bg-dbgreen-800/30 dark:text-dbgreen-500"
+							>
+								<iconify-icon
+									class="shrink-0"
+									width="30px"
+									height="30px"
+									icon="mynaui:two-waves"
+								></iconify-icon>
+							</span>
+							<span class="text-gray-800 dark:text-neutral-200">
+								ZuluTrade ranks Leaders based on performance, stability, behavior
+								and outlook
+							</span>
+						</li>
+						<li class="flex gap-x-3">
+							<span
+								class="mt-0.5 flex size-8 items-center justify-center rounded-full bg-blue-50 text-dbgreen-600 dark:bg-dbgreen-800/30 dark:text-dbgreen-500"
+							>
+								<iconify-icon
+									class="shrink-0"
+									width="30px"
+									height="30px"
+									icon="mynaui:three-waves"
+								></iconify-icon>
+							</span>
+							<span class="text-gray-800 dark:text-neutral-200">
+								Investors select the Leaders to copy according to their investment
+								capital and risk appetite and outlook
+							</span>
+						</li>
+					</ul>
+					<!-- End List -->
+					<Button
+						href="https://dbinvesting.zulutrade.com/register/"
+						data-aos="fade-up-sm"
+						data-aos-delay="150"
+						text="Try it Yourself"
+						primary={false}
+						rippleEffect="true"
+						primary="true"
+						class="mt-5 rounded-full"
+						buttonIcon="<iconify-icon icon='line-md:downloading-loop' width='20' height='20' style='color: white'></iconify-icon>"
+					/>
+				</div>
+			</div>
+			<!-- End Grid -->
+		</div>
+		<!-- End Hero -->
+	</section>
+</Layout>
+
+<style>
+	.ourAward .award-text {
+		font-size: 13px;
+		font-weight: 700;
+		text-align: center;
+	}
+	.ourAward span {
+		display: block;
+	}
+
+	.ourAward .maskIcon {
+		padding: 84px 0;
+	}
+
+	.ourAward .maskIcon:before {
+		position: absolute;
+		content: '';
+		width: 180px;
+		height: 160px;
+		background: linear-gradient(
+			267deg,
+			#00a651 -5.5%,
+			#00a850 10.39%,
+			#00af4c 39.11%,
+			#69bd45 77.11%,
+			#8dc63f 98.85%
+		);
+		-webkit-mask-image: url(../../../icons/awardLeaf.svg);
+		mask-image: url(../../../icons/awardLeaf.svg);
+		-webkit-mask-repeat: no-repeat;
+		mask-repeat: no-repeat;
+		-webkit-mask-position: center bottom;
+		-webkit-mask-size: cover;
+		mask-size: cover;
+		top: 20px;
+		left: 0;
+		right: 0;
+		margin: 0 auto;
+	}
+	@media (max-width: 1200px) {
+		.ourAward .award-text {
+			font-size: 10px;
+			font-weight: 700;
+			text-align: center;
+		}
+		.ourAward .maskIcon:before {
+			width: 120px;
+			height: 100px;
+		}
+		.ourAward .maskIcon {
+			padding: 50px 0;
+		}
+		.awwardName {
+			font-size: 14px;
+		}
+	}
+</style>

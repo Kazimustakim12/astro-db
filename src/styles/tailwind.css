@@ -7,7 +7,7 @@
 		@apply scroll-smooth text-neutral-800 dark:text-white;
 	}
 	.navLinkStyle {
-		@apply flex items-center rounded-lg p-2 text-sm text-gray-800 hover:bg-gray-100 hover:text-dbgreen-900 focus:bg-gray-100 focus:outline-none dark:text-neutral-400 dark:hover:bg-neutral-700 dark:hover:text-dbgreen-900 dark:focus:bg-neutral-700 dark:focus:text-neutral-300 md:px-3;
+		@apply flex items-center rounded-lg p-2 text-sm text-gray-800 hover:bg-gray-100 hover:text-dbgreen-500 focus:bg-gray-100 focus:outline-none dark:text-neutral-400 dark:hover:bg-neutral-700 dark:hover:text-dbgreen-500 dark:focus:bg-neutral-700 dark:focus:text-neutral-300 md:px-3;
 	}
 
 	.post-content > * {
@@ -72,6 +72,9 @@
 	}
 	.post-content details summary ~ * {
 		@apply mb-4;
+	}
+	.text-color {
+		@apply text-gray-600 dark:text-gray-400;
 	}
 }
 .btn_gradient {

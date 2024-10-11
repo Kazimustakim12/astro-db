@@ -1,0 +1,174 @@
+---
+import Banner from '@/components/page/Investment/Banner.astro'
+import GoogleSheetDataTable from '@/components/ui/DataTable/GoogleSheetDataTable'
+import { LOCALES, useTranslations, type Lang } from '@/i18n'
+import Layout from '@/layouts/Layout.astro'
+const t = useTranslations(Astro.currentLocale as Lang)
+export const getStaticPaths = () =>
+	Object.keys(LOCALES).map((lang) => ({
+		params: { lang }
+	}))
+---
+
+<Layout title="Forex ">
+	<Banner
+		title={t({
+			en: 'Metals',
+			ar: 'المعادن',
+			es: 'Metales',
+			fr: 'Métaux',
+			hi: 'धातु',
+			id: 'Logam',
+			ms: 'Logam',
+			th: 'โลหะ',
+			vi: 'Kim loại',
+			bn: 'মেটালস',
+			'zh-hans': '金属',
+			'pt-br': 'Metais'
+		})}
+		description={t({
+			en: 'Trading precious metals is not only about buying bars of gold or silver. Try CFDs on precious metals as your trading alternative. Customizable account, live charts, and analytical tools are covered!',
+			ar: 'تداول المعادن الثمينة ليس مجرد شراء قضبان من الذهب أو الفضة. جرب عقود الفروقات على المعادن الثمينة كبديل للتداول. الحسابات القابلة للتخصيص، الرسوم البيانية المباشرة، وأدوات التحليل مشمولة!',
+			es: 'El comercio de metales preciosos no se trata solo de comprar lingotes de oro o plata. Prueba los CFDs sobre metales preciosos como tu alternativa comercial. ¡Cuentas personalizables, gráficos en vivo y herramientas analíticas están cubiertas!',
+			fr: "Le trading de métaux précieux ne consiste pas seulement à acheter des barres d'or ou d'argent. Essayez les CFD sur métaux précieux comme alternative de trading. Compte personnalisable, graphiques en direct et outils d'analyse sont couverts !",
+			hi: 'कीमती धातुओं का व्यापार केवल सोने या चांदी की सलाखें खरीदने के बारे में नहीं है। कीमती धातुओं पर सीएफडी को अपने व्यापारिक विकल्प के रूप में आजमाएं। अनुकूलित खाता, लाइव चार्ट और विश्लेषणात्मक उपकरण उपलब्ध हैं!',
+			id: 'Perdagangan logam mulia tidak hanya tentang membeli batangan emas atau perak. Cobalah CFD pada logam mulia sebagai alternatif perdagangan Anda. Akun yang dapat disesuaikan, grafik langsung, dan alat analisis sudah tersedia!',
+			ms: 'Perdagangan logam berharga bukan hanya tentang membeli jongkong emas atau perak. Cuba CFD pada logam berharga sebagai alternatif perdagangan anda. Akaun boleh disesuaikan, carta langsung, dan alat analisis disediakan!',
+			th: 'การซื้อขายโลหะมีค่าไม่ใช่แค่การซื้อทองหรือเงินแท่ง ลอง CFDs บนโลหะมีค่าเป็นทางเลือกในการซื้อขายของคุณ บัญชีปรับแต่งได้ แผนภูมิสด และเครื่องมือวิเคราะห์รวมอยู่ด้วย!',
+			vi: 'Giao dịch kim loại quý không chỉ là mua các thanh vàng hoặc bạc. Hãy thử CFDs trên kim loại quý như một lựa chọn giao dịch của bạn. Tài khoản có thể tùy chỉnh, biểu đồ trực tiếp và các công cụ phân tích được bao gồm!',
+			bn: 'মূল্যবান ধাতুর ব্যবসা শুধুমাত্র সোনার বা রুপোর বার কেনার ব্যাপারে নয়। আপনার ব্যবসার বিকল্প হিসেবে মূল্যবান ধাতুর উপর CFD চেষ্টা করুন। কাস্টমাইজেবল অ্যাকাউন্ট, লাইভ চার্ট এবং বিশ্লেষণাত্মক সরঞ্জাম অন্তর্ভুক্ত!',
+			'zh-hans':
+				'交易贵金属不仅仅是购买金条或银条。尝试贵金属的差价合约作为您的交易替代方案。可定制的账户、实时图表和分析工具都涵盖在内！',
+			'pt-br':
+				'Negociar metais preciosos não é apenas comprar barras de ouro ou prata. Experimente CFDs sobre metais preciosos como sua alternativa de negociação. Contas personalizáveis, gráficos ao vivo e ferramentas analíticas estão disponíveis!'
+		})}
+		image="/src/images/metals_tab.png"
+	/>
+	<div class="container py-10">
+		<div class="pb-10 md:pb-10">
+			<h2
+				class="mb-3 block text-2xl font-bold capitalize text-gray-800 dark:text-white sm:text-2xl md:text-3xl lg:text-3xl"
+			>
+				Solidity of the metals CFDs market
+			</h2>
+			<div class="card flex flex-wrap gap-3">
+				<div
+					class="relative col-span-full w-full space-y-5 overflow-hidden rounded-2xl border-2 p-4 transition hover:border-dbgreen-900 dark:border-neutral-600 dark:hover:border-dbgreen-900 sm:p-8 md:p-5 lg:col-span-3 lg:max-w-[32%]"
+				>
+					<div
+						class="flex size-8 items-center justify-center rounded-full bg-black p-2 text-white"
+					>
+						<span class="text-lg font-semibold">1</span>
+					</div>
+					<h2
+						class="mb-5 block text-2xl font-bold capitalize text-gray-800 dark:text-white"
+					>
+						Professional customer support
+					</h2>
+					<p class="text-color">
+						Need quick guidance, help or just have questions? Contact our customer
+						support team and get top-class professional assistance!
+					</p>
+				</div>
+				<div
+					class="relative col-span-full w-full space-y-5 overflow-hidden rounded-2xl border-2 p-4 transition hover:border-dbgreen-900 dark:border-neutral-600 dark:hover:border-dbgreen-900 sm:p-8 md:p-5 lg:col-span-3 lg:max-w-[32%]"
+				>
+					<div
+						class="flex size-8 items-center justify-center rounded-full bg-black p-2 text-white"
+					>
+						<span class="text-lg font-semibold">2</span>
+					</div>
+					<h2
+						class="mb-5 block text-2xl font-bold capitalize text-gray-800 dark:text-white"
+					>
+						The power of market choice
+					</h2>
+					<p class="text-color">
+						Choose among CFDs on available precious metals or trade them all – the
+						choice is yours. Feel the power of the market with no restrictions.
+					</p>
+				</div>
+				<div
+					class="relative col-span-full w-full space-y-5 overflow-hidden rounded-2xl border-2 p-4 transition hover:border-dbgreen-900 dark:border-neutral-600 dark:hover:border-dbgreen-900 sm:p-8 md:p-5 lg:col-span-3 lg:max-w-[32%]"
+				>
+					<div
+						class="flex size-8 items-center justify-center rounded-full bg-black p-2 text-white"
+					>
+						<span class="text-lg font-semibold">3</span>
+					</div>
+					<h2
+						class="mb-5 block text-2xl font-bold capitalize text-gray-800 dark:text-white"
+					>
+						CFDs metals market solidity
+					</h2>
+					<p class="text-color">
+						Trading metals CFDs is as exciting as it is challenging. Being a diversifier
+						of any trader’s portfolio, it attracts hundreds of people. Choose among CFDs
+						and place your first bid today.
+					</p>
+				</div>
+				<div
+					class="relative col-span-full w-full space-y-5 overflow-hidden rounded-2xl border-2 p-4 transition hover:border-dbgreen-900 dark:border-neutral-600 dark:hover:border-dbgreen-900 sm:p-8 md:p-5 lg:col-span-3 lg:max-w-[32%]"
+				>
+					<div
+						class="flex size-8 items-center justify-center rounded-full bg-black p-2 text-white"
+					>
+						<span class="text-lg font-semibold">3</span>
+					</div>
+					<h2
+						class="mb-5 block text-2xl font-bold capitalize text-gray-800 dark:text-white"
+					>
+						4 Your hedge against inflation
+					</h2>
+					<p class="text-color">
+						Like being in control of your trading portfolio? Start with CFDs on precious
+						metals and try using them as a hedge against market inflation.
+					</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="w-full space-y-4">
+			<h1
+				class="mb-3 block text-2xl font-bold capitalize text-gray-800 dark:text-white sm:text-2xl md:text-3xl lg:text-3xl"
+			>
+				Why trade CFDs on metals with DB Investing?
+			</h1>
+			<p class="text-color">
+				We provide a great choice among CFDs on the most popular precious metals in the
+				world.
+			</p>
+			<p class="text-color">
+				DB Investing offers various account types, multiple charts and 60+ professional
+				analytical tools to support your most daring market plans.
+			</p>
+			<p class="font-semibold">Advantages</p>
+			<ul class="list-disc px-3">
+				<li class="text-color">A among 5 assets’ CFDs</li>
+				<li class="text-color">Professional customer support service</li>
+				<li class="text-color">High execution speed of the platform</li>
+			</ul>
+		</div>
+		<div class="mt-7 w-full space-y-4">
+			<h1
+				class="mb-3 block text-2xl font-bold capitalize text-gray-800 dark:text-white sm:text-2xl md:text-3xl lg:text-3xl"
+			>
+				How does CFDs metal trading work?
+			</h1>
+			<p class="text-color">
+				As the market of online trading grows, so do the opportunities of every single
+				trader.
+			</p>
+			<p class="text-color">No need to buy metals or invest directly in them.</p>
+			<p class="text-color">
+				Choose among the most popular assets and hit trading with your best strategy.
+			</p>
+		</div>
+	</div>
+	<div class="container pb-10 pt-4">
+		<GoogleSheetDataTable
+			sheetName="Metals"
+			client:load
+		/>
+	</div>
+</Layout>

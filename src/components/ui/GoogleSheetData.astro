@@ -1,0 +1,145 @@
+---
+
+---
+
+<div data-hs-datatable>
+	<table>
+		<thead>
+			<tr>
+				<th scope="col">
+					Name
+					<svg
+						class="hidden hs-datatable-ordering-asc:block"
+						xmlns="http://www.w3.org/2000/svg"
+						width="24"
+						height="24"
+						viewBox="0 0 24 24"
+						fill="none"
+						stroke="currentColor"
+						stroke-width="2"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						><path d="m6 9 6 6 6-6"></path></svg
+					>
+					<svg
+						class="hidden hs-datatable-ordering-desc:block"
+						xmlns="http://www.w3.org/2000/svg"
+						width="24"
+						height="24"
+						viewBox="0 0 24 24"
+						fill="none"
+						stroke="currentColor"
+						stroke-width="2"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						><path d="m18 15-6-6-6 6"></path></svg
+					>
+				</th>
+				<th scope="col">
+					Age
+					<svg
+						class="hidden hs-datatable-ordering-asc:block"
+						xmlns="http://www.w3.org/2000/svg"
+						width="24"
+						height="24"
+						viewBox="0 0 24 24"
+						fill="none"
+						stroke="currentColor"
+						stroke-width="2"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						><path d="m6 9 6 6 6-6"></path></svg
+					>
+					<svg
+						class="hidden hs-datatable-ordering-desc:block"
+						xmlns="http://www.w3.org/2000/svg"
+						width="24"
+						height="24"
+						viewBox="0 0 24 24"
+						fill="none"
+						stroke="currentColor"
+						stroke-width="2"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						><path d="m18 15-6-6-6 6"></path></svg
+					>
+				</th>
+				<th scope="col">
+					Address
+					<svg
+						class="hidden hs-datatable-ordering-asc:block"
+						xmlns="http://www.w3.org/2000/svg"
+						width="24"
+						height="24"
+						viewBox="0 0 24 24"
+						fill="none"
+						stroke="currentColor"
+						stroke-width="2"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						><path d="m6 9 6 6 6-6"></path></svg
+					>
+					<svg
+						class="hidden hs-datatable-ordering-desc:block"
+						xmlns="http://www.w3.org/2000/svg"
+						width="24"
+						height="24"
+						viewBox="0 0 24 24"
+						fill="none"
+						stroke="currentColor"
+						stroke-width="2"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						><path d="m18 15-6-6-6 6"></path></svg
+					>
+				</th>
+				<th
+					scope="col"
+					class="--exclude-from-ordering"
+				>
+					Action
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>John Brown</td>
+				<td>45</td>
+				<td>New York No. 1 Lake Park</td>
+				<td>
+					<button type="button">Delete</button>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<div
+		style="display: none;"
+		data-hs-datatable-paging
+	>
+		<button
+			type="button"
+			data-hs-datatable-paging-prev
+		>
+			<span aria-hidden="true">«</span>
+			<span class="sr-only">Previous</span>
+		</button>
+		<div data-hs-datatable-paging-pages></div>
+		<button
+			type="button"
+			data-hs-datatable-paging-next
+		>
+			<span class="sr-only">Next</span>
+			<span aria-hidden="true">»</span>
+		</button>
+	</div>
+</div>
+
+<script>
+	// const { element } = HSDataTable.getInstance('#hs-datatable', true)
+	// const { dataTable } = element
+
+	// dataTable.on('draw.dt', () => {
+	// 	console.log('Table redrawn!')
+	// })
+</script>

@@ -3,8 +3,10 @@ import gql from 'graphql-tag'
 import client from '@/lib/apolloClient'
 import { useTranslations } from '@/i18n'
 import { formatDate } from '@fullcalendar/core/index.js'
+import { localizeEventDates } from '@/lib/utils'
 
 const CountdownTimer = ({ lang }) => {
+	const t = useTranslations(lang)
 	const GET_EVENTS = gql`
 		query GET_EVENTS($language: String, $first: Int) {
 			events(first: $first, where: { status: PUBLISH, language: $language }) {
@@ -38,14 +40,6 @@ const CountdownTimer = ({ lang }) => {
 	const [timeLeft, setTimeLeft] = useState(null)
 	// Get the current date
 	const currentDate = new Date()
-	const formatOptions = {
-		year: 'numeric',
-		month: 'short',
-		day: '2-digit',
-		hour: '2-digit',
-		minute: '2-digit',
-		hour12: true // Use 12-hour format with AM/PM
-	}
 	// load data from api for the to 10 events
 	const loadEvent = async () => {
 		setLoading(true)
@@ -124,7 +118,7 @@ const CountdownTimer = ({ lang }) => {
 
 		return (
 			<div>
-				<div class="count-down-main flex w-full items-center justify-center gap-4">
+				<div class="count-down-main flex w-full items-start justify-start gap-2">
 					<div class="timer w-16">
 						<div class="overflow-hidden rounded-lg border border-gray-200 px-2 py-4 dark:border-neutral-700">
 							<h3 class="countdown-element days font-Cormorant text-center text-2xl font-semibold text-black dark:text-white">
@@ -135,7 +129,9 @@ const CountdownTimer = ({ lang }) => {
 							days
 						</p>
 					</div>
-					<h3 class="font-manrope text-2xl font-semibold text-green-700 dark:text-green-400">:</h3>
+					<h3 class="font-manrope mt-[20px] text-2xl font-semibold text-green-700 dark:text-green-400">
+						:
+					</h3>
 					<div class="timer w-16">
 						<div class="overflow-hidden rounded-lg border border-gray-200 px-2 py-4 dark:border-neutral-700">
 							<h3 class="countdown-element hours font-Cormorant text-center text-2xl font-semibold text-black dark:text-white">
@@ -146,7 +142,9 @@ const CountdownTimer = ({ lang }) => {
 							hours
 						</p>
 					</div>
-					<h3 class="font-manrope text-2xl font-semibold text-green-700 dark:text-green-400">:</h3>
+					<h3 class="font-manrope mt-[20px] text-2xl font-semibold text-green-700 dark:text-green-400">
+						:
+					</h3>
 					<div class="timer w-16">
 						<div class="overflow-hidden rounded-lg border border-gray-200 px-2 py-4 dark:border-neutral-700">
 							<h3 class="countdown-element minutes font-Cormorant text-center text-2xl font-semibold text-black dark:text-white">
@@ -157,7 +155,9 @@ const CountdownTimer = ({ lang }) => {
 							minutes
 						</p>
 					</div>
-					<h3 class="font-manrope text-2xl font-semibold text-green-700 dark:text-green-400">:</h3>
+					<h3 class="font-manrope mt-[20px] text-2xl font-semibold text-green-700 dark:text-green-400">
+						:
+					</h3>
 					<div class="timer w-16">
 						<div class="overflow-hidden rounded-lg border border-gray-200 px-2 py-4 dark:border-neutral-700">
 							<h3 class="countdown-element seconds font-Cormorant animate-countinsecond text-center text-2xl font-semibold text-black dark:text-white">
@@ -197,6 +197,7 @@ const CountdownTimer = ({ lang }) => {
 					<h2 className="sm:text-md mb-6 text-2xl font-bold">{currentEvent.title}</h2>
 					{currentEvent.featuredImage !== null ? (
 						<img
+							className="w-full max-w-[280px] rounded-md"
 							src={currentEvent?.featuredImage?.node?.mediaItemUrl}
 							alt={currentEvent?.featuredImage?.node?.altText}
 							srcSet={currentEvent?.featuredImage?.node?.srcSet}
@@ -207,38 +208,31 @@ const CountdownTimer = ({ lang }) => {
 					) : null}
 					<div className="my-4 flex flex-wrap gap-2 font-semibold text-green-700 dark:text-green-400">
 						<span>
-							{new Date(currentEvent.startDate).toLocaleString('en-US', {
+							{/* {new Date(currentEvent.startDate).toLocaleString('en-US', {
 								...formatOptions,
 								timeZone: currentEvent.timezone
-							})}
+							})} */}
+							{localizeEventDates(currentEvent, lang).localizedStart}
 						</span>
-
+						<span>-</span>
 						<span>
-							{new Date(currentEvent.endDate).toLocaleString('en-US', {
+							{/* {new Date(currentEvent.endDate).toLocaleString('en-US', {
 								...formatOptions,
 								timeZone: currentEvent.timezone
-							})}
+							})} */}
+							{/* {localozedDates.localizedEnd} */}
+							{localizeEventDates(currentEvent, lang).localizedEnd}
 						</span>
-
-						{/* <span>
-							{formatDate(currentEvent.startDate, {
-								timeZoneName: 'long',
-								// timeZone: currentEvent.timezone,
-								locale: lang
-							})}{' '}
-							-{' '}
-							{formatDate(currentEvent.endDate, {
-								timeZoneName: 'long',
-								timeZone: currentEvent.timezone,
-								locale: lang
-							})}
-						</span> */}
 					</div>
 					<p
-						className="mt-5 line-clamp-3 text-gray-600 dark:text-neutral-400"
+						className="mt-5 text-gray-600 dark:text-neutral-400"
 						dangerouslySetInnerHTML={{ __html: currentEvent.excerpt }}
 					/>
-					<button class='dark:focus:bg-neutral-700" mt-6 inline-flex items-center gap-x-2 rounded-lg border border-gray-200 bg-white px-4 py-3 text-sm font-medium text-black shadow-sm hover:bg-gray-50 focus:bg-gray-50 focus:outline-none disabled:pointer-events-none disabled:opacity-50 dark:border-neutral-700 dark:bg-neutral-800 dark:text-white dark:hover:bg-neutral-700'>
+					<a
+						href="https://www.youtube.com/@dbinvesting"
+						target="_blank"
+						class='dark:focus:bg-neutral-700" mt-6 inline-flex items-center gap-x-2 rounded-lg border border-gray-200 bg-white px-4 py-3 text-sm font-medium text-black shadow-sm hover:bg-gray-50 focus:bg-gray-50 focus:outline-none disabled:pointer-events-none disabled:opacity-50 dark:border-neutral-700 dark:bg-neutral-800 dark:text-white dark:hover:bg-neutral-700'
+					>
 						<span>
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
@@ -253,11 +247,39 @@ const CountdownTimer = ({ lang }) => {
 								<path fill="#fff" d="m102.421 128.06l66.328-38.418l-66.328-38.418z" />
 							</svg>
 						</span>
-						Watch on YouTube
-					</button>
+						{t({
+							en: 'Watch on YouTube',
+							ar: 'شاهد على يوتيوب',
+							es: 'Ver en YouTube',
+							fr: 'Regarder sur YouTube',
+							hi: 'यूट्यूब पर देखें',
+							id: 'Tonton di YouTube',
+							ms: 'Tonton di YouTube',
+							th: 'ดูบน YouTube',
+							vi: 'Xem trên YouTube',
+							bn: 'ইউটিউবে দেখুন',
+							'zh-hans': '在YouTube上观看',
+							'pt-br': 'Assistir no YouTube'
+						})}
+					</a>
 				</div>
 			) : (
-				<p>No upcoming events</p>
+				<p>
+					{t({
+						en: 'No upcoming events',
+						ar: 'لا توجد أحداث قادمة',
+						es: 'No hay eventos próximos',
+						fr: 'Aucun événement à venir',
+						hi: 'कोई आगामी इवेंट नहीं',
+						id: 'Tidak ada acara yang akan datang',
+						ms: 'Tiada acara yang akan datang',
+						th: 'ไม่มีเหตุการณ์ที่จะเกิดขึ้น',
+						vi: 'Không có sự kiện sắp tới',
+						bn: 'কোন আসন্ন ইভেন্ট নেই',
+						'zh-hans': '没有即将到来的活动',
+						'pt-br': 'Nenhum evento futuro'
+					})}
+				</p>
 			)}
 		</div>
 	)

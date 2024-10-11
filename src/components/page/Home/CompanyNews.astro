@@ -6,50 +6,6 @@ import { formatDate } from '@/lib/utils'
 import { Image } from 'astro:assets'
 const t = useTranslations(Astro.currentLocale as Lang)
 import gql from 'graphql-tag'
-const dbProduct = [
-	{
-		id: 1,
-		title: 'Forex',
-		src: '/src/images/forex_img.png',
-		link: '/forex/'
-	},
-	{
-		id: 2,
-		title: 'Indices',
-		src: '/src/images/indices_img.png',
-		link: ''
-	},
-	{
-		id: 3,
-		title: 'Commodities',
-		src: '/src/images/Commodities_img.png',
-		link: ''
-	},
-	{
-		id: 4,
-		title: 'Metals',
-		src: '/src/images/metal_img.jpg',
-		link: ''
-	},
-	{
-		id: 5,
-		title: 'Stocks',
-		src: '/src/images/stock-product_img.png',
-		link: ''
-	},
-	{
-		id: 6,
-		title: 'Stocks-6',
-		src: '/src/images/stock-product_img.png',
-		link: ''
-	},
-	{
-		id: 7,
-		title: 'Stocks-7',
-		src: '/src/images/stock-product_img.png',
-		link: ''
-	}
-]
 
 const GET_TOP_COMPANY_NEWS = gql`
 	query GET_TOP_COMPANY_NEWS($first: Int, $language: String!) {
@@ -118,7 +74,7 @@ const TopCompanyNews = compnayNews?.posts?.edges || []
 								th: 'การอัปเดต',
 								vi: 'Cập nhật',
 								bn: 'আপডেট',
-								'zh-cn': '更新',
+								'zh-hans': '更新',
 								'pt-br': 'Atualizações'
 							})
 						}
@@ -135,7 +91,7 @@ const TopCompanyNews = compnayNews?.posts?.edges || []
 									th: 'ข่าว',
 									vi: 'Tin tức',
 									bn: 'সংবাদ',
-									'zh-cn': '新闻',
+									'zh-hans': '新闻',
 									'pt-br': 'Notícias'
 								})
 							}
@@ -156,7 +112,7 @@ const TopCompanyNews = compnayNews?.posts?.edges || []
 								th: 'เทรดอย่างมั่นใจกับแพลตฟอร์มล้ำสมัยของ DB Investing เพื่อความเสถียรที่ไม่มีใครเทียบได้ สมัครสมาชิกเพื่อรับราคาที่แน่นหนาและสภาพคล่องระดับสูงจากธนาคารชั้นนำและโบรกเกอร์ชั้นนำ',
 								vi: 'Giao dịch tự tin với các nền tảng tiên tiến của DB Investing để có độ ổn định vô song. Đăng ký để có mức giá chặt chẽ và thanh khoản hàng đầu từ các ngân hàng hàng đầu và các nhà môi giới chính.',
 								bn: 'DB Investing-এর অত্যাধুনিক প্ল্যাটফর্মের সাথে আত্মবিশ্বাসের সাথে ব্যবসা করুন যা অতুলনীয় স্থিতিশীলতার জন্য। প্রধান ব্যাংক এবং প্রাইম ব্রোকারদের কাছ থেকে টাইট প্রাইসিং এবং শীর্ষ স্তরের তরলতার জন্য সাবস্ক্রাইব করুন।',
-								'zh-cn':
+								'zh-hans':
 									'与DB Investing的尖端平台自信交易，以实现无与伦比的稳定性。订阅以获得来自领先银行和主要经纪人的紧密定价和顶级流动性。',
 								'pt-br':
 									'Negocie com confiança com as plataformas de ponta da DB Investing para uma estabilidade incomparável. Inscreva-se para preços apertados e liquidez de primeira linha de bancos líderes e corretores primários.'
@@ -170,21 +126,6 @@ const TopCompanyNews = compnayNews?.posts?.edges || []
 					<div
 						class="companySlider__container flex rtl:flex-row-reverse rtl:justify-start"
 					>
-						<!-- {
-							// dbProduct.map((product, index) => {
-							// 	return (
-							// 		<div class="companySlider__slide">
-							// 			<CardOverlayerText
-							// 				imagePath={product.src}
-							// 				title={product.title}
-							// 				id={product.id}
-							// 				altText={product.title}
-							// 				link={product.link}
-							// 			/>
-							// 		</div>
-							// 	)
-							// })
-						} -->
 						{
 							compnayLoading ? (
 								<div class="flex animate-pulse">
@@ -207,7 +148,7 @@ const TopCompanyNews = compnayNews?.posts?.edges || []
 									</div>
 								</div>
 							) : TopCompanyNews.length > 0 ? (
-								TopCompanyNews.map((topnode) => {
+								TopCompanyNews.map((topnode: any) => {
 									const post = topnode.node
 									return (
 										<div class="companySlider__slide">
@@ -228,7 +169,7 @@ const TopCompanyNews = compnayNews?.posts?.edges || []
 										th: 'ไม่มีโพสต์ที่มีอยู่',
 										vi: 'Không có bài đăng nào',
 										bn: 'কোনও পোস্ট উপলব্ধ নেই',
-										'zh-cn': '没有可用的帖子',
+										'zh-hans': '没有可用的帖子',
 										'pt-br': 'Nenhuma postagem disponível'
 									})}
 								</p>

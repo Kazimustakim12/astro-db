@@ -21,7 +21,7 @@ const BlogCard = ({ post, locale }) => {
 				<div className="flex flex-wrap gap-2 pt-3">
 					{post?.categories?.edges.slice(0, 5).map((cat) => (
 						<a
-							class="inline-flex items-center gap-x-1.5 rounded-lg bg-dbgreen-50 px-3 py-1.5 text-xs font-medium text-dbgreen-900 dark:bg-neutral-50/10 dark:text-dbgreen-800"
+							class="inline-flex items-center gap-x-1.5 rounded-lg bg-dbgreen-50 px-3 py-1.5 text-xs font-medium text-dbgreen-500 dark:bg-neutral-50/10 dark:text-dbgreen-800"
 							href={`/${post?.languageCode}/category/${cat?.node?.slug}`}
 							key={`/${post?.languageCode}/category/${cat?.node?.slug}`}
 						>

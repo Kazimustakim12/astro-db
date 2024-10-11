@@ -195,7 +195,7 @@ const BlogList = ({ lang, categoryName = '', tagName = '', search = '' }) => {
 												th: 'กำลังโหลด...',
 												vi: 'Đang tải...',
 												bn: 'লোড হচ্ছে...',
-												'zh-cn': '加载中...',
+												'zh-hans': '加载中...',
 												'pt-br': 'Carregando...'
 											})
 										: t({
@@ -209,7 +209,7 @@ const BlogList = ({ lang, categoryName = '', tagName = '', search = '' }) => {
 												th: 'ก่อนหน้า',
 												vi: 'Trước',
 												bn: 'পূর্ববর্তী',
-												'zh-cn': '上一步',
+												'zh-hans': '上一步',
 												'pt-br': 'Anterior'
 											})}
 								</span>
@@ -248,7 +248,7 @@ const BlogList = ({ lang, categoryName = '', tagName = '', search = '' }) => {
 												th: 'กำลังโหลด...',
 												vi: 'Đang tải...',
 												bn: 'লোড হচ্ছে...',
-												'zh-cn': '加载中...',
+												'zh-hans': '加载中...',
 												'pt-br': 'Carregando...'
 											})
 										: t({
@@ -262,7 +262,7 @@ const BlogList = ({ lang, categoryName = '', tagName = '', search = '' }) => {
 												th: 'ถัดไป',
 												vi: 'Tiếp theo',
 												bn: 'পরবর্তী',
-												'zh-cn': '下一步',
+												'zh-hans': '下一步',
 												'pt-br': 'Próximo'
 											})}
 								</span>
@@ -297,7 +297,7 @@ const BlogList = ({ lang, categoryName = '', tagName = '', search = '' }) => {
 						th: 'ไม่พบโพสต์...',
 						vi: 'Không tìm thấy bài đăng...',
 						bn: 'কোন পোস্ট পাওয়া যায়নি...',
-						'zh-cn': '未找到帖子...',
+						'zh-hans': '未找到帖子...',
 						'pt-br': 'Nenhum post encontrado...'
 					})}
 				</div>

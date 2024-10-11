@@ -1,0 +1,168 @@
+---
+import Banner from '@/components/page/Investment/Banner.astro'
+import GoogleSheetDataTable from '@/components/ui/DataTable/GoogleSheetDataTable'
+import { LOCALES, useTranslations, type Lang } from '@/i18n'
+import Layout from '@/layouts/Layout.astro'
+const t = useTranslations(Astro.currentLocale as Lang)
+export const getStaticPaths = () =>
+	Object.keys(LOCALES).map((lang) => ({
+		params: { lang }
+	}))
+---
+
+<Layout title="Forex ">
+	<Banner
+		title={t({
+			en: 'Commodities',
+			ar: 'السلع',
+			es: 'Commodities',
+			fr: 'Produits de base',
+			hi: 'कमोडिटीज़',
+			id: 'Komoditas',
+			ms: 'Komoditi',
+			th: 'สินค้าโภคภัณฑ์',
+			vi: 'Hàng hóa',
+			bn: 'পণ্য',
+			'zh-hans': '商品',
+			'pt-br': 'Commodities'
+		})}
+		description={t({
+			en: 'Trading on the commodity exchange engages traders around the world and is very similar to trading in the stock market or Forex, but there are some differences.',
+			ar: 'التداول في بورصة السلع يشرك المتداولين حول العالم ويشبه إلى حد كبير التداول في سوق الأسهم أو الفوركس، ولكن هناك بعض الاختلافات.',
+			es: 'El comercio en el mercado de materias primas involucra a traders de todo el mundo y es muy similar al comercio en el mercado de valores o Forex, pero hay algunas diferencias.',
+			fr: 'Le trading sur le marché des matières premières engage des traders du monde entier et ressemble beaucoup au trading sur le marché boursier ou Forex, mais il existe quelques différences.',
+			hi: 'कमोडिटी एक्सचेंज में ट्रेडिंग दुनिया भर के व्यापारियों को शामिल करता है और यह शेयर बाजार या फॉरेक्स में ट्रेडिंग के समान है, लेकिन कुछ अंतर हैं।',
+			id: 'Perdagangan di bursa komoditas melibatkan pedagang di seluruh dunia dan sangat mirip dengan perdagangan di pasar saham atau Forex, tetapi ada beberapa perbedaan.',
+			ms: 'Perdagangan di bursa komoditi melibatkan pedagang di seluruh dunia dan sangat serupa dengan perdagangan di pasaran saham atau Forex, tetapi terdapat beberapa perbezaan.',
+			th: 'การซื้อขายในตลาดสินค้าโภคภัณฑ์มีผู้ค้าเข้าร่วมจากทั่วโลกและคล้ายกับการซื้อขายในตลาดหุ้นหรือฟอเร็กซ์ แต่มีความแตกต่างบางประการ',
+			vi: 'Giao dịch trên sàn hàng hóa thu hút các nhà giao dịch trên toàn thế giới và rất giống với giao dịch trên thị trường chứng khoán hoặc Forex, nhưng có một số khác biệt.',
+			bn: 'পণ্য বিনিময়ে ট্রেডিং সারা বিশ্বের ব্যবসায়ীদের সাথে যুক্ত করে এবং এটি শেয়ার বাজার বা ফরেক্সে ট্রেডিংয়ের সাথে খুব মিল, তবে কিছু পার্থক্য রয়েছে।',
+			'zh-hans':
+				'在商品交易所交易吸引了全球交易员，与股票市场或外汇交易非常相似，但也有一些区别。',
+			'pt-br':
+				'Negociar na bolsa de mercadorias envolve traders de todo o mundo e é muito semelhante ao mercado de ações ou Forex, mas há algumas diferenças.'
+		})}
+		image="/src/images/commodities_tab.png"
+	/>
+	<div class="container py-10">
+		<div class="pb-10 md:pb-10">
+			<h2
+				class="mb-3 block text-2xl font-bold capitalize text-gray-800 dark:text-white sm:text-2xl md:text-3xl lg:text-3xl"
+			>
+				Choose CFDs on Commodities trading to affirm your premium status
+			</h2>
+			<div class="card flex flex-wrap gap-3">
+				<div
+					class="relative col-span-full w-full space-y-5 overflow-hidden rounded-2xl border-2 p-4 transition hover:border-dbgreen-900 dark:border-neutral-600 dark:hover:border-dbgreen-900 sm:p-8 md:p-5 lg:col-span-3 lg:max-w-[32%]"
+				>
+					<div
+						class="flex size-8 items-center justify-center rounded-full bg-black p-2 text-white"
+					>
+						<span class="text-lg font-semibold">1</span>
+					</div>
+					<h2
+						class="mb-5 block text-2xl font-bold capitalize text-gray-800 dark:text-white"
+					>
+						Lower costs
+					</h2>
+					<p class="text-color">
+						0 Deposit & Withdrawal Fees on Credit Card Transactions
+					</p>
+				</div>
+				<div
+					class="relative col-span-full w-full space-y-5 overflow-hidden rounded-2xl border-2 p-4 transition hover:border-dbgreen-900 dark:border-neutral-600 dark:hover:border-dbgreen-900 sm:p-8 md:p-5 lg:col-span-3 lg:max-w-[32%]"
+				>
+					<div
+						class="flex size-8 items-center justify-center rounded-full bg-black p-2 text-white"
+					>
+						<span class="text-lg font-semibold">2</span>
+					</div>
+					<h2
+						class="mb-5 block text-2xl font-bold capitalize text-gray-800 dark:text-white"
+					>
+						Higher Protection
+					</h2>
+					<p class="text-color">
+						Negative balance protection, smart stop out levels and membership in
+						Investor Compensation Fund (ICF)
+					</p>
+				</div>
+				<div
+					class="relative col-span-full w-full space-y-5 overflow-hidden rounded-2xl border-2 p-4 transition hover:border-dbgreen-900 dark:border-neutral-600 dark:hover:border-dbgreen-900 sm:p-8 md:p-5 lg:col-span-3 lg:max-w-[32%]"
+				>
+					<div
+						class="flex size-8 items-center justify-center rounded-full bg-black p-2 text-white"
+					>
+						<span class="text-lg font-semibold">3</span>
+					</div>
+					<h2
+						class="mb-3 block text-2xl font-bold capitalize text-gray-800 dark:text-white"
+					>
+						Easier to start
+					</h2>
+					<p class="text-color">
+						Minimum lot size 0,01 1st Deposit from as minimum as $100 Free Demo Account
+						for the most convenient start
+					</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="w-full space-y-4">
+			<h1
+				class="mb-3 block text-2xl font-bold capitalize text-gray-800 dark:text-white sm:text-2xl md:text-3xl lg:text-3xl"
+			>
+				What to trade?
+			</h1>
+			<p class="text-color">
+				The energy market is one of the key markets in the global economy. It is highly
+				volatile due to its close connection to politics, the environment, and economic
+				conditions. Transactions with raw materials and energy resources attract investors
+				due to their active price dynamics. The cost of the instruments is constantly
+				changing, and that offers a wide range of opportunities to make gains*.
+			</p>
+			<p class="text-color">
+				Investments in the energy sector never go out of fashion: there’s always the need
+				for electricity and fuel. This sector is promising in terms of capital increase.
+				This is due, for example, to seasonal fluctuations in oil and gas prices driven by
+				sharp increases in demand for heating, sowing, harvesting, and other fundamental
+				factors. At the same time, there is constant market demand.
+			</p>
+			<p class="text-color">
+				Oil fields are finite in their extent, but almost every company in the world
+				consumes oil. They support the demand for raw materials all year round, influencing
+				oil prices and allowing investors to make gains. Due to the development of
+				technologies, the opportunities for profitable investments widen every year. Today,
+				many countries are developing renewable energy sources. This area represents another
+				promising asset class for investors.
+			</p>
+			<p class="text-color">
+				The off-exchange market does not imply any restrictions on volumes, so transactions
+				on raw materials and resources are available to any investor with even a small
+				amount of funds.
+			</p>
+		</div>
+		<div class="mt-7 w-full space-y-4">
+			<h1
+				class="mb-3 block text-2xl font-bold capitalize text-gray-800 dark:text-white sm:text-2xl md:text-3xl lg:text-3xl"
+			>
+				How to trade on the commodities exchange?
+			</h1>
+			<p class="text-color">
+				The commodities market is full of exciting trading opportunities. Covering dozens of
+				popular assets, from sugar and coffee to oil and gas, commodity trading becomes a
+				unique arena for your trader’s portfolio diversification.
+			</p>
+			<p class="text-color">
+				Use your CFD trading opportunities here, as you don’t need to get involved in the
+				market itself.
+			</p>
+		</div>
+	</div>
+	<div class="container pb-10 pt-4">
+		<GoogleSheetDataTable
+			sheetName="Commodities"
+			client:load
+		/>
+	</div>
+</Layout>

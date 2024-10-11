@@ -1,0 +1,177 @@
+---
+import Banner from '@/components/page/Investment/Banner.astro'
+import GoogleSheetDataTable from '@/components/ui/DataTable/GoogleSheetDataTable'
+import { LOCALES, useTranslations, type Lang } from '@/i18n'
+import Layout from '@/layouts/Layout.astro'
+const t = useTranslations(Astro.currentLocale as Lang)
+export const getStaticPaths = () =>
+	Object.keys(LOCALES).map((lang) => ({
+		params: { lang }
+	}))
+---
+
+<Layout title="cryptocurrencies">
+	<Banner
+		title={t({
+			en: 'Crypto',
+			ar: 'العملات المشفرة',
+			es: 'Cripto',
+			fr: 'Crypto',
+			hi: 'क्रिप्टो',
+			id: 'Kripto',
+			ms: 'Kripto',
+			th: 'คริปโต',
+			vi: 'Tiền điện tử',
+			bn: 'ক্রিপ্টো',
+			'zh-hans': '加密货币',
+			'pt-br': 'Cripto'
+		})}
+		description={t({
+			en: 'DB Investing offers you to explore the tech-powered cryptocurrency market through trading CFDs on Bitcoin, Ethereum, and other popular digital currencies. Choose a platform and account that fit your trading style and experience, set your goals at DB Investing, and go!',
+			ar: 'تقدم لك DB Investing استكشاف سوق العملات المشفرة المعتمد على التكنولوجيا من خلال تداول العقود مقابل الفروقات على البيتكوين والإيثريوم والعملات الرقمية الشهيرة الأخرى. اختر منصة وحساب يتناسبان مع أسلوبك وخبرتك في التداول، وحدد أهدافك مع DB Investing وانطلق!',
+			es: 'DB Investing te ofrece explorar el mercado de criptomonedas impulsado por la tecnología a través de la negociación de CFDs sobre Bitcoin, Ethereum y otras monedas digitales populares. ¡Elige una plataforma y cuenta que se ajuste a tu estilo de trading y experiencia, establece tus objetivos en DB Investing y adelante!',
+			fr: "DB Investing vous propose d'explorer le marché des cryptomonnaies alimenté par la technologie en négociant des CFD sur Bitcoin, Ethereum et d'autres devises numériques populaires. Choisissez une plateforme et un compte adaptés à votre style de trading et à votre expérience, définissez vos objectifs avec DB Investing et c'est parti !",
+			hi: 'DB Investing आपको बिटकॉइन, एथेरियम, और अन्य लोकप्रिय डिजिटल मुद्राओं पर CFDs के माध्यम से तकनीक-संचालित क्रिप्टोक्यूरेंसी बाजार का अन्वेषण करने का अवसर प्रदान करता है। एक प्लेटफ़ॉर्म और खाता चुनें जो आपकी ट्रेडिंग शैली और अनुभव के अनुसार हो, अपने लक्ष्यों को DB Investing के साथ सेट करें और आगे बढ़ें!',
+			id: 'DB Investing menawarkan Anda untuk menjelajahi pasar cryptocurrency yang didukung teknologi melalui perdagangan CFD di Bitcoin, Ethereum, dan mata uang digital populer lainnya. Pilih platform dan akun yang sesuai dengan gaya dan pengalaman perdagangan Anda, tetapkan tujuan Anda di DB Investing, dan mulai!',
+			ms: 'DB Investing menawarkan anda untuk meneroka pasaran cryptocurrency yang berkuasa teknologi melalui perdagangan CFD di Bitcoin, Ethereum, dan mata wang digital popular lain. Pilih platform dan akaun yang sesuai dengan gaya dan pengalaman dagangan anda, tetapkan matlamat anda di DB Investing dan mulakan!',
+			th: 'DB Investing ขอเสนอให้คุณสำรวจตลาดสกุลเงินดิจิทัลที่ขับเคลื่อนด้วยเทคโนโลยีผ่านการซื้อขาย CFD บน Bitcoin, Ethereum และสกุลเงินดิจิทัลยอดนิยมอื่นๆ เลือกแพลตฟอร์มและบัญชีที่เหมาะกับสไตล์การเทรดและประสบการณ์ของคุณ ตั้งเป้าหมายของคุณกับ DB Investing และไปเลย!',
+			vi: 'DB Investing mang đến cho bạn cơ hội khám phá thị trường tiền điện tử dựa trên công nghệ thông qua giao dịch CFD trên Bitcoin, Ethereum và các loại tiền kỹ thuật số phổ biến khác. Chọn một nền tảng và tài khoản phù hợp với phong cách giao dịch và kinh nghiệm của bạn, đặt mục tiêu của bạn tại DB Investing và bắt đầu!',
+			bn: 'ডিবি ইনভেস্টিং আপনাকে প্রযুক্তি-চালিত ক্রিপ্টোকারেন্সি বাজার অন্বেষণ করার সুযোগ দিচ্ছে, বিটকয়েন, ইথেরিয়াম এবং অন্যান্য জনপ্রিয় ডিজিটাল মুদ্রায় সিএফডি লেনদেনের মাধ্যমে। এমন একটি প্ল্যাটফর্ম এবং অ্যাকাউন্ট বেছে নিন যা আপনার ট্রেডিং স্টাইল এবং অভিজ্ঞতার সাথে মানানসই, ডিবি ইনভেস্টিং এ আপনার লক্ষ্য সেট করুন এবং এগিয়ে যান!',
+			'zh-hans':
+				'DB Investing 提供通过交易比特币、以太坊和其他热门数字货币的差价合约来探索技术驱动的加密货币市场。选择适合您交易风格和经验的平台和账户，在 DB Investing 设定目标，出发吧！',
+			'pt-br':
+				'A DB Investing oferece a você a oportunidade de explorar o mercado de criptomoedas impulsionado por tecnologia através da negociação de CFDs em Bitcoin, Ethereum e outras moedas digitais populares. Escolha uma plataforma e uma conta que se ajustem ao seu estilo e experiência de negociação, defina suas metas na DB Investing e vá em frente!'
+		})}
+		image="/src/images/crypto_tab.png"
+	/>
+	<div class="container py-10">
+		<div class="pb-10 md:pb-10">
+			<h2
+				class="mb-3 block text-2xl font-bold capitalize text-gray-800 dark:text-white sm:text-2xl md:text-3xl lg:text-3xl"
+			>
+				CFDs Cryptocurrency trading essentials
+			</h2>
+			<div class="card flex flex-wrap gap-3">
+				<div
+					class="relative col-span-full w-full space-y-5 overflow-hidden rounded-2xl border-2 p-4 transition hover:border-dbgreen-900 dark:border-neutral-600 dark:hover:border-dbgreen-900 sm:p-8 md:p-5 lg:col-span-3 lg:max-w-[32%]"
+				>
+					<div
+						class="flex size-8 items-center justify-center rounded-full bg-black p-2 text-white"
+					>
+						<span class="text-lg font-semibold">1</span>
+					</div>
+					<h2
+						class="mb-5 block text-2xl font-bold capitalize text-gray-800 dark:text-white"
+					>
+						Remarkable Crypto CFDs range
+					</h2>
+					<p class="text-color">
+						We have crypto CFDs that you can add to your portfolio:BTC/USD, XLM/USD,
+						XRP/USD, ETH/USD. Enjoy CFDs on cryptocurrency trading with zero deposit
+						commission – no need to spend more.
+					</p>
+				</div>
+				<div
+					class="relative col-span-full w-full space-y-5 overflow-hidden rounded-2xl border-2 p-4 transition hover:border-dbgreen-900 dark:border-neutral-600 dark:hover:border-dbgreen-900 sm:p-8 md:p-5 lg:col-span-3 lg:max-w-[32%]"
+				>
+					<div
+						class="flex size-8 items-center justify-center rounded-full bg-black p-2 text-white"
+					>
+						<span class="text-lg font-semibold">2</span>
+					</div>
+					<h2
+						class="mb-5 block text-2xl font-bold capitalize text-gray-800 dark:text-white"
+					>
+						Amazing market volatility
+					</h2>
+					<p class="text-color">
+						The cryptocurrency market has a turnover of trillions dollars, the highly
+						volatile cryptocurrency CFDs market doesn’t seize to attract traders
+						worldwide. You can use your trading skills to harness the uncertainty of the
+						market but be ready to face the risks.
+					</p>
+				</div>
+				<div
+					class="relative col-span-full w-full space-y-5 overflow-hidden rounded-2xl border-2 p-4 transition hover:border-dbgreen-900 dark:border-neutral-600 dark:hover:border-dbgreen-900 sm:p-8 md:p-5 lg:col-span-3 lg:max-w-[32%]"
+				>
+					<div
+						class="flex size-8 items-center justify-center rounded-full bg-black p-2 text-white"
+					>
+						<span class="text-lg font-semibold">3</span>
+					</div>
+					<h2
+						class="mb-3 block text-2xl font-bold capitalize text-gray-800 dark:text-white"
+					>
+						Transparent fees and charges
+					</h2>
+					<p class="text-color">
+						DB Investing never tricks you into paying more. Fees and charges policy are
+						strict and transparent – you won’t ever be obliged to pay more than you
+						expect. Plan your strategy and concentrate on your trading goals.
+					</p>
+				</div>
+				<div
+					class="relative col-span-full w-full space-y-5 overflow-hidden rounded-2xl border-2 p-4 transition hover:border-dbgreen-900 dark:border-neutral-600 dark:hover:border-dbgreen-900 sm:p-8 md:p-5 lg:col-span-3 lg:max-w-[32%]"
+				>
+					<div
+						class="flex size-8 items-center justify-center rounded-full bg-black p-2 text-white"
+					>
+						<span class="text-lg font-semibold">4</span>
+					</div>
+					<h2
+						class="mb-3 block text-2xl font-bold capitalize text-gray-800 dark:text-white"
+					>
+						Cross-platform trading access
+					</h2>
+					<p class="text-color">
+						Choose your most comfortable way to access the international trading arena.
+						Be it PC, laptop, smartphone, or tablet – DB Investing supports it all. It’s
+						you who is in control of how and when you get to trade.
+					</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="w-full space-y-4">
+			<h1
+				class="mb-3 block text-2xl font-bold capitalize text-gray-800 dark:text-white sm:text-2xl md:text-3xl lg:text-3xl"
+			>
+				How does CFDs on Cryptocurrencies trading work?
+			</h1>
+			<p class="text-color">
+				There are several ways to try to capitalize on the crypto price swings. One option
+				is to buy Bitcoin or any other crypto and sell it later at a higher price.
+			</p>
+			<p class="text-color">
+				However, you can also trade crypto CFDs – without owning the actual asset or
+				starting the time-consuming process of getting a blockchain wallet. Instead, you can
+				concentrate on your trading strategy and choices, while we, at DB Investing, provide
+				our best services to you.
+			</p>
+		</div>
+		<div class="mt-7 w-full space-y-4">
+			<h1
+				class="mb-3 block text-2xl font-bold capitalize text-gray-800 dark:text-white sm:text-2xl md:text-3xl lg:text-3xl"
+			>
+				Why trade CFDs on Cryptocurrencies with DB Investing?
+			</h1>
+			<p class="text-color">
+				We do our best to offer you a range of options tailored to your trading needs.
+			</p>
+			<p class="text-color">
+				Along with the access to the most trading coins, like Bitcoin, Ethereum, Litecoin.
+			</p>
+			<p class="font-semibold">Advantages</p>
+			<ul class="list-disc px-3">
+				<li class="text-color">Zero commission on deposits and withdrawalss</li>
+				<li class="text-color">High liquiditye</li>
+			</ul>
+		</div>
+	</div>
+	<div class="container pb-10 pt-4">
+		<GoogleSheetDataTable
+			sheetName="Cryptos"
+			client:load
+		/>
+	</div>
+</Layout>

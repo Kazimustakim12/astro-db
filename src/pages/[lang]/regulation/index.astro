@@ -1,0 +1,201 @@
+---
+import { LOCALES } from '@/i18n'
+import Layout from '@/layouts/Layout.astro'
+import { Image } from 'astro:assets'
+import FSALicense from '@/images/SDL_2024.png'
+import SCALicense from '@/images/SCA_authorized_license.png'
+import Button from '@/components/ui/Button.astro'
+export const getStaticPaths = () =>
+	Object.keys(LOCALES).map((lang) => ({
+		params: { lang }
+	}))
+---
+
+<Layout title="Regulations of DB investing:">
+	<section>
+		<div
+			class="relative z-20 w-full overflow-hidden bg-gray-100 py-3 before:absolute before:start-1/2 before:top-0 before:-z-[1] before:size-full before:-translate-x-1/2 before:transform before:bg-[url('/src/images/world_bg.png')] before:bg-center before:bg-no-repeat before:opacity-45 before:hue-rotate-60 dark:bg-black dark:before:bg-[url('/src/images/world_bg.png')]"
+		>
+			<div
+				class="container flex flex-col items-center justify-between gap-6 py-10 sm:flex-row"
+			>
+				<div>
+					<h1
+						class="block text-center text-4xl font-bold text-gray-800 dark:text-neutral-200 md:text-4xl lg:text-5xl"
+					>
+						<strong class="text-green-500">Regulatory </strong> Environment
+					</h1>
+				</div>
+				<div>
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						class="w-[120px] md:w-[180px]"
+						height="auto"
+						viewBox="0 0 50 50"
+					>
+						<path
+							fill="currentColor"
+							d="m18.1 24.543l-9.204-5.19l3.199-5.61l9.206 5.187zm18.37 4.788l-15.552-8.76l-1.599 2.808l15.55 8.761zm1.888 1.065l-1.604 2.806l8.02 4.514l1.604-2.803zm-2.16 2.806c-.123.219-.459.271-.751.111c-.291-.164-.42-.475-.296-.697l1.875-3.285c.129-.223.465-.277.754-.111c.287.164.417.482.293.705zm11.832 1.799a2 2 0 0 0-1.011-.248l-2.051 3.592c.165.301.411.564.735.74c.904.512 2.041.217 2.538-.652l.526-.93c.498-.875.17-1.99-.737-2.502M22.191 17.849a.9.9 0 0 1-1.225.342l-8.056-4.542a.89.89 0 0 1-.339-1.223a.904.904 0 0 1 1.23-.334l8.054 4.536a.89.89 0 0 1 .336 1.221m1.129-1.972a.9.9 0 0 1-1.227.34l-8.059-4.541a.885.885 0 0 1-.337-1.217a.9.9 0 0 1 1.23-.341l8.056 4.537a.89.89 0 0 1 .337 1.222m-6.808 11.944a.907.907 0 0 1-1.229.334l-8.062-4.542a.894.894 0 0 1-.338-1.223a.91.91 0 0 1 1.229-.334l8.058 4.542a.9.9 0 0 1 .342 1.223m1.126-1.979a.9.9 0 0 1-1.234.335L8.348 21.64a.9.9 0 0 1-.339-1.223a.9.9 0 0 1 1.231-.335l8.055 4.537a.9.9 0 0 1 .343 1.223M4.119 33.921h14.204v1.633H4.119zm17.306 3.406a1.15 1.15 0 0 0-1.135-.963H2.156a1.15 1.15 0 0 0-1.135.963H1v2.674h20.446v-2.674z"
+						></path>
+					</svg>
+				</div>
+			</div>
+		</div>
+		<div>
+			<div class="container py-10">
+				<h1 class="mb-6 text-xl font-semibold">Regulation of DB Investing:</h1>
+				<div class="flex flex-col gap-10">
+					<div
+						class="flex flex-col flex-wrap items-start gap-4 md:flex-row md:flex-nowrap"
+					>
+						<div class="w-full max-w-[80px]">
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								width="100%"
+								height="auto"
+								viewBox="0 0 36 36"
+							>
+								<path
+									fill="#d62828"
+									d="M32 5h-7.833L1.129 29.785l.001.001q.228.236.493.431l.001.001L36 13.667V9a4 4 0 0 0-4-4"
+								></path>
+								<path
+									fill="#fcd856"
+									d="M.763 29.35q.168.231.367.435L24.167 5H12zq-.002-.002 0 0"
+								></path>
+								<path
+									fill="#003f87"
+									d="M12 5H4a4 4 0 0 0-4 4v18c0 .878.283 1.689.762 2.349z"
+								></path>
+								<path
+									fill="#eee"
+									d="m2.063 30.501l.004.002L36 22.333v-8.667L1.624 30.218q.21.155.439.283"
+								></path>
+								<path
+									fill="#007a3d"
+									d="M4 31h28a4 4 0 0 0 4-4v-4.667L2.067 30.502A4 4 0 0 0 4 31"
+								></path>
+							</svg>
+						</div>
+						<div
+							class="w-full border-l border-gray-200 px-2 dark:border-neutral-700 md:max-w-[80%]"
+						>
+							<h2 class="text-2xl font-semibold text-dbgreen-500">FSA</h2>
+							<p class="text-sm font-thin">
+								Financial Services Authority (Seychelles)
+							</p>
+							<br />
+							<p class="text-gray-600 dark:text-gray-400">
+								<strong>DB Investing Limited </strong> is a Security Dealer registered,
+								authorized and regulated company by the Financial Services Authority
+								(FSA) in Seychelles with license SD053.
+							</p>
+							<br />
+							<p class="text-gray-600 dark:text-gray-400">
+								The Seychelles Financial Services Authority is the autonomous
+								regulatory body responsible for the non-bank financial services in
+								the Seychelles. Established under the Financial Services Authority
+								Act, 2013, the Authority is responsible to license, regulate,
+								enforce regulatory and compliance requirements, monitor and
+								supervise the conduct of business in the non-bank financial services
+								sector in Seychelles. These regulated activities are Fiduciary
+								Services, Capital Market & Collective Investment Schemes and
+								Insurance.
+							</p>
+						</div>
+						<div class="ml-4 w-full max-w-[240px] md:m-auto">
+							<a
+								href="/src/images/SDL_2024.png"
+								download
+								class="flex flex-col items-center justify-center"
+							>
+								<Image
+									src={FSALicense}
+									alt="Licenece Image"
+									width={290}
+									height={290}
+								/>
+								<p class="mt-3 text-center font-semibold text-dbgreen-500">
+									FSA License Certificate
+								</p>
+							</a>
+						</div>
+					</div>
+					<div
+						class="flex flex-col flex-wrap items-start gap-4 md:flex-row md:flex-nowrap"
+					>
+						<div class="w-full max-w-[80px]">
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								width="100%"
+								height="auto"
+								viewBox="0 0 36 36"
+							>
+								<path
+									fill="#068241"
+									d="M32 5H9v9h27V9a4 4 0 0 0-4-4"
+								></path>
+								<path
+									fill="#eee"
+									d="M9 14h27v8H9z"
+								></path>
+								<path
+									fill="#141414"
+									d="M9 31h23a4 4 0 0 0 4-4v-5H9z"
+								></path>
+								<path
+									fill="#ec2028"
+									d="M4 5a4 4 0 0 0-4 4v18a4 4 0 0 0 4 4h5V5z"
+								></path>
+							</svg>
+						</div>
+						<div
+							class="w-full border-l border-gray-200 px-2 dark:border-neutral-700 md:max-w-[80%]"
+						>
+							<h2 class="text-2xl font-semibold text-dbgreen-500">SCA</h2>
+							<p class="text-sm font-thin">
+								Securities & Commodities Authority (UAE)
+							</p>
+							<br />
+							<p class="text-gray-600 dark:text-gray-400">
+								<strong>DBInvest Financial Services LLC</strong>, registered,
+								authorized and regulated company by the Securities & Commodities
+								Authority (SCA) in the United Arab Emirates with license
+								20200000197, category 5, Arrangement and advice.
+							</p>
+							<br />
+							<p class="text-gray-600 dark:text-gray-400">
+								The Securities and Commodities Authority has been keen on putting
+								the objectives stated in the Federal Law No. (4) of 2000 into effect
+								by sparing no effort to strengthen the legislative structure through
+								issuing such regulations and instructions that ensure the
+								development of the organizational and supervisory framework of the
+								list joint-stock companies and other companies operating in the
+								securities field. Besides, the Authority has introduced some
+								controls and criteria that would contribute positively to enhancing
+								the investors' trust in the Authority.
+							</p>
+						</div>
+						<div class="ml-4 w-full max-w-[240px] md:m-auto">
+							<a
+								href="/src/images/SDL_2024.png"
+								download
+								class="flex flex-col items-center justify-center"
+							>
+								<Image
+									src={SCALicense}
+									alt="SCA Licenece Image"
+									width={290}
+									height={290}
+								/>
+								<p class="mt-3 text-center font-semibold text-dbgreen-500">
+									SCA License Certificate
+								</p>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</Layout>

@@ -1,0 +1,156 @@
+---
+import Banner from '@/components/page/Investment/Banner.astro'
+import GoogleSheetDataTable from '@/components/ui/DataTable/GoogleSheetDataTable'
+import { LOCALES, useTranslations, type Lang } from '@/i18n'
+import Layout from '@/layouts/Layout.astro'
+const t = useTranslations(Astro.currentLocale as Lang)
+export const getStaticPaths = () =>
+	Object.keys(LOCALES).map((lang) => ({
+		params: { lang }
+	}))
+---
+
+<Layout title="Forex ">
+	<Banner
+		title={t({
+			en: 'Stocks',
+			ar: 'الأسهم',
+			es: 'Acciones',
+			fr: 'Actions',
+			hi: 'स्टॉक्स',
+			id: 'Saham',
+			ms: 'Saham',
+			th: 'หุ้น',
+			vi: 'Cổ phiếu',
+			bn: 'স্টক',
+			'zh-hans': '股票',
+			'pt-br': 'Ações'
+		})}
+		description={t({
+			en: "Start Trading long or short CFDs on stocks with the world's most traded global companies, including Amazon, Meta Platforms, inc., Apple, Microsoft and Alphabet. Investing in CFDs allows you to trade the value of the company’s stocks without owning the underlying shares, giving you several advantages over traditional stock trading.",
+			ar: 'ابدأ التداول بعقود الفروقات طويلة أو قصيرة على الأسهم مع الشركات العالمية الأكثر تداولًا في العالم، بما في ذلك أمازون، Meta Platforms, inc، أبل، مايكروسوفت وألفابت. الاستثمار في عقود الفروقات يسمح لك بالتداول على قيمة أسهم الشركات دون امتلاك الأسهم الأساسية، مما يمنحك العديد من المزايا على التداول التقليدي للأسهم.',
+			es: 'Comience a operar CFDs largos o cortos en acciones con las empresas globales más negociadas del mundo, incluidas Amazon, Meta Platforms, Inc., Apple, Microsoft y Alphabet. Invertir en CFDs le permite negociar el valor de las acciones de la empresa sin poseer las acciones subyacentes, lo que le brinda varias ventajas sobre el comercio de acciones tradicional.',
+			fr: "Commencez à trader des CFD longs ou courts sur les actions des entreprises mondiales les plus négociées, notamment Amazon, Meta Platforms, Inc., Apple, Microsoft et Alphabet. Investir dans les CFD vous permet de trader la valeur des actions de l'entreprise sans posséder les actions sous-jacentes, vous offrant ainsi plusieurs avantages par rapport au trading traditionnel d'actions.",
+			hi: 'दुनिया की सबसे अधिक कारोबार वाली वैश्विक कंपनियों, जिसमें Amazon, Meta Platforms, Inc., Apple, Microsoft और Alphabet शामिल हैं, के शेयरों पर लंबे या छोटे सीएफडी का व्यापार शुरू करें। सीएफडी में निवेश आपको कंपनी के शेयरों का स्वामित्व लिए बिना उनकी कीमत पर व्यापार करने की अनुमति देता है, जो आपको पारंपरिक शेयर व्यापार के मुकाबले कई फायदे देता है।',
+			id: 'Mulailah Trading CFD panjang atau pendek pada saham dengan perusahaan global yang paling diperdagangkan di dunia, termasuk Amazon, Meta Platforms, Inc., Apple, Microsoft, dan Alphabet. Berinvestasi dalam CFD memungkinkan Anda memperdagangkan nilai saham perusahaan tanpa memiliki saham yang mendasarinya, memberi Anda beberapa keuntungan dibandingkan perdagangan saham tradisional.',
+			ms: 'Mulakan dagangan panjang atau pendek CFD pada saham dengan syarikat global yang paling banyak didagangkan di dunia, termasuk Amazon, Meta Platforms, Inc., Apple, Microsoft dan Alphabet. Melabur dalam CFD membolehkan anda berdagang nilai saham syarikat tanpa memiliki saham asas, memberikan anda beberapa kelebihan berbanding dagangan saham tradisional.',
+			th: 'เริ่มต้นการซื้อขาย CFD ระยะยาวหรือระยะสั้นในหุ้นกับบริษัทระดับโลกที่มีการซื้อขายมากที่สุดในโลก ซึ่งรวมถึง Amazon, Meta Platforms, Inc., Apple, Microsoft และ Alphabet การลงทุนใน CFD ช่วยให้คุณสามารถซื้อขายมูลค่าหุ้นของบริษัทโดยไม่ต้องเป็นเจ้าของหุ้นที่เกี่ยวข้อง ซึ่งให้ประโยชน์หลายประการเหนือการซื้อขายหุ้นแบบดั้งเดิม',
+			vi: 'Bắt đầu giao dịch CFD dài hạn hoặc ngắn hạn trên cổ phiếu với các công ty toàn cầu được giao dịch nhiều nhất thế giới, bao gồm Amazon, Meta Platforms, Inc., Apple, Microsoft và Alphabet. Đầu tư vào CFD cho phép bạn giao dịch giá trị của cổ phiếu mà không cần sở hữu cổ phiếu cơ bản, mang lại cho bạn nhiều lợi thế so với giao dịch cổ phiếu truyền thống.',
+			bn: 'বিশ্বের সর্বাধিক লেনদেন করা গ্লোবাল কোম্পানি যেমন অ্যামাজন, মেটা প্ল্যাটফর্মস, ইনক, অ্যাপল, মাইক্রোসফ্ট এবং অ্যালফাবেট সহ স্টকগুলিতে দীর্ঘ বা সংক্ষিপ্ত CFD ট্রেডিং শুরু করুন। CFDs-এ বিনিয়োগ আপনাকে কোম্পানির স্টকের মালিকানা না নিয়েই তার মূল্য ব্যবসা করার অনুমতি দেয়, যা আপনাকে ঐতিহ্যবাহী স্টক ট্রেডিংয়ের তুলনায় বেশ কয়েকটি সুবিধা প্রদান করে।',
+			'zh-hans':
+				'开始交易全球最受欢迎的公司股票的多头或空头差价合约，其中包括亚马逊、Meta Platforms, Inc.、苹果、微软和Alphabet。投资差价合约使您无需拥有基础股票即可交易公司的股票价值，提供比传统股票交易更多的优势。',
+			'pt-br':
+				'Comece a negociar CFDs longos ou curtos em ações com as empresas globais mais negociadas do mundo, incluindo Amazon, Meta Platforms, Inc., Apple, Microsoft e Alphabet. Investir em CFDs permite que você negocie o valor das ações da empresa sem possuir as ações subjacentes, oferecendo várias vantagens sobre a negociação tradicional de ações.'
+		})}
+		image="/src/images/forex_tab.png"
+	/>
+	<div class="container py-10">
+		<div class="pb-10 md:pb-10">
+			<h2
+				class="mb-3 block text-2xl font-bold capitalize text-gray-800 dark:text-white sm:text-2xl md:text-3xl lg:text-3xl"
+			>
+				Choose CFDs on stocks trading to Affirm your premium status
+			</h2>
+			<div class="card flex flex-wrap gap-3">
+				<div
+					class="relative col-span-full w-full space-y-5 overflow-hidden rounded-2xl border-2 p-4 transition hover:border-dbgreen-900 dark:border-neutral-600 dark:hover:border-dbgreen-900 sm:p-8 md:p-5 lg:col-span-3 lg:max-w-[32%]"
+				>
+					<div
+						class="flex size-8 items-center justify-center rounded-full bg-black p-2 text-white"
+					>
+						<span class="text-lg font-semibold">1</span>
+					</div>
+					<h2
+						class="mb-5 block text-2xl font-bold capitalize text-gray-800 dark:text-white"
+					>
+						Balancing the market risks
+					</h2>
+					<p class="text-color">
+						As Stocks CFDs gather from 30 to 500 stocks of publicly traded companies,
+						they can also boost your market risk resistance by creating a more stable
+						asset.
+					</p>
+				</div>
+				<div
+					class="relative col-span-full w-full space-y-5 overflow-hidden rounded-2xl border-2 p-4 transition hover:border-dbgreen-900 dark:border-neutral-600 dark:hover:border-dbgreen-900 sm:p-8 md:p-5 lg:col-span-3 lg:max-w-[32%]"
+				>
+					<div
+						class="flex size-8 items-center justify-center rounded-full bg-black p-2 text-white"
+					>
+						<span class="text-lg font-semibold">2</span>
+					</div>
+					<h2
+						class="mb-5 block text-2xl font-bold capitalize text-gray-800 dark:text-white"
+					>
+						Cross-platform trading access
+					</h2>
+					<p class="text-color">
+						Choose your most comfortable way to access the international trading arena.
+						Be it PC, laptop, smartphone, or tablet – DB Investing supports it all. It’s
+						you who is in control of how and when you get to trade.
+					</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="w-full space-y-4">
+			<h1
+				class="mb-3 block text-2xl font-bold capitalize text-gray-800 dark:text-white sm:text-2xl md:text-3xl lg:text-3xl"
+			>
+				Benefits of CFDs on stocks:
+			</h1>
+			<p class="text-color">
+				Going short or long on stocks is a relatively complicated process with a traditional
+				stock trading, but with CFDs you can sell as easily as you can buy to take advantage
+				of falling markets.
+			</p>
+			<p class="text-color">
+				Stock CFDs are easy to trade on MT5, without the need to trade through a
+				stockbroker. Simply buy or sell at the live market price.
+			</p>
+			<p class="text-color">
+				Trade at a much lower cost compared to traditional stock trading.
+			</p>
+			<p class="text-color">
+				You’re able to profit from the smallest market moves, as leverage allows you to
+				increase your position size relative to your investment. Leverage is also risky and
+				can increase your losses as well as your gains.
+			</p>
+		</div>
+		<div class="mt-7 w-full space-y-4">
+			<h1
+				class="mb-3 block text-2xl font-bold capitalize text-gray-800 dark:text-white sm:text-2xl md:text-3xl lg:text-3xl"
+			>
+				How does CFDs on Stocks trading work?
+			</h1>
+			<p class="text-color">
+				There is no need to be directly involved in the market. Choose cross-platform
+				trading, 60+ analytical tools, and quick connection during the market hours with DB
+				Investing.
+			</p>
+		</div>
+		<div class="mt-7 w-full space-y-4">
+			<h1
+				class="mb-3 block text-2xl font-bold capitalize text-gray-800 dark:text-white sm:text-2xl md:text-3xl lg:text-3xl"
+			>
+				Why trade CFDs on Stocks with DB Investing?
+			</h1>
+			<p class="text-color">
+				You can choose among many different single stocks EU or US. There are up to 200
+				single stocks available for trading including the most reputable in the world, so
+				you can participate by trading on CFDs into one of the largest markets globally.
+				There are various type of stocks traded on exchanges all over the world.
+			</p>
+			<p class="text-color">
+				Are separated into different categories such as technology stocks, pharmaceutical,
+				energy.
+			</p>
+		</div>
+	</div>
+	<div class="container pb-10 pt-4">
+		<GoogleSheetDataTable
+			sheetName="Stocks"
+			client:load
+		/>
+	</div>
+</Layout>

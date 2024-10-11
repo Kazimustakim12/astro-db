@@ -22,11 +22,26 @@ const { title } = Astro.props
 			<!-- Sidebar -->
 			<div
 				data-aos="fade-up-sm"
-				class="dark:from-neutral-800 lg:col-span-1 lg:h-full lg:w-full lg:bg-gradient-to-r lg:from-gray-50 lg:via-transparent lg:to-transparent rtl:lg:bg-gradient-to-l"
+				class="hidden dark:from-neutral-800 lg:col-span-1 lg:block lg:h-full lg:w-full lg:bg-gradient-to-r lg:from-gray-50 lg:via-transparent lg:to-transparent rtl:lg:bg-gradient-to-l"
 			>
-				<div class="sticky start-0 top-0 py-8 lg:ps-8">
+				<div class="sticky start-0 top-0 py-8 lg:ps-6">
 					<h1 class="flex gap-2 pb-4 text-lg font-semibold">
-						Next Webinar on
+						{
+							t({
+								en: 'Next Webinar on',
+								ar: 'الندوة التالية في',
+								es: 'Próximo seminario web el',
+								fr: 'Prochain webinaire le',
+								hi: 'अगला वेबिनार',
+								id: 'Webinar selanjutnya pada',
+								ms: 'Webinar seterusnya pada',
+								th: 'สัมมนาออนไลน์ครั้งต่อไปใน',
+								vi: 'Hội thảo trực tuyến tiếp theo vào',
+								bn: 'পরবর্তী ওয়েবিনার',
+								'zh-hans': '下一次网络研讨会时间',
+								'pt-br': 'Próximo webinar em'
+							})
+						}
 						<span>
 							<svg
 								xmlns="http://www.w3.org/2000/svg"

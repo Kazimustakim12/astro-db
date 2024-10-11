@@ -1,0 +1,100 @@
+---
+import Banner from '@/components/page/Investment/Banner.astro'
+import GoogleSheetDataTable from '@/components/ui/DataTable/GoogleSheetDataTable'
+import { LOCALES, useTranslations, type Lang } from '@/i18n'
+import Layout from '@/layouts/Layout.astro'
+const t = useTranslations(Astro.currentLocale as Lang)
+export const getStaticPaths = () =>
+	Object.keys(LOCALES).map((lang) => ({
+		params: { lang }
+	}))
+---
+
+<Layout title="Forex ">
+	<Banner
+		title={t({
+			en: 'Forex',
+			ar: 'فوركس',
+			es: 'Forex',
+			fr: 'Forex',
+			hi: 'फॉरेक्स',
+			id: 'Forex',
+			ms: 'Forex',
+			th: 'ฟอเร็กซ์',
+			vi: 'Forex',
+			bn: 'ফরেক্স',
+			'zh-hans': '外汇',
+			'pt-br': 'Forex'
+		})}
+		description={t({
+			en: 'Forex is often called a stock exchange, but it is not. This is an international over-the-counter market. It does not have a link to any place of bidding. In fact, it is a virtual market in which you can make currency transactions from anywhere in the world.',
+			ar: 'يُطلق على الفوركس غالبًا اسم سوق الأوراق المالية، لكنه ليس كذلك. إنها سوق دولية غير منظمة. لا يوجد لها صلة بأي مكان للمزايدة. في الواقع، هي سوق افتراضية يمكنك من خلالها إجراء معاملات العملات من أي مكان في العالم.',
+			es: 'El Forex a menudo se llama bolsa de valores, pero no lo es. Este es un mercado internacional extrabursátil. No tiene conexión con ningún lugar de subasta. De hecho, es un mercado virtual en el que puedes realizar transacciones de divisas desde cualquier lugar del mundo.',
+			fr: "Le Forex est souvent appelé bourse, mais ce n'est pas le cas. C'est un marché international de gré à gré. Il n'a pas de lien avec un endroit d'enchères. En fait, c'est un marché virtuel où vous pouvez effectuer des transactions en devises depuis n'importe où dans le monde.",
+			hi: 'फॉरेक्स को अक्सर शेयर बाजार कहा जाता है, लेकिन यह नहीं है। यह एक अंतरराष्ट्रीय ओवर-द-काउंटर बाजार है। इसका किसी भी बोली लगाने के स्थान से कोई संबंध नहीं है। वास्तव में, यह एक आभासी बाजार है जहां आप दुनिया में कहीं से भी मुद्रा लेनदेन कर सकते हैं।',
+			id: 'Forex sering disebut bursa saham, tetapi sebenarnya bukan. Ini adalah pasar internasional over-the-counter. Ini tidak memiliki hubungan dengan tempat penawaran mana pun. Sebenarnya, ini adalah pasar virtual di mana Anda dapat melakukan transaksi mata uang dari mana saja di dunia.',
+			ms: 'Forex sering dipanggil bursa saham, tetapi bukan. Ini adalah pasaran antarabangsa over-the-counter. Ia tidak mempunyai hubungan dengan mana-mana tempat tawaran. Sebenarnya, ia adalah pasaran maya di mana anda boleh membuat transaksi mata wang dari mana-mana sahaja di dunia.',
+			th: 'ฟอเร็กซ์มักถูกเรียกว่าเป็นตลาดหุ้น แต่ไม่ใช่ นี่คือ ตลาดนอกตลาดระหว่างประเทศ มันไม่มีความเชื่อมโยงกับสถานที่ประมูลใด ๆ ในความเป็นจริงมันเป็นตลาดเสมือนที่คุณสามารถทำธุรกรรมสกุลเงินจากที่ใดก็ได้ในโลก',
+			vi: 'Forex thường được gọi là sàn giao dịch chứng khoán, nhưng thực tế không phải vậy. Đây là một thị trường phi tập trung quốc tế. Nó không liên kết với bất kỳ địa điểm nào để đấu thầu. Trên thực tế, đây là một thị trường ảo, nơi bạn có thể thực hiện giao dịch tiền tệ từ bất kỳ đâu trên thế giới.',
+			bn: 'ফরেক্সকে প্রায়শই শেয়ার বাজার বলা হয়, কিন্তু এটি নয়। এটি একটি আন্তর্জাতিক ওভার-দ্য-কাউন্টার বাজার। এর কোনও বিডিং স্থানের সাথে সংযোগ নেই। আসলে, এটি একটি ভার্চুয়াল বাজার যেখানে আপনি বিশ্বের যে কোন স্থান থেকে মুদ্রা লেনদেন করতে পারেন।',
+			'zh-hans':
+				'外汇通常被称为证券交易所，但它不是。这是一个国际场外市场。它与任何竞标地点没有联系。实际上，这是一个虚拟市场，您可以在世界任何地方进行货币交易。',
+			'pt-br':
+				'Forex é frequentemente chamado de bolsa de valores, mas não é. Este é um mercado internacional de balcão. Não tem ligação com nenhum lugar de licitação. Na verdade, é um mercado virtual no qual você pode fazer transações de moeda de qualquer lugar do mundo.'
+		})}
+		image="/src/images/forex_tab.png"
+	/>
+	<div class="container py-10">
+		<div class="space-y-4">
+			<h1
+				class="mb-5 block text-2xl font-bold capitalize text-gray-800 dark:text-white sm:text-2xl md:text-3xl lg:text-3xl"
+			>
+				How to trade on Forex?
+			</h1>
+			<p class="text-color">
+				Transactions are performed through the trading terminal which shows the quotes of
+				currency pairs. The trader assesses the market condition and decides on the purchase
+				or sale of an asset. After that, the trader gives a command to open the requested
+				position. A brokerage company by applying data from a liquidity provider gives its
+				client the result on the requested position and the trader determines the price
+				level at which the transaction will be closed.
+			</p>
+			<p class="text-color">
+				As a result, a profit or loss is recorded on trader’s account. Before you start to
+				participate in the bidding, you need to understand the key aspects of making trades
+				in Forex. Each currency has its own encoding consisting of three Latin letters for
+				example, the currency pair “British pound / US dollar” looks like the abbreviation
+				GBP / USD.
+			</p>
+			<p class="text-color">
+				The first indicates base currency. In the example above, it is the British pound
+				(GBP). The second monetary unit in the pair is the quote currency (USD).Every
+				financial instrument on Forex has two prices:
+			</p>
+			<p class="text-color">
+				<span class="mb-1 block font-semibold">Ask price:</span>
+				The purchase price of the base currency (GBP) and sale of the quoted (USD).
+			</p>
+			<p class="text-color">
+				<span class="mb-1 block font-semibold">Bid price:</span>
+				Cost of sale of the underlying asset and purchase of the quoted one.
+			</p>
+			<p class="text-color">
+				The difference between the bid and ask prices is called the spread. The size of the
+				transaction is determined in lots. One lot is equal to 100 thousand units of the
+				base currency. Previously, only traders with significant capital could participate
+				in such trades. However, with the advent of margin trading, trading became available
+				to a wider audience. With margin trading the broker provides the service called
+				leverage on the security (margin) of the trader’s deposit. If the amount of leverage
+				is 1:30, this means that the trader can make a transaction in the amount of 30 times
+				more the size of the deposit.
+			</p>
+		</div>
+	</div>
+	<div class="container pb-10 pt-4">
+		<GoogleSheetDataTable
+			sheetName="Forex"
+			client:load
+		/>
+	</div>
+</Layout>

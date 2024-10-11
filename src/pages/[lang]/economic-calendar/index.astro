@@ -1,0 +1,184 @@
+---
+import { LOCALES } from '@/i18n';
+import Layout from '@/layouts/Layout.astro';
+
+
+let currentTheme = localStorage.getItem('theme-toggle') || 'light';
+console.log(currentTheme,"theme")
+export const getStaticPaths = () =>
+	Object.keys(LOCALES).map((lang) => ({
+		params: { lang }
+	}))
+---
+
+<Layout title='Economic Calendar'>
+<section>
+    <div
+    class="relative z-20 w-full overflow-hidden bg-gray-100 py-3 before:absolute before:start-1/2 before:top-0 before:-z-[1] before:size-full before:-translate-x-1/2 before:transform before:bg-[url('/src/images/world_bg.png')] before:bg-center before:bg-no-repeat before:opacity-45 before:hue-rotate-60 dark:bg-black dark:before:bg-[url('/src/images/world_bg.png')]"
+>
+    <div
+        class="container flex flex-col items-center justify-between gap-6 py-10 sm:flex-row"
+    >
+        <div>
+            <h1
+                class="block text-center text-4xl font-bold text-gray-800 dark:text-neutral-200 md:text-4xl lg:text-5xl"
+            >
+                <strong class="text-green-500">Economic</strong> Calendar
+            </h1>
+        </div>
+        <div>
+            <svg   class="w-[120px] md:w-[180px]"
+            height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" d="M7.5 6V1m10 5V1m4 16v4.5h-18v-3m17.863-10H3.352M.5 18.25v.25h17.9l.15-.25l.234-.491A28 28 0 0 0 21.5 5.729V3.5h-18v2.128A28 28 0 0 1 .743 17.744z"/></svg>
+        </div>
+    </div>
+    
+</div>
+<div class="container py-10">
+    <div class="">
+        <div id="economicCalendarWidget"></div>
+    </div>
+</div>
+</section>
+</Layout>
+<script async  type="text/javascript" >
+(() => {
+  function n(n, e) {
+    if (n !== e) throw new TypeError("Cannot instantiate an arrow function");
+  }
+  !(function () {
+    function e(e) {
+      var t = document.createElement("iframe");
+      return (
+        t.setAttribute("scrolling", "no"),
+        t.setAttribute("allowtransparency", !0),
+        t.setAttribute("frameborder", 0),
+        (t.width = e.width),
+        (t.height = e.height),
+        t.setAttribute(
+          "src",
+          (function (e) {
+            var t = this,
+              i = "https://www.tradays.com/".concat(
+                e.lang,
+                "/economic-calendar/widget"
+              ),
+              r = {};
+            "calendar" === e.type
+              ? e.mode !== undefined && (r.mode = e.mode)
+              : (e.mode !== undefined && (r.displayMode = e.mode),
+                e.showTitle && (r.showTitle = e.showTitle));
+            e.dateFormat !== undefined && (r.dateFormat = e.dateFormat);
+            e.theme !== undefined && (r.theme = e.theme);
+            r.utm_source = window.location.hostname;
+            var d = Object.keys(r)
+              .filter(
+                function (e) {
+                  return n(this, t), "width" !== e && "height" !== e;
+                }.bind(this)
+              )
+              .map(
+                function (e) {
+                  return n(this, t), e + "=" + encodeURIComponent(r[e]);
+                }.bind(this)
+              )
+              .join("&");
+            if ("event" === e.type)
+              return "".concat(i, "/event/").concat(e.id, "?").concat(d);
+            return "".concat(i, "?").concat(d);
+          })(e)
+        ),
+        t
+      );
+    }
+    function t(n) {
+      return !!~"ru,en,zh,es,pt,ja,de,tr,ar,fr,it".indexOf(n);
+    }
+    function i(n) {
+      return n
+        ? (n.type === undefined && (n.type = "calendar"),
+          n.containerId === undefined &&
+            (n.containerId =
+              "event" === n.type
+                ? "economicCalendarEventWidget"
+                : "economicCalendarWidget"),
+          n.mode !== undefined && (n.mode = parseInt(n.mode, 10)),
+          n.theme !== undefined && (n.theme = parseInt(n.theme, 10)),
+          (n.lang !== undefined && t(n.lang)) ||
+            (n.lang = t(
+              (e = (e = document.documentElement.lang || "en")
+                .replace(/\s/g, "")
+                .substring(0, 2)
+                .toLowerCase())
+            )
+              ? e
+              : "en"),
+          n.showTitle !== undefined &&
+            (n.showTitle = parseInt(n.showTitle, 10)),
+          n.id !== undefined && (n.id = parseInt(n.id, 10)),
+          n)
+        : { type: "calendar", width: "100%", height: "100%", mode: 2 };
+      var e;
+    }
+    function r(n) {
+      if (((n = i(n)), !~window.calendarCompletedID.indexOf(n.containerId))) {
+        var t = !1;
+        "complete" !== document.readyState
+          ? (document.addEventListener("DOMContentLoaded", r, !1),
+            window.addEventListener("load", r, !1))
+          : r();
+      }
+      function r() {
+        t ||
+          ((t = !0),
+          (function (n) {
+            var t = document.getElementById(n.containerId);
+            t
+              ? ((t.style.width =
+                  n.width +
+                  ("string" == typeof n.width && ~n.width.indexOf("%")
+                    ? ""
+                    : "px")),
+                (t.style.height =
+                  n.height +
+                  ("string" == typeof n.height && ~n.height.indexOf("%")
+                    ? ""
+                    : "px")),
+                t.appendChild(e(n)))
+              : new Error("Node with id ".concat(n.containerId, " not found"));
+          })(n));
+      }
+    }
+    window.calendarCompletedID || (window.calendarCompletedID = []);
+    for (
+      var d = document.getElementsByTagName("script"), o = 0, a = d.length;
+      o < a;
+      o++
+    ) {
+      var c = d[o];
+      if ("calendar-widget" === c.getAttribute("data-type")) {
+        var u = c.innerHTML;
+        if (u) {
+          u = u.trim();
+          var f = null;
+          try {
+            f = JSON.parse(u);
+          } catch (w) {
+            console.warn(w);
+          }
+          f && (c.removeAttribute("calendar-widget"), (c.innerHTML = ""), r(f));
+        }
+      }
+    }
+    (window.economicCalendarEvent = function (n) {
+      (n.type = "event"), r(n);
+    }),
+      (window.economicCalendar = function (n) {
+        (n.type = "calendar"), r(n);
+      });
+  })();
+})();
+</script>
+<script type="text/javascript">
+    console.log('i am log ')
+    new economicCalendar({ width: "100%", height: "600px", mode: 2 , "theme": localStorage.getItem('theme-toggle') === "dark" ? 1 : 0   });
+</script>

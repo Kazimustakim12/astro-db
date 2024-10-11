@@ -1,0 +1,854 @@
+---
+import { LOCALES } from '@/i18n'
+import Layout from '@/layouts/Layout.astro'
+import MapBg from '@/images/map-bg.png'
+import { Image } from 'astro:assets'
+
+export const getStaticPaths = () =>
+	Object.keys(LOCALES).map((lang) => ({
+		params: { lang }
+	}))
+---
+
+<Layout title="Contact Us">
+	<div class="py-20">
+		<div class="container">
+			<!-- Contact Form and World Map Section -->
+			<div class="mb-14 grid grid-cols-1 gap-0 md:grid-cols-5 lg:grid-cols-6">
+				<!-- Form Section -->
+				<div class="col-span-2 rounded-lg bg-black p-4 dark:bg-neutral-800 md:p-5 lg:p-6">
+					<h2 class="mb-6 text-2xl font-bold text-white">Contact Us:</h2>
+					<form>
+						<label class="text-md mb-2 block font-bold text-green-500"
+							>Existing Client: <span class="text-red-500">*</span></label
+						>
+						<select class="mb-4 w-full rounded border border-gray-600 p-2">
+							<option>No</option>
+							<option>No</option>
+
+							<option>Yes</option>
+						</select>
+
+						<label class="text-md mb-2 block font-bold text-green-500"
+							>Full Name: <span class="text-red-500">*</span></label
+						>
+						<input
+							type="text"
+							class="mb-4 w-full rounded border border-gray-600 p-2"
+							placeholder="Full Name"
+						/>
+
+						<label class="text-md mb-2 block font-bold text-green-500"
+							>Type of Query: <span class="text-red-500">*</span></label
+						>
+						<select class="mb-4 w-full rounded border border-gray-600 p-2">
+							<option>General Enquiry (No Client)</option>
+						</select>
+
+						<label class="text-md mb-2 block font-bold text-green-500"
+							>Language preferred for support: <span class="text-red-500">*</span
+							></label
+						>
+						<select class="mb-4 w-full rounded border border-gray-600 p-2">
+							<option>English</option>
+						</select>
+
+						<label class="text-md mb-2 block font-bold text-green-500"
+							>Email: <span class="text-red-500">*</span></label
+						>
+						<input
+							type="email"
+							class="mb-4 w-full rounded border border-gray-600 p-2 placeholder:text-neutral-400"
+							placeholder="Email"
+						/>
+
+						<label class="text-md mb-2 block font-bold text-green-500"
+							>Phone: <span class="text-red-500">*</span></label
+						>
+						<input
+							type="text"
+							class="mb-4 w-full rounded border border-gray-600 p-2 placeholder:text-neutral-400"
+							placeholder="Phone"
+						/>
+
+						<label class="text-md mb-2 block font-bold text-green-500"
+							>How may we contact you? <span class="text-red-500">*</span></label
+						>
+						<div class="mb-4 flex items-center gap-4">
+							<label class="flex items-center">
+								<input
+									type="checkbox"
+									class="mr-2"
+								/>
+								<span>Email</span>
+							</label>
+							<label class="flex items-center">
+								<input
+									type="checkbox"
+									class="mr-2"
+								/>
+								<span>Phone</span>
+							</label>
+						</div>
+
+						<label class="text-md mb-2 block font-bold text-green-500"
+							>Subject: <span class="text-red-500">*</span></label
+						>
+						<input
+							type="text"
+							class="mb-4 w-full rounded border border-gray-600 p-2 placeholder:text-neutral-400"
+							placeholder="Subject"
+						/>
+
+						<label class="text-md mb-2 block font-bold text-green-500"
+							>Message: <span class="text-red-500">*</span></label
+						>
+						<textarea
+							rows="3"
+							class="mb-4 w-full rounded border border-gray-600 p-2 placeholder:text-neutral-400"
+							placeholder="Your Message"
+						></textarea>
+
+						<button
+							class="w-full rounded bg-green-600 p-3 text-white hover:bg-green-700"
+							>Submit</button
+						>
+					</form>
+				</div>
+
+				<!-- Map and Social Media Section -->
+				<div
+					class="mt-5 flex flex-col items-center justify-center md:col-span-3 md:mt-0 lg:col-span-4"
+				>
+					<div
+						class="min-h-[480px] overflow-hidden rounded-t-[25px] bg-gray-100 dark:bg-black md:min-h-[520px] md:rounded-tl-none md:rounded-tr-[25px] lg:min-h-[660px]"
+					>
+						<div
+							id="dealer-map"
+							class=""
+						>
+							<Image
+								src={MapBg}
+								class="h-full w-full object-cover"
+								alt="bg-map"
+								loading="eager"
+							/>
+							<button
+								class="map-point point-1"
+								style="top: 15.1%; right: 41.8%"
+							>
+								<div class="content">
+									<div class="centered-y w-full">
+										<div>
+											<!--<img src="" width="100%" height="auto" alt="">-->
+										</div>
+										<h2>Headquarter</h2>
+										<p>119 Triq Tas-Sliema, 2nd floor Gzira, Malta</p>
+									</div>
+								</div>
+							</button>
+							<button
+								class="map-point point-1"
+								style="top: 16.1%; right: 28.8%"
+							>
+								<div class="content">
+									<div class="centered-y w-full">
+										<div>
+											<img
+												src="https://staging.dbinvesting.com/wp-content/uploads/2024/01/headquater-db-cyprus-768x576.jpg"
+												width="100%"
+												height="auto"
+												alt=""
+											/>
+										</div>
+										<h2>Headquarter</h2>
+										<p>
+											Limassol, Cyprus - Griva Degeni Avenue, Office 103,
+											Agios Nikolaos
+										</p>
+									</div>
+								</div>
+							</button>
+
+							<button
+								class="map-point point-2"
+								style="top: 58.5%; right: 10.3%"
+							>
+								<div class="content">
+									<div class="centered-y w-full">
+										<div>
+											<img
+												src="https://staging.dbinvesting.com/wp-content/uploads/2024/01/Seychelles-768x576.jpg"
+												width="100%"
+												height="auto"
+												alt=""
+											/>
+										</div>
+										<h2>Seychelles,<span>Licensed Office</span></h2>
+										<p>
+											Mahè, Seychelles - Abis Centre, Office 15, Avenue
+											D’Arhoa, Providence Industrial Estate.
+										</p>
+									</div>
+								</div>
+							</button>
+							<button
+								class="map-point point-3"
+								style="top: 56%; right: 47.5%"
+							>
+								<div class="content">
+									<div class="centered-y w-full">
+										<div>
+											<img
+												src="https://staging.dbinvesting.com/wp-content/uploads/2024/01/nigeria-768x576.jpg"
+												width="100%"
+												height="auto"
+												alt=""
+											/>
+										</div>
+										<h2>Nigeria</h2>
+										<p>
+											Nigeria Training and Representative Office - Lagos,
+											Nigeria - No.2 Soji Adepegba close, Off Allen Avenue,
+											Ikeja.
+										</p>
+									</div>
+								</div>
+							</button>
+							<button
+								class="map-point point-4"
+								style="top: 31%; right: 11%"
+							>
+								<div class="content">
+									<div class="centered-y w-full">
+										<div>
+											<img
+												src="https://staging.dbinvesting.com/wp-content/uploads/2023/10/dubai-dbinvesting-office-768x576.jpg"
+												width="100%"
+												height="auto"
+												alt=""
+											/>
+										</div>
+										<h2>Dubai</h2>
+										<p>
+											Dubai Representative Office - Dubai, UAE - Opal Tower.
+											Office 1010, Business Bay
+										</p>
+									</div>
+								</div>
+							</button>
+						</div>
+					</div>
+					<div
+						class="w-full rounded-b-[25px] bg-gray-100 dark:bg-black md:rounded-bl-none md:rounded-br-[25px]"
+					>
+						<div
+							class="flex w-full flex-col items-center justify-center px-4 py-8 text-left"
+						>
+							<div class="relative max-w-[80%] md:max-w-[90%] lg:max-w-[65%]">
+								<h2 class="mb-2 text-3xl font-medium text-black dark:text-white">
+									Our offices have a presence <span
+										class="font-bold text-green-700">Worldwide</span
+									>
+								</h2>
+								<p class="mb-6 text-gray-600 dark:text-neutral-400">
+									Offices and employees ready to support your needs. You can
+									contact us via email, chat, phone, WhatsApp, Telegram, and more.
+								</p>
+								<div class="absolute z-10 flex space-x-4">
+									<a
+										href="#"
+										class="flex h-[50px] w-[50px] items-center justify-center rounded-lg bg-[#1877f2] p-2 text-sm font-semibold text-white focus:outline-none dark:text-white md:p-4 lg:h-[70px] lg:w-[70px]"
+									>
+										<svg
+											xmlns="http://www.w3.org/2000/svg"
+											width="100%"
+											height="auto"
+											viewBox="0 0 24 24"
+											><g fill="none"
+												><g clip-path="url(#akarIconsFacebookFill0)"
+													><path
+														fill="currentColor"
+														fill-rule="evenodd"
+														d="M0 12.067C0 18.034 4.333 22.994 10 24v-8.667H7V12h3V9.333c0-3 1.933-4.666 4.667-4.666c.866 0 1.8.133 2.666.266V8H15.8c-1.467 0-1.8.733-1.8 1.667V12h3.2l-.533 3.333H14V24c5.667-1.006 10-5.966 10-11.933C24 5.43 18.6 0 12 0S0 5.43 0 12.067"
+														clip-rule="evenodd"
+													></path></g
+												><defs
+													><clipPath id="akarIconsFacebookFill0"
+														><path
+															fill="#fff"
+															d="M0 0h24v24H0z"
+														></path></clipPath
+													></defs
+												></g
+											></svg
+										>
+									</a>
+									<a
+										href="#"
+										class="flex h-[50px] w-[50px] items-center justify-center rounded-lg bg-[#0076b2] p-2 text-sm font-semibold text-white focus:outline-none dark:text-white md:p-4 lg:h-[70px] lg:w-[70px]"
+									>
+										<svg
+											xmlns="http://www.w3.org/2000/svg"
+											width="100%"
+											height="auto"
+											viewBox="0 0 128 128"
+											><path
+												fill="currentColor"
+												d="M116 3H12a8.91 8.91 0 0 0-9 8.8v104.42a8.91 8.91 0 0 0 9 8.78h104a8.93 8.93 0 0 0 9-8.81V11.77A8.93 8.93 0 0 0 116 3M39.17 107H21.06V48.73h18.11zm-9-66.21a10.5 10.5 0 1 1 10.49-10.5a10.5 10.5 0 0 1-10.54 10.48zM107 107H88.89V78.65c0-6.75-.12-15.44-9.41-15.44s-10.87 7.36-10.87 15V107H50.53V48.73h17.36v8h.24c2.42-4.58 8.32-9.41 17.13-9.41C103.6 47.28 107 59.35 107 75z"
+											></path></svg
+										>
+									</a>
+									<a
+										href="#"
+										class="flex h-[50px] w-[50px] items-center justify-center rounded-lg bg-[#c837ab] p-2 text-sm font-semibold text-white focus:outline-none dark:text-white md:p-4 lg:h-[70px] lg:w-[70px]"
+									>
+										<svg
+											xmlns="http://www.w3.org/2000/svg"
+											width="100%"
+											height="auto"
+											viewBox="0 0 24 24"
+											><path
+												fill="currentColor"
+												fill-rule="evenodd"
+												d="M7.465 1.066C8.638 1.012 9.012 1 12 1s3.362.013 4.534.066s1.972.24 2.672.511c.733.277 1.398.71 1.948 1.27c.56.549.992 1.213 1.268 1.947c.272.7.458 1.5.512 2.67C22.988 8.639 23 9.013 23 12s-.013 3.362-.066 4.535c-.053 1.17-.24 1.97-.512 2.67a5.4 5.4 0 0 1-1.268 1.949c-.55.56-1.215.992-1.948 1.268c-.7.272-1.5.458-2.67.512c-1.174.054-1.548.066-4.536.066s-3.362-.013-4.535-.066c-1.17-.053-1.97-.24-2.67-.512a5.4 5.4 0 0 1-1.949-1.268a5.4 5.4 0 0 1-1.269-1.948c-.271-.7-.457-1.5-.511-2.67C1.012 15.361 1 14.987 1 12s.013-3.362.066-4.534s.24-1.972.511-2.672a5.4 5.4 0 0 1 1.27-1.948a5.4 5.4 0 0 1 1.947-1.269c.7-.271 1.5-.457 2.67-.511m8.98 1.98c-1.16-.053-1.508-.064-4.445-.064s-3.285.011-4.445.064c-1.073.049-1.655.228-2.043.379c-.513.2-.88.437-1.265.822a3.4 3.4 0 0 0-.822 1.265c-.151.388-.33.97-.379 2.043c-.053 1.16-.064 1.508-.064 4.445s.011 3.285.064 4.445c.049 1.073.228 1.655.379 2.043c.176.477.457.91.822 1.265c.355.365.788.646 1.265.822c.388.151.97.33 2.043.379c1.16.053 1.507.064 4.445.064s3.285-.011 4.445-.064c1.073-.049 1.655-.228 2.043-.379c.513-.2.88-.437 1.265-.822c.365-.355.646-.788.822-1.265c.151-.388.33-.97.379-2.043c.053-1.16.064-1.508.064-4.445s-.011-3.285-.064-4.445c-.049-1.073-.228-1.655-.379-2.043c-.2-.513-.437-.88-.822-1.265a3.4 3.4 0 0 0-1.265-.822c-.388-.151-.97-.33-2.043-.379m-5.85 12.345a3.669 3.669 0 0 0 4-5.986a3.67 3.67 0 1 0-4 5.986M8.002 8.002a5.654 5.654 0 1 1 7.996 7.996a5.654 5.654 0 0 1-7.996-7.996m10.906-.814a1.337 1.337 0 1 0-1.89-1.89a1.337 1.337 0 0 0 1.89 1.89"
+												clip-rule="evenodd"
+											></path></svg
+										>
+									</a>
+									<a
+										href="#"
+										class="flex h-[50px] w-[50px] items-center justify-center rounded-lg bg-[#f00] p-2 text-sm font-semibold text-white focus:outline-none dark:text-white md:p-4 lg:h-[70px] lg:w-[70px]"
+									>
+										<svg
+											xmlns="http://www.w3.org/2000/svg"
+											width="100%"
+											height="auto"
+											viewBox="0 0 24 24"
+											><g fill="none"
+												><g clip-path="url(#akarIconsYoutubeFill0)"
+													><path
+														fill="currentColor"
+														d="M23.5 6.507a2.8 2.8 0 0 0-.766-1.27a3.05 3.05 0 0 0-1.338-.742C19.518 4 11.994 4 11.994 4a77 77 0 0 0-9.39.47a3.16 3.16 0 0 0-1.338.76c-.37.356-.638.795-.778 1.276A29 29 0 0 0 0 12c-.012 1.841.151 3.68.488 5.494c.137.479.404.916.775 1.269s.833.608 1.341.743c1.903.494 9.39.494 9.39.494a77 77 0 0 0 9.402-.47a3.05 3.05 0 0 0 1.338-.742a2.8 2.8 0 0 0 .765-1.27A28.4 28.4 0 0 0 24 12.023a26.6 26.6 0 0 0-.5-5.517M9.602 15.424V8.577l6.26 3.424z"
+													></path></g
+												><defs
+													><clipPath id="akarIconsYoutubeFill0"
+														><path
+															fill="#fff"
+															d="M0 0h24v24H0z"
+														></path></clipPath
+													></defs
+												></g
+											></svg
+										>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Office Information Section -->
+			<div class="mt-12 grid grid-cols-1 gap-4 text-center md:mt-8 md:grid-cols-4">
+				<!-- Cyprus Office -->
+				<div
+					class="relative overflow-hidden rounded-2xl border-2 p-4 hover:border-dbgreen-900 dark:border-neutral-600 dark:hover:border-dbgreen-900 sm:col-span-full sm:p-8 md:col-span-2 md:p-5 lg:col-span-1"
+				>
+					<h3 class="text-xl font-bold text-green-600">Cyprus Office</h3>
+					<a
+						href="tel:+35725205222"
+						class="text-neutral-600 dark:text-gray-300"
+						>+357 25 205 222</a
+					>
+				</div>
+
+				<!-- Seychelles Office -->
+				<div
+					class="relative overflow-hidden rounded-2xl border-2 p-4 hover:border-dbgreen-900 dark:border-neutral-600 dark:hover:border-dbgreen-900 sm:col-span-full sm:p-8 md:col-span-2 md:p-5 lg:col-span-1"
+				>
+					<h3 class="text-xl font-bold text-green-600">Seychelles Office</h3>
+					<a
+						href="tel:+2484679200"
+						class="text-neutral-600 dark:text-gray-300"
+						>+248 467 9200</a
+					>
+				</div>
+
+				<!-- Nigeria Office -->
+				<div
+					class="relative overflow-hidden rounded-2xl border-2 p-4 hover:border-dbgreen-900 dark:border-neutral-600 dark:hover:border-dbgreen-900 sm:col-span-full sm:p-8 md:col-span-2 md:p-5 lg:col-span-1"
+				>
+					<h3 class="text-xl font-bold text-green-600">Nigeria Office</h3>
+					<a
+						href="tel:+2347060519223"
+						class="text-neutral-600 dark:text-gray-300"
+						>+234 706 051 9223</a
+					>
+				</div>
+
+				<!-- Dubai Office -->
+				<div
+					class="relative overflow-hidden rounded-2xl border-2 p-4 hover:border-dbgreen-900 dark:border-neutral-600 dark:hover:border-dbgreen-900 sm:col-span-full sm:p-8 md:col-span-2 md:p-5 lg:col-span-1"
+				>
+					<h3 class="text-xl font-bold text-green-600">Dubai Office</h3>
+					<a
+						href="tel:+97145519613"
+						class="text-neutral-600 dark:text-gray-300"
+						>+971 455 19613</a
+					>
+				</div>
+				<!--WhatApp Numer Dubai Office -->
+				<div
+					class="relative overflow-hidden rounded-2xl border-2 p-4 hover:border-dbgreen-900 dark:border-neutral-600 dark:hover:border-dbgreen-900 sm:col-span-full sm:p-8 md:col-span-2 md:p-5 lg:col-span-1"
+				>
+					<a
+						href="https://api.whatsapp.com/send?phone=971527859410"
+						target="_blank"
+						class="flex items-center justify-center gap-3"
+						><svg
+							xmlns="http://www.w3.org/2000/svg"
+							width="30px"
+							height="30px"
+							viewBox="0 0 256 258"
+						>
+							<defs>
+								<linearGradient
+									id="logosWhatsappIcon0"
+									x1="50%"
+									x2="50%"
+									y1="100%"
+									y2="0%"
+								>
+									<stop
+										offset="0%"
+										stop-color="#1faf38"
+									></stop>
+									<stop
+										offset="100%"
+										stop-color="#60d669"
+									></stop>
+								</linearGradient>
+								<linearGradient
+									id="logosWhatsappIcon1"
+									x1="50%"
+									x2="50%"
+									y1="100%"
+									y2="0%"
+								>
+									<stop
+										offset="0%"
+										stop-color="#f9f9f9"
+									></stop>
+									<stop
+										offset="100%"
+										stop-color="#fff"
+									></stop>
+								</linearGradient>
+							</defs>
+							<path
+								fill="url(#logosWhatsappIcon0)"
+								d="M5.463 127.456c-.006 21.677 5.658 42.843 16.428 61.499L4.433 252.697l65.232-17.104a123 123 0 0 0 58.8 14.97h.054c67.815 0 123.018-55.183 123.047-123.01c.013-32.867-12.775-63.773-36.009-87.025c-23.23-23.25-54.125-36.061-87.043-36.076c-67.823 0-123.022 55.18-123.05 123.004"
+							></path>
+							<path
+								fill="url(#logosWhatsappIcon1)"
+								d="M1.07 127.416c-.007 22.457 5.86 44.38 17.014 63.704L0 257.147l67.571-17.717c18.618 10.151 39.58 15.503 60.91 15.511h.055c70.248 0 127.434-57.168 127.464-127.423c.012-34.048-13.236-66.065-37.3-90.15C194.633 13.286 162.633.014 128.536 0C58.276 0 1.099 57.16 1.071 127.416m40.24 60.376l-2.523-4.005c-10.606-16.864-16.204-36.352-16.196-56.363C22.614 69.029 70.138 21.52 128.576 21.52c28.3.012 54.896 11.044 74.9 31.06c20.003 20.018 31.01 46.628 31.003 74.93c-.026 58.395-47.551 105.91-105.943 105.91h-.042c-19.013-.01-37.66-5.116-53.922-14.765l-3.87-2.295l-40.098 10.513z"
+							></path>
+							<path
+								fill="#fff"
+								d="M96.678 74.148c-2.386-5.303-4.897-5.41-7.166-5.503c-1.858-.08-3.982-.074-6.104-.074c-2.124 0-5.575.799-8.492 3.984c-2.92 3.188-11.148 10.892-11.148 26.561s11.413 30.813 13.004 32.94c1.593 2.123 22.033 35.307 54.405 48.073c26.904 10.609 32.379 8.499 38.218 7.967c5.84-.53 18.844-7.702 21.497-15.139c2.655-7.436 2.655-13.81 1.859-15.142c-.796-1.327-2.92-2.124-6.105-3.716s-18.844-9.298-21.763-10.361c-2.92-1.062-5.043-1.592-7.167 1.597c-2.124 3.184-8.223 10.356-10.082 12.48c-1.857 2.129-3.716 2.394-6.9.801c-3.187-1.598-13.444-4.957-25.613-15.806c-9.468-8.442-15.86-18.867-17.718-22.056c-1.858-3.184-.199-4.91 1.398-6.497c1.431-1.427 3.186-3.719 4.78-5.578c1.588-1.86 2.118-3.187 3.18-5.311c1.063-2.126.531-3.986-.264-5.579c-.798-1.593-6.987-17.343-9.819-23.64"
+							></path>
+						</svg>
+						<h3 class="text-xl font-bold text-green-600">Whatsapp (UAE)</h3></a
+					>
+				</div>
+				<!--WhatApp Numer Main Office -->
+				<div
+					class="relative overflow-hidden rounded-2xl border-2 p-4 hover:border-dbgreen-900 dark:border-neutral-600 dark:hover:border-dbgreen-900 sm:col-span-full sm:p-8 md:col-span-2 md:p-5 lg:col-span-1"
+				>
+					<a
+						href="https://api.whatsapp.com/send?phone=35795721938"
+						target="_blank"
+						class="flex items-center justify-center gap-3"
+						><svg
+							xmlns="http://www.w3.org/2000/svg"
+							width="30px"
+							height="30px"
+							viewBox="0 0 256 258"
+						>
+							<defs>
+								<linearGradient
+									id="logosWhatsappIcon0"
+									x1="50%"
+									x2="50%"
+									y1="100%"
+									y2="0%"
+								>
+									<stop
+										offset="0%"
+										stop-color="#1faf38"
+									></stop>
+									<stop
+										offset="100%"
+										stop-color="#60d669"
+									></stop>
+								</linearGradient>
+								<linearGradient
+									id="logosWhatsappIcon1"
+									x1="50%"
+									x2="50%"
+									y1="100%"
+									y2="0%"
+								>
+									<stop
+										offset="0%"
+										stop-color="#f9f9f9"
+									></stop>
+									<stop
+										offset="100%"
+										stop-color="#fff"
+									></stop>
+								</linearGradient>
+							</defs>
+							<path
+								fill="url(#logosWhatsappIcon0)"
+								d="M5.463 127.456c-.006 21.677 5.658 42.843 16.428 61.499L4.433 252.697l65.232-17.104a123 123 0 0 0 58.8 14.97h.054c67.815 0 123.018-55.183 123.047-123.01c.013-32.867-12.775-63.773-36.009-87.025c-23.23-23.25-54.125-36.061-87.043-36.076c-67.823 0-123.022 55.18-123.05 123.004"
+							></path>
+							<path
+								fill="url(#logosWhatsappIcon1)"
+								d="M1.07 127.416c-.007 22.457 5.86 44.38 17.014 63.704L0 257.147l67.571-17.717c18.618 10.151 39.58 15.503 60.91 15.511h.055c70.248 0 127.434-57.168 127.464-127.423c.012-34.048-13.236-66.065-37.3-90.15C194.633 13.286 162.633.014 128.536 0C58.276 0 1.099 57.16 1.071 127.416m40.24 60.376l-2.523-4.005c-10.606-16.864-16.204-36.352-16.196-56.363C22.614 69.029 70.138 21.52 128.576 21.52c28.3.012 54.896 11.044 74.9 31.06c20.003 20.018 31.01 46.628 31.003 74.93c-.026 58.395-47.551 105.91-105.943 105.91h-.042c-19.013-.01-37.66-5.116-53.922-14.765l-3.87-2.295l-40.098 10.513z"
+							></path>
+							<path
+								fill="#fff"
+								d="M96.678 74.148c-2.386-5.303-4.897-5.41-7.166-5.503c-1.858-.08-3.982-.074-6.104-.074c-2.124 0-5.575.799-8.492 3.984c-2.92 3.188-11.148 10.892-11.148 26.561s11.413 30.813 13.004 32.94c1.593 2.123 22.033 35.307 54.405 48.073c26.904 10.609 32.379 8.499 38.218 7.967c5.84-.53 18.844-7.702 21.497-15.139c2.655-7.436 2.655-13.81 1.859-15.142c-.796-1.327-2.92-2.124-6.105-3.716s-18.844-9.298-21.763-10.361c-2.92-1.062-5.043-1.592-7.167 1.597c-2.124 3.184-8.223 10.356-10.082 12.48c-1.857 2.129-3.716 2.394-6.9.801c-3.187-1.598-13.444-4.957-25.613-15.806c-9.468-8.442-15.86-18.867-17.718-22.056c-1.858-3.184-.199-4.91 1.398-6.497c1.431-1.427 3.186-3.719 4.78-5.578c1.588-1.86 2.118-3.187 3.18-5.311c1.063-2.126.531-3.986-.264-5.579c-.798-1.593-6.987-17.343-9.819-23.64"
+							></path>
+						</svg>
+						<h3 class="text-xl font-bold text-green-600">Whatsapp</h3></a
+					>
+				</div>
+				<!--WhatApp Numer Nigeria  Office -->
+				<div
+					class="relative overflow-hidden rounded-2xl border-2 p-4 hover:border-dbgreen-900 dark:border-neutral-600 dark:hover:border-dbgreen-900 sm:col-span-full sm:p-8 md:col-span-2 md:p-5 lg:col-span-1"
+				>
+					<a
+						href="https://api.whatsapp.com/send?phone=2348066725729"
+						target="_blank"
+						class="flex items-center justify-center gap-3"
+						><svg
+							xmlns="http://www.w3.org/2000/svg"
+							width="30px"
+							height="30px"
+							viewBox="0 0 256 258"
+						>
+							<defs>
+								<linearGradient
+									id="logosWhatsappIcon0"
+									x1="50%"
+									x2="50%"
+									y1="100%"
+									y2="0%"
+								>
+									<stop
+										offset="0%"
+										stop-color="#1faf38"
+									></stop>
+									<stop
+										offset="100%"
+										stop-color="#60d669"
+									></stop>
+								</linearGradient>
+								<linearGradient
+									id="logosWhatsappIcon1"
+									x1="50%"
+									x2="50%"
+									y1="100%"
+									y2="0%"
+								>
+									<stop
+										offset="0%"
+										stop-color="#f9f9f9"
+									></stop>
+									<stop
+										offset="100%"
+										stop-color="#fff"
+									></stop>
+								</linearGradient>
+							</defs>
+							<path
+								fill="url(#logosWhatsappIcon0)"
+								d="M5.463 127.456c-.006 21.677 5.658 42.843 16.428 61.499L4.433 252.697l65.232-17.104a123 123 0 0 0 58.8 14.97h.054c67.815 0 123.018-55.183 123.047-123.01c.013-32.867-12.775-63.773-36.009-87.025c-23.23-23.25-54.125-36.061-87.043-36.076c-67.823 0-123.022 55.18-123.05 123.004"
+							></path>
+							<path
+								fill="url(#logosWhatsappIcon1)"
+								d="M1.07 127.416c-.007 22.457 5.86 44.38 17.014 63.704L0 257.147l67.571-17.717c18.618 10.151 39.58 15.503 60.91 15.511h.055c70.248 0 127.434-57.168 127.464-127.423c.012-34.048-13.236-66.065-37.3-90.15C194.633 13.286 162.633.014 128.536 0C58.276 0 1.099 57.16 1.071 127.416m40.24 60.376l-2.523-4.005c-10.606-16.864-16.204-36.352-16.196-56.363C22.614 69.029 70.138 21.52 128.576 21.52c28.3.012 54.896 11.044 74.9 31.06c20.003 20.018 31.01 46.628 31.003 74.93c-.026 58.395-47.551 105.91-105.943 105.91h-.042c-19.013-.01-37.66-5.116-53.922-14.765l-3.87-2.295l-40.098 10.513z"
+							></path>
+							<path
+								fill="#fff"
+								d="M96.678 74.148c-2.386-5.303-4.897-5.41-7.166-5.503c-1.858-.08-3.982-.074-6.104-.074c-2.124 0-5.575.799-8.492 3.984c-2.92 3.188-11.148 10.892-11.148 26.561s11.413 30.813 13.004 32.94c1.593 2.123 22.033 35.307 54.405 48.073c26.904 10.609 32.379 8.499 38.218 7.967c5.84-.53 18.844-7.702 21.497-15.139c2.655-7.436 2.655-13.81 1.859-15.142c-.796-1.327-2.92-2.124-6.105-3.716s-18.844-9.298-21.763-10.361c-2.92-1.062-5.043-1.592-7.167 1.597c-2.124 3.184-8.223 10.356-10.082 12.48c-1.857 2.129-3.716 2.394-6.9.801c-3.187-1.598-13.444-4.957-25.613-15.806c-9.468-8.442-15.86-18.867-17.718-22.056c-1.858-3.184-.199-4.91 1.398-6.497c1.431-1.427 3.186-3.719 4.78-5.578c1.588-1.86 2.118-3.187 3.18-5.311c1.063-2.126.531-3.986-.264-5.579c-.798-1.593-6.987-17.343-9.819-23.64"
+							></path>
+						</svg>
+						<h3 class="text-xl font-bold text-green-600">Whatsapp (Nigeria)</h3></a
+					>
+				</div>
+				<!--Telegram Numer Nigeria  Office -->
+				<div
+					class="relative overflow-hidden rounded-2xl border-2 p-4 hover:border-dbgreen-900 dark:border-neutral-600 dark:hover:border-dbgreen-900 sm:col-span-full sm:p-8 md:col-span-2 md:p-5 lg:col-span-1"
+				>
+					<a
+						href="https://web.telegram.org/k/#@dbinvesting"
+						target="_blank"
+						class="flex items-center justify-center gap-3"
+					>
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							width="30px"
+							height="30px"
+							viewBox="0 0 256 256"
+						>
+							<defs>
+								<linearGradient
+									id="logosTelegram0"
+									x1="50%"
+									x2="50%"
+									y1="0%"
+									y2="100%"
+								>
+									<stop
+										offset="0%"
+										stop-color="#2aabee"
+									></stop>
+									<stop
+										offset="100%"
+										stop-color="#229ed9"
+									></stop>
+								</linearGradient>
+							</defs>
+							<path
+								fill="url(#logosTelegram0)"
+								d="M128 0C94.06 0 61.48 13.494 37.5 37.49A128.04 128.04 0 0 0 0 128c0 33.934 13.5 66.514 37.5 90.51C61.48 242.506 94.06 256 128 256s66.52-13.494 90.5-37.49c24-23.996 37.5-56.576 37.5-90.51s-13.5-66.514-37.5-90.51C194.52 13.494 161.94 0 128 0"
+							></path>
+							<path
+								fill="#fff"
+								d="M57.94 126.648q55.98-24.384 74.64-32.152c35.56-14.786 42.94-17.354 47.76-17.441c1.06-.017 3.42.245 4.96 1.49c1.28 1.05 1.64 2.47 1.82 3.467c.16.996.38 3.266.2 5.038c-1.92 20.24-10.26 69.356-14.5 92.026c-1.78 9.592-5.32 12.808-8.74 13.122c-7.44.684-13.08-4.912-20.28-9.63c-11.26-7.386-17.62-11.982-28.56-19.188c-12.64-8.328-4.44-12.906 2.76-20.386c1.88-1.958 34.64-31.748 35.26-34.45c.08-.338.16-1.598-.6-2.262c-.74-.666-1.84-.438-2.64-.258c-1.14.256-19.12 12.152-54 35.686c-5.1 3.508-9.72 5.218-13.88 5.128c-4.56-.098-13.36-2.584-19.9-4.708c-8-2.606-14.38-3.984-13.82-8.41c.28-2.304 3.46-4.662 9.52-7.072"
+							></path>
+						</svg>
+						<h3 class="text-xl font-bold text-green-600">Telegram</h3></a
+					>
+				</div>
+			</div>
+
+			<!-- Additional Contact Options -->
+			<div class="mt-8 grid grid-cols-1 gap-4 text-center md:grid-cols-2">
+				<!-- Questions Section -->
+				<div
+					class="relative flex items-center justify-center gap-3 overflow-hidden rounded-2xl border-2 p-4 hover:border-dbgreen-900 dark:border-neutral-600 dark:hover:border-dbgreen-900 sm:col-span-full sm:p-8 md:col-span-1 md:p-5 lg:col-span-1"
+				>
+					<div>
+						<h3 class="text-xl font-bold text-green-600">Questions?</h3>
+						<p class="font-thin text-neutral-600 dark:text-gray-300">Chat with Us!</p>
+					</div>
+					<div class="">
+						<img
+							src="https://placehold.co/60x60"
+							alt="QR Code"
+							class="mx-auto"
+						/>
+					</div>
+				</div>
+
+				<!-- Send Email Section -->
+				<div
+					class="relative overflow-hidden rounded-2xl border-2 p-4 hover:border-dbgreen-900 dark:border-neutral-600 dark:hover:border-dbgreen-900 sm:col-span-full sm:p-8 md:col-span-1 md:p-5 lg:col-span-1"
+				>
+					<h3 class="text-xl font-bold text-green-600">Send Email</h3>
+					<a
+						href="mailto:support@dbinvesting.com"
+						class="mt-2 text-neutral-600 dark:text-gray-300"
+						>Support@dbinvesting.com</a
+					>
+				</div>
+			</div>
+		</div>
+	</div>
+</Layout>
+
+<style>
+	#dealer-map h1,
+	#dealer-map h2,
+	#dealer-map h3,
+	#dealer-map h4,
+	#dealer-map h5,
+	#dealer-map h6 {
+		text-transform: uppercase;
+		color: #28b247;
+		text-align: center;
+		word-wrap: break-word;
+		font-size: 18px;
+		font-style: normal;
+		font-weight: 800;
+	}
+
+	#dealer-map p {
+		font-size: 12px;
+		margin-bottom: 12px;
+		color: #000;
+		text-align: center;
+	}
+	#dealer-map strong {
+		font-weight: 900;
+		color: white;
+	}
+	#dealer-map a {
+		transition: color 0.25s ease-in-out;
+		text-transform: uppercase;
+		text-decoration: none;
+		color: #dff3fd;
+	}
+	#dealer-map a:visited {
+		color: #28b247;
+	}
+	li.active #dealer-map a,
+	#dealer-map a:hover,
+	#dealer-map a:active {
+		color: white;
+	}
+
+	#dealer-map {
+		position: relative;
+		width: 100%;
+		box-sizing: border-box;
+		margin: 0 auto;
+	}
+	#dealer-map > img {
+		width: 100%;
+		position: relative;
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+		transform: scale(3.5);
+	}
+	#dealer-map .map-point {
+		cursor: pointer;
+		outline: none;
+		z-index: 0;
+		position: absolute;
+		width: 20px;
+		height: 20px;
+		border-radius: 20px;
+		filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
+		opacity: 0.8;
+		/*transform: translate(-50%, -50%);*/
+		-moz-transition:
+			all 0.25s ease-in-out 0.25s,
+			width 0.25s ease-in-out 0.25s,
+			height 0.25s ease-in-out 0.25s,
+			z-index 0.25s ease-in-out 0.25s;
+		-o-transition:
+			all 0.25s ease-in-out 0.25s,
+			width 0.25s ease-in-out 0.25s,
+			height 0.25s ease-in-out 0.25s,
+			z-index 0.25s ease-in-out 0.25s;
+		-webkit-transition:
+			all 0.25s ease-in-out,
+			width 0.25s ease-in-out,
+			height 0.25s ease-in-out,
+			z-index 0.25s ease-in-out;
+		-webkit-transition-delay: 0.25s, 0.25s, 0.25s, 0.25s;
+		transition:
+			all 0.25s ease-in-out 0.25s,
+			width 0.25s ease-in-out 0.25s,
+			height 0.25s ease-in-out 0.25s,
+			z-index 0.25s ease-in-out 0.25s;
+		background: #28b247;
+		border: none;
+	}
+	#dealer-map .map-point .content .centered {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+	#dealer-map .map-point .content .centered-y {
+		/*! padding: 15px; */
+		flex-direction: column;
+		align-self: center;
+		justify-self: center;
+	}
+	#dealer-map .map-point .content .centered-y img {
+		max-width: 100%;
+		border: none;
+		border-radius: 10px;
+		box-shadow: none;
+		margin-bottom: 10px;
+		height: 125px;
+		object-fit: cover;
+	}
+	#dealer-map .map-point .content {
+		position: relative;
+		box-sizing: border-box;
+		filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+		opacity: 0;
+		transition: opacity 0.25s ease-in-out;
+		width: 100%;
+		height: 100%;
+		left: 50%;
+		transform: translateX(-50%);
+		overflow: overlay;
+		padding: 15px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		transition: background 0.25s ease-in-out 0.25s;
+	}
+	#dealer-map .map-point:active,
+	#dealer-map .map-point:focus {
+		margin: 0;
+		/* padding: 0; */
+		filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
+		opacity: 1;
+		width: 240px;
+		height: 285px;
+		color: white;
+		z-index: 1;
+		transition:
+			all 0.25s ease-in-out,
+			width 0.25s ease-in-out,
+			height 0.25s ease-in-out;
+		background: #fff;
+	}
+	#dealer-map .map-point:active .content,
+	#dealer-map .map-point:focus .content {
+		filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
+		opacity: 1;
+		-moz-transition:
+			all 0.25s ease-in-out 0.25s,
+			height 0.25s ease-in-out,
+			overflow 0.25s ease-in-out;
+		-o-transition:
+			all 0.25s ease-in-out 0.25s,
+			height 0.25s ease-in-out,
+			overflow 0.25s ease-in-out;
+		-webkit-transition:
+			all 0.25s ease-in-out,
+			height 0.25s ease-in-out,
+			overflow 0.25s ease-in-out;
+		-webkit-transition-delay: 0.25s, 0s, 0s;
+		transition:
+			all 0.25s ease-in-out 0.25s,
+			height 0.25s ease-in-out,
+			overflow 0.25s ease-in-out;
+		overflow: hidden;
+	}
+	#dealer-map .map-point:active .content a:hover,
+	#dealer-map .map-point:active .content a:active,
+	#dealer-map .map-point:focus .content a:hover,
+	#dealer-map .map-point:focus .content a:active {
+		color: #28b247;
+	}
+	@media (max-width: 768px) {
+		#dealer-map .map-point.point-3:focus {
+			transform: translate(44%, 0%);
+		}
+	}
+</style>

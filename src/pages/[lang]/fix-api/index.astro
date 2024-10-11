@@ -1,0 +1,281 @@
+---
+import { LOCALES } from '@/i18n'
+import Layout from '@/layouts/Layout.astro'
+import { Icon } from 'astro-icon/components'
+import FIXAPIImg from '@/images/fix-api-one.jpg'
+import { Image } from 'astro:assets'
+import Button from '@/components/ui/Button.astro'
+export const getStaticPaths = () =>
+	Object.keys(LOCALES).map((lang) => ({
+		params: { lang }
+	}))
+---
+
+<Layout title="FIX API ">
+	<section>
+		<div
+			class="relative z-20 w-full overflow-hidden bg-gray-100 py-3 before:absolute before:start-1/2 before:top-0 before:-z-[1] before:size-full before:-translate-x-1/2 before:transform before:bg-[url('/src/images/world_bg.png')] before:bg-center before:bg-no-repeat before:opacity-45 before:hue-rotate-60 dark:bg-black dark:before:bg-[url('/src/images/world_bg.png')]"
+		>
+			<div class="container flex flex-col items-center justify-between gap-6 py-10 sm:flex-row">
+				<div class="md:max-w-[70%] w-full">
+					<h1
+						class="block  text-4xl font-bold text-gray-800 dark:text-neutral-200 sm:text-left md:text-4xl lg:text-5xl"
+					>
+						<strong class="text-green-500">FIX-API STP A-Book </strong> <br> 4.4 New Service
+					</h1>
+					<p class="mt-3 mb-3 text-lg text-gray-800 dark:text-neutral-400">
+						<strong>Global communication exchange</strong>
+						<br />
+						Unlock Direct Trading Power with FIX API - Your Gateway to Seamless Financial Connectivity!
+					</p>
+					<Button
+						primary={true}
+						rippleEffect={true}
+						text='Start Investing'
+						class="rounded-full mt-5"
+						href="#"
+						buttonIcon={' <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" ><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2" ><path stroke-dasharray="20" stroke-dashoffset="20" d="M3 21V20C3 17.7909 4.79086 16 7 16H11C13.2091 16 15 17.7909 15 20V21" ><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.4s" values="20;0" ></animate></path><path stroke-dasharray="20" stroke-dashoffset="20" d="M9 13C7.34315 13 6 11.6569 6 10C6 8.34315 7.34315 7 9 7C10.6569 7 12 8.34315 12 10C12 11.6569 10.6569 13 9 13Z" ><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.5s" dur="0.4s" values="20;0" ></animate></path><path stroke-dasharray="8" stroke-dashoffset="8" d="M15 6H21" ><animate fill="freeze" attributeName="stroke-dashoffset" begin="1s" dur="0.2s" values="8;0" ></animate></path><path stroke-dasharray="8" stroke-dashoffset="8" d="M18 3V9" ><animate fill="freeze" attributeName="stroke-dashoffset" begin="1.2s" dur="0.2s" values="8;0" ></animate></path></g></svg>'}
+					/>
+				</div>
+				<div>
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						class="w-[120px] md:w-[180px]"
+						height="100%"
+						viewBox="0 0 32 32"
+						><path
+							fill="currentColor"
+							d="M17 18.184v-4.368a3 3 0 1 0-2 0v4.369a3 3 0 1 0 2 0ZM16 10a1 1 0 1 1-1 1a1 1 0 0 1 1-1m0 12a1 1 0 1 1 1-1a1 1 0 0 1-1 1"
+						></path><path
+							fill="currentColor"
+							d="M30.414 17.414a2 2 0 0 0 0-2.828l-5.787-5.787l2.9-2.862a2.002 2.002 0 1 0-1.44-1.388l-2.874 2.836l-5.799-5.8a2 2 0 0 0-2.828 0L8.799 7.374L5.937 4.472A2.002 2.002 0 1 0 4.55 5.914l2.835 2.873l-5.8 5.799a2 2 0 0 0 0 2.828l5.8 5.799l-2.835 2.873a1.998 1.998 0 1 0 1.387 1.442l2.862-2.9l5.787 5.786a2 2 0 0 0 2.828 0l5.8-5.799l2.872 2.836a1.998 1.998 0 1 0 1.442-1.387l-2.9-2.863ZM16 29L3 16L16 3l13 13Z"
+						></path></svg
+					>
+				</div>
+			</div>
+		</div>
+		<div class="">
+			<div class="border-t bg-black">
+				<div class="m-auto max-w-[1024px] py-10">
+					<Icon name="fix_api_ex" class="h-full w-full" />
+				</div>
+			</div>
+		</div>
+		<div class="container py-10">
+			<div class="my-10 flex items-center gap-5 rounded-2xl p-4 shadow-xl sm:p-8 flex-wrap bg-neutral-200 dark:bg-neutral-700">
+				<div class="w-full md:max-w-[38%] overflow-hidden rounded-xl">
+					<Image src={FIXAPIImg} alt="fix-api-img" width="400" height="400"  class='m-auto rounded-xl'/>
+				</div>
+				<div class="w-full md:max-w-[58%]">
+					<h1
+						class="mb-5 block text-2xl font-bold capitalize text-gray-800 dark:text-white sm:text-2xl md:text-3xl lg:text-4xl"
+					>
+						<span class="text-dbgreen-500"> FIX API</span> (Financial Information Exchange application
+						programming interface)
+					</h1>
+					<p class="mt-3 text-lg text-gray-800 dark:text-neutral-400">
+						It is a specialized protocol catering to traders and investors seeking direct connection
+						to trading servers, bypassing intermediary platforms like MT4 or MT5. With FIX API,
+						traders enjoy the flexibility to connect to a broker using their preferred trading
+						interface while ensuring minimal latency.
+					</p>
+				</div>
+			</div>
+			<div>
+				<p class="mt-3 text-lg text-gray-800 dark:text-neutral-400">
+					Ideal for traders with specific needs, FIX API is a go-to solution for advanced
+					algorithimic traders and high-frequency traders. This robust protocol empowers user to
+					tailor their trading experience, ensuring precision and efficiency. It’s your key to a
+					customized and direct trading relationship with the market.
+				</p>
+				<p class="mt-3 text-lg text-gray-800 dark:text-neutral-400">
+					It’s important to note that FIX API solution are Often tailored for traders with Unique
+					requirements. Whether you’re and advaced alogrithmic trader or a high-frequency trader,
+					FIX API puts the controls back in your hands. However, be aware that some brokers may have
+					substantial minimum desposit and/or trading volume requirements to unlock the full
+					benefits of FIX API. Elevate your trading experience, Optimize your strategies, and take
+					control back in your financial journey with FIX API – the bridge to direct and efficient
+					trading in the financial markets.
+				</p>
+			</div>
+			<div class="my-10 flex items-center gap-5 rounded-2xl p-4 shadow-xl sm:p-8 bg-neutral-200 dark:bg-neutral-700 flex-wrap">
+				<div class="w-full md:max-w-[58%]">
+					<h1
+						class="mb-5 block text-2xl font-bold capitalize text-gray-800 dark:text-white sm:text-2xl md:text-3xl lg:text-4xl"
+					>
+						Why use a<span class="text-dbgreen-500"> FIX API? </span>
+					</h1>
+					<p class="mt-3 text-lg text-gray-800 dark:text-neutral-400">
+						FIX API is best suited to experienced traders who want the flexibility to use any
+						programming language they desire.
+					</p>
+					<p class="mt-3 text-lg text-gray-800 dark:text-neutral-400">
+						When using FIX API, you are getting a high-speed connection directly to our trading
+						servers. You don’t have to go through third party programs such as MetaTrader 4, and you
+						will generally see latency as low as 1 millisecond.
+					</p>
+				</div>
+				<div class="w-full md:max-w-[38%] overflow-hidden rounded-xl">
+					<Image src={FIXAPIImg} alt="fix-api-img" width="400" height="400" class='m-auto rounded-xl' />
+				</div>
+			</div>
+		</div>
+		<div class="container py-10">
+			<h1
+				class="mb-10 block text-center text-2xl font-bold capitalize text-gray-800 dark:text-white sm:text-2xl md:text-3xl lg:text-4xl"
+			>
+				And also here you<span class="text-dbgreen-500"> find our benefits:</span>
+			</h1>
+			<div class="mt-5 grid grid-cols-1 gap-3 md:grid-cols-3">
+				<div
+					class="broder col-span-1 flex flex-col items-center justify-center rounded-xl border-2 p-3 hover:border-dbgreen-500 dark:border-neutral-600 dark:hover:border-dbgreen-600"
+				>
+					<iconify-icon
+						class="mb-2 text-dbgreen-500"
+						icon="carbon:ibm-cloud-direct-link-1-connect"
+						width="40"
+						height="40"></iconify-icon>
+					<h4
+						class="text-center text-lg font-semibold text-gray-800 dark:text-neutral-200 sm:text-xl"
+					>
+						Direct Connections to our LPs
+					</h4>
+				</div>
+				<div
+					class="broder col-span-1 flex flex-col items-center justify-center rounded-xl border-2 p-3 hover:border-dbgreen-500 dark:border-neutral-600 dark:hover:border-dbgreen-600"
+				>
+					<iconify-icon
+						class="mb-2 text-dbgreen-500"
+						icon="material-symbols:av-timer"
+						width="40"
+						height="40"></iconify-icon>
+					<h4
+						class="text-center text-lg font-semibold text-gray-800 dark:text-neutral-200 sm:text-xl"
+					>
+						STP to the market, no relay, no delay
+					</h4>
+				</div>
+				<div
+					class="broder col-span-1 flex flex-col items-center justify-center rounded-xl border-2 p-3 hover:border-dbgreen-500 dark:border-neutral-600 dark:hover:border-dbgreen-600"
+				>
+					<iconify-icon
+						class="mb-2 text-dbgreen-500"
+						icon="line-md:speed-loop"
+						width="40"
+						height="40"></iconify-icon>
+					<h4
+						class="text-center text-lg font-semibold text-gray-800 dark:text-neutral-200 sm:text-xl"
+					>
+						Minimum Latency, up to 0.60 ms
+					</h4>
+				</div>
+				<div
+					class="broder col-span-1 flex flex-col items-center justify-center rounded-xl border-2 p-3 hover:border-dbgreen-500 dark:border-neutral-600 dark:hover:border-dbgreen-600"
+				>
+					<iconify-icon
+						class="mb-2 text-dbgreen-500"
+						icon="uil:money-withdraw"
+						width="40"
+						height="40"></iconify-icon>
+					<h4
+						class="text-center text-lg font-semibold text-gray-800 dark:text-neutral-200 sm:text-xl"
+					>
+						Raw-spread from our LP
+					</h4>
+					<p class="text-color text-center text-sm">we will change you just commissions per lot</p>
+				</div>
+				<div
+					class="broder col-span-1 flex flex-col items-center justify-center rounded-xl border-2 p-3 hover:border-dbgreen-500 dark:border-neutral-600 dark:hover:border-dbgreen-600"
+				>
+					<iconify-icon
+						class="mb-2 text-dbgreen-500"
+						icon="fluent:person-accounts-20-regular"
+						width="40"
+						height="40"></iconify-icon>
+					<h4
+						class="text-center text-lg font-semibold text-gray-800 dark:text-neutral-200 sm:text-xl"
+					>
+						Dedicated Margin Account
+					</h4>
+					<p class="text-color text-center text-sm">Can be directly managed by you</p>
+				</div>
+				<div
+					class="broder col-span-1 flex flex-col items-center justify-center rounded-xl border-2 p-3 hover:border-dbgreen-500 dark:border-neutral-600 dark:hover:border-dbgreen-600"
+				>
+					<iconify-icon
+						class="mb-2 text-dbgreen-500"
+						icon="ri:funds-box-line"
+						width="40"
+						height="40"></iconify-icon>
+					<h4
+						class="text-center text-lg font-semibold text-gray-800 dark:text-neutral-200 sm:text-xl"
+					>
+						Margin Account Funding
+					</h4>
+					<p class="text-color text-center text-sm">
+						Available also in Crypto with immediate funds loading
+					</p>
+				</div>
+			</div>
+		</div>
+		<div class="container py-10">
+			<h1
+				class="mb-5 block text-center text-2xl font-bold capitalize text-gray-800 dark:text-white sm:text-2xl md:text-3xl lg:text-4xl"
+			>
+				<span class="text-dbgreen-500"> REGISTRATION</span>
+			</h1>
+			<p class="text-center text-lg text-gray-800 dark:text-neutral-400">
+				In order to register for using the service, you will have to send us request to <a
+					href="mailto:partnership@dbinvesting.com"
+					class="font-bold text-dbgreen-500">partnership@dbinvesting.com</a
+				> with your full name, company name, address and contact details as well as a brief description
+				of your system.
+			</p>
+			<div class="mt-5 grid grid-cols-1 gap-3 md:grid-cols-3">
+				<div
+					class="broder col-span-1 flex flex-col items-center justify-center rounded-xl border-2 p-3 hover:border-dbgreen-500 dark:border-neutral-600 dark:hover:border-dbgreen-600"
+				>
+					<h4 class="mb-4 text-center text-lg font-semibold text-dbgreen-500 sm:text-xl">
+						Minimum Conditions:
+					</h4>
+					<p class="text-color text-center text-lg">
+						Minimal Deposit - USD 100.000 (Gives an access to API development with full support of
+						DB Investing IT Department).
+					</p>
+					<p class="mt-2 text-center text-[12px] font-bold">
+						Restrictions on minimal amount of deposit are applied only for traders’ accounts.
+					</p>
+				</div>
+				<div
+					class="broder col-span-1 flex flex-col items-center justify-center rounded-xl border-2 p-3 hover:border-dbgreen-500 dark:border-neutral-600 dark:hover:border-dbgreen-600"
+				>
+					<h4 class="mb-4 text-center text-lg font-semibold text-dbgreen-500 sm:text-xl">
+						Commissions:
+					</h4>
+					<p class="text-color text-center text-lg">
+						A commission plan will be applied on top of the raw spread
+					</p>
+					<p class="text-color text-center text-lg">
+						A minimum of 2000$ monthly fees will be applied.
+					</p>
+				</div>
+				<div
+					class="broder col-span-1 flex flex-col items-center justify-center rounded-xl border-2 p-3 hover:border-dbgreen-500 dark:border-neutral-600 dark:hover:border-dbgreen-600"
+				>
+					<h4 class="mb-4 text-center text-lg font-semibold text-dbgreen-500 sm:text-xl">
+						Funding:
+					</h4>
+					<p class="text-color text-center text-lg">
+						A dedicated crypto wallet is available for the client, totally separated and segregated
+						from the other clients.
+					</p>
+				</div>
+			</div>
+			<p class="mt-4 text-center text-[12px] font-bold">
+				*Please note that DB Investing will conduct a short screening process in order to ascertain
+				whether DB Investing is inclined to form a partnership with a certain individual or
+				corporation.
+			</p>
+		</div>
+	</section>
+</Layout>

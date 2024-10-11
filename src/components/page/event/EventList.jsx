@@ -111,7 +111,7 @@ const BlogList = ({ lang }) => {
 				<div>
 					<div className="mb-10 flex items-center justify-center gap-3">
 						<button
-							className={`${isGrid ? '' : 'btn_gradient text-white'} dark:focus:bg-neutral-700" inline-flex items-center gap-x-2 rounded-lg border border-gray-200 bg-white px-4 py-3 text-sm font-medium text-dbgreen-900 shadow-sm hover:bg-gray-50 focus:bg-gray-50 focus:outline-none disabled:pointer-events-none disabled:opacity-50 dark:border-neutral-700 dark:bg-neutral-800 dark:hover:bg-neutral-700`}
+							className={`${isGrid ? '' : 'btn_gradient text-white'} dark:focus:bg-neutral-700" inline-flex items-center gap-x-2 rounded-lg border border-gray-200 bg-white px-4 py-3 text-sm font-medium text-dbgreen-500 shadow-sm hover:bg-gray-50 focus:bg-gray-50 focus:outline-none disabled:pointer-events-none disabled:opacity-50 dark:border-neutral-700 dark:bg-neutral-800 dark:hover:bg-neutral-700`}
 							onClick={() => {
 								setIsGrid(false)
 							}}
@@ -176,11 +176,24 @@ const BlogList = ({ lang }) => {
 									</g>
 								</svg>
 							</span>
-							Calender View
+							{t({
+								en: 'Calendar View',
+								ar: 'عرض التقويم',
+								es: 'Vista de Calendario',
+								fr: 'Vue du Calendrier',
+								hi: 'कैलेंडर दृश्य',
+								id: 'Tampilan Kalender',
+								ms: 'Paparan Kalendar',
+								th: 'มุมมองปฏิทิน',
+								vi: 'Chế độ xem Lịch',
+								bn: 'ক্যালেন্ডার ভিউ',
+								'zh-hans': '日历视图',
+								'pt-br': 'Visualização do Calendário'
+							})}
 						</button>
 
 						<button
-							className={`${isGrid ? 'btn_gradient text-white' : ''} inline-flex items-center gap-x-2 rounded-lg border border-gray-200 bg-white px-4 py-3 text-sm font-medium text-dbgreen-900 shadow-sm hover:bg-gray-50 focus:bg-gray-50 focus:outline-none disabled:pointer-events-none disabled:opacity-50 dark:border-neutral-700 dark:bg-neutral-800 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700`}
+							className={`${isGrid ? 'btn_gradient text-white' : ''} inline-flex items-center gap-x-2 rounded-lg border border-gray-200 bg-white px-4 py-3 text-sm font-medium text-dbgreen-500 shadow-sm hover:bg-gray-50 focus:bg-gray-50 focus:outline-none disabled:pointer-events-none disabled:opacity-50 dark:border-neutral-700 dark:bg-neutral-800 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700`}
 							onClick={() => {
 								setIsGrid(true)
 							}}
@@ -193,7 +206,20 @@ const BlogList = ({ lang }) => {
 									/>
 								</svg>
 							</span>
-							Grid View
+							{t({
+								en: 'Grid View',
+								ar: 'عرض الشبكة',
+								es: 'Vista de Cuadrícula',
+								fr: 'Vue en Grille',
+								hi: 'ग्रिड व्यू',
+								id: 'Tampilan Grid',
+								ms: 'Paparan Grid',
+								th: 'มุมมองกริด',
+								vi: 'Chế độ xem Lưới',
+								bn: 'গ্রিড ভিউ',
+								'zh-hans': '网格视图',
+								'pt-br': 'Visualização em Grade'
+							})}
 						</button>
 					</div>
 					{isGrid ? (
@@ -223,7 +249,7 @@ const BlogList = ({ lang }) => {
 						th: 'ไม่พบโพสต์...',
 						vi: 'Không tìm thấy bài đăng...',
 						bn: 'কোন পোস্ট পাওয়া যায়নি...',
-						'zh-cn': '未找到帖子...',
+						'zh-hans': '未找到帖子...',
 						'pt-br': 'Nenhum post encontrado...'
 					})}
 				</div>

@@ -1,0 +1,192 @@
+---
+import Banner from '@/components/page/Investment/Banner.astro'
+import GoogleSheetDataTable from '@/components/ui/DataTable/GoogleSheetDataTable'
+import { LOCALES, useTranslations, type Lang } from '@/i18n'
+import Layout from '@/layouts/Layout.astro'
+const t = useTranslations(Astro.currentLocale as Lang)
+export const getStaticPaths = () =>
+	Object.keys(LOCALES).map((lang) => ({
+		params: { lang }
+	}))
+---
+
+<Layout title="Forex ">
+	<Banner
+		title={t({
+			en: 'Indices',
+			ar: 'المؤشرات',
+			es: 'Índices',
+			fr: 'Indices',
+			hi: 'सूचकांक',
+			id: 'Indeks',
+			ms: 'Indeks',
+			th: 'ดัชนี',
+			vi: 'Chỉ số',
+			bn: 'সূচক',
+			'zh-hans': '指数',
+			'pt-br': 'Índices'
+		})}
+		description={t({
+			en: 'The indicator calculated on the basis of a specific basket of shares is called a stock index. It is necessary to understand exactly which securities form each indicator. By using the same tools that are utilized in calculating the indicator, the trader can form a more accurate prediction. The stock index is a powerful indicator that shows the overall trends and rates of change in the market share prices of a specific sector of the economy. For example, an increase in oil prices is likely to lead to an increase in the value of assets of oil producing companies.',
+			ar: 'المؤشر المحسوب على أساس سلة معينة من الأسهم يسمى مؤشر الأسهم. من الضروري فهم الأوراق المالية التي تشكل كل مؤشر بدقة. باستخدام نفس الأدوات المستخدمة في حساب المؤشر، يمكن للمتداول تشكيل توقع أكثر دقة. مؤشر الأسهم هو مؤشر قوي يظهر الاتجاهات العامة ومعدلات التغير في أسعار أسهم السوق في قطاع معين من الاقتصاد. على سبيل المثال، من المرجح أن يؤدي ارتفاع أسعار النفط إلى زيادة قيمة أصول شركات إنتاج النفط.',
+			es: 'El indicador calculado sobre la base de una canasta específica de acciones se llama índice bursátil. Es necesario entender exactamente qué valores forman cada indicador. Usando las mismas herramientas que se utilizan para calcular el indicador, el comerciante puede formar una predicción más precisa. El índice bursátil es un poderoso indicador que muestra las tendencias generales y las tasas de cambio en los precios de las acciones de mercado de un sector específico de la economía. Por ejemplo, un aumento en los precios del petróleo probablemente conducirá a un aumento en el valor de los activos de las compañías productoras de petróleo.',
+			fr: "L'indicateur calculé sur la base d'un panier spécifique d'actions est appelé indice boursier. Il est nécessaire de comprendre exactement quels titres forment chaque indicateur. En utilisant les mêmes outils que ceux utilisés pour calculer l'indice, le trader peut formuler une prédiction plus précise. L'indice boursier est un indicateur puissant qui montre les tendances générales et les taux de variation des prix des actions du marché d'un secteur spécifique de l'économie. Par exemple, une augmentation des prix du pétrole est susceptible de conduire à une augmentation de la valeur des actifs des entreprises productrices de pétrole.",
+			hi: 'विशिष्ट शेयरों की टोकरी के आधार पर गणना की गई सूचकांक को स्टॉक सूचकांक कहा जाता है। यह समझना आवश्यक है कि प्रत्येक सूचकांक को कौन सी प्रतिभूतियाँ बनाती हैं। उसी उपकरण का उपयोग करके जो सूचकांक की गणना में उपयोग किए जाते हैं, व्यापारी एक सटीक भविष्यवाणी बना सकता है। स्टॉक सूचकांक एक शक्तिशाली संकेतक है जो अर्थव्यवस्था के किसी विशेष क्षेत्र में बाजार शेयर की कीमतों में समग्र प्रवृत्तियों और परिवर्तन दरों को दिखाता है। उदाहरण के लिए, तेल की कीमतों में वृद्धि से तेल उत्पादक कंपनियों की संपत्तियों के मूल्य में वृद्धि होने की संभावना है।',
+			id: 'Indikator yang dihitung berdasarkan sekeranjang saham tertentu disebut indeks saham. Penting untuk memahami dengan tepat sekuritas mana yang membentuk setiap indikator. Dengan menggunakan alat yang sama yang digunakan dalam menghitung indikator, pedagang dapat membentuk prediksi yang lebih akurat. Indeks saham adalah indikator kuat yang menunjukkan tren keseluruhan dan tingkat perubahan harga saham pasar di sektor tertentu dari ekonomi. Sebagai contoh, kenaikan harga minyak kemungkinan akan menyebabkan peningkatan nilai aset perusahaan penghasil minyak.',
+			ms: 'Penunjuk yang dikira berdasarkan bakul saham tertentu dipanggil indeks saham. Adalah perlu untuk memahami dengan tepat sekuriti mana yang membentuk setiap penunjuk. Dengan menggunakan alat yang sama yang digunakan dalam mengira penunjuk, pedagang boleh membentuk ramalan yang lebih tepat. Indeks saham ialah penunjuk yang kuat yang menunjukkan arah aliran keseluruhan dan kadar perubahan dalam harga saham pasaran bagi sektor ekonomi tertentu. Sebagai contoh, kenaikan harga minyak mungkin membawa kepada peningkatan nilai aset syarikat pengeluar minyak.',
+			th: 'ตัวบ่งชี้ที่คำนวณบนพื้นฐานของกลุ่มหุ้นเฉพาะเรียกว่า ดัชนีหุ้น จำเป็นต้องเข้าใจว่าหลักทรัพย์ใดที่ก่อให้เกิดตัวบ่งชี้แต่ละตัว ด้วยการใช้เครื่องมือเดียวกันที่ใช้ในการคำนวณตัวบ่งชี้ ผู้ค้าสามารถสร้างการคาดการณ์ที่แม่นยำยิ่งขึ้น ดัชนีหุ้นเป็นตัวบ่งชี้ที่ทรงพลังที่แสดงถึงแนวโน้มโดยรวมและอัตราการเปลี่ยนแปลงของราคาหุ้นในตลาดของภาคเศรษฐกิจเฉพาะ ตัวอย่างเช่น การเพิ่มขึ้นของราคาน้ำมันมีแนวโน้มที่จะทำให้มูลค่าของสินทรัพย์ของบริษัทผู้ผลิตน้ำมันเพิ่มขึ้น',
+			vi: 'Chỉ số được tính toán dựa trên một giỏ cổ phiếu cụ thể được gọi là chỉ số chứng khoán. Cần phải hiểu chính xác những chứng khoán nào tạo thành từng chỉ số. Bằng cách sử dụng các công cụ giống như được sử dụng trong tính toán chỉ số, nhà giao dịch có thể đưa ra dự đoán chính xác hơn. Chỉ số chứng khoán là một chỉ báo mạnh mẽ cho thấy các xu hướng tổng thể và tỷ lệ thay đổi trong giá cổ phiếu của thị trường ở một lĩnh vực cụ thể của nền kinh tế. Ví dụ, giá dầu tăng có thể dẫn đến giá trị tài sản của các công ty sản xuất dầu tăng lên.',
+			bn: 'একটি নির্দিষ্ট শেয়ারের ঝুড়ির উপর ভিত্তি করে গণনা করা সূচককে স্টক সূচক বলা হয়। ঠিক কোন সিকিউরিটিজ প্রতিটি সূচক তৈরি করে তা বোঝা প্রয়োজন। সূচক গণনার জন্য ব্যবহৃত একই সরঞ্জামগুলি ব্যবহার করে, ব্যবসায়ী আরও সঠিক পূর্বাভাস তৈরি করতে পারে। স্টক সূচক হল একটি শক্তিশালী সূচক যা অর্থনীতির একটি নির্দিষ্ট খাতের বাজার শেয়ারের দামের সামগ্রিক প্রবণতা এবং পরিবর্তনের হার দেখায়। উদাহরণস্বরূপ, তেলের দাম বাড়লে তেল উৎপাদনকারী কোম্পানির সম্পদের মূল্যের বৃদ্ধি হতে পারে।',
+			'zh-hans':
+				'基于特定股票篮子计算的指标称为股票指数。需要准确了解哪些证券构成每个指标。通过使用计算指标时使用的相同工具，交易员可以形成更准确的预测。股票指数是一个强大的指标，显示了特定经济部门市场股票价格的总体趋势和变化率。例如，油价上涨可能会导致石油生产公司的资产价值增加。',
+			'pt-br':
+				'O indicador calculado com base em uma cesta específica de ações é chamado de índice de ações. É necessário entender exatamente quais valores mobiliários formam cada indicador. Usando as mesmas ferramentas utilizadas para calcular o indicador, o trader pode formar uma previsão mais precisa. O índice de ações é um indicador poderoso que mostra as tendências gerais e as taxas de variação nos preços das ações de mercado de um setor específico da economia. Por exemplo, um aumento nos preços do petróleo provavelmente levará a um aumento no valor dos ativos das empresas produtoras de petróleo.'
+		})}
+		image="/src/images/indices_tab.png"
+	/>
+	<div class="container py-10">
+		<div class="pb-10 md:pb-10">
+			<h2
+				class="mb-3 block text-2xl font-bold capitalize text-gray-800 dark:text-white sm:text-2xl md:text-3xl lg:text-3xl"
+			>
+				Choose CFDs on Indices trading to affirm your premium status
+			</h2>
+			<div class="card flex flex-wrap gap-3">
+				<div
+					class="relative col-span-full w-full space-y-5 overflow-hidden rounded-2xl border-2 p-4 transition hover:border-dbgreen-900 dark:border-neutral-600 dark:hover:border-dbgreen-900 sm:p-8 md:p-5 lg:col-span-3 lg:max-w-[32%]"
+				>
+					<div
+						class="flex size-8 items-center justify-center rounded-full bg-black p-2 text-white"
+					>
+						<span class="text-lg font-semibold">1</span>
+					</div>
+					<h2
+						class="mb-5 block text-2xl font-bold capitalize text-gray-800 dark:text-white"
+					>
+						Balancing the market risks
+					</h2>
+					<p class="text-color">
+						As indices CFDs gather from 30 to 500 stocks of publicly traded companies,
+						they can also boost your market risk resistance by creating a more stable
+						asset.
+					</p>
+				</div>
+				<div
+					class="relative col-span-full w-full space-y-5 overflow-hidden rounded-2xl border-2 p-4 transition hover:border-dbgreen-900 dark:border-neutral-600 dark:hover:border-dbgreen-900 sm:p-8 md:p-5 lg:col-span-3 lg:max-w-[32%]"
+				>
+					<div
+						class="flex size-8 items-center justify-center rounded-full bg-black p-2 text-white"
+					>
+						<span class="text-lg font-semibold">2</span>
+					</div>
+					<h2
+						class="mb-5 block text-2xl font-bold capitalize text-gray-800 dark:text-white"
+					>
+						Wider market opportunities
+					</h2>
+					<p class="text-color">
+						Unlike stocks CFDs, indices CFDs trading covers a lot of markets at the same
+						time. So, instead of trading 100,000 publicly traded companies separately,
+						you can plan your trading strategy with one index that covers them all.
+					</p>
+				</div>
+				<div
+					class="relative col-span-full w-full space-y-5 overflow-hidden rounded-2xl border-2 p-4 transition hover:border-dbgreen-900 dark:border-neutral-600 dark:hover:border-dbgreen-900 sm:p-8 md:p-5 lg:col-span-3 lg:max-w-[32%]"
+				>
+					<div
+						class="flex size-8 items-center justify-center rounded-full bg-black p-2 text-white"
+					>
+						<span class="text-lg font-semibold">3</span>
+					</div>
+					<h2
+						class="mb-3 block text-2xl font-bold capitalize text-gray-800 dark:text-white"
+					>
+						Cross-platform trading access
+					</h2>
+					<p class="text-color">
+						Choose your most comfortable way to access the international trading arena.
+						Be it PC, laptop, smartphone, or tablet – DB Investing supports it all. It’s
+						you who is in control of how and when you get to trade.
+					</p>
+				</div>
+			</div>
+		</div>
+		<div class="flex flex-wrap gap-x-4 gap-y-6 md:flex-nowrap">
+			<div class="w-full space-y-4 md:max-w-[50%]">
+				<h1
+					class="mb-3 block text-2xl font-bold capitalize text-gray-800 dark:text-white sm:text-2xl md:text-3xl lg:text-3xl"
+				>
+					How does CFDs on Indices trading work?
+				</h1>
+				<p class="text-color">
+					Being a set of influential companies compounded by stock, indices are usually
+					hardly accessible. Still, with DB Investing, you can get a shortcut to indices
+					trading by using CFDs.
+				</p>
+				<p class="text-color">
+					There is no need to be directly involved in the market. Choose cross-platform
+					trading, 60+ analytical tools, and quick connection during the market hours with
+					DB Investing.
+				</p>
+			</div>
+			<div class="w-full space-y-4 md:max-w-[50%]">
+				<h1
+					class="mb-3 block text-2xl font-bold capitalize text-gray-800 dark:text-white sm:text-2xl md:text-3xl lg:text-3xl"
+				>
+					Why trade CFDs on indices with DB Investing ?
+				</h1>
+				<p class="text-color">
+					There are over 2000 different stock indices. They are divided into micro and
+					macroeconomic indices. The first shows the market situation in a particular
+					industry or region. Macroeconomic indices show a general trend in the economy.
+					Both are used to analyze the market and form sound investment strategies.
+				</p>
+				<p class="text-color">
+					Stock indices can also be internal or external. In the first case we are talking
+					about companies operating under the jurisdiction of one country. External
+					indices combine data on international assets. Investors track both types of
+					indicators.
+				</p>
+			</div>
+		</div>
+		<div class="mt-5 w-full space-y-4">
+			<h1
+				class="mb-5 block text-2xl font-bold capitalize text-gray-800 dark:text-white sm:text-2xl md:text-3xl lg:text-3xl"
+			>
+				The most well-known stock indices:
+			</h1>
+			<p class="text-color">
+				<a
+					href=""
+					class="font-semibold text-green-500 underline"
+					>Dow Jones</a
+				> – one of the first indices. It is the mathematical mean value of the shares of the
+				30 largest American companies.
+			</p>
+			<p class="text-color">
+				<span class="font-semibold text-gray-800 underline dark:text-white">S&P 500</span> –
+				an index reflecting the total capitalization of 500 large American companies listed on
+				the stock exchange.
+			</p>
+			<p class="text-color">
+				<a
+					href=""
+					class="font-semibold text-green-500 underline"
+					>NASDAQ</a
+				> – the indicator reflects the total capitalization of companies registered on the same
+				stock exchange. This index is comprised of companies that operate in the sphere of technology.
+			</p>
+			<p class="text-color">
+				<span class="font-semibold text-gray-800 underline dark:text-white">NYSE</span> – this
+				index is calculated based on the level of capitalization of all companies (not only American)
+				whose shares are traded on the New York Stock Exchange.
+			</p>
+		</div>
+	</div>
+	<div class="container pb-10 pt-4">
+		<GoogleSheetDataTable
+			sheetName="Indices"
+			client:load
+		/>
+	</div>
+</Layout>

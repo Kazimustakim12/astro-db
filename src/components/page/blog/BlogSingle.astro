@@ -13,7 +13,7 @@ const categoriesList = post?.categories?.edges || []
 	<div class="py-14 lg:pe-8">
 		<div class="space-y-5 lg:space-y-8">
 			<a
-				class="inline-flex items-center gap-x-1.5 text-sm text-gray-600 decoration-2 hover:underline focus:underline focus:outline-none dark:text-dbgreen-900"
+				class="inline-flex items-center gap-x-1.5 text-sm text-gray-600 decoration-2 hover:underline focus:underline focus:outline-none dark:text-dbgreen-500"
 				href={`/${lang}/blog`}
 				data-aos="fade-up-sm"
 			>
@@ -55,7 +55,7 @@ const categoriesList = post?.categories?.edges || []
 						categoriesList.map((cat: any, index: number) => {
 							return (
 								<a
-									class="inline-flex items-center gap-x-1.5 rounded-lg bg-dbgreen-50 px-3 py-1.5 text-xs font-medium text-dbgreen-900 dark:bg-neutral-50/10 dark:text-dbgreen-800"
+									class="inline-flex items-center gap-x-1.5 rounded-lg bg-dbgreen-50 px-3 py-1.5 text-xs font-medium text-dbgreen-500 dark:bg-neutral-50/10 dark:text-dbgreen-800"
 									href={`/${post?.languageCode}/category/${cat?.node?.slug}`}
 									data-aos-delay={`${index + 1}00`}
 									data-aos="fade-up-sm"

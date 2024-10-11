@@ -10,15 +10,8 @@ import vercel from '@astrojs/vercel/serverless'
 export default defineConfig({
 	site: 'http://localhost:4321/',
 	integrations: [
-		tailwind({ nesting: true, applyBaseStyles: false }),
-		icon({
-			include: {
-				// Include only three `mdi` icons in the bundle
-				mdi: ['*'],
-				// Include all `uis` icons
-				uis: ['*']
-			}
-		}),
+		tailwind({ applyBaseStyles: false }),
+		icon(),
 		react()
 	],
 

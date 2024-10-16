@@ -1,0 +1,231 @@
+---
+import { LOCALES } from '@/i18n'
+import Layout from '@/layouts/Layout.astro'
+
+export const getStaticPaths = () =>
+	Object.keys(LOCALES).map((lang) => ({
+		params: { lang }
+	}))
+---
+
+<Layout title="Economic Calendar Tutorial">
+	<section>
+		<div
+			class="relative z-20 w-full overflow-hidden bg-gray-100 py-3 before:absolute before:start-1/2 before:top-0 before:-z-[1] before:size-full before:-translate-x-1/2 before:transform before:bg-[url('/src/images/world_bg.png')] before:bg-center before:bg-no-repeat before:opacity-45 before:hue-rotate-60 dark:bg-black dark:before:bg-[url('/src/images/world_bg.png')]"
+		>
+			<div class="container flex flex-col items-center justify-between gap-6 py-10 sm:flex-row">
+				<div>
+					<h1
+						class="block text-center text-4xl font-bold text-gray-800 dark:text-neutral-200 md:text-4xl lg:text-5xl"
+					>
+						Economic Calendar <strong class="text-green-500">Tutorial </strong>
+					</h1>
+				</div>
+				<div>
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						class="w-[120px] md:w-[180px]"
+						height="100%"
+						viewBox="0 0 14 14"
+					>
+						<g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+							<path
+								d="M1.5 2a1 1 0 0 0-1 1v9.5a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1h-2M3.5.5v3m7-3v3M3.5 2h5"
+							></path>
+							<path d="m10 6.864l-4.132 4.132L4 11.25l.263-1.868L8.386 5.25z"></path>
+						</g>
+					</svg>
+				</div>
+			</div>
+		</div>
+		<div class="container py-10">
+			<h3 class="mb-5 block text-xl font-bold capitalize text-gray-800 dark:text-white">
+				Every trader wants to know what direction will follow. However, to get the most real answer
+				to this, it is necessary not only to oversee the chart on the trading platform but also to
+				constantly monitor what is happening globally in fundamentals, so you must use economic
+				calendar when day trading.
+			</h3>
+			<p class="text-color mb-3">
+				What is an <a href="#" class="font-semibold text-dbgreen-500">economic calendar</a> ? First of
+				all, you need to know that the economic calendar is the diary of all announcements that are coming
+				out related to the economy. The calendar can be used for different countries or different kind
+				of regions like EU, US and the economic announcements will be things like inflation interest
+				rates jobs numbers, factory orders CPI, PPI, all these kinds of things that can give us a gauge
+				on the economy.
+			</p>
+			<p class="text-color mb-3">
+				The economic news brings your attention even closer to reality, apart from technical and
+				these numbers have potential to move the markets that you are trading, so there is a hidden
+				risk.
+			</p>
+			<h2 class="mb-5 block text-xl font-bold capitalize text-gray-800 underline dark:text-white">
+				Reasons for using the Economic Calendar:
+			</h2>
+			<p class="text-md mb-5 block font-bold capitalize text-gray-800 dark:text-white">
+				1. Hidden risks.
+			</p>
+			<p class="text-color mb-3">
+				Imagine you are a day trader holding a position and you are not looking on the calendar, and
+				big figures coming out, potentially move the markets and might cause a spike on either
+				direction you are just giving up complete control of risk. This also could affect Swing
+				Traders however may lead to lower losses due to pre-determined risk plan. Eventually you can
+				holdover dates if you have done your analysis.
+			</p>
+			<p class="text-md mb-5 block font-bold capitalize text-gray-800 dark:text-white">
+				2. Patterns.
+			</p>
+			<p class="text-color mb-3">
+				Pattern of trading changes dramatically when we have big data coming out, so for example you
+				have got NFP (US jobs numbers) coming out, or you have got a big interest rate announcement,
+				more likelihood is the very correlated market to that. So, if we are talking about the
+				currency of the country, or bonds of the country or the index of the country, anything
+				related to the country will move, but if it’s a big number that everyone’s expecting, the
+				pattern of the trade will change and you may see a choppy trading because no one may want to
+				put their money up front, as a result you may end up gambling. Knowing the pattern and the
+				way the market is trading will alter when we you have big upcoming news.
+			</p>
+			<p class="text-color mb-3">
+				You can build your trading strategy before the news, while the news coming out or you can
+				wait little longer after news come out to rest assured the that you will follow the correct
+				direction and avoid any possible manipulation that will cause spikes.
+			</p>
+
+			<p class="text-md mb-5 block font-bold capitalize text-gray-800 dark:text-white">
+				3. Combination of a lot of different data which have inverse correlation (the value of one
+				variable is high then the value of the other variable is probably low):
+			</p>
+			<p class="text-color mb-3">
+				<span class="font-semibold text-gray-800 dark:text-white">Negative Correlations:</span> For example,
+				when bond yields are low and investors expect to earn very small amount, means stocks and other
+				investments become more attractive. As a result, when inflation expectations increase, bonds
+				are less desirable, and their prices are more likely to fall. Another example is gold against
+				USD and gold against stock market. USD depreciation will lead to higher gold price, because will
+				be cheaper for investors who holds foreign exchange currencies to buy it. Oil against dollar
+				inverse correlation also exists because, when the U.S. dollar is weak, the price of oil is higher
+				in dollar terms.
+			</p>
+			<p class="text-color mb-3">
+				<span class="font-semibold text-gray-800 dark:text-white">Positive Correlations:</span> EUR/USD
+				and GBP/USD. If EUR/USD is trading up, then GBP/USD will also move in the same direction.
+			</p>
+			<p class="text-color mb-3">
+				<span class="font-semibold text-gray-800 dark:text-white"
+					>From Economic Calendar you can see the importance of the upcoming news and how big will
+					be the market impact. You can compare previous rates against forecasted and current ones
+					for each type of event. You can choose timeframe and or time zone and apply any filters of
+					your preference.</span
+				>
+			</p>
+			<p class="text-color mb-3">
+				<span class="font-semibold text-gray-800 dark:text-white"
+					>Trading needs discipline, consistency, and persistency, along always with a proper risk
+					management to meet your targets.</span
+				>
+			</p>
+			<p class="text-color mb-3">
+				As a result, the economic calendar becomes your friend and assist you taking informative
+				decisions. It also assists you in a way to be ready in advance and set up your strategy for
+				upcoming news from countries outside your time zone. Economic calendar can provide you
+				historical numbers for each type of event along with forecast and actual numbers to evaluate
+				further your risk tolerance.
+			</p>
+			<h2 class="mb-5 block text-xl font-bold capitalize text-gray-800 underline dark:text-white">
+				Usefulness of Economic Calendar:
+			</h2>
+			<ul class="text-color mb-3 list-outside list-disc ps-8">
+				<li>
+					Provision of pre-existing historical data assisting you taking better trading decisions
+					and setting up your risk.
+				</li>
+				<li>Adding alerts for upcoming news and be ready to get in the market.</li>
+				<li>
+					You can be informed for past market events that can have impact on the upcoming news, so
+					you can have integrated opinion.
+				</li>
+				<li>
+					The calendar gives substantial aid to newbies to monitor more effectively their
+					investments.
+				</li>
+			</ul>
+			<h2 class="mb-5 block text-xl font-bold capitalize text-gray-800 underline dark:text-white">
+				Economic indicators which deemed lagging and their definition:
+			</h2>
+			<p class="text-color mb-3">
+				<span class="font-semibold text-gray-800 dark:text-white"
+					>Gross Domestic Product (GDP)
+				</span>- Gross Domestic Product (GDP) measures the annualized change in the
+				inflation-adjusted value of all goods and services produced by the economy. It is the
+				broadest measure of economic activity and the primary indicator of the economy’s health.
+				Released on monthly basis. There are 3 versions of GDP released a month apart – Advance,
+				second release and Final. Both, advance the second release are tagged as preliminary in the
+				economic calendar.
+			</p>
+			<p class="text-color mb-3">
+				<span class="font-semibold text-gray-800 dark:text-white">Interest rates </span>– Traders
+				watch interest rate changes closely as short-term interest rates are the primary factor in
+				currency valuation. A higher-than-expected rate is positive/bullish for a currency, while a
+				lower-than-expected rate is negative/bearish for a currency. Increase in interest rate set
+				by country’s Central Bank indicates that the economy grows, and inflations increases and the
+				opposite.
+			</p>
+			<p class="text-color mb-3">
+				<span class="font-semibold text-gray-800 dark:text-white">Unemployment rate </span>– The
+				Unemployment Rate measures the percentage of the total work force that is unemployed and
+				actively seeking employment during the previous month. A higher-than-expected reading should
+				be taken as negative/bearish for the currency, while a lower-than-expected reading should be
+				taken as positive/bullish for the currency.
+			</p>
+			<p class="text-color mb-3">
+				<span class="font-semibold text-gray-800 dark:text-white"
+					>Consumer Price Index (CPI)
+				</span>– The Consumer Price Index (CPI) measures the change in the price of goods and
+				services from the perspective of the consumer. It is a keyway to measure changes in
+				purchasing trends and inflation. A higher-than-expected reading should be taken as
+				positive/bullish for the currency, while a lower-than-expected reading should be taken as
+				negative/bearish for the currency. E.g., If the Fed prints more and more money inflation
+				target will increase along with money velocity which shows the average number of times an
+				average dollar is used to buy goods and services per unit of time.
+			</p>
+			<p class="text-color mb-3">
+				<span class="font-semibold text-gray-800 dark:text-white">Balance of trade </span>– The
+				difference between country’s exports and imports creates either deficit or surplus
+				respectively.
+			</p>
+			<h2 class="mb-5 block text-xl font-bold capitalize text-gray-800 underline dark:text-white">
+				Some economic indicators which deemed leading and their definition:
+			</h2>
+			<p class="text-color mb-3">
+				<span class="font-semibold text-gray-800 dark:text-white">Retail Sales </span>– Retail Sales
+				measure the change in the total value of sales at the retail level. It counts the consumer
+				spending, which accounts for most of the overall economic activity. A higher-than-expected
+				reading should be taken as positive for the currency, while a lower-than-expected reading
+				should be taken as negative for the currency.
+			</p>
+			<p class="text-color mb-3">
+				<span class="font-semibold text-gray-800 dark:text-white"
+					>Purchasing Managing Index (PMI)
+				</span>– This major index measures the activity level of purchasing managers in the
+				manufacturing sector, where a reading above 50 indicates expansion in the sector, otherwise
+				indicates contraction.
+			</p>
+			<p class="text-color mb-3">
+				<span class="font-semibold text-gray-800 dark:text-white">Jobless Claims </span>– nitial
+				Jobless Claims measures the number of individuals who filed for unemployment insurance for
+				the first time during the week passed.
+			</p>
+			<h2 class="mb-5 block text-xl font-bold capitalize text-gray-800 underline dark:text-white">
+				Calendar Tips:
+			</h2>
+			<ul class="text-color mb-3 list-outside list-disc ps-8">
+				<li>Understand what data is important and what is not.</li>
+				<li>
+					Avoid holding trades over data that are new or avoid investing immediately after news
+					coming out.
+				</li>
+				<li>Plan how you will or not trade afterwards a major move in the market.</li>
+				<li>Understand how key data pauses market before news come out.</li>
+				<li>Take into account more factors along with the upcoming news before investing.</li>
+			</ul>
+		</div>
+	</section>
+</Layout>

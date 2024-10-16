@@ -1,0 +1,149 @@
+---
+import { LOCALES } from '@/i18n'
+import Layout from '@/layouts/Layout.astro'
+
+const images = import.meta.glob<{ default: ImageMetadata }>('/src/images/*.{jpeg,jpg,png,gif}')
+export const getStaticPaths = () =>
+	Object.keys(LOCALES).map((lang) => ({
+		params: { lang }
+	}))
+---
+
+<Layout title="Risk Dislosure">
+	<section>
+		<div
+			class="relative z-20 w-full overflow-hidden bg-gray-100 py-3 before:absolute before:start-1/2 before:top-0 before:-z-[1] before:size-full before:-translate-x-1/2 before:transform before:bg-[url('/src/images/world_bg.png')] before:bg-center before:bg-no-repeat before:opacity-45 before:hue-rotate-60 dark:bg-black dark:before:bg-[url('/src/images/world_bg.png')]"
+		>
+			<div class="container flex flex-col items-center justify-between gap-6 py-10 sm:flex-row">
+				<div>
+					<h1
+						class="block text-center text-4xl font-bold text-gray-800 dark:text-neutral-200 sm:text-left md:text-4xl lg:text-5xl"
+					>
+						Risk Disclosure <span class="text-green-500">Statement</span>
+					</h1>
+				</div>
+				<div>
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						class="w-[120px] md:w-[180px]"
+						height="100%"
+						viewBox="0 0 14 14"
+					>
+						<g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+							<path
+								d="M9.901 4.317v1.364M9.9 2.662a.124.124 0 0 1-.124-.125c0-.07.056-.125.124-.125m.002.25a.125.125 0 0 0 .124-.125a.124.124 0 0 0-.124-.125M.857 12.864h12.007M1.989 6.829a1.939 1.939 0 1 0 3.878 0a1.939 1.939 0 1 0-3.878 0"
+							></path>
+							<path
+								d="M.855 12.865v-1.024a3.072 3.072 0 1 1 6.145 0v1.024m.394-6.149A3.554 3.554 0 1 0 6.33 4"
+							></path>
+						</g>
+					</svg>
+				</div>
+			</div>
+		</div>
+		<div class="container py-10">
+			<div class="mb-5">
+				<p class="text-color mb-3">
+					The execution of financial transactions, similar in nature to the transactions
+					contemplated and described in this agreement involve the use of a financial leverage. the
+					use of a high financial leverage coupled with execution of the transactions described in
+					this agreement should be considered as high-risk financial activities. you should
+					carefully consider whether this kind of financial activity suits your needs, your
+					financial resources and your personal circumstances. since the risk of loss of part or all
+					of the invested funds in a short period of time is high, it is advisable to use funds
+					which are designated by you for high-risk speculative financial transactions.
+				</p>
+				<p class="text-color mb-3">
+					The cautions detailed in this disclosure section do not include all possible risks
+					associated with the kind of transactions contemplated under this agreement.
+				</p>
+				<p class="text-color mb-3">
+					Trading in financial markets in general and purchasing CFD in particular is speculative
+					and involves extremely high risk and high financial leverage. It is manifestly stated by
+					the Client that he fully understands that minor differences in market prices may occur in
+					short time periods and may cause high profits or losses in relation to the securities, as
+					high as total loss of all securities, all in short time period and that there is no
+					existing method that can assure profits from Transactions in financial markets.
+				</p>
+				<p class="text-color mb-3">
+					By registering to the Site opening an account and carrying out Transactions, you hereby
+					approve that you are aware of the following:
+				</p>
+				<p class="text-color mb-3">
+					The type of Transactions offered by the System may be considered special risk transactions
+					and carrying them out might involve high level of risk.
+				</p>
+				<p class="text-color mb-3">
+					You agree and confirm that you have full information and knowledge regarding CFDs,
+					including Digital Currencies and the risks involved in trade. Carrying out Transactions is
+					at your sole discretion and you hereby undertake the risks involved in such Transactions
+					and has the financial capability to finance the aforesaid Transactions.
+				</p>
+				<p class="text-color mb-3">
+					In order to complete any withdrawal, all customers must complete DB Investing’s withdrawal
+					compliance procedures.
+				</p>
+				<p class="text-color mb-3">
+					You read the terms of this Agreement and all terms relating to Financial Contracts as they
+					are defined in this Agreement prior to the execution of any Financial Contract and fully
+					understand the consequences and results of success or failure.
+				</p>
+				<p class="text-color mb-3">
+					You know that incorrect investment may cause you considerable loss.
+				</p>
+				<p class="text-color mb-3">
+					You know that the lifetime of any Financial Contract offered by the System may be as short
+					as a few minutes.
+				</p>
+				<p class="text-color mb-3">
+					The use of the System is solely designated for sophisticated users with the ability to
+					sustain swift losses up to total loss of the invested money and/or the securities. You are
+					responsible for careful consideration whether such Transactions suits you and your
+					purposes while taking into consideration your resources, your personal circumstances and
+					understanding the implications of actions made by yourself. It is highly recommended that
+					you consult with tax experts and legal advisors.
+				</p>
+				<p class="text-color mb-3">
+					The content provided by DB Investing is for <strong>educational purposes only</strong>.
+				</p>
+				<p class="text-color mb-3">
+					No information presented constitutes a recommendation by DB Investing to buy, sell, or
+					hold any security, financial product or instrument or to engage in any specific investment
+					strategy.
+				</p>
+				<p class="text-color mb-3">
+					Forex, options, futures, spread betting, and CFDs are complex instruments and come with a
+					high risk of losing money rapidly due to leverage.
+				</p>
+				<p class="text-color mb-3">
+					You should consider whether you understand how derivatives like spread bets, rolling spot
+					FX contracts, and CFDs work, and whether you can afford to take the high risk of losing
+					your money.
+				</p>
+				<p class="text-color mb-3">
+					Any opinions, news, research, analyses, prices, or other information contained on this
+					website is provided as <strong>general market commentary</strong> and does NOT constitute investment
+					advice.
+				</p>
+				<p class="text-color mb-3 font-semibold">
+					DB Investing will not accept liability for any loss or damage, including without
+					limitation to, any loss of profit, which may arise directly or indirectly from use of or
+					reliance on such information.
+				</p>
+				<p class="text-color mb-3">
+					You are fully responsible for any investment decisions you make. Such decisions should be
+					based solely on your evaluation of your financial circumstances, investment objectives,
+					risk tolerance, and liquidity needs.
+				</p>
+				<p class="text-color mb-3">
+					You should NOT rely solely upon the information or opinions that you read on the website.
+					Rather, you should use what you read as a starting point for doing your own independent
+					research, your own independent analysis, and refine your own trading methods before
+					placing your money at risk.
+				</p>
+				<p class="text-color mb-3 font-semibold">DB Investing</p>
+				<p class="text-color mb-3 font-semibold">Risk Department</p>
+			</div>
+		</div>
+	</section>
+</Layout>

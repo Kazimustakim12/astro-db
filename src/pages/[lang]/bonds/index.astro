@@ -1,0 +1,50 @@
+---
+import Banner from '@/components/page/Investment/Banner.astro'
+import GoogleSheetDataTable from '@/components/ui/DataTable/GoogleSheetDataTable'
+import { LOCALES, useTranslations, type Lang } from '@/i18n'
+import Layout from '@/layouts/Layout.astro'
+const t = useTranslations(Astro.currentLocale as Lang)
+export const getStaticPaths = () =>
+	Object.keys(LOCALES).map((lang) => ({
+		params: { lang }
+	}))
+---
+
+<Layout title="Bonds">
+	<Banner
+		title={t({
+			en: 'Bonds',
+			ar: 'السندات',
+			es: 'Bonos',
+			fr: 'Obligations',
+			hi: 'बॉन्ड्स',
+			id: 'Obligasi',
+			ms: 'Bon',
+			th: 'พันธบัตร',
+			vi: 'Trái phiếu',
+			bn: 'বন্ড',
+			'zh-hans': '债券',
+			'pt-br': 'Títulos'
+		})}
+		description={t({
+			en: 'A bond is a fixed-income instrument and investment product where individuals lend money to a government or company at a certain interest rate for an amount of time. The entity repays individuals with interest in addition to the original face value of the bond.',
+			ar: 'السند هو أداة دخل ثابت ومنتج استثماري حيث يقوم الأفراد بإقراض الأموال للحكومة أو الشركة بمعدل فائدة معين لفترة زمنية محددة. تقوم الجهة المقترضة بسداد الأموال للأفراد بالإضافة إلى الفائدة والقيمة الاسمية الأصلية للسند.',
+			es: 'Un bono es un instrumento de renta fija y un producto de inversión donde los individuos prestan dinero a un gobierno o empresa a una tasa de interés determinada durante un período de tiempo. La entidad devuelve el dinero a las personas con intereses además del valor nominal original del bono.',
+			fr: "Une obligation est un instrument à revenu fixe et un produit d'investissement dans lequel les individus prêtent de l'argent à un gouvernement ou à une entreprise à un certain taux d'intérêt pendant une durée déterminée. L'entité rembourse les individus avec des intérêts en plus de la valeur nominale initiale de l'obligation.",
+			hi: 'बॉन्ड एक निश्चित-आय वाला उपकरण और निवेश उत्पाद है जहाँ व्यक्ति सरकार या कंपनी को एक निश्चित ब्याज दर पर एक निश्चित समय के लिए पैसा उधार देते हैं। इकाई ब्याज के साथ-साथ बॉन्ड के मूल अंकित मूल्य के साथ व्यक्तियों को भुगतान करती है।',
+			id: 'Obligasi adalah instrumen pendapatan tetap dan produk investasi di mana individu meminjamkan uang kepada pemerintah atau perusahaan dengan tingkat bunga tertentu untuk jangka waktu tertentu. Entitas membayar kembali individu dengan bunga selain nilai nominal asli obligasi.',
+			ms: 'Bon ialah instrumen pendapatan tetap dan produk pelaburan di mana individu meminjamkan wang kepada kerajaan atau syarikat pada kadar faedah tertentu untuk satu tempoh masa. Entiti membayar balik individu dengan faedah selain nilai muka asal bon.',
+			th: 'พันธบัตรเป็นเครื่องมือรายได้คงที่และผลิตภัณฑ์การลงทุนที่บุคคลให้เงินกู้แก่รัฐบาลหรือบริษัทโดยมีอัตราดอกเบี้ยที่กำหนดเป็นระยะเวลาหนึ่ง หน่วยงานจะชำระคืนบุคคลพร้อมดอกเบี้ยนอกเหนือจากมูลค่าที่ตราไว้เดิมของพันธบัตร',
+			vi: 'Trái phiếu là một công cụ thu nhập cố định và sản phẩm đầu tư, trong đó các cá nhân cho chính phủ hoặc công ty vay tiền với lãi suất nhất định trong một khoảng thời gian. Thực thể này hoàn trả cho các cá nhân kèm theo lãi suất ngoài giá trị danh nghĩa ban đầu của trái phiếu.',
+			bn: 'একটি বন্ড হল একটি নির্দিষ্ট আয়ের যন্ত্র এবং বিনিয়োগ পণ্য যেখানে ব্যক্তিরা একটি নির্দিষ্ট সময়ের জন্য একটি নির্দিষ্ট সুদের হারে সরকার বা কোম্পানিকে অর্থ ধার দেয়। সত্তা ব্যক্তিদের সুদ সহ মূল বন্ডের মূল্য প্রদান করে।',
+			'zh-hans':
+				'债券是一种固定收益工具和投资产品，个人以一定的利率将资金借给政府或公司一段时间。 该实体在偿还债券面值的基础上，向个人支付利息。',
+			'pt-br':
+				'Um título é um instrumento de renda fixa e um produto de investimento onde indivíduos emprestam dinheiro a um governo ou empresa a uma certa taxa de juros por um período de tempo. A entidade reembolsa os indivíduos com juros além do valor nominal original do título.'
+		})}
+		image="/src/images/forex_tab.png"
+	/>
+	<div class="container pb-10 pt-10">
+		<GoogleSheetDataTable sheetName="Bonds" client:load />
+	</div>
+</Layout>

@@ -1,0 +1,545 @@
+---
+import { LOCALES } from '@/i18n'
+import Layout from '@/layouts/Layout.astro'
+
+export const getStaticPaths = () =>
+	Object.keys(LOCALES).map((lang) => ({
+		params: { lang }
+	}))
+---
+
+<Layout title="Trading Conditions">
+	<section>
+		<div
+			class="relative z-20 w-full overflow-hidden bg-gray-100 py-3 before:absolute before:start-1/2 before:top-0 before:-z-[1] before:size-full before:-translate-x-1/2 before:transform before:bg-[url('/src/images/world_bg.png')] before:bg-center before:bg-no-repeat before:opacity-45 before:hue-rotate-60 dark:bg-black dark:before:bg-[url('/src/images/world_bg.png')]"
+		>
+			<div class="container flex flex-col items-center justify-between gap-6 py-10 sm:flex-row">
+				<div>
+					<h1
+						class="block text-center text-4xl font-bold text-gray-800 dark:text-neutral-200 md:text-4xl lg:text-5xl"
+					>
+						<strong class="text-green-500">Trading</strong> Conditions
+					</h1>
+				</div>
+				<div>
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						class="w-[120px] md:w-[180px]"
+						height="100%"
+						viewBox="0 0 32 32"
+					>
+						<path
+							fill="currentColor"
+							d="m29.707 19.293l-3-3a1 1 0 0 0-1.414 0L16 25.586V30h4.414l9.293-9.293a1 1 0 0 0 0-1.414M19.586 28H18v-1.586l5-5L24.586 23zM26 21.586L24.414 20L26 18.414L27.586 20zM8 16h10v2H8zm0-6h12v2H8z"
+						></path>
+						<path
+							fill="currentColor"
+							d="M26 4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v13a10.98 10.98 0 0 0 5.824 9.707L13 29.467V27.2l-4.234-2.258A8.99 8.99 0 0 1 4 17V4h20v9h2Z"
+						></path>
+					</svg>
+				</div>
+			</div>
+		</div>
+		<div class="container py-10">
+			<h2
+				class="mb-5 block text-2xl font-bold capitalize text-gray-800 dark:text-white sm:text-2xl md:text-3xl lg:text-3xl"
+			>
+				Costs and associated charges for the provision of Investment and Ancillary Services
+			</h2>
+			<p class="text-color mb-6">
+				<span class="font-semibold">SPREAD:</span>
+				The spread is the difference between the buy (bid) and the sell (ask) prices of a financial instrument.
+				The spread itself fluctuates depending on market conditions. Under normal market conditions,
+				spreads remain stable; however, spreads may widen due to announcements, volatile markets, and
+				at the close and opening of the market.
+			</p>
+			<p class="text-color mb-6">
+				<span class="font-semibold">COMMISSIONS:</span>
+				Commissions charged for the execution of orders in CFDs on Stocks are visible on the client’s
+				trading platform and calculated on the basis of trading volume in the quote currency.
+			</p>
+			<p class="text-color mb-6">
+				<span class="font-semibold">Overnight Financing Fee (Swaps)</span>
+				is the fee charged for all positions held open overnight at the end of the daily trading session
+				(22:00GMT and 21:00GMT during DST) and may be subject to credit or debit depending on the prevailing
+				market. The Company applies a 3-day rollover strategy on Wednesday for all positions held open
+				on FX , Energies and Metals, a 3-day rollover strategy on Thursday for all positions held open
+				on Cryptos and 3-day rollover strategy on Friday for indices. Tripled Swap Explanation: This
+				is an industry standard and is due to the T+2 settlement date of financial instruments to cover
+				the charges incurred by the interbank market over the weekend. Please refer to our website for
+				more information on the swap values. <br />
+				The swap values are received from the Company’s Execution Venues.
+			</p>
+			<h2
+				class="mb-5 block text-2xl font-bold capitalize text-gray-800 dark:text-white sm:text-2xl md:text-3xl lg:text-3xl"
+			>
+				Calculation Methology
+			</h2>
+			<ul class="text-color mb-6 list-disc space-y-3 pl-8">
+				<li>Spread= (Bid Price – Ask Price) × Volume × Contract Size</li>
+				<li>Commission= Commission (Per Lot) × Volume</li>
+				<li>Swap Fee= Swap Long/short Points × Volume × Contract Size × Point Size* × Days</li>
+				<li>*The point size depends on the decimal digits of each CFD Instrument.</li>
+				<li>Point Size for 5 decimal digits = 0.00001</li>
+				<li>Point Size for 3 decimal digits = 0.001</li>
+				<li>Point Size for 2 decimal digits = 0.01</li>
+				<li>Point Size for 1 decimal digits = 0.1</li>
+				<li>Convesrion fee= market exchange rate + fee</li>
+			</ul>
+			<p class="text-color mb-6">
+				The spread is the actual cost to those who open an account to trade with Forex. Who usually
+				invests in the stock market operates by opening a trading account with a broker and deposit
+				their funds into it, leaving it to the broker the various movements. The broker then
+				provides a service and acts investor faith, asking to be compensated for any transaction
+				with the “spread”, the difference between the price BID and ASK price on the currency pair
+				that is traded. The broker adds the spread within the trade price and keeps for himself by
+				covering the costs of management and obtaining a revenue.
+			</p>
+			<p class="text-color mb-6">
+				The spreads may also vary depending on the type of account that is opened and are different
+				between the various products.
+			</p>
+			<p class="text-color mb-6">
+				A Standard account will have higher spreads than a Professional account because it is
+				assumed that an account of a professional trader makes several changes on the market (or use
+				the scalping technique) compared to an account of a novice trader.
+			</p>
+
+			<div class="flex-wrap gap-6 md:flex">
+				<div class="mb-4 flex flex-col">
+					<div class="-m-1.5 overflow-x-auto">
+						<div class="inline-block min-w-full p-1.5 align-middle">
+							<div class="overflow-hidden rounded-lg border dark:border-neutral-700">
+								<table class="min-w-full divide-y divide-gray-200 dark:divide-neutral-700">
+									<thead>
+										<tr>
+											<th
+												scope="col"
+												class="px-6 py-3 text-start text-xs font-medium uppercase text-gray-500 dark:text-neutral-500"
+											></th>
+											<th
+												scope="col"
+												class="px-6 py-3 text-start text-xs font-medium uppercase text-dbgreen-500"
+												>STANDARD</th
+											>
+											<th
+												scope="col"
+												class="px-6 py-3 text-start text-xs font-medium uppercase text-dbgreen-500"
+												>PRO</th
+											>
+											<th
+												scope="col"
+												class="px-6 py-3 text-end text-xs font-medium uppercase text-dbgreen-500"
+												>ECN</th
+											>
+										</tr>
+									</thead>
+									<tbody class="divide-y divide-gray-200 dark:divide-neutral-700">
+										<tr>
+											<td
+												class="whitespace-nowrap px-6 py-4 text-sm font-medium text-gray-800 dark:text-neutral-200"
+												>Forex</td
+											>
+											<td
+												class="whitespace-nowrap px-6 py-4 text-sm text-gray-800 dark:text-neutral-200"
+												>1:1000</td
+											>
+											<td
+												class="whitespace-nowrap px-6 py-4 text-sm text-gray-800 dark:text-neutral-200"
+												>1:1000</td
+											>
+											<td class="whitespace-nowrap px-6 py-4 text-end text-sm font-medium">
+												1:1000
+											</td>
+										</tr>
+										<tr>
+											<td
+												class="whitespace-nowrap px-6 py-4 text-sm font-medium text-gray-800 dark:text-neutral-200"
+												>Metals</td
+											>
+											<td
+												class="whitespace-nowrap px-6 py-4 text-sm text-gray-800 dark:text-neutral-200"
+												>1:20</td
+											>
+											<td
+												class="whitespace-nowrap px-6 py-4 text-sm text-gray-800 dark:text-neutral-200"
+												>1:20</td
+											>
+											<td class="whitespace-nowrap px-6 py-4 text-end text-sm font-medium">
+												1:20
+											</td>
+										</tr>
+										<tr>
+											<td
+												class="whitespace-nowrap px-6 py-4 text-sm font-medium text-gray-800 dark:text-neutral-200"
+												>Indices</td
+											>
+											<td
+												class="whitespace-nowrap px-6 py-4 text-sm text-gray-800 dark:text-neutral-200"
+												>1:20</td
+											>
+											<td
+												class="whitespace-nowrap px-6 py-4 text-sm text-gray-800 dark:text-neutral-200"
+												>1:20</td
+											>
+											<td class="whitespace-nowrap px-6 py-4 text-end text-sm font-medium">
+												1:20
+											</td>
+										</tr>
+										<tr>
+											<td
+												class="whitespace-nowrap px-6 py-4 text-sm font-medium text-gray-800 dark:text-neutral-200"
+												>Commodities</td
+											>
+											<td
+												class="whitespace-nowrap px-6 py-4 text-sm text-gray-800 dark:text-neutral-200"
+												>1:10</td
+											>
+											<td
+												class="whitespace-nowrap px-6 py-4 text-sm text-gray-800 dark:text-neutral-200"
+												>1:10</td
+											>
+											<td class="whitespace-nowrap px-6 py-4 text-end text-sm font-medium">
+												1:10
+											</td>
+										</tr>
+										<tr>
+											<td
+												class="whitespace-nowrap px-6 py-4 text-sm font-medium text-gray-800 dark:text-neutral-200"
+												>Stocks</td
+											>
+											<td
+												class="whitespace-nowrap px-6 py-4 text-sm text-gray-800 dark:text-neutral-200"
+												>1:5</td
+											>
+											<td
+												class="whitespace-nowrap px-6 py-4 text-sm text-gray-800 dark:text-neutral-200"
+												>1:5</td
+											>
+											<td class="whitespace-nowrap px-6 py-4 text-end text-sm font-medium">
+												1:5
+											</td>
+										</tr>
+										<tr>
+											<td
+												class="whitespace-nowrap px-6 py-4 text-sm font-medium text-gray-800 dark:text-neutral-200"
+												>Cryptocurrencies</td
+											>
+											<td
+												class="whitespace-nowrap px-6 py-4 text-sm text-gray-800 dark:text-neutral-200"
+												>1:5</td
+											>
+											<td
+												class="whitespace-nowrap px-6 py-4 text-sm text-gray-800 dark:text-neutral-200"
+												>1:5</td
+											>
+											<td class="whitespace-nowrap px-6 py-4 text-end text-sm font-medium">
+												1:5
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="mb-4 flex flex-col">
+					<div class="-m-1.5 overflow-x-auto">
+						<div class="inline-block min-w-full p-1.5 align-middle">
+							<div class="overflow-hidden rounded-lg border dark:border-neutral-700">
+								<table class="min-w-full divide-y divide-gray-200 dark:divide-neutral-700">
+									<thead>
+										<tr>
+											<th
+												scope="col"
+												class="px-6 py-3 text-start text-xs font-medium uppercase text-gray-500 dark:text-neutral-500"
+											></th>
+											<th
+												scope="col"
+												class="px-6 py-3 text-start text-xs font-medium uppercase text-dbgreen-500"
+												>Rollover Fee</th
+											>
+										</tr>
+									</thead>
+									<tbody class="divide-y divide-gray-200 dark:divide-neutral-700">
+										<tr>
+											<td
+												class="whitespace-nowrap px-6 py-4 text-sm font-medium text-gray-800 dark:text-neutral-200"
+												>Forex</td
+											>
+											<td
+												class="whitespace-nowrap px-6 py-4 text-sm text-gray-800 dark:text-neutral-200"
+												>0.017% of the overnight exposure</td
+											>
+										</tr>
+										<tr>
+											<td
+												class="whitespace-nowrap px-6 py-4 text-sm font-medium text-gray-800 dark:text-neutral-200"
+												>Metals</td
+											>
+											<td
+												class="whitespace-nowrap px-6 py-4 text-sm text-gray-800 dark:text-neutral-200"
+												>0.017% of the overnight exposure</td
+											>
+										</tr>
+										<tr>
+											<td
+												class="whitespace-nowrap px-6 py-4 text-sm font-medium text-gray-800 dark:text-neutral-200"
+												>Indices</td
+											>
+											<td
+												class="whitespace-nowrap px-6 py-4 text-sm text-gray-800 dark:text-neutral-200"
+												>0.017% of the overnight exposure</td
+											>
+										</tr>
+										<tr>
+											<td
+												class="whitespace-nowrap px-6 py-4 text-sm font-medium text-gray-800 dark:text-neutral-200"
+												>Commodities</td
+											>
+											<td
+												class="whitespace-nowrap px-6 py-4 text-sm text-gray-800 dark:text-neutral-200"
+												>0.017% of the overnight exposure</td
+											>
+										</tr>
+										<tr>
+											<td
+												class="whitespace-nowrap px-6 py-4 text-sm font-medium text-gray-800 dark:text-neutral-200"
+												>Stocks</td
+											>
+											<td
+												class="whitespace-nowrap px-6 py-4 text-sm text-gray-800 dark:text-neutral-200"
+												>0.017% of the overnight exposure</td
+											>
+										</tr>
+										<tr>
+											<td
+												class="whitespace-nowrap px-6 py-4 text-sm font-medium text-gray-800 dark:text-neutral-200"
+												>Cryptocurrencies</td
+											>
+											<td
+												class="whitespace-nowrap px-6 py-4 text-sm text-gray-800 dark:text-neutral-200"
+												>0.017% of the overnight exposure</td
+											>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="mb-4 flex flex-col">
+					<div class="-m-1.5 overflow-x-auto">
+						<div class="inline-block min-w-full p-1.5 align-middle">
+							<div class="overflow-hidden rounded-lg border dark:border-neutral-700">
+								<table class="min-w-full divide-y divide-gray-200 dark:divide-neutral-700">
+									<thead>
+										<tr>
+											<th
+												scope="col"
+												class="px-6 py-3 text-start text-xs font-medium uppercase text-gray-500 dark:text-neutral-500"
+											></th>
+											<th
+												scope="col"
+												class="px-6 py-3 text-start text-xs font-medium uppercase text-dbgreen-500"
+												>ISLAMIC</th
+											>
+											<th
+												scope="col"
+												class="px-6 py-3 text-start text-xs font-medium uppercase text-dbgreen-500"
+												>ISLAMIC VIP</th
+											>
+										</tr>
+									</thead>
+									<tbody class="divide-y divide-gray-200 dark:divide-neutral-700">
+										<tr>
+											<td
+												class="whitespace-nowrap px-6 py-4 text-sm font-medium text-gray-800 dark:text-neutral-200"
+												>Forex</td
+											>
+											<td
+												class="whitespace-nowrap px-6 py-4 text-sm text-gray-800 dark:text-neutral-200"
+											>
+												1:1000</td
+											>
+											<td
+												class="whitespace-nowrap px-6 py-4 text-sm text-gray-800 dark:text-neutral-200"
+											>
+												1:1000</td
+											>
+										</tr>
+										<tr>
+											<td
+												class="whitespace-nowrap px-6 py-4 text-sm font-medium text-gray-800 dark:text-neutral-200"
+												>Metals</td
+											>
+											<td
+												class="whitespace-nowrap px-6 py-4 text-sm text-gray-800 dark:text-neutral-200"
+											>
+												1:20</td
+											>
+											<td
+												class="whitespace-nowrap px-6 py-4 text-sm text-gray-800 dark:text-neutral-200"
+											>
+												1:20</td
+											>
+										</tr>
+										<tr>
+											<td
+												class="whitespace-nowrap px-6 py-4 text-sm font-medium text-gray-800 dark:text-neutral-200"
+												>Indices</td
+											>
+											<td
+												class="whitespace-nowrap px-6 py-4 text-sm text-gray-800 dark:text-neutral-200"
+											>
+												1:20</td
+											>
+											<td
+												class="whitespace-nowrap px-6 py-4 text-sm text-gray-800 dark:text-neutral-200"
+											>
+												1:20</td
+											>
+										</tr>
+										<tr>
+											<td
+												class="whitespace-nowrap px-6 py-4 text-sm font-medium text-gray-800 dark:text-neutral-200"
+												>Commodities</td
+											>
+											<td
+												class="whitespace-nowrap px-6 py-4 text-sm text-gray-800 dark:text-neutral-200"
+											>
+												1:10</td
+											>
+											<td
+												class="whitespace-nowrap px-6 py-4 text-sm text-gray-800 dark:text-neutral-200"
+											>
+												1:10</td
+											>
+										</tr>
+										<tr>
+											<td
+												class="whitespace-nowrap px-6 py-4 text-sm font-medium text-gray-800 dark:text-neutral-200"
+												>Stocks</td
+											>
+											<td
+												class="whitespace-nowrap px-6 py-4 text-sm text-gray-800 dark:text-neutral-200"
+											>
+												1:5</td
+											>
+											<td
+												class="whitespace-nowrap px-6 py-4 text-sm text-gray-800 dark:text-neutral-200"
+											>
+												1:5</td
+											>
+										</tr>
+										<tr>
+											<td
+												class="whitespace-nowrap px-6 py-4 text-sm font-medium text-gray-800 dark:text-neutral-200"
+												>Cryptocurrencies</td
+											>
+											<td
+												class="whitespace-nowrap px-6 py-4 text-sm text-gray-800 dark:text-neutral-200"
+											>
+												1:5</td
+											>
+											<td
+												class="whitespace-nowrap px-6 py-4 text-sm text-gray-800 dark:text-neutral-200"
+											>
+												1:5</td
+											>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="mb-4 flex flex-col">
+					<div class="-m-1.5 overflow-x-auto">
+						<div class="inline-block min-w-full p-1.5 align-middle">
+							<div class="overflow-hidden rounded-lg border dark:border-neutral-700">
+								<table class="min-w-full divide-y divide-gray-200 dark:divide-neutral-700">
+									<thead>
+										<tr>
+											<th
+												scope="col"
+												class="px-6 py-3 text-start text-xs font-medium uppercase text-gray-500 dark:text-neutral-500"
+											></th>
+											<th
+												scope="col"
+												class="px-6 py-3 text-start text-xs font-medium uppercase text-dbgreen-500"
+												>Rollover Fee</th
+											>
+										</tr>
+									</thead>
+									<tbody class="divide-y divide-gray-200 dark:divide-neutral-700">
+										<tr>
+											<td
+												class="whitespace-nowrap px-6 py-4 text-sm font-medium text-gray-800 dark:text-neutral-200"
+												>Forex</td
+											>
+											<td
+												class="whitespace-nowrap px-6 py-4 text-sm text-gray-800 dark:text-neutral-200"
+												>0.0% of the overnight exposure</td
+											>
+										</tr>
+										<tr>
+											<td
+												class="whitespace-nowrap px-6 py-4 text-sm font-medium text-gray-800 dark:text-neutral-200"
+												>Metals</td
+											>
+											<td
+												class="whitespace-nowrap px-6 py-4 text-sm text-gray-800 dark:text-neutral-200"
+												>0.0% of the overnight exposure</td
+											>
+										</tr>
+										<tr>
+											<td
+												class="whitespace-nowrap px-6 py-4 text-sm font-medium text-gray-800 dark:text-neutral-200"
+												>Indices</td
+											>
+											<td
+												class="whitespace-nowrap px-6 py-4 text-sm text-gray-800 dark:text-neutral-200"
+												>0.0% of the overnight exposure</td
+											>
+										</tr>
+										<tr>
+											<td
+												class="whitespace-nowrap px-6 py-4 text-sm font-medium text-gray-800 dark:text-neutral-200"
+												>Commodities</td
+											>
+											<td
+												class="whitespace-nowrap px-6 py-4 text-sm text-gray-800 dark:text-neutral-200"
+												>0.0% of the overnight exposure</td
+											>
+										</tr>
+										<tr>
+											<td
+												class="whitespace-nowrap px-6 py-4 text-sm font-medium text-gray-800 dark:text-neutral-200"
+												>Stocks</td
+											>
+											<td
+												class="whitespace-nowrap px-6 py-4 text-sm text-gray-800 dark:text-neutral-200"
+												>0.0% of the overnight exposure</td
+											>
+										</tr>
+										<tr>
+											<td
+												class="whitespace-nowrap px-6 py-4 text-sm font-medium text-gray-800 dark:text-neutral-200"
+												>Cryptocurrencies</td
+											>
+											<td
+												class="whitespace-nowrap px-6 py-4 text-sm text-gray-800 dark:text-neutral-200"
+												>0.0% of the overnight exposure</td
+											>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</Layout>

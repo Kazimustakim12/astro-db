@@ -77,6 +77,8 @@
 		@apply text-gray-600 dark:text-gray-400;
 	}
 }
+
+
 .btn_gradient {
 	background: linear-gradient(
 		267deg,
@@ -160,4 +162,18 @@
 
 [data-aos='fade-right-sm'] {
 	transform: translate3d(15px, 0, 0);
+}
+
+@keyframes shine-infinite {
+    0% {
+        transform: skew(-12deg) translateX(-100%)
+    }
+
+    to {
+        transform: skew(-12deg) translateX(100%)
+    }
+}
+
+.animate-shine-infinite {
+    animation: shine-infinite 2s ease-in-out infinite
 }

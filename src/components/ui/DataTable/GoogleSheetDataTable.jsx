@@ -1,66 +1,88 @@
 import React, { useState, useEffect } from 'react'
 import DataTable from './DataTable'
 
-function GoogleSheetDataTable({ sheetName }) {
+function GoogleSheetDataTable({ sheetName, language }) {
 	const [dataTable, setdataTable] = useState([])
 	const [isLoading, setIsLoading] = useState(true)
 	const [headerData, setHeaderData] = useState([])
-	const getSheetData = ({ sheetID, sheetName, query, callback }) => {
-		const base = `https://docs.google.com/spreadsheets/d/${sheetID}/gviz/tq?`
-		const url = `${base}&sheet=${encodeURIComponent(sheetName)}&tq=${encodeURIComponent(query)}`
+	function csvSplit(row) {
+		return row.split(',').map((val) => val.trim().substring(1, val.length - 1))
+	}
+	function csvToObjects(csv) {
+		const csvRows = csv.split('\n')
+		const propertyNames = csvSplit(csvRows[0])
+		let objects = []
 
-		fetch(url)
+		for (let i = 1, max = csvRows.length; i < max; i++) {
+			let row = csvSplit(csvRows[i])
+
+			// Remove blank strings in each row
+			row = row.filter((cell) => cell.trim() !== '')
+
+			if (row.length === 0) continue // Skip empty rows
+
+			let thisObject = {}
+			for (let j = 0; j < propertyNames.length; j++) {
+				if (row[j] && row[j].trim() !== '') {
+					// Only add non-blank values
+					thisObject[propertyNames[j]] = row[j]
+				}
+			}
+
+			if (Object.keys(thisObject).length > 0) {
+				objects.push(thisObject) // Add to objects only if there's meaningful data
+			}
+		}
+
+		return { headers: propertyNames, data: objects }
+	}
+	const getSheetData = ({ sheetID, sheetName, query, callback }) => {
+		const sheetURL = `https://docs.google.com/spreadsheets/d/${sheetID}/gviz/tq?tqx=out:csv&sheet=${sheetName}`
+		fetch(sheetURL)
 			.then((res) => res.text())
 			.then((response) => {
-				callback(responseToObjects(response))
+				callback(csvToObjects(response))
 			})
-
-		function responseToObjects(res) {
-			// credit to Laurence Svekis https://www.udemy.com/course/sheet-data-ajax/
-			const jsData = JSON.parse(res.substring(47).slice(0, -2))
-			let data = []
-			const columns = jsData.table.cols
-			const rows = jsData.table.rows
-			let rowObject
-			let cellData
-			let propName
-			for (let r = 0, rowMax = rows.length; r < rowMax; r++) {
-				rowObject = {}
-				for (let c = 0, colMax = columns.length; c < colMax; c++) {
-					cellData = rows[r]['c'][c]
-					propName = columns[c].label
-					if (cellData === null) {
-						rowObject[propName] = ''
-					} else if (typeof cellData['v'] == 'string' && cellData['v'].startsWith('Date')) {
-						rowObject[propName] = new Date(cellData['f'])
-					} else {
-						rowObject[propName] = cellData['v']
-					}
-				}
-				data.push(rowObject)
-			}
-			return data
-		}
 	}
+	function handleResponse(csvText) {
+		const { headers, data } = csvText
+		// Example of passing data to a DataTable component
+		const headerData = headers
+			.filter((header) => header.trim() !== '')
+			.map((header) => ({
+				column: header,
+				label: header
+			}))
 
-	const sheetDataHandler = (sheetData) => {
-		if (sheetData.length > 0) {
-			setdataTable(sheetData)
-			setHeaderData(
-				sheetData[0] &&
-					Object.keys(sheetData[0])
-						?.map((key) => {
-							return {
-								column: key,
-								label: key
-							}
-						})
-						.slice(0, -1)
-			)
+		console.log(headerData, 'response')
+		const dataTable = data.filter((row) => row && Object.values(row).some((val) => val !== '')) // Remove empty rows
+		const isLoading = false
+		if (dataTable.length > 0) {
+			setdataTable(dataTable)
+			setHeaderData(headerData)
 			setIsLoading(false)
 		}
-		//ADD YOUR CODE TO WORK WITH sheetData ARRAY OF OBJECTS HERE
 	}
+
+	// const sheetDataHandler = (sheetData) => {
+	// 	console.log(sheetData,'sheetData')
+	// 	if (sheetData.length > 0) {
+	// 		setdataTable(sheetData)
+	// 		setHeaderData(
+	// 			sheetData[0] &&
+	// 				Object.keys(sheetData[0])
+	// 					?.map((key) => {
+	// 						return {
+	// 							column: key,
+	// 							label: key
+	// 						}
+	// 					})
+	// 					.slice(0, -1)
+	// 		)
+	// 		setIsLoading(false)
+	// 	}
+	// 	//ADD YOUR CODE TO WORK WITH sheetData ARRAY OF OBJECTS HERE
+	// }
 	useEffect(() => {
 		getMyTable()
 	}, [])
@@ -73,9 +95,8 @@ function GoogleSheetDataTable({ sheetName }) {
 				// sheetName is the name of the TAB in your spreadsheet (default is "Sheet1")
 				sheetName: sheetName,
 				query: 'SELECT * ',
-				callback: sheetDataHandler
+				callback: handleResponse
 			})
-			
 		} catch (error) {
 			console.error(error)
 		}
@@ -103,6 +124,7 @@ function GoogleSheetDataTable({ sheetName }) {
 					headers={headerData}
 					data={dataTable}
 					isLoading={isLoading}
+					language={language}
 					loadingTag={<h1>Loading...</h1>}
 				/>
 			) : (

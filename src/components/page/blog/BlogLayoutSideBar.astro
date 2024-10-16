@@ -96,10 +96,7 @@ const { title, searchValue } = Astro.props
 	<div class="container mx-auto px-4 sm:px-6 lg:px-8">
 		<div class="grid gap-y-8 lg:grid-cols-3 lg:gap-x-6 lg:gap-y-0">
 			<!-- Content -->
-			<slot
-				name="articleContent"
-				transition:name="articleContent"
-			/>
+			<slot name="articleContent" transition:name="articleContent" />
 			<!-- End Content -->
 			<!-- Sidebar -->
 			<div
@@ -111,14 +108,9 @@ const { title, searchValue } = Astro.props
 					<div
 						class="group mb-8 flex items-center justify-end gap-x-3 border-b border-gray-200 pb-8 dark:border-neutral-700"
 					>
-						<form
-							id="searchDB"
-							class="w-full"
-						>
+						<form id="searchDB" class="w-full">
 							<div class="w-full">
-								<label
-									for="hs-trailing-button-add-on-with-icon-and-button"
-									class="sr-only"
+								<label for="hs-trailing-button-add-on-with-icon-and-button" class="sr-only"
 									>Search</label
 								>
 								<div class="relative flex w-full rounded-lg shadow-sm">
@@ -159,11 +151,7 @@ const { title, searchValue } = Astro.props
 											stroke-linecap="round"
 											stroke-linejoin="round"
 										>
-											<circle
-												cx="11"
-												cy="11"
-												r="8"
-											></circle>
+											<circle cx="11" cy="11" r="8"></circle>
 											<path d="m21 21-4.3-4.3"></path>
 										</svg>
 									</div>
@@ -184,7 +172,7 @@ const { title, searchValue } = Astro.props
 											'zh-hans': '搜索',
 											'pt-br': 'Pesquisar'
 										})}
-										class="w-[90px]"
+										class="w-[125px]"
 									/>
 									<!-- <button
 									type="button"
@@ -197,9 +185,7 @@ const { title, searchValue } = Astro.props
 					</div>
 					<!-- Search Box End -->
 					<!-- Compnay news   -->
-					<h3
-						class="mb-4 text-xl font-semibold capitalize text-gray-800 dark:text-neutral-200"
-					>
+					<h3 class="mb-4 text-xl font-semibold capitalize text-gray-800 dark:text-neutral-200">
 						{
 							t({
 								en: 'Latest Company News',

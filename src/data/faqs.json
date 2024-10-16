@@ -1,0 +1,10 @@
+{
+    "faqs" : {
+        "general_info": [
+            {   "id": 1,
+                "question":"What is DB Investing?",
+                "asnswer": "",
+            }
+        ]
+    }
+}

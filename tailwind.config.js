@@ -58,7 +58,8 @@ module.exports = {
 			},
 			animation: {
 				marquee: 'marquee var(--duration) linear infinite',
-				'marquee-vertical': 'marquee-vertical var(--duration) linear infinite'
+				'marquee-vertical': 'marquee-vertical var(--duration) linear infinite',
+				bouncemove: 'bounce_sm 5s infinite'
 			},
 			keyframes: {
 				marquee: {
@@ -68,6 +69,20 @@ module.exports = {
 				'marquee-vertical': {
 					from: { transform: 'translateY(0)' },
 					to: { transform: 'translateY(calc(-100% - var(--gap)))' }
+				},
+				bounce_sm: {
+					'0%': {
+						transform: ' translateY(0%)',
+						'animation-timing-function': ' linear'
+					},
+					'50%': {
+						transform: 'translateY(30px)',
+						'animation-timing-function': 'linear'
+					},
+					'100%': {
+						transform: ' translateY(0%)',
+						'animation-timing-function': ' linear'
+					}
 				}
 			}
 		}

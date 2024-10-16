@@ -1,0 +1,50 @@
+---
+import Banner from '@/components/page/Investment/Banner.astro'
+import GoogleSheetDataTable from '@/components/ui/DataTable/GoogleSheetDataTable'
+import { LOCALES, useTranslations, type Lang } from '@/i18n'
+import Layout from '@/layouts/Layout.astro'
+const t = useTranslations(Astro.currentLocale as Lang)
+export const getStaticPaths = () =>
+	Object.keys(LOCALES).map((lang) => ({
+		params: { lang }
+	}))
+---
+
+<Layout title="Real Stocks">
+	<Banner
+		title={t({
+			en: 'Real Stocks',
+			ar: 'الأسهم الحقيقية',
+			es: 'Acciones Reales',
+			fr: 'Actions Réelles',
+			hi: 'वास्तविक स्टॉक्स',
+			id: 'Saham Nyata',
+			ms: 'Saham Sebenar',
+			th: 'หุ้นจริง',
+			vi: 'Cổ phiếu thực',
+			bn: 'রিয়েল স্টক',
+			'zh-hans': '真实股票',
+			'pt-br': 'Ações Reais'
+		})}
+		description={t({
+			en: "A Real stock is a security that represents the ownership of a fraction of a corporation. This entitles the owner of the real stock to a proportion of the corporation's assets and profits equal to how much stock they own. Real Stocks are bought and sold predominantly on stock exchanges (though there can be private sales as well) and are the foundation of many individual investors' portfolios.",
+			ar: 'الأسهم الحقيقية هي أوراق مالية تمثل ملكية جزء من شركة. يمنح هذا مالك السهم الحقيقي نسبة من أصول وأرباح الشركة بما يتناسب مع مقدار الأسهم التي يمتلكها. يتم شراء وبيع الأسهم الحقيقية في الغالب في البورصات (على الرغم من أنه يمكن إجراء مبيعات خاصة أيضًا) وهي أساس العديد من محافظ المستثمرين الأفراد.',
+			es: 'Una acción real es un valor que representa la propiedad de una fracción de una corporación. Esto otorga al propietario de la acción real una proporción de los activos y beneficios de la corporación igual a la cantidad de acciones que posee. Las acciones reales se compran y venden predominantemente en bolsas de valores (aunque también puede haber ventas privadas) y son la base de las carteras de muchos inversores individuales.',
+			fr: "Une action réelle est un titre qui représente la propriété d'une fraction d'une entreprise. Cela donne au propriétaire de l'action réelle une part des actifs et des bénéfices de l'entreprise proportionnelle à la quantité d'actions qu'il détient. Les actions réelles sont principalement achetées et vendues en bourse (bien qu'il puisse également y avoir des ventes privées) et constituent la base des portefeuilles de nombreux investisseurs individuels.",
+			hi: 'एक वास्तविक स्टॉक एक सुरक्षा है जो किसी निगम के अंश का स्वामित्व दर्शाता है। यह वास्तविक स्टॉक के मालिक को कंपनी की संपत्ति और मुनाफे का उतना ही हिस्सा प्राप्त करने का अधिकार देता है जितना वह स्टॉक का मालिक है। वास्तविक स्टॉक मुख्य रूप से स्टॉक एक्सचेंजों पर खरीदे और बेचे जाते हैं (हालांकि निजी बिक्री भी हो सकती है) और यह कई व्यक्तिगत निवेशकों के पोर्टफोलियो की नींव होते हैं।',
+			id: 'Saham nyata adalah sekuritas yang mewakili kepemilikan sebagian dari sebuah perusahaan. Ini memberikan hak kepada pemilik saham nyata atas proporsi aset dan keuntungan perusahaan sesuai dengan berapa banyak saham yang mereka miliki. Saham nyata dibeli dan dijual terutama di bursa saham (meskipun dapat juga ada penjualan pribadi) dan merupakan dasar dari portofolio banyak investor individu.',
+			ms: 'Saham sebenar ialah sekuriti yang mewakili pemilikan sebahagian daripada syarikat. Ini memberi hak kepada pemilik saham sebenar kepada sebahagian daripada aset dan keuntungan syarikat yang sama dengan jumlah saham yang mereka miliki. Saham sebenar dibeli dan dijual terutamanya di bursa saham (walaupun terdapat juga jualan persendirian) dan merupakan asas kepada banyak portfolio pelabur individu.',
+			th: 'หุ้นจริงคือหลักทรัพย์ที่แสดงถึงความเป็นเจ้าของในสัดส่วนหนึ่งของบริษัท ซึ่งจะทำให้เจ้าของหุ้นจริงมีสิทธิ์ในสินทรัพย์และผลกำไรของบริษัทตามสัดส่วนของหุ้นที่ถืออยู่ หุ้นจริงซื้อขายกันเป็นหลักในตลาดหลักทรัพย์ (แม้ว่าจะสามารถซื้อขายเป็นการส่วนตัวได้เช่นกัน) และเป็นพื้นฐานของพอร์ตการลงทุนของนักลงทุนรายย่อยหลายราย',
+			vi: 'Cổ phiếu thực là một chứng khoán đại diện cho quyền sở hữu một phần của một tập đoàn. Điều này cho phép chủ sở hữu cổ phiếu thực có quyền sở hữu tài sản và lợi nhuận của tập đoàn tương ứng với số cổ phiếu họ nắm giữ. Cổ phiếu thực chủ yếu được mua và bán trên các sàn giao dịch chứng khoán (mặc dù cũng có thể có bán riêng) và là nền tảng của nhiều danh mục đầu tư cá nhân.',
+			bn: 'একটি রিয়েল স্টক হল এমন একটি সিকিউরিটি যা একটি কর্পোরেশনের একটি অংশের মালিকানা উপস্থাপন করে। এটি রিয়েল স্টকের মালিককে কর্পোরেশনের সম্পদ এবং মুনাফার একটি অংশ অধিকার দেয় যা তারা কতটা স্টক রাখে তার সমান। রিয়েল স্টকগুলি মূলত স্টক এক্সচেঞ্জগুলিতে কেনা এবং বিক্রি হয় (যদিও ব্যক্তিগত বিক্রিও হতে পারে) এবং এটি অনেক ব্যক্তিগত বিনিয়োগকারীর পোর্টফোলিওর ভিত্তি।',
+			'zh-hans':
+				'真实股票是一种证券，代表对一家公司的部分所有权。 这使得真实股票的所有者有权获得与他们拥有的股票数量相等的公司资产和利润的比例。 真实股票主要在股票交易所买卖（尽管也可能进行私人交易），并且是许多个人投资者投资组合的基础。',
+			'pt-br':
+				'Uma ação real é um título que representa a propriedade de uma fração de uma corporação. Isso dá ao proprietário da ação real uma proporção dos ativos e lucros da corporação equivalente à quantidade de ações que ele possui. As ações reais são compradas e vendidas predominantemente nas bolsas de valores (embora também possa haver vendas privadas) e são a base das carteiras de muitos investidores individuais.'
+		})}
+		image="/src/images/forex_tab.png"
+	/>
+	<div class="container pb-10 pt-10">
+		<GoogleSheetDataTable sheetName="Cash Equites" client:load />
+	</div>
+</Layout>

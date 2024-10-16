@@ -1,0 +1,1977 @@
+---
+import { LOCALES } from '@/i18n'
+import Layout from '@/layouts/Layout.astro'
+
+const images = import.meta.glob<{ default: ImageMetadata }>('/src/images/*.{jpeg,jpg,png,gif}')
+export const getStaticPaths = () =>
+	Object.keys(LOCALES).map((lang) => ({
+		params: { lang }
+	}))
+---
+
+<Layout title="Terms & Conditions">
+	<section>
+		<div
+			class="relative z-20 w-full overflow-hidden bg-gray-100 py-3 before:absolute before:start-1/2 before:top-0 before:-z-[1] before:size-full before:-translate-x-1/2 before:transform before:bg-[url('/src/images/world_bg.png')] before:bg-center before:bg-no-repeat before:opacity-45 before:hue-rotate-60 dark:bg-black dark:before:bg-[url('/src/images/world_bg.png')]"
+		>
+			<div class="container flex flex-col items-center justify-between gap-6 py-10 sm:flex-row">
+				<div>
+					<h1
+						class="block text-center text-4xl font-bold text-gray-800 dark:text-neutral-200 sm:text-left md:text-4xl lg:text-5xl"
+					>
+						Terms & <span class="text-green-500">Conditions</span>
+					</h1>
+				</div>
+				<div>
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						class="w-[120px] md:w-[180px]"
+						height="100%"
+						viewBox="0 0 24 24"
+					>
+						<path
+							fill="currentColor"
+							d="M6 20h5v2H6c-1.11 0-2-.89-2-2V4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v6.3c-.22.12-.43.26-.61.44L18 12.13V4h-5v8l-2.5-2.25L8 12V4H6zm16.85-6.53l-1.32-1.32c-.2-.2-.53-.2-.72 0l-.98.98l2.04 2.04l.98-.98c.2-.19.2-.52 0-.72M13 19.96V22h2.04l6.13-6.12l-2.04-2.05z"
+						></path>
+					</svg>
+				</div>
+			</div>
+		</div>
+		<div class="container py-10">
+			<div class="mb-5">
+				<p class="text-color mb-3 font-semibold">
+					This website is operated and controlled by DB Invest Limited in Seychelles. Your access to
+					this website is subject to these Terms and Conditions, the Statement on Privacy Policy and
+					Cookie Policy, notices, disclaimers and any other terms and conditions or other statements
+					issued or authorised by us that are contained on the website (referred to collectively as
+					the Terms).
+				</p>
+				<p class="text-color mb-3">
+					You should read these terms and conditions carefully before completing registration (and
+					if the applicable installation of the company’s proprietary software). by clicking
+					‘accept’; or ‘I agree’ or ’continue’ as applicable, and therefore registering and/or using
+					the company’s services, you confirm and acknowledge that you have read these terms of use
+					and end-user license agreement, that you understand its content, and that you agree to be
+					bound by all of its terms and conditions. if you do not agree to any or all of the terms
+					and conditions set forth in this agreement, do not access nor use this website.
+				</p>
+				<p class="text-color mb-3 underline">
+					Please read the Terms carefully. We reserve the right to amend the Terms from time to time
+					without notice and at our discretion. It is your responsibility periodically to review
+					this page for updates to the Terms, which shall come into effect once posted. Your
+					continued use of the Website will be deemed acceptance of the Terms.
+				</p>
+				<p class="text-color mb-3">
+					These Terms and conditions are part of the client services agreementbetween the <strong
+						>“Company”</strong
+					> (DB Invest Limited, we us or our), a Security Dealer registered, authorised and regulated
+					company by FSA in Seychelles with license SD053 and the office in Abis Centre, Office 15, Avenue
+					D’Arhoa, Providence Industrial Estate. Mahe, Seychelles; AND the “Customer” that will open
+					an account and will accept these Terms and Conditions. We are a company incorporated in Seychelles,
+					and the Terms and Conditions are governed by and subject to the laws of the Republic of Seychelles.
+				</p>
+				<ul class="mb-4 list-outside list-disc px-4 font-semibold">
+					<li>Limitations on Use</li>
+				</ul>
+				<p class="text-color mb-3">
+					You may not copy, modify, reproduce, republish, distribute, display, or transmit for
+					commercial, non-profit or public purposes all or any portion of the Website or the user
+					content without our prior written permission.
+				</p>
+				<ul class="mb-4 list-outside list-disc px-4 font-semibold">
+					<li>Risk Warning</li>
+				</ul>
+				<p class="text-color mb-3 font-semibold">
+					Trading leveraged involves many risks and we strongly advise you to only trade with money
+					that you can afford to lose. It’s up to you to make sure the products that we offer suit
+					your specific needs. You shouldn’t trade with us unless you understand the features and
+					risks of the products that we offer. It’s important that you read and understand the
+					Agreements and consider getting independent advice before you start trading with us.
+				</p>
+				<p class="text-color mb-3 font-semibold">
+					The Company cautions you to make sure you understand the risks involved in using those
+					site(s) before retrieving, using, relying upon or purchasing anything via the Internet.
+					Links to these websites are provided solely for your convenience, and you agree that under
+					no circumstances will you hold the Company liable for any loss or damage caused by the use
+					of or reliance on any content, goods or services available on other sites.
+				</p>
+				<div class="my-3">
+					<h2 class="mb-4 text-xl font-semibold">1. The Company</h2>
+					<p class="text-color mb-3">
+						The Company, DB INVEST Limited is engaged in the operation of an online system
+						facilitating the execution of certain transactions of Financial Contracts (as defined
+						hereunder) by using various platforms and DB INVEST names (hereinafter referred to as <strong
+							>“DB Investing”</strong
+						> ). This Agreement applies to both the Company’s website and DB INVEST System (as defined
+						hereunder) as well as to the electronic content and or software currently contained on the
+						Website that supplies you with real-time information about the prices of the Financial Contracts
+						(as defined below) and/or the exchange rates of international currencies, as well as with
+						the DB INVEST System (as defined hereunder) for the execution of Financial Contracts (as
+						defined below) and/or foreign currency trading transactions (hereinafter referred to as the
+						“Service(s)”, and any other features, content or services that the Company may add in the
+						future.
+					</p>
+					<div class="px-4">
+						<p class="text-color mb-3">
+							<span class="font-semibold">1.1.</span> The Company provides the Services directly to its
+							customers and/or sometimes by the use of authorised local representatives. The representative
+							applicable to your country, if one is available, is listed in the attached Designated Representatives
+							Exhibit. If the Company has a local representative, the Company may delegate to such representative
+							any powers and/or authorities it so deems fit and necessary from time to time, in connection
+							with the local operations of the DB INVEST system in your country of residence.
+						</p>
+						<p class="text-color mb-3">
+							<span class="font-semibold">1.2.</span> By electronically submitting your application form
+							on our website, you accept and agree to be bound by the Terms and Conditions of the client
+							services agreement. However, the Client Services Agreement will not be binding on us until
+							we have accepted your application by opening an Account for you.
+						</p>
+					</div>
+				</div>
+				<div class="my-3">
+					<h2 class="mb-4 text-xl font-semibold">2. Definitions and Interpretation:</h2>
+					<p class="text-color mb-3">
+						The following terms used in this Agreement shall have the meaning ascribed next to them
+						unless stated otherwise in this Agreement.
+					</p>
+					<div class="px-4">
+						<p class="text-color mb-3">
+							<span class="font-semibold">2.1.</span>
+							<span class="font-semibold">“System”</span> shall mean an electronic system designed to
+							facilitate trading in Financial Contracts via the Internet using the DB INVEST platform
+							as defined above subject to all terms of this Agreement and the terms of the Trading Manual
+							(as defined below) which conforms an integral part of the Agreement;
+						</p>
+						<p class="text-color mb-3">
+							<span class="font-semibold">2.2.</span>
+							<span class="font-semibold">“Financial Contract”</span> or “Contract” shall mean a contract
+							to purchase Forex, CFD or any other financial offering that the Company may offer by the
+							System from time to time to its customers;
+						</p>
+						<p class="text-color mb-3">
+							<span class="font-semibold">2.3.</span>
+							<span class="font-semibold">“Cryptocurrency or Crypto”</span> shall mean a cryptocurrency
+							is a digital or virtual currency that uses cryptography for security. A cryptocurrency
+							is difficult to counterfeit because of this security feature. Many cryptocurrencies are
+							decentralized systems based on blockchain technology; a distributed ledger enforced by
+							a disparate network of computers. A defining feature of a cryptocurrency, and arguably
+							its biggest allure, is its organic nature; it is not issued by any central authority, rendering
+							it theoretically immune to government interference or manipulation.
+						</p>
+						<p class="text-color mb-3">
+							<span class="font-semibold">2.4.</span>
+							<span class="font-semibold">“Contract Price”</span> shall mean the rates offered by the
+							System and based upon “indicative” rates provided by various financial information systems
+							as the current updated rates for contracts of the applicable nature on the financial markets;
+						</p>
+						<p class="text-color mb-3">
+							<span class="font-semibold">2.5.</span>
+							<span class="font-semibold">“Markets”</span> shall mean the international financial, commodities,
+							and other applicable markets, where contract rates are being fixed upon free trade and
+							other markets where various financial assets are traded;
+						</p>
+						<p class="text-color mb-3">
+							<span class="font-semibold">2.6.</span>
+							<span class="font-semibold">“Business Day”</span> shall mean one calendar day beginning
+							at 00:00 and ending at 23:59 GMT:
+						</p>
+						<p class="text-color mb-3">
+							<span class="font-semibold">2.7.</span>
+							<span class="font-semibold">“Transaction”</span> shall mean the purchase/sale of a Financial
+							Contract for a fixed price;
+						</p>
+						<p class="text-color mb-3">
+							<span class="font-semibold">2.8.</span>
+							<span class="font-semibold">“Closing”</span> shall mean a reversed transaction aimed to
+							close an open position (sale of a financial contract previously purchased and vice versa)
+							with a sum or a quantity identical to the one spent in the initial transaction on the same
+							Business Day;
+						</p>
+						<p class="text-color mb-3">
+							<span class="font-semibold">2.9.</span>
+							<span class="font-semibold">“Collateral”</span> shall mean the initial sum deposited by
+							you with the Company after the deduction of losses, deduction of funds withdrawn by yourself,
+							plus profits derived from the Transactions;
+						</p>
+						<p class="text-color mb-3">
+							<span class="font-semibold">2.10.</span>
+							<span class="font-semibold">“Trading Manual”</span> shall mean the manual detailing the
+							procedures and terms for the performance and execution of Transactions;
+						</p>
+						<p class="text-color mb-3">
+							<span class="font-semibold">2.11.</span>
+							<span class="font-semibold">“Independent Representative and Distributor”</span> is an individual
+							or business appointed by a company to sell and distribute its products as an independent
+							contractor. They manage their own operations, earn commissions or profits from sales, and
+							follow the company’s guidelines without being direct employees.
+						</p>
+					</div>
+				</div>
+				<div class="my-3">
+					<h2 class="mb-4 text-xl font-semibold">3. Membership Eligibility</h2>
+					<p class="text-color mb-3">
+						The Company’s Services are available and may be used only by individuals or companies
+						who are capable of forming legally binding contracts under the applicable laws in their
+						country of residence. In addition, the Services are not available to persons under the
+						age of 18, or who are otherwise legally incapable of executing binding contracts
+						(“Minors”). If you are a Minor, you may not use our Services.
+					</p>
+					<div class="px-4">
+						<p class="text-color mb-3">
+							<span class="font-semibold">3.1.</span>
+							For the avoidance of doubt, the Company shall not be responsible for any unauthorised use
+							of its Services by Minors.
+						</p>
+						<p class="text-color mb-3">
+							<span class="font-semibold">3.2.</span>
+							To remove any doubts, the Company is under no obligation to verify whether you possess
+							sufficient knowledge and/or experience, nor shall it be responsible for any damage or loss
+							incurred by you as a result of insufficient knowledge and/or experience.
+						</p>
+						<p class="text-color mb-3">
+							<span class="font-semibold">3.3.</span>
+							Furthermore, the Company is not and shall not be responsible for the accuracy of any information
+							published on its Website by itself or by others. Every published or referenced item of
+							information should be regarded as unfounded for managing your activity and risks. You must
+							ensure that all information required has been checked and confirmed through independent
+							sources to your satisfaction before taking any action on the Website.
+						</p>
+						<p class="text-color mb-3">
+							<span class="font-semibold">3.4.</span>
+							<span class="font-semibold">RISK WARNING:</span>
+							IF YOU LACK THE NECESSARY KNOWLEDGE AND EXPERIENCE, OR HAVE NOT PERSONALLY ASSESSED DATA
+							OR TRANSACTIONS, PLEASE DO NOT USE OUR WEBSITE OR SYSTEM.
+						</p>
+					</div>
+				</div>
+				<div class="my-3">
+					<h2 class="mb-4 text-xl font-semibold">4. The Account</h2>
+
+					<div class="px-4">
+						<p class="text-color mb-3">
+							<span class="font-semibold">4.1.</span>
+							Upon execution of this Agreement, the Company shall set up an account in your name and
+							ownership in the System. The account and other relevant details shall be in accordance
+							with the information provided by you, as shall be required by the Company from time to
+							time.
+						</p>
+						<p class="text-color mb-3">
+							<span class="font-semibold">4.2.</span>
+							You must ensure that the information provided by yourself is complete, true and accurate.
+							It is hereby clarified that the provision of misleading information may be regarded as
+							an offence and shall entail the immediate cessation of activities in your account or its
+							immediate closure. You acknowledge that upon the completion of your identification process
+							by the Company, it may report you as a beneficiary in the applicable account held by the
+							financial institution with which the Company deposits the Collateral funds, in amounts
+							up to the credit balance recorded in your account at the System from time to time, and
+							to that end may transfer identification details provided to it by yourself.
+						</p>
+						<p class="text-color mb-3">
+							<span class="font-semibold">4.3.</span>
+							You acknowledge that we may require information from you from time to time to comply with
+							the AML/CFT Act or any other applicable Laws. You agree to provide us with all accurate
+							information and assistance that we may at our discretion require to comply with the AML/CFT
+							Act or any other applicable Laws.
+						</p>
+						<p class="text-color mb-3">
+							<span class="font-semibold">4.4.</span>
+							By accepting all of the terms and conditions of this Agreement, you hereby authorize and
+							empower the Company, until written notice contrary to the effect shall be received from
+							you by the Company to carry out orders and activities in accordance with your instructions
+							or according to instructions provided by your duly authorised agent(s) in writing and/or
+							orally all in accordance with the powers granted to the Company under this Agreement and/or
+							for the provision of the Services.
+						</p>
+						<p class="text-color mb-3">
+							<span class="font-semibold">4.5.</span>
+							The execution of any Transaction in the account is subject to the deposit of the Collateral
+							by you. The Company shall not allow you to execute any Transaction without the said deposit
+							and/or if the Collateral is insufficient for the execution of a said Transaction, subject
+							to the Company’s policy from time to time. To remove any doubts, if the Company allows
+							you to commence trading before it receives confirmation of the deposit of Collateral by
+							you, and in effect, no Collateral was deposited, the Company shall have the right to deduct
+							from any profits gained by you the amount which should have been deposited as collateral
+							prior to your commencement of trading. All funds shall be held by the Company for you and
+							the Company may deposit such funds with any financial institution including but not limited
+							to such funds being used as collateral for the e Company’s Transactions. In the event that
+							a Transaction shall take place and for some reason there shall be no sufficient Collateral
+							in your account, the Company shall have the right to decrease your exposure in the said
+							Transaction and/or approach you to rectify such required Collateral and/or demand from
+							you payment in full for any deficiency which has occurred by your Transaction which was
+							not covered by sufficient Collateral. It is hereby expressly stated, that the above-mentioned
+							right of the Company, does not obligate it to decrease your exposure in any Transaction
+							and you shall have no claims against the Company regarding your losses resulting from the
+							decrease or non-decrease of your exposure in any particular Transaction by the Company.
+						</p>
+						<p class="text-color mb-3">
+							<span class="font-semibold">4.6.</span>
+							The Company may, at its sole discretion, amend from time to time the terms governing the
+							use of the System, the scope of its Services and the sum of the Collateral required for
+							the execution of Transactions by you, without prior notice. However, any such change to
+							the rules made whilst the site is in operation will not apply retrospectively and will
+							only apply to acquisitions of financial contracts made after such change
+						</p>
+						<p class="text-color mb-3">
+							<span class="font-semibold">4.7.</span>
+							Acquisition of Financial Contracts through the System must be affected following the latest
+							version of the terms and conditions presented on this site. To remove any doubts, the Company
+							may amend, change or cancel any part of the said terms and conditions, and their effect
+							shall be from the date such amended terms have been inserted into the site. Acquisition
+							of a Financial Contract is completed when the Financial Contract has been customized, the
+							premium (or the pat, as the case may be) has been calculated and payment has been verified.
+						</p>
+						<p class="text-color mb-3">
+							<span class="font-semibold">4.8.</span>
+							The Company reserves the right to retroactively adjust the spread applied to the positions
+							where, due to a technical/human error, a spread is incorrect and not consistent with that
+							published on our website.
+						</p>
+						<ul class="text-color mb-4 list-outside list-disc px-4">
+							<li>
+								<span class="font-semibold">Swap Cost: </span>
+								Each trade is subject to the cost of spreads and commissions on opening and to the swap/rollover
+								that is applied every night for the amount of 3% yearly, and up to 2% daily night on
+								cryptocurrency, on the position value opened.
+							</li>
+							<li>
+								<span class="font-semibold">Dormant Fee: </span>
+								Each account will be subject to a monthly dormant fee of 25USD IF the account doesn’t
+								open any trade for at least 60 days. The dormant fee calculation will be charged on a
+								monthly basis and will be not calculated from the system if the trading account has been
+								used again. The fee cannot be refunded since it’s a compliance and brokerage fee for
+								account maintenance.
+							</li>
+							<li>
+								<span class="font-semibold">Rollover Definition: </span>
+								Is also called Swap. It is the interest paid or for holding a position overnight. Each
+								world currency has an interest rate connected to it. Since forex is traded in pairs,
+								every trade involves not only two different currencies but also two different interest
+								rates. If the interest rate on the currency you bought is higher than the interest rate
+								of the currency you sold, then you will earn a rollover (positive roll). If the interest
+								rate on the currency you bought is lower than the interest rate on the currency you sold,
+								then you will pay rollover (negative roll). Rollover can add a significant extra cost
+								or profit to your trade depending on.
+							</li>
+							<li>
+								<span class="font-semibold">Rollover Example: </span>
+								When you buy the EUR/USD pair, you are buying the euro, and selling the U.S. dollar to
+								pay for it. If the euro interest rate is 1.00%, and the U.S. rate is 0.25%, you are buying
+								the currency with the higher interest rate, and you will earn rollover — about 0.75%
+								on an annual basis. Conversely, if you sell the EUR/USD pair, you are selling the currency
+								with the higher interest rate, and you will pay rollover — about 0.75% on an annual basis
+								since you are paying the euro interest rate and earning the U.S. interest rate.
+							</li>
+							<li>
+								<span class="font-semibold">Rollover Booking Times: </span>
+								he beginning and end of the forex trading day are considered to be 00:00 (GMT) by our
+								servers. Any positions that are open at 00:00 (GMT) sharp are considered to be held overnight
+								and are subject to rollover. A position opened at 00:01 (GMT) is not subject to rollover
+								until the next day, while a position opened at 23:59 (GMT) is subject to rollover at
+								00:00 (GMT).
+							</li>
+							<li>
+								A credit or debit for each position opened at 00:00 (GMT) will appear in your
+								account and be applied directly to your account balance.
+							</li>
+							<li>
+								<span class="font-semibold">Weekends and Holidays: </span>
+								Most banks across the world are closed on Saturdays and Sundays, so there is no rollover
+								on these days, but most banks still apply interest on Saturdays and Sundays. To measure
+								for this, the forex market books three days of rollover on Wednesdays, which makes a
+								typical Wednesday rollover three times the amount. Please note that for some instruments
+								triple swap is applied on Friday. There is no rollover on holidays, but there is an extra
+								day’s worth of rollover two business days before the holiday. Typically, holiday rollover
+								happens if any of the currencies traded has a major holiday. Therefore, President in
+								the USA, February 21st, closes American banks, and an extra day of rollover is added
+								at 00:00 (GMT) on the previous working day for all U.S.D pairs.
+							</li>
+						</ul>
+						<p class="text-color mb-3">
+							<span class="font-semibold">4.9.</span>
+							The company can provide a Dedicated Account Manager who can support the trader and provide
+							the service as a personal consultant/analyst, who from time to time or at my request can
+							provide me with research and advice regarding the financial markets, including trade recommendations
+							based on the consultant’s analysis.
+						</p>
+						<div class="px-4">
+							<p class="text-color mb-3">
+								<span class="font-semibold">4.9.1.</span>
+								The company does not charge any commissions or fees, under any circumstances, because
+								the services of the consultant/analyst are provided free of charge.
+							</p>
+							<p class="text-color mb-3">
+								<span class="font-semibold">4.9.1.</span>
+								Any decisions to trade or not trade using the trading analysis or strategy provided by
+								the consultant/analyst are made solely by the trader at his/her discretion and the company
+								does not take any responsibility for any profits or losses incurred as a result of the
+								marketing information provided by phone, email, trading signals or third party services
+								who provide to the customer the daily updatesAlso, the company can call and email the
+								customer for compliance or Risk Management purposes, in the case, for example, the trading
+								account is in a margin call
+							</p>
+						</div>
+						<p class="text-color mb-3">
+							<span class="font-semibold">4.10.</span>
+							Account Details
+						</p>
+						<p class="text-color mb-3">
+							When you open a client portal account and one or more Trading Accounts with us, we
+							will automatically provide you with your credentials. You will then be able to create
+							your own password and keep it secure, after which we will provide you with a unique
+							number representing each of your Trading Accounts (i.e., your Trading Account Number).
+						</p>
+						<div class="px-4">
+							<p class="text-color mb-3">
+								<span class="font-semibold">4.10.1.</span>
+								You will be deemed to have authorised all trading under your Trading Account Number,
+								irrespective of whether the person trading with it has authority.
+							</p>
+							<p class="text-color mb-3 font-semibold">
+								<span class="font-semibold">4.10.2.</span>
+								Account Security Information
+							</p>
+							<p class="text-color mb-3">
+								You must keep all security information relating to the Account, including, but not
+								limited to, any user name, user ID, and password, confidential, and we do not have
+								to verify the authority of anyone using these items. You are responsible for all
+								orders or instructions and for the accuracy of all information sent electronically
+								using any such items. If you are aware of or suspect that these items are no longer
+								confidential, you should contact us as soon as possible so that they may be changed.
+							</p>
+							<p class="text-color mb-3 font-semibold">
+								<span class="font-semibold">4.10.3.</span>
+								Account Types,
+							</p>
+							<p class="text-color mb-3">
+								There are 4 different accounts in DB Investing that you can use according to your
+								needs and preferences. The main difference between them is the Spread ratios to be
+								applied to the operations.
+							</p>
+							<ul class="text-color mb-4 list-outside list-disc px-4">
+								<li>
+									<span class="font-semibold">STP Floating Account: </span>
+									the spread is a variable, depending on the market volatility or the asset being traded.
+									This is the unique account that can be used as a Scalping (refer to 4.16).
+								</li>
+								<li>
+									<span class="font-semibold">ECN Floating Account: </span>
+									the spread is a variable, depending on the market volatility or the asset being traded
+									and it is the best spread client can experience.
+								</li>
+								<li>
+									<span class="font-semibold">Islamic Account: </span>
+									Accounts that are traded according to Islamic rules, not applying a swap interest*.
+									It can be used with both of the above. This account is reserved just for Arabic religion
+									people.
+								</li>
+								<li>
+									<span class="font-semibold">PRO Account: </span>
+									the spread is a variable, depending on the market volatility or the asset being traded
+								</li>
+							</ul>
+							<p class="text-color mb-3">
+								<span class="font-semibold">4.10.4.</span>
+								The company opens standard STP accounts as a default. In the case, that the customer
+								needs an Islamic or an ECN Account, must notify immediately to the company immediately
+								via ticket system or email.
+							</p>
+							<p class="text-color mb-3">
+								<span class="font-semibold">4.10.5.</span>
+								No swap fees will be refunded if are previously paid on the Standard STP account and
+								before the swap account request from the client and related company compliance approval.
+							</p>
+							<p class="text-color mb-3">
+								<span class="font-semibold">4.10.6.</span>
+								If an STP, ECN, or Islamic account is used for excessive scalping, hedging, high-frequency
+								trading (HFT), or to exploit any bonus promotion, the company reserves the right to terminate
+								the contract. Upon termination, the account will be immediately closed, all profits will
+								be forfeited, and a penalty of USD500 or up to 10% of the deposit (whichever is greater)
+								will be imposed to cover compliance checks, risk management reviews, and account closure
+								fees.
+							</p>
+							<p class="text-color mb-3">
+								<span class="font-semibold">4.10.7.</span>
+								Each client is permitted to activate only one account per account type. Opening multiple
+								accounts under the same client ID, or using different client IDs but the same IP address,
+								is strictly prohibited.”
+							</p>
+						</div>
+						<p class="text-color mb-3">
+							<span class="font-semibold">4.11.</span>
+							Swap Free/Islamic Accounts conditions:
+						</p>
+						<p class="text-color mb-3">
+							The company offers a swap-free trading account for residents of Islamic countries who
+							observe Sharia law. Under swap-free status, no swaps are credited to or debited from
+							the trading account.
+						</p>
+						<p class="text-color mb-3">
+							The Islamic/swap-free account allows certain instruments to be traded without
+							incurring any swap charges, provided that trades are held open for a maximum of 7
+							consecutive days. However, the available instruments under the Islamic account are
+							limited, and the client must ensure that more than 50% of their trades and instruments
+							are outside the swap-free list.
+						</p>
+						<div class="px-4">
+							<p class="text-color mb-3">
+								<span class="font-semibold">4.11.1.</span>
+								“Abuse” of an Islamic account refers to situations where the majority of trades and instruments
+								are solely swap-free. Improper use includes but is not limited to, cases where a significant
+								portion of transactions would have incurred negative swap charges, which were avoided
+								due to the account’s swap-free status.
+							</p>
+							<p class="text-color mb-3">
+								<span class="font-semibold">4.11.2.</span>
+								At the moment the system detects an abuse, the company has the right to post-check and
+								post-debit the swap costs and send the client a first warning.
+							</p>
+							<p class="text-color mb-3">
+								<span class="font-semibold">4.11.3.</span>
+								Multiple warnings for the swap-free/Islamic account will be considered a breach of the
+								Terms and Conditions, then the company can decide to change the client account type and
+								charge swap or also close the client account by giving a notice period, where the client
+								must close all the trades.
+							</p>
+						</div>
+						<p class="text-color mb-3">
+							<span class="font-semibold">4.12.</span>
+							Prohibited Trading Strategies: Latency Arbitrage (LA), High-Frequency Trading (HFT), Arbitrage
+							Trading, Scalping Trading, Gold (XAUUSD) Hedging.
+						</p>
+						<ul class="text-color mb-4 list-item list-none px-4">
+							<li>
+								a) <span class="font-semibold">Latency Arbitrage:</span> A trading strategy that exploits
+								small differences in the time it takes for prices to update across different trading
+								platforms.
+							</li>
+							<li>
+								b) <span class="font-semibold">High-Frequency Trading (HFT):</span> Utilizes low latency
+								connections to quickly identify price discrepancies and execute trades before the market
+								adjusts.
+							</li>
+							<li>
+								c) <span class="font-semibold">Arbitrage Trading:</span> The simultaneous purchase and
+								sale of the same or similar asset in different markets to profit from small differences
+								in the asset’s listed price.
+							</li>
+							<li>
+								d) <span class="font-semibold">Scalping Activity:</span> A day trading strategy where
+								an investor buys and sells individual instruments multiple times throughout the same
+								day, often within seconds or minutes.
+							</li>
+							<li>
+								e) <span class="font-semibold">Gold (XAUUSD) Hedging:</span> Involves buying/selling
+								and holding trading positions in the same direction for the long term, closing them within
+								7 days to avoid swap charges, and then reopening the same trade and direction to maintain
+								the hedging position.
+							</li>
+						</ul>
+						<p class="text-color mb-3">
+							If a trader’s account is found to be using any of the aforementioned trading
+							strategies, the account will be immediately closed. Clauses 4.10.6 and 4.14 related to
+							Platform Abusing will be applied.
+						</p>
+						<p class="text-color mb-3">
+							<span class="font-semibold">4.13.</span>
+							<span class="font-semibold">Scalping Activity: </span>
+							This is a day trading strategy where an investor buys and sells individual instruments
+							multiple times throughout the same day, often within seconds or minutes. An account where
+							such a strategy is applied to over 10% of the trades is considered a Scalping Account.
+							This strategy cannot be applied to accounts other than STP, which includes Islamic or ECN
+							accounts. The Company allows such a strategy only for STP accounts and only if the total
+							Scalping Ratio is below 25% of the total trades or instruments. If an account other than
+							STP is used for scalping, where trades are closed within 5 minutes, the Company has the
+							right to apply a penalty equal to the total profits gained on the trading account.
+						</p>
+						<p class="text-color mb-3">
+							<span class="font-semibold">4.14.</span>
+							<span class="font-semibold">Platform Abusing:: </span>
+							If a trader engages in, or the Company suspects the use of, prohibited strategies, the
+							trader’s account will be closed immediately without prior notice, and all open positions
+							will be liquidated. The Company will not be liable for any losses incurred during this
+							process. Any accumulated profits will be forfeited as a penalty for violating the terms
+							and conditions, including costs incurred from abusive activities such as the excessive
+							exploitation of swap-free benefits. A penalty of 10% of the deposit or USD500 (whichever
+							is greater) will be imposed. During the offboarding process, the Company reserves the right
+							to deduct commissions, as well as any applicable bank or PSP fees associated with deposits
+							and withdrawals. If any portion of the deposit has already been withdrawn, the Company
+							will return the remaining net balance and close the account. Furthermore, the Company reserves
+							the right to close all related accounts connected to the offending account, including those
+							sharing the same IP address, email, or phone number.
+						</p>
+					</div>
+				</div>
+				<div class="my-3">
+					<h2 class="mb-4 text-xl font-semibold">5. BONUS TERMS AND CONDITIONS</h2>
+					<p class="text-color mb-3">
+						<span class="font-semibold">Bonus Policy:</span>
+					</p>
+					<div class="px-4">
+						<p class="text-color mb-3">
+							<span class="font-semibold">5.1.</span>
+							DB INVEST offers several attractive reward features to its new and existing clients. Bonuses
+							and one-time trading credits rewarded to clients are part of DB Investing’s promotions
+							programs. These bonuses have limited-time offers and the terms and conditions associated
+							with any bonus reward which clients will be allowed to consider before accepting any bonus
+							offer, are subject to change.
+						</p>
+						<p class="text-color mb-3">
+							<span class="font-semibold">5.2.</span>
+							The account where the bonus is loaded, must follow these rules:
+						</p>
+						<div class="px-4">
+							<p class="text-color mb-3">
+								<span class="font-semibold">5.2.1</span>
+								open at least 10 different instruments
+							</p>
+							<p class="text-color mb-3">
+								<span class="font-semibold">5.2.2</span>
+								at least 50% of the trades must be opened for 30 minutes or more.
+							</p>
+							<p class="text-color mb-3">
+								<span class="font-semibold">5.2.3</span>
+								at least 30% of the trades must be overnight.
+							</p>
+							<p class="text-color mb-3">
+								<span class="font-semibold">5.2.4</span>
+								The bonus will be removed in full after 30 days from the loading date. It is the client’s
+								responsibility to manage their equity. The company is not responsible for any margin
+								call or liquidation.
+							</p>
+							<p class="text-color mb-3">
+								<span class="font-semibold">5.2.5</span>
+								The bonus will be removed in full when the client decides to withdraw part or all of
+								their profits. This removal will apply even if the client has open positions.
+							</p>
+						</div>
+						<p class="text-color mb-3">
+							<span class="font-semibold">5.3.</span>
+							The bonus cannot be used or abused for a scalper account (refer to 4.16, accounts where
+							over 30% of the trades are opened and closed within 5 minutes), a mono-direction account
+							(where all trades are in the same direction), or a few-instrument account (an account trading
+							fewer than 10 different instruments).
+						</p>
+						<p class="text-color mb-3">
+							<span class="font-semibold">5.4.</span>
+							If the conditions in 5.2 and 5.3 are not met, the bonus will be removed, the account will
+							be closed, the first deposit will be returned, and a penalty equal to the total profit
+							will be debited.
+						</p>
+						<p class="text-color mb-3">
+							<span class="font-semibold">5.5.</span>
+							Any indication of fraud, manipulation, cash-back arbitrage, or other forms of deceitful
+							or fraudulent activity based on the provision of the bonus will render the account inactive,
+							along with any profits or losses accumulated.
+						</p>
+						<p class="text-color mb-3">
+							<span class="font-semibold">5.6.</span>
+							The client agrees to accept only one (1) introductory bonus upon opening an account with
+							DB INVEST.
+						</p>
+						<p class="text-color mb-3">
+							<span class="font-semibold">5.7.</span>
+							Clients are prohibited from opening multiple accounts at DB INVEST for the sole purpose
+							of enjoying more than one introductory bonus. Duplicate accounts may be closed without
+							notice. DB INVEST will retain any bonus awarded to the client, any earnings will be forfeited,
+							and any amount deposited by the client will be returned accordingly.
+						</p>
+						<p class="text-color mb-3">
+							<span class="font-semibold">5.8.</span>
+							The client is not required to accept any bonus offered by DB INVEST; all bonuses are optional.
+							During the client’s initial deposit, the client may choose not to accept a bonus. In these
+							circumstances, the client will not be bound to the terms relating to bonuses. Should the
+							client mistakenly accept a bonus, they must notify a member of our Customer Support Team
+							within 5 working days of mistakenly accepting the bonus. In such circumstances, DB INVEST
+							will remove the bonus from the client’s account, and the client shall not be held to the
+							bonus terms. However, all other terms and conditions shall continue to apply. The client
+							must not have placed more than 2 trades since mistakenly accepting the bonus for the bonus
+							to be removed from the client’s account.
+						</p>
+						<p class="text-color mb-3">
+							<span class="font-semibold">5.9.</span>
+							In the case of a complaint opened by the customer, the bonus will be considered a debit
+							in favor of the company, and the trading account will no longer benefit from negative balance
+							protection. This means that if the company refunds the customer some withdrawable funds,
+							the negative balance will remain, and the withdrawable funds will just load into the account.
+						</p>
+						<p class="text-color mb-3">
+							<span class="font-semibold">5.10.</span>
+							Eligible to apply to this Offer are individuals who can agree to legally binding contracts
+							under the laws applicable in their country of residence. Without limiting the foregoing,
+							participation in the Offer is not allowed to persons under the age of 18 or otherwise under
+							the legal age in their country of residence (“minors”).
+						</p>
+						<p class="text-color mb-3">
+							<span class="font-semibold">5.11.</span>
+							The Offer is available to clients who have opened an account during the Offer Period, submitted
+							valid KYC documentation as per the Company’s requirements as those are amended from time
+							to time at the sole discretion of the Company and funded their account with a minimum of
+							100 USD within the Offer Period.
+						</p>
+						<p class="text-color mb-3">
+							<span class="font-semibold">5.12.</span>
+							Employees and their relatives, partners, introducers of DB Investing, or anyone associated
+							with the Company are not permitted to participate in this Offer.
+						</p>
+						<p class="text-color mb-3">
+							<span class="font-semibold">5.13.</span>
+							Participation of ‘intermediaries/Related Parties’ in the Offer is prohibited. If the registration
+							and/or deposit date and/or trading date of a participant in the Offer corresponds with
+							the registration and/or trading information, including but not limited to IP address, trading
+							from the same device of another participant in the Offer, DB Investing reserves the right
+							to regard this matching as a reason for immediate disqualification. For the purposes hereof,
+							the term ‘Intermediaries/Party (ies)’, when used in these Terms and Conditions, unless
+							the context otherwise requires, shall mean to include any person or entity bearing a relationship
+							with any participant in the Offer, including without limitation:
+						</p>
+						<div class="px-4">
+							<p class="text-color mb-3">
+								<span class="font-semibold">5.13.1.</span>
+								Family members, such as brothers, sisters, spouses, ancestors, lineal descendants and
+								collateral descendants.
+							</p>
+							<p class="text-color mb-3">
+								<span class="font-semibold">5.13.2.</span>
+								Person or entity, whom any participant in the Offer, directly or indirectly through one
+								or more intermediaries, controls, or whom directly or indirectly through one or more
+								intermediaries, is controlled by or is under common control with any participant in the
+								Offer, for purposes of this definition, the term ‘control’( including with correlative
+								meaning, the terms ‘controlled by’ and ‘under common control with’), as uses concerning
+								any participant in the Offer, shall mean the possession, directly or indirectly through
+								one or more intermediaries, of the power to direct or cause the direction of management
+								policies of such person or entity, whether through ownership of voting securities or
+								otherwise.
+							</p>
+							<p class="text-color mb-3">
+								<span class="font-semibold">5.13.3.</span>
+								Similarly, persons associated in any manner whatsoever with DB Investing and/or with
+								the specific websites and/or social network sites on which DB Investing may be running
+								from time to time certain specific bonus/promotions, contests and/or surveys, in the
+								context of which access to the Offer is offered, are not allowed to participate in the
+								offer.
+							</p>
+						</div>
+						<p class="text-color mb-3">
+							<span class="font-semibold">5.14.</span>
+							This Offer cannot be combined with any other Bonus / Promotions DB Investing may offer.
+							Should a client’s trading account already have an existing Bonus, they will not be able
+							to opt into this promotion or by accepting these Terms and Conditions, the Client also
+							accepts that the previous Bonus will be removed before this Offer is applied.
+						</p>
+						<p class="text-color mb-3">
+							<span class="font-semibold">5.15.</span>
+							If a trading account has applied for a bonus, the company has the right to debit deposit
+							and withdrawal fees if previously not debited. The same is true if the account is closed
+							and the first deposit will be refunded in the case of a breach of T&C, and the account
+							applied for a bonus promotion, the company has the right to post-calculate and post-debit
+							these fees.
+						</p>
+						<p class="text-color mb-3">
+							<span class="font-semibold">5.16.</span>
+							If the customer decides to withdraw part or full of his equity, the company has will withdraw
+							the full amount of the bonus loaded into the trading account.
+						</p>
+					</div>
+				</div>
+				<div class="my-3">
+					<h2 class="mb-4 text-xl font-semibold">
+						6. The Company hereby warrants and undertakes that:
+					</h2>
+					<div class="px-4">
+						<p class="text-color mb-3">
+							<span class="font-semibold">6.1.</span>
+							It has the required skills and know-how to provide the Services.
+						</p>
+						<p class="text-color mb-3">
+							<span class="font-semibold">6.2.</span>
+							In no event shall the Company or anyone on its behalf shall act, or be deemed to act, as
+							agent/trustee/broker for you when executing Transactions in the System.
+						</p>
+						<p class="text-color mb-3">
+							<span class="font-semibold">6.3.</span>
+							Neither at present nor in the future shall it provide any financial advice to you or any
+							of its customers and no information which may be found on the Company’s Web site may be
+							considered as financial adviser for any purpose whatsoever. To remove any doubts, the information
+							given on the site, the System and/or emails or newsletters sent by the Company related
+							to its Services or financial markets, is not intended to be used as financial or investment
+							advice and the Company shall not accept any liability in this respect, nor shall the Company
+							accept any responsibility for the accuracy or comprehensiveness of the information provided
+							on this site. It is your responsibility to all independent inquiries as you deem fit, before
+							making any financial decision.
+						</p>
+						<p class="text-color mb-3">
+							<span class="font-semibold">6.4.</span>
+							It shall not be liable in any way whatsoever for any claims, suits, contentions, losses,
+							expenses, damages etc. incurred by you because you relied on any information provided by
+							the Company.
+						</p>
+						<p class="text-color mb-3">
+							<span class="font-semibold">6.5.</span>
+							The maximum loss that you may incur using the System is the amount of money paid by you
+							to the Company as Collateral and/or any sums in your Account that you used to purchase
+							Financial Contracts.
+						</p>
+						<p class="text-color mb-3">
+							<span class="font-semibold">6.6.</span>
+							The Company does not provide a market amongst or between customers for investments, securities,
+							derivatives, or speculations. Each Financial Contract purchased by you via the System is
+							an individual agreement between yourself and the Company and is not a security, nor is
+							it transferable, negotiable, or assignable to or with any third party.
+						</p>
+					</div>
+				</div>
+				<div class="my-3">
+					<h2 class="mb-4 text-xl font-semibold">
+						7. Company’s rights regarding the operation of your account
+					</h2>
+					<div class="px-4">
+						<p class="text-color mb-3">
+							<span class="font-semibold">7.1.</span>
+							The Company reserves the right to suspend the operation of this site or sections thereof
+							under the following circumstances:
+						</p>
+						<div class="px-4">
+							<p class="text-color mb-3">
+								<span class="font-semibold">7.1.1.</span>
+								When, as a result of political, economic, military or monetary events (including unusual
+								market volatility or illiquidity) or any circumstances outside the control, responsibility
+								and power of the Company, the continued operation of this site or the System shall not
+								be reasonably practicable without materially and adversely affecting and prejudicing
+								your interests or the Company, or if, in the sole discretion of the Company, a price
+								cannot be calculated for financial betting contracts; or
+							</p>
+							<p class="text-color mb-3">
+								<span class="font-semibold">7.1.2.</span>
+								When there is a breakdown in the means of communication normally employed in determining
+								the price or value of any of the financial betting contracts or where the price or value
+								of any of the financial betting contracts cannot be promptly or accurately ascertained;
+								or
+							</p>
+							<p class="text-color mb-3">
+								<span class="font-semibold">7.1.3.</span>
+								When the Company has reason to suspect that the System was abused by you or that you
+								have used some means to affect or manipulate the System in general or the price of a
+								specific Contract in particular.
+							</p>
+							<p class="text-color mb-3">
+								<span class="font-semibold">7.1.4.</span>
+								Under such circumstances, other than in the case of abuse or manipulation of the System,
+								the Company may at its sole discretion (with or without notice) close out your open financial
+								betting contracts at prices it considers fair and reasonable at such a time and no claims
+								may be entertained against the Company in connection thereto.
+							</p>
+						</div>
+						<p class="text-color mb-3">
+							<span class="font-semibold">7.2.</span>
+							Our Rights to Suspend Your Trading Account
+						</p>
+						<p class="text-color mb-3">
+							Without limiting our right to take under clause 7.1, we may also cancel and close any
+							open order where there is a material breach of the Terms and Conditions.
+						</p>
+						<p class="text-color mb-3">
+							<span class="font-semibold">7.3.</span>
+							Our Rights to Suspende Your Client Account
+						</p>
+						<p class="text-color mb-3">
+							Without limiting our right to take under clauses 7.1 and 7.2, we may in our discretion
+							suspend your client account pending investigation for any reason. Whilst your Account
+							is suspended you will not be entitled to place new trades. Circumstances in which we
+							may choose to exercise this right include but are not limited to the following:
+						</p>
+						<ul class="text-color mb-4 list-outside list-decimal px-4">
+							<li>
+								When we have grounds for believing that an event of default has occurred or may
+								occur but believe that it is necessary to investigate circumstances with a view to
+								confirming this.
+							</li>
+							<li>
+								When we have grounds for believing that you do not have a sufficient understanding
+								of the trades which you are placing or the risks involved.
+							</li>
+							<li>
+								When we have not received within 07 days of a written request all information, which
+								we believe that we require in connection with these Terms and Conditions.
+							</li>
+							<li>
+								We have reason to believe that there has been a breach in your account share or that
+								there has been a threat to your account share
+							</li>
+						</ul>
+						<div class="px-4">
+							<p class="text-color mb-3">
+								<span class="font-semibold">7.3.1</span>
+								Conclude Investigations
+							</p>
+							<p class="text-color mb-3">
+								<span class="font-semibold">7.3.1</span>
+								When we conclude our investigation, we will inform you whether trading on your account
+								may resume or whether we will seek to take further action pursuant to these Terms and
+								Conditions.
+							</p>
+						</div>
+						<p class="text-color mb-3">
+							<span class="font-semibold">7.4.</span>
+							Operations in trading accounts are personal and the operations of <strong
+								>third parties are not authorised</strong
+							>. Equal simultaneous connection to trading accounts from different IPs is not
+							allowed. The company has the right to investigate and, if such situations arise, it’s
+							the discretion of the company to apply a minimum of 500 USD fine fee from the first
+							warning, of up to 1000 USD for each trade opened by an unauthorised person or
+							different IP on the same day and in different locations and repeated in the timeframe,
+							in the case the client continues to breach the T&C and delegate a third-party to use
+							his account without any prior notice to the company.
+						</p>
+						<div class="px-4">
+							<p class="text-color mb-3">
+								<span class="font-semibold">7.4.1</span>
+								The company reserves the right to block the trading account for a minimum of 90 days
+								and a maximum of 180, and to indefinitely renew the investigations on the managers until
+								the trading account and the related funds are blocked indefinitely.
+							</p>
+							<p class="text-color mb-3 underline">
+								In case of abuse or manipulation of the System, the Company may at its sole
+								discretion take any measures it deems fit and appropriate under the said
+								circumstances.
+							</p>
+						</div>
+						<p class="text-color mb-3">
+							<span class="font-semibold">7.5.</span>
+							The company can charge compliance fees and checks during the account closing. Additional
+							due diligence fee for checking the payment/ trading/transaction activities for compliance
+							with the requirements for AML/CTF/CPF and Sanctions compliance, up to 10% of the total
+							of the deposited amount with a minimum of 500 USD to cover the compliance and legal costs.
+						</p>
+						<p class="text-color mb-3">
+							<span class="font-semibold">7.6.</span>
+							We may share information collected from you and related to transactions as required by
+							the AML/CFT Act or other applicable laws. Subject to these laws, we are under no obligation
+							to inform you if we do so. We may also conduct all necessary anti-money laundering and
+							other checks related to you (including checks against restricted lists, blocked persons,
+							and country lists) as deemed necessary or appropriate by us. We reserve the right to take
+							any actions regarding these checks with no liability whatsoever.
+						</p>
+						<p class="text-color mb-3">
+							<span class="font-semibold">7.7.</span>
+							IF the client was introduced from an Affiliate/IB and the company suspects or has proof
+							of fraud to pay fraudulent commissions (CPA/rebate) from the company and the client account
+							is involved in the breach of the T&C, the client allows the company to freeze a minimum
+							of 500 USD from the each introduced account until the investigation will be completed.
+						</p>
+						<p class="text-color mb-3">
+							In the case, that the client’s account was used to fraud the company for the benefit
+							of his affiliate/IB account to get him paid commissions, the client’s IB account will
+							be closed and a <strong
+								>fraud penalty of a minimum of 500 USD will be charged for each introduced client</strong
+							>.
+						</p>
+					</div>
+				</div>
+				<div class="my-3">
+					<h2 class="mb-4 text-xl font-semibold">8. You hereby warrant and undertake that:</h2>
+					<div class="px-4">
+						<p class="text-color mb-3">
+							<span class="font-semibold">8.1.</span>
+							All details provided by you to the Company are true, complete and accurate and you are
+							an adult over the age of 18 (or the required minimum age in your country of residence)
+							so that you may be legally bound by the terms of this Agreement and that you are an experienced
+							investor who has sufficient financial knowledge and experience to understand and independently
+							evaluate the risks entailed in the activities contemplated under this Agreement.
+						</p>
+						<p class="text-color mb-3">
+							<span class="font-semibold">8.2.</span>
+							You shall be the sole owner and beneficiary of the account.
+						</p>
+						<p class="text-color mb-3">
+							<span class="font-semibold">8.3.</span>
+							You acknowledge and understand that the Company operates and is regulated under applicable
+							local laws and regulations of Seychelles. You are aware and you hereby acknowledge that
+							the Company cannot control your actions and you are required to make necessary inquiries
+							as to the legal status of your activities and applicable local laws and regulations, as
+							currently in force in your place of residence and abide by such laws and regulations. You
+							understand that laws regarding Financial Contracts vary throughout the world, and it is
+							your sole obligation to ensure that you fully comply with any laws, regulations, or directives,
+							relevant to your country of residency with regard to the use of the Web site and/or the
+							System. For the avoidance of doubt, an actual ability to access the Company’s Web site
+							does not necessarily mean that the Services and your activities are legal under the laws,
+							regulations, or directives, relevant to your country of residence. You hereby confirm,
+							after conducting the necessary inquiries, that there is no legal constraint which precludes
+							you from using the System or executing Transactions as described in this Agreement. To
+							remove any doubts, the Services are not to be used where they are illegal to use, and the
+							Company reserves the right to refuse to provide and/or cancel Services, in whole or in
+							part, to anyone at any time, at its own discretion without cause, including but not limited
+							to events in which the Company learns that you are performing activities which are not
+							regulated under the laws of your place of residence.
+						</p>
+						<p class="text-color mb-3">
+							<span class="font-semibold">8.4.</span>
+							All funds to be deposited by you in your account from time to time, are of legal origin
+							and are not the proceeds of crime, including but not limited to, proceeds of drug trafficking
+							or dealings in other prohibited substances or proceeds of illegal arms trades, illegal
+							gambling, prostitution, terror funds etc. To remove any doubts, monies received from you
+							are not invested in any securities, futures, currencies, derivatives, or other investments,
+							on your behalf by the Company or anyone on its behalf. Such monies are used as collateral
+							for your transactions in the System.
+						</p>
+						<p class="text-color mb-3">
+							<span class="font-semibold">8.5.</span>
+							You are aware of the risks involved in the execution of the transactions described in this
+							Agreement and you have read and understood the Risk Factors Disclosure section at the bottom
+							of this page, which forms an integral part hereof and you agree to all its terms.
+						</p>
+						<p class="text-color mb-3">
+							<span class="font-semibold">8.6.</span>
+							You acknowledge that you are solely responsible and personally liable for any actions and
+							orders to be executed in your account, including the settlement of any Transaction, whether
+							performed by you in person, any member of your family, any other third party who has gained
+							access to your account, or by your agent or attorney or the Company’s employees carrying
+							out your orders. You further agree that neither the Company nor its employees or anyone
+							on its behalf shall be liable in any way whatsoever for the outcomes or consequences of
+							such actions and/or orders. You are responsible for ensuring that you and you alone shall
+							control access to your account and that no minors are granted access to trading on the
+							System. In any case, you remain fully liable for all positions traded on your account,
+							and for any credit card transactions entered into the site for your account. You shall
+							also indemnify the Company in respect to all costs and losses of any kind, whatsoever as
+							may be incurred by the Company as a result, direct or indirect, of your failure to perform
+							or settle such a transaction.
+						</p>
+						<p class="text-color mb-3">
+							<span class="font-semibold">8.7.</span>
+							You are aware that the Company does not provide any equipment nor is it an Internet Service
+							Provider and therefore it shall not be liable, directly or indirectly, to any malfunction
+							of any kind and nature whatsoever, on your end, or any other equipment not provided by
+							the Company and/or any Internet connection malfunction and/or any computer program or software
+							bugs and/or errors including but not limited to delays in the transmittal of your orders
+							or the delayed receipt thereof. You shall be responsible for providing and maintaining
+							how to access the Website, which may include without limitation a personal computer, modem
+							telephone or another access line. You shall be responsible for all access, service, license
+							and subscription fees necessary to connect to the Website and assume all charges incurred
+							in accessing such systems. You further assume all risks associated with the use and storage
+							of information on your personal computer or on any other computer through which you will
+							gain access to the Website and the services (hereinafter referred to as “computer” or “your
+							computer”). You represent and warrant that you have implemented and plan to operate and
+							maintain appropriate protection in relation to the security and control of access to your
+							computer, computer viruses or other similarly harmful or inappropriate materials, devices,
+							information or data. You agree that the Company shall not be liable in any way to you in
+							the event of failure of or damage or destruction to your computer systems, data or records
+							or any part thereof, or for delays, losses, errors or omissions resulting from the failure
+							or mismanagement of any telecommunications or computer equipment or software. You shall
+							not transmit to or in any way, whether directly or indirectly, expose the Company or any
+							of its online service providers to any computer virus or other similarly harmful or inappropriate
+							material or device.
+						</p>
+						<p class="text-color mb-3">
+							<span class="font-semibold">8.8.</span>
+							Cancel feature abuse. The cancel feature enables the client to cancel his position within
+							a few seconds of the execution. The use of the cancel feature will be considered a system
+							abuse if the client cancels positions acceding to 20% of the number of executed options
+							in a trading period. The platform reserves the right to cancel a position that is resulted
+							in a cancel abuse or to suspend the client account in case such an abuse is detected.
+						</p>
+						<p class="text-color mb-3">
+							<span class="font-semibold">8.9.</span>
+							You acknowledge and confirm that the Company does not represent, warrant or guarantee that:
+							(i) you will be able to access or use the website at times or locations of your choosing,
+							or that the Company will have adequate capacity for the web site as a whole or in any geographic
+							location; and (ii) the web site will provide uninterrupted and error-free service. You
+							hereby further acknowledge and confirm that the Company shall not be responsible for an
+							impossibility to execute orders and requirements due to failures in the operation of information
+							systems caused by faults, of any kind whatsoever.
+						</p>
+						<p class="text-color mb-3">
+							<span class="font-semibold">8.10.</span>
+							You shall duly report your activities to any applicable tax or other authority, as may
+							be required by any laws applicable to you or to your country of residence and you shall
+							pay all applicable taxes, levies, governmental fees and charges associated with the activities
+							of your account including required deductions at source and you forego any claim against
+							the Company in this respect.
+						</p>
+						<p class="text-color mb-3">
+							<span class="font-semibold">8.11.</span>
+							You shall not abuse this site or the System for the purpose of money laundering. The Company
+							employs best-practice anti-money laundering procedures, which may have several effects
+							on you. The Company reserves the right to refuse to do business with, to discontinue to
+							do business with and to reverse the Transactions of, customers who do not accept or adhere
+							to these anti-money laundering processes. The anti-money laundering processes have the
+							following effects on customers:
+						</p>
+						<div class="px-4">
+							<p class="text-color mb-3">
+								<span class="font-semibold">8.11.1</span>
+								You must fill in the account opening form with all requested details that establish your
+								identity.
+							</p>
+							<p class="text-color mb-3">
+								<span class="font-semibold">8.11.2</span>
+								Winnings may only be paid to the initiator of an account and to an account under his
+								own name and not to any third party’s account. When you maintain an account by means
+								of telegraphic deposits, winnings are only paid to the holder of the originating bank
+								account, and it is your onus to ensure that the account number and name accompany all
+								transfers to the Company. When you maintain an account by means of credit/debit card
+								deposits, winnings are paid back to the same card up to the value of the collateral deposited.
+								Additional winnings will be transferred by telegraphic means subject to the conditions
+								described above.
+							</p>
+							<p class="text-color mb-3">
+								<span class="font-semibold">8.11.3</span>
+								Only one account is allowed per person. No winnings/profits may be collected on accounts
+								opened with false names or on multiple accounts opened by the same person and/or family,
+								or relatives from the same PC/IP.
+							</p>
+							<p class="text-color mb-3">
+								<span class="font-semibold">8.11.4</span>
+								It is forbidden to use VPN or RDP to hide the real country IP or third-party users. If
+								the Company discovers such illegal use of trading accounts, the client account will be
+								immediately closed, and penalties will be charged as part of compliance and risk management
+								checks, with a minimum of €500 up to €5000.
+							</p>
+							<p class="text-color mb-3">
+								<span class="font-semibold">8.11.5</span>
+								If the client connects from different IP countries, the Company has the right to investigate
+								and request supporting documents to determine if the client is using a VPN or RDP or
+								if the account is managed by a third party. Account management is not authorised unless
+								the Company has been informed in writing and has performed a KYC check on the third-party
+								user. It is forbidden to open an account using a nominee.
+							</p>
+							<p class="text-color mb-3">
+								<span class="font-semibold">8.11.6</span>
+								The Company may, at its sole discretion, require you to provide proof of identity (such
+								as a notarized copy of a passport or other means of identity verification as deemed necessary)
+								and may suspend an account until such proof has been provided to its satisfaction.
+							</p>
+							<p class="text-color mb-3">
+								<span class="font-semibold">8.11.7</span>
+								The use of E.A. (Expert Advisors) is not allowed unless the client has an STP account
+								(<a href="/account-types" class="text-dbgreen-500"
+									>https://www.dbInvesting.com/account-types/</a
+								>). The Company will not be responsible for any loss incurred. If the client uses
+								E.A. software with a different account type, the Company has the right to terminate
+								the agreement, return the total account balance, and retain any profit generated to
+								cover compliance checks resulting from the client’s breach of the agreement.
+							</p>
+						</div>
+						<p class="text-color mb-3">
+							<span class="font-semibold">8.12.</span>
+							You have read this Agreement in its entirety including its appendices, and understood its
+							content and implications, including the risk of loss of all of your Collateral, before
+							accepting its terms.
+						</p>
+						<p class="text-color mb-3">
+							<span class="font-semibold">8.13.</span>
+							If the Company discovers any negative reviews, comments, or posts on social media against
+							the Company brand, management, or employees, the Company reserves the right to immediately
+							terminate the agreement and hold the full account balance to cover legal fees and related
+							damages.
+						</p>
+						<p class="text-color mb-3">
+							<span class="font-semibold">8.14.</span>
+							Complaints/Dispute Resolution: Clients can file a complaint directly with the Company within
+							45 days from the time of the incident by sending an email to complaint@dbInvesting.com.
+							Please outline the situation and include the remedy you are seeking. We promptly investigate
+							client concerns, complaints, and disputes, and endeavor to work with you to resolve any
+							issues that arise.
+						</p>
+						<p class="text-color mb-3">
+							<span class="font-semibold">8.15.</span>
+							We offer both internal and external complaints resolution procedures. Please contact us
+							for information on how complaints are handled internally.
+						</p>
+						<p class="text-color mb-3">
+							<span class="font-semibold">8.16.</span>
+							Without limiting our right to take action under clauses 7, 7.1.4, and 7.2, we may also
+							cancel any order where there is a material breach of the Terms and Conditions.
+						</p>
+					</div>
+				</div>
+				<div class="my-3">
+					<h2 class="mb-4 text-xl font-semibold">9. Collateral</h2>
+					<div class="px-4">
+						<p class="text-color mb-3">
+							<span class="font-semibold">9.1.</span>
+							To be able to start using the System to execute Transactions, you shall be required to
+							transfer money to an account designated by the Company, to be used as collateral for the
+							Transactions described herein.
+						</p>
+						<p class="text-color mb-3">
+							<span class="font-semibold">9.2.</span>
+							The Company shall have all rights and authority concerning the Collateral until its withdrawal
+							by you.
+						</p>
+						<p class="text-color mb-3">
+							<span class="font-semibold">9.3.</span>
+							Any profits accruing from your Transactions shall be added to your account as supplementary
+							collateral. All losses resulting from your Transaction shall be deducted from your account.
+						</p>
+						<p class="text-color mb-3">
+							<span class="font-semibold">9.4.</span>
+							To remove any doubts, your credit balance shall bear no interest.
+						</p>
+					</div>
+				</div>
+				<div class="my-3">
+					<h2 class="mb-4 text-xl font-semibold">
+						10. Additional deposits, Withdrawals, and Closure of the Account
+					</h2>
+					<div class="px-4">
+						<p class="text-color mb-3">
+							<span class="font-semibold">10.1.</span>
+							Any withdrawal of the available Collateral, whether partial or total, including any accrued
+							profits (but not future profits) – shall be executed by you in writing, with prior notice
+							to the Company of at least seven business days.
+						</p>
+						<p class="text-color mb-3">
+							<span class="font-semibold">10.2.</span>
+							You may transfer to your account, at any time, additional funds to be used as Collateral
+							for Transactions. All terms of this Agreement shall apply to any additional funds so deposited.
+						</p>
+						<p class="text-color mb-3">
+							<span class="font-semibold">10.3.</span>
+							Payments into an account must be from the holder of the account and not from any third
+							party.
+						</p>
+						<p class="text-color mb-3">
+							<span class="font-semibold">10.4.</span>
+							You may only withdraw money from us by completing the steps required by our services and
+							complying with these Terms and Conditions.
+						</p>
+					</div>
+				</div>
+				<div class="my-3">
+					<h2 class="mb-4 text-xl font-semibold">11. Duly Authorized Persons</h2>
+					<div class="px-4">
+						<p class="text-color mb-3">
+							<span class="font-semibold">11.1.</span>
+							You may from time to time inform the Company of any person or persons that you have empowered
+							or authorized to communicate with the Company on your behalf. Such information shall only
+							be sent to the Company by a written notice, which shall include the names and identification
+							details of the authorized person or the persons. In addition, a signature specimen of each
+							of the above shall be delivered to the Company. This delegation of authority could also
+							be revoked in writing.
+						</p>
+						<p class="text-color mb-3">
+							<span class="font-semibold">11.2.</span>
+							Written or orally transmitted orders to execute Transaction by any such authorized representative
+							shall bind you and the Company for all intents and purposes.
+						</p>
+					</div>
+				</div>
+				<div class="my-3">
+					<h2 class="mb-4 text-xl font-semibold">
+						12. Recording Telephone Conversations and Record-Keeping
+					</h2>
+					<div class="px-4">
+						<p class="text-color mb-3">
+							<span class="font-semibold">12.1.</span>
+							The Company or an authorized party on its behalf may (but is not obligated to) record every
+							telephone conversation.
+						</p>
+						<p class="text-color mb-3">
+							<span class="font-semibold">12.2.</span>
+							The Company or an authorized party on its behalf shall keep copies of every written order
+							received from you for a period to be determined by its sole discretion. Furthermore, the
+							Company or an authorized party on its behalf shall maintain records of all your Transactions.
+						</p>
+						<p class="text-color mb-3">
+							<span class="font-semibold">12.3.</span>
+							Any of these records/recordings may be used by the Company for any purpose the Company
+							sees fit, including in the resolution of conflicts which might occur between the Parties.
+						</p>
+						<p class="text-color mb-3">
+							<span class="font-semibold">12.4.</span>
+							It is hereby clarified that the said records/recordings are the sole property of the Company,
+							and it is under no obligation to deliver or expose such material to anyone. It is further
+							clarified, that in any event in which the Company shall be required to deliver a copy of
+							such or provide documentation regarding your account, including by strict instructions
+							from the competent bodies or authorities, you shall bear the full cost of duplicating and/or
+							copying of any record and/or documents in accordance with the then current the Company
+							official price list for such services.
+						</p>
+					</div>
+				</div>
+				<div class="my-3">
+					<h2 class="mb-4 text-xl font-semibold">13. Risks and Liability</h2>
+					<div class="px-4">
+						<p class="text-color mb-3">
+							<span class="font-semibold">13.1.</span>
+							Our total liability is limited to the total amount of client money as defined in this Agreement.
+						</p>
+						<p class="text-color mb-3">
+							<span class="font-semibold">13.2.</span>
+							All the Transactions shall be carried out on your behalf and at your risk. Neither the
+							Company nor any authorised party on its behalf shall be held liable for any loss, damage
+							or debt incurred by you resulting directly or indirectly from actions contemplated under
+							this Agreement. To remove any doubts, in any event, any sum to be claimed by you may not
+							exceed your Collateral.
+						</p>
+						<p class="text-color mb-3">
+							<span class="font-semibold">13.3.</span>
+							You hereby declare that you understand and accept that a fundamental pre-condition to this
+							Agreement relates to the Company’s right, relates to the Company’s right to close at any
+							time, without advanced notice, any Transaction executed by you, in the event that your
+							portfolio shall be of zero value or less, as calculated with respect to the fluctuations
+							in the Financial Contracts prices.
+						</p>
+						<p class="text-color mb-3">
+							<span class="font-semibold">13.4.</span>
+							We are not liable for any claim, loss, expense, cost, or liability of any kind, whether
+							caused directly or indirectly by us or any third party, except to the extent that such
+							loss, expense, cost, or liability is incurred as a result of our gross negligence or willful
+							default.
+						</p>
+					</div>
+				</div>
+				<div class="my-3">
+					<h2 class="mb-4 text-xl font-semibold">14. Reports</h2>
+					<p class="text-color mb-3">
+						At your request, the Company or an authorized party on its behalf shall provide you with
+						reports of all your Transactions and your current Collateral amount.
+					</p>
+				</div>
+				<div class="my-3">
+					<h2 class="mb-4 text-xl font-semibold">15. Commissions and Charges</h2>
+					<div class="px-4">
+						<p class="text-color mb-3">
+							<span class="font-semibold">15.1.</span>
+							You shall not be charged any commissions by the Company for any Transaction executed unless
+							agreed otherwise by the Parties hereto.
+						</p>
+						<p class="text-color mb-3">
+							<span class="font-semibold">15.2.</span>
+							The company has the right to debit commissions and charges for deposits, withdrawals, compliance
+							and Risk Management checks, account closing, and fraud checks.
+						</p>
+					</div>
+				</div>
+				<div class="my-3">
+					<h2 class="mb-4 text-xl font-semibold">16. Transactions and Trade Characteristics</h2>
+					<div class="px-4">
+						<p class="text-color mb-3">
+							<span class="font-semibold">16.1.</span>
+							Each Transaction shall be executed in accordance with the applicable procedures as set
+							forth in the Trading Manual. For all intents and purposes, the acceptance of a Transaction
+							by you and the deposit of the Collateral to be used in such a Transaction shall be sufficient
+							consideration.
+						</p>
+						<p class="text-color mb-3">
+							<span class="font-semibold">16.2.</span>
+							The acceptance of your instructions by the Company and the facilitation of execution of
+							Financial Contracts by the Company shall be in accordance with customary practices in the
+							international financial markets and customary practices which apply to Financial Contracts
+							of the nature of the Contracts executed by you using the System.
+						</p>
+					</div>
+				</div>
+				<div class="my-3">
+					<h2 class="mb-4 text-xl font-semibold">
+						17. Stop Trade, Inaccurate Quotes, and Force Major
+					</h2>
+					<div class="px-4">
+						<p class="text-color mb-3">
+							<span class="font-semibold">17.1.</span>
+							You understand that the trading facilities provided by the System may be halted or suspended
+							at any time without prior notice due to circumstances beyond the control of the Company.
+							In such an event, the Company or an authorized party on its behalf may close any open positions
+							you may have (by performing a Reverse Transaction) without prior written notice being sent
+							to you, at fair market value reflecting, as closely as possible, the applicable prices
+							of the relevant Contracts. You hereby waive any claims of indemnification/suits/causes
+							of action against the Company in such an event and acknowledge that such waiver is a pre-condition
+							to the validity of this Agreement.
+						</p>
+						<p class="text-color mb-3">
+							<span class="font-semibold">17.2.</span>
+							The Company reserves the right, provided prior written notice to this effect has been sent
+							to you, to cancel any Transaction that due to a System and/or human error, whether under
+							the control of the Company or not, has been executed at a price which at the time of the
+							Transaction was not the indicative and/or accurate price of that said Financial Contract
+							created by the transaction.
+						</p>
+					</div>
+				</div>
+				<div class="my-3">
+					<h2 class="mb-4 text-xl font-semibold">18. Settlements and Payments</h2>
+					<div class="px-4">
+						<p class="text-color mb-3">
+							<span class="font-semibold">18.1.</span>
+							No funds or assets shall be transferred by one party (A) to the other (B) with respect
+							to any Transaction, other than the settlement of your losses which shall be deducted by
+							the Company or an authorized party on its behalf from the Collateral and payments of accrued
+							profits made out to you by the Company or an authorized party on its behalf.
+						</p>
+						<p class="text-color mb-3">
+							<span class="font-semibold">18.2.</span>
+							It is hereby clarified that the Company does not provide currency exchange services and
+							therefore your Collateral may not be repaid to you in a currency different from the currency
+							you deposited with the Company. The outstanding balance (of your debts and receivables
+							from the Company) shall be repaid to you in the same currency with which you paid your
+							Collateral
+						</p>
+						<p class="text-color mb-3">
+							<span class="font-semibold">18.3.</span>
+							To remove any doubts, all payments demanded by you shall be transferred to you within,
+							and no later than, seven (7) business days following your payment request.
+						</p>
+					</div>
+				</div>
+				<div class="my-3">
+					<h2 class="mb-4 text-xl font-semibold">19. Withdrawal money from your account</h2>
+					<div class="px-4">
+						<p class="text-color mb-3">
+							<span class="font-semibold">19.1.</span>
+							If you wish to withdraw funds accrued in your account, you might complete, sign, and return
+							the “Request for Release of Funds” form to the Company as a pre-condition for processing
+							your request. This form will be provided by the Company or an authorised party on its behalf.
+							No funds will be released without prior receipt of the duly signed form by the Company
+							or an authorised party on its behalf.
+						</p>
+						<p class="text-color mb-3">
+							<span class="font-semibold">19.2.</span>
+							To process a withdrawal, your request must meet the following criteria:
+						</p>
+						<ul class="text-color mb-4 list-outside list-disc px-4">
+							<li>The minimum withdrawal amount by wire or card is 50 EUR or USD.</li>
+							<li>
+								Withdrawals are processed only if all KYC documentation on the account is in order.
+								Missing documents may delay the withdrawal.
+							</li>
+							<li>
+								If there are open positions, the back office reserves the right to wait for adequate
+								available capital before processing the withdrawal.
+							</li>
+							<li>
+								The Broker reserves the right to conduct a post-clearance check on the correct
+								application of spreads and swaps on closed positions.
+							</li>
+							<li>
+								A withdrawal request will be declined if the amount requested exceeds the available
+								assets and margin on the platform. If you wish to request a larger withdrawal than
+								the available margin allows, you must send an authorization email accepting personal
+								responsibility for reducing your trading account to Margin Call status and the
+								associated risks.
+							</li>
+							<li>
+								Withdrawals are processed within a few hours or a maximum of 48 hours of the request
+								(excluding Saturdays, Sundays, and holidays), unless further delays are caused by
+								missing documents or for Compliance and Risk checks.
+							</li>
+						</ul>
+						<p class="text-color mb-3">
+							<span class="font-semibold">19.3.</span>
+							When your account has a positive balance, you may request payment by alternative means
+							for the specified amount. However, we may, at our discretion, withhold or delay payment
+							of the requested amount if: a) You have any contingent liability to us in respect of any
+							account open with us. b) There is an unresolved dispute between us and you in connection
+							with these Terms and Conditions. c) We have reason to believe that paying you some or all
+							of the requested amount may cause undue risk to us (including, without limitation, financial
+							risk), our other clients, our services, or our Trading Platform. In such circumstances,
+							we will pay the requested amount once we believe such risk has dissipated. d) We consider
+							it necessary or desirable to withhold such an amount to comply with our regulatory or legal
+							obligations. We will notify you as soon as reasonably practicable if we decide to take
+							such action, subject to any applicable laws.
+						</p>
+					</div>
+				</div>
+				<div class="my-3">
+					<h2 class="mb-4 text-xl font-semibold">20. Refund Policy</h2>
+					<p class="text-color mb-3">
+						In case you wish for a refund of your funds, DB INVEST will fully refund you, your
+						unused funds with the DB INVEST account. We will process the refund promptly and ensure
+						that the entire amount of unused funds is returned to you.
+					</p>
+				</div>
+				<div class="my-3">
+					<h2 class="mb-4 text-xl font-semibold">21. Deposit Policy</h2>
+					<p class="text-color mb-3">
+						The Company DB Invest Limited, Appointed an Independent Representative and Distributor
+						of the company Enigma081 Ltd, with registration number ΗΕ 391568 and registered address
+						206, Arch, Makarios III Ave., Chrysalia Building, 2nd floor, Limassol, Cyprus.
+					</p>
+				</div>
+				<div class="my-3">
+					<h2 class="mb-4 text-xl font-semibold">22. Intellectual property</h2>
+					<div class="px-4">
+						<p class="text-color mb-3">
+							<span class="font-semibold">22.1.</span>
+							This Web site belongs to us or a third party including our licensors. This content may
+							include names, terms and/or data which may or may not be identified with a symbol identifying
+							it as a name, term or item in which copyright is claimed or a registered trademark is held.
+							The lack of any such symbol All copyright, database rights, trademarks and other intellectual
+							property rights in the content of should not, under any circumstances, be understood as
+							meaning that the name, term or data is not the intellectual of either us or a third party.
+						</p>
+						<p class="text-color mb-3">
+							<span class="font-semibold">22.2.</span>
+							Any third-party intellectual property used by us in the content of our Web site should
+							not be interpreted as meaning that the third-party owner sponsors, endorses or is in any
+							way affiliated with us or with our business, nor that they make any representation regarding
+							the advisability of betting on or trading in our products.
+						</p>
+						<div class="px-4">
+							<p class="text-color mb-3">
+								<span class="font-semibold">22.2.1..</span>
+								Except where necessary in order to view the information on this Web site on your browser,
+								or as permitted under Seychelles law or these Terms and Conditions, no information or
+								content on this Web site may be reproduced, adapted, uploaded to a third party, linked
+								to, framed, performed in public, distributed or transmitted in any form by any process
+								without our specific written consent.
+							</p>
+						</div>
+						<p class="text-color mb-3">
+							<span class="font-semibold">22.3.</span>
+							In addition to the above, you agree not to “deep-link” to the Website, resell or permit
+							access to the Website to others and not to copy any materials appearing on the Website
+							for resale or for any other purpose to others without the prior written consent of the
+							Company. For the avoidance of doubt, you shall be responsible and be bound by any unauthorised
+							use of the site by you, made in breach of this section.
+						</p>
+					</div>
+				</div>
+				<div class="my-3">
+					<h2 class="mb-4 text-xl font-semibold">23. GDPR and personal data</h2>
+					<p class="text-color mb-3">
+						You agree to use the information received from the information systems of the Company
+						for the sole purpose of executing Transactions inside and within the Company’s Website
+						or System. You further agree not to use any electronic communication feature of a
+						Service on the site for any purpose that is unlawful, tortuous, abusive, and intrusive
+						on another’s privacy, harassing, libellous, defamatory, embarrassing, obscene,
+						threatening or hateful.
+					</p>
+					<div class="px-4">
+						<p class="text-color mb-3">
+							<span class="font-semibold">23.1.</span>
+							Any personal information you provide to us through the Platform will be used to provide
+							you with the Platform, our services, or in accordance with our Privacy Policy. We may also
+							collect data regarding how you and your device interact with the Platform, the internet,
+							communication networks, and other related aspects to assist with the continuous development
+							and improvement of its operation and our services to you. By using the Platform, you agree
+							to the collection and use of such data.
+						</p>
+					</div>
+				</div>
+				<div class="my-3">
+					<h2 class="mb-4 text-xl font-semibold">24. License to use our platform</h2>
+					<p class="text-color mb-3">
+						The license granted under this Agreement shall be terminated if the Company shall have
+						reason to believe that any information provided by you, including your e-mail address,
+						is no longer current or accurate, or if you fail to otherwise comply with any terms or
+						conditions of this Agreement and all rules and guidelines for each Service. Upon such
+						violation, you agree to cease access to the Services. You agree that the Company, at its
+						sole discretion and with or without notice, may terminate your access to any or all
+						Services, and remove and discard any information or content within a Service including
+						adding penalties and removing any profit/debit from your account.
+					</p>
+				</div>
+				<div class="my-3">
+					<h2 class="mb-4 text-xl font-semibold">25. Ownership</h2>
+					<p class="text-color mb-3">
+						The license granted to you by the Company in this Agreement to use the Software will
+						remain in effect for so long as this Agreement or any amended agreement which replaces
+						it from time to time, also remains in full force and effect. Ownership of the Software,
+						Documentation and all intellectual property rights therein shall remain at all times
+						with the Company. Any other use of the Software by any person, business, corporation,
+						government organization or any other entity is strictly forbidden and is a violation of
+						this Agreement.
+					</p>
+				</div>
+				<div class="my-3">
+					<h2 class="mb-4 text-xl font-semibold">26. Proprietary Protection</h2>
+					<p class="text-color mb-3">
+						The Website, Software and Documentation contain material that is protected by
+						international copyright, trade secrets and trademark laws, and by applicable
+						international treaty provisions. All rights not granted to you herein are expressly
+						reserved by the Company or its applicable licensor, suppliers or partners. You may not
+						remove any proprietary notice of the Company from any copy of the Software or
+						Documentation.
+					</p>
+				</div>
+				<div class="my-3">
+					<h2 class="mb-4 text-xl font-semibold">27. Restrictions</h2>
+					<div class="px-4">
+						<p class="text-color mb-3">
+							<span class="font-semibold">27.1.</span>
+							You may not publish, display, disclose, rent, lease, modify, loan, distribute, or create
+							derivative works based on the Software or any part thereof. You may not reverse engineer,
+							decompile, translate, adapt, or disassemble the Software, nor shall you attempt to create
+							the source code from the object code for the Software. You may transfer the Software to
+							other computers that you own, as long as you only use it on one computer at a time.
+						</p>
+						<p class="text-color mb-3 font-semibold">
+							<span class="font-semibold">27.2.</span>
+							DB INVEST Limited doesn’t provide Investment services in the EU, USA, Canada, Iran, Iraq,
+							Armenia, Azerbaijan, UK any FATFA, or FATF-restricted countries.
+						</p>
+					</div>
+				</div>
+				<div class="my-3">
+					<h2 class="mb-4 text-xl font-semibold">28. Hyperlinks</h2>
+					<p class="text-color mb-3">
+						The Company may provide links to other sites that are controlled or offered by third
+						parties. Such link to a site(s) is not an endorsement, authorization, sponsorship, or
+						affiliation with respect to such site, its owners or its providers.
+					</p>
+				</div>
+				<div class="my-3">
+					<h2 class="mb-4 text-xl font-semibold">29. Current and binding form</h2>
+					<p class="text-color mb-3">
+						You acknowledge and agree to the fact that the Company may update and/or adjust and/or
+						amend the terms of this Agreement from time to time according to the needs of its
+						activity and in its sole discretion, provided however that the accurate and current
+						binding form shall be published and accessible to you on the Company’s Web site. The
+						binding form of this Agreement shall be in accordance with the current form in force at
+						any applicable time.
+					</p>
+				</div>
+				<div class="my-3">
+					<h2 class="mb-4 text-xl font-semibold">30. Confidentiality</h2>
+					<p class="text-color mb-3">
+						You acknowledge that the Software contains proprietary trade secrets of the Company, and
+						you hereby agree to maintain the confidentiality of the Software using at least as great
+						a degree of care as you use to maintain the confidentiality of your own most
+						confidential information. You agree to reasonably communicate the terms and conditions
+						of this Agreement to those persons employed by you who come into contact with the
+						Software and to use your best efforts to ensure their compliance with such terms and
+						conditions.
+					</p>
+				</div>
+				<div class="my-3">
+					<h2 class="mb-4 text-xl font-semibold">31. Limited Warranty</h2>
+					<p class="text-color mb-3">
+						ANY USE BY YOU OF THE COMPANY’S WEBSITE AND SOFTWARE IS AT YOUR OWN RISK. THE WEBSITE
+						AND SOFTWARE ARE PROVIDED “AS IS” WITHOUT WARRANTY OR REPRESENTATION OF ANY KIND
+						WHATSOEVER BY THE COMPANY INCLUDING BUT NOT LIMITED TO MERCHANTABILITY OR FITNESS FOR A
+						PARTICULAR PURPOSE. TO THE MAXIMUM EXTENT PERMITTED BY LAW, THE COMPANY DISCLAIMS ALL
+						WARRANTIES OF ANY KIND, BOTH EXPRESS AND IMPLIED, INCLUDING, WITHOUT LIMITATION, IMPLIED
+						WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. THE COMPANY DOES NOT
+						WARRANT THAT THE FUNCTIONS CONTAINED IN THE SOFTWARE WILL MEET ANY REQUIREMENTS OR NEEDS
+						YOU MAY HAVE, THAT THE SOFTWARE WILL OPERATE ERROR-FREE, OR IN AN UNINTERRUPTED FASHION,
+						OR THAT ANY DEFECTS OR ERRORS IN THE SOFTWARE WILL BE CORRECTED, OR THAT THE SOFTWARE IS
+						COMPATIBLE WITH ANY PARTICULAR PLATFORM. YOU ACKNOWLEDGE THAT GOOD DATA PROCESSING
+						PROCEDURE DICTATES THAT ANY PROGRAM INCLUDING THE SOFTWARE MUST BE THOROUGHLY TESTED
+						WITH NON-CRITICAL DATA BEFORE YOU RELY ON IT, AND YOU HEREBY ASSUME THE ENTIRE RISK OF
+						USING THE SOFTWARE. THIS DISCLAIMER OF WARRANTY CONSTITUTES AN ESSENTIAL PART OF THIS
+						LICENSE. SOME JURISDICTIONS DO NOT ALLOW THE WAIVER OR EXCLUSION OF IMPLIED WARRANTIES
+						SO THEY MAY NOT APPLY TO YOU.
+					</p>
+				</div>
+				<div class="my-3">
+					<h2 class="mb-4 text-xl font-semibold">32. Limitation of Liability</h2>
+					<p class="text-color mb-3">
+						IN NO EVENT SHALL THE COMPANY ITS OFFICERS, DIRECTORS OR EMPLOYEES BE LIABLE TO YOU OR
+						ANY THIRD PARTY FOR ANY INCIDENTAL OR CONSEQUENTIAL DAMAGES (INCLUDING, WITHOUT
+						LIMITATION, INDIRECT, SPECIAL, PUNITIVE, OR EXEMPLARY DAMAGES FOR LOSS OF BUSINESS, LOSS
+						OF PROFITS, BUSINESS INTERRUPTION, OR LOSS OF BUSINESS INFORMATION) ARISING OUT OF THE
+						USE OF OR INABILITY TO USE THE SOFTWARE, OR FOR ANY CLAIM BY ANY OTHER PARTY, EVEN IF
+						THE COMPANY HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES. THE COMPANY’S AGGREGATE
+						LIABILITY CONCERNING ITS OBLIGATIONS UNDER THIS AGREEMENT OR OTHERWISE CONCERNING THE
+						SOFTWARE AND DOCUMENTATION SHALL NOT EXCEED THE AMOUNT OF THE FEES PAID BY YOU FOR THE
+						USE OF THE SOFTWARE AND DOCUMENTATION. BECAUSE SOME STATES/COUNTRIES DO NOT ALLOW THE
+						EXCLUSION OR LIMITATION OF LIABILITY FOR CONSEQUENTIAL OR INCIDENTAL DAMAGES, THE ABOVE
+						LIMITATION MAY NOT APPLY TO YOU.
+					</p>
+				</div>
+				<div class="my-3">
+					<h2 class="mb-4 text-xl font-semibold">33. Privacy Statement</h2>
+					<p class="text-color mb-3">
+						The Company regards the privacy of its customers and the protection of information
+						concerning them as of prime importance. We store and process your information on servers
+						where they are protected by both physical and technological security measures. If you
+						object to your information being treated in this way, please do not use our services. We
+						shall not sell or rent your personal information to third parties for any purposes
+						without your explicit consent and we shall only use your information as described in our
+						Privacy Policy.
+					</p>
+					<div class="px-4">
+						<p class="text-color mb-3">
+							<span class="font-semibold"> 33.1</span>
+							By accepting this Agreement you consent and authorised to the receipt information of promotional
+							and advertising material which will be sent to you by us, whether our own or of any other
+							third party, for the period that you have an account with us and after you closed the account.
+							However, if you do not wish to receive such information, you must advise us in writing.
+						</p>
+					</div>
+				</div>
+				<div class="my-3">
+					<h2 class="mb-4 text-xl font-semibold">34. Termination of Agreement</h2>
+					<div class="px-4">
+						<p class="text-color mb-3">
+							<span class="font-semibold">34.1</span>
+							We may terminate your DB Investing Account or any associated DB Investing Services (including
+							the closing of your IB Wallet(s) or DB Investing Trading Account) by providing you with
+							one (1) week’s prior notice, which will be sent to the most recent email address you have
+							provided. You may terminate this Agreement at any time by giving the Company 48 hours’
+							advance notice via mail or the ticketing system.
+						</p>
+						<p class="text-color mb-3">
+							<span class="font-semibold">34.2</span>
+							We can suspend your DB Investing Account or any associated DB Investing Services (including
+							suspending your IB Wallet(s) or DB Investing Trading Account), restrict its functionality,
+							or terminate this Agreement with immediate effect if:
+						</p>
+						<div class="px-4">
+							<p class="text-color mb-3">
+								<span class="font-semibold">34.2.1.</span>
+								You have not provided the necessary information, or we believe that any information you
+								have provided is incorrect or false; or you do not respond to our compliance and back
+								office requests for KYC and AML documents; or you have a business conflict of interest
+								that could affect our company and business, including employment with a competitor bank
+								or investment firm.
+							</p>
+							<p class="text-color mb-3">
+								<span class="font-semibold">34.2.2.</span>
+								You do not repay money that you owe to us.
+							</p>
+							<p class="text-color mb-3">
+								<span class="font-semibold">34.2.3.</span>
+								You fail to provide identity information or documents as reasonably required by us to
+								comply with Applicable Law or regulatory authority requirements.
+							</p>
+							<p class="text-color mb-3">
+								<span class="font-semibold">34.2.4.</span>
+								You fail to meet any KYC, AML, or other due diligence checks conducted by us at any time.
+							</p>
+							<p class="text-color mb-3">
+								<span class="font-semibold">34.2.5.</span>
+								In our reasonable opinion, your financial position or credit rating deteriorates to such
+								an extent that your ability to fulfill your obligations under this Agreement, or our
+								ability to comply with Applicable Law, is jeopardized.
+							</p>
+							<p class="text-color mb-3">
+								<span class="font-semibold">34.2.6.</span>
+								You become bankrupt.
+							</p>
+							<p class="text-color mb-3">
+								<span class="font-semibold">34.2.7.</span>
+								You fail to adhere to any Applicable Law or regulatory requirements.
+							</p>
+							<p class="text-color mb-3">
+								<span class="font-semibold">34.2.8.</span>
+								We are required to do so under Applicable Law or believe that continued provision of
+								DB Investing Services to you may breach Applicable Law.
+							</p>
+							<p class="text-color mb-3">
+								<span class="font-semibold">34.2.9.</span>
+								We are required to do so by any of our regulators, banks, or payment service providers.
+							</p>
+							<p class="text-color mb-3">
+								<span class="font-semibold">34.2.10.</span>
+								You have breached this Agreement, particularly for the following reasons:
+							</p>
+							<ul class="text-color mb-4 list-outside list-disc px-4">
+								<li>
+									Breach in the company’s promotion for the individual trader (including welcome
+									bonus)
+								</li>
+								<li>
+									Breach in the Account Type trading (using the Standard account as a Scalping
+									account),
+								</li>
+								<li>Manipulation in the IB commission fee with the Master IB</li>
+								<li>Use of VPN, VPS, or EI without the company’s consent</li>
+								<li>Open multiple accounts used by the same user, and IP shared by the accounts</li>
+								<li>Delegate a third party to use the account</li>
+								<li>Open an account using third-party documents to cover the real user identity</li>
+								<li>Suspect Money Laundering</li>
+							</ul>
+						</div>
+						<p class="text-color mb-3">
+							<span class="font-semibold">34.3.</span>
+							If we suspend or terminate your DB Investing Account or any associated payment service
+							(including suspending your IB Wallet(s) or DB Investing Trading Account), we will notify
+							you in advance or as soon as possible afterward, where lawfully permitted.
+						</p>
+						<p class="text-color mb-3">
+							<span class="font-semibold">34.4.</span>
+							Termination of the Agreement by any party requires you to close all open positions by executing
+							the necessary transactions.
+						</p>
+						<p class="text-color mb-3">
+							<span class="font-semibold">34.5.</span>
+							From the date of the termination notice, you may not execute any new transactions that
+							would open new positions in your account.
+						</p>
+						<p class="text-color mb-3">
+							<span class="font-semibold">34.6.</span>
+							The Company can debit fees following your account closing if there is proof of account
+							manipulation, abuse, or breach of the terms and conditions.
+						</p>
+						<p class="text-color mb-3">
+							<span class="font-semibold">34.7.</span>
+							In case of termination of the agreement due to a breach of the terms and conditions by
+							the user, the Company can also:
+						</p>
+						<div class="px-4">
+							<p class="text-color mb-3">
+								<span class="font-semibold">34.7.1.</span>
+								Remove any profits illegally generated by trading activity or commissions generated by
+								illegal or non-accepted trader/IB activity.
+							</p>
+							<p class="text-color mb-3">
+								<span class="font-semibold">34.7.2.</span>
+								Debit extra costs in the case of abuse of the system. The costs include also: monthly
+								fees, spread, commissions, and swaps, previously not paid by the user
+							</p>
+							<p class="text-color mb-3">
+								<span class="font-semibold">34.7.3.</span>
+								Debit legal and compliance costs following non-cooperation with KYC and AML requirements,
+								with a minimum of USD500 up to 10% of the total deposits.
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="my-3">
+					<h2 class="mb-4 text-xl font-semibold">35. Miscellaneous</h2>
+					<div class="px-4">
+						<p class="text-color mb-3">
+							<span class="font-semibold"> 35.1.</span>
+							This Agreement, including all Sections listed herein, comprises the entire and exclusive
+							agreement of the Parties with respect to the subject matter hereof and supersedes any and
+							all prior and contemporaneous agreements, understandings, arrangements, proposals or representations
+							whether written or oral, heretofore made between the Parties and relating to this subject
+							matter. In the event that Customer is comprised of several entities or individuals, the
+							terms of this Agreement shall bind all of them jointly and severally.
+						</p>
+						<p class="text-color mb-3">
+							<span class="font-semibold"> 35.2.</span>
+							All obligations under this Agreement shall be performed by and between the Parties. This
+							Agreement does not create any rights on behalf of, or to the benefit of, any other third
+							party, not a signatory hereto.
+						</p>
+						<p class="text-color mb-3">
+							<span class="font-semibold"> 35.3.</span>
+							You may not transfer this Agreement or any of your rights or obligations hereunder to any
+							third party.
+						</p>
+						<p class="text-color mb-3">
+							<span class="font-semibold"> 35.4.</span>
+							The Company or an authorised party on its behalf may send to you any notices and documents
+							by post, telex, courier, e-mail or fax, as it deems fit. Any notice to be sent by you to
+							the Company shall be sent by certified mail or by courier. Such notice shall be effective
+							upon its actual receipt by the Company.
+						</p>
+						<p class="text-color mb-3">
+							<span class="font-semibold"> 35.5.</span>
+							This Agreement shall be construed and enforced in accordance with and shall be governed
+							by Seychelles, notwithstanding any conflicts of laws or principles. Each of the Parties
+							hereby irrevocably (i) consents to any suit, legal action or proceeding concerning this
+							Agreement being brought exclusively in the competent courts of Seychelles (the “Courts”)
+							and waives to the fullest extent permitted by law any objection which it may have now or
+							hereafter to the venue of any such suit, action or proceeding in any such Courts and any
+							claim that any such suit, action or proceeding has been brought in an inconvenient forum,
+							(ii) acknowledges the competence of such Courts, (iii) explicitly submits to the exclusive
+							jurisdiction of such courts in any such suit, action or proceeding, and (iv) agrees that
+							final judgment in any such suit, action or proceeding brought in such Courts shall be conclusive
+							and binding upon it and may be enforced in all courts.
+						</p>
+					</div>
+				</div>
+				<div class="my-3">
+					<h2 class="mb-4 text-xl font-semibold">36. Trading Analysis, news and opinions</h2>
+					<p class="text-color mb-3">
+						Any opinions, news, research, analyses, prices, or other information contained on this
+						website is provided as general market commentary and does not constitute and may not be
+						construed as investment advice of any kind. The Company shall not accept liability for
+						any loss or damage, including without limitation to, any loss of profit, which may arise
+						directly or indirectly from the use of or reliance on such information as mentioned
+						above
+					</p>
+					<div class="px-4">
+						<p class="text-color mb-3">
+							<span class="font-semibold"> 36.1.</span>
+							By using the services offered by the Company and by using this website the user agrees
+							that www.DBInvesting.com, the author and any other entities associated with www.DBInvesting.com
+							shall not be held liable for any direct or indirect, consequential loss or any damages
+							whatsoever arising from this usage, or the use of any information, signals, software, messages,
+							manual, worksheet, instructions, alerts, directives, etc. and any other information contained
+							in regard to its use and understanding
+						</p>
+						<p class="text-color mb-3">
+							<span class="font-semibold"> 36.2.</span>
+							Use of this site and the services offered by DB INVEST are made at your own risk. The decision
+							to open an account is unilateral by the client.
+						</p>
+						<p class="text-color mb-3">
+							<span class="font-semibold"> 36.3.</span>
+							Neither guarantees of performance, results nor any anticipated Return on investment is
+							offered at any time.
+						</p>
+						<p class="text-color mb-3">
+							<span class="font-semibold"> 36.4.</span>
+							Past performance is not and may be construed or relied upon as a guarantee of future results.
+						</p>
+						<p class="text-color mb-3">
+							<span class="font-semibold"> 36.5.</span>
+							By using this website, you agree to assume full and exclusive responsibility liability
+							for your research, decisions, and actions before depositing funds and opening a trade.
+						</p>
+					</div>
+				</div>
+				<div class="my-3">
+					<h2 class="mb-4 text-xl font-semibold">37. SWAP AND SPREAD RATES</h2>
+					<p class="text-color mb-3">
+						The Swap and Spread ratios applied when Investing with DB Investing are indicated on our
+						website at the page <a
+							href="https://dbinvesting.com/trading-conditions/"
+							target="_blank"
+							class="text-dbgreen-500">https://dbinvesting.com/trading-conditions/</a
+						>
+					</p>
+					<p class="text-color mb-3">
+						For investors who are new to trading, we have briefly summarized what these expressions
+						mean.
+					</p>
+					<p class="text-color mb-3">
+						<span class="font-semibold">Swap,</span> Swap Fees are the cost of a trade that is applied
+						to transactions that are open at the end of the day resulting from the difference between
+						the interest rates of the countries to which the currency pair is traded. “Forex” money is
+						lent money in Forex markets and “Sold” money is borrowed. According to this logic, you can
+						see the swap income or cost as follows in the simplest way;
+					</p>
+					<p class="text-color mb-3">
+						<span class="font-semibold">Swap position,</span> If the interest rate of the received money
+						is low and the interest rate of the money being sold is high (-), the cost is deducted from
+						the investor’s account. If the interest rate of the sold money is low and the interest rate
+						of the money received is high (+) It is returned to the investor as income.
+					</p>
+				</div>
+				<div class="my-3">
+					<h2 class="mb-4 text-xl font-semibold">Rules Regarding Swap Fees</h2>
+					<p class="text-color mb-3">
+						Swap costs or revenues are not applied to positions closed on the same day. Swap rates
+						apply to positions that are still open at the end of the day.
+					</p>
+					<p class="text-color mb-3">
+						Change swap balances because of the interest rates of the countries to which the
+						relevant currency units belong.
+					</p>
+					<p class="text-color mb-3">
+						A 3-day swap is applied to positions that are not yet closed on Thursdays (equivalent to
+						the value of the weekend) because the Forex market is valued at +2 days. On other days
+						this practice is 1 day.
+					</p>
+					<p class="text-color mb-3">
+						You can choose the Islamic Account option as a non-swap-based application.
+					</p>
+				</div>
+				<div class="my-3">
+					<h2 class="mb-4 text-xl font-semibold">Spread</h2>
+					<p class="text-color mb-3">
+						The difference between the buying and selling prices of financial assets is called
+						“Spread” and is expressed in “pip” unit.
+					</p>
+					<p class="text-color mb-3">
+						For example, if the buying price is 1.1225 and the selling price is 1.1223 in the EURUSD
+						parity, this spread is 2 pips for Spread (1,1225-1,1223 = 0,002). Therefore, when you
+						open a lot (i.e. 100 thousand units) in one lot, you will end up with a cost of 0,0002 *
+						100,000 = 20 USD Spread.
+					</p>
+					<p class="text-color mb-3">
+						It is only the cost to open this position. If the parity reaches 1,1227, your cost will
+						be zero. Spread, which is an important cost for the investor, can be fixed or variable.
+						Variable Spread is low at times of increased liquidity in the markets but may be high in
+						liquidity shortage. Fixed Spreads are fixed values offered to investors of brokerage
+						houses.
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+</Layout>

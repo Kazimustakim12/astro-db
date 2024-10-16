@@ -10,84 +10,67 @@ const globalimages = import.meta.glob<{ default: ImageMetadata }>(
 )
 ---
 
-<!-- <div
-	class="relative z-20 w-full overflow-hidden bg-gray-100 py-3 before:absolute before:start-1/2 before:top-0 before:-z-[1] before:size-full before:-translate-x-1/2 before:transform before:bg-[url('/src/images/world_bg.png')] before:bg-center before:bg-no-repeat before:opacity-45 before:hue-rotate-60 dark:bg-black dark:before:bg-[url('/src/images/world_bg.png')]"
->
-	<div class="container p-0">
-		<div class="grid lg:grid-cols-5 lg:items-center lg:gap-x-8 xl:gap-x-12">
-			<div
-				class="order-1 lg:order-[0] lg:col-span-3"
-				data-aos="fade-up-sm"
-			>
-				<h1 class="text-5xl font-bold sm:text-6xl">
-					About <span class="font-semibold text-dbgreen-500">{title} </span>
-				</h1>
-				<p class="mt-6 text-lg text-gray-800 dark:text-neutral-400">
-					{description}
-				</p>
-
-				<div class="mt-6">
-					<Button
-						text="Create An Account"
-						primary={false}
-						rippleEffect="true"
-						primary="true"
-						class="mt-6"
-					/>
-					<Button
-						text="Try Demo Account"
-						rippleEffect="true"
-						primary={false}
-						class="mt-6"
-					/>
-				</div>
-			</div>
-			<div
-				class="m-auto mt-0 lg:col-span-2 lg:mt-0"
-				data-aos="fade-up-sm"
-				data-aos-delay="100"
-			>
-				<Image
-					src={globalimages[image]()}
-					class="h-[20rem] w-full rounded-xl object-cover lg:h-[25rem]"
-					alt={title}
-					loading="eager"
-				/>
-			</div>
-		</div>
-	</div>
-</div> -->
 <div
 	class="relative z-20 w-full overflow-hidden bg-gray-100 py-10 before:absolute before:start-1/2 before:top-0 before:-z-[1] before:size-full before:-translate-x-1/2 before:transform before:bg-[url('/src/images/world_bg.png')] before:bg-center before:bg-no-repeat before:opacity-45 before:hue-rotate-60 dark:bg-black dark:before:bg-[url('/src/images/world_bg.png')]"
 >
 	<div class="container flex flex-col items-center justify-between gap-6 md:flex-row">
-		<div class="w-full md:max-w-[60%]">
+		<div class="w-full md:max-w-[60%]" data-aos="fade-up-sm">
 			<h1
 				class="block text-4xl font-bold text-gray-800 dark:text-neutral-200 md:text-5xl lg:text-6xl"
 			>
-				About <strong class="text-green-500">{title} </strong>
+				About <span class="text-green-500">{title} </span>
 			</h1>
 			<p class="mt-6 text-lg text-gray-800 dark:text-neutral-400">
 				{description}
 			</p>
 			<div class="mt-6">
 				<Button
-					text="Create An Account"
+					text={t({
+						en: 'Open An Account',
+						ar: 'فتح حساب',
+						es: 'Abrir una cuenta',
+						fr: 'Ouvrir un compte',
+						hi: 'खाता खोलें',
+						id: 'Buka Akun',
+						ms: 'Buka Akaun',
+						th: 'เปิดบัญชี',
+						vi: 'Mở tài khoản',
+						bn: 'একটি অ্যাকাউন্ট খুলুন',
+						'zh-hans': '开设账户',
+						'pt-br': 'Abrir uma conta'
+					})}
 					primary={false}
 					rippleEffect="true"
 					primary="true"
 					class="mt-6 rounded-full"
+					href="https://my.dbinvesting.com/register/"
+					target="_blank"
 				/>
 				<Button
-					text="Try Demo Account"
+					text={t({
+						en: 'Try Demo Account',
+						ar: 'جرّب حساب العرض التوضيحي',
+						es: 'Prueba Cuenta Demo',
+						fr: 'Essayer le Compte Démo',
+						hi: 'डेमो अकाउंट आजमाएँ',
+						id: 'Coba Akun Demo',
+						ms: 'Cuba Akaun Demo',
+						th: 'ลองบัญชีทดลอง',
+						vi: 'Thử Tài khoản Demo',
+						bn: 'ডেমো অ্যাকাউন্ট ট্রাই করুন',
+						'zh-hans': '尝试演示账户',
+						'pt-br': 'Experimente a Conta Demo'
+					})}
 					rippleEffect="true"
 					primary={false}
 					class="mt-6 rounded-full"
+					href="https://my.dbinvesting.com/register/"
+					target="_blank"
 				/>
 			</div>
 		</div>
 
-		<div class="">
+		<div class="" data-aos="fade-up-sm">
 			<Image
 				src={globalimages[image]()}
 				class="h-[20rem] w-full rounded-xl object-cover lg:h-[20rem]"

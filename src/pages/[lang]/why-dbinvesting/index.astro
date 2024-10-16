@@ -11,6 +11,20 @@ import Quality from '@/images/quality-img.png'
 import Profes from '@/images/profes-img.png'
 import Relibility from '@/images/reilibility-img.png'
 import Knowledge from '@/images/knowledege-img.png'
+const title = t({
+	en: 'Why DBinvesting',
+	ar: 'لماذا DBinvesting',
+	es: '¿Por qué DBinvesting?',
+	fr: 'Pourquoi DBinvesting',
+	hi: 'क्यों DBinvesting',
+	id: 'Mengapa DBinvesting',
+	ms: 'Mengapa DBinvesting',
+	th: 'ทำไม DBinvesting',
+	vi: 'Tại sao DBinvesting',
+	bn: 'কেন DBinvesting',
+	'zh-hans': '为什么选择DBinvesting',
+	'pt-br': 'Por que DBinvesting'
+})
 
 export const getStaticPaths = () =>
 	Object.keys(LOCALES).map((lang) => ({
@@ -18,7 +32,7 @@ export const getStaticPaths = () =>
 	}))
 ---
 
-<Layout title="Why DBinvesting">
+<Layout title={title}>
 	<section>
 		<div
 			class="relative z-20 w-full overflow-hidden bg-gray-100 py-3 before:absolute before:start-1/2 before:top-0 before:-z-[1] before:size-full before:-translate-x-1/2 before:transform before:bg-[url('/src/images/world_bg.png')] before:bg-center before:bg-no-repeat before:opacity-25 before:hue-rotate-60 dark:bg-black dark:before:bg-[url('/src/images/world_bg.png')]"
@@ -27,15 +41,62 @@ export const getStaticPaths = () =>
 				<div class="flex flex-col gap-5 md:flex-row">
 					<div class="max-w-2/4 w-full">
 						<h1 class="mb-3 text-6xl font-thin">
-							<span class="font-bold text-dbgreen-600">Why?</span> DB Investing
+							<span class="font-bold text-dbgreen-600"
+								>{
+									t({
+										en: 'Why ',
+										ar: 'لماذا ',
+										es: '¿Por qué ?',
+										fr: 'Pourquoi ',
+										hi: 'क्यों ',
+										id: 'Mengapa ',
+										ms: 'Mengapa ',
+										th: 'ทำไม ',
+										vi: 'Tại sao ',
+										bn: 'কেন ',
+										'zh-hans': '为什么选择',
+										'pt-br': 'Por que '
+									})
+								}</span
+							> DB Investing
 						</h1>
 						<p class="text-color mb-2 font-semibold">
-							We won the trust of clients from many countries.
+							{
+								t({
+									en: 'We won the trust of clients from many countries',
+									ar: 'لقد اكتسبنا ثقة العملاء من العديد من الدول',
+									es: 'Hemos ganado la confianza de clientes de muchos países',
+									fr: 'Nous avons gagné la confiance de clients venus de nombreux pays',
+									hi: 'हमने कई देशों के ग्राहकों का विश्वास जीता है',
+									id: 'Kami telah memenangkan kepercayaan klien dari banyak negara',
+									ms: 'Kami telah memperoleh kepercayaan pelanggan dari banyak negara',
+									th: 'เราได้รับความไว้วางใจจากลูกค้าจากหลายประเทศ',
+									vi: 'Chúng tôi đã giành được niềm tin của khách hàng từ nhiều quốc gia',
+									bn: 'আমরা বহু দেশের ক্লায়েন্টদের বিশ্বাস অর্জন করেছি',
+									'zh-hans': '我们赢得了来自多个国家客户的信任',
+									'pt-br': 'Ganhamos a confiança de clientes de muitos países'
+								})
+							}
 						</p>
 						<p class="text- text-color font-thin">
-							Our company strives to become one of the most popular world brokers. We
-							value the trust of our clients and remain providing reliable services
-							and creating long-term relationships with our traders and partners.
+							{
+								t({
+									en: 'Our company strives to become one of the most popular world brokers. We value the trust of our clients and remain providing reliable services and creating long-term relationships with our traders and partners.',
+									ar: 'تسعى شركتنا لتصبح واحدة من أكثر الوسطاء شهرة في العالم. نحن نقدر ثقة عملائنا ونواصل تقديم خدمات موثوقة وإنشاء علاقات طويلة الأمد مع متداولينا وشركائنا.',
+									es: 'Nuestra empresa se esfuerza por convertirse en uno de los corredores más populares del mundo. Valoramos la confianza de nuestros clientes y seguimos brindando servicios confiables y creando relaciones a largo plazo con nuestros traders y socios.',
+									fr: "Notre entreprise s'efforce de devenir l'un des courtiers les plus populaires au monde. Nous apprécions la confiance de nos clients et continuons à fournir des services fiables tout en créant des relations à long terme avec nos traders et partenaires.",
+									hi: 'हमारी कंपनी दुनिया के सबसे लोकप्रिय ब्रोकरों में से एक बनने का प्रयास कर रही है। हम अपने ग्राहकों के विश्वास की सराहना करते हैं और विश्वसनीय सेवाएं प्रदान करते रहते हैं और अपने व्यापारियों और भागीदारों के साथ दीर्घकालिक संबंध बनाते हैं।',
+									id: 'Perusahaan kami berusaha untuk menjadi salah satu broker terpopuler di dunia. Kami menghargai kepercayaan klien kami dan terus memberikan layanan yang dapat diandalkan serta menciptakan hubungan jangka panjang dengan trader dan mitra kami.',
+									ms: 'Syarikat kami berusaha untuk menjadi salah satu broker paling popular di dunia. Kami menghargai kepercayaan pelanggan kami dan terus menyediakan perkhidmatan yang boleh dipercayai serta menjalin hubungan jangka panjang dengan pedagang dan rakan kongsi kami.',
+									th: 'บริษัทของเรามุ่งมั่นที่จะเป็นหนึ่งในโบรกเกอร์ที่ได้รับความนิยมมากที่สุดในโลก เราให้ความสำคัญกับความไว้วางใจของลูกค้าและยังคงให้บริการที่เชื่อถือได้และสร้างความสัมพันธ์ระยะยาวกับเทรดเดอร์และพันธมิตรของเรา',
+									vi: 'Công ty chúng tôi cố gắng trở thành một trong những nhà môi giới phổ biến nhất thế giới. Chúng tôi trân trọng niềm tin của khách hàng và tiếp tục cung cấp dịch vụ đáng tin cậy cũng như xây dựng mối quan hệ lâu dài với các nhà giao dịch và đối tác của chúng tôi.',
+									bn: 'আমরা বিশ্বের সবচেয়ে জনপ্রিয় ব্রোকারগুলির মধ্যে একটি হতে চেষ্টা করছি। আমরা আমাদের ক্লায়েন্টদের বিশ্বাসকে মূল্য দিই এবং নির্ভরযোগ্য পরিষেবাদি প্রদান করতে এবং আমাদের ব্যবসায়ী এবং অংশীদারদের সাথে দীর্ঘমেয়াদী সম্পর্ক গড়ে তুলতে থাকি।',
+									'zh-hans':
+										'我们公司努力成为世界上最受欢迎的经纪商之一。我们重视客户的信任，并继续提供可靠的服务，与我们的交易者和合作伙伴建立长期关系。',
+									'pt-br':
+										'Nossa empresa se esforça para se tornar um dos corretores mais populares do mundo. Valorizamos a confiança de nossos clientes e continuamos a fornecer serviços confiáveis e a criar relacionamentos de longo prazo com nossos traders e parceiros.'
+								})
+							}
 						</p>
 						<Button
 							primary={true}
@@ -59,21 +120,45 @@ export const getStaticPaths = () =>
 					</div>
 					<div class="max-w-2/4 w-full space-y-2">
 						<p class="text- text-color font-thin">
-							<strong class="font-semibold">Db Investing</strong> is the brand of DB Invest
-							Limited, a Security Dealer Firm licensed by the the Financial Security Authority
-							in Seychelles with license Nr. SD53, to provide investment services of Reception,
-							Transmission, and Execution of orders in relation to financial instruments
-							Financial Contracts for Difference (CFDs), Portfolio Management and Investment
-							Advice.
+							<strong class="font-semibold">Db Investing</strong>
+							{
+								t({
+									en: ' is a Security Dealer Firm licensed by the Financial Security Authority in Seychelles with license Nr. SD53, to provide investment services of Reception, Transmission, and Execution of orders in relation to financial instruments Financial Contracts for Difference (CFDs), Portfolio Management and Investment Advice.',
+									ar: ' هي شركة وساطة مرخصة من قبل الهيئة المالية للأمن في سيشيل برخصة رقم SD53، لتقديم خدمات الاستثمار المتعلقة باستقبال ونقل وتنفيذ الأوامر فيما يتعلق بالأدوات المالية، والعقود المالية من أجل الفرق (CFDs)، وإدارة المحافظ، والنصائح الاستثمارية.',
+									es: ' es una empresa de corretaje de valores autorizada por la Autoridad de Seguridad Financiera en Seychelles con licencia Nº SD53, para proporcionar servicios de inversión de Recepción, Transmisión y Ejecución de órdenes en relación con instrumentos financieros, Contratos por Diferencia (CFDs), Gestión de Carteras y Asesoría de Inversión.',
+									fr: " est une société de courtage en valeurs mobilières agréée par l'Autorité de sécurité financière des Seychelles avec le numéro de licence SD53, pour fournir des services d'investissement de Réception, Transmission et Exécution des ordres en relation avec des instruments financiers, Contrats sur la Différence (CFDs), Gestion de Portefeuille et Conseil en Investissement.",
+									hi: ' एक सुरक्षा डीलर फर्म है जिसे सेशेल्स में वित्तीय सुरक्षा प्राधिकरण द्वारा लाइसेंस दिया गया है, लाइसेंस नं। SD53, वित्तीय उपकरणों के संबंध में आदेशों के रिसेप्शन, ट्रांसमिशन और निष्पादन की निवेश सेवाएं प्रदान करने के लिए, वित्तीय अनुबंधों के लिए अंतर (CFDs), पोर्टफोलियो प्रबंधन और निवेश सलाह।',
+									id: ' adalah perusahaan dealer sekuritas yang dilisensikan oleh Otoritas Keamanan Finansial di Seychelles dengan nomor lisensi SD53, untuk menyediakan layanan investasi penerimaan, transmisi, dan eksekusi pesanan terkait instrumen keuangan, Kontrak untuk Perbedaan (CFDs), Manajemen Portofolio, dan Nasihat Investasi.',
+									ms: ' adalah firma peniaga sekuriti yang berlesen oleh Pihak Berkuasa Keselamatan Kewangan di Seychelles dengan lesen No. SD53, untuk menyediakan perkhidmatan pelaburan bagi Penerimaan, Pemindahan, dan Pelaksanaan pesanan yang berkaitan dengan instrumen kewangan, Kontrak untuk Perbezaan (CFDs), Pengurusan Portfolio dan Nasihat Pelaburan.',
+									th: ' เป็นบริษัทตัวแทนจำหน่ายหลักทรัพย์ที่ได้รับใบอนุญาตจากหน่วยงานความมั่นคงทางการเงินในเซเชลส์ด้วยหมายเลขใบอนุญาต SD53 เพื่อให้บริการด้านการลงทุนในการรับ ส่ง และดำเนินการคำสั่งเกี่ยวกับเครื่องมือทางการเงิน สัญญาทางการเงินสำหรับความแตกต่าง (CFDs) การบริหารจัดการพอร์ตและคำแนะนำการลงทุน',
+									vi: ' là một công ty môi giới chứng khoán được cấp phép bởi Cơ quan An ninh Tài chính tại Seychelles với giấy phép số SD53, cung cấp các dịch vụ đầu tư về Nhận, Truyền và Thực hiện các lệnh liên quan đến các công cụ tài chính, Hợp đồng Chênh lệch (CFDs), Quản lý Danh mục và Tư vấn Đầu tư.',
+									bn: ' হল একটি সিকিউরিটি ডিলার ফার্ম যা সেশেলসের ফাইন্যান্সিয়াল সিকিউরিটি অথরিটি দ্বারা লাইসেন্সপ্রাপ্ত, লাইসেন্স নং SD53, অর্থনৈতিক যন্ত্রের সাথে সম্পর্কিত অর্ডার গ্রহণ, স্থানান্তর এবং সম্পাদনার বিনিয়োগ পরিষেবা প্রদান করতে, ফিনান্সিয়াল কন্ট্রাক্টস ফর ডিফারেন্স (CFDs), পোর্টফোলিও ম্যানেজমেন্ট এবং বিনিয়োগ পরামর্শ।',
+									'zh-hans':
+										'是一家获得塞舌尔金融安全局许可的证券经销商公司，许可证号为SD53，提供与金融工具相关的接收、传输和执行订单的投资服务，包括差价合约（CFDs）、投资组合管理和投资建议。',
+									'pt-br':
+										' é uma empresa de corretagem de valores mobiliários licenciada pela Autoridade de Segurança Financeira das Seychelles com o número de licença SD53, para fornecer serviços de investimento de Recepção, Transmissão e Execução de ordens em relação a instrumentos financeiros, Contratos por Diferença (CFDs), Gestão de Carteiras e Consultoria de Investimento.'
+								})
+							}
 						</p>
-						<p class="text- text-color font-thin">
-							Working under the international brand <strong class="font-semibold"
-								>Db Investing</strong
-							> and with clients from different countries, we understand that every person
-							is unique with his own values. When our team develops the services of the
-							company, we take into account the variety of cultures, nations, trading experiences,
-							and demands of our clients.
-						</p>
+						<p
+							class="text- text-color font-thin"
+							set:html={t({
+								en: `Working under the international brand <strong class="font-semibold">Db Investing</strong> and with clients from different countries, we understand that every person is unique with his own values. When our team develops the services of the company, we take into account the variety of cultures, nations, trading experiences, and demands of our clients.`,
+								ar: 'نعمل تحت العلامة التجارية الدولية <strong class="font-semibold">Db Investing</strong> ومع العملاء من دول مختلفة، نحن نفهم أن كل شخص فريد من نوعه بقيمه الخاصة. عندما يقوم فريقنا بتطوير خدمات الشركة، نأخذ في الاعتبار تنوع الثقافات والأمم وتجارب التداول واحتياجات عملائنا.',
+								es: 'Trabajando bajo la marca internacional <strong class="font-semibold">Db Investing</strong> y con clientes de diferentes países, entendemos que cada persona es única con sus propios valores. Cuando nuestro equipo desarrolla los servicios de la empresa, tenemos en cuenta la variedad de culturas, naciones, experiencias comerciales y demandas de nuestros clientes.',
+								fr: 'Travaillant sous la marque internationale <strong class="font-semibold">Db Investing</strong> et avec des clients de différents pays, nous comprenons que chaque personne est unique avec ses propres valeurs. Lorsque notre équipe développe les services de l\'entreprise, nous prenons en compte la diversité des cultures, des nations, des expériences de trading et des demandes de nos clients.',
+								hi: 'अंतर्राष्ट्रीय ब्रांड <strong class="font-semibold">Db Investing</strong> के तहत काम करते हुए और विभिन्न देशों के ग्राहकों के साथ, हम समझते हैं कि हर व्यक्ति अपनी विशेषताओं के साथ अद्वितीय है। जब हमारी टीम कंपनी की सेवाओं का विकास करती है, तो हम अपने ग्राहकों की सांस्कृतिक विविधता, राष्ट्र, व्यापार अनुभव और मांगों को ध्यान में रखते हैं।',
+								id: 'Bekerja di bawah merek internasional <strong class="font-semibold">Db Investing</strong> dan dengan klien dari berbagai negara, kami memahami bahwa setiap orang adalah unik dengan nilai-nilai mereka sendiri. Ketika tim kami mengembangkan layanan perusahaan, kami mempertimbangkan keragaman budaya, negara, pengalaman perdagangan, dan permintaan klien kami.',
+								ms: 'Bekerja di bawah jenama antarabangsa <strong class="font-semibold">Db Investing</strong> dan dengan pelanggan dari pelbagai negara, kami memahami bahawa setiap orang adalah unik dengan nilai-nilai mereka sendiri. Apabila pasukan kami membangunkan perkhidmatan syarikat, kami mengambil kira pelbagai budaya, negara, pengalaman perdagangan dan permintaan pelanggan kami.',
+								th: 'ทำงานภายใต้แบรนด์นานาชาติ <strong class="font-semibold">Db Investing</strong> และกับลูกค้าจากหลายประเทศ เราเข้าใจว่าทุกคนมีเอกลักษณ์ในค่านิยมของตนเอง เมื่อทีมงานของเราพัฒนาบริการของบริษัท เราคำนึงถึงความหลากหลายทางวัฒนธรรม ชาติ ประสบการณ์การซื้อขาย และความต้องการของลูกค้า',
+								vi: 'Làm việc dưới thương hiệu quốc tế <strong class="font-semibold">Db Investing</strong> và với khách hàng từ nhiều quốc gia khác nhau, chúng tôi hiểu rằng mỗi người đều độc đáo với các giá trị riêng. Khi đội ngũ của chúng tôi phát triển các dịch vụ của công ty, chúng tôi xem xét sự đa dạng về văn hóa, quốc gia, kinh nghiệm giao dịch và nhu cầu của khách hàng.',
+								bn: 'আন্তর্জাতিক ব্র্যান্ড <strong class="font-semibold">Db Investing</strong> এর অধীনে কাজ করে এবং বিভিন্ন দেশের ক্লায়েন্টদের সাথে, আমরা বুঝতে পারি যে প্রত্যেক ব্যক্তি তার নিজস্ব মূল্যবোধের সাথে অনন্য। যখন আমাদের টিম কোম্পানির পরিষেবাগুলি তৈরি করে, আমরা আমাদের ক্লায়েন্টদের সংস্কৃতি, জাতি, ট্রেডিং অভিজ্ঞতা এবং চাহিদার বৈচিত্র্যকে বিবেচনায় নিই।',
+								'zh-hans':
+									'在国际品牌<strong class="font-semibold">Db Investing</strong>下工作，并与来自不同国家的客户合作，我们理解每个人都是独特的，拥有自己的价值观。当我们的团队开发公司的服务时，我们考虑到客户的文化多样性、国家、交易经验和需求。',
+								'pt-br':
+									'Trabalhando sob a marca internacional <strong class="font-semibold">Db Investing</strong> e com clientes de diferentes países, entendemos que cada pessoa é única com seus próprios valores. Quando nossa equipe desenvolve os serviços da empresa, levamos em conta a diversidade de culturas, nações, experiências de negociação e demandas de nossos clientes.'
+							})}
+						/>
 					</div>
 				</div>
 			</div>
@@ -86,62 +171,130 @@ export const getStaticPaths = () =>
 					<div
 						class="relative flex w-full flex-col items-center justify-between gap-4 overflow-hidden rounded-2xl border-2 bg-gray-100 p-4 transition hover:border-dbgreen-900 dark:border-neutral-600 dark:bg-neutral-800 dark:hover:border-dbgreen-900 sm:p-8 md:p-5 lg:col-span-3 xl:flex-row"
 					>
-						<h1 class="font-semibold text-dbgreen-500">Quality</h1>
+						<h1 class="font-semibold text-dbgreen-500">
+							{
+								t({
+									en: 'Quality',
+									ar: 'جودة',
+									es: 'Calidad',
+									fr: 'Qualité',
+									hi: 'गुणवत्ता',
+									id: 'Kualitas',
+									ms: 'Kualiti',
+									th: 'คุณภาพ',
+									vi: 'Chất lượng',
+									bn: 'গুণমান',
+									'zh-hans': '质量',
+									'pt-br': 'Qualidade'
+								})
+							}
+						</h1>
 						<div class="w-[100px]">
-							<Image
-								src={Quality}
-								alt="Quality-img "
-							/>
+							<Image src={Quality} alt="Quality-img " />
 						</div>
 					</div>
 					<div
 						class="relative flex w-full flex-col items-center justify-between gap-4 overflow-hidden rounded-2xl border-2 bg-gray-100 p-4 transition hover:border-dbgreen-900 dark:border-neutral-600 dark:bg-neutral-800 dark:hover:border-dbgreen-900 sm:p-8 md:p-5 lg:col-span-3 xl:flex-row"
 					>
-						<h1 class="font-semibold text-dbgreen-500">Professionalism</h1>
+						<h1 class="font-semibold text-dbgreen-500">
+							{
+								t({
+									en: 'Professionalism',
+									ar: 'احترافية',
+									es: 'Profesionalismo',
+									fr: 'Professionnalisme',
+									hi: 'पेशेवरिता',
+									id: 'Profesionalisme',
+									ms: 'Profesionalisme',
+									th: 'ความเป็นมืออาชีพ',
+									vi: 'Chuyên nghiệp',
+									bn: 'পেশাদারিত্ব',
+									'zh-hans': '专业精神',
+									'pt-br': 'Profissionalismo'
+								})
+							}
+						</h1>
 						<div class="w-[100px]">
-							<Image
-								src={Profes}
-								alt="Quality-img "
-							/>
+							<Image src={Profes} alt="Quality-img " />
 						</div>
 					</div>
 				</div>
 				<div class="hidden w-full max-w-[50%] sm:block lg:max-w-[40%]">
-					<Image
-						src={circlePhoneImage}
-						alt="phone-img "
-						class="mx-auto w-full max-w-[500px]"
-					/>
+					<Image src={circlePhoneImage} alt="phone-img " class="mx-auto w-full max-w-[500px]" />
 				</div>
 				<div class="flex w-full flex-row gap-4 sm:w-[24%] sm:flex-col">
 					<div
 						class="relative flex w-full flex-col items-center justify-between gap-4 overflow-hidden rounded-2xl border-2 bg-gray-100 p-4 transition hover:border-dbgreen-900 dark:border-neutral-600 dark:bg-neutral-800 dark:hover:border-dbgreen-900 sm:p-8 md:p-5 lg:col-span-3 xl:flex-row"
 					>
-						<h1 class="font-semibold text-dbgreen-500">Reliability</h1>
+						<h1 class="font-semibold text-dbgreen-500">
+							{
+								t({
+									en: 'Reliability',
+									ar: 'موثوقية',
+									es: 'Confiabilidad',
+									fr: 'Fiabilité',
+									hi: 'विश्वसनीयता',
+									id: 'Keandalan',
+									ms: 'Kebolehpercayaan',
+									th: 'ความน่าเชื่อถือ',
+									vi: 'Độ tin cậy',
+									bn: 'বিশ্বাসযোগ্যতা',
+									'zh-hans': '可靠性',
+									'pt-br': 'Confiabilidade'
+								})
+							}
+						</h1>
 						<div class="w-[100px]">
-							<Image
-								src={Relibility}
-								alt="Quality-img "
-							/>
+							<Image src={Relibility} alt="Quality-img " />
 						</div>
 					</div>
 					<div
 						class="relative flex w-full flex-col items-center justify-between gap-4 overflow-hidden rounded-2xl border-2 bg-gray-100 p-4 transition hover:border-dbgreen-900 dark:border-neutral-600 dark:bg-neutral-800 dark:hover:border-dbgreen-900 sm:p-8 md:p-5 lg:col-span-3 xl:flex-row"
 					>
-						<h1 class="font-semibold text-dbgreen-500">Knowledge</h1>
+						<h1 class="font-semibold text-dbgreen-500">
+							{
+								t({
+									en: 'Knowledge',
+									ar: 'معرفة',
+									es: 'Conocimiento',
+									fr: 'Connaissance',
+									hi: 'ज्ञान',
+									id: 'Pengetahuan',
+									ms: 'Pengetahuan',
+									th: 'ความรู้',
+									vi: 'Kiến thức',
+									bn: 'জ্ঞান',
+									'zh-hans': '知识',
+									'pt-br': 'Conhecimento'
+								})
+							}
+						</h1>
 						<div class="w-[100px]">
-							<Image
-								src={Knowledge}
-								alt="Quality-img "
-							/>
+							<Image src={Knowledge} alt="Quality-img " />
 						</div>
 					</div>
 				</div>
 			</div>
 			<!-- ccard with iCOn  -->
 			<div class="py-10">
-				<h1 class="mb-5 text-center text-3xl font-bold text-dbgreen-500 sm:text-4xl">
-					Core <span class="text-black dark:text-white">Values:</span>
+				<h1
+					class="mb-5 text-center text-3xl font-bold text-dbgreen-500 sm:text-4xl"
+					set:html={t({
+						en: 'Core <span class="text-black dark:text-white">Values:</span>',
+						ar: 'القيم الأساسية <span class="text-black dark:text-white">:</span>',
+						es: 'Valores <span class="text-black dark:text-white">Fundamentales:</span>',
+						fr: 'Valeurs <span class="text-black dark:text-white">Fondamentales :</span>',
+						hi: 'मूल <span class="text-black dark:text-white">मूल्य:</span>',
+						id: 'Nilai <span class="text-black dark:text-white">Inti:</span>',
+						ms: 'Nilai <span class="text-black dark:text-white">Terasa:</span>',
+						th: 'ค่านิยม <span class="text-black dark:text-white">หลัก:</span>',
+						vi: 'Giá trị <span class="text-black dark:text-white">Cốt lõi:</span>',
+						bn: 'মূল <span class="text-black dark:text-white">মূল্য:</span>',
+						'zh-hans': '核心<span class="text-black dark:text-white">价值：</span>',
+						'pt-br': 'Valores <span class="text-black dark:text-white">Centrais:</span>'
+					})}
+				>
+					<!-- Core <span class="text-black dark:text-white">Values:</span> -->
 				</h1>
 				<div class="flex flex-wrap justify-around gap-4 lg:gap-8">
 					<div
@@ -164,28 +317,106 @@ export const getStaticPaths = () =>
 										fill="currentColor"
 										fill-rule="evenodd"
 										d="M7.498 1.607A27 27 0 0 1 12 1.25c1.828 0 3.339.161 4.502.357l.135.023c1.01.169 1.85.31 2.506 1.118c.421.519.557 1.08.588 1.705l.492.164c.463.154.87.29 1.191.44c.348.162.667.37.911.709s.341.707.385 1.088c.04.353.04.78.04 1.27v.144c0 .402 0 .757-.03 1.054c-.032.321-.103.634-.28.936c-.179.303-.418.517-.683.701c-.245.17-.555.343-.907.538l-2.64 1.467c-.54 1.061-1.28 2.007-2.3 2.69c-.875.587-1.922.959-3.16 1.065v2.031h1.43a1.75 1.75 0 0 1 1.716 1.407l.219 1.093H18a.75.75 0 0 1 0 1.5H6a.75.75 0 0 1 0-1.5h1.885l.219-1.093A1.75 1.75 0 0 1 9.82 18.75h1.43v-2.031c-1.238-.106-2.285-.478-3.16-1.064c-1.019-.684-1.76-1.63-2.3-2.691l-2.64-1.467a11 11 0 0 1-.907-.538a2.2 2.2 0 0 1-.682-.7a2.2 2.2 0 0 1-.281-.937c-.03-.297-.03-.652-.03-1.054v-.145c0-.488 0-.916.04-1.269c.044-.381.14-.75.385-1.088c.244-.339.563-.547.91-.71c.323-.15.729-.285 1.192-.439l.492-.164c.031-.626.167-1.186.588-1.705c.657-.809 1.496-.95 2.507-1.118zM9.415 21.25h5.17l-.16-.799a.25.25 0 0 0-.245-.201H9.82a.25.25 0 0 0-.245.201zM4.302 6.023c.072 1.52.243 3.2.671 4.77l-1.066-.591c-.389-.217-.633-.353-.809-.475c-.162-.113-.215-.18-.244-.23c-.03-.05-.062-.128-.082-.324a11 11 0 0 1-.022-.938v-.073c0-.539.001-.88.03-1.138c.028-.238.072-.327.112-.381c.039-.055.109-.125.326-.226c.236-.11.56-.219 1.07-.39zm14.725 4.77l1.066-.591c.389-.217.633-.353.809-.475c.162-.113.215-.18.244-.23c.03-.05.062-.128.082-.324c.021-.214.022-.493.022-.938v-.073c0-.539-.001-.88-.03-1.138c-.028-.238-.072-.327-.112-.381c-.039-.055-.109-.125-.326-.226c-.236-.11-.56-.219-1.07-.39l-.014-.004c-.071 1.52-.243 3.2-.67 4.77M12 2.75c-1.74 0-3.167.153-4.252.336c-1.207.204-1.46.28-1.726.608c-.262.322-.287.628-.234 1.983c.09 2.258.388 4.696 1.31 6.55c.456.914 1.052 1.662 1.828 2.182c.77.517 1.765.841 3.074.841c1.31 0 2.304-.324 3.075-.841c.776-.52 1.371-1.268 1.826-2.183c.923-1.853 1.221-4.29 1.31-6.55c.055-1.354.03-1.66-.232-1.982c-.266-.328-.52-.404-1.727-.608A25.6 25.6 0 0 0 12 2.75"
-										clip-rule="evenodd"
-									></path>
+										clip-rule="evenodd"></path>
 								</svg></span
 							>
 						</div>
 						<div class="">
-							<h1 class="text-2xl font-semibold text-dbgreen-500">Customers First</h1>
+							<h1 class="text-2xl font-semibold text-dbgreen-500">
+								{
+									t({
+										en: 'Customers First',
+										ar: 'العملاء أولاً',
+										es: 'Clientes Primero',
+										fr: "Les Clients d'abord",
+										hi: 'ग्राहक पहले',
+										id: 'Pelanggan Pertama',
+										ms: 'Pelanggan Pertama',
+										th: 'ลูกค้าคือสิ่งแรก',
+										vi: 'Khách hàng là ưu tiên hàng đầu',
+										bn: 'গ্রাহক প্রথম',
+										'zh-hans': '客户至上',
+										'pt-br': 'Clientes em Primeiro Lugar'
+									})
+								}
+							</h1>
 							<ul class="mt-6 list-disc px-6 no-underline">
 								<li class="text-color text-md font-thin">
-									All that we do, we do for our customers first. By updating
-									existing services or creating new ones, we primarily strive to
-									make them simple and convenient.
+									{
+										t({
+											en: 'All that we do, we do for our customers first. By updating existing services or creating new ones, we primarily strive to make them simple and convenient.',
+											ar: 'كل ما نفعله، نقوم به من أجل عملائنا أولاً. من خلال تحديث الخدمات الحالية أو إنشاء خدمات جديدة، نسعى أساسًا لجعلها بسيطة ومريحة.',
+											es: 'Todo lo que hacemos, lo hacemos para nuestros clientes primero. Al actualizar los servicios existentes o crear nuevos, nos esforzamos principalmente por hacerlos simples y convenientes.',
+											fr: "Tout ce que nous faisons, nous le faisons d'abord pour nos clients. En mettant à jour les services existants ou en en créant de nouveaux, nous nous efforçons avant tout de les rendre simples et pratiques.",
+											hi: 'हम जो कुछ भी करते हैं, वह हम अपने ग्राहकों के लिए सबसे पहले करते हैं। मौजूदा सेवाओं को अपडेट करके या नई सेवाएं बनाकर, हम मुख्य रूप से उन्हें सरल और सुविधाजनक बनाने के लिए प्रयास करते हैं।',
+											id: 'Semua yang kami lakukan, kami lakukan untuk pelanggan kami terlebih dahulu. Dengan memperbarui layanan yang ada atau membuat layanan baru, kami terutama berusaha untuk menjadikannya sederhana dan nyaman.',
+											ms: 'Segala yang kami lakukan, kami lakukan untuk pelanggan kami terlebih dahulu. Dengan mengemas kini perkhidmatan sedia ada atau mencipta yang baru, kami berusaha untuk menjadikannya mudah dan selesa.',
+											th: 'ทุกสิ่งที่เราทำ เราทำเพื่อให้ลูกค้าของเราก่อนเป็นอันดับแรก โดยการอัปเดตบริการที่มีอยู่หรือสร้างบริการใหม่ เราจะพยายามทำให้มันเรียบง่ายและสะดวกสบาย',
+											vi: 'Tất cả những gì chúng tôi làm, chúng tôi làm vì khách hàng trước tiên. Bằng cách cập nhật các dịch vụ hiện có hoặc tạo ra các dịch vụ mới, chúng tôi chủ yếu cố gắng làm cho chúng đơn giản và thuận tiện.',
+											bn: 'আমরা যা কিছু করি, তা আমরা প্রথমে আমাদের গ্রাহকদের জন্য করি। বিদ্যমান পরিষেবাগুলি আপডেট করে বা নতুন পরিষেবা তৈরি করে, আমরা প্রধানত সেগুলি সহজ এবং সুবিধাজনক করতে চেষ্টা করি।',
+											'zh-hans':
+												'我们所做的一切，都是为了客户优先。通过更新现有服务或创建新服务，我们主要努力使其简单便捷。',
+											'pt-br':
+												'Tudo o que fazemos, fazemos para nossos clientes em primeiro lugar. Ao atualizar serviços existentes ou criar novos, nos esforçamos principalmente para torná-los simples e convenientes.'
+										})
+									}
 								</li>
 								<li class="text-color text-md font-thin">
-									We work hard to build and keep customers’ trust.
+									{
+										t({
+											en: 'We work hard to build and keep customers’ trust.',
+											ar: 'نعمل بجد لبناء والحفاظ على ثقة العملاء.',
+											es: 'Trabajamos duro para construir y mantener la confianza de los clientes.',
+											fr: 'Nous travaillons dur pour bâtir et maintenir la confiance des clients.',
+											hi: 'हम ग्राहकों का विश्वास बनाने और बनाए रखने के लिए कड़ी मेहनत करते हैं।',
+											id: 'Kami bekerja keras untuk membangun dan menjaga kepercayaan pelanggan.',
+											ms: 'Kami bekerja keras untuk membina dan mengekalkan kepercayaan pelanggan.',
+											th: 'เราทำงานหนักเพื่อสร้างและรักษาความไว้วางใจของลูกค้า',
+											vi: 'Chúng tôi làm việc chăm chỉ để xây dựng và giữ gìn niềm tin của khách hàng.',
+											bn: 'আমরা গ্রাহকদের বিশ্বাস গড়ে তোলা এবং রক্ষা করতে কঠোর পরিশ্রম করি।',
+											'zh-hans': '我们努力建立和保持客户的信任。',
+											'pt-br': 'Trabalhamos duro para construir e manter a confiança dos clientes.'
+										})
+									}
 								</li>
 								<li class="text-color text-md font-thin">
-									We focus on customers. Although we have regard for competitors,
-									we obsess over customers.
+									{
+										t({
+											en: 'We focus on customers. Although we have regard for competitors, we obsess over customers.',
+											ar: 'نحن نركز على العملاء. على الرغم من أننا نولي اهتمامًا للمنافسين، إلا أننا نركز بشكل مفرط على العملاء.',
+											es: 'Nos enfocamos en los clientes. Aunque tenemos en cuenta a los competidores, nos obsesionamos con los clientes.',
+											fr: 'Nous nous concentrons sur les clients. Bien que nous ayons du respect pour les concurrents, nous sommes obsédés par les clients.',
+											hi: 'हम ग्राहकों पर ध्यान केंद्रित करते हैं। हालांकि हम प्रतियोगियों का सम्मान करते हैं, लेकिन हम ग्राहकों पर जुनूनी होते हैं।',
+											id: 'Kami fokus pada pelanggan. Meskipun kami menghargai pesaing, kami terobsesi pada pelanggan.',
+											ms: 'Kami memberi tumpuan kepada pelanggan. Walaupun kami menghargai pesaing, kami obses dengan pelanggan.',
+											th: 'เรามุ่งเน้นที่ลูกค้า แม้ว่าเราจะให้ความสำคัญกับคู่แข่ง แต่เราก็หมกมุ่นอยู่กับลูกค้า',
+											vi: 'Chúng tôi tập trung vào khách hàng. Mặc dù chúng tôi tôn trọng các đối thủ cạnh tranh, nhưng chúng tôi lại bị ám ảnh bởi khách hàng.',
+											bn: 'আমরা গ্রাহকদের উপর ফোকাস করি। যদিও আমরা প্রতিযোগীদের প্রতি গুরুত্ব দিই, তবে আমরা গ্রাহকদের উপর অস্থির।',
+											'zh-hans':
+												'我们专注于客户。虽然我们尊重竞争对手，但我们对客户的关注是执着的。',
+											'pt-br':
+												'Focamos nos clientes. Embora respeitemos os concorrentes, somos obcecados por clientes.'
+										})
+									}
 								</li>
 								<li class="text-color text-md font-thin">
-									We think differently and look around to serve our customers.
+									{
+										t({
+											en: 'We think differently and look around to serve our customers.',
+											ar: 'نفكر بطريقة مختلفة ونتطلع حولنا لخدمة عملائنا.',
+											es: 'Pensamos de manera diferente y miramos a nuestro alrededor para servir a nuestros clientes.',
+											fr: 'Nous pensons différemment et regardons autour de nous pour servir nos clients.',
+											hi: 'हम अलग तरीके से सोचते हैं और अपने ग्राहकों की सेवा करने के लिए चारों ओर देखते हैं।',
+											id: 'Kami berpikir berbeda dan melihat sekitar untuk melayani pelanggan kami.',
+											ms: 'Kami berfikir secara berbeza dan melihat sekeliling untuk memberikan perkhidmatan kepada pelanggan kami.',
+											th: 'เราคิดแตกต่างและมองไปรอบ ๆ เพื่อให้บริการลูกค้าของเรา',
+											vi: 'Chúng tôi suy nghĩ khác biệt và nhìn xung quanh để phục vụ khách hàng của mình.',
+											bn: 'আমরা ভিন্নভাবে ভাবি এবং আমাদের গ্রাহকদের সেবা করার জন্য চারপাশে দেখতেও পারি।',
+											'zh-hans': '我们有不同的想法，并环顾四周为客户服务。',
+											'pt-br':
+												'Pensamos de forma diferente e olhamos ao nosso redor para servir nossos clientes.'
+										})
+									}
 								</li>
 							</ul>
 						</div>
@@ -202,11 +433,7 @@ export const getStaticPaths = () =>
 									height="50px"
 									viewBox="0 0 24 24"
 								>
-									<g
-										fill="none"
-										stroke="currentColor"
-										stroke-width="1.5"
-									>
+									<g fill="none" stroke="currentColor" stroke-width="1.5">
 										<path
 											stroke-linecap="round"
 											d="M22 10.5V12c0 4.714 0 7.071-1.465 8.535C19.072 22 16.714 22 12 22s-7.071 0-8.536-1.465C2 19.072 2 16.714 2 12s0-7.071 1.464-8.536C4.93 2 7.286 2 12 2h1.5"
@@ -220,27 +447,133 @@ export const getStaticPaths = () =>
 						</div>
 						<div class="">
 							<h1 class="text-2xl font-semibold text-dbgreen-500">
-								About what we do
+								{
+									t({
+										en: 'About what we do',
+										ar: 'حول ما نقوم به',
+										es: 'Sobre lo que hacemos',
+										fr: 'À propos de ce que nous faisons',
+										hi: 'हम क्या करते हैं के बारे में',
+										id: 'Tentang apa yang kami lakukan',
+										ms: 'Tentang apa yang kami lakukan',
+										th: 'เกี่ยวกับสิ่งที่เราทำ',
+										vi: 'Về những gì chúng tôi làm',
+										bn: 'আমরা যা করি তার সম্পর্কে',
+										'zh-hans': '关于我们所做的',
+										'pt-br': 'Sobre o que fazemos'
+									})
+								}
 							</h1>
 							<ul class="mt-6 list-disc px-6 no-underline">
 								<li class="text-color text-md font-thin">
-									We enjoy our work, love what we do, and have fun.
+									{
+										t({
+											en: 'We enjoy our work, love what we do, and have fun.',
+											ar: 'نحن نستمتع بعملنا، نحب ما نقوم به، ونستمتع.',
+											es: 'Disfrutamos de nuestro trabajo, amamos lo que hacemos y nos divertimos.',
+											fr: 'Nous aimons notre travail, aimons ce que nous faisons et nous amusons.',
+											hi: 'हम अपने काम का आनंद लेते हैं, जो करते हैं उससे प्यार करते हैं और मज़ा करते हैं।',
+											id: 'Kami menikmati pekerjaan kami, mencintai apa yang kami lakukan, dan bersenang-senang.',
+											ms: 'Kami menikmati kerja kami, menyukai apa yang kami lakukan, dan bersenang-senang.',
+											th: 'เราสนุกกับการทำงาน รักในสิ่งที่เราทำ และมีความสุข',
+											vi: 'Chúng tôi thích công việc của mình, yêu những gì chúng tôi làm và vui vẻ.',
+											bn: 'আমরা আমাদের কাজ উপভোগ করি, আমরা যা করি তা ভালবাসি এবং মজা করি।',
+											'zh-hans': '我们享受我们的工作，热爱我们所做的事情，并且玩得开心。',
+											'pt-br':
+												'Nós gostamos do nosso trabalho, amamos o que fazemos e nos divertimos.'
+										})
+									}
 								</li>
 								<li class="text-color text-md font-thin">
-									We appreciate creativity and support innovations.
+									{
+										t({
+											en: 'We appreciate creativity and support innovations.',
+											ar: 'نحن نقدر الإبداع وندعم الابتكارات.',
+											es: 'Valoramos la creatividad y apoyamos las innovaciones.',
+											fr: 'Nous apprécions la créativité et soutenons les innovations.',
+											hi: 'हम रचनात्मकता की सराहना करते हैं और नवाचारों का समर्थन करते हैं।',
+											id: 'Kami menghargai kreativitas dan mendukung inovasi.',
+											ms: 'Kami menghargai kreativiti dan menyokong inovasi.',
+											th: 'เราชื่นชมความคิดสร้างสรรค์และสนับสนุนนวัตกรรม',
+											vi: 'Chúng tôi đánh giá cao sự sáng tạo và hỗ trợ các đổi mới.',
+											bn: 'আমরা সৃষ্টিশীলতার প্রশংসা করি এবং উদ্ভাবনকে সমর্থন করি।',
+											'zh-hans': '我们欣赏创造力并支持创新。',
+											'pt-br': 'Valorizamos a criatividade e apoiamos inovações.'
+										})
+									}
 								</li>
 								<li class="text-color text-md font-thin">
-									We create and set an ambitious direction that leads to results.
+									{
+										t({
+											en: 'We create and set an ambitious direction that leads to results.',
+											ar: 'نحن نخلق ونحدد اتجاهًا طموحًا يؤدي إلى النتائج.',
+											es: 'Creamos y establecemos una dirección ambiciosa que conduce a resultados.',
+											fr: 'Nous créons et fixons une direction ambitieuse qui mène à des résultats.',
+											hi: 'हम एक महत्वाकांक्षी दिशा बनाते हैं और निर्धारित करते हैं जो परिणामों की ओर ले जाती है।',
+											id: 'Kami menciptakan dan menetapkan arah yang ambisius yang mengarah pada hasil.',
+											ms: 'Kami mencipta dan menetapkan arah yang bercita-cita tinggi yang membawa kepada hasil.',
+											th: 'เราสร้างและตั้งทิศทางที่มีความทะเยอทะยานที่นำไปสู่ผลลัพธ์',
+											vi: 'Chúng tôi tạo ra và thiết lập một hướng đi đầy tham vọng dẫn đến kết quả.',
+											bn: 'আমরা একটি উচ্চাকাঙ্ক্ষী দিক তৈরি করি এবং সেট করি যা ফলাফল নিয়ে আসে।',
+											'zh-hans': '我们创造并设定一个雄心勃勃的方向，带来成果。',
+											'pt-br': 'Criamos e definimos uma direção ambiciosa que leva a resultados.'
+										})
+									}
 								</li>
 								<li class="text-color text-md font-thin">
-									We challenge, motivate, and exceed ourselves.
+									{
+										t({
+											en: 'We challenge, motivate, and exceed ourselves.',
+											ar: 'نحن نتحدى أنفسنا، ونحفز أنفسنا، ونتجاوزها.',
+											es: 'Nos desafiamos, nos motivamos y nos superamos.',
+											fr: 'Nous nous défions, nous nous motivons et nous nous surpassons.',
+											hi: 'हम चुनौती देते हैं, प्रेरित करते हैं और अपने आप को पार करते हैं।',
+											id: 'Kami menantang, memotivasi, dan melampaui diri kami sendiri.',
+											ms: 'Kami mencabar, memotivasi, dan melebihi diri kami sendiri.',
+											th: 'เราท้าทาย กระตุ้น และทำให้ตัวเองเกินความสามารถ',
+											vi: 'Chúng tôi thách thức, động viên và vượt qua chính mình.',
+											bn: 'আমরা নিজেদেরকে চ্যালেঞ্জ করি, উদ্বুদ্ধ করি এবং অতিক্রম করি।',
+											'zh-hans': '我们挑战、激励并超越自己。',
+											'pt-br': 'Desafiamos, motivamos e superamos a nós mesmos.'
+										})
+									}
 								</li>
 								<li class="text-color text-md font-thin">
-									We create solutions together instead of blaming and criticizing
-									others.
+									{
+										t({
+											en: 'We create solutions together instead of blaming and criticizing others.',
+											ar: 'نحن نخلق الحلول معًا بدلاً من لوم الآخرين وانتقادهم.',
+											es: 'Creamos soluciones juntos en lugar de culpar y criticar a los demás.',
+											fr: 'Nous créons des solutions ensemble au lieu de blâmer et de critiquer les autres.',
+											hi: 'हम एक साथ समाधान बनाते हैं बजाय इसके कि दूसरों को दोष दें और आलोचना करें।',
+											id: 'Kami menciptakan solusi bersama daripada menyalahkan dan mengkritik orang lain.',
+											ms: 'Kami mencipta penyelesaian bersama dan bukannya menyalahkan dan mengkritik orang lain.',
+											th: 'เราสร้างโซลูชันร่วมกันแทนที่จะตำหนิและวิจารณ์ผู้อื่น',
+											vi: 'Chúng tôi cùng nhau tạo ra các giải pháp thay vì đổ lỗi và chỉ trích người khác.',
+											bn: 'আমরা একসঙ্গে সমাধান তৈরি করি, অন্যদেরকে দোষারোপ এবং সমালোচনা না করে।',
+											'zh-hans': '我们共同创造解决方案，而不是指责和批评他人。',
+											'pt-br': 'Criamos soluções juntos em vez de culpar e criticar os outros.'
+										})
+									}
 								</li>
 								<li class="text-color text-md font-thin">
-									We take care of each other, and help each other move and grow.
+									{
+										t({
+											en: 'We take care of each other, and help each other move and grow.',
+											ar: 'نحن نعتني ببعضنا البعض، ونساعد بعضنا على التحرك والنمو.',
+											es: 'Nos cuidamos mutuamente y nos ayudamos a avanzar y crecer.',
+											fr: 'Nous prenons soin les uns des autres et nous aidons à avancer et à grandir.',
+											hi: 'हम एक-दूसरे का ध्यान रखते हैं और एक-दूसरे को आगे बढ़ने और बढ़ने में मदद करते हैं।',
+											id: 'Kami saling menjaga dan membantu satu sama lain bergerak dan tumbuh.',
+											ms: 'Kami saling menjaga dan membantu satu sama lain untuk bergerak dan berkembang.',
+											th: 'เราดูแลซึ่งกันและกัน และช่วยเหลือกันให้ก้าวไปข้างหน้าและเติบโต',
+											vi: 'Chúng tôi chăm sóc lẫn nhau và giúp đỡ nhau phát triển và trưởng thành.',
+											bn: 'আমরা একে অপরকে যত্ন করি এবং একে অপরকে এগিয়ে যেতে এবং বেড়ে উঠতে সাহায্য করি।',
+											'zh-hans': '我们彼此照顾，并帮助彼此前进和成长。',
+											'pt-br':
+												'Cuidamos uns dos outros e ajudamos uns aos outros a avançar e crescer.'
+										})
+									}
 								</li>
 							</ul>
 						</div>
@@ -264,36 +597,128 @@ export const getStaticPaths = () =>
 										<path
 											fill-rule="evenodd"
 											d="m11.797 4.709l-.44-.378l-.406.035l-4.36 5.148l-1.485-2.12l-.4-.068l-.463.331l-.069.4l1.909 2.726l.217.12l.457.028l.234-.102l4.835-5.715z"
-											clip-rule="evenodd"
-										></path>
+											clip-rule="evenodd"></path>
 									</g>
 								</svg>
 							</span>
 						</div>
 						<div class="">
-							<h1 class="text-2xl font-semibold text-dbgreen-500">Trust</h1>
+							<h1 class="text-2xl font-semibold text-dbgreen-500">
+								{
+									t({
+										en: 'Trust',
+										ar: 'ثقة',
+										es: 'Confianza',
+										fr: 'Confiance',
+										hi: 'विश्वास',
+										id: 'Kepercayaan',
+										ms: 'Kepercayaan',
+										th: 'ความเชื่อมั่น',
+										vi: 'Sự tin tưởng',
+										bn: 'বিশ্বাস',
+										'zh-hans': '信任',
+										'pt-br': 'Confiança'
+									})
+								}
+							</h1>
 							<ul class="mt-6 list-disc px-6 no-underline">
 								<li class="text-color text-md font-thin">
-									We listen closely, speak frankly, and treat others with respect.
+									{
+										t({
+											en: 'We listen closely, speak frankly, and treat others with respect.',
+											ar: 'نحن نستمع عن كثب، ونتحدث بصراحة، ونعامل الآخرين باحترام.',
+											es: 'Escuchamos atentamente, hablamos con sinceridad y tratamos a los demás con respeto.',
+											fr: 'Nous écoutons attentivement, parlons franchement et traitons les autres avec respect.',
+											hi: 'हम ध्यान से सुनते हैं, खुलकर बोलते हैं और दूसरों के साथ सम्मान से पेश आते हैं।',
+											id: 'Kami mendengarkan dengan seksama, berbicara secara terbuka, dan memperlakukan orang lain dengan hormat.',
+											ms: 'Kami mendengar dengan teliti, bercakap dengan jujur, dan memperlakukan orang lain dengan hormat.',
+											th: 'เราฟังอย่างตั้งใจ พูดอย่างตรงไปตรงมา และปฏิบัติต่อผู้อื่นด้วยความเคารพ',
+											vi: 'Chúng tôi lắng nghe kỹ lưỡng, nói thẳng thắn và đối xử với người khác bằng sự tôn trọng.',
+											bn: 'আমরা মনোযোগ দিয়ে শোনে, খোলামেলা কথা বলি এবং অন্যদের প্রতি সম্মান দেখাই।',
+											'zh-hans': '我们密切倾听，坦诚交谈，并尊重他人。',
+											'pt-br':
+												'Ouvimos atentamente, falamos francamente e tratamos os outros com respeito.'
+										})
+									}
 								</li>
 								<li class="text-color text-md font-thin">
-									We express our weaknesses and goals in sound, even if doing so
-									looks awkward or embarrassing. We direct ourselves and our teams
-									towards the best.
+									{
+										t({
+											en: 'We express our weaknesses and goals in sound, even if doing so looks awkward or embarrassing. We direct ourselves and our teams towards the best.',
+											ar: 'نعبر عن نقاط ضعفنا وأهدافنا بصوت عالٍ، حتى لو بدا ذلك محرجًا أو غريبًا. نوجه أنفسنا وفرقنا نحو الأفضل.',
+											es: 'Expresamos nuestras debilidades y objetivos en voz alta, incluso si hacerlo parece incómodo o embarazoso. Nos dirigimos a nosotros mismos y a nuestros equipos hacia lo mejor.',
+											fr: 'Nous exprimons nos faiblesses et nos objectifs à haute voix, même si cela peut sembler maladroit ou embarrassant. Nous nous orientons, ainsi que nos équipes, vers le meilleur.',
+											hi: 'हम अपनी कमजोरियों और लक्ष्यों को खुलकर व्यक्त करते हैं, भले ही ऐसा करना अजीब या शर्मनाक लगे। हम अपने और अपनी टीमों को सर्वश्रेष्ठ की ओर निर्देशित करते हैं।',
+											id: 'Kami mengekspresikan kelemahan dan tujuan kami dengan suara, meskipun melakukannya terlihat canggung atau memalukan. Kami mengarahkan diri kami dan tim kami menuju yang terbaik.',
+											ms: 'Kami menyatakan kelemahan dan matlamat kami dengan suara, walaupun melakukannya kelihatan canggung atau memalukan. Kami mengarahkan diri kami dan pasukan kami ke arah yang terbaik.',
+											th: 'เราถ่ายทอดจุดอ่อนและเป้าหมายของเราออกมาอย่างชัดเจน แม้ว่าการทำเช่นนั้นอาจดูน่าอึดอัดหรืออับอายก็ตาม เราให้ทิศทางตัวเองและทีมไปยังจุดที่ดีที่สุด',
+											vi: 'Chúng tôi thể hiện những điểm yếu và mục tiêu của mình một cách rõ ràng, ngay cả khi việc đó có vẻ ngại ngùng hoặc xấu hổ. Chúng tôi định hướng cho bản thân và đội ngũ của mình hướng tới điều tốt nhất.',
+											bn: 'আমরা আমাদের দুর্বলতা এবং লক্ষ্য স্পষ্টভাবে প্রকাশ করি, যদিও এটি অস্বস্তিকর বা অস্বাভাবিক মনে হতে পারে। আমরা নিজেদের এবং আমাদের দলকে সেরার দিকে পরিচালিত করি।',
+											'zh-hans':
+												'我们清楚地表达我们的弱点和目标，即使这样做看起来很尴尬或不舒服。我们将自己和团队引导向最好的方向。',
+											'pt-br':
+												'Expressamos nossas fraquezas e objetivos em voz alta, mesmo que isso pareça awkward ou embaraçoso. Direcionamos a nós mesmos e nossas equipes para o melhor.'
+										})
+									}
 								</li>
 								<li class="text-color text-md font-thin">
-									We earn trust by making and keeping promises. We do what we say
-									and take full responsibility for our actions.
+									{
+										t({
+											en: 'We earn trust by making and keeping promises. We do what we say and take full responsibility for our actions.',
+											ar: 'نكتسب الثقة من خلال الوفاء بالوعود. نفعل ما نقوله ونتحمل المسؤولية الكاملة عن أفعالنا.',
+											es: 'Ganamos confianza al hacer y cumplir promesas. Hacemos lo que decimos y asumimos toda la responsabilidad por nuestras acciones.',
+											fr: "Nous gagnons la confiance en faisant et en tenant nos promesses. Nous faisons ce que nous disons et assumons l'entière responsabilité de nos actions.",
+											hi: 'हम वादे करके और उन्हें निभाकर विश्वास अर्जित करते हैं। हम वही करते हैं जो कहते हैं और अपने कार्यों की पूरी जिम्मेदारी लेते हैं।',
+											id: 'Kami mendapatkan kepercayaan dengan membuat dan menepati janji. Kami melakukan apa yang kami katakan dan mengambil tanggung jawab penuh atas tindakan kami.',
+											ms: 'Kami mendapatkan kepercayaan dengan membuat dan menepati janji. Kami melakukan apa yang kami katakan dan mengambil tanggungjawab penuh ke atas tindakan kami.',
+											th: 'เราได้รับความไว้วางใจจากการสร้างและรักษาสัญญา เราทำในสิ่งที่พูดและรับผิดชอบเต็มที่ต่อการกระทำของเรา',
+											vi: 'Chúng tôi xây dựng niềm tin bằng cách thực hiện và giữ lời hứa. Chúng tôi làm những gì mình nói và hoàn toàn chịu trách nhiệm về hành động của mình.',
+											bn: 'আমরা প্রতিশ্রুতি দিয়ে এবং সেগুলি রক্ষা করে বিশ্বাস অর্জন করি। আমরা যা বলি তা করি এবং আমাদের কাজের জন্য সম্পূর্ণ দায়িত্ব নিই।',
+											'zh-hans':
+												'我们通过许下承诺并履行它们来赢得信任。我们言行一致，并对自己的行为负责。',
+											'pt-br':
+												'Ganhamos confiança fazendo e cumprindo promessas. Fazemos o que dizemos e assumimos total responsabilidade por nossas ações.'
+										})
+									}
 								</li>
 								<li class="text-color text-md font-thin">
-									We talk to people about all issues; we do not conceal or gossip
-									about anything.
+									{
+										t({
+											en: 'We talk to people about all issues; we do not conceal or gossip about anything.',
+											ar: 'نتحدث مع الناس عن جميع القضايا؛ لا نخفي أو نتحدث عن أي شيء.',
+											es: 'Hablamos con las personas sobre todos los temas; no ocultamos ni chismeamos sobre nada.',
+											fr: 'Nous parlons aux gens de toutes les questions ; nous ne cachons rien et ne faisons pas de commérages.',
+											hi: 'हम लोगों से सभी मुद्दों के बारे में बात करते हैं; हम कुछ भी छिपाते या गपशप नहीं करते।',
+											id: 'Kami berbicara dengan orang-orang tentang semua masalah; kami tidak menyembunyikan atau menggosip tentang apapun.',
+											ms: 'Kami bercakap dengan orang tentang semua isu; kami tidak menyembunyikan atau bergossip tentang apa-apa.',
+											th: 'เราพูดคุยกับผู้คนเกี่ยวกับปัญหาทั้งหมด; เราไม่ปิดบังหรือซุบซิบเกี่ยวกับสิ่งใด',
+											vi: 'Chúng tôi nói chuyện với mọi người về tất cả các vấn đề; chúng tôi không che giấu hay nói xấu về bất cứ điều gì.',
+											bn: 'আমরা মানুষের সাথে সব বিষয়ে কথা বলি; আমরা কিছু গোপন করি না বা গুজব করি না।',
+											'zh-hans': '我们与人谈论所有问题；我们不隐瞒或闲聊任何事情。',
+											'pt-br':
+												'Conversamos com as pessoas sobre todas as questões; não ocultamos nem fofocamos sobre nada.'
+										})
+									}
 								</li>
 								<li class="text-color text-md font-thin">
-									We are obliged to challenge decisions respectfully when we
-									disagree, even when doing so is uncomfortable or exhausting. We
-									have conviction, and we are stubborn. Once a decision is made,
-									we put it wholly into action.
+									{
+										t({
+											en: 'We are obliged to challenge decisions respectfully when we disagree, even when doing so is uncomfortable or exhausting. We have conviction, and we are stubborn. Once a decision is made, we put it wholly into action.',
+											ar: 'نحن ملزمون بتحدي القرارات باحترام عندما نختلف، حتى عندما يكون القيام بذلك غير مريح أو مرهق. لدينا قناعة، ونحن عنيدون. بمجرد اتخاذ القرار، نضعه بالكامل موضع التنفيذ.',
+											es: 'Estamos obligados a cuestionar las decisiones con respeto cuando no estamos de acuerdo, incluso cuando hacerlo es incómodo o agotador. Tenemos convicción y somos tercos. Una vez que se toma una decisión, la llevamos a cabo por completo.',
+											fr: "Nous sommes tenus de contester les décisions avec respect lorsque nous ne sommes pas d'accord, même lorsque cela est inconfortable ou épuisant. Nous avons de la conviction et nous sommes têtus. Une fois une décision prise, nous la mettons complètement en œuvre.",
+											hi: 'जब हम असहमत होते हैं, तो हमें निर्णयों को सम्मानपूर्वक चुनौती देने की आवश्यकता होती है, भले ही ऐसा करना असहज या थकाऊ हो। हमारे पास दृढ़ विश्वास है, और हम जिद्दी हैं। एक बार निर्णय लेने के बाद, हम इसे पूरी तरह से क्रियान्वित करते हैं।',
+											id: 'Kami wajib menantang keputusan dengan hormat ketika kami tidak setuju, bahkan ketika melakukannya terasa tidak nyaman atau melelahkan. Kami memiliki keyakinan, dan kami keras kepala. Setelah keputusan diambil, kami sepenuhnya menerapkannya.',
+											ms: 'Kami wajib mencabar keputusan dengan hormat apabila kami tidak setuju, walaupun melakukannya tidak selesa atau meletihkan. Kami mempunyai keyakinan, dan kami keras kepala. Setelah keputusan dibuat, kami melaksanakannya sepenuhnya.',
+											th: 'เราจำเป็นต้องท้าทายการตัดสินใจอย่างเคารพเมื่อเราไม่เห็นด้วย แม้ว่าการทำเช่นนั้นจะไม่สะดวกหรือเหนื่อยล้า เรามีความเชื่อมั่นและเราดื้อดึง เมื่อมีการตัดสินใจเกิดขึ้น เราจะนำไปปฏิบัติอย่างเต็มที่',
+											vi: 'Chúng tôi có nghĩa vụ thách thức các quyết định một cách tôn trọng khi chúng tôi không đồng ý, ngay cả khi việc đó gây khó chịu hoặc mệt mỏi. Chúng tôi có niềm tin và chúng tôi bướng bỉnh. Một khi quyết định được đưa ra, chúng tôi thực hiện nó một cách triệt để.',
+											bn: 'যখন আমরা দ্বিমত করি তখন আমাদেরকে সম্মানের সাথে সিদ্ধান্তগুলোকে চ্যালেঞ্জ করার জন্য বাধ্য করা হয়, যদিও এটি অস্বস্তিকর বা ক্লান্তিকর হতে পারে। আমাদের কাছে বিশ্বাস আছে, এবং আমরা জেদী। একবার একটি সিদ্ধান্ত নেওয়া হলে, আমরা সেটিকে সম্পূর্ণরূপে কার্যকর করি।',
+											'zh-hans':
+												'当我们不同意时，我们有义务以尊重的方式挑战决策，即使这样做可能会让人感到不适或疲惫。我们有信念，而且我们很固执。一旦做出决定，我们就会全力以赴地付诸实践。',
+											'pt-br':
+												'Estamos obrigados a desafiar decisões com respeito quando discordamos, mesmo quando isso é desconfortável ou cansativo. Temos convicção e somos teimosos. Uma vez que uma decisão é tomada, a colocamos totalmente em ação.'
+										})
+									}
 								</li>
 							</ul>
 						</div>
@@ -317,11 +742,7 @@ export const getStaticPaths = () =>
 										stroke-linejoin="round"
 										stroke-width="2"
 									>
-										<circle
-											cx="12"
-											cy="12"
-											r="3"
-										></circle>
+										<circle cx="12" cy="12" r="3"></circle>
 										<path
 											d="M3 7V5a2 2 0 0 1 2-2h2m10 0h2a2 2 0 0 1 2 2v2m0 10v2a2 2 0 0 1-2 2h-2M7 21H5a2 2 0 0 1-2-2v-2"
 										></path>
@@ -330,28 +751,122 @@ export const getStaticPaths = () =>
 							</span>
 						</div>
 						<div class="">
-							<h1 class="text-2xl font-semibold text-dbgreen-500">Result-Driven</h1>
+							<h1 class="text-2xl font-semibold text-dbgreen-500">
+								{
+									t({
+										en: 'Result-Driven',
+										ar: 'مدفوع بالنتائج',
+										es: 'Enfocado en resultados',
+										fr: 'Axé sur les résultats',
+										hi: 'परिणाम-उन्मुख',
+										id: 'Berorientasi pada hasil',
+										ms: 'Dipacu oleh hasil',
+										th: 'ขับเคลื่อนด้วยผลลัพธ์',
+										vi: 'Định hướng kết quả',
+										bn: 'ফলাফল-ভিত্তিক',
+										'zh-hans': '以结果为导向',
+										'pt-br': 'Orientado para resultados'
+									})
+								}
+							</h1>
 							<ul class="mt-6 list-disc px-6 no-underline">
 								<li class="text-color text-md font-thin">
-									We focus on the critical inputs for business and deliver them
-									with the right quality and on time. Efficient decision-making
-									and its rapid execution are vital for staying relevant.
+									{
+										t({
+											en: 'We focus on the critical inputs for business and deliver them with the right quality and on time. Efficient decision-making and its rapid execution are vital for staying relevant.',
+											ar: 'نحن نركز على المدخلات الحرجة للأعمال ونقدمها بالجودة الصحيحة وفي الوقت المحدد. إن اتخاذ القرارات بكفاءة وتنفيذها بسرعة أمر حيوي للبقاء على صلة.',
+											es: 'Nos centramos en los insumos críticos para el negocio y los entregamos con la calidad adecuada y a tiempo. La toma de decisiones eficiente y su rápida ejecución son vitales para mantener la relevancia.',
+											fr: 'Nous nous concentrons sur les intrants critiques pour les affaires et les livrons avec la bonne qualité et à temps. Une prise de décision efficace et son exécution rapide sont vitales pour rester pertinent.',
+											hi: 'हम व्यवसाय के लिए महत्वपूर्ण इनपुट पर ध्यान केंद्रित करते हैं और उन्हें सही गुणवत्ता और समय पर वितरित करते हैं। प्रभावी निर्णय लेना और उसका तेजी से कार्यान्वयन प्रासंगिक बने रहने के लिए महत्वपूर्ण हैं।',
+											id: 'Kami fokus pada masukan kritis untuk bisnis dan menyampaikannya dengan kualitas yang tepat dan tepat waktu. Pengambilan keputusan yang efisien dan pelaksanaannya yang cepat sangat penting untuk tetap relevan.',
+											ms: 'Kami memberi tumpuan kepada input kritikal untuk perniagaan dan menyampaikannya dengan kualiti yang tepat dan tepat pada masanya. Pengambilan keputusan yang cekap dan pelaksanaannya yang cepat adalah penting untuk kekal relevan.',
+											th: 'เรามุ่งเน้นไปที่ข้อมูลนำเข้าที่สำคัญต่อธุรกิจและส่งมอบในคุณภาพที่ถูกต้องและทันเวลา การตัดสินใจอย่างมีประสิทธิภาพและการดำเนินการอย่างรวดเร็วเป็นสิ่งสำคัญในการรักษาความเกี่ยวข้อง',
+											vi: 'Chúng tôi tập trung vào các yếu tố đầu vào quan trọng cho doanh nghiệp và cung cấp chúng với chất lượng đúng đắn và đúng hạn. Việc ra quyết định hiệu quả và thực hiện nhanh chóng là điều quan trọng để giữ được sự liên quan.',
+											bn: 'আমরা ব্যবসার জন্য গুরুত্বপূর্ণ ইনপুটগুলির উপর ফোকাস করি এবং সেগুলি সঠিক মানের সাথে এবং সময়মতো প্রদান করি। কার্যকরী সিদ্ধান্ত গ্রহণ এবং এর দ্রুত বাস্তবায়ন প্রাসঙ্গিক থাকার জন্য অপরিহার্য।',
+											'zh-hans':
+												'我们专注于商业的关键输入，并按时以正确的质量交付。有效的决策和快速执行对于保持相关性至关重要。',
+											'pt-br':
+												'Focamos nas entradas críticas para os negócios e as entregamos com a qualidade certa e no prazo. A tomada de decisões eficiente e sua execução rápida são vitais para permanecer relevante.'
+										})
+									}
 								</li>
 								<li class="text-color text-md font-thin">
-									To reach success, we must have top level standards and work even
-									harder and smarter than anyone else.
+									{
+										t({
+											en: 'To reach success, we must have top level standards and work even harder and smarter than anyone else.',
+											ar: 'لتحقيق النجاح، يجب أن تكون لدينا معايير عالية المستوى ونعمل بجد أكبر وأكثر ذكاءً من أي شخص آخر.',
+											es: 'Para alcanzar el éxito, debemos tener estándares de alto nivel y trabajar aún más duro e inteligentemente que cualquier otra persona.',
+											fr: 'Pour atteindre le succès, nous devons avoir des normes de haut niveau et travailler encore plus dur et plus intelligemment que quiconque.',
+											hi: 'सफलता प्राप्त करने के लिए, हमारे पास उच्च स्तर के मानक होने चाहिए और हमें किसी और की तुलना में और अधिक मेहनती और स्मार्ट काम करना होगा।',
+											id: 'Untuk mencapai kesuksesan, kami harus memiliki standar tingkat atas dan bekerja lebih keras dan lebih cerdas daripada orang lain.',
+											ms: 'Untuk mencapai kejayaan, kami mesti mempunyai standard tahap tertinggi dan bekerja lebih keras dan lebih bijak daripada orang lain.',
+											th: 'เพื่อไปสู่ความสำเร็จ เราต้องมีมาตรฐานระดับสูงและทำงานหนักและฉลาดกว่าคนอื่น ๆ',
+											vi: 'Để đạt được thành công, chúng ta phải có tiêu chuẩn hàng đầu và làm việc chăm chỉ và thông minh hơn bất kỳ ai khác.',
+											bn: 'সফলতা অর্জনের জন্য, আমাদের শীর্ষ স্তরের মান থাকতে হবে এবং অন্য যে কারও চেয়ে আরও কঠোর এবং আরও স্মার্ট কাজ করতে হবে।',
+											'zh-hans':
+												'要实现成功，我们必须具备顶级标准，并比其他任何人更努力、更聪明地工作。',
+											'pt-br':
+												'Para alcançar o sucesso, devemos ter padrões de alto nível e trabalhar ainda mais duro e mais inteligente do que qualquer outra pessoa.'
+										})
+									}
 								</li>
 								<li class="text-color text-md font-thin">
-									We appreciate completing tasks instead of talking about them. We
-									prefer automation to manual work.
+									{
+										t({
+											en: 'We appreciate completing tasks instead of talking about them. We prefer automation to manual work.',
+											ar: 'نحن نقدر إنجاز المهام بدلاً من الحديث عنها. نفضل الأتمتة على العمل اليدوي.',
+											es: 'Apreciamos completar tareas en lugar de hablar de ellas. Preferimos la automatización al trabajo manual.',
+											fr: 'Nous apprécions de compléter des tâches plutôt que d’en parler. Nous préférons l’automatisation au travail manuel.',
+											hi: 'हम कार्यों को पूरा करने की सराहना करते हैं बजाय इसके कि उनके बारे में बात करें। हम मैनुअल कार्य की तुलना में स्वचालन को प्राथमिकता देते हैं।',
+											id: 'Kami menghargai menyelesaikan tugas daripada membicarakannya. Kami lebih memilih otomatisasi daripada pekerjaan manual.',
+											ms: 'Kami menghargai menyiapkan tugas daripada bercakap mengenainya. Kami lebih suka automasi daripada kerja manual.',
+											th: 'เราชื่นชมการทำงานให้เสร็จสิ้นแทนที่จะพูดคุยเกี่ยวกับมัน เราชอบการทำงานอัตโนมัติมากกว่าการทำงานด้วยมือ',
+											vi: 'Chúng tôi đánh giá cao việc hoàn thành các nhiệm vụ hơn là nói về chúng. Chúng tôi thích tự động hóa hơn là công việc thủ công.',
+											bn: 'আমরা কাজ সম্পন্ন করার জন্য প্রশংসা করি, তা নিয়ে আলোচনা করার পরিবর্তে। আমরা ম্যানুয়াল কাজের তুলনায় অটোমেশনকে বেশি পছন্দ করি।',
+											'zh-hans':
+												'我们更欣赏完成任务，而不是谈论它们。我们更喜欢自动化而不是手动工作。',
+											'pt-br':
+												'Apreciamos completar tarefas em vez de falar sobre elas. Preferimos a automação ao trabalho manual.'
+										})
+									}
 								</li>
 								<li class="text-color text-md font-thin">
-									We set priorities, fixing on the 20% that will give us 80% of
-									the impact.
+									{
+										t({
+											en: 'We set priorities, fixing on the 20% that will give us 80% of the impact.',
+											ar: 'نحدد الأولويات، مع التركيز على 20% التي ستمنحنا 80% من الأثر.',
+											es: 'Establecemos prioridades, centrándonos en el 20% que nos dará el 80% del impacto.',
+											fr: 'Nous établissons des priorités en nous concentrant sur les 20 % qui nous donneront 80 % de l’impact.',
+											hi: 'हम प्राथमिकताएँ निर्धारित करते हैं, 20% पर ध्यान केंद्रित करते हैं जो हमें 80% प्रभाव देगा।',
+											id: 'Kami menetapkan prioritas, fokus pada 20% yang akan memberi kami 80% dampak.',
+											ms: 'Kami menetapkan keutamaan, memberi tumpuan kepada 20% yang akan memberi kami 80% impak.',
+											th: 'เราตั้งลำดับความสำคัญ โดยมุ่งเน้นที่ 20% ที่จะให้ผลกระทบ 80%',
+											vi: 'Chúng tôi đặt ra các ưu tiên, tập trung vào 20% sẽ mang lại cho chúng tôi 80% tác động.',
+											bn: 'আমরা অগ্রাধিকার নির্ধারণ করি, 20% এর উপর মনোনিবেশ করে যা আমাদের 80% প্রভাব দেবে।',
+											'zh-hans': '我们设定优先事项，专注于20%将给我们带来80%影响的部分。',
+											'pt-br':
+												'Definimos prioridades, concentrando-nos nos 20% que nos darão 80% do impacto.'
+										})
+									}
 								</li>
 								<li class="text-color text-md font-thin">
-									We constantly lift the bar and drive ourselves to offer
-									high-quality products, services, and processes.
+									{
+										t({
+											en: 'We constantly lift the bar and drive ourselves to offer high-quality products, services, and processes.',
+											ar: 'نحن نرفع المستوى باستمرار وندفع أنفسنا لتقديم منتجات وخدمات وعمليات عالية الجودة.',
+											es: 'Constantemente elevamos el nivel y nos esforzamos por ofrecer productos, servicios y procesos de alta calidad.',
+											fr: 'Nous élevons constamment le niveau et nous nous efforçons d’offrir des produits, des services et des processus de haute qualité.',
+											hi: 'हम लगातार स्तर को ऊँचा करते हैं और उच्च गुणवत्ता वाले उत्पाद, सेवाएँ और प्रक्रियाएँ प्रदान करने के लिए अपने आप को प्रेरित करते हैं।',
+											id: 'Kami terus-menerus meningkatkan standar dan mendorong diri kami untuk menawarkan produk, layanan, dan proses berkualitas tinggi.',
+											ms: 'Kami sentiasa meningkatkan tahap dan mendorong diri kami untuk menawarkan produk, perkhidmatan, dan proses berkualiti tinggi.',
+											th: 'เรายกระดับมาตรฐานอย่างต่อเนื่องและผลักดันตัวเองเพื่อเสนอผลิตภัณฑ์ บริการ และกระบวนการคุณภาพสูง',
+											vi: 'Chúng tôi liên tục nâng cao tiêu chuẩn và thúc đẩy bản thân để cung cấp sản phẩm, dịch vụ và quy trình chất lượng cao.',
+											bn: 'আমরা ক্রমাগত মান উন্নত করি এবং উচ্চমানের পণ্য, পরিষেবা এবং প্রক্রিয়া প্রদানের জন্য নিজেদেরকে উৎসাহিত করি।',
+											'zh-hans': '我们不断提升标准，推动自己提供高质量的产品、服务和流程。',
+											'pt-br':
+												'Constantemente elevamos a barra e nos esforçamos para oferecer produtos, serviços e processos de alta qualidade.'
+										})
+									}
 								</li>
 							</ul>
 						</div>
@@ -379,47 +894,166 @@ export const getStaticPaths = () =>
 											d="M6.818 22v-2.857C6.52 16.166 3 14.572 3 10c0-4.57 2.727-8.056 8.182-8c3.927.042 7.636 2.286 7.636 6.858L21 12.286c0 2.286-2.182 2.286-2.182 2.286s.546 5.714-4.364 5.714V22"
 										></path>
 										<path d="M11 12a2 2 0 1 0 0-4a2 2 0 0 0 0 4"></path>
-										<path
-											stroke-dasharray=".3 2"
-											d="M11 13a3 3 0 1 0 0-6a3 3 0 0 0 0 6"
-										></path>
+										<path stroke-dasharray=".3 2" d="M11 13a3 3 0 1 0 0-6a3 3 0 0 0 0 6"></path>
 									</g>
 								</svg>
 							</span>
 						</div>
 						<div class="">
 							<h1 class="text-2xl font-semibold text-dbgreen-500">
-								Continuous learning
+								{
+									t({
+										en: 'Continuous learning',
+										ar: 'التعلم المستمر',
+										es: 'Aprendizaje continuo',
+										fr: 'Apprentissage continu',
+										hi: 'निरंतर सीखना',
+										id: 'Pembelajaran berkelanjutan',
+										ms: 'Pembelajaran berterusan',
+										th: 'การเรียนรู้อย่างต่อเนื่อง',
+										vi: 'Học tập liên tục',
+										bn: 'নিরবিচ্ছিন্ন শেখার',
+										'zh-hans': '持续学习',
+										'pt-br': 'Aprendizado contínuo'
+									})
+								}
 							</h1>
 							<ul class="mt-6 list-disc px-6 no-underline">
 								<li class="text-color text-md font-thin">
-									We are learning all the time and always look for ways to improve
-									ourselves. We are interested in new possibilities and strive to
-									explore them.
+									{
+										t({
+											en: 'We are learning all the time and always look for ways to improve ourselves. We are interested in new possibilities and strive to explore them.',
+											ar: 'نحن نتعلم طوال الوقت ونسعى دائمًا للبحث عن طرق لتحسين أنفسنا. نحن مهتمون بالاحتمالات الجديدة ونسعى لاستكشافها.',
+											es: 'Estamos aprendiendo todo el tiempo y siempre buscamos formas de mejorar a nosotros mismos. Nos interesan las nuevas posibilidades y nos esforzamos por explorarlas.',
+											fr: 'Nous apprenons tout le temps et cherchons toujours des moyens de nous améliorer. Nous sommes intéressés par de nouvelles possibilités et nous nous efforçons de les explorer.',
+											hi: 'हम हमेशा सीख रहे हैं और अपने आप को सुधारने के तरीके खोजने की कोशिश कर रहे हैं। हम नई संभावनाओं में रुचि रखते हैं और उन्हें खोजने का प्रयास करते हैं।',
+											id: 'Kami selalu belajar dan selalu mencari cara untuk meningkatkan diri kami. Kami tertarik pada kemungkinan baru dan berusaha untuk menjelajahinya.',
+											ms: 'Kami sentiasa belajar dan sentiasa mencari cara untuk memperbaiki diri kami. Kami berminat dengan kemungkinan baru dan berusaha untuk menerokainya.',
+											th: 'เรากำลังเรียนรู้ตลอดเวลาและมักมองหาวิธีในการพัฒนาตนเอง เราสนใจในความเป็นไปได้ใหม่ ๆ และพยายามสำรวจมัน',
+											vi: 'Chúng tôi luôn học hỏi và luôn tìm kiếm cách để cải thiện bản thân. Chúng tôi quan tâm đến những khả năng mới và cố gắng khám phá chúng.',
+											bn: 'আমরা সব সময় শিখছি এবং সবসময় নিজেদের উন্নত করার উপায় খুঁজছি। আমরা নতুন সম্ভাবনায় আগ্রহী এবং সেগুলি আবিষ্কারের চেষ্টা করি।',
+											'zh-hans':
+												'我们一直在学习，并始终寻找改进自己的方法。我们对新的可能性感兴趣，并努力去探索它们。',
+											'pt-br':
+												'Estamos aprendendo o tempo todo e sempre procurando maneiras de melhorar a nós mesmos. Estamos interessados em novas possibilidades e nos esforçamos para explorá-las.'
+										})
+									}
 								</li>
 								<li class="text-color text-md font-thin">
-									We consider every case as an experience or another opportunity
-									to learn (especially when the case is complicated enough).
+									{
+										t({
+											en: 'We consider every case as an experience or another opportunity to learn (especially when the case is complicated enough).',
+											ar: 'نعتبر كل حالة كتجربة أو فرصة أخرى للتعلم (خصوصًا عندما تكون الحالة معقدة بما فيه الكفاية).',
+											es: 'Consideramos cada caso como una experiencia u otra oportunidad de aprender (especialmente cuando el caso es lo suficientemente complicado).',
+											fr: 'Nous considérons chaque cas comme une expérience ou une autre occasion d’apprendre (surtout lorsque le cas est suffisamment compliqué).',
+											hi: 'हम प्रत्येक मामले को एक अनुभव या सीखने का एक और अवसर मानते हैं (विशेषकर जब मामला काफी जटिल होता है)।',
+											id: 'Kami menganggap setiap kasus sebagai pengalaman atau kesempatan lain untuk belajar (terutama ketika kasusnya cukup rumit).',
+											ms: 'Kami menganggap setiap kes sebagai pengalaman atau peluang lain untuk belajar (terutamanya apabila kes itu cukup rumit).',
+											th: 'เราพิจารณาทุกกรณีว่าเป็นประสบการณ์หรือโอกาสในการเรียนรู้ (โดยเฉพาะเมื่อกรณีนั้นซับซ้อนเพียงพอ)',
+											vi: 'Chúng tôi coi mỗi trường hợp là một trải nghiệm hoặc một cơ hội khác để học hỏi (đặc biệt khi trường hợp đó đủ phức tạp).',
+											bn: 'আমরা প্রতিটি মামলাকে একটি অভিজ্ঞতা বা শেখার আরও একটি সুযোগ হিসেবে বিবেচনা করি (বিশেষত যখন মামলা যথেষ্ট জটিল)।',
+											'zh-hans':
+												'我们将每个案例视为一次经验或另一个学习的机会（尤其是当案例足够复杂时）。',
+											'pt-br':
+												'Consideramos cada caso como uma experiência ou outra oportunidade de aprender (especialmente quando o caso é complicado o suficiente).'
+										})
+									}
 								</li>
 								<li class="text-color text-md font-thin">
-									We are interested in acquiring knowledge rather than proving our
-									points.
+									{
+										t({
+											en: 'We are interested in acquiring knowledge rather than proving our points.',
+											ar: 'نحن مهتمون باكتساب المعرفة بدلاً من إثبات وجهات نظرنا.',
+											es: 'Estamos interesados en adquirir conocimiento en lugar de probar nuestros puntos.',
+											fr: 'Nous sommes intéressés par l’acquisition de connaissances plutôt que par la défense de nos points de vue.',
+											hi: 'हम अपने दृष्टिकोण को साबित करने के बजाय ज्ञान प्राप्त करने में रुचि रखते हैं।',
+											id: 'Kami tertarik untuk memperoleh pengetahuan daripada membuktikan pendapat kami.',
+											ms: 'Kami berminat untuk memperoleh pengetahuan daripada membuktikan pendapat kami.',
+											th: 'เราสนใจในการเรียนรู้มากกว่าการพิสูจน์มุมมองของเรา',
+											vi: 'Chúng tôi quan tâm đến việc tiếp thu kiến thức hơn là chứng minh quan điểm của mình.',
+											bn: 'আমরা আমাদের পয়েন্ট প্রমাণ করার পরিবর্তে জ্ঞান অর্জনে আগ্রহী।',
+											'zh-hans': '我们更感兴趣于获取知识，而不是证明我们的观点。',
+											'pt-br':
+												'Estamos interessados em adquirir conhecimento em vez de provar nossos pontos.'
+										})
+									}
 								</li>
 								<li class="text-color text-md font-thin">
-									We value giving and receiving regular feedback and an open mind
-									to self-improvement.
+									{
+										t({
+											en: 'We value giving and receiving regular feedback and an open mind to self-improvement.',
+											ar: 'نحن نقدر إعطاء واستقبال التعليقات المنتظمة وفتح الذهن لتحسين الذات.',
+											es: 'Valoramos dar y recibir retroalimentación regular y tener una mente abierta hacia la superación personal.',
+											fr: 'Nous valorisons le fait de donner et de recevoir des retours réguliers ainsi qu’une ouverture d’esprit à l’amélioration personnelle.',
+											hi: 'हम नियमित फीडबैक देने और प्राप्त करने और आत्म-सुधार के लिए खुले मन को महत्व देते हैं।',
+											id: 'Kami menghargai memberikan dan menerima umpan balik secara teratur serta memiliki pikiran terbuka untuk perbaikan diri.',
+											ms: 'Kami menghargai memberi dan menerima maklum balas secara berkala dan mempunyai fikiran terbuka untuk penambahbaikan diri.',
+											th: 'เรามีค่าสำหรับการให้และรับข้อเสนอแนะแบบปกติและมีใจเปิดกว้างในการพัฒนาตนเอง',
+											vi: 'Chúng tôi đánh giá cao việc cho và nhận phản hồi thường xuyên và tư duy cởi mở để tự cải thiện.',
+											bn: 'আমরা নিয়মিত প্রতিক্রিয়া দেওয়া এবং গ্রহণ করার পাশাপাশি আত্ম-উন্নতির জন্য খোলামেলা মনকে মূল্যায়ন করি।',
+											'zh-hans': '我们重视定期给予和接收反馈，并保持开放的心态以自我提升。',
+											'pt-br':
+												'Valorizamos dar e receber feedback regular e ter uma mente aberta para a autoaperfeiçoamento.'
+										})
+									}
 								</li>
 								<li class="text-color text-md font-thin">
-									We learn from and share knowledge with those around us.
+									{
+										t({
+											en: 'We learn from and share knowledge with those around us.',
+											ar: 'نتعلم من ونشارك المعرفة مع من حولنا.',
+											es: 'Aprendemos de y compartimos conocimiento con quienes nos rodean.',
+											fr: 'Nous apprenons et partageons des connaissances avec ceux qui nous entourent.',
+											hi: 'हम अपने चारों ओर के लोगों से सीखते हैं और ज्ञान साझा करते हैं।',
+											id: 'Kami belajar dari dan berbagi pengetahuan dengan orang-orang di sekitar kami.',
+											ms: 'Kami belajar daripada dan berkongsi pengetahuan dengan orang di sekeliling kami.',
+											th: 'เราศึกษาจากและแบ่งปันความรู้กับผู้คนรอบตัวเรา',
+											vi: 'Chúng tôi học hỏi từ và chia sẻ kiến thức với những người xung quanh.',
+											bn: 'আমরা আমাদের চারপাশের লোকদের কাছ থেকে শিখি এবং জ্ঞান শেয়ার করি।',
+											'zh-hans': '我们向周围的人学习并分享知识。',
+											'pt-br':
+												'Aprendemos e compartilhamos conhecimento com aqueles ao nosso redor.'
+										})
+									}
 								</li>
 								<li class="text-color text-md font-thin">
-									The world is constantly changing, and our task is to adapt.
-									Whether you change yourself or create changes, both work; both
-									are the best kinds of evolution.
+									{
+										t({
+											en: 'The world is constantly changing, and our task is to adapt. Whether you change yourself or create changes, both work; both are the best kinds of evolution.',
+											ar: 'العالم يتغير باستمرار، ومهمتنا هي التكيف. سواء كنت تغير نفسك أو تخلق تغييرات، كلاهما يعمل؛ كلاهما أفضل أنواع التطور.',
+											es: 'El mundo está en constante cambio, y nuestra tarea es adaptarnos. Ya sea que cambies a ti mismo o crees cambios, ambos funcionan; ambos son los mejores tipos de evolución.',
+											fr: "Le monde change constamment, et notre tâche est de nous adapter. Que vous changiez vous-même ou créiez des changements, les deux fonctionnent ; les deux sont les meilleures formes d'évolution.",
+											hi: 'दुनिया लगातार बदल रही है, और हमारा काम अनुकूलन करना है। चाहे आप खुद को बदलें या परिवर्तन करें, दोनों काम करते हैं; दोनों विकास के सबसे अच्छे प्रकार हैं।',
+											id: 'Dunia terus berubah, dan tugas kami adalah beradaptasi. Baik Anda mengubah diri sendiri atau menciptakan perubahan, keduanya berhasil; keduanya adalah jenis evolusi terbaik.',
+											ms: 'Dunia sentiasa berubah, dan tugas kami adalah untuk menyesuaikan diri. Sama ada anda mengubah diri sendiri atau mencipta perubahan, kedua-duanya berfungsi; kedua-duanya adalah jenis evolusi yang terbaik.',
+											th: 'โลกกำลังเปลี่ยนแปลงอยู่ตลอดเวลา และหน้าที่ของเราคือการปรับตัว ไม่ว่าคุณจะเปลี่ยนตัวเองหรือสร้างการเปลี่ยนแปลง ทั้งสองวิธีได้ผล; ทั้งคู่คือการพัฒนาที่ดีที่สุด',
+											vi: 'Thế giới đang thay đổi không ngừng, và nhiệm vụ của chúng tôi là thích ứng. Dù bạn thay đổi bản thân hay tạo ra những thay đổi, cả hai đều có tác dụng; cả hai đều là những loại tiến hóa tốt nhất.',
+											bn: 'বিশ্ব অবিরাম পরিবর্তিত হচ্ছে, এবং আমাদের কাজ হল অভিযোজিত হওয়া। আপনি নিজেকে পরিবর্তন করেন বা পরিবর্তন তৈরি করেন, উভয়ই কাজ করে; উভয়ই উন্নয়নের সেরা ধরনের।',
+											'zh-hans':
+												'世界正在不断变化，而我们的任务是适应。无论你是改变自己还是创造变化，两者都有效；两者都是最好的进化方式。',
+											'pt-br':
+												'O mundo está em constante mudança, e nossa tarefa é nos adaptar. Seja você mudar a si mesmo ou criar mudanças, ambas funcionam; ambas são os melhores tipos de evolução.'
+										})
+									}
 								</li>
 								<li class="text-color text-md font-thin">
-									We always bring our beliefs into question and at the same time,
-									do not lose the ability to make decisions.
+									{
+										t({
+											en: 'We always bring our beliefs into question and at the same time, do not lose the ability to make decisions.',
+											ar: 'نحن دائماً نتساءل عن معتقداتنا وفي نفس الوقت، لا نفقد القدرة على اتخاذ القرارات.',
+											es: 'Siempre cuestionamos nuestras creencias y al mismo tiempo, no perdemos la capacidad de tomar decisiones.',
+											fr: 'Nous remettons toujours en question nos croyances et en même temps, nous ne perdons pas la capacité de prendre des décisions.',
+											hi: 'हम हमेशा अपने विश्वासों पर सवाल उठाते हैं और साथ ही, निर्णय लेने की क्षमता नहीं खोते।',
+											id: 'Kami selalu mempertanyakan keyakinan kami dan pada saat yang sama, tidak kehilangan kemampuan untuk membuat keputusan.',
+											ms: 'Kami sentiasa mempersoalkan kepercayaan kami dan pada masa yang sama, tidak kehilangan kemampuan untuk membuat keputusan.',
+											th: 'เรามักจะตั้งคำถามเกี่ยวกับความเชื่อของเราและในขณะเดียวกันก็ไม่สูญเสียความสามารถในการตัดสินใจ',
+											vi: 'Chúng tôi luôn đặt câu hỏi về niềm tin của mình và đồng thời không đánh mất khả năng ra quyết định.',
+											bn: 'আমরা সবসময় আমাদের বিশ্বাসকে প্রশ্ন করি এবং একই সময়ে, সিদ্ধান্ত নেওয়ার ক্ষমতা হারাই না।',
+											'zh-hans': '我们总是质疑自己的信念，同时又不失去做出决策的能力。',
+											'pt-br':
+												'Sempre questionamos nossas crenças e, ao mesmo tempo, não perdemos a capacidade de tomar decisões.'
+										})
+									}
 								</li>
 							</ul>
 						</div>
@@ -444,39 +1078,142 @@ export const getStaticPaths = () =>
 							</span>
 						</div>
 						<div class="">
-							<h1 class="text-2xl font-semibold text-dbgreen-500">Ownership</h1>
+							<h1 class="text-2xl font-semibold text-dbgreen-500">
+								{
+									t({
+										en: 'Ownership',
+										ar: 'ملكية',
+										es: 'Propiedad',
+										fr: 'Propriété',
+										hi: 'स्वामित्व',
+										id: 'Kepemilikan',
+										ms: 'Kepemilikan',
+										th: 'ความเป็นเจ้าของ',
+										vi: 'Quyền sở hữu',
+										bn: 'মালিকানা',
+										'zh-hans': '所有权',
+										'pt-br': 'Propriedade'
+									})
+								}
+							</h1>
 							<ul class="mt-6 list-disc px-6 no-underline">
 								<li class="text-color text-md font-thin">
-									We have long-term outlooks and don’t give up our long-term
-									values in favor of short-term results.
+									{
+										t({
+											en: 'We have long-term outlooks and don’t give up our long-term values in favor of short-term results.',
+											ar: 'لدينا آفاق طويلة الأجل ولا نتخلى عن قيمنا طويلة الأجل من أجل النتائج القصيرة الأجل.',
+											es: 'Tenemos perspectivas a largo plazo y no renunciamos a nuestros valores a largo plazo a favor de resultados a corto plazo.',
+											fr: 'Nous avons des perspectives à long terme et nous ne renonçons pas à nos valeurs à long terme en faveur de résultats à court terme.',
+											hi: 'हमारे पास दीर्घकालिक दृष्टिकोण हैं और हम तात्कालिक परिणामों के लिए अपने दीर्घकालिक मूल्यों को नहीं छोड़ते।',
+											id: 'Kami memiliki pandangan jangka panjang dan tidak menyerahkan nilai jangka panjang kami demi hasil jangka pendek.',
+											ms: 'Kami mempunyai pandangan jangka panjang dan tidak mengabaikan nilai jangka panjang kami demi hasil jangka pendek.',
+											th: 'เรามีวิสัยทัศน์ระยะยาวและไม่ยอมแพ้ต่อค่านิยมระยะยาวของเราเพื่อผลลัพธ์ระยะสั้น',
+											vi: 'Chúng tôi có tầm nhìn dài hạn và không từ bỏ các giá trị dài hạn của mình vì những kết quả ngắn hạn.',
+											bn: 'আমাদের দীর্ঘমেয়াদী দৃষ্টিভঙ্গি রয়েছে এবং আমরা স্বল্পমেয়াদী ফলাফলের জন্য আমাদের দীর্ঘমেয়াদী মূল্যবোধ ত্যাগ করি না।',
+											'zh-hans': '我们有长期的前景，并且不会为了短期的结果而放弃我们的长期价值观。',
+											'pt-br':
+												'Temos uma visão de longo prazo e não abrimos mão de nossos valores de longo prazo em favor de resultados de curto prazo.'
+										})
+									}
 								</li>
 								<li class="text-color text-md font-thin">
-									We never say “That’s not my obligation.” We support our clients
-									at all levels, stay focused on the details, check up frequently,
-									and we are skeptical when metrics and incidents differ. No task
-									remains unaddressed.
+									{
+										t({
+											en: "We never say 'That’s not my obligation.' We support our clients at all levels, stay focused on the details, check up frequently, and we are skeptical when metrics and incidents differ. No task remains unaddressed.",
+											ar: 'نحن لا نقول أبداً "هذا ليس التزامي." نحن ندعم عملائنا على جميع المستويات، ونبقى مركزين على التفاصيل، ونقوم بالتحقق بشكل متكرر، ونكون متشككين عندما تختلف المقاييس والحوادث. لا تبقى أي مهمة دون معالجة.',
+											es: 'Nunca decimos "Eso no es mi obligación". Apoyamos a nuestros clientes en todos los niveles, nos enfocamos en los detalles, revisamos con frecuencia y somos escépticos cuando las métricas y los incidentes difieren. Ninguna tarea queda sin abordar.',
+											fr: "Nous ne disons jamais 'Ce n'est pas mon obligation.' Nous soutenons nos clients à tous les niveaux, restons concentrés sur les détails, vérifions fréquemment et sommes sceptiques lorsque les indicateurs et les incidents diffèrent. Aucune tâche ne reste sans réponse.",
+											hi: 'हम कभी नहीं कहते "यह मेरी जिम्मेदारी नहीं है।" हम सभी स्तरों पर अपने ग्राहकों का समर्थन करते हैं, विवरणों पर ध्यान केंद्रित रखते हैं, अक्सर जांच करते हैं, और जब मैट्रिक्स और घटनाएं भिन्न होती हैं तो हम संदेह करते हैं। कोई कार्य बिना देखे नहीं रहता।',
+											id: 'Kami tidak pernah mengatakan "Itu bukan kewajiban saya." Kami mendukung klien kami di semua tingkatan, tetap fokus pada detail, memeriksa secara berkala, dan kami skeptis ketika metrik dan insiden berbeda. Tidak ada tugas yang diabaikan.',
+											ms: 'Kami tidak pernah mengatakan "Itu bukan tanggungjawab saya." Kami menyokong pelanggan kami di semua peringkat, menumpukan perhatian pada perincian, memeriksa dengan kerap, dan kami skeptikal apabila metrik dan insiden berbeza. Tiada tugas yang dibiarkan tanpa perhatian.',
+											th: 'เราไม่เคยพูดว่า “นั่นไม่ใช่หน้าที่ของฉัน” เราสนับสนุนลูกค้าของเราทุกระดับ มุ่งเน้นที่รายละเอียด ตรวจสอบอย่างสม่ำเสมอ และเรามีข้อสงสัยเมื่อเมตริกและเหตุการณ์แตกต่างกัน ไม่มีงานใดที่ยังไม่ได้รับการดูแล',
+											vi: 'Chúng tôi không bao giờ nói "Đó không phải là trách nhiệm của tôi." Chúng tôi hỗ trợ khách hàng ở mọi cấp độ, tập trung vào các chi tiết, kiểm tra thường xuyên và chúng tôi hoài nghi khi các chỉ số và sự cố khác nhau. Không có nhiệm vụ nào bị bỏ qua.',
+											bn: 'আমরা কখনও বলি না "এটি আমার বাধ্যবাধকতা নয়।" আমরা সব স্তরে আমাদের ক্লায়েন্টদের সমর্থন করি, বিস্তারিত বিষয়ে মনোনিবেশ করি, নিয়মিত চেক করি, এবং যখন পরিমাপ এবং ঘটনা ভিন্ন হয় তখন সন্দেহ করি। কোনো কাজ অমীমাংসিত থাকে না।',
+											'zh-hans':
+												'我们从不说“那不是我的责任。”我们在各个层面上支持客户，专注于细节，定期检查，当指标和事件不一致时我们保持怀疑。没有任务会被忽视。',
+											'pt-br':
+												'Nunca dizemos "Isso não é minha obrigação." Apoiamo nossos clientes em todos os níveis, mantemos o foco nos detalhes, fazemos verificações frequentes e somos céticos quando as métricas e os incidentes diferem. Nenhuma tarefa fica sem atenção.'
+										})
+									}
 								</li>
 								<li class="text-color text-md font-thin">
-									Each of us is responsible for protecting all the information and
-									technologies we use and create every day.
+									{
+										t({
+											en: 'Each of us is responsible for protecting all the information and technologies we use and create every day.',
+											ar: 'كل واحد منا مسؤول عن حماية جميع المعلومات والتقنيات التي نستخدمها وننشئها كل يوم.',
+											es: 'Cada uno de nosotros es responsable de proteger toda la información y las tecnologías que usamos y creamos cada día.',
+											fr: 'Chacun d’entre nous est responsable de la protection de toutes les informations et technologies que nous utilisons et créons chaque jour.',
+											hi: 'हममें से प्रत्येक को उस सभी जानकारी और तकनीकों की रक्षा करने के लिए जिम्मेदार है जो हम हर दिन उपयोग और निर्माण करते हैं।',
+											id: 'Setiap dari kita bertanggung jawab untuk melindungi semua informasi dan teknologi yang kita gunakan dan buat setiap hari.',
+											ms: 'Setiap daripada kita bertanggungjawab untuk melindungi semua maklumat dan teknologi yang kita gunakan dan cipta setiap hari.',
+											th: 'แต่ละคนมีความรับผิดชอบในการปกป้องข้อมูลและเทคโนโลยีทั้งหมดที่เราใช้และสร้างขึ้นทุกวัน',
+											vi: 'Mỗi người trong chúng ta có trách nhiệm bảo vệ tất cả thông tin và công nghệ mà chúng ta sử dụng và tạo ra mỗi ngày.',
+											bn: 'আমাদের প্রত্যেককে প্রতিদিন আমরা যে সমস্ত তথ্য এবং প্রযুক্তি ব্যবহার করি এবং তৈরি করি তা সুরক্ষিত করার জন্য দায়ী।',
+											'zh-hans': '我们每个人都有责任保护我们每天使用和创建的所有信息和技术。',
+											'pt-br':
+												'Cada um de nós é responsável por proteger todas as informações e tecnologias que usamos e criamos todos os dias.'
+										})
+									}
 								</li>
 								<li class="text-color text-md font-thin">
-									We strive to accomplish more with fewer efforts. Limitations
-									breed inventiveness, self-sufficiency, and gumption. There are
-									no extra points for the growing staff list, budget size, or
-									fixed expenses.
+									{
+										t({
+											en: 'We strive to accomplish more with fewer efforts. Limitations breed inventiveness, self-sufficiency, and gumption. There are no extra points for the growing staff list, budget size, or fixed expenses.',
+											ar: 'نسعى لتحقيق المزيد بجهود أقل. تزرع القيود الإبداع، والاكتفاء الذاتي، والعزيمة. لا توجد نقاط إضافية لقائمة الموظفين المتزايدة، أو حجم الميزانية، أو النفقات الثابتة.',
+											es: 'Nos esforzamos por lograr más con menos esfuerzo. Las limitaciones fomentan la inventiva, la autosuficiencia y la determinación. No hay puntos extra por el aumento de la lista de personal, el tamaño del presupuesto o los gastos fijos.',
+											fr: "Nous nous efforçons d'accomplir plus avec moins d'efforts. Les limitations favorisent l'inventivité, l'autosuffisance et le courage. Il n'y a pas de points supplémentaires pour une liste de personnel croissante, une taille de budget ou des dépenses fixes.",
+											hi: 'हम कम प्रयासों में अधिक हासिल करने के लिए प्रयासरत हैं। सीमाएँ नवोन्मेष, आत्मनिर्भरता और साहस को जन्म देती हैं। बढ़ती स्टाफ सूची, बजट का आकार या निश्चित व्यय के लिए कोई अतिरिक्त अंक नहीं हैं।',
+											id: 'Kami berusaha untuk mencapai lebih banyak dengan usaha yang lebih sedikit. Batasan melahirkan inventivitas, kemandirian, dan keberanian. Tidak ada poin tambahan untuk daftar staf yang terus bertambah, ukuran anggaran, atau pengeluaran tetap.',
+											ms: 'Kami berusaha untuk mencapai lebih banyak dengan usaha yang lebih sedikit. Had menjadi sumber kepada daya cipta, kemandirian, dan keberanian. Tiada mata tambahan untuk senarai kakitangan yang berkembang, saiz bajet, atau perbelanjaan tetap.',
+											th: 'เราพยายามทำให้สำเร็จมากขึ้นด้วยความพยายามที่น้อยลง ข้อจำกัดทำให้เกิดความคิดสร้างสรรค์ ความพึ่งพาตนเอง และความกล้าหาญ ไม่มีคะแนนพิเศษสำหรับรายชื่อพนักงานที่เพิ่มขึ้น ขนาดงบประมาณ หรือค่าใช้จ่ายคงที่',
+											vi: 'Chúng tôi cố gắng đạt được nhiều hơn với ít nỗ lực hơn. Sự hạn chế nuôi dưỡng tính sáng tạo, sự tự cung tự cấp và lòng dũng cảm. Không có điểm cộng cho danh sách nhân viên đang tăng lên, kích thước ngân sách, hoặc chi phí cố định.',
+											bn: 'আমরা কম প্রচেষ্টায় আরও অর্জনের চেষ্টা করি। সীমাবদ্ধতা উদ্ভাবন, আত্মনির্ভরশীলতা এবং সাহসকে জন্ম দেয়। বাড়তে থাকা কর্মী তালিকা, বাজেটের আকার বা স্থায়ী খরচের জন্য কোনও অতিরিক্ত পয়েন্ট নেই।',
+											'zh-hans':
+												'我们努力在更少的努力中取得更多的成就。限制孕育了创造力、自给自足和勇气。对于不断增加的员工名单、预算规模或固定开支没有额外的积分。',
+											'pt-br':
+												'Nos esforçamos para realizar mais com menos esforços. As limitações geram inventividade, autossuficiência e coragem. Não há pontos extras para o aumento da lista de funcionários, tamanho do orçamento ou despesas fixas.'
+										})
+									}
 								</li>
 								<li class="text-color text-md font-thin">
-									If not now, then when? If not me, then who? If you don’t like
-									something and know a better way—go and do it. Can you do it by
-									yourself? If not, find the resource owner, sell the idea, get
-									privileges, and do it. Whining is easy, but changing the world
-									around you is more complicated and exciting.
+									{
+										t({
+											en: 'If not now, then when? If not me, then who? If you don’t like something and know a better way—go and do it. Can you do it by yourself? If not, find the resource owner, sell the idea, get privileges, and do it. Whining is easy, but changing the world around you is more complicated and exciting.',
+											ar: 'إذا لم يكن الآن، فمتى إذن؟ إذا لم أكن أنا، فمن؟ إذا لم تعجبك شيئًا وتعرف طريقة أفضل - اذهب وافعلها. هل يمكنك القيام بذلك بنفسك؟ إذا لم يكن الأمر كذلك، ابحث عن مالك المورد، بيع الفكرة، احصل على الامتيازات، وافعلها. الشكوى سهلة، لكن تغيير العالم من حولك هو أكثر تعقيدًا وإثارة.',
+											es: 'Si no es ahora, ¿entonces cuándo? Si no soy yo, ¿quién? Si no te gusta algo y conoces una mejor manera, ve y hazlo. ¿Puedes hacerlo tú mismo? Si no, encuentra al propietario del recurso, vende la idea, obtén privilegios y hazlo. Quejarse es fácil, pero cambiar el mundo que te rodea es más complicado y emocionante.',
+											fr: "Si ce n'est pas maintenant, alors quand ? Si ce n'est pas moi, alors qui ? Si quelque chose ne vous plaît pas et que vous connaissez un meilleur moyen, allez-y et faites-le. Pouvez-vous le faire vous-même ? Si ce n'est pas le cas, trouvez le propriétaire de la ressource, vendez l'idée, obtenez des privilèges et faites-le. Se plaindre est facile, mais changer le monde qui vous entoure est plus compliqué et excitant.",
+											hi: 'अगर अभी नहीं, तो कब? अगर मैं नहीं, तो कौन? अगर आपको कुछ पसंद नहीं है और आप एक बेहतर तरीका जानते हैं - तो जाइए और इसे करें। क्या आप इसे खुद कर सकते हैं? अगर नहीं, तो संसाधन के मालिक को खोजें, विचार बेचें, विशेषाधिकार प्राप्त करें, और इसे करें। शिकायत करना आसान है, लेकिन आपके चारों ओर की दुनिया को बदलना अधिक जटिल और रोमांचक है।',
+											id: 'Jika bukan sekarang, kapan? Jika bukan saya, siapa? Jika Anda tidak menyukai sesuatu dan tahu cara yang lebih baik—pergi dan lakukan. Bisakah Anda melakukannya sendiri? Jika tidak, temukan pemilik sumber daya, jual idenya, dapatkan hak istimewa, dan lakukan. Mengeluh itu mudah, tetapi mengubah dunia di sekitar Anda lebih rumit dan menarik.',
+											ms: 'Jika bukan sekarang, bila lagi? Jika bukan saya, siapa? Jika anda tidak suka sesuatu dan tahu cara yang lebih baik - pergi dan lakukannya. Bolehkah anda melakukannya sendiri? Jika tidak, cari pemilik sumber, jual idea, dapatkan keistimewaan dan lakukannya. Mengeluh adalah mudah, tetapi mengubah dunia di sekeliling anda adalah lebih rumit dan menarik.',
+											th: 'ถ้าไม่ตอนนี้ แล้วเมื่อไหร่? ถ้าไม่ใช่ฉัน แล้วใคร? ถ้าคุณไม่ชอบอะไรบางอย่างและรู้วิธีที่ดีกว่า—ไปทำมันสิ คุณทำได้ด้วยตัวเองไหม? ถ้าไม่, หาเจ้าของทรัพยากร ขายแนวคิด รับสิทธิพิเศษ และทำมัน การบ่นเป็นเรื่องง่าย แต่การเปลี่ยนแปลงโลกที่อยู่รอบตัวคุณนั้นซับซ้อนและน่าตื่นเต้นกว่า',
+											vi: 'Nếu không phải bây giờ, thì khi nào? Nếu không phải tôi, thì ai? Nếu bạn không thích điều gì đó và biết một cách tốt hơn - hãy đi và làm điều đó. Bạn có thể làm điều đó một mình không? Nếu không, hãy tìm chủ sở hữu tài nguyên, bán ý tưởng, nhận đặc quyền và làm điều đó. Kêu ca thì dễ, nhưng thay đổi thế giới xung quanh bạn thì phức tạp và thú vị hơn.',
+											bn: 'এখন না হলে, তাহলে কখন? আমি না হলে, তাহলে কে? যদি আপনি কিছু পছন্দ না করেন এবং একটি ভাল উপায় জানেন—যান এবং এটি করুন। আপনি কি একা এটি করতে পারেন? যদি না হয়, তবে সম্পদের মালিককে খুঁজুন, আইডিয়া বিক্রি করুন, বিশেষাধিকার পান, এবং এটি করুন। অভিযোগ করা সহজ, কিন্তু আপনার চারপাশের বিশ্ব পরিবর্তন করা আরও জটিল এবং উত্তেজনাপূর্ণ।',
+											'zh-hans':
+												'如果不是现在，那什么时候？如果不是我，那是谁？如果你不喜欢某件事，并知道更好的办法——去做吧。你能自己做到吗？如果不能，就找资源的拥有者，推销这个想法，获得特权，然后去做。抱怨是容易的，但改变你周围的世界更复杂也更令人兴奋。',
+											'pt-br':
+												'Se não for agora, então quando? Se não sou eu, então quem? Se você não gosta de algo e conhece um jeito melhor—vá e faça. Você consegue fazer isso sozinho? Se não, encontre o proprietário do recurso, venda a ideia, obtenha privilégios e faça isso. Reclamar é fácil, mas mudar o mundo ao seu redor é mais complicado e empolgante.'
+										})
+									}
 								</li>
 								<li class="text-color text-md font-thin">
-									We understand we are the reason for everything that happens to
-									us. Everything depends on us, so we can change everything we
-									wish.
+									{
+										t({
+											en: 'We understand we are the reason for everything that happens to us. Everything depends on us, so we can change everything we wish.',
+											ar: 'نحن نفهم أننا السبب في كل شيء يحدث لنا. كل شيء يعتمد علينا، لذا يمكننا تغيير كل شيء نريده.',
+											es: 'Entendemos que somos la razón de todo lo que nos sucede. Todo depende de nosotros, por lo que podemos cambiar todo lo que deseamos.',
+											fr: 'Nous comprenons que nous sommes la raison de tout ce qui nous arrive. Tout dépend de nous, donc nous pouvons changer tout ce que nous voulons.',
+											hi: 'हम समझते हैं कि हम वह कारण हैं जो हमारे साथ होने वाली हर चीज के लिए है। हर चीज हम पर निर्भर करती है, इसलिए हम सब कुछ बदल सकते हैं जो हम चाहते हैं।',
+											id: 'Kami memahami bahwa kami adalah alasan di balik segala sesuatu yang terjadi pada kami. Segala sesuatu tergantung pada kami, jadi kami bisa mengubah segala sesuatu yang kami inginkan.',
+											ms: 'Kami faham bahawa kami adalah sebab bagi segala sesuatu yang berlaku kepada kami. Segala-galanya bergantung kepada kami, jadi kami boleh mengubah segala-galanya yang kami inginkan.',
+											th: 'เราตระหนักว่าเราเป็นเหตุผลสำหรับทุกสิ่งที่เกิดขึ้นกับเรา ทุกอย่างขึ้นอยู่กับเรา ดังนั้นเราจึงสามารถเปลี่ยนแปลงทุกสิ่งที่เราต้องการได้',
+											vi: 'Chúng tôi hiểu rằng chúng tôi là lý do cho mọi thứ xảy ra với chúng tôi. Mọi thứ phụ thuộc vào chúng tôi, vì vậy chúng tôi có thể thay đổi mọi thứ mà chúng tôi mong muốn.',
+											bn: 'আমরা বুঝতে পারি যে আমরা আমাদের সাথে যা কিছু ঘটে তার জন্য কারণ। সবকিছু আমাদের উপর নির্ভর করে, তাই আমরা যা কিছু চাই তা পরিবর্তন করতে পারি।',
+											'zh-hans':
+												'我们明白自己是发生在我们身上的一切的原因。一切都取决于我们，因此我们可以改变我们想要的一切。',
+											'pt-br':
+												'Entendemos que somos a razão de tudo o que acontece conosco. Tudo depende de nós, então podemos mudar tudo o que desejamos.'
+										})
+									}
 								</li>
 							</ul>
 						</div>

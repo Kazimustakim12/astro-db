@@ -1,6 +1,7 @@
+import { useTranslations } from '@/i18n'
 import React, { useState } from 'react'
 
-const TableHeader = ({ headers, onSortColumnChange, sortColumn, sortDirection }) => {
+const TableHeader = ({ headers, onSortColumnChange, sortColumn, sortDirection, trans }) => {
 	const handleHeaderClick = (column) => {
 		onSortColumnChange(column)
 	}
@@ -15,7 +16,7 @@ const TableHeader = ({ headers, onSortColumnChange, sortColumn, sortDirection })
 						key={header.column}
 						onClick={() => handleHeaderClick(header.column)}
 					>
-						<div className="inline-flex items-center rounded-md border border-transparent px-2.5 py-1 text-sm text-gray-500 hover:border-gray-200 dark:text-neutral-500 dark:hover:border-neutral-700">
+						<div className="inline-flex items-center whitespace-nowrap rounded-md border border-transparent px-2.5 py-1 text-sm text-gray-500 hover:border-gray-200 dark:text-neutral-500 dark:hover:border-neutral-700">
 							{header.label}
 							<svg
 								className="-me-0.5 ms-1 size-3.5 text-gray-400 dark:text-neutral-500"
@@ -55,7 +56,8 @@ const TableBody = ({
 	itemsPerPage,
 	sortColumn,
 	sortDirection,
-	isLoading
+	isLoading,
+	trans
 }) => {
 	const startIdx = (currentPage - 1) * itemsPerPage
 	const endIdx = startIdx + itemsPerPage
@@ -81,8 +83,8 @@ const TableBody = ({
 		<>
 			<tbody className="divide-y divide-gray-200 dark:divide-neutral-700">
 				{!isLoading && paginatedData.length > 0 ? (
-					paginatedData.map((item) => (
-						<tr key={item.ActiveDirectoryId}>
+					paginatedData.map((item, index) => (
+						<tr key={index + 12}>
 							{headers.map((header) => (
 								<td
 									className="whitespace-nowrap p-3 text-sm font-medium text-gray-800 dark:text-neutral-200"
@@ -114,7 +116,20 @@ const TableBody = ({
 								</svg>
 								<div className="mx-auto max-w-sm">
 									<p className="mt-2 text-sm text-gray-600 dark:text-neutral-400">
-										No search results
+										{trans({
+											en: 'No search results',
+											ar: 'لا توجد نتائج بحث',
+											es: 'No hay resultados de búsqueda',
+											fr: 'Aucun résultat de recherche',
+											hi: 'कोई खोज परिणाम नहीं',
+											id: 'Tidak ada hasil pencarian',
+											ms: 'Tiada hasil carian',
+											th: 'ไม่มีผลการค้นหา',
+											vi: 'Không có kết quả tìm kiếm',
+											bn: 'কোনও অনুসন্ধান ফলাফল নেই',
+											'zh-hans': '没有搜索结果',
+											'pt-br': 'Nenhum resultado de pesquisa'
+										})}
 									</p>
 								</div>
 							</div>
@@ -127,6 +142,7 @@ const TableBody = ({
 }
 
 const Pagination = ({
+	trans,
 	currentPage,
 	totalNumberOfPages,
 	handlePageChange,
@@ -158,18 +174,61 @@ const Pagination = ({
 	return (
 		<div className="flex items-center justify-between border-t border-gray-200 p-4 dark:border-neutral-700">
 			<div className="p-3 text-sm font-medium text-gray-800 dark:text-neutral-200">
-				Showing 1 to {totalNumberOfPages} of {totalNumberOfPages} entries
+				{trans({
+					en: 'Showing',
+					ar: 'عرض',
+					es: 'Mostrando',
+					fr: 'Affichage',
+					hi: 'दिखा रहा है',
+					id: 'Menampilkan',
+					ms: 'Menunjukkan',
+					th: 'กำลังแสดง',
+					vi: 'Đang hiển thị',
+					bn: 'দেখানো হচ্ছে',
+					'zh-hans': '显示',
+					'pt-br': 'Exibindo'
+				})}{' '}
+				1{' '}
+				{trans({
+					en: 'of',
+					ar: 'من',
+					es: 'de',
+					fr: 'de',
+					hi: 'का',
+					id: 'dari',
+					ms: 'daripada',
+					th: 'ของ',
+					vi: 'của',
+					bn: 'এর',
+					'zh-hans': '的',
+					'pt-br': 'de'
+				})}
+				{totalNumberOfPages} of {totalNumberOfPages}{' '}
+				{trans({
+					en: 'entries',
+					ar: 'إدخالات',
+					es: 'entradas',
+					fr: 'entrées',
+					hi: 'प्रविष्टियाँ',
+					id: 'entri',
+					ms: 'entri',
+					th: 'รายการ',
+					vi: 'mục nhập',
+					bn: 'এন্ট্রি',
+					'zh-hans': '条目',
+					'pt-br': 'entradas'
+				})}
 			</div>
 			<div className="px-4 py-1">
 				<nav className="flex items-center -space-x-px">
 					<button
 						// className={'page-link ' + (currentPage === 1 ? 'disabled' : '')}
 						className={`${currentPage === 1 ? 'disabled' : ''} inline-flex min-h-[38px] min-w-[38px] items-center justify-center gap-x-1.5 border border-gray-200 px-2.5 py-2 text-sm text-gray-800 first:rounded-s-lg last:rounded-e-lg hover:bg-gray-100 focus:bg-gray-100 focus:outline-none disabled:pointer-events-none disabled:opacity-50 dark:border-neutral-700 dark:text-white dark:hover:bg-white/10 dark:focus:bg-white/10`}
-						onClick={() => handlePageChange(currentPage - 1 )}
+						onClick={() => handlePageChange(currentPage - 1)}
 						disabled={currentPage === 1}
 					>
 						<svg
-							className="size-3.5 shrink-0"
+							className="size-3.5 shrink-0 rtl:rotate-180"
 							xmlns="http://www.w3.org/2000/svg"
 							width="24"
 							height="24"
@@ -182,7 +241,22 @@ const Pagination = ({
 						>
 							<path d="m15 18-6-6 6-6"></path>
 						</svg>
-						<span className="hidden sm:block">Previous</span>
+						<span className="hidden sm:block">
+							{trans({
+								en: 'Previous',
+								ar: 'السابق',
+								es: 'Anterior',
+								fr: 'Précédent',
+								hi: 'पिछला',
+								id: 'Sebelumnya',
+								ms: 'Sebelumnya',
+								th: 'ก่อนหน้า',
+								vi: 'Trước',
+								bn: 'পূর্ববর্তী',
+								'zh-hans': '上一页',
+								'pt-br': 'Anterior'
+							})}
+						</span>
 					</button>
 					<div className="flex items-center [&>.active]:bg-gray-100 dark:[&>.active]:bg-neutral-700">
 						{renderPageNumbers().map((pageNumber, index) => (
@@ -204,9 +278,24 @@ const Pagination = ({
 						onClick={() => handlePageChange(currentPage + 1)}
 						disabled={currentPage === totalNumberOfPages}
 					>
-						<span className="hidden sm:block">Next</span>
+						<span className="hidden sm:block">
+							{trans({
+								en: 'Next',
+								ar: 'التالي',
+								es: 'Siguiente',
+								fr: 'Suivant',
+								hi: 'अगला',
+								id: 'Berikutnya',
+								ms: 'Seterusnya',
+								th: 'ถัดไป',
+								vi: 'Tiếp theo',
+								bn: 'পরবর্তী',
+								'zh-hans': '下一页',
+								'pt-br': 'Próximo'
+							})}
+						</span>
 						<svg
-							className="size-3.5 shrink-0"
+							className="size-3.5 shrink-0 rtl:rotate-180"
 							xmlns="http://www.w3.org/2000/svg"
 							width="24"
 							height="24"
@@ -226,7 +315,8 @@ const Pagination = ({
 	)
 }
 
-const DataTable = ({ headers, data, isLoading, loadingTag }) => {
+const DataTable = ({ headers, data, isLoading, loadingTag, language }) => {
+	const t = useTranslations(language)
 	const [currentPage, setCurrentPage] = useState(1)
 	const [searchValue, setSearchValue] = useState('') // Added state for search
 	const [itemsPerPage, setItemsPerPage] = useState(10) // Added state for itemsPerPage
@@ -268,7 +358,7 @@ const DataTable = ({ headers, data, isLoading, loadingTag }) => {
 					<div>
 						<div className="flex flex-wrap items-center justify-between py-3">
 							<div className="relative max-w-xs">
-								<label for="hs-table-input-search" className="sr-only">
+								<label htmlFor="hs-table-input-search" className="sr-only">
 									Search
 								</label>
 								<input
@@ -277,7 +367,20 @@ const DataTable = ({ headers, data, isLoading, loadingTag }) => {
 									value={searchValue}
 									id="searchInput"
 									onChange={handleSearchChange}
-									placeholder="Search all columns"
+									placeholder={t({
+										en: 'Search',
+										ar: 'بحث',
+										es: 'Buscar',
+										fr: 'Rechercher',
+										hi: 'खोजें',
+										id: 'Cari',
+										ms: 'Cari',
+										th: 'ค้นหา',
+										vi: 'Tìm kiếm',
+										bn: 'অনুসন্ধান',
+										'zh-hans': '搜索',
+										'pt-br': 'Pesquisar'
+									})}
 								/>
 								<div className="pointer-events-none absolute inset-y-0 start-0 flex items-center ps-3">
 									<svg
@@ -300,7 +403,20 @@ const DataTable = ({ headers, data, isLoading, loadingTag }) => {
 
 							<div className="relative flex max-w-xs items-center gap-3 p-3 text-sm font-medium text-gray-800 dark:text-neutral-200">
 								<span className="input-group-text" htmlFor="inputGroupSelect01">
-									Show
+									{t({
+										en: 'Show',
+										ar: 'عرض',
+										es: 'Mostrar',
+										fr: 'Afficher',
+										hi: 'प्रदर्शन',
+										id: 'Tampilkan',
+										ms: 'Tunjukkan',
+										th: 'แสดง',
+										vi: 'Hiển thị',
+										bn: 'প্রদর্শন করুন',
+										'zh-hans': '显示',
+										'pt-br': 'Mostrar'
+									})}
 								</span>
 
 								<div>
@@ -320,7 +436,20 @@ const DataTable = ({ headers, data, isLoading, loadingTag }) => {
 									</select>
 								</div>
 								<span className="input-group-text" id="inputGroupSelect02">
-									entries
+									{t({
+										en: 'entries',
+										ar: 'إدخالات',
+										es: 'entradas',
+										fr: 'entrées',
+										hi: 'प्रविष्टियाँ',
+										id: 'entri',
+										ms: 'entri',
+										th: 'รายการ',
+										vi: 'mục nhập',
+										bn: 'এন্ট্রি',
+										'zh-hans': '条目',
+										'pt-br': 'entradas'
+									})}
 								</span>
 							</div>
 						</div>
@@ -334,6 +463,7 @@ const DataTable = ({ headers, data, isLoading, loadingTag }) => {
 											onSortColumnChange={handleSortColumnChange}
 											sortColumn={sortColumn}
 											sortDirection={sortDirection}
+											trans={t}
 										/>
 										<TableBody
 											headers={headers}
@@ -344,6 +474,7 @@ const DataTable = ({ headers, data, isLoading, loadingTag }) => {
 											sortDirection={sortDirection}
 											isLoading={isLoading}
 											loadingTag={loadingTag}
+											trans={t}
 										/>
 									</table>
 								</div>
@@ -360,6 +491,7 @@ const DataTable = ({ headers, data, isLoading, loadingTag }) => {
 							currentPage={currentPage}
 							totalNumberOfPages={totalNumberOfPages}
 							handlePageChange={handlePageChange}
+							trans={t}
 						/>
 					</div>
 				</div>

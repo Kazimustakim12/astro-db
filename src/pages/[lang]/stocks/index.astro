@@ -10,7 +10,7 @@ export const getStaticPaths = () =>
 	}))
 ---
 
-<Layout title="Forex ">
+<Layout title="Forex">
 	<Banner
 		title={t({
 			en: 'Stocks',
@@ -55,39 +55,30 @@ export const getStaticPaths = () =>
 				<div
 					class="relative col-span-full w-full space-y-5 overflow-hidden rounded-2xl border-2 p-4 transition hover:border-dbgreen-900 dark:border-neutral-600 dark:hover:border-dbgreen-900 sm:p-8 md:p-5 lg:col-span-3 lg:max-w-[32%]"
 				>
-					<div
-						class="flex size-8 items-center justify-center rounded-full bg-black p-2 text-white"
-					>
+					<div class="flex size-8 items-center justify-center rounded-full bg-black p-2 text-white">
 						<span class="text-lg font-semibold">1</span>
 					</div>
-					<h2
-						class="mb-5 block text-2xl font-bold capitalize text-gray-800 dark:text-white"
-					>
+					<h2 class="mb-5 block text-2xl font-bold capitalize text-gray-800 dark:text-white">
 						Balancing the market risks
 					</h2>
 					<p class="text-color">
-						As Stocks CFDs gather from 30 to 500 stocks of publicly traded companies,
-						they can also boost your market risk resistance by creating a more stable
-						asset.
+						As Stocks CFDs gather from 30 to 500 stocks of publicly traded companies, they can also
+						boost your market risk resistance by creating a more stable asset.
 					</p>
 				</div>
 				<div
 					class="relative col-span-full w-full space-y-5 overflow-hidden rounded-2xl border-2 p-4 transition hover:border-dbgreen-900 dark:border-neutral-600 dark:hover:border-dbgreen-900 sm:p-8 md:p-5 lg:col-span-3 lg:max-w-[32%]"
 				>
-					<div
-						class="flex size-8 items-center justify-center rounded-full bg-black p-2 text-white"
-					>
+					<div class="flex size-8 items-center justify-center rounded-full bg-black p-2 text-white">
 						<span class="text-lg font-semibold">2</span>
 					</div>
-					<h2
-						class="mb-5 block text-2xl font-bold capitalize text-gray-800 dark:text-white"
-					>
+					<h2 class="mb-5 block text-2xl font-bold capitalize text-gray-800 dark:text-white">
 						Cross-platform trading access
 					</h2>
 					<p class="text-color">
-						Choose your most comfortable way to access the international trading arena.
-						Be it PC, laptop, smartphone, or tablet – DB Investing supports it all. It’s
-						you who is in control of how and when you get to trade.
+						Choose your most comfortable way to access the international trading arena. Be it PC,
+						laptop, smartphone, or tablet – DB Investing supports it all. It’s you who is in control
+						of how and when you get to trade.
 					</p>
 				</div>
 			</div>
@@ -100,21 +91,19 @@ export const getStaticPaths = () =>
 				Benefits of CFDs on stocks:
 			</h1>
 			<p class="text-color">
-				Going short or long on stocks is a relatively complicated process with a traditional
-				stock trading, but with CFDs you can sell as easily as you can buy to take advantage
-				of falling markets.
+				Going short or long on stocks is a relatively complicated process with a traditional stock
+				trading, but with CFDs you can sell as easily as you can buy to take advantage of falling
+				markets.
 			</p>
 			<p class="text-color">
-				Stock CFDs are easy to trade on MT5, without the need to trade through a
-				stockbroker. Simply buy or sell at the live market price.
+				Stock CFDs are easy to trade on MT5, without the need to trade through a stockbroker. Simply
+				buy or sell at the live market price.
 			</p>
+			<p class="text-color">Trade at a much lower cost compared to traditional stock trading.</p>
 			<p class="text-color">
-				Trade at a much lower cost compared to traditional stock trading.
-			</p>
-			<p class="text-color">
-				You’re able to profit from the smallest market moves, as leverage allows you to
-				increase your position size relative to your investment. Leverage is also risky and
-				can increase your losses as well as your gains.
+				You’re able to profit from the smallest market moves, as leverage allows you to increase
+				your position size relative to your investment. Leverage is also risky and can increase your
+				losses as well as your gains.
 			</p>
 		</div>
 		<div class="mt-7 w-full space-y-4">
@@ -124,9 +113,8 @@ export const getStaticPaths = () =>
 				How does CFDs on Stocks trading work?
 			</h1>
 			<p class="text-color">
-				There is no need to be directly involved in the market. Choose cross-platform
-				trading, 60+ analytical tools, and quick connection during the market hours with DB
-				Investing.
+				There is no need to be directly involved in the market. Choose cross-platform trading, 60+
+				analytical tools, and quick connection during the market hours with DB Investing.
 			</p>
 		</div>
 		<div class="mt-7 w-full space-y-4">
@@ -136,21 +124,17 @@ export const getStaticPaths = () =>
 				Why trade CFDs on Stocks with DB Investing?
 			</h1>
 			<p class="text-color">
-				You can choose among many different single stocks EU or US. There are up to 200
-				single stocks available for trading including the most reputable in the world, so
-				you can participate by trading on CFDs into one of the largest markets globally.
-				There are various type of stocks traded on exchanges all over the world.
+				You can choose among many different single stocks EU or US. There are up to 200 single
+				stocks available for trading including the most reputable in the world, so you can
+				participate by trading on CFDs into one of the largest markets globally. There are various
+				type of stocks traded on exchanges all over the world.
 			</p>
 			<p class="text-color">
-				Are separated into different categories such as technology stocks, pharmaceutical,
-				energy.
+				Are separated into different categories such as technology stocks, pharmaceutical, energy.
 			</p>
 		</div>
 	</div>
 	<div class="container pb-10 pt-4">
-		<GoogleSheetDataTable
-			sheetName="Stocks"
-			client:load
-		/>
+		<GoogleSheetDataTable sheetName="Stocks" client:load />
 	</div>
 </Layout>

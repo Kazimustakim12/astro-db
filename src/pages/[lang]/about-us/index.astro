@@ -1,6 +1,6 @@
 ---
 import Button from '@/components/ui/Button.astro'
-import { LOCALES } from '@/i18n'
+import { LOCALES, useTranslations, type Lang } from '@/i18n'
 import Layout from '@/layouts/Layout.astro'
 import { Image } from 'astro:assets'
 import MapBg from '@/images/map-bg.png'
@@ -12,7 +12,7 @@ import SeychellesOffice from '@/images/Seychelles-office.jpg'
 import Marquee from '@/components/magicui/marquee'
 import WolfLogo from '@/images/wolflogo.png'
 import WolfLogoWhite from '@/images/wolflogo-white.png'
-
+const t = useTranslations(Astro.currentLocale as Lang)
 export const getStaticPaths = () =>
 	Object.keys(LOCALES).map((lang) => ({
 		params: { lang }
@@ -33,14 +33,30 @@ export const getStaticPaths = () =>
 				<div class="relative z-10 flex flex-col gap-5">
 					<h1
 						class="mb-3 w-full text-5xl font-thin sm:text-5xl lg:max-w-[80%] lg:text-7xl"
+						set:html={t({
+							en: 'We are a Multi-National and Multi-Cultural <span class="font-bold text-dbgreen-600">Company</span>',
+							ar: 'نحن شركة متعددة الجنسيات ومتعددة الثقافات <span class="font-bold text-dbgreen-600">شركة</span>',
+							es: 'Somos una <span class="font-bold text-dbgreen-600">empresa</span> multinacional y multicultural',
+							fr: 'Nous sommes une <span class="font-bold text-dbgreen-600">entreprise</span> multinationale et multiculturelle',
+							hi: 'हम एक बहुराष्ट्रीय और बहुसांस्कृतिक <span class="font-bold text-dbgreen-600">कंपनी</span> हैं',
+							id: 'Kami adalah <span class="font-bold text-dbgreen-600">perusahaan</span> multinasional dan multikultural',
+							ms: 'Kami adalah <span class="font-bold text-dbgreen-600">syarikat</span> multinasional dan multikultural',
+							th: 'เราเป็น <span class="font-bold text-dbgreen-600">บริษัท</span> ข้ามชาติและข้ามวัฒนธรรม',
+							vi: 'Chúng tôi là một <span class="font-bold text-dbgreen-600">công ty</span> đa quốc gia và đa văn hóa',
+							bn: 'আমরা একটি বহুজাতিক এবং বহুসাংস্কৃতিক <span class="font-bold text-dbgreen-600">কোম্পানি</span>',
+							'zh-hans':
+								'我们是一家多国籍和多文化的<span class="font-bold text-dbgreen-600">公司</span>',
+							'pt-br':
+								'Somos uma <span class="font-bold text-dbgreen-600">empresa</span> multinacional e multicultural'
+						})}
 					>
-						We are a Multi-National and Multi-Cultural
-						<span class="font-bold text-dbgreen-600">Company</span>
+						<!-- We are a Multi-National and Multi-Cultural
+						<span class="font-bold text-dbgreen-600">Company</span> -->
 					</h1>
 					<div class="mt-5 flex flex-wrap gap-5 xl:flex-nowrap">
 						<div class="w-full items-center md:flex md:max-w-[100%] xl:max-w-[75%]">
 							<div class="companyAboutSlider">
-								<div class="companyAboutSlider_container">
+								<div class="companyAboutSlider_container rtl:flex-row-reverse rtl:justify-start">
 									<div class="companyAboutSlider_slide">
 										<div
 											class="flex w-full flex-col gap-3 rounded-2xl border border-gray-200 bg-white p-3 text-center dark:border-neutral-700 dark:bg-neutral-800 lg:p-5"
@@ -52,12 +68,42 @@ export const getStaticPaths = () =>
 												loading="eager"
 											/>
 											<h3 class="text-2xl font-semibold text-dbgreen-600">
-												Nigeria
+												{
+													t({
+														en: 'Nigeria',
+														ar: 'نيجيريا',
+														es: 'Nigeria',
+														fr: 'Nigeria',
+														hi: 'नाइजीरिया',
+														id: 'Nigeria',
+														ms: 'Nigeria',
+														th: 'ไนจีเรีย',
+														vi: 'Nigeria',
+														bn: 'নাইজেরিয়া',
+														'zh-hans': '尼日利亚',
+														'pt-br': 'Nigéria'
+													})
+												}
 											</h3>
 											<p class="text-color text-sm">
-												Nigeria Training and representative office - Lagos,
-												Nigeria - No. 2 Soji Adepegba close, Off Allen
-												Avenue, Ikeja.
+												{
+													t({
+														en: 'Nigeria Training and representative office - Lagos, Nigeria - No. 2 Soji Adepegba close, Off Allen Avenue, Ikeja.',
+														ar: 'مكتب التدريب والتمثيل في نيجيريا - لاغوس، نيجيريا - رقم 2 زقاق سوجي أديبيغبا، خارج طريق ألين، ايكجا.',
+														es: 'Oficina de capacitación y representación en Nigeria - Lagos, Nigeria - No. 2 Soji Adepegba close, Off Allen Avenue, Ikeja.',
+														fr: 'Bureau de formation et de représentation au Nigeria - Lagos, Nigeria - No. 2 Soji Adepegba close, Off Allen Avenue, Ikeja.',
+														hi: 'नाइजीरिया प्रशिक्षण और प्रतिनिधि कार्यालय - लागोस, नाइजीरिया - नंबर 2 सोजी अडिपेग्बा क्लोज, ऑफ एलेन एवेन्यू, इकेजा।',
+														id: 'Kantor pelatihan dan perwakilan Nigeria - Lagos, Nigeria - No. 2 Soji Adepegba close, Off Allen Avenue, Ikeja.',
+														ms: 'Pejabat latihan dan wakil Nigeria - Lagos, Nigeria - No. 2 Soji Adepegba close, Off Allen Avenue, Ikeja.',
+														th: 'สำนักงานฝึกอบรมและตัวแทนไนจีเรีย - ลากอส, ไนจีเรีย - หมายเลข 2 Soji Adepegba close, Off Allen Avenue, Ikeja.',
+														vi: 'Văn phòng đào tạo và đại diện Nigeria - Lagos, Nigeria - Số 2 Soji Adepegba close, Off Allen Avenue, Ikeja.',
+														bn: 'নাইজেরিয়া প্রশিক্ষণ ও প্রতিনিধি অফিস - লাগোস, নাইজেরিয়া - নং 2 সোজি অদিপেগবা ক্লোজ, অফ অ্যালেন অ্যাভিনিউ, ইকেজা।',
+														'zh-hans':
+															'尼日利亚培训和代表处 - 尼日利亚拉各斯 - No. 2 Soji Adepegba close, Off Allen Avenue, Ikeja。',
+														'pt-br':
+															'Escritório de treinamento e representação da Nigéria - Lagos, Nigéria - No. 2 Soji Adepegba close, Off Allen Avenue, Ikeja.'
+													})
+												}
 											</p>
 										</div>
 									</div>
@@ -72,11 +118,42 @@ export const getStaticPaths = () =>
 												loading="eager"
 											/>
 											<h3 class="text-2xl font-semibold text-dbgreen-600">
-												CYPRUS
+												{
+													t({
+														en: 'Cyprus',
+														ar: 'قبرص',
+														es: 'Chipre',
+														fr: 'Chypre',
+														hi: 'साइप्रस',
+														id: 'Siprus',
+														ms: 'Siprus',
+														th: 'ไซปรัส',
+														vi: 'Síp',
+														bn: 'সাইপ্রাস',
+														'zh-hans': '塞浦路斯',
+														'pt-br': 'Chipre'
+													})
+												}
 											</h3>
 											<p class="text-color text-sm">
-												Limassol, Cypruss - Griva Degeni Avenue, Office 103,
-												Agios Nikolaos.
+												{
+													t({
+														en: 'Limassol, Cyprus - Griva Degeni Avenue, Office 103, Agios Nikolaos.',
+														ar: 'ليماسول، قبرص - شارع غريفا ديجيني، المكتب 103، أغيريوس نيكولاوس.',
+														es: 'Limassol, Chipre - Avenida Griva Digeni, Oficina 103, Agios Nikolaos.',
+														fr: 'Limassol, Chypre - Avenue Griva Digeni, Bureau 103, Agios Nikolaos.',
+														hi: 'लिमासोल, साइप्रस - ग्रिवा डेजेनी एवेन्यू, कार्यालय 103, एगियस निकोलाउस।',
+														id: 'Limassol, Siprus - Jalan Griva Degeni, Kantor 103, Agios Nikolaos.',
+														ms: 'Limassol, Siprus - Jalan Griva Degeni, Pejabat 103, Agios Nikolaos.',
+														th: 'ลิมาสซอล, ไซปรัส - ถนนกริวาเดเจนี, สำนักงาน 103, อกิออส นิโคลัส.',
+														vi: 'Limassol, Síp - Đại lộ Griva Degeni, Văn phòng 103, Agios Nikolaos.',
+														bn: 'লিমাসোল, সাইপ্রাস - গ্রিভা ডেজেনি অ্যাভিনিউ, অফিস ১০৩, আগিয়োস নিকোলাউস।',
+														'zh-hans':
+															'利马索尔，塞浦路斯 - 格里瓦·德杰尼大街，办公室103，阿吉奥斯·尼古劳斯。',
+														'pt-br':
+															'Limassol, Chipre - Avenida Griva Digeni, Escritório 103, Agios Nikolaos.'
+													})
+												}
 											</p>
 										</div>
 									</div>
@@ -91,11 +168,42 @@ export const getStaticPaths = () =>
 												loading="eager"
 											/>
 											<h3 class="text-2xl font-semibold text-dbgreen-600">
-												DUBAI
+												{
+													t({
+														en: 'Dubai',
+														ar: 'دبي',
+														es: 'Dubái',
+														fr: 'Dubaï',
+														hi: 'दुबई',
+														id: 'Dubai',
+														ms: 'Dubai',
+														th: 'ดูไบ',
+														vi: 'Dubai',
+														bn: 'দুবাই',
+														'zh-hans': '迪拜',
+														'pt-br': 'Dubai'
+													})
+												}
 											</h3>
 											<p class="text-color text-sm">
-												Emaar Square Building 4, Office 402, Downtown.
-												Dubai, UAE. Po Box 25122
+												{
+													t({
+														en: 'Emaar Square Building 4, Office 402, Downtown. Dubai, UAE. Po Box 25122.',
+														ar: 'مبنى إعمار سكوير 4، مكتب 402، وسط المدينة. دبي، الإمارات العربية المتحدة. صندوق بريد 25122.',
+														es: 'Edificio Emaar Square 4, Oficina 402, Downtown. Dubái, EAU. Apartado de correos 25122.',
+														fr: 'Bâtiment Emaar Square 4, Bureau 402, Centre-ville. Dubaï, Émirats Arabes Unis. Boîte postale 25122.',
+														hi: 'ईमार स्क्वायर बिल्डिंग 4, कार्यालय 402, डाउनटाउन। दुबई, यूएई। पीओ बॉक्स 25122।',
+														id: 'Gedung Emaar Square 4, Kantor 402, Pusat Kota. Dubai, UEA. Kotak Pos 25122.',
+														ms: 'Bangunan Emaar Square 4, Pejabat 402, Pusat Bandar. Dubai, UAE. Peti Pos 25122.',
+														th: 'อาคาร Emaar Square 4, สำนักงาน 402, ย่านดาวน์ทาวน์. ดูไบ, สหรัฐอาหรับเอมิเรตส์. กล่องไปรษณีย์ 25122.',
+														vi: 'Tòa nhà Emaar Square 4, Văn phòng 402, Trung tâm thành phố. Dubai, UAE. Hộp thư 25122.',
+														bn: 'ইমার স্কয়ার বিল্ডিং 4, অফিস 402, ডাউনটাউন। দুবাই, সংযুক্ত আরব আমিরাত। পিও বক্স 25122।',
+														'zh-hans':
+															'Emaar Square 4号楼，402办公室，市中心。迪拜，阿联酋。邮政信箱25122。',
+														'pt-br':
+															'Edifício Emaar Square 4, Escritório 402, Centro. Dubai, EAU. Caixa Postal 25122.'
+													})
+												}
 											</p>
 										</div>
 									</div>
@@ -110,11 +218,42 @@ export const getStaticPaths = () =>
 												loading="eager"
 											/>
 											<h3 class="text-2xl font-semibold text-dbgreen-600">
-												Seychelles
+												{
+													t({
+														en: 'Seychelles',
+														ar: 'سيشيل',
+														es: 'Seychelles',
+														fr: 'Seychelles',
+														hi: 'सेशेल्स',
+														id: 'Seychelles',
+														ms: 'Seychelles',
+														th: 'เซเชลส์',
+														vi: 'Seychelles',
+														bn: 'সিশেলস',
+														'zh-hans': '塞舌尔',
+														'pt-br': 'Seychelles'
+													})
+												}
 											</h3>
 											<p class="text-color text-sm">
-												Mahè, Seychelles - Abis Centre, Office 15, Avenue
-												D’Arhoa, Providence Industrial Estate.
+												{
+													t({
+														en: 'Mahè, Seychelles - Abis Centre, Office 15, Avenue D’Arhoa, Providence Industrial Estate.',
+														ar: "ماهي، سيشيل - مركز أابيس، مكتب 15، شارع د'أروها، منطقة بروفيدنس الصناعية.",
+														es: 'Mahè, Seychelles - Abis Centre, Oficina 15, Avenida D’Arhoa, Parque Industrial de Providence.',
+														fr: 'Mahè, Seychelles - Abis Centre, Bureau 15, Avenue D’Arhoa, Zone Industrielle de Providence.',
+														hi: "महें, सेशेल्स - एबिस सेंटर, कार्यालय 15, एवेन्यू ड'आरोआ, प्रॉविडेंस औद्योगिक संपत्ति।",
+														id: 'Mahè, Seychelles - Abis Centre, Kantor 15, Avenue D’Arhoa, Kawasan Industri Providence.',
+														ms: 'Mahè, Seychelles - Abis Centre, Pejabat 15, Avenue D’Arhoa, Kawasan Perindustrian Providence.',
+														th: 'มาเฮ, เซเชลส์ - ศูนย์ Abis, สำนักงาน 15, ถนน D’Arhoa, เขตอุตสาหกรรม Providence.',
+														vi: 'Mahè, Seychelles - Trung tâm Abis, Văn phòng 15, Đường D’Arhoa, Khu công nghiệp Providence.',
+														bn: "মাহে, সেশেলস - আবিস সেন্টার, অফিস ১৫, অ্যাভিনিউ ডি'আরহোয়া, প্রোভিডেন্স শিল্প এলাকা।",
+														'zh-hans':
+															'马埃，塞舌尔 - 阿比斯中心，15号办公室，阿尔霍亚大道，普罗维登斯工业园区。',
+														'pt-br':
+															'Mahè, Seychelles - Abis Centre, Escritório 15, Avenida D’Arhoa, Parque Industrial de Providence.'
+													})
+												}
 											</p>
 										</div>
 									</div>
@@ -122,55 +261,194 @@ export const getStaticPaths = () =>
 							</div>
 						</div>
 						<div class="w-full md:max-w-[100%] xl:max-w-[25%]">
-							<div
-								class="flex flex-col gap-4 rounded-2xl bg-gray-100 p-4 dark:bg-neutral-800"
-							>
+							<div class="flex flex-col gap-4 rounded-2xl bg-gray-100 p-4 dark:bg-neutral-800">
 								<div class="flex w-full gap-2">
 									<div
 										class="flex h-[80px] w-[80px] items-center justify-center rounded-full bg-green-800 text-center font-semibold text-white"
 									>
-										<span>Mar <br /> 2018</span>
+										<span
+											>{
+												t({
+													en: 'Mar',
+													ar: 'مارس',
+													es: 'Mar',
+													fr: 'Mar',
+													hi: 'मार्च',
+													id: 'Mar',
+													ms: 'Mac',
+													th: 'มี.ค.',
+													vi: 'Tháng 3',
+													bn: 'মার্চ',
+													'zh-hans': '三月',
+													'pt-br': 'Mar'
+												})
+											}
+											<br /> 2018</span
+										>
 									</div>
 									<div
 										class="text-color flex w-[calc(100%-80px)] items-center rounded-md bg-white p-3 dark:bg-black"
 									>
-										<p>Company Founded</p>
+										<p>
+											{
+												t({
+													en: 'Company Founded',
+													ar: 'تأسست الشركة',
+													es: 'Empresa fundada',
+													fr: 'Société fondée',
+													hi: 'कंपनी की स्थापना',
+													id: 'Perusahaan Didirikan',
+													ms: 'Syarikat Ditubuhkan',
+													th: 'ก่อตั้งบริษัท',
+													vi: 'Công ty được thành lập',
+													bn: 'কোম্পানি প্রতিষ্ঠিত',
+													'zh-hans': '公司成立',
+													'pt-br': 'Empresa fundada'
+												})
+											}
+										</p>
 									</div>
 								</div>
 								<div class="flex w-full gap-2">
 									<div
 										class="flex h-[80px] w-[80px] items-center justify-center rounded-full bg-green-800 text-center font-semibold text-white"
 									>
-										<span>June <br /> 2020</span>
+										<span
+											>{
+												t({
+													en: 'June',
+													ar: 'يونيو',
+													es: 'Junio',
+													fr: 'Juin',
+													hi: 'जून',
+													id: 'Juni',
+													ms: 'Jun',
+													th: 'มิถุนายน',
+													vi: 'Tháng Sáu',
+													bn: 'জুন',
+													'zh-hans': '六月',
+													'pt-br': 'Junho'
+												})
+											}
+											<br /> 2020</span
+										>
 									</div>
 									<div
 										class="text-color flex w-[calc(100%-80px)] items-center rounded-md bg-white p-3 dark:bg-black"
 									>
-										<p>FSA License Received</p>
+										<p>
+											{
+												t({
+													en: 'FSA License Received',
+													ar: 'ترخيص FSA تم استلامه',
+													es: 'Licencia FSA Recibida',
+													fr: 'Licence FSA Reçue',
+													hi: 'FSA लाइसेंस प्राप्त हुआ',
+													id: 'Lisensi FSA Diterima',
+													ms: 'Lesen FSA Diterima',
+													th: 'ได้รับใบอนุญาต FSA',
+													vi: 'Giấy phép FSA đã nhận',
+													bn: 'FSA লাইসেন্স প্রাপ্ত',
+													'zh-hans': '已收到FSA许可证',
+													'pt-br': 'Licença FSA Recebida'
+												})
+											}
+										</p>
 									</div>
 								</div>
 								<div class="flex w-full gap-2">
 									<div
 										class="flex h-[80px] w-[80px] items-center justify-center rounded-full bg-green-800 text-center font-semibold text-white"
 									>
-										<span>Dec <br /> 2021</span>
+										<span
+											>{
+												t({
+													en: 'Dec',
+													ar: 'ديسمبر',
+													es: 'Dic',
+													fr: 'Déc',
+													hi: 'दिसंबर',
+													id: 'Des',
+													ms: 'Dis',
+													th: 'ธ.ค.',
+													vi: 'Tháng 12',
+													bn: 'ডিসেম্বর',
+													'zh-hans': '十二月',
+													'pt-br': 'Dez'
+												})
+											}
+
+											<br /> 2021</span
+										>
 									</div>
 									<div
 										class="text-color flex w-[calc(100%-80px)] items-center rounded-md bg-white p-3 dark:bg-black"
 									>
-										<p>Cyprus Branch Opened</p>
+										<p>
+											{
+												t({
+													en: 'Cyprus Branch Opened',
+													ar: 'تم افتتاح فرع قبرص',
+													es: 'Sucursal de Chipre Abierta',
+													fr: 'Succursale de Chypre Ouverte',
+													hi: 'साइप्रस शाखा खोली गई',
+													id: 'Cabang Siprus Dibuka',
+													ms: 'Cawangan Cyprus Dibuka',
+													th: 'เปิดสาขาไซปรัส',
+													vi: 'Chi nhánh Síp đã mở',
+													bn: 'সাইপ্রাস শাখা খুলেছে',
+													'zh-hans': '塞浦路斯分行已开设',
+													'pt-br': 'Filial do Chipre Aberta'
+												})
+											}
+										</p>
 									</div>
 								</div>
 								<div class="flex w-full gap-2">
 									<div
 										class="flex h-[80px] w-[80px] items-center justify-center rounded-full bg-green-800 text-center font-semibold text-white"
 									>
-										<span>Aug <br /> 2022</span>
+										<span
+											>{
+												t({
+													en: 'Aug',
+													ar: 'أغسطس',
+													es: 'Ago',
+													fr: 'Août',
+													hi: 'अगस्त',
+													id: 'Agu',
+													ms: 'Ogos',
+													th: 'ส.ค.',
+													vi: 'Tháng Tám',
+													bn: 'আগস্ট',
+													'zh-hans': '八月',
+													'pt-br': 'Ago'
+												})
+											}
+											<br /> 2022</span
+										>
 									</div>
 									<div
 										class="text-color flex w-[calc(100%-80px)] items-center rounded-md bg-white p-3 dark:bg-black"
 									>
-										<p>Official Online Launch</p>
+										<p>
+											{
+												t({
+													en: 'Official Online Launch',
+													ar: 'الإطلاق الرسمي عبر الإنترنت',
+													es: 'Lanzamiento Oficial en Línea',
+													fr: 'Lancement Officiel en Ligne',
+													hi: 'आधिकारिक ऑनलाइन लॉन्च',
+													id: 'Peluncuran Resmi Daring',
+													ms: 'Pelancaran Dalam Talian Rasmi',
+													th: 'การเปิดตัวออนไลน์อย่างเป็นทางการ',
+													vi: 'Khởi động Trực tuyến Chính thức',
+													bn: 'সরকারি অনলাইন লঞ্চ',
+													'zh-hans': '正式在线发布',
+													'pt-br': 'Lançamento Online Oficial'
+												})
+											}
+										</p>
 									</div>
 								</div>
 								<div class="flex w-full gap-2">
@@ -183,9 +461,60 @@ export const getStaticPaths = () =>
 										class="text-color flex w-[calc(100%-80px)] items-center rounded-md bg-white p-3 dark:bg-black"
 									>
 										<ul class="list-inside list-disc no-underline">
-											<li>Dubai Office opening.</li>
-											<li>Nigeria Office opening.</li>
-											<li>New Payment Integrations.</li>
+											<li>
+												{
+													t({
+														en: 'Dubai Office Opening',
+														ar: 'افتتاح مكتب دبي',
+														es: 'Apertura de Oficina en Dubái',
+														fr: 'Ouverture du Bureau de Dubaï',
+														hi: 'दुबई कार्यालय उद्घाटन',
+														id: 'Pembukaan Kantor Dubai',
+														ms: 'Pembukaan Pejabat Dubai',
+														th: 'การเปิดสำนักงานดูไบ',
+														vi: 'Khai trương Văn phòng Dubai',
+														bn: 'দুবাই অফিসের উদ্বোধন',
+														'zh-hans': '迪拜办公室开幕',
+														'pt-br': 'Abertura do Escritório de Dubai'
+													})
+												}
+											</li>
+											<li>
+												{
+													t({
+														en: 'Nigeria Office Opening',
+														ar: 'افتتاح مكتب نيجيريا',
+														es: 'Apertura de Oficina en Nigeria',
+														fr: 'Ouverture du Bureau du Nigéria',
+														hi: 'नाइजीरिया कार्यालय उद्घाटन',
+														id: 'Pembukaan Kantor Nigeria',
+														ms: 'Pembukaan Pejabat Nigeria',
+														th: 'การเปิดสำนักงานไนจีเรีย',
+														vi: 'Khai trương Văn phòng Nigeria',
+														bn: 'নাইজেরিয়া অফিসের উদ্বোধন',
+														'zh-hans': '尼日利亚办公室开幕',
+														'pt-br': 'Abertura do Escritório da Nigéria'
+													})
+												}
+											</li>
+											<li>
+												{
+													t({
+														en: 'New Payment Integrations',
+														ar: 'تكاملات الدفع الجديدة',
+														es: 'Nuevas Integraciones de Pago',
+														fr: 'Nouvelles Intégrations de Paiement',
+														hi: 'नए भुगतान एकीकरण',
+														id: 'Integrasi Pembayaran Baru',
+														ms: 'Integrasi Pembayaran Baharu',
+														th: 'การรวมการชำระเงินใหม่',
+														vi: 'Tích hợp Thanh toán Mới',
+														bn: 'নতুন পেমেন্ট ইন্টিগ্রেশন',
+														'zh-hans': '新的支付集成',
+														'pt-br': 'Novas Integrações de Pagamento'
+													})
+												}
+											</li>
 										</ul>
 									</div>
 								</div>
@@ -199,9 +528,60 @@ export const getStaticPaths = () =>
 										class="text-color flex w-[calc(100%-80px)] items-center rounded-md bg-white p-3 dark:bg-black"
 									>
 										<ul class="list-inside list-disc no-underline">
-											<li>Egypt Branch.</li>
-											<li>LATAM Branch.</li>
-											<li>New Educational Partnership.</li>
+											<li>
+												{
+													t({
+														en: 'Egypt Branch',
+														ar: 'فرع مصر',
+														es: 'Sucursal de Egipto',
+														fr: "Succursale d'Égypte",
+														hi: 'मिस्र शाखा',
+														id: 'Cabang Mesir',
+														ms: 'Cawangan Mesir',
+														th: 'สาขาอียิปต์',
+														vi: 'Chi nhánh Ai Cập',
+														bn: 'মিসর শাখা',
+														'zh-hans': '埃及分行',
+														'pt-br': 'Filial do Egito'
+													})
+												}
+											</li>
+											<li>
+												{
+													t({
+														en: 'LATAM Branch',
+														ar: 'فرع أمريكا اللاتينية',
+														es: 'Sucursal de LATAM',
+														fr: 'Succursale LATAM',
+														hi: 'LATAM शाखा',
+														id: 'Cabang LATAM',
+														ms: 'Cawangan LATAM',
+														th: 'สาขา LATAM',
+														vi: 'Chi nhánh LATAM',
+														bn: 'LATAM শাখা',
+														'zh-hans': 'LATAM分支',
+														'pt-br': 'Filial LATAM'
+													})
+												}
+											</li>
+											<li>
+												{
+													t({
+														en: 'New Educational Partnership',
+														ar: 'شراكة تعليمية جديدة',
+														es: 'Nueva Asociación Educativa',
+														fr: 'Nouveau Partenariat Éducatif',
+														hi: 'नई शैक्षणिक साझेदारी',
+														id: 'Kemitraan Pendidikan Baru',
+														ms: 'Perkongsian Pendidikan Baharu',
+														th: 'ความร่วมมือทางการศึกษาใหม่',
+														vi: 'Đối tác Giáo dục Mới',
+														bn: 'নতুন শিক্ষাগত অংশীদারিত্ব',
+														'zh-hans': '新的教育合作伙伴关系',
+														'pt-br': 'Nova Parceria Educacional'
+													})
+												}
+											</li>
 										</ul>
 									</div>
 								</div>
@@ -212,167 +592,183 @@ export const getStaticPaths = () =>
 			</div>
 		</div>
 		<div class="container">
-			<div class="py-10">
-				<Marquee
-					pauseOnHover
-					repeat={2}
+			<div class="relative py-10">
+				<div
+					class="relative flex w-full flex-col items-center justify-center overflow-hidden py-[18px]"
 				>
-					<div
-						class="flex flex-row items-center justify-center gap-3 rounded-2xl border border-gray-200 bg-white p-5 text-center dark:border-neutral-700 dark:bg-neutral-800"
-					>
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							width="20px"
-							class="text-dbgreen-500"
-							height="20px"
-							viewBox="0 0 24 24"
+					<Marquee pauseOnHover class="[--duration:40s]">
+						<div
+							class="flex flex-row items-center justify-center gap-3 rounded-2xl border border-gray-200 bg-white p-5 text-center dark:border-neutral-700 dark:bg-neutral-800"
 						>
-							<g
-								fill="none"
-								stroke="currentColor"
-								stroke-width="1.5"
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								width="20px"
+								class="text-dbgreen-500"
+								height="20px"
+								viewBox="0 0 24 24"
 							>
-								<circle
-									cx="12"
-									cy="12"
-									r="10"
-								></circle>
-								<path
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									d="m8.5 12.5l2 2l5-5"
-								></path>
-							</g>
-						</svg>
-						<h3 class="text-md w-full font-semibold text-dbgreen-600">
-							Bonus upto $20,000
-						</h3>
-					</div>
-					<div
-						class="flex flex-row items-center justify-center gap-3 rounded-2xl border border-gray-200 bg-white p-5 text-center dark:border-neutral-700 dark:bg-neutral-800"
-					>
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							width="20px"
-							height="20px"
-							class="text-dbgreen-500"
-							viewBox="0 0 24 24"
+								<g fill="none" stroke="currentColor" stroke-width="1.5">
+									<circle cx="12" cy="12" r="10"></circle>
+									<path stroke-linecap="round" stroke-linejoin="round" d="m8.5 12.5l2 2l5-5"></path>
+								</g>
+							</svg>
+							<h3 class="text-md w-full font-semibold text-dbgreen-600">
+								{
+									t({
+										en: 'Bonus up to $20,000',
+										ar: 'بونص يصل إلى 20,000 دولار',
+										es: 'Bono de hasta $20,000',
+										fr: "Bonus jusqu'à 20 000 $",
+										hi: '$20,000 तक का बोनस',
+										id: 'Bonus hingga $20,000',
+										ms: 'Bonus sehingga $20,000',
+										th: 'โบนัสสูงสุด $20,000',
+										vi: 'Tiền thưởng lên đến $20,000',
+										bn: '২০,০০০ ডলার পর্যন্ত বোনাস',
+										'zh-hans': '高达 20,000 美元的奖金',
+										'pt-br': 'Bônus de até $20.000'
+									})
+								}
+							</h3>
+						</div>
+						<div
+							class="flex flex-row items-center justify-center gap-3 rounded-2xl border border-gray-200 bg-white p-5 text-center dark:border-neutral-700 dark:bg-neutral-800"
 						>
-							<g
-								fill="none"
-								stroke="currentColor"
-								stroke-width="1.5"
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								width="20px"
+								height="20px"
+								class="text-dbgreen-500"
+								viewBox="0 0 24 24"
 							>
-								<circle
-									cx="12"
-									cy="12"
-									r="10"
-								></circle>
-								<path
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									d="m8.5 12.5l2 2l5-5"
-								></path>
-							</g>
-						</svg>
-						<h3 class="text-md w-full font-semibold text-dbgreen-600">
-							Leverage up to 1:1000
-						</h3>
-					</div>
-					<div
-						class="flex flex-row items-center justify-center gap-3 rounded-2xl border border-gray-200 bg-white p-5 text-center dark:border-neutral-700 dark:bg-neutral-800"
-					>
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							width="20px"
-							height="20px"
-							class="text-dbgreen-500"
-							viewBox="0 0 24 24"
+								<g fill="none" stroke="currentColor" stroke-width="1.5">
+									<circle cx="12" cy="12" r="10"></circle>
+									<path stroke-linecap="round" stroke-linejoin="round" d="m8.5 12.5l2 2l5-5"></path>
+								</g>
+							</svg>
+							<h3 class="text-md w-full font-semibold text-dbgreen-600">
+								{
+									t({
+										en: 'Leverage up to 1:1000',
+										ar: 'رافعة مالية تصل إلى 1:1000',
+										es: 'Apalancamiento de hasta 1:1000',
+										fr: "Effet de levier jusqu'à 1:1000",
+										hi: '1:1000 तक का लीवरेज',
+										id: 'Leverage hingga 1:1000',
+										ms: 'Leverage sehingga 1:1000',
+										th: 'เลเวอเรจสูงถึง 1:1000',
+										vi: 'Đòn bẩy lên đến 1:1000',
+										bn: '১:১০০০ পর্যন্ত লিভারেজ',
+										'zh-hans': '杠杆高达 1:1000',
+										'pt-br': 'Alavancagem de até 1:1000'
+									})
+								}
+							</h3>
+						</div>
+						<div
+							class="flex flex-row items-center justify-center gap-3 rounded-2xl border border-gray-200 bg-white p-5 text-center dark:border-neutral-700 dark:bg-neutral-800"
 						>
-							<g
-								fill="none"
-								stroke="currentColor"
-								stroke-width="1.5"
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								width="20px"
+								height="20px"
+								class="text-dbgreen-500"
+								viewBox="0 0 24 24"
 							>
-								<circle
-									cx="12"
-									cy="12"
-									r="10"
-								></circle>
-								<path
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									d="m8.5 12.5l2 2l5-5"
-								></path>
-							</g>
-						</svg>
-						<h3 class="text-md w-full font-semibold text-dbgreen-600">
-							Segregated Bank Accounts
-						</h3>
-					</div>
-					<div
-						class="flex max-w-[25%] flex-row items-center justify-center gap-3 rounded-2xl border border-gray-200 bg-white p-5 text-center dark:border-neutral-700 dark:bg-neutral-800"
-					>
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							width="20px"
-							height="20px"
-							viewBox="0 0 24 24"
-							class="text-dbgreen-500"
+								<g fill="none" stroke="currentColor" stroke-width="1.5">
+									<circle cx="12" cy="12" r="10"></circle>
+									<path stroke-linecap="round" stroke-linejoin="round" d="m8.5 12.5l2 2l5-5"></path>
+								</g>
+							</svg>
+							<h3 class="text-md w-full font-semibold text-dbgreen-600">
+								{
+									t({
+										en: 'Segregated Bank Accounts',
+										ar: 'حسابات بنكية منفصلة',
+										es: 'Cuentas Bancarias Segregadas',
+										fr: 'Comptes Bancaires Séparés',
+										hi: 'अलग बैंक खाते',
+										id: 'Rekening Bank Terpisah',
+										ms: 'Akaun Bank Terasing',
+										th: 'บัญชีธนาคารแยกต่างหาก',
+										vi: 'Tài khoản Ngân hàng Tách biệt',
+										bn: 'বিচ্ছিন্ন ব্যাংক অ্যাকাউন্ট',
+										'zh-hans': '独立的银行账户',
+										'pt-br': 'Contas Bancárias Segregadas'
+									})
+								}
+							</h3>
+						</div>
+						<div
+							class="flex max-w-[25%] flex-row items-center justify-center gap-3 rounded-2xl border border-gray-200 bg-white p-5 text-center dark:border-neutral-700 dark:bg-neutral-800"
 						>
-							<g
-								fill="none"
-								stroke="currentColor"
-								stroke-width="1.5"
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								width="20px"
+								height="20px"
+								viewBox="0 0 24 24"
+								class="text-dbgreen-500"
 							>
-								<circle
-									cx="12"
-									cy="12"
-									r="10"
-								></circle>
-								<path
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									d="m8.5 12.5l2 2l5-5"
-								></path>
-							</g>
-						</svg>
-						<h3 class="text-md w-full font-semibold text-dbgreen-600">
-							Tight Spread & fair Price
-						</h3>
-					</div>
-					<div
-						class="flex max-w-[25%] flex-row items-center justify-center gap-3 rounded-2xl border border-gray-200 bg-white p-5 text-center dark:border-neutral-700 dark:bg-neutral-800"
-					>
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							width="20px"
-							height="20px"
-							viewBox="0 0 24 24"
-							class="text-dbgreen-500"
+								<g fill="none" stroke="currentColor" stroke-width="1.5">
+									<circle cx="12" cy="12" r="10"></circle>
+									<path stroke-linecap="round" stroke-linejoin="round" d="m8.5 12.5l2 2l5-5"></path>
+								</g>
+							</svg>
+							<h3 class="text-md w-full font-semibold text-dbgreen-600">
+								{
+									t({
+										en: 'Tight Spread & Fair Price',
+										ar: 'فروق أسعار ضيقة وأسعار عادلة',
+										es: 'Spreads Ajustados y Precios Justos',
+										fr: 'Écarts Réduits et Prix Équitables',
+										hi: 'कम स्प्रेड और उचित मूल्य',
+										id: 'Spread Ketat & Harga yang Adil',
+										ms: 'Spread Ketat & Harga Adil',
+										th: 'สเปรดต่ำและราคายุติธรรม',
+										vi: 'Chênh lệch Hẹp & Giá Cả Công Bằng',
+										bn: 'সংকীর্ণ স্প্রেড এবং ন্যায্য মূল্য',
+										'zh-hans': '低点差和公平价格',
+										'pt-br': 'Spreads Reduzidos e Preços Justos'
+									})
+								}
+							</h3>
+						</div>
+						<div
+							class="flex max-w-[25%] flex-row items-center justify-center gap-3 rounded-2xl border border-gray-200 bg-white p-5 text-center dark:border-neutral-700 dark:bg-neutral-800"
 						>
-							<g
-								fill="none"
-								stroke="currentColor"
-								stroke-width="1.5"
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								width="20px"
+								height="20px"
+								viewBox="0 0 24 24"
+								class="text-dbgreen-500"
 							>
-								<circle
-									cx="12"
-									cy="12"
-									r="10"
-								></circle>
-								<path
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									d="m8.5 12.5l2 2l5-5"
-								></path>
-							</g>
-						</svg>
-						<h3 class="text-md w-full font-semibold text-dbgreen-600">
-							Islamic Account
-						</h3>
-					</div>
-				</Marquee>
+								<g fill="none" stroke="currentColor" stroke-width="1.5">
+									<circle cx="12" cy="12" r="10"></circle>
+									<path stroke-linecap="round" stroke-linejoin="round" d="m8.5 12.5l2 2l5-5"></path>
+								</g>
+							</svg>
+							<h3 class="text-md w-full font-semibold text-dbgreen-600">
+								{
+									t({
+										en: 'Islamic Account',
+										ar: 'حساب إسلامي',
+										es: 'Cuenta Islámica',
+										fr: 'Compte Islamique',
+										hi: 'इस्लामिक खाता',
+										id: 'Akun Islami',
+										ms: 'Akaun Islamik',
+										th: 'บัญชีอิสลาม',
+										vi: 'Tài khoản Hồi giáo',
+										bn: 'ইসলামিক অ্যাকাউন্ট',
+										'zh-hans': '伊斯兰账户',
+										'pt-br': 'Conta Islâmica'
+									})
+								}
+							</h3>
+						</div>
+					</Marquee>
+				</div>
 			</div>
 			<div class="py-10">
 				<!-- our misson -->
@@ -409,7 +805,23 @@ export const getStaticPaths = () =>
 
 							<span
 								class="block text-xl font-semibold text-gray-800 hs-tab-active:text-dbgreen-500 dark:text-neutral-200 dark:hs-tab-active:text-dbgreen-500"
-								>About Us
+							>
+								{
+									t({
+										en: 'About Us',
+										ar: 'من نحن',
+										es: 'Sobre Nosotros',
+										fr: 'À Propos de Nous',
+										hi: 'हमारे बारे में',
+										id: 'Tentang Kami',
+										ms: 'Tentang Kami',
+										th: 'เกี่ยวกับเรา',
+										vi: 'Về Chúng Tôi',
+										bn: 'আমাদের সম্পর্কে',
+										'zh-hans': '关于我们',
+										'pt-br': 'Sobre Nós'
+									})
+								}
 							</span>
 						</button>
 
@@ -437,7 +849,23 @@ export const getStaticPaths = () =>
 
 							<span
 								class="block text-xl font-semibold text-gray-800 hs-tab-active:text-dbgreen-500 dark:text-neutral-200 dark:hs-tab-active:text-dbgreen-500"
-								>Our Mission
+							>
+								{
+									t({
+										en: 'Our Mission',
+										ar: 'مهمتنا',
+										es: 'Nuestra Misión',
+										fr: 'Notre Mission',
+										hi: 'हमारा मिशन',
+										id: 'Misi Kami',
+										ms: 'Misi Kami',
+										th: 'ภารกิจของเรา',
+										vi: 'Sứ mệnh của chúng tôi',
+										bn: 'আমাদের লক্ষ্য',
+										'zh-hans': '我们的使命',
+										'pt-br': 'Nossa Missão'
+									})
+								}
 							</span>
 						</button>
 
@@ -474,7 +902,23 @@ export const getStaticPaths = () =>
 
 							<span
 								class="block text-xl font-semibold text-gray-800 hs-tab-active:text-dbgreen-500 dark:text-neutral-200 dark:hs-tab-active:text-dbgreen-500"
-								>Our Vision
+							>
+								{
+									t({
+										en: 'Our Vision',
+										ar: 'رؤيتنا',
+										es: 'Nuestra Visión',
+										fr: 'Notre Vision',
+										hi: 'हमारा दृष्टिकोण',
+										id: 'Visi Kami',
+										ms: 'Visi Kami',
+										th: 'วิสัยทัศน์ของเรา',
+										vi: 'Tầm nhìn của chúng tôi',
+										bn: 'আমাদের দৃষ্টি',
+										'zh-hans': '我们的愿景',
+										'pt-br': 'Nossa Visão'
+									})
+								}
 							</span>
 						</button>
 					</nav>
@@ -482,57 +926,121 @@ export const getStaticPaths = () =>
 
 					<!-- Tab Content -->
 					<div class="mt-12 md:mt-16">
-						<div
-							id="about-card-tab-1"
-							role="tabpanel"
-							aria-labelledby="about-card-tab-item-1"
-						>
+						<div id="about-card-tab-1" role="tabpanel" aria-labelledby="about-card-tab-item-1">
 							<div class="space-y-4">
-								<p class="text-color">
-									<strong>DB Investing</strong> is a globally trusted financial brokerage
-									firm, dedicated to empowering individuals and institutions with the
-									tools and knowledge needed to thrive in the world of trading. Since
-									our establishment in 2018, we have continuously evolved to meet the
-									dynamic needs of the financial markets, offering innovative solutions
-									and unparalleled customer service.
-								</p>
-								<p class="text-color">
-									We are licensed by multiple regulators, including the
-									<strong>
-										Financial Services Authority (FSA) of Seychelles and the
-										Emirates Securities and Commodities Authority (ESCA) of
-										Dubai</strong
-									>, ensuring that our clients trade in a secure and highly
-									regulated environment. Our commitment to compliance and
-									transparency has earned us a reputation as a reliable partner in
-									the financial sector.
-								</p>
-								<p class="text-color">
-									Our footprint spans key financial hubs, with offices in <b
-										>Dubai</b
-									>, <b>Seychelles</b>, <b>Limassol (Cyprus)</b>, <b
-										>Lagos (Nigeria)</b
-									>, and <b>Malta</b>. We are also planning to expand further into
-									Latin America and Asia in 2024, extending our reach and
-									delivering the best-regulated brokerage services to a wider
-									audience.
-								</p>
-								<p class="text-color">
-									What sets DB Investing apart is our dedication to building
-									long-term relationships with our clients. We understand that
-									every trader has unique needs, and our personalized approach
-									ensures that we provide solutions tailored to each individual.
-								</p>
-								<p class="text-color">
-									As we continue to grow and expand our portfolio of licenses, our
-									mission remains the same: to guide our clients on their journey
-									toward financial success. At DB Investing, we believe that
-									“Every success starts with small steps in the right direction.”
-								</p>
-								<p class="text-color">
-									Join us and take your first step toward achieving your financial
-									goals.
-								</p>
+								<p
+									class="text-color"
+									set:html={t({
+										en: '<strong>DB Investing</strong> is a globally trusted financial brokerage firm, dedicated to empowering individuals and institutions with the tools and knowledge needed to thrive in the world of trading. Since our establishment in 2018, we have continuously evolved to meet the dynamic needs of the financial markets, offering innovative solutions and unparalleled customer service.',
+										ar: '<strong>DB Investing</strong> هي شركة وساطة مالية موثوقة عالميًا، مكرسة لتمكين الأفراد والمؤسسات من الأدوات والمعرفة اللازمة للنجاح في عالم التداول. منذ تأسيسنا في عام 2018، تطورنا باستمرار لتلبية الاحتياجات المتغيرة للأسواق المالية، من خلال تقديم حلول مبتكرة وخدمة عملاء لا مثيل لها.',
+										es: '<strong>DB Investing</strong> es una firma de corretaje financiero confiable a nivel mundial, dedicada a empoderar a individuos e instituciones con las herramientas y el conocimiento necesarios para prosperar en el mundo del comercio. Desde nuestra fundación en 2018, hemos evolucionado continuamente para satisfacer las necesidades dinámicas de los mercados financieros, ofreciendo soluciones innovadoras y un servicio al cliente inigualable.',
+										fr: "<strong>DB Investing</strong> est une société de courtage financier de confiance à l'échelle mondiale, dédiée à l'autonomisation des individus et des institutions avec les outils et les connaissances nécessaires pour prospérer dans le monde du trading. Depuis notre création en 2018, nous avons évolué en continu pour répondre aux besoins dynamiques des marchés financiers, offrant des solutions innovantes et un service client inégalé.",
+										hi: '<strong>DB Investing</strong> एक विश्वसनीय वित्तीय ब्रोकरेज फर्म है, जो व्यक्तियों और संस्थानों को ट्रेडिंग की दुनिया में सफलता के लिए आवश्यक उपकरणों और ज्ञान से सशक्त बनाने के लिए समर्पित है। 2018 में हमारी स्थापना के बाद से, हम वित्तीय बाजारों की बदलती आवश्यकताओं को पूरा करने के लिए लगातार विकसित हुए हैं, नवोन्मेषी समाधान और अद्वितीय ग्राहक सेवा प्रदान करते हैं।',
+										id: '<strong>DB Investing</strong> adalah firma pialang keuangan yang dipercaya secara global, didedikasikan untuk memberdayakan individu dan institusi dengan alat dan pengetahuan yang dibutuhkan untuk berhasil dalam dunia perdagangan. Sejak didirikan pada tahun 2018, kami terus berkembang untuk memenuhi kebutuhan dinamis pasar keuangan, menawarkan solusi inovatif dan layanan pelanggan yang tiada tandingannya.',
+										ms: '<strong>DB Investing</strong> adalah firma broker kewangan yang dipercayai di peringkat global, berdedikasi untuk memperkasakan individu dan institusi dengan alatan dan pengetahuan yang diperlukan untuk berjaya dalam dunia perdagangan. Sejak penubuhan kami pada tahun 2018, kami sentiasa berkembang untuk memenuhi keperluan dinamik pasaran kewangan, menawarkan penyelesaian inovatif dan perkhidmatan pelanggan yang tiada tandingan.',
+										th: '<strong>DB Investing</strong> เป็นบริษัทนายหน้าทางการเงินที่ได้รับความไว้วางใจในระดับสากล ทุ่มเทเพื่อเสริมสร้างศักยภาพให้แก่บุคคลและสถาบันต่าง ๆ ด้วยเครื่องมือและความรู้ที่จำเป็นในการประสบความสำเร็จในโลกแห่งการเทรด ตั้งแต่ก่อตั้งในปี 2018 เราได้พัฒนาอย่างต่อเนื่องเพื่อตอบสนองความต้องการที่เปลี่ยนแปลงไปของตลาดการเงิน โดยนำเสนอโซลูชั่นนวัตกรรมและการบริการลูกค้าที่เหนือชั้น',
+										vi: '<strong>DB Investing</strong> là một công ty môi giới tài chính được tin cậy toàn cầu, tận tâm cung cấp công cụ và kiến thức cần thiết để giúp cá nhân và tổ chức thành công trong thế giới giao dịch. Kể từ khi thành lập vào năm 2018, chúng tôi liên tục phát triển để đáp ứng nhu cầu động của thị trường tài chính, mang đến các giải pháp sáng tạo và dịch vụ khách hàng vô song.',
+										bn: '<strong>DB Investing</strong> একটি বিশ্বস্ত আর্থিক ব্রোকারেজ ফার্ম, যা ট্রেডিং জগতে সফলতার জন্য প্রয়োজনীয় সরঞ্জাম এবং জ্ঞানের সাথে ব্যক্তিগত এবং প্রতিষ্ঠানের ক্ষমতায়নের জন্য নিবেদিত। আমাদের প্রতিষ্ঠা ২০১৮ সাল থেকে, আমরা আর্থিক বাজারের গতিশীল চাহিদা পূরণের জন্য ক্রমাগত বিবর্তিত হচ্ছি, উদ্ভাবনী সমাধান এবং তুলনাহীন গ্রাহক পরিষেবা প্রদান করছি।',
+										'zh-hans':
+											'<strong>DB Investing</strong> 是一家全球受信任的金融经纪公司，致力于为个人和机构提供在交易领域中取得成功所需的工具和知识。自2018年成立以来，我们不断发展，以满足金融市场的动态需求，提供创新的解决方案和无与伦比的客户服务。',
+										'pt-br':
+											'<strong>DB Investing</strong> é uma corretora financeira globalmente confiável, dedicada a capacitar indivíduos e instituições com as ferramentas e o conhecimento necessários para prosperar no mundo do comércio. Desde a nossa fundação em 2018, temos evoluído continuamente para atender às necessidades dinâmicas dos mercados financeiros, oferecendo soluções inovadoras e um atendimento ao cliente incomparável.'
+									})}
+								/>
+								<p
+									class="text-color"
+									set:html={t({
+										en: 'We are licensed by multiple regulators, including the <strong>Financial Services Authority (FSA) of Seychelles and the Emirates Securities and Commodities Authority (ESCA) of Dubai</strong>, ensuring that our clients trade in a secure and highly regulated environment. Our commitment to compliance and transparency has earned us a reputation as a reliable partner in the financial sector.',
+										ar: 'نحن مرخصون من قبل العديد من الجهات التنظيمية، بما في ذلك <strong>هيئة الخدمات المالية (FSA) في سيشيل وسلطة الأوراق المالية والسلع (ESCA) في دبي</strong>، مما يضمن أن عملائنا يتداولون في بيئة آمنة وخاضعة للتنظيم الصارم. لقد أكسبنا التزامنا بالامتثال والشفافية سمعة كناشط موثوق به في القطاع المالي.',
+										es: 'Estamos autorizados por múltiples reguladores, incluyendo la <strong>Autoridad de Servicios Financieros (FSA) de Seychelles y la Autoridad de Valores y Materias Primas (ESCA) de Dubái</strong>, lo que garantiza que nuestros clientes comercien en un entorno seguro y altamente regulado. Nuestro compromiso con el cumplimiento y la transparencia nos ha ganado una reputación como un socio confiable en el sector financiero.',
+										fr: "Nous sommes autorisés par plusieurs régulateurs, y compris <strong>l'Autorité des services financiers (FSA) des Seychelles et l'Autorité des valeurs mobilières et des matières premières (ESCA) de Dubaï</strong>, garantissant à nos clients de trader dans un environnement sûr et hautement réglementé. Notre engagement envers la conformité et la transparence nous a valu une réputation de partenaire fiable dans le secteur financier.",
+										hi: 'हम कई नियामकों द्वारा लाइसेंस प्राप्त हैं, जिनमें <strong>सेशेल्स के वित्तीय सेवा प्राधिकरण (FSA) और दुबई के प्रतिभूति और वस्त्र प्राधिकरण (ESCA)</strong> शामिल हैं, यह सुनिश्चित करते हैं कि हमारे ग्राहक एक सुरक्षित और अत्यधिक विनियमित वातावरण में व्यापार करें। अनुपालन और पारदर्शिता के प्रति हमारी प्रतिबद्धता ने हमें वित्तीय क्षेत्र में एक विश्वसनीय भागीदार के रूप में प्रतिष्ठा दिलाई है।',
+										id: 'Kami berlisensi oleh beberapa regulator, termasuk <strong>Otoritas Layanan Keuangan (FSA) Seychelles dan Otoritas Sekuritas dan Komoditas Emirates (ESCA) Dubai</strong>, memastikan bahwa klien kami berdagang dalam lingkungan yang aman dan sangat diatur. Komitmen kami terhadap kepatuhan dan transparansi telah membuat kami mendapatkan reputasi sebagai mitra terpercaya di sektor keuangan.',
+										ms: 'Kami dilesenkan oleh beberapa pengawal selia, termasuk <strong>Financial Services Authority (FSA) Seychelles dan Emirates Securities and Commodities Authority (ESCA) Dubai</strong>, memastikan bahawa pelanggan kami berdagang dalam persekitaran yang selamat dan sangat dikawal selia. Komitmen kami terhadap pematuhan dan ketelusan telah memberikan kami reputasi sebagai rakan kongsi yang boleh dipercayai dalam sektor kewangan.',
+										th: 'เราได้รับใบอนุญาตจากหน่วยงานกำกับดูแลหลายแห่ง รวมถึง <strong>สำนักงานบริการทางการเงิน (FSA) ของเซเชลส์ และสำนักงานกำกับหลักทรัพย์และสินค้าโภคภัณฑ์ (ESCA) ของดูไบ</strong> เพื่อให้มั่นใจว่าลูกค้าของเราทำการซื้อขายในสภาพแวดล้อมที่ปลอดภัยและอยู่ภายใต้การกำกับดูแลอย่างเข้มงวด ความมุ่งมั่นของเราต่อการปฏิบัติตามกฎระเบียบและความโปร่งใส ทำให้เราได้รับชื่อเสียงในฐานะพันธมิตรที่น่าเชื่อถือในภาคการเงิน',
+										vi: 'Chúng tôi được cấp phép bởi nhiều cơ quan quản lý, bao gồm <strong>Cơ quan Dịch vụ Tài chính (FSA) của Seychelles và Cơ quan Chứng khoán và Hàng hóa (ESCA) của Dubai</strong>, đảm bảo rằng khách hàng của chúng tôi giao dịch trong một môi trường an toàn và được quản lý chặt chẽ. Cam kết của chúng tôi về tuân thủ và minh bạch đã giúp chúng tôi có được danh tiếng là đối tác đáng tin cậy trong lĩnh vực tài chính.',
+										bn: 'আমরা একাধিক নিয়ন্ত্রকদের দ্বারা লাইসেন্সপ্রাপ্ত, যার মধ্যে রয়েছে <strong>সেশেলসের ফাইন্যান্সিয়াল সার্ভিসেস অথরিটি (FSA) এবং দুবাইয়ের এমিরেটস সিকিউরিটিজ এবং কমোডিটিস অথরিটি (ESCA)</strong>, যা নিশ্চিত করে যে আমাদের ক্লায়েন্টরা একটি নিরাপদ এবং অত্যন্ত নিয়ন্ত্রিত পরিবেশে ট্রেড করে। কমপ্লায়েন্স এবং স্বচ্ছতার প্রতি আমাদের প্রতিশ্রুতি আমাদের আর্থিক খাতে একটি নির্ভরযোগ্য অংশীদার হিসাবে খ্যাতি অর্জন করেছে।',
+										'zh-hans':
+											'我们获得了多个监管机构的许可，包括<strong>塞舌尔金融服务管理局 (FSA) 和迪拜的阿联酋证券和商品管理局 (ESCA)</strong>，确保我们的客户在一个安全且高度受监管的环境中进行交易。我们对合规性和透明度的承诺，使我们赢得了金融领域可靠合作伙伴的声誉。',
+										'pt-br':
+											'Somos licenciados por vários reguladores, incluindo a <strong>Autoridade de Serviços Financeiros (FSA) das Seicheles e a Autoridade de Valores Mobiliários e Commodities dos Emirados (ESCA) de Dubai</strong>, garantindo que nossos clientes negociem em um ambiente seguro e altamente regulado. Nosso compromisso com a conformidade e a transparência nos rendeu uma reputação como parceiro confiável no setor financeiro.'
+									})}
+								/>
+								<p
+									class="text-color"
+									set:html={t({
+										en: 'Our footprint spans key financial hubs, with offices in <b>Dubai</b>, <b>Seychelles</b>, <b>Limassol (Cyprus)</b>, <b>Lagos (Nigeria)</b>, and <b>Malta</b>. We are also planning to expand further into Latin America and Asia in 2024, extending our reach and delivering the best-regulated brokerage services to a wider audience.',
+										ar: 'تشمل بصمتنا مراكز مالية رئيسية، مع مكاتب في <b>دبي</b>، <b>سيشيل</b>، <b>ليماسول (قبرص)</b>، <b>لاغوس (نيجيريا)</b>، و<b>مالطا</b>. نحن نخطط أيضًا للتوسع أكثر في أمريكا اللاتينية وآسيا في عام 2024، مما يوسع نطاقنا ويوفر أفضل خدمات الوساطة المنضبطة لجمهور أوسع.',
+										es: 'Nuestra huella abarca centros financieros clave, con oficinas en <b>Dubái</b>, <b>Seychelles</b>, <b>Limassol (Chipre)</b>, <b>Lagos (Nigeria)</b> y <b>Malta</b>. También estamos planeando expandirnos más hacia América Latina y Asia en 2024, ampliando nuestro alcance y ofreciendo los mejores servicios de corretaje regulados a una audiencia más amplia.',
+										fr: 'Notre empreinte s’étend sur des hubs financiers clés, avec des bureaux à <b>Dubaï</b>, <b>Seychelles</b>, <b>Limassol (Chypre)</b>, <b>Lagos (Nigeria)</b> et <b>Malte</b>. Nous prévoyons également de nous développer davantage en Amérique Latine et en Asie en 2024, élargissant notre portée et offrant les meilleurs services de courtage réglementés à un public plus large.',
+										hi: 'हमारा footprint प्रमुख वित्तीय केंद्रों तक फैला है, जिनमें <b>दुबई</b>, <b>सेशेल्स</b>, <b>लिमासोल (साइप्रस)</b>, <b>लागोस (नाइजीरिया)</b> और <b>माल्टा</b> में कार्यालय शामिल हैं। हम 2024 में लैटिन अमेरिका और एशिया में आगे विस्तार करने की योजना भी बना रहे हैं, अपनी पहुंच का विस्तार करते हुए और एक व्यापक दर्शकों को सर्वोत्तम-नियामित ब्रोकरेज सेवाएं प्रदान कर रहे हैं।',
+										id: 'Jejak kami mencakup pusat keuangan utama, dengan kantor di <b>Dubai</b>, <b>Seychelles</b>, <b>Limassol (Siprus)</b>, <b>Lagos (Nigeria)</b>, dan <b>Malta</b>. Kami juga berencana untuk memperluas lebih jauh ke Amerika Latin dan Asia pada tahun 2024, memperluas jangkauan kami dan memberikan layanan pialang yang diatur terbaik kepada audiens yang lebih luas.',
+										ms: 'Jejak kami merangkumi pusat kewangan utama, dengan pejabat di <b>Dubai</b>, <b>Seychelles</b>, <b>Limassol (Cyprus)</b>, <b>Lagos (Nigeria)</b>, dan <b>Malta</b>. Kami juga merancang untuk berkembang lebih jauh ke Amerika Latin dan Asia pada tahun 2024, meluaskan jangkauan kami dan memberikan perkhidmatan pembrokeran yang terbaik diatur kepada khalayak yang lebih luas.',
+										th: 'เราได้ขยายการดำเนินงานในศูนย์กลางการเงินหลัก โดยมีสำนักงานใน <b>ดูไบ</b> <b>เซเชลส์</b> <b>ลิมาซอล (ไซปรัส)</b> <b>ลากอส (ไนจีเรีย)</b> และ <b>มอลตา</b> นอกจากนี้ เรายังวางแผนที่จะขยายธุรกิจเพิ่มเติมไปยังละตินอเมริกาและเอเชียในปี 2024 ขยายการเข้าถึงของเราและมอบบริการนายหน้าที่มีการควบคุมที่ดีที่สุดให้กับผู้ชมที่กว้างขึ้น',
+										vi: 'Dấu chân của chúng tôi trải dài qua các trung tâm tài chính chính, với văn phòng tại <b>Dubai</b>, <b>Seychelles</b>, <b>Limassol (Cyprus)</b>, <b>Lagos (Nigeria)</b> và <b>Malta</b>. Chúng tôi cũng đang lên kế hoạch mở rộng thêm vào Latin America và Châu Á vào năm 2024, mở rộng tầm với của mình và cung cấp dịch vụ môi giới được quản lý tốt nhất cho một đối tượng rộng lớn hơn.',
+										bn: 'আমাদের পদচিহ্ন মূল আর্থিক কেন্দ্রগুলিকে জুড়ে রয়েছে, <b>দুবাই</b>, <b>সেশেলস</b>, <b>লিমাসোল (সাইপ্রাস)</b>, <b>লাগোস (নাইজেরিয়া)</b> এবং <b>মাল্টা</b>তে অফিস সহ। আমরা 2024 সালে লাতিন আমেরিকা এবং এশিয়াতে আরও প্রসারিত হওয়ার পরিকল্পনাও করছি, আমাদের প্রভাব বৃদ্ধি এবং একটি বৃহত্তর শ্রোতার কাছে সেরা নিয়ন্ত্রিত ব্রোকারেজ পরিষেবা সরবরাহ করছি।',
+										'zh-hans':
+											'我们的足迹覆盖关键金融中心，在 <b>迪拜</b>、<b>塞舌尔</b>、<b>利马索尔（塞浦路斯）</b>、<b>拉各斯（尼日利亚）</b> 和 <b>马耳他</b> 均设有办公室。我们还计划在 2024 年进一步扩展到拉丁美洲和亚洲，扩大我们的影响力，为更广泛的受众提供最佳监管的经纪服务。',
+										'pt-br':
+											'Nossa presença se estende por centros financeiros chave, com escritórios em <b>Dubai</b>, <b>Seychelles</b>, <b>Limassol (Chipre)</b>, <b>Lagos (Nigéria)</b> e <b>Malta</b>. Também estamos planejando expandir ainda mais para a América Latina e Ásia em 2024, ampliando nosso alcance e oferecendo os melhores serviços de corretagem regulamentados a um público mais amplo.'
+									})}
+								/>
+								<p
+									class="text-color"
+									set:html={t({
+										en: 'What sets DB Investing apart is our dedication to building long-term relationships with our clients. We understand that every trader has unique needs, and our personalized approach ensures that we provide solutions tailored to each individual.',
+										ar: 'ما يميز DB Investing هو التزامنا ببناء علاقات طويلة الأمد مع عملائنا. نحن نفهم أن كل متداول لديه احتياجات فريدة، وتضمن نهجنا الشخصي أن نقدم حلولًا مصممة خصيصًا لكل فرد.',
+										es: 'Lo que distingue a DB Investing es nuestra dedicación a construir relaciones a largo plazo con nuestros clientes. Entendemos que cada trader tiene necesidades únicas, y nuestro enfoque personalizado asegura que proporcionemos soluciones adaptadas a cada individuo.',
+										fr: 'Ce qui distingue DB Investing, c’est notre engagement à établir des relations à long terme avec nos clients. Nous comprenons que chaque trader a des besoins uniques, et notre approche personnalisée garantit que nous fournissons des solutions adaptées à chaque individu.',
+										hi: 'DB Investing को अलग करने वाली बात हमारे ग्राहकों के साथ दीर्घकालिक संबंध बनाने के प्रति हमारी प्रतिबद्धता है। हम समझते हैं कि हर ट्रेडर की अपनी अनूठी आवश्यकताएं होती हैं, और हमारी व्यक्तिगत दृष्टिकोण यह सुनिश्चित करता है कि हम प्रत्येक व्यक्ति के लिए अनुकूलित समाधान प्रदान करें।',
+										id: 'Apa yang membedakan DB Investing adalah dedikasi kami untuk membangun hubungan jangka panjang dengan klien kami. Kami memahami bahwa setiap trader memiliki kebutuhan unik, dan pendekatan personalisasi kami memastikan bahwa kami memberikan solusi yang disesuaikan untuk setiap individu.',
+										ms: 'Apa yang membezakan DB Investing adalah dedikasi kami untuk membina hubungan jangka panjang dengan pelanggan kami. Kami memahami bahawa setiap peniaga mempunyai keperluan yang unik, dan pendekatan peribadi kami memastikan bahawa kami menyediakan penyelesaian yang disesuaikan untuk setiap individu.',
+										th: 'สิ่งที่ทำให้ DB Investing แตกต่างคือความมุ่งมั่นของเราในการสร้างความสัมพันธ์ระยะยาวกับลูกค้าของเรา เราเข้าใจว่าผู้ค้าทุกคนมีความต้องการที่เป็นเอกลักษณ์ และแนวทางที่ปรับให้เหมาะสมของเราทำให้มั่นใจได้ว่าเราจะให้บริการโซลูชันที่ปรับให้เหมาะกับแต่ละบุคคล',
+										vi: 'Điều làm nên sự khác biệt của DB Investing chính là sự cam kết của chúng tôi trong việc xây dựng mối quan hệ lâu dài với khách hàng. Chúng tôi hiểu rằng mỗi nhà giao dịch có những nhu cầu độc nhất, và cách tiếp cận cá nhân hóa của chúng tôi đảm bảo rằng chúng tôi cung cấp các giải pháp được điều chỉnh theo từng cá nhân.',
+										bn: 'DB Investing কে আলাদা করে তোলে আমাদের ক্লায়েন্টদের সাথে দীর্ঘমেয়াদী সম্পর্ক গড়ে তোলার জন্য আমাদের প্রতিশ্রুতি। আমরা বুঝতে পারি যে প্রতিটি ট্রেডারের নিজস্ব বিশেষ প্রয়োজন রয়েছে এবং আমাদের ব্যক্তিগতকৃত পদ্ধতি নিশ্চিত করে যে আমরা প্রতিটি ব্যক্তির জন্য বিশেষভাবে প্রস্তুত করা সমাধান সরবরাহ করি।',
+										'zh-hans':
+											'DB Investing 的独特之处在于我们致力于与客户建立长期关系。我们了解每位交易者都有独特的需求，我们个性化的服务确保为每位客户提供量身定制的解决方案。',
+										'pt-br':
+											'O que diferencia a DB Investing é nossa dedicação em construir relacionamentos de longo prazo com nossos clientes. Entendemos que cada trader tem necessidades únicas, e nossa abordagem personalizada garante que fornecemos soluções adaptadas a cada indivíduo.'
+									})}
+								/>
+								<p
+									class="text-color"
+									set:html={t({
+										en: 'As we continue to grow and expand our portfolio of licenses, our mission remains the same: to guide our clients on their journey toward financial success. At DB Investing, we believe that “Every success starts with small steps in the right direction.”',
+										ar: 'بينما نستمر في النمو وتوسيع محفظتنا من التراخيص، تظل مهمتنا كما هي: إرشاد عملائنا في رحلتهم نحو النجاح المالي. في DB Investing، نعتقد أن "كل نجاح يبدأ بخطوات صغيرة في الاتجاه الصحيح."',
+										es: 'A medida que continuamos creciendo y expandiendo nuestra cartera de licencias, nuestra misión sigue siendo la misma: guiar a nuestros clientes en su camino hacia el éxito financiero. En DB Investing, creemos que “Todo éxito comienza con pequeños pasos en la dirección correcta.”',
+										fr: 'Alors que nous continuons à croître et à étendre notre portefeuille de licences, notre mission reste la même : guider nos clients sur leur chemin vers le succès financier. Chez DB Investing, nous croyons que « Chaque succès commence par de petits pas dans la bonne direction. »',
+										hi: 'जैसे-जैसे हम बढ़ते और अपनी लाइसेंसों का पोर्टफोलियो विस्तार करते हैं, हमारी मिशन वही रहती है: हमारे ग्राहकों को वित्तीय सफलता की ओर उनके सफर में मार्गदर्शन करना। DB Investing में, हम मानते हैं कि "हर सफलता सही दिशा में छोटे कदमों से शुरू होती है।"',
+										id: 'Saat kami terus tumbuh dan memperluas portofolio lisensi kami, misi kami tetap sama: membimbing klien kami dalam perjalanan mereka menuju kesuksesan finansial. Di DB Investing, kami percaya bahwa “Setiap kesuksesan dimulai dengan langkah kecil ke arah yang benar.”',
+										ms: 'Semasa kami terus berkembang dan memperluas portfolio lesen kami, misi kami tetap sama: untuk membimbing pelanggan kami dalam perjalanan mereka menuju kejayaan kewangan. Di DB Investing, kami percaya bahawa "Setiap kejayaan bermula dengan langkah kecil ke arah yang betul."',
+										th: 'ในขณะที่เรายังคงเติบโตและขยายพอร์ตโฟลิโอใบอนุญาตของเรา ภารกิจของเรายังคงเหมือนเดิม: การนำทางลูกค้าของเราในเส้นทางสู่ความสำเร็จทางการเงิน ที่ DB Investing เราเชื่อว่า "ความสำเร็จทุกอย่างเริ่มต้นด้วยก้าวเล็กๆ ในทิศทางที่ถูกต้อง"',
+										vi: 'Khi chúng tôi tiếp tục phát triển và mở rộng danh mục giấy phép của mình, sứ mệnh của chúng tôi vẫn không thay đổi: hướng dẫn khách hàng của chúng tôi trên hành trình hướng tới thành công tài chính. Tại DB Investing, chúng tôi tin rằng “Mọi thành công đều bắt đầu bằng những bước nhỏ theo hướng đúng.”',
+										bn: 'যখন আমরা বাড়তে এবং আমাদের লাইসেন্সের পোর্টফোলিও বাড়াতে থাকি, আমাদের লক্ষ্য অপরিবর্তিত থাকে: আমাদের ক্লায়েন্টদের তাদের আর্থিক সফলতার দিকে যাত্রায় নির্দেশনা দেওয়া। DB Investing এ, আমরা বিশ্বাস করি যে "প্রতিটি সফলতা সঠিক দিকে ছোট ছোট পদক্ষেপের সাথে শুরু হয়।"',
+										'zh-hans':
+											'随着我们不断成长和扩展我们的许可证组合，我们的使命始终如一：指导我们的客户迈向财务成功。在DB Investing，我们相信“每一个成功都始于朝着正确方向迈出的第一步。”',
+										'pt-br':
+											'À medida que continuamos a crescer e expandir nosso portfólio de licenças, nossa missão continua a mesma: guiar nossos clientes em sua jornada rumo ao sucesso financeiro. Na DB Investing, acreditamos que “Todo sucesso começa com pequenos passos na direção certa.”'
+									})}
+								/>
+								<p
+									class="text-color"
+									set:html={t({
+										en: 'Join us and take your first step toward achieving your financial goals.',
+										ar: 'انضم إلينا واتخذ خطوتك الأولى نحو تحقيق أهدافك المالية.',
+										es: 'Únete a nosotros y da tu primer paso hacia alcanzar tus metas financieras.',
+										fr: "Rejoignez-nous et faites votre premier pas vers l'atteinte de vos objectifs financiers.",
+										hi: 'हमसे जुड़ें और अपने वित्तीय लक्ष्यों को प्राप्त करने के लिए पहला कदम उठाएं।',
+										id: 'Bergabunglah dengan kami dan ambil langkah pertama Anda untuk mencapai tujuan keuangan Anda.',
+										ms: 'Sertai kami dan ambil langkah pertama anda untuk mencapai matlamat kewangan anda.',
+										th: 'เข้าร่วมกับเราและก้าวแรกสู่การบรรลุเป้าหมายทางการเงินของคุณ',
+										vi: 'Hãy tham gia cùng chúng tôi và thực hiện bước đầu tiên để đạt được mục tiêu tài chính của bạn.',
+										bn: 'আমাদের সাথে যোগ দিন এবং আপনার আর্থিক লক্ষ্য অর্জনের জন্য আপনার প্রথম পদক্ষেপ নিন।',
+										'zh-hans': '加入我们，迈出实现财务目标的第一步。',
+										'pt-br':
+											'Junte-se a nós e dê seu primeiro passo para alcançar suas metas financeiras.'
+									})}
+								/>
 							</div>
 						</div>
 
@@ -544,68 +1052,198 @@ export const getStaticPaths = () =>
 						>
 							<div class="space-y-4">
 								<p class="text-color">
-									At DB Investing, we are dedicated to achieving and maintaining a
-									position among the top 10 investment firms globally by the year
-									2027. Our mission is rooted in three pillars:
+									{
+										t({
+											en: 'At DB Investing, we are dedicated to achieving and maintaining a position among the top 10 investment firms globally by the year 2027. Our mission is rooted in three pillars:',
+											ar: 'في DB Investing، نحن ملتزمون بتحقيق والحفاظ على موقع بين أفضل 10 شركات استثمارية على مستوى العالم بحلول عام 2027. مهمتنا متجذرة في ثلاثة أعمدة:',
+											es: 'En DB Investing, estamos dedicados a lograr y mantener una posición entre las 10 mejores firmas de inversión a nivel mundial para el año 2027. Nuestra misión se basa en tres pilares:',
+											fr: 'Chez DB Investing, nous sommes déterminés à atteindre et à maintenir une position parmi les 10 meilleures sociétés d’investissement au monde d’ici 2027. Notre mission repose sur trois piliers :',
+											hi: 'DB Investing में, हम 2027 तक दुनिया की शीर्ष 10 निवेश कंपनियों में से एक बनने और अपनी स्थिति बनाए रखने के लिए प्रतिबद्ध हैं। हमारा मिशन तीन स्तंभों पर आधारित है:',
+											id: 'Di DB Investing, kami berkomitmen untuk mencapai dan mempertahankan posisi di antara 10 perusahaan investasi teratas secara global pada tahun 2027. Misi kami berakar pada tiga pilar:',
+											ms: 'Di DB Investing, kami berdedikasi untuk mencapai dan mengekalkan kedudukan di antara 10 firma pelaburan teratas di seluruh dunia menjelang tahun 2027. Misi kami berakar pada tiga tiang:',
+											th: 'ที่ DB Investing เรามีความมุ่งมั่นที่จะบรรลุและรักษาตำแหน่งในหมู่ 10 บริษัทลงทุนชั้นนำของโลกภายในปี 2027 ภารกิจของเรามีรากฐานมาจากสามเสาหลัก:',
+											vi: 'Tại DB Investing, chúng tôi cam kết đạt được và duy trì vị trí trong số 10 công ty đầu tư hàng đầu toàn cầu vào năm 2027. Sứ mệnh của chúng tôi dựa trên ba trụ cột:',
+											bn: 'DB Investing এ, আমরা 2027 সালের মধ্যে বিশ্বব্যাপী শীর্ষ 10 বিনিয়োগ প্রতিষ্ঠানের মধ্যে একটি অবস্থান অর্জন এবং বজায় রাখার জন্য নিবেদিত। আমাদের মিশন তিনটি স্তম্ভের ভিত্তিতে:',
+											'zh-hans':
+												'在DB Investing，我们致力于到2027年在全球投资公司中保持前10名的位置。我们的使命植根于三个支柱：',
+											'pt-br':
+												'Na DB Investing, estamos dedicados a alcançar e manter uma posição entre as 10 principais empresas de investimento do mundo até o ano de 2027. Nossa missão está fundamentada em três pilares:'
+										})
+									}
 								</p>
 								<ul class="list-inside list-disc">
-									<li class="text-color">
-										<strong>Client Success:</strong> We are committed to the financial
-										prosperity of our clients. By employing rigorous research, cutting-edge
-										technology, and a diverse array of investment strategies, we
-										aim to consistently outperform market benchmarks. Our mission
-										is to understand the unique goals and risk tolerances of each
-										client, providing tailor-made solutions that exceed expectations.
-									</li>
-									<li class="text-color">
-										<strong>Innovation and Adaptability:</strong> We thrive on innovation
-										and embrace change. To stay ahead in the dynamic world of finance,
-										we invest in the latest technologies, methodologies, and talents.
-										Our mission is to be at the forefront of industry trends, constantly
-										evolving our approach to capitalize on emerging opportunities
-										and manage risks effectively.
-									</li>
-									<li class="text-color">
-										<strong>Ethical Leadership and Sustainability:</strong> Integrity
-										is the foundation of our success. We conduct business with the
-										highest ethical standards, placing the interests of our clients
-										and stakeholders above all else. Our mission is to contribute
-										to a sustainable and responsible financial ecosystem, aligning
-										our investments with environmental, social, and governance (ESG)
-										principles.
-									</li>
-									<li class="text-color">
-										<strong>Guiding Principles:</strong> To realize our vision and
-										mission, we adhere to the following guiding principles.
-									</li>
-									<li class="text-color">
-										<strong>Excellence:</strong> We strive for excellence in every
-										aspect of our operations, from investment research and portfolio
-										management to client services and internal processes.
-									</li>
-									<li class="text-color">
-										<strong>Team Collaboration:</strong> Our success is a collective
-										effort. We foster a collaborative and inclusive culture that
-										encourages diverse perspectives, continuous learning, and the
-										sharing of ideas.
-									</li>
-									<li class="text-color">
-										<strong>Risk Management:</strong> Prudent risk management is
-										at the core of our investment strategy. We rigorously assess
-										and manage risks to protect and enhance the wealth of our clients.
-									</li>
-									<li class="text-color">
-										<strong>Continuous Improvement:</strong> We embrace a culture
-										of continuous improvement, regularly evaluating our performance,
-										seeking feedback, and adapting to the evolving landscape of the
-										financial markets.
-									</li>
+									<li
+										class="text-color"
+										set:html={t({
+											en: '<strong>Client Success:</strong> We are committed to the financial prosperity of our clients. By employing rigorous research, cutting-edge technology, and a diverse array of investment strategies, we aim to consistently outperform market benchmarks. Our mission is to understand the unique goals and risk tolerances of each client, providing tailor-made solutions that exceed expectations.',
+											ar: '<strong>نجاح العملاء:</strong> نحن ملتزمون بالازدهار المالي لعملائنا. من خلال استخدام أبحاث دقيقة، وتقنية متقدمة، ومجموعة متنوعة من استراتيجيات الاستثمار، نهدف إلى التفوق باستمرار على مؤشرات السوق. مهمتنا هي فهم الأهداف الفريدة والتحملات للمخاطر لكل عميل، وتقديم حلول مصممة خصيصًا تتجاوز التوقعات.',
+											es: '<strong>Éxito del Cliente:</strong> Estamos comprometidos con la prosperidad financiera de nuestros clientes. Al emplear una investigación rigurosa, tecnología de punta y una variedad diversa de estrategias de inversión, buscamos superar constantemente los índices de referencia del mercado. Nuestra misión es comprender los objetivos únicos y las tolerancias al riesgo de cada cliente, proporcionando soluciones personalizadas que superen las expectativas.',
+											fr: "<strong>Succès Client :</strong> Nous sommes engagés envers la prospérité financière de nos clients. En utilisant une recherche rigoureuse, une technologie de pointe et une gamme diversifiée de stratégies d'investissement, nous visons à surperformer constamment les indices de référence du marché. Notre mission est de comprendre les objectifs uniques et les tolérances au risque de chaque client, en fournissant des solutions sur mesure qui dépassent les attentes.",
+											hi: '<strong>ग्राहक सफलता:</strong> हम अपने ग्राहकों की वित्तीय समृद्धि के लिए प्रतिबद्ध हैं। कठोर शोध, अत्याधुनिक प्रौद्योगिकी, और विविध निवेश रणनीतियों का उपयोग करके, हम लगातार बाजार बेंचमार्क से बेहतर प्रदर्शन करने का लक्ष्य रखते हैं। हमारा मिशन प्रत्येक ग्राहक के अद्वितीय लक्ष्यों और जोखिम सहिष्णुता को समझना है, व्यक्तिगत रूप से तैयार किए गए समाधान प्रदान करना है जो अपेक्षाओं से अधिक हो।',
+											id: '<strong>Keberhasilan Klien:</strong> Kami berkomitmen untuk kesejahteraan finansial klien kami. Dengan menggunakan penelitian yang ketat, teknologi mutakhir, dan beragam strategi investasi, kami bertujuan untuk secara konsisten mengungguli tolok ukur pasar. Misi kami adalah memahami tujuan unik dan toleransi risiko setiap klien, memberikan solusi yang dirancang khusus yang melebihi harapan.',
+											ms: '<strong>Kejayaan Pelanggan:</strong> Kami komited kepada kemakmuran kewangan pelanggan kami. Dengan menggunakan penyelidikan yang teliti, teknologi terkini, dan pelbagai strategi pelaburan, kami bertujuan untuk sentiasa mengatasi penanda aras pasaran. Misi kami adalah untuk memahami matlamat unik dan toleransi risiko setiap pelanggan, menyediakan penyelesaian yang disesuaikan yang melebihi jangkaan.',
+											th: '<strong>ความสำเร็จของลูกค้า:</strong> เรามุ่งมั่นต่อความเจริญรุ่งเรืองทางการเงินของลูกค้า โดยการใช้การวิจัยที่เข้มงวด เทคโนโลยีล้ำสมัย และกลยุทธ์การลงทุนที่หลากหลาย เรามุ่งหวังที่จะทำผลงานได้ดีกว่าเกณฑ์มาตรฐานของตลาดอย่างต่อเนื่อง ภารกิจของเราคือการเข้าใจเป้าหมายเฉพาะและความทนทานต่อความเสี่ยงของแต่ละลูกค้า โดยการจัดหาวิธีแก้ปัญหาที่ออกแบบมาเฉพาะซึ่งเกินความคาดหมาย',
+											vi: '<strong>Thành công của Khách hàng:</strong> Chúng tôi cam kết về sự thịnh vượng tài chính của khách hàng. Bằng cách sử dụng nghiên cứu nghiêm ngặt, công nghệ tiên tiến và một loạt các chiến lược đầu tư đa dạng, chúng tôi đặt mục tiêu vượt trội hơn các tiêu chuẩn thị trường. Sứ mệnh của chúng tôi là hiểu các mục tiêu độc đáo và mức độ chấp nhận rủi ro của từng khách hàng, cung cấp các giải pháp được thiết kế riêng vượt qua mong đợi.',
+											bn: '<strong>গ্রাহক সাফল্য:</strong> আমরা আমাদের গ্রাহকদের আর্থিক সমৃদ্ধির প্রতি প্রতিশ্রুতিবদ্ধ। কঠোর গবেষণা, আধুনিক প্রযুক্তি এবং বিভিন্ন বিনিয়োগ কৌশল ব্যবহার করে, আমরা বাজারের বেঞ্চমার্কগুলিকে ধারাবাহিকভাবে ছাড়িয়ে যাওয়ার লক্ষ্য রাখি। আমাদের মিশন হল প্রতিটি ক্লায়েন্টের অনন্য লক্ষ্য এবং ঝুঁকি সহিষ্ণুতাকে বোঝা, প্রত্যাশা ছাড়িয়ে যাওয়া সমাধানগুলি প্রদান করা।',
+											'zh-hans':
+												'<strong>客户成功：</strong> 我们致力于客户的财务繁荣。通过严格的研究、尖端技术和多样化的投资策略，我们的目标是持续超越市场基准。我们的使命是理解每位客户独特的目标和风险承受能力，提供量身定制的解决方案，超出预期。',
+											'pt-br':
+												'<strong>Sucesso do Cliente:</strong> Estamos comprometidos com a prosperidade financeira de nossos clientes. Ao empregar pesquisas rigorosas, tecnologia de ponta e uma variedade diversificada de estratégias de investimento, nosso objetivo é consistentemente superar os benchmarks do mercado. Nossa missão é entender os objetivos únicos e as tolerâncias ao risco de cada cliente, fornecendo soluções personalizadas que superem as expectativas.'
+										})}
+									/>
+									<li
+										class="text-color"
+										set:html={t({
+											en: '<strong>Innovation and Adaptability:</strong> We thrive on innovation and embrace change. To stay ahead in the dynamic world of finance, we invest in the latest technologies, methodologies, and talents. Our mission is to be at the forefront of industry trends, constantly evolving our approach to capitalize on emerging opportunities and manage risks effectively.',
+											ar: '<strong>الابتكار والقدرة على التكيف:</strong> نحن نازدهر من خلال الابتكار ونعانق التغيير. للبقاء في الصدارة في عالم المال الديناميكي، نستثمر في أحدث التقنيات، والأساليب، والمواهب. مهمتنا هي أن نكون في طليعة الاتجاهات الصناعية، نتطور باستمرار في نهجنا للاستفادة من الفرص الناشئة وإدارة المخاطر بشكل فعال.',
+											es: '<strong>Innovación y Adaptabilidad:</strong> Prosperamos gracias a la innovación y abrazamos el cambio. Para mantenernos a la vanguardia en el dinámico mundo de las finanzas, invertimos en las últimas tecnologías, metodologías y talentos. Nuestra misión es estar a la vanguardia de las tendencias de la industria, evolucionando constantemente nuestro enfoque para capitalizar las oportunidades emergentes y gestionar los riesgos de manera efectiva.',
+											fr: "<strong>Innovation et Adaptabilité :</strong> Nous prospérons grâce à l'innovation et nous accueillons le changement. Pour rester en tête dans le monde dynamique de la finance, nous investissons dans les dernières technologies, méthodologies et talents. Notre mission est d'être à la pointe des tendances de l'industrie, en faisant évoluer constamment notre approche pour tirer parti des opportunités émergentes et gérer efficacement les risques.",
+											hi: '<strong>नवाचार और अनुकूलनशीलता:</strong> हम नवाचार पर फलते-फूलते हैं और परिवर्तन को अपनाते हैं। वित्त की गतिशील दुनिया में आगे रहने के लिए, हम नवीनतम प्रौद्योगिकियों, विधियों और प्रतिभाओं में निवेश करते हैं। हमारा मिशन उद्योग प्रवृत्तियों के अग्रभाग में रहना है, उभरती हुई अवसरों का लाभ उठाने और प्रभावी ढंग से जोखिम प्रबंधन के लिए अपने दृष्टिकोण को निरंतर विकसित करना है।',
+											id: '<strong>Inovasi dan Adaptabilitas:</strong> Kami berkembang melalui inovasi dan menerima perubahan. Untuk tetap unggul di dunia keuangan yang dinamis, kami berinvestasi dalam teknologi, metodologi, dan bakat terbaru. Misi kami adalah berada di garis depan tren industri, terus-menerus mengembangkan pendekatan kami untuk memanfaatkan peluang yang muncul dan mengelola risiko secara efektif.',
+											ms: '<strong>Inovasi dan Kebolehsuaian:</strong> Kami berkembang atas inovasi dan menerima perubahan. Untuk kekal di hadapan dalam dunia kewangan yang dinamik, kami melabur dalam teknologi, metodologi, dan bakat terkini. Misi kami adalah berada di barisan hadapan dalam tren industri, sentiasa mengembangkan pendekatan kami untuk memanfaatkan peluang yang muncul dan mengurus risiko dengan berkesan.',
+											th: '<strong>นวัตกรรมและความสามารถในการปรับตัว:</strong> เราเติบโตจากนวัตกรรมและยอมรับการเปลี่ยนแปลง เพื่อที่จะก้าวไปข้างหน้าในโลกการเงินที่เปลี่ยนแปลงตลอดเวลา เราลงทุนในเทคโนโลยี วิธีการ และความสามารถใหม่ๆ เป้าหมายของเราคือการเป็นแนวหน้าของแนวโน้มอุตสาหกรรม พัฒนาแนวทางของเราอย่างต่อเนื่องเพื่อใช้ประโยชน์จากโอกาสที่เกิดขึ้นใหม่และจัดการความเสี่ยงอย่างมีประสิทธิภาพ',
+											vi: '<strong>Sự đổi mới và khả năng thích ứng:</strong> Chúng tôi phát triển từ sự đổi mới và chấp nhận sự thay đổi. Để đi trước trong thế giới tài chính năng động, chúng tôi đầu tư vào công nghệ, phương pháp và tài năng mới nhất. Sứ mệnh của chúng tôi là đứng ở vị trí tiên phong trong các xu hướng ngành, liên tục phát triển phương pháp của mình để khai thác những cơ hội mới nổi và quản lý rủi ro một cách hiệu quả.',
+											bn: '<strong>উদ্ভাবন এবং অভিযোজন:</strong> আমরা উদ্ভাবনের উপর ভিত্তি করে বেড়ে উঠি এবং পরিবর্তনকে গ্রহণ করি। অর্থনীতির গতিশীল জগতে এগিয়ে থাকতে, আমরা সর্বশেষ প্রযুক্তি, পদ্ধতি এবং প্রতিভায় বিনিয়োগ করি। আমাদের মিশন হল শিল্পের প্রবণতায় অগ্রণী হওয়া, ক্রমাগত নতুন সুযোগ কাজে লাগাতে এবং ঝুঁকি কার্যকরভাবে পরিচালনা করার জন্য আমাদের পদ্ধতিকে বিকশিত করা।',
+											'zh-hans':
+												'<strong>创新与适应能力：</strong> 我们依靠创新蓬勃发展，并拥抱变化。为了在动态的金融世界中保持领先地位，我们投资于最新的技术、方法论和人才。我们的使命是处于行业趋势的最前沿，不断发展我们的方式，以利用新出现的机会并有效管理风险。',
+											'pt-br':
+												'<strong>Inovação e Adaptabilidade:</strong> Prosperamos através da inovação e abraçamos a mudança. Para nos mantermos à frente no dinâmico mundo das finanças, investimos nas mais recentes tecnologias, metodologias e talentos. Nossa missão é estar na vanguarda das tendências da indústria, evoluindo constantemente nossa abordagem para capitalizar sobre oportunidades emergentes e gerenciar riscos de forma eficaz.'
+										})}
+									/>
+									<li
+										class="text-color"
+										set:html={t({
+											en: '<strong>Ethical Leadership and Sustainability:</strong> Integrity is the foundation of our success. We conduct business with the highest ethical standards, placing the interests of our clients and stakeholders above all else. Our mission is to contribute to a sustainable and responsible financial ecosystem, aligning our investments with environmental, social, and governance (ESG) principles.',
+											ar: '<strong>القيادة الأخلاقية والاستدامة:</strong> النزاهة هي أساس نجاحنا. نحن ندير أعمالنا وفقًا لأعلى المعايير الأخلاقية، مع وضع مصالح عملائنا والمساهمين في المقام الأول. مهمتنا هي المساهمة في نظام مالي مستدام ومسؤول، متماشياً مع مبادئ البيئة والمجتمع والحوكمة (ESG).',
+											es: '<strong>Liderazgo Ético y Sostenibilidad:</strong> La integridad es la base de nuestro éxito. Llevamos a cabo negocios con los más altos estándares éticos, colocando los intereses de nuestros clientes y partes interesadas por encima de todo. Nuestra misión es contribuir a un ecosistema financiero sostenible y responsable, alineando nuestras inversiones con los principios ambientales, sociales y de gobernanza (ESG).',
+											fr: "<strong>Leadership Éthique et Durabilité :</strong> L'intégrité est la base de notre succès. Nous menons nos activités selon les normes éthiques les plus élevées, plaçant les intérêts de nos clients et parties prenantes au-dessus de tout. Notre mission est de contribuer à un écosystème financier durable et responsable, en alignant nos investissements sur les principes environnementaux, sociaux et de gouvernance (ESG).",
+											hi: '<strong>नैतिक नेतृत्व और स्थिरता:</strong> अखंडता हमारी सफलता की नींव है। हम उच्चतम नैतिक मानकों के साथ व्यवसाय करते हैं, ग्राहकों और भागीदारों के हितों को सबसे ऊपर रखते हैं। हमारा मिशन एक स्थायी और जिम्मेदार वित्तीय पारिस्थितिकी तंत्र में योगदान करना है, जो हमारे निवेश को पर्यावरण, सामाजिक और शासन (ESG) सिद्धांतों के साथ संरेखित करता है।',
+											id: '<strong>Kepemimpinan Etis dan Keberlanjutan:</strong> Integritas adalah dasar kesuksesan kami. Kami menjalankan bisnis dengan standar etika tertinggi, menempatkan kepentingan klien dan pemangku kepentingan di atas segalanya. Misi kami adalah berkontribusi pada ekosistem keuangan yang berkelanjutan dan bertanggung jawab, menyelaraskan investasi kami dengan prinsip lingkungan, sosial, dan tata kelola (ESG).',
+											ms: '<strong>Pemimpin Etika dan Kemandirian:</strong> Integriti adalah asas kejayaan kami. Kami menjalankan perniagaan dengan piawaian etika tertinggi, meletakkan kepentingan pelanggan dan pemangku kepentingan di atas segala-galanya. Misi kami adalah untuk menyumbang kepada ekosistem kewangan yang mampan dan bertanggungjawab, menyelaraskan pelaburan kami dengan prinsip persekitaran, sosial dan tadbir urus (ESG).',
+											th: '<strong>การเป็นผู้นำด้านจริยธรรมและความยั่งยืน:</strong> ความซื่อสัตย์คือพื้นฐานของความสำเร็จของเรา เราดำเนินธุรกิจตามมาตรฐานจริยธรรมสูงสุด โดยวางผลประโยชน์ของลูกค้าและผู้มีส่วนได้ส่วนเสียไว้เหนือสิ่งอื่นใด เป้าหมายของเราคือการมีส่วนร่วมในระบบนิเวศทางการเงินที่ยั่งยืนและมีความรับผิดชอบ โดยทำให้การลงทุนของเราสอดคล้องกับหลักการด้านสิ่งแวดล้อม สังคม และการบริหาร (ESG).',
+											vi: '<strong>Lãnh đạo Đạo đức và Bền vững:</strong> Sự chính trực là nền tảng của thành công của chúng tôi. Chúng tôi tiến hành kinh doanh với các tiêu chuẩn đạo đức cao nhất, đặt lợi ích của khách hàng và các bên liên quan lên hàng đầu. Sứ mệnh của chúng tôi là góp phần vào một hệ sinh thái tài chính bền vững và có trách nhiệm, điều chỉnh các khoản đầu tư của chúng tôi theo các nguyên tắc môi trường, xã hội và quản trị (ESG).',
+											bn: '<strong>নৈতিক নেতৃত্ব এবং স্থায়িত্ব:</strong> সততা আমাদের সাফল্যের ভিত্তি। আমরা সর্বোচ্চ নৈতিক মানের সাথে ব্যবসা পরিচালনা করি, আমাদের ক্লায়েন্ট এবং অংশীদারদের স্বার্থকে সর্বদা অগ্রাধিকার দিই। আমাদের মিশন একটি টেকসই এবং দায়িত্বশীল আর্থিক বাস্তুতন্ত্রে অবদান রাখা, আমাদের বিনিয়োগগুলিকে পরিবেশ, সামাজিক এবং গভর্নেন্স (ESG) নীতিগুলির সাথে সংযুক্ত করা।',
+											'zh-hans':
+												'<strong>道德领导与可持续性：</strong> 诚信是我们成功的基础。我们以最高的道德标准开展业务，将客户和利益相关者的利益置于首位。我们的使命是为可持续和负责任的金融生态系统做出贡献，使我们的投资与环境、社会和治理（ESG）原则保持一致。',
+											'pt-br':
+												'<strong>Liderança Ética e Sustentabilidade:</strong> A integridade é a base do nosso sucesso. Conduzimos negócios com os mais altos padrões éticos, colocando os interesses de nossos clientes e partes interessadas acima de tudo. Nossa missão é contribuir para um ecossistema financeiro sustentável e responsável, alinhando nossos investimentos com os princípios ambientais, sociais e de governança (ESG).'
+										})}
+									/>
+									<li
+										class="text-color"
+										set:html={t({
+											en: '<strong>Guiding Principles:</strong> To realize our vision and mission, we adhere to the following guiding principles.',
+											ar: '<strong>المبادئ التوجيهية:</strong> لتحقيق رؤيتنا ومهمتنا، نلتزم بالمبادئ التوجيهية التالية.',
+											es: '<strong>Principios Rectores:</strong> Para realizar nuestra visión y misión, nos adherimos a los siguientes principios rectores.',
+											fr: '<strong>Principes Directeurs :</strong> Pour réaliser notre vision et notre mission, nous adhérons aux principes directeurs suivants.',
+											hi: '<strong>मार्गदर्शक सिद्धांत:</strong> अपनी दृष्टि और मिशन को साकार करने के लिए, हम निम्नलिखित मार्गदर्शक सिद्धांतों का पालन करते हैं.',
+											id: '<strong>Prinsip Panduan:</strong> Untuk mewujudkan visi dan misi kami, kami mematuhi prinsip panduan berikut.',
+											ms: '<strong>Prinsip Panduan:</strong> Untuk merealisasikan visi dan misi kami, kami berpegang kepada prinsip panduan berikut.',
+											th: '<strong>หลักการแนะแนว:</strong> เพื่อให้บรรลุวิสัยทัศน์และพันธกิจของเรา เราปฏิบัติตามหลักการแนะแนวต่อไปนี้.',
+											vi: '<strong>Các Nguyên Tắc Hướng Dẫn:</strong> Để hiện thực hóa tầm nhìn và sứ mệnh của chúng tôi, chúng tôi tuân thủ các nguyên tắc hướng dẫn sau.',
+											bn: '<strong>মার্গনির্দেশক নীতি:</strong> আমাদের দর্শন এবং মিশনকে বাস্তবায়ন করার জন্য, আমরা নিম্নলিখিত মার্গনির্দেশক নীতিগুলির অনুসরণ করি.',
+											'zh-hans':
+												'<strong>指导原则：</strong> 为了实现我们的愿景和使命，我们遵循以下指导原则。',
+											'pt-br':
+												'<strong>Princípios Orientadores:</strong> Para realizar nossa visão e missão, aderimos aos seguintes princípios orientadores.'
+										})}
+									/>
+									<li
+										class="text-color"
+										set:html={t({
+											en: '<strong>Excellence:</strong> We strive for excellence in every aspect of our operations, from investment research and portfolio management to client services and internal processes.',
+											ar: '<strong>التميز:</strong> نسعى جاهدين لتحقيق التميز في كل جانب من جوانب عملياتنا، بدءًا من أبحاث الاستثمار وإدارة المحافظ إلى خدمات العملاء والعمليات الداخلية.',
+											es: '<strong>Excelencia:</strong> Nos esforzamos por la excelencia en todos los aspectos de nuestras operaciones, desde la investigación de inversiones y la gestión de carteras hasta los servicios al cliente y los procesos internos.',
+											fr: '<strong>Excellence :</strong> Nous visons l’excellence dans tous les aspects de nos opérations, de la recherche en investissement et la gestion de portefeuille aux services clients et processus internes.',
+											hi: '<strong>उत्कृष्टता:</strong> हम अपने संचालन के हर पहलू में उत्कृष्टता के लिए प्रयासरत हैं, जिसमें निवेश अनुसंधान और पोर्टफोलियो प्रबंधन से लेकर ग्राहक सेवाएँ और आंतरिक प्रक्रियाएँ शामिल हैं।',
+											id: '<strong>Keunggulan:</strong> Kami berusaha untuk mencapai keunggulan dalam setiap aspek operasi kami, mulai dari penelitian investasi dan manajemen portofolio hingga layanan pelanggan dan proses internal.',
+											ms: '<strong>Kecemerlangan:</strong> Kami berusaha untuk mencapai kecemerlangan dalam setiap aspek operasi kami, dari penyelidikan pelaburan dan pengurusan portfolio hingga perkhidmatan pelanggan dan proses dalaman.',
+											th: '<strong>ความเป็นเลิศ:</strong> เรามุ่งมั่นที่จะมีความเป็นเลิศในทุกด้านของการดำเนินงาน ตั้งแต่การวิจัยการลงทุนและการจัดการพอร์ตโฟลิโอไปจนถึงบริการลูกค้าและกระบวนการภายใน.',
+											vi: '<strong>Xuất sắc:</strong> Chúng tôi nỗ lực đạt được sự xuất sắc trong mọi khía cạnh của hoạt động, từ nghiên cứu đầu tư và quản lý danh mục đến dịch vụ khách hàng và quy trình nội bộ.',
+											bn: '<strong>উৎকর্ষ:</strong> আমরা আমাদের অপারেশনের প্রতিটি দিকেই উৎকর্ষতার জন্য চেষ্টা করি, বিনিয়োগ গবেষণা এবং পোর্টফোলিও ব্যবস্থাপনা থেকে শুরু করে গ্রাহক পরিষেবা এবং অভ্যন্তরীণ প্রক্রিয়া পর্যন্ত।',
+											'zh-hans':
+												'<strong>卓越：</strong> 我们在运营的每一个方面追求卓越，从投资研究和投资组合管理到客户服务和内部流程。',
+											'pt-br':
+												'<strong>Excelência:</strong> Buscamos a excelência em todos os aspectos de nossas operações, desde a pesquisa de investimentos e gestão de portfólios até o atendimento ao cliente e os processos internos.'
+										})}
+									/>
+									<li
+										class="text-color"
+										set:html={t({
+											en: '<strong>Team Collaboration:</strong> Our success is a collective effort. We foster a collaborative and inclusive culture that encourages diverse perspectives, continuous learning, and the sharing of ideas.',
+											ar: '<strong>التعاون الجماعي:</strong> نجاحنا هو جهد جماعي. نحن نشجع ثقافة تعاونية وشاملة تشجع وجهات نظر متنوعة، وتعلم مستمر، وتبادل الأفكار.',
+											es: '<strong>Colaboración en Equipo:</strong> Nuestro éxito es un esfuerzo colectivo. Fomentamos una cultura colaborativa e inclusiva que alienta diversas perspectivas, aprendizaje continuo y el intercambio de ideas.',
+											fr: '<strong>Collaboration d’Équipe :</strong> Notre succès est un effort collectif. Nous favorisons une culture collaborative et inclusive qui encourage des perspectives diverses, un apprentissage continu et le partage d’idées.',
+											hi: '<strong>टीम सहयोग:</strong> हमारी सफलता एक सामूहिक प्रयास है। हम एक सहयोगी और समावेशी संस्कृति को बढ़ावा देते हैं जो विविध दृष्टिकोणों, निरंतर सीखने और विचारों के आदान-प्रदान को प्रोत्साहित करती है।',
+											id: '<strong>Kolaborasi Tim:</strong> Kesuksesan kami adalah upaya kolektif. Kami mendorong budaya kolaboratif dan inklusif yang mendorong perspektif yang beragam, pembelajaran berkelanjutan, dan berbagi ide.',
+											ms: '<strong>Kolaborasi Pasukan:</strong> Kejayaan kami adalah usaha kolektif. Kami memupuk budaya kolaboratif dan inklusif yang menggalakkan perspektif yang pelbagai, pembelajaran berterusan, dan perkongsian idea.',
+											th: '<strong>ความร่วมมือของทีม:</strong> ความสำเร็จของเราเป็นความพยายามร่วมกัน เราส่งเสริมวัฒนธรรมการทำงานร่วมกันและการมีส่วนร่วมที่สนับสนุนมุมมองที่หลากหลาย การเรียนรู้อย่างต่อเนื่อง และการแลกเปลี่ยนความคิดเห็น',
+											vi: '<strong>Hợp tác Nhóm:</strong> Thành công của chúng tôi là một nỗ lực tập thể. Chúng tôi thúc đẩy một văn hóa hợp tác và hòa nhập khuyến khích những quan điểm đa dạng, học hỏi liên tục và chia sẻ ý tưởng.',
+											bn: '<strong>দলীয় সহযোগিতা:</strong> আমাদের সাফল্য একটি সম্মিলিত প্রচেষ্টা। আমরা একটি সহযোগিতামূলক এবং অন্তর্ভুক্তিমূলক সংস্কৃতি প্রচার করি যা বিভিন্ন দৃষ্টিভঙ্গিকে উৎসাহিত করে, ধারাবাহিক শেখার এবং আইডিয়ার বিনিময়কে উৎসাহিত করে।',
+											'zh-hans':
+												'<strong>团队合作：</strong>我们的成功是集体努力的结果。我们倡导一种合作和包容的文化，鼓励多样的观点、持续学习和思想分享。',
+											'pt-br':
+												'<strong>Colaboração em Equipe:</strong> Nosso sucesso é um esforço coletivo. Fomentamos uma cultura colaborativa e inclusiva que incentiva perspectivas diversas, aprendizado contínuo e o compartilhamento de ideias.'
+										})}
+									/>
+									<li
+										class="text-color"
+										set:html={t({
+											en: '<strong>Risk Management:</strong> Prudent risk management is at the core of our investment strategy. We rigorously assess and manage risks to protect and enhance the wealth of our clients.',
+											ar: '<strong>إدارة المخاطر:</strong> إدارة المخاطر بحكمة هي جوهر استراتيجيتنا الاستثمارية. نقوم بتقييم وإدارة المخاطر بدقة لحماية وتعزيز ثروة عملائنا.',
+											es: '<strong>Gestión de Riesgos:</strong> La gestión prudente de riesgos está en el núcleo de nuestra estrategia de inversión. Evaluamos y gestionamos rigurosamente los riesgos para proteger y aumentar la riqueza de nuestros clientes.',
+											fr: '<strong>Gestion des Risques :</strong> Une gestion prudente des risques est au cœur de notre stratégie d’investissement. Nous évaluons et gérons rigoureusement les risques pour protéger et accroître la richesse de nos clients.',
+											hi: '<strong>जोखिम प्रबंधन:</strong> विवेकपूर्ण जोखिम प्रबंधन हमारी निवेश रणनीति का मूल है। हम अपने ग्राहकों की संपत्ति की सुरक्षा और वृद्धि के लिए जोखिमों का कठोरता से आकलन और प्रबंधन करते हैं।',
+											id: '<strong>Manajemen Risiko:</strong> Manajemen risiko yang bijaksana adalah inti dari strategi investasi kami. Kami secara ketat menilai dan mengelola risiko untuk melindungi dan meningkatkan kekayaan klien kami.',
+											ms: '<strong>Pengurusan Risiko:</strong> Pengurusan risiko yang berhati-hati adalah teras strategi pelaburan kami. Kami menilai dan mengurus risiko dengan ketat untuk melindungi dan meningkatkan kekayaan pelanggan kami.',
+											th: '<strong>การจัดการความเสี่ยง:</strong> การจัดการความเสี่ยงอย่างรอบคอบเป็นหัวใจสำคัญของกลยุทธ์การลงทุนของเรา เราประเมินและจัดการความเสี่ยงอย่างเข้มงวดเพื่อปกป้องและเพิ่มความมั่งคั่งของลูกค้า',
+											vi: '<strong>Quản lý Rủi ro:</strong> Quản lý rủi ro cẩn trọng là cốt lõi trong chiến lược đầu tư của chúng tôi. Chúng tôi đánh giá và quản lý rủi ro một cách nghiêm ngặt để bảo vệ và nâng cao tài sản của khách hàng.',
+											bn: '<strong>ঝুঁকি ব্যবস্থাপনা:</strong> বিচক্ষণ ঝুঁকি ব্যবস্থাপনা আমাদের বিনিয়োগ কৌশলের মূল। আমরা ক্লায়েন্টদের সম্পদ রক্ষায় এবং উন্নত করার জন্য ঝুঁকিগুলোর কঠোর মূল্যায়ন এবং ব্যবস্থাপনা করি।',
+											'zh-hans':
+												'<strong>风险管理：</strong>谨慎的风险管理是我们投资策略的核心。我们严格评估和管理风险，以保护和增强客户的财富。',
+											'pt-br':
+												'<strong>Gestão de Riscos:</strong> A gestão prudente de riscos está no cerne da nossa estratégia de investimento. Avaliamos e gerenciamos rigorosamente os riscos para proteger e aumentar a riqueza de nossos clientes.'
+										})}
+									/>
+									<li
+										class="text-color"
+										set:html={t({
+											en: '<strong>Continuous Improvement:</strong> We embrace a culture of continuous improvement, regularly evaluating our performance, seeking feedback, and adapting to the evolving landscape of the financial markets.',
+											ar: '<strong>التحسين المستمر:</strong> نحن نتبنى ثقافة التحسين المستمر، ونتقييم أدائنا بانتظام، ونطلب التعليقات، ونتكيف مع المشهد المتطور للأسواق المالية.',
+											es: '<strong>Mejora Continua:</strong> Adoptamos una cultura de mejora continua, evaluando regularmente nuestro rendimiento, buscando retroalimentación y adaptándonos al panorama en evolución de los mercados financieros.',
+											fr: '<strong>Amélioration Continue :</strong> Nous adoptons une culture d’amélioration continue, évaluant régulièrement notre performance, recherchant des retours d’expérience et nous adaptant au paysage évolutif des marchés financiers.',
+											hi: '<strong>निरंतर सुधार:</strong> हम निरंतर सुधार की संस्कृति को अपनाते हैं, नियमित रूप से अपने प्रदर्शन का मूल्यांकन करते हैं, फीडबैक मांगते हैं, और वित्तीय बाजारों के विकसित परिदृश्य के अनुसार अनुकूलित करते हैं।',
+											id: '<strong>Peningkatan Berkelanjutan:</strong> Kami mengadopsi budaya peningkatan berkelanjutan, secara teratur mengevaluasi kinerja kami, mencari umpan balik, dan beradaptasi dengan lanskap pasar keuangan yang terus berkembang.',
+											ms: '<strong>Peningkatan Berterusan:</strong> Kami mengamalkan budaya peningkatan berterusan, secara berkala menilai prestasi kami, mencari maklum balas, dan menyesuaikan diri dengan landskap pasaran kewangan yang berkembang.',
+											th: '<strong>การปรับปรุงอย่างต่อเนื่อง:</strong> เรายอมรับวัฒนธรรมการปรับปรุงอย่างต่อเนื่อง โดยประเมินประสิทธิภาพของเราเป็นประจำ ขอความคิดเห็น และปรับตัวให้เข้ากับภูมิทัศน์ที่พัฒนาอย่างต่อเนื่องของตลาดการเงิน',
+											vi: '<strong>Cải Tiến Liên Tục:</strong> Chúng tôi chấp nhận văn hóa cải tiến liên tục, thường xuyên đánh giá hiệu suất của mình, tìm kiếm phản hồi và thích ứng với bối cảnh đang phát triển của thị trường tài chính.',
+											bn: '<strong>অবিচ্ছিন্ন উন্নতি:</strong> আমরা অবিচ্ছিন্ন উন্নতির সংস্কৃতিকে গ্রহণ করি, নিয়মিত আমাদের কর্মক্ষমতা মূল্যায়ন করি, প্রতিক্রিয়া চাই এবং আর্থিক বাজারের বিকাশমান দৃশ্যে মানিয়ে নিই।',
+											'zh-hans':
+												'<strong>持续改进：</strong>我们倡导持续改进的文化，定期评估我们的表现，寻求反馈，并适应不断变化的金融市场格局。',
+											'pt-br':
+												'<strong>Melhoria Contínua:</strong> Abraçamos uma cultura de melhoria contínua, avaliando regularmente nosso desempenho, buscando feedback e nos adaptando ao cenário em evolução dos mercados financeiros.'
+										})}
+									/>
 								</ul>
 								<p class="text-color">
-									By steadfastly adhering to these principles, DB Investing is
-									poised to emerge as a globally recognized leader in the
-									investment industry, providing unparalleled value to our clients
-									and stakeholders.
+									{
+										t({
+											en: 'By steadfastly adhering to these principles, DB Investing is poised to emerge as a globally recognized leader in the investment industry, providing unparalleled value to our clients and stakeholders.',
+											ar: 'من خلال الالتزام الثابت بهذه المبادئ، تتأهب DB Investing لتصبح رائدة معترف بها عالمياً في صناعة الاستثمار، مقدمة قيمة لا مثيل لها لعملائنا والمساهمين.',
+											es: 'Al adherirse firmemente a estos principios, DB Investing está lista para convertirse en un líder reconocido a nivel mundial en la industria de la inversión, proporcionando un valor inigualable a nuestros clientes y partes interesadas.',
+											fr: "En respectant fermement ces principes, DB Investing est prête à émerger en tant que leader reconnu à l'échelle mondiale dans l'industrie de l'investissement, offrant une valeur inégalée à nos clients et partenaires.",
+											hi: 'इन सिद्धांतों का दृढ़ता से पालन करते हुए, DB Investing वैश्विक स्तर पर निवेश उद्योग में एक मान्यता प्राप्त नेता के रूप में उभरने के लिए तैयार है, हमारे ग्राहकों और हितधारकों के लिए बेजोड़ मूल्य प्रदान कर रहा है।',
+											id: 'Dengan berpegang teguh pada prinsip-prinsip ini, DB Investing siap untuk muncul sebagai pemimpin yang diakui secara global di industri investasi, memberikan nilai yang tak tertandingi kepada klien dan pemangku kepentingan kami.',
+											ms: 'Dengan berpegang teguh pada prinsip-prinsip ini, DB Investing bersedia untuk muncul sebagai pemimpin yang diiktiraf di peringkat global dalam industri pelaburan, menyediakan nilai yang tiada tandingannya kepada pelanggan dan pihak berkepentingan kami.',
+											th: 'ด้วยการยึดมั่นในหลักการเหล่านี้อย่างแน่วแน่ DB Investing พร้อมที่จะกลายเป็นผู้นำที่ได้รับการยอมรับในระดับสากลในอุตสาหกรรมการลงทุน โดยให้คุณค่าอันไม่เหมือนใครแก่ลูกค้าและผู้มีส่วนได้ส่วนเสียของเรา',
+											vi: 'Bằng cách kiên quyết tuân thủ những nguyên tắc này, DB Investing đang chuẩn bị để nổi lên như một nhà lãnh đạo được công nhận toàn cầu trong ngành đầu tư, cung cấp giá trị vô song cho khách hàng và các bên liên quan của chúng tôi.',
+											bn: 'এই নীতিগুলির প্রতি অটল নিষ্ঠা রেখে, DB Investing বিশ্বব্যাপী স্বীকৃত বিনিয়োগ শিল্পের নেতা হিসেবে উদিত হতে প্রস্তুত, আমাদের ক্লায়েন্ট এবং স্টেকহোল্ডারদের জন্য অতুলনীয় মূল্য প্রদান করছে।',
+											'zh-hans':
+												'通过坚定不移地坚持这些原则，DB Investing 有望成为全球公认的投资行业领导者，为我们的客户和利益相关者提供无与伦比的价值。',
+											'pt-br':
+												'Ao aderir firmemente a esses princípios, a DB Investing está pronta para se tornar uma líder reconhecida globalmente na indústria de investimentos, oferecendo um valor inigualável aos nossos clientes e partes interessadas.'
+										})
+									}
 								</p>
 							</div>
 						</div>
@@ -618,12 +1256,24 @@ export const getStaticPaths = () =>
 						>
 							<div class="space-y-4">
 								<p class="text-color">
-									To be recognized as a global leader in investment excellence and
-									innovation, our vision is to ascend among the top 10 investment
-									firms worldwide within the next three years. We aspire to
-									redefine the industry’s standards, consistently delivering
-									exceptional returns for our clients while fostering a culture of
-									integrity, collaboration, and sustainable growth.
+									{
+										t({
+											en: 'To be recognized as a global leader in investment excellence and innovation, our vision is to ascend among the top 10 investment firms worldwide within the next three years. We aspire to redefine the industry’s standards, consistently delivering exceptional returns for our clients while fostering a culture of integrity, collaboration, and sustainable growth.',
+											ar: 'لأن نكون معترفًا بنا كقادة عالميين في التميز والابتكار في الاستثمار، فإن رؤيتنا هي أن نصعد بين أفضل 10 شركات استثمار في العالم خلال السنوات الثلاث المقبلة. نطمح إلى إعادة تعريف معايير الصناعة، مع تقديم عوائد استثنائية لعملائنا مع تعزيز ثقافة النزاهة والتعاون والنمو المستدام.',
+											es: 'Ser reconocidos como un líder global en excelencia e innovación en inversiones, nuestra visión es ascender entre las 10 principales firmas de inversión del mundo en los próximos tres años. Aspiramos a redefinir los estándares de la industria, ofreciendo consistentemente retornos excepcionales para nuestros clientes mientras fomentamos una cultura de integridad, colaboración y crecimiento sostenible.',
+											fr: 'Être reconnu comme un leader mondial en excellence et innovation en matière d’investissement, notre vision est de grimper parmi les 10 meilleures entreprises d’investissement au monde au cours des trois prochaines années. Nous aspirons à redéfinir les normes de l’industrie, en offrant constamment des rendements exceptionnels à nos clients tout en favorisant une culture d’intégrité, de collaboration et de croissance durable.',
+											hi: 'निवेश उत्कृष्टता और नवाचार में एक वैश्विक नेता के रूप में मान्यता प्राप्त करने के लिए, हमारा दृष्टिकोण अगले तीन वर्षों के भीतर विश्व स्तर पर शीर्ष 10 निवेश फर्मों में शामिल होना है। हम उद्योग के मानकों को फिर से परिभाषित करने की आकांक्षा रखते हैं, अपने ग्राहकों के लिए लगातार असाधारण रिटर्न प्रदान करते हुए ईमानदारी, सहयोग और सतत विकास की संस्कृति को बढ़ावा देते हैं।',
+											id: 'Diakui sebagai pemimpin global dalam keunggulan dan inovasi investasi, visi kami adalah untuk naik di antara 10 perusahaan investasi teratas di dunia dalam tiga tahun ke depan. Kami bercita-cita untuk mendefinisikan kembali standar industri, secara konsisten memberikan pengembalian luar biasa bagi klien kami sambil mendorong budaya integritas, kolaborasi, dan pertumbuhan yang berkelanjutan.',
+											ms: 'Diiktiraf sebagai pemimpin global dalam kecemerlangan dan inovasi pelaburan, visi kami adalah untuk naik di antara 10 firma pelaburan teratas di seluruh dunia dalam tiga tahun akan datang. Kami bercita-cita untuk mendefinisikan semula standard industri, secara konsisten memberikan pulangan yang luar biasa untuk pelanggan kami sambil memupuk budaya integriti, kerjasama, dan pertumbuhan yang mampan.',
+											th: 'เพื่อให้ได้รับการยอมรับว่าเป็นผู้นำระดับโลกด้านความเป็นเลิศและนวัตกรรมการลงทุน วิสัยทัศน์ของเราคือการก้าวขึ้นสู่อันดับ 10 ของบริษัทการลงทุนชั้นนำในระดับโลกภายในสามปีข้างหน้า เราหวังที่จะปรับปรุงมาตรฐานของอุตสาหกรรม โดยการส่งมอบผลตอบแทนที่ยอดเยี่ยมอย่างต่อเนื่องให้กับลูกค้าของเรา ขณะเดียวกันก็ส่งเสริมวัฒนธรรมแห่งความซื่อสัตย์ การทำงานร่วมกัน และการเติบโตอย่างยั่งยืน',
+											vi: 'Để được công nhận là một nhà lãnh đạo toàn cầu về xuất sắc và đổi mới trong đầu tư, tầm nhìn của chúng tôi là vươn lên trong số 10 công ty đầu tư hàng đầu thế giới trong vòng ba năm tới. Chúng tôi khao khát tái định nghĩa các tiêu chuẩn của ngành, liên tục mang lại lợi nhuận xuất sắc cho khách hàng của mình trong khi thúc đẩy văn hóa đạo đức, hợp tác và tăng trưởng bền vững.',
+											bn: 'নিবেশ উৎকর্ষতা এবং উদ্ভাবনে একটি বৈশ্বিক নেতা হিসাবে স্বীকৃতি পাওয়ার জন্য, আমাদের দৃষ্টি হল আগামী তিন বছরের মধ্যে বিশ্বের শীর্ষ 10 টি বিনিয়োগ সংস্থার মধ্যে স্থান করা। আমরা শিল্পের মান পুনঃসংজ্ঞায়িত করতে চাই, আমাদের ক্লায়েন্টদের জন্য ক্রমাগত অসাধারণ ফলন প্রদান করতে চাই এবং সততা, সহযোগিতা এবং টেকসই বৃদ্ধির সংস্কৃতি গড়ে তুলতে চাই।',
+											'zh-hans':
+												'作为投资卓越与创新的全球领导者，我们的愿景是在未来三年内跻身全球前十的投资公司。我们希望重新定义行业标准，不断为客户提供卓越的回报，同时培养诚信、合作和可持续发展的文化。',
+											'pt-br':
+												'Ser reconhecida como uma líder global em excelência e inovação em investimentos, nossa visão é ascender entre as 10 principais empresas de investimento do mundo nos próximos três anos. Aspiramos redefinir os padrões da indústria, entregando consistentemente retornos excepcionais para nossos clientes, enquanto promovemos uma cultura de integridade, colaboração e crescimento sustentável.'
+										})
+									}
 								</p>
 							</div>
 						</div>
@@ -634,10 +1284,23 @@ export const getStaticPaths = () =>
 			</div>
 			<div class="flex flex-col items-center justify-center gap-5 py-10 md:flex-row">
 				<!-- proud Partner -->
-				<h1 class="g:text-4xl mb-3 text-4xl font-thin">
-					Proud
-					<span class="font-bold text-dbgreen-600">Partners:</span>
-				</h1>
+				<h1
+					class="g:text-4xl mb-3 text-4xl font-thin"
+					set:html={t({
+						en: 'Proud <span class="font-bold text-dbgreen-600">Partners</span>:',
+						ar: 'شركاء <span class="font-bold text-dbgreen-600">فخورون</span>:',
+						es: 'Socios <span class="font-bold text-dbgreen-600">Orgullosos</span>:',
+						fr: 'Partenaires <span class="font-bold text-dbgreen-600">Fiers</span>:',
+						hi: 'गर्वित <span class="font-bold text-dbgreen-600">साझेदार</span>:',
+						id: 'Mitra <span class="font-bold text-dbgreen-600">Banggakan</span>:',
+						ms: 'Rakan <span class="font-bold text-dbgreen-600">Banggakan</span>:',
+						th: 'พันธมิตร <span class="font-bold text-dbgreen-600">ภูมิใจ</span>:',
+						vi: 'Đối tác <span class="font-bold text-dbgreen-600">Tự hào</span>:',
+						bn: 'গর্বিত <span class="font-bold text-dbgreen-600">পার্টনার</span>:',
+						'zh-hans': '骄傲的 <span class="font-bold text-dbgreen-600">合作伙伴</span>:',
+						'pt-br': 'Parceiros <span class="font-bold text-dbgreen-600">Orgulhosos</span>:'
+					})}
+				/>
 				<div>
 					<div
 						class="flex max-w-[360px] flex-col items-center justify-center gap-3 rounded-2xl border border-gray-200 bg-white p-5 text-center dark:border-neutral-700 dark:bg-neutral-800"
@@ -657,8 +1320,24 @@ export const getStaticPaths = () =>
 							/>
 						</div>
 						<p>
-							World-Class trading education, including webinars, signals, live streams
-							and much more. All free for DB Investing clients!
+							{
+								t({
+									en: 'World-Class trading education, including webinars, signals, live streams and much more. All free for DB Investing clients!',
+									ar: 'تعليم تداول عالمي المستوى، بما في ذلك الندوات عبر الإنترنت، والإشارات، والبث المباشر والمزيد. كل ذلك مجانًا لعملاء DB Investing!',
+									es: 'Educación de trading de clase mundial, incluyendo seminarios web, señales, transmisiones en vivo y mucho más. ¡Todo gratis para los clientes de DB Investing!',
+									fr: 'Éducation au trading de classe mondiale, y compris des webinaires, des signaux, des diffusions en direct et bien plus encore. Tout cela est gratuit pour les clients de DB Investing!',
+									hi: 'विश्व स्तरीय ट्रेडिंग शिक्षा, जिसमें वेबिनार, सिग्नल, लाइव स्ट्रीम और बहुत कुछ शामिल है। DB Investing के ग्राहकों के लिए सभी मुफ्त!',
+									id: 'Pendidikan perdagangan kelas dunia, termasuk webinar, sinyal, siaran langsung, dan banyak lagi. Semua gratis untuk klien DB Investing!',
+									ms: 'Pendidikan perdagangan bertaraf dunia, termasuk webinar, isyarat, siaran langsung dan banyak lagi. Semua percuma untuk pelanggan DB Investing!',
+									th: 'การศึกษาการซื้อขายระดับโลก รวมถึงการสัมมนาผ่านเว็บ สัญญาณ การถ่ายทอดสด และอื่นๆ อีกมากมาย ฟรีสำหรับลูกค้า DB Investing!',
+									vi: 'Giáo dục giao dịch đẳng cấp thế giới, bao gồm hội thảo trên web, tín hiệu, phát trực tiếp và nhiều hơn nữa. Tất cả miễn phí cho khách hàng của DB Investing!',
+									bn: 'বিশ্বমানের ট্রেডিং শিক্ষা, যার মধ্যে ওয়েবিনার, সিগন্যাল, লাইভ স্ট্রিম এবং আরও অনেক কিছু অন্তর্ভুক্ত রয়েছে। DB Investing ক্লায়েন্টদের জন্য সব কিছুই বিনামূল্যে!',
+									'zh-hans':
+										'世界级交易教育，包括网络研讨会、信号、直播等。所有这些对DB Investing客户免费！',
+									'pt-br':
+										'Educação de negociação de classe mundial, incluindo webinars, sinais, transmissões ao vivo e muito mais. Tudo gratuito para os clientes da DB Investing!'
+								})
+							}
 						</p>
 					</div>
 				</div>
@@ -666,65 +1345,65 @@ export const getStaticPaths = () =>
 			</div>
 		</div>
 	</section>
-</Layout>
 
-<style>
-	.companyAboutSlider {
-		/* overflow: hidden; */
-		margin: auto;
-		--slide-spacing: 1rem;
-		--slide-size: 23%;
-	}
-	@media (max-width: 1023px) {
+	<style>
 		.companyAboutSlider {
+			/* overflow: hidden; */
+			margin: auto;
+			--slide-spacing: 1rem;
 			--slide-size: 23%;
 		}
-	}
-	@media (max-width: 767px) {
-		.companyAboutSlider {
-			--slide-size: 50%;
+		@media (max-width: 1023px) {
+			.companyAboutSlider {
+				--slide-size: 23%;
+			}
 		}
-	}
-	@media only screen and (min-width: 200px) and (max-width: 639px) {
-		.companyAboutSlider {
-			--slide-size: 100%;
+		@media (max-width: 767px) {
+			.companyAboutSlider {
+				--slide-size: 50%;
+			}
 		}
-	}
-	.companyAboutSlider_container {
-		display: flex;
-		/* gap: 15px;
+		@media only screen and (min-width: 200px) and (max-width: 639px) {
+			.companyAboutSlider {
+				--slide-size: 100%;
+			}
+		}
+		.companyAboutSlider_container {
+			display: flex;
+			/* gap: 15px;
 		justify-content: space-between; */
-		/* gap: var(--slide-spacing); */
-		/* Reverse slides */
-		/* flex-direction: row-reverse;
+			/* gap: var(--slide-spacing); */
+			/* Reverse slides */
+			/* flex-direction: row-reverse;
 		justify-content: flex-start; */
-		/* flex: 0 0 100%;
+			/* flex: 0 0 100%;
 		min-width: 0; */
-	}
-	.companyAboutSlider_slide {
-		transform: translate3d(0, 0, 0);
-		flex: 0 0 var(--slide-size);
-		min-width: 0;
-		/* padding-left: var(--slide-spacing); */
-		margin-inline-start: 10px;
-		margin-inline-end: 10px;
-	}
-</style>
-
-<script>
-	import EmblaCarousel from 'embla-carousel'
-	import Autoplay from 'embla-carousel-autoplay'
-
-	const emblaNode = document.querySelector('.companyAboutSlider')
-	const options = {
-		loop: true,
-		dragFree: false,
-		align: 'start',
-		active: true,
-		breakpoints: {
-			'(min-width: 768px)': { active: false }
 		}
-	}
-	const plugins = [Autoplay()]
-	const emblaApi = EmblaCarousel(emblaNode, options, plugins)
-</script>
+		.companyAboutSlider_slide {
+			transform: translate3d(0, 0, 0);
+			flex: 0 0 var(--slide-size);
+			min-width: 0;
+			/* padding-left: var(--slide-spacing); */
+			margin-inline-start: 10px;
+			margin-inline-end: 10px;
+		}
+	</style>
+
+	<script>
+		import EmblaCarousel from 'embla-carousel'
+		import Autoplay from 'embla-carousel-autoplay'
+
+		const emblaNode = document.querySelector('.companyAboutSlider')
+		const options = {
+			loop: true,
+			dragFree: false,
+			align: 'start',
+			active: true,
+			breakpoints: {
+				'(min-width: 768px)': { active: false }
+			}
+		}
+		const plugins = [Autoplay()]
+		const emblaApi = EmblaCarousel(emblaNode, options, plugins)
+	</script>
+</Layout>

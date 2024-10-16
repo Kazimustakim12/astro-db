@@ -1,0 +1,159 @@
+---
+import { LOCALES } from '@/i18n'
+import Layout from '@/layouts/Layout.astro'
+
+const images = import.meta.glob<{ default: ImageMetadata }>('/src/images/*.{jpeg,jpg,png,gif}')
+export const getStaticPaths = () =>
+	Object.keys(LOCALES).map((lang) => ({
+		params: { lang }
+	}))
+---
+
+<Layout title="Privacy Policy">
+	<section>
+		<div
+			class="relative z-20 w-full overflow-hidden bg-gray-100 py-3 before:absolute before:start-1/2 before:top-0 before:-z-[1] before:size-full before:-translate-x-1/2 before:transform before:bg-[url('/src/images/world_bg.png')] before:bg-center before:bg-no-repeat before:opacity-45 before:hue-rotate-60 dark:bg-black dark:before:bg-[url('/src/images/world_bg.png')]"
+		>
+			<div class="container flex flex-col items-center justify-between gap-6 py-10 sm:flex-row">
+				<div>
+					<h1
+						class="block text-center text-4xl font-bold text-gray-800 dark:text-neutral-200 sm:text-left md:text-4xl lg:text-5xl"
+					>
+						Privacy <span class="text-green-500">Policy</span>
+					</h1>
+				</div>
+				<div>
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						class="w-[120px] md:w-[180px]"
+						height="100%"
+						viewBox="0 0 24 24"
+					>
+						<path
+							fill="currentColor"
+							d="m21 5l-9-4l-9 4v6c0 5.55 3.84 10.74 9 12c2.3-.56 4.33-1.9 5.88-3.71l-3.12-3.12a4.994 4.994 0 0 1-6.29-.64a5.003 5.003 0 0 1 0-7.07a5.003 5.003 0 0 1 7.07 0a5.006 5.006 0 0 1 .64 6.29l2.9 2.9C20.29 15.69 21 13.38 21 11z"
+						></path>
+						<circle cx="12" cy="12" r="3" fill="currentColor"></circle>
+					</svg>
+				</div>
+			</div>
+		</div>
+		<div class="container py-10">
+			<div class="mb-5">
+				<p class="text-color mb-3">
+					Please read this privacy notice carefully as we would like to inform you that your privacy
+					on the Internet is of crucial importance to us and it also contains important information
+					on who we are, how and why we collect, store, use and share personal information, your
+					rights in relation to your personal information and on how to contact us and supervisory
+					authorities in the event you have a complaint.
+				</p>
+				<p class="text-color mb-3">
+					We require you to submit your contact details so that we can communicate with you and
+					introduce you to our services. We will inform you at the point of collecting information
+					from you, whether you are required to provide the information to us.
+				</p>
+			</div>
+			<div class="mb-5">
+				<h2
+					class="mb-5 block text-2xl font-bold capitalize text-gray-800 underline dark:text-white"
+				>
+					What we collect
+				</h2>
+				<p class="text-color mb-3">
+					DB Investing may request personal information, such as names, addresses, personal
+					registration number, national identification number, passport number and e-mail addresses
+					etc. for account set up, maintenance and management of client accounts. We also require
+					your personal data to process deposits and withdrawals.
+				</p>
+				<p class="text-color mb-3">
+					DB Investing recognizes the importance of clients’ privacy and will never use, disclose,
+					sell, rent or lease the client’s personal and financial information to any third parties
+					except to persons acting in a judiciary, representative, or attorney capacity in relation
+					to the client’s trading account, in order to protect against fraud, money laundering,
+					unauthorized transactions, claims or other liabilities to government, regulatory or law
+					enforcement agencies to the extent permitted or required by law, or to comply with
+					applicable legal requirements. Information such as income, credit history, net worth will
+					not be shared by the Company under any circumstances.
+				</p>
+			</div>
+			<div class="mb-5">
+				<h2
+					class="mb-5 block text-2xl font-bold capitalize text-gray-800 underline dark:text-white"
+				>
+					Why we collect:
+				</h2>
+				<p class="text-color mb-3">
+					We collect your personal information such as Gender, Full Name, DOB and Address to comply
+					with our anti money laundering (AML) obligations and to complete the KYC and client due
+					diligence.
+				</p>
+				<p class="text-color mb-3">
+					Your email and contact information is used to correspond to you regarding the services we
+					provide and to fulfil our compliance obligations.
+				</p>
+				<p class="text-color mb-3">
+					We may also ask you about your ethnicity, citizenship, social security number or passport
+					number to comply with our KYC and to complete AML obligations.
+				</p>
+			</div>
+			<div class="mb-5">
+				<h2
+					class="mb-5 block text-2xl font-bold capitalize text-gray-800 underline dark:text-white"
+				>
+					Security of your Data:
+				</h2>
+				<p class="text-color mb-3">
+					We collect your personal information such as Gender, Full Name, DOB and Address to comply
+					with our anti money laundering (AML) obligations and to complete the KYC and client due
+					diligence.Keeping your personal information secure, your data is stored and kept
+					confidential according to the legislation on protection of personal data and processing
+					there of applicable in the jurisdiction in which DB Investing with which you have signed
+					up is located. We have appropriate security measures in place to prevent personal
+					information from being accidentally lost, misused, modification, disclosure or accessed in
+					an unauthorised way. We limit access to your personal information to those who have a
+					genuine business need to know it. Those processing your information will do so only in an
+					authorised manner and are subject to a duty of confidentiality. We also have procedures in
+					place to deal with any suspected data security breach. We will notify you of a suspected
+					data security breach where we are legally required to do so.
+				</p>
+			</div>
+			<div class="mb-5">
+				<h2
+					class="mb-5 block text-2xl font-bold capitalize text-gray-800 underline dark:text-white"
+				>
+					Cookie Data:
+				</h2>
+				<p class="text-color mb-3">
+					We use cookies and similar technologies to provide and support our Services. When you use
+					our website we will use cookies to distinguish you from other users of our website.
+				</p>
+			</div>
+			<div class="mb-5">
+				<h2
+					class="mb-5 block text-2xl font-bold capitalize text-gray-800 underline dark:text-white"
+				>
+					How long your personal information will be kept:
+				</h2>
+				<p class="text-color mb-3">
+					Once you close your account with DB Investing we shall hold your data for a period of five
+					years to comply with our record keeping obligations under the Money Laundering Regulations
+					2017. Your data will then be deleted at the end of the period.
+				</p>
+			</div>
+			<div class="mb-5">
+				<h2
+					class="mb-5 block text-2xl font-bold capitalize text-gray-800 underline dark:text-white"
+				>
+					Complaint Procedure:
+				</h2>
+				<p class="text-color mb-3">
+					We try to satisfy all of our clients requirements but if you have any complaints or
+					require assistance then you write to our compliance team on <a
+						href="mailto:support@dbinvesting.com"
+						class="font-semibold text-dbgreen-500">support@dbinvesting.com</a
+					>
+				</p>
+			</div>
+		</div>
+	</section>
+</Layout>

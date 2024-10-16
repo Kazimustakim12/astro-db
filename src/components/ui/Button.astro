@@ -33,41 +33,56 @@ const {
 			class={cn(
 				rippleEffect && 'ripple',
 				primary ? 'btn_gradient text-white' : 'text-white dark:text-black',
-				'inline-flex items-center gap-x-2 rounded-lg bg-black px-4 py-3 text-sm font-medium shadow-sm focus:bg-neutral-800 focus:outline-none disabled:pointer-events-none disabled:opacity-50 dark:bg-white dark:focus:bg-neutral-100',
+				'group relative inline-flex h-12 items-center gap-x-2 overflow-hidden rounded-full bg-black px-6 text-white transition dark:bg-white',
 				className
 			)}
-			data-ripple={rippleEffect}
-			{...props}
 		>
-			{buttonIcon && (
-				<span
-					set:html={buttonIcon}
-					class="flex"
-				/>
+			{buttonIcon && <span set:html={buttonIcon} class="flex" />}
+			<span class="relative">{text}</span>
+			{primary && (
+				<div class="animate-shine-infinite absolute inset-0 -top-[20px] flex h-[calc(100%+40px)] w-full justify-center blur-[12px]">
+					<div class="relative h-full w-8 bg-white/30" />
+				</div>
 			)}
-			{text}
 		</a>
 	) : (
 		<button
 			class={cn(
 				rippleEffect && 'ripple',
 				primary ? 'btn_gradient text-white' : 'text-white dark:text-black',
-				'inline-flex items-center gap-x-2 rounded-lg bg-black px-4 py-3 text-sm font-medium shadow-sm focus:bg-neutral-800 focus:outline-none disabled:pointer-events-none disabled:opacity-50 dark:bg-white dark:focus:bg-neutral-100',
+				'group relative inline-flex h-12 items-center gap-x-2 overflow-hidden rounded-full bg-black px-6 text-white transition dark:bg-white',
 				className
 			)}
-			{...props}
-			data-ripple={rippleEffect}
 		>
-			{buttonIcon && (
-				<span
-					set:html={buttonIcon}
-					class="flex"
-				/>
+			{buttonIcon && <span set:html={buttonIcon} class="flex" />}
+			<span class="relative">{text}</span>
+			{primary && (
+				<div class="animate-shine-infinite absolute inset-0 -top-[20px] flex h-[calc(100%+40px)] w-full justify-center blur-[12px]">
+					<div class="relative h-full w-8 bg-white/30" />
+				</div>
 			)}
-			{text}
 		</button>
 	)
 }
+
+<!-- <button
+	class={cn(
+		rippleEffect && 'ripple',
+		primary ? 'btn_gradient text-white' : 'text-white dark:text-black',
+		'inline-flex items-center gap-x-2 dark:bg-white  group relative h-12 overflow-hidden rounded-full bg-black px-6 text-white transition',
+		className
+	)}
+>
+	{buttonIcon && <span set:html={buttonIcon} class="flex" />}
+	<span class="relative">{text}</span>
+	{
+		primary && (
+			<div class="animate-shine-infinite absolute inset-0 -top-[20px] flex h-[calc(100%+40px)] w-full justify-center blur-[12px]">
+				<div class="relative h-full w-8 bg-white/30" />
+			</div>
+		)
+	}
+</button> -->
 
 <script>
 	document.addEventListener('DOMContentLoaded', () => {

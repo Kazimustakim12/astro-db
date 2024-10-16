@@ -1,0 +1,50 @@
+---
+import Banner from '@/components/page/Investment/Banner.astro'
+import GoogleSheetDataTable from '@/components/ui/DataTable/GoogleSheetDataTable'
+import { LOCALES, useTranslations, type Lang } from '@/i18n'
+import Layout from '@/layouts/Layout.astro'
+const t = useTranslations(Astro.currentLocale as Lang)
+export const getStaticPaths = () =>
+	Object.keys(LOCALES).map((lang) => ({
+		params: { lang }
+	}))
+---
+
+<Layout title="ETFS">
+	<Banner
+		title={t({
+			en: 'ETFS',
+			ar: 'الصناديق المتداولة',
+			es: 'ETFS',
+			fr: 'ETFS',
+			hi: 'ईटीएफएस',
+			id: 'ETFS',
+			ms: 'ETFS',
+			th: 'ETFS',
+			vi: 'ETFS',
+			bn: 'ইটিএফএস',
+			'zh-hans': 'ETFS',
+			'pt-br': 'ETFS'
+		})}
+		description={t({
+			en: 'An exchange-traded fund (ETF) is a pooled investment security that can be bought and sold like an individual stock. ETFs can be structured to track anything from the price of a commodity to a large and diverse collection of securities.',
+			ar: 'الصندوق المتداول في البورصة (ETF) هو ورقة مالية استثمارية مجمعة يمكن شراؤها وبيعها مثل الأسهم الفردية. يمكن هيكلة صناديق الاستثمار المتداولة لتتبع أي شيء من سعر سلعة إلى مجموعة كبيرة ومتنوعة من الأوراق المالية.',
+			es: 'Un fondo cotizado en bolsa (ETF) es un valor de inversión colectiva que se puede comprar y vender como una acción individual. Los ETF pueden estructurarse para rastrear cualquier cosa, desde el precio de una materia prima hasta una gran y diversa colección de valores.',
+			fr: "Un fonds négocié en bourse (ETF) est un titre d'investissement collectif qui peut être acheté et vendu comme une action individuelle. Les ETF peuvent être structurés pour suivre n'importe quoi, du prix d'une matière première à une large et diversifiée collection de titres.",
+			hi: 'एक एक्सचेंज-ट्रेडेड फंड (ETF) एक संचित निवेश सुरक्षा है जिसे एक व्यक्तिगत स्टॉक की तरह खरीदा और बेचा जा सकता है। ETF को किसी वस्तु की कीमत से लेकर प्रतिभूतियों के बड़े और विविध संग्रह तक किसी भी चीज़ को ट्रैक करने के लिए संरचित किया जा सकता है।',
+			id: 'Dana yang diperdagangkan di bursa (ETF) adalah sekuritas investasi yang digabungkan yang dapat dibeli dan dijual seperti saham individu. ETF dapat disusun untuk melacak apa saja mulai dari harga komoditas hingga kumpulan sekuritas yang besar dan beragam.',
+			ms: 'Dana dagangan bursa (ETF) ialah sekuriti pelaburan terkumpul yang boleh dibeli dan dijual seperti saham individu. ETF boleh distrukturkan untuk menjejaki apa sahaja daripada harga komoditi kepada koleksi besar dan pelbagai sekuriti.',
+			th: 'กองทุนซื้อขายแลกเปลี่ยน (ETF) เป็นการลงทุนแบบรวมที่สามารถซื้อขายได้เหมือนกับหุ้นบุคคล ETF สามารถจัดโครงสร้างเพื่อติดตามอะไรก็ได้ตั้งแต่ราคาสินค้าโภคภัณฑ์ไปจนถึงการรวบรวมหลักทรัพย์จำนวนมากและหลากหลาย',
+			vi: 'Quỹ giao dịch trao đổi (ETF) là một chứng khoán đầu tư gộp có thể được mua và bán giống như một cổ phiếu riêng lẻ. ETF có thể được cấu trúc để theo dõi bất kỳ thứ gì từ giá của một hàng hóa đến một bộ sưu tập lớn và đa dạng các chứng khoán.',
+			bn: 'এক্সচেঞ্জ-ট্রেডেড ফান্ড (ইটিএফ) একটি পুল করা বিনিয়োগ সিকিউরিটি যা একটি পৃথক স্টকের মতো কেনা এবং বিক্রি করা যেতে পারে। ETF-গুলি কোনও পণ্যের মূল্য থেকে শুরু করে একটি বৃহৎ এবং বৈচিত্র্যময় সিকিউরিটির সংগ্রহ পর্যন্ত যে কোনও কিছু ট্র্যাক করতে কাঠামোবদ্ধ হতে পারে।',
+			'zh-hans':
+				'交易所交易基金（ETF）是一种集合投资证券，可以像个股一样买卖。 ETF 可以被构建为跟踪从商品价格到大型和多样化的证券集合的任何内容。',
+			'pt-br':
+				'Um fundo negociado em bolsa (ETF) é um título de investimento agrupado que pode ser comprado e vendido como uma ação individual. Os ETFs podem ser estruturados para acompanhar desde o preço de uma mercadoria até uma grande e diversificada coleção de títulos.'
+		})}
+		image="/src/images/forex_tab.png"
+	/>
+	<div class="container pb-10 pt-10">
+		<GoogleSheetDataTable sheetName="ETFS" client:load />
+	</div>
+</Layout>

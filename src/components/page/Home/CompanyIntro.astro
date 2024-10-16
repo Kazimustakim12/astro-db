@@ -243,17 +243,12 @@ const detailsLoop = [
 		<div
 			class="bg-background relative flex w-full flex-col items-center justify-center overflow-hidden py-[18px] md:shadow-xl"
 		>
-			<Marquee
-				pauseOnHover
-				class="[--duration:40s]"
-			>
+			<Marquee pauseOnHover class="[--duration:40s]">
 				{
 					detailsLoop.map((item, index) => (
 						<div class="flex min-w-[260px] items-center justify-center border-r border-r-neutral-200 p-3 dark:border-r-neutral-700">
 							<div class="flex w-full flex-col items-center justify-center rounded-xl text-center">
-								<h3 class="mb-2 text-2xl font-bold capitalize text-dbgreen-500">
-									{item.title}
-								</h3>
+								<h3 class="mb-2 text-2xl font-bold capitalize text-dbgreen-500">{item.title}</h3>
 								<span class="text-sm font-thin uppercase tracking-wide text-black dark:text-white">
 									{item.sub}
 								</span>

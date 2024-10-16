@@ -1,0 +1,4882 @@
+---
+import { LOCALES } from '@/i18n'
+import Layout from '@/layouts/Layout.astro'
+import { Image } from 'astro:assets'
+const images = import.meta.glob<{ default: ImageMetadata }>('/src/images/*.{jpeg,jpg,png,gif}')
+export const getStaticPaths = () =>
+	Object.keys(LOCALES).map((lang) => ({
+		params: { lang }
+	}))
+---
+
+<Layout title="FAQs - Frequently Asked Question ">
+	<section>
+		<div
+			class="relative z-20 w-full overflow-hidden bg-gray-100 py-3 before:absolute before:start-1/2 before:top-0 before:-z-[1] before:size-full before:-translate-x-1/2 before:transform before:bg-[url('/src/images/world_bg.png')] before:bg-center before:bg-no-repeat before:opacity-45 before:hue-rotate-60 dark:bg-black dark:before:bg-[url('/src/images/world_bg.png')]"
+		>
+			<div class="container flex flex-col items-center justify-between gap-6 py-10 sm:flex-row">
+				<div>
+					<h1
+						class="block text-center text-4xl font-bold text-gray-800 dark:text-neutral-200 sm:text-left md:text-4xl lg:text-5xl"
+					>
+						Frequently Asked <br />
+						<strong class="text-green-500">Question</strong>
+					</h1>
+				</div>
+				<div>
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						class="w-[120px] md:w-[180px]"
+						height="100%"
+						viewBox="0 0 26 26"
+					>
+						<path
+							fill="currentColor"
+							d="M13 0c-1.7 0-3 1.3-3 3v6c0 1.7 1.3 3 3 3h6l4 4v-4c1.7 0 3-1.3 3-3V3c0-1.7-1.3-3-3-3zm4.188 3h1.718l1.688 6h-1.5l-.407-1.5h-1.5L16.813 9H15.5zM18 4c-.1.4-.212.888-.313 1.188l-.28 1.312h1.187l-.282-1.313C18.113 4.888 18 4.4 18 4M3 10c-1.7 0-3 1.3-3 3v6c0 1.7 1.3 3 3 3v4l4-4h6c1.7 0 3-1.3 3-3v-6h-3c-1.9 0-3.406-1.3-3.906-3zm4.594 2.906c1.7 0 2.5 1.4 2.5 3c0 1.4-.481 2.288-1.281 2.688c.4.2.874.306 1.374.406l-.374 1c-.7-.2-1.426-.512-2.126-.813c-.1-.1-.275-.093-.375-.093C6.112 18.994 5 18 5 16c0-1.7.994-3.094 2.594-3.094m0 1.094c-.8 0-1.188.9-1.188 2c0 1.2.388 2 1.188 2s1.218-.9 1.218-2s-.418-2-1.218-2"
+						></path>
+					</svg>
+				</div>
+			</div>
+		</div>
+		<di class="container">
+			<!-- FAQ -->
+			<div class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
+				<!-- Grid -->
+				<div class="grid gap-10 md:grid-cols-5">
+					<div class="md:col-span-2">
+						<div class="sticky top-[150px]">
+							<div class="max-w-xs">
+								<h2 class="text-2xl font-bold dark:text-white md:text-4xl md:leading-tight">
+									Frequently<br />asked questions
+								</h2>
+								<p class="mt-1 hidden text-gray-600 dark:text-neutral-400 md:block">
+									Here we provide solution for the most common situations. From registering and
+									accessing your account to payments.
+								</p>
+							</div>
+							<div class="my-5 max-w-xs">
+								<div class="flex flex-wrap">
+									<div class="border-e border-gray-200 dark:border-neutral-700">
+										<nav
+											class="flex flex-col space-y-5"
+											aria-label="Tabs"
+											role="tablist"
+											aria-orientation="horizontal"
+										>
+											<button
+												type="button"
+												class="active dark:hover:text-dbgreenborder-dbgreen-400 inline-flex items-center gap-x-2 whitespace-nowrap border-e-2 border-transparent py-1 pe-4 text-sm text-gray-500 hover:text-dbgreen-500 focus:text-dbgreen-500 focus:outline-none disabled:pointer-events-none disabled:opacity-50 hs-tab-active:border-dbgreen-400 hs-tab-active:text-dbgreen-500 dark:text-neutral-400 dark:hs-tab-active:text-dbgreen-500"
+												id="genralInfo-item"
+												aria-selected="true"
+												data-hs-tab="#genralInfo"
+												aria-controls="genralInfo"
+												role="tab"
+											>
+												<iconify-icon icon="mingcute:information-line" width="32" height="32"
+												></iconify-icon>
+												<span class="text-xl font-bold">General Information</span>
+											</button>
+											<button
+												type="button"
+												class="dark:hover:text-dbgreenborder-dbgreen-400 inline-flex items-center gap-x-2 whitespace-nowrap border-e-2 border-transparent py-1 pe-4 text-sm text-gray-500 hover:text-dbgreen-500 focus:text-dbgreen-500 focus:outline-none disabled:pointer-events-none disabled:opacity-50 hs-tab-active:border-dbgreen-400 hs-tab-active:text-dbgreen-500 dark:text-neutral-400 dark:hs-tab-active:text-dbgreen-500"
+												id="accountManagement-item"
+												aria-selected="false"
+												data-hs-tab="#accountManagement"
+												aria-controls="accountManagement"
+												role="tab"
+											>
+												<iconify-icon icon="ic:twotone-account-balance" width="32" height="32"
+												></iconify-icon>
+												<span class="text-xl font-bold">Account Management</span>
+											</button>
+											<button
+												type="button"
+												class="dark:hover:text-dbgreenborder-dbgreen-400 inline-flex items-center gap-x-2 whitespace-nowrap border-e-2 border-transparent py-1 pe-4 text-sm text-gray-500 hover:text-dbgreen-500 focus:text-dbgreen-500 focus:outline-none disabled:pointer-events-none disabled:opacity-50 hs-tab-active:border-dbgreen-400 hs-tab-active:text-dbgreen-500 dark:text-neutral-400 dark:hs-tab-active:text-dbgreen-500"
+												id="tradingInvesting-item"
+												aria-selected="false"
+												data-hs-tab="#tradeInvesting"
+												aria-controls="tradeInvesting"
+												role="tab"
+											>
+												<iconify-icon icon="streamline:investment-selection" width="32" height="32"
+												></iconify-icon>
+												<span class="text-xl font-bold">Trading & Invest</span>
+											</button>
+										</nav>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- End Col -->
+
+					<div class="md:col-span-3">
+						<div id="genralInfo" role="tabpanel" aria-labelledby="genralInfo-item">
+							<!-- Accordion -->
+							<div class="hs-accordion-group divide-y divide-gray-200 dark:divide-neutral-700">
+								<!-- item start -->
+								<div class="hs-accordion active pb-3" id="genralInfo-item-aria-1">
+									<button
+										class="hs-accordion-toggle group inline-flex w-full items-center justify-between gap-x-3 rounded-lg pb-3 text-start font-semibold text-gray-800 transition hover:text-gray-500 focus:text-gray-500 focus:outline-none dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400 md:text-lg"
+										aria-expanded="true"
+										aria-controls="genralInfo-item-1"
+									>
+										<span class="flex items-center justify-center gap-3">
+											<svg
+												xmlns="http://www.w3.org/2000/svg"
+												width="32"
+												height="32"
+												viewBox="0 0 24 24"
+												class="min-w-[32px] text-dbgreen-500"
+											>
+												<g
+													fill="currentColor"
+													fill-opacity="0"
+													stroke="currentColor"
+													stroke-linecap="round"
+													stroke-linejoin="round"
+													stroke-width="2"
+												>
+													<path
+														stroke-dasharray="64"
+														stroke-dashoffset="64"
+														d="M12 3c4.97 0 9 4.03 9 9c0 4.97 -4.03 9 -9 9c-4.97 0 -9 -4.03 -9 -9c0 -4.97 4.03 -9 9 -9Z"
+													>
+														<animate
+															fill="freeze"
+															attributeName="stroke-dashoffset"
+															dur="0.6s"
+															values="64;0"></animate>
+													</path>
+													<path
+														fill="none"
+														stroke-dasharray="16"
+														stroke-dashoffset="16"
+														d="M9 10c0 -1.66 1.34 -3 3 -3c1.66 0 3 1.34 3 3c0 0.98 -0.47 1.85 -1.2 2.4c-0.73 0.55 -1.3 0.6 -1.8 1.6"
+													>
+														<animate
+															fill="freeze"
+															attributeName="stroke-dashoffset"
+															begin="0.6s"
+															dur="0.2s"
+															values="16;0"></animate>
+													</path>
+													<path
+														fill="none"
+														stroke-dasharray="2"
+														stroke-dashoffset="2"
+														d="M12 17v0.01"
+													>
+														<animate
+															fill="freeze"
+															attributeName="stroke-dashoffset"
+															begin="0.8s"
+															dur="0.2s"
+															values="2;0"></animate>
+													</path>
+													<animate
+														fill="freeze"
+														attributeName="fill-opacity"
+														begin="1.1s"
+														dur="0.15s"
+														values="0;0.3"></animate>
+												</g>
+											</svg>
+											What is DB Investing?
+										</span>
+										<svg
+											class="block size-5 shrink-0 text-gray-600 group-hover:text-gray-500 hs-accordion-active:hidden dark:text-neutral-400"
+											xmlns="http://www.w3.org/2000/svg"
+											width="24"
+											height="24"
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="2"
+											stroke-linecap="round"
+											stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg
+										>
+										<svg
+											class="hidden size-5 shrink-0 text-gray-600 group-hover:text-gray-500 hs-accordion-active:block dark:text-neutral-400"
+											xmlns="http://www.w3.org/2000/svg"
+											width="24"
+											height="24"
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="2"
+											stroke-linecap="round"
+											stroke-linejoin="round"><path d="m18 15-6-6-6 6"></path></svg
+										>
+									</button>
+									<div
+										id="genralInfo-item-1"
+										class="hs-accordion-content w-full overflow-hidden transition-[height] duration-300"
+										role="region"
+										aria-labelledby="genralInfo-item-aria-1"
+									>
+										<p class="text-gray-600 dark:text-neutral-400">
+											DB Investing is a forex and securities broker with a team of experienced
+											traders. Founded in 2018, and obtaining an FSA license in 2020, we've grown
+											quickly and now operate in several countries. We focus on providing excellent
+											service and continuously helping clients achieve their financial goals.
+										</p>
+									</div>
+								</div>
+								<!-- item end -->
+								<!-- item start -->
+								<div class="hs-accordion pb-3 pt-6" id="genralInfo-item-aria-2">
+									<button
+										class="hs-accordion-toggle group inline-flex w-full items-center justify-between gap-x-3 rounded-lg pb-3 text-start font-semibold text-gray-800 transition hover:text-gray-500 focus:text-gray-500 focus:outline-none dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400 md:text-lg"
+										aria-expanded="false"
+										aria-controls="genralInfo-item-2"
+									>
+										<span class="flex items-center justify-center gap-3">
+											<svg
+												xmlns="http://www.w3.org/2000/svg"
+												width="32"
+												height="32"
+												viewBox="0 0 24 24"
+												class="min-w-[32px] text-dbgreen-500"
+											>
+												<g
+													fill="currentColor"
+													fill-opacity="0"
+													stroke="currentColor"
+													stroke-linecap="round"
+													stroke-linejoin="round"
+													stroke-width="2"
+												>
+													<path
+														stroke-dasharray="64"
+														stroke-dashoffset="64"
+														d="M12 3c4.97 0 9 4.03 9 9c0 4.97 -4.03 9 -9 9c-4.97 0 -9 -4.03 -9 -9c0 -4.97 4.03 -9 9 -9Z"
+													>
+														<animate
+															fill="freeze"
+															attributeName="stroke-dashoffset"
+															dur="0.6s"
+															values="64;0"></animate>
+													</path>
+													<path
+														fill="none"
+														stroke-dasharray="16"
+														stroke-dashoffset="16"
+														d="M9 10c0 -1.66 1.34 -3 3 -3c1.66 0 3 1.34 3 3c0 0.98 -0.47 1.85 -1.2 2.4c-0.73 0.55 -1.3 0.6 -1.8 1.6"
+													>
+														<animate
+															fill="freeze"
+															attributeName="stroke-dashoffset"
+															begin="0.6s"
+															dur="0.2s"
+															values="16;0"></animate>
+													</path>
+													<path
+														fill="none"
+														stroke-dasharray="2"
+														stroke-dashoffset="2"
+														d="M12 17v0.01"
+													>
+														<animate
+															fill="freeze"
+															attributeName="stroke-dashoffset"
+															begin="0.8s"
+															dur="0.2s"
+															values="2;0"></animate>
+													</path>
+													<animate
+														fill="freeze"
+														attributeName="fill-opacity"
+														begin="1.1s"
+														dur="0.15s"
+														values="0;0.3"></animate>
+												</g>
+											</svg>
+											What services does DB Investing Offer?
+										</span>
+										<svg
+											class="block size-5 shrink-0 text-gray-600 group-hover:text-gray-500 hs-accordion-active:hidden dark:text-neutral-400"
+											xmlns="http://www.w3.org/2000/svg"
+											width="24"
+											height="24"
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="2"
+											stroke-linecap="round"
+											stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg
+										>
+										<svg
+											class="hidden size-5 shrink-0 text-gray-600 group-hover:text-gray-500 hs-accordion-active:block dark:text-neutral-400"
+											xmlns="http://www.w3.org/2000/svg"
+											width="24"
+											height="24"
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="2"
+											stroke-linecap="round"
+											stroke-linejoin="round"><path d="m18 15-6-6-6 6"></path></svg
+										>
+									</button>
+									<div
+										id="genralInfo-item-2"
+										class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300"
+										role="region"
+										aria-labelledby="genralInfo-item-aria-2"
+									>
+										<p class="text-gray-600 dark:text-neutral-400">
+											We offer trading in various financial instruments such as forex, commodities,
+											indices, and cryptocurrencies. Our trading platform supports multiple devices
+											and includes tools for technical and fundamental analysis.
+										</p>
+									</div>
+								</div>
+								<!-- item end  -->
+								<!-- item start -->
+								<div class="hs-accordion pb-3 pt-6" id="genralInfo-item-aria-3">
+									<button
+										class="hs-accordion-toggle group inline-flex w-full items-center justify-between gap-x-3 rounded-lg pb-3 text-start font-semibold text-gray-800 transition hover:text-gray-500 focus:text-gray-500 focus:outline-none dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400 md:text-lg"
+										aria-expanded="false"
+										aria-controls="genralInfo-item-3"
+									>
+										<span class="flex items-center justify-center gap-3">
+											<svg
+												xmlns="http://www.w3.org/2000/svg"
+												width="32"
+												height="32"
+												viewBox="0 0 24 24"
+												class="min-w-[32px] text-dbgreen-500"
+											>
+												<g
+													fill="currentColor"
+													fill-opacity="0"
+													stroke="currentColor"
+													stroke-linecap="round"
+													stroke-linejoin="round"
+													stroke-width="2"
+												>
+													<path
+														stroke-dasharray="64"
+														stroke-dashoffset="64"
+														d="M12 3c4.97 0 9 4.03 9 9c0 4.97 -4.03 9 -9 9c-4.97 0 -9 -4.03 -9 -9c0 -4.97 4.03 -9 9 -9Z"
+													>
+														<animate
+															fill="freeze"
+															attributeName="stroke-dashoffset"
+															dur="0.6s"
+															values="64;0"></animate>
+													</path>
+													<path
+														fill="none"
+														stroke-dasharray="16"
+														stroke-dashoffset="16"
+														d="M9 10c0 -1.66 1.34 -3 3 -3c1.66 0 3 1.34 3 3c0 0.98 -0.47 1.85 -1.2 2.4c-0.73 0.55 -1.3 0.6 -1.8 1.6"
+													>
+														<animate
+															fill="freeze"
+															attributeName="stroke-dashoffset"
+															begin="0.6s"
+															dur="0.2s"
+															values="16;0"></animate>
+													</path>
+													<path
+														fill="none"
+														stroke-dasharray="2"
+														stroke-dashoffset="2"
+														d="M12 17v0.01"
+													>
+														<animate
+															fill="freeze"
+															attributeName="stroke-dashoffset"
+															begin="0.8s"
+															dur="0.2s"
+															values="2;0"></animate>
+													</path>
+													<animate
+														fill="freeze"
+														attributeName="fill-opacity"
+														begin="1.1s"
+														dur="0.15s"
+														values="0;0.3"></animate>
+												</g>
+											</svg>
+											How does DB Investing differentiate itself from other investment platforms?
+										</span>
+										<svg
+											class="block size-5 shrink-0 text-gray-600 group-hover:text-gray-500 hs-accordion-active:hidden dark:text-neutral-400"
+											xmlns="http://www.w3.org/2000/svg"
+											width="24"
+											height="24"
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="2"
+											stroke-linecap="round"
+											stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg
+										>
+										<svg
+											class="hidden size-5 shrink-0 text-gray-600 group-hover:text-gray-500 hs-accordion-active:block dark:text-neutral-400"
+											xmlns="http://www.w3.org/2000/svg"
+											width="24"
+											height="24"
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="2"
+											stroke-linecap="round"
+											stroke-linejoin="round"><path d="m18 15-6-6-6 6"></path></svg
+										>
+									</button>
+									<div
+										id="genralInfo-item-3"
+										class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300"
+										role="region"
+										aria-labelledby="genralInfo-item-aria-3"
+									>
+										<p class="text-gray-600 dark:text-neutral-400">
+											We offer 24/5 support covering almost all languages and many bonus offers
+											throughout the client's journey. We focus on providing a seamless and
+											user-friendly trading experience, competitive spreads, and comprehensive
+											customer support.
+										</p>
+									</div>
+								</div>
+								<!-- item end  -->
+								<!-- item start -->
+								<div class="hs-accordion pb-3 pt-6" id="genralInfo-item-aria-4">
+									<button
+										class="hs-accordion-toggle group inline-flex w-full items-center justify-between gap-x-3 rounded-lg pb-3 text-start font-semibold text-gray-800 transition hover:text-gray-500 focus:text-gray-500 focus:outline-none dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400 md:text-lg"
+										aria-expanded="false"
+										aria-controls="genralInfo-item-4"
+									>
+										<span class="flex items-center justify-center gap-3">
+											<svg
+												xmlns="http://www.w3.org/2000/svg"
+												width="32"
+												height="32"
+												viewBox="0 0 24 24"
+												class="min-w-[32px] text-dbgreen-500"
+											>
+												<g
+													fill="currentColor"
+													fill-opacity="0"
+													stroke="currentColor"
+													stroke-linecap="round"
+													stroke-linejoin="round"
+													stroke-width="2"
+												>
+													<path
+														stroke-dasharray="64"
+														stroke-dashoffset="64"
+														d="M12 3c4.97 0 9 4.03 9 9c0 4.97 -4.03 9 -9 9c-4.97 0 -9 -4.03 -9 -9c0 -4.97 4.03 -9 9 -9Z"
+													>
+														<animate
+															fill="freeze"
+															attributeName="stroke-dashoffset"
+															dur="0.6s"
+															values="64;0"></animate>
+													</path>
+													<path
+														fill="none"
+														stroke-dasharray="16"
+														stroke-dashoffset="16"
+														d="M9 10c0 -1.66 1.34 -3 3 -3c1.66 0 3 1.34 3 3c0 0.98 -0.47 1.85 -1.2 2.4c-0.73 0.55 -1.3 0.6 -1.8 1.6"
+													>
+														<animate
+															fill="freeze"
+															attributeName="stroke-dashoffset"
+															begin="0.6s"
+															dur="0.2s"
+															values="16;0"></animate>
+													</path>
+													<path
+														fill="none"
+														stroke-dasharray="2"
+														stroke-dashoffset="2"
+														d="M12 17v0.01"
+													>
+														<animate
+															fill="freeze"
+															attributeName="stroke-dashoffset"
+															begin="0.8s"
+															dur="0.2s"
+															values="2;0"></animate>
+													</path>
+													<animate
+														fill="freeze"
+														attributeName="fill-opacity"
+														begin="1.1s"
+														dur="0.15s"
+														values="0;0.3"></animate>
+												</g>
+											</svg>
+											Is DB Investing Regulated?
+										</span>
+										<svg
+											class="block size-5 shrink-0 text-gray-600 group-hover:text-gray-500 hs-accordion-active:hidden dark:text-neutral-400"
+											xmlns="http://www.w3.org/2000/svg"
+											width="24"
+											height="24"
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="2"
+											stroke-linecap="round"
+											stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg
+										>
+										<svg
+											class="hidden size-5 shrink-0 text-gray-600 group-hover:text-gray-500 hs-accordion-active:block dark:text-neutral-400"
+											xmlns="http://www.w3.org/2000/svg"
+											width="24"
+											height="24"
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="2"
+											stroke-linecap="round"
+											stroke-linejoin="round"><path d="m18 15-6-6-6 6"></path></svg
+										>
+									</button>
+									<div
+										id="genralInfo-item-4"
+										class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300"
+										role="region"
+										aria-labelledby="genralInfo-item-aria-4"
+									>
+										<p class="text-gray-600 dark:text-neutral-400">
+											Yes, we are regulated by the FSA since 2020 to ensure compliance and
+											protection for investors.
+										</p>
+									</div>
+								</div>
+								<!-- item end  -->
+								<!-- item start -->
+								<div class="hs-accordion pb-3 pt-6" id="genralInfo-item-aria-5">
+									<button
+										class="hs-accordion-toggle group inline-flex w-full items-center justify-between gap-x-3 rounded-lg pb-3 text-start font-semibold text-gray-800 transition hover:text-gray-500 focus:text-gray-500 focus:outline-none dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400 md:text-lg"
+										aria-expanded="false"
+										aria-controls="genralInfo-item-5"
+									>
+										<span class="flex items-center justify-center gap-3">
+											<svg
+												xmlns="http://www.w3.org/2000/svg"
+												width="32"
+												height="32"
+												viewBox="0 0 24 24"
+												class="min-w-[32px] text-dbgreen-500"
+											>
+												<g
+													fill="currentColor"
+													fill-opacity="0"
+													stroke="currentColor"
+													stroke-linecap="round"
+													stroke-linejoin="round"
+													stroke-width="2"
+												>
+													<path
+														stroke-dasharray="64"
+														stroke-dashoffset="64"
+														d="M12 3c4.97 0 9 4.03 9 9c0 4.97 -4.03 9 -9 9c-4.97 0 -9 -4.03 -9 -9c0 -4.97 4.03 -9 9 -9Z"
+													>
+														<animate
+															fill="freeze"
+															attributeName="stroke-dashoffset"
+															dur="0.6s"
+															values="64;0"></animate>
+													</path>
+													<path
+														fill="none"
+														stroke-dasharray="16"
+														stroke-dashoffset="16"
+														d="M9 10c0 -1.66 1.34 -3 3 -3c1.66 0 3 1.34 3 3c0 0.98 -0.47 1.85 -1.2 2.4c-0.73 0.55 -1.3 0.6 -1.8 1.6"
+													>
+														<animate
+															fill="freeze"
+															attributeName="stroke-dashoffset"
+															begin="0.6s"
+															dur="0.2s"
+															values="16;0"></animate>
+													</path>
+													<path
+														fill="none"
+														stroke-dasharray="2"
+														stroke-dashoffset="2"
+														d="M12 17v0.01"
+													>
+														<animate
+															fill="freeze"
+															attributeName="stroke-dashoffset"
+															begin="0.8s"
+															dur="0.2s"
+															values="2;0"></animate>
+													</path>
+													<animate
+														fill="freeze"
+														attributeName="fill-opacity"
+														begin="1.1s"
+														dur="0.15s"
+														values="0;0.3"></animate>
+												</g>
+											</svg>
+											How secure is my personal information with DB Investing?
+										</span>
+										<svg
+											class="block size-5 shrink-0 text-gray-600 group-hover:text-gray-500 hs-accordion-active:hidden dark:text-neutral-400"
+											xmlns="http://www.w3.org/2000/svg"
+											width="24"
+											height="24"
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="2"
+											stroke-linecap="round"
+											stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg
+										>
+										<svg
+											class="hidden size-5 shrink-0 text-gray-600 group-hover:text-gray-500 hs-accordion-active:block dark:text-neutral-400"
+											xmlns="http://www.w3.org/2000/svg"
+											width="24"
+											height="24"
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="2"
+											stroke-linecap="round"
+											stroke-linejoin="round"><path d="m18 15-6-6-6 6"></path></svg
+										>
+									</button>
+									<div
+										id="genralInfo-item-5"
+										class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300"
+										role="region"
+										aria-labelledby="genralInfo-item-aria-4"
+									>
+										<p class="text-gray-600 dark:text-neutral-400">
+											We use advanced security measures including encryption and secure servers to
+											protect clients' personal and financial information. We adhere to strict
+											privacy policies to ensure data security.
+										</p>
+									</div>
+								</div>
+								<!-- item end  -->
+								<!-- item start -->
+								<div class="hs-accordion pb-3 pt-6" id="genralInfo-item-aria-6">
+									<button
+										class="hs-accordion-toggle group inline-flex w-full items-center justify-between gap-x-3 rounded-lg pb-3 text-start font-semibold text-gray-800 transition hover:text-gray-500 focus:text-gray-500 focus:outline-none dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400 md:text-lg"
+										aria-expanded="false"
+										aria-controls="genralInfo-item-6"
+									>
+										<span class="flex items-center justify-center gap-3">
+											<svg
+												xmlns="http://www.w3.org/2000/svg"
+												width="32"
+												height="32"
+												viewBox="0 0 24 24"
+												class="min-w-[32px] text-dbgreen-500"
+											>
+												<g
+													fill="currentColor"
+													fill-opacity="0"
+													stroke="currentColor"
+													stroke-linecap="round"
+													stroke-linejoin="round"
+													stroke-width="2"
+												>
+													<path
+														stroke-dasharray="64"
+														stroke-dashoffset="64"
+														d="M12 3c4.97 0 9 4.03 9 9c0 4.97 -4.03 9 -9 9c-4.97 0 -9 -4.03 -9 -9c0 -4.97 4.03 -9 9 -9Z"
+													>
+														<animate
+															fill="freeze"
+															attributeName="stroke-dashoffset"
+															dur="0.6s"
+															values="64;0"></animate>
+													</path>
+													<path
+														fill="none"
+														stroke-dasharray="16"
+														stroke-dashoffset="16"
+														d="M9 10c0 -1.66 1.34 -3 3 -3c1.66 0 3 1.34 3 3c0 0.98 -0.47 1.85 -1.2 2.4c-0.73 0.55 -1.3 0.6 -1.8 1.6"
+													>
+														<animate
+															fill="freeze"
+															attributeName="stroke-dashoffset"
+															begin="0.6s"
+															dur="0.2s"
+															values="16;0"></animate>
+													</path>
+													<path
+														fill="none"
+														stroke-dasharray="2"
+														stroke-dashoffset="2"
+														d="M12 17v0.01"
+													>
+														<animate
+															fill="freeze"
+															attributeName="stroke-dashoffset"
+															begin="0.8s"
+															dur="0.2s"
+															values="2;0"></animate>
+													</path>
+													<animate
+														fill="freeze"
+														attributeName="fill-opacity"
+														begin="1.1s"
+														dur="0.15s"
+														values="0;0.3"></animate>
+												</g>
+											</svg>
+											Does DB Investing offer educational resources for new investors?
+										</span>
+										<svg
+											class="block size-5 shrink-0 text-gray-600 group-hover:text-gray-500 hs-accordion-active:hidden dark:text-neutral-400"
+											xmlns="http://www.w3.org/2000/svg"
+											width="24"
+											height="24"
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="2"
+											stroke-linecap="round"
+											stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg
+										>
+										<svg
+											class="hidden size-5 shrink-0 text-gray-600 group-hover:text-gray-500 hs-accordion-active:block dark:text-neutral-400"
+											xmlns="http://www.w3.org/2000/svg"
+											width="24"
+											height="24"
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="2"
+											stroke-linecap="round"
+											stroke-linejoin="round"><path d="m18 15-6-6-6 6"></path></svg
+										>
+									</button>
+									<div
+										id="genralInfo-item-6"
+										class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300"
+										role="region"
+										aria-labelledby="genralInfo-item-aria-6"
+									>
+										<p class="text-gray-600 dark:text-neutral-400">
+											Yes, we provide educational resources such as webinars, tutorials, and
+											articles to help new investors understand trading concepts and improve their
+											skills. We have also added live videos on social media where we offer new
+											techniques and tools to help traders achieve their goals.
+										</p>
+									</div>
+								</div>
+								<!-- item end  -->
+								<!-- item start -->
+								<div class="hs-accordion pb-3 pt-6" id="genralInfo-item-aria-7">
+									<button
+										class="hs-accordion-toggle group inline-flex w-full items-center justify-between gap-x-3 rounded-lg pb-3 text-start font-semibold text-gray-800 transition hover:text-gray-500 focus:text-gray-500 focus:outline-none dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400 md:text-lg"
+										aria-expanded="false"
+										aria-controls="genralInfo-item-7"
+									>
+										<span class="flex items-center justify-center gap-3">
+											<svg
+												xmlns="http://www.w3.org/2000/svg"
+												width="32"
+												height="32"
+												viewBox="0 0 24 24"
+												class="min-w-[32px] text-dbgreen-500"
+											>
+												<g
+													fill="currentColor"
+													fill-opacity="0"
+													stroke="currentColor"
+													stroke-linecap="round"
+													stroke-linejoin="round"
+													stroke-width="2"
+												>
+													<path
+														stroke-dasharray="64"
+														stroke-dashoffset="64"
+														d="M12 3c4.97 0 9 4.03 9 9c0 4.97 -4.03 9 -9 9c-4.97 0 -9 -4.03 -9 -9c0 -4.97 4.03 -9 9 -9Z"
+													>
+														<animate
+															fill="freeze"
+															attributeName="stroke-dashoffset"
+															dur="0.6s"
+															values="64;0"></animate>
+													</path>
+													<path
+														fill="none"
+														stroke-dasharray="16"
+														stroke-dashoffset="16"
+														d="M9 10c0 -1.66 1.34 -3 3 -3c1.66 0 3 1.34 3 3c0 0.98 -0.47 1.85 -1.2 2.4c-0.73 0.55 -1.3 0.6 -1.8 1.6"
+													>
+														<animate
+															fill="freeze"
+															attributeName="stroke-dashoffset"
+															begin="0.6s"
+															dur="0.2s"
+															values="16;0"></animate>
+													</path>
+													<path
+														fill="none"
+														stroke-dasharray="2"
+														stroke-dashoffset="2"
+														d="M12 17v0.01"
+													>
+														<animate
+															fill="freeze"
+															attributeName="stroke-dashoffset"
+															begin="0.8s"
+															dur="0.2s"
+															values="2;0"></animate>
+													</path>
+													<animate
+														fill="freeze"
+														attributeName="fill-opacity"
+														begin="1.1s"
+														dur="0.15s"
+														values="0;0.3"></animate>
+												</g>
+											</svg>
+											What is the history and mission of DB Investing?
+										</span>
+										<svg
+											class="block size-5 shrink-0 text-gray-600 group-hover:text-gray-500 hs-accordion-active:hidden dark:text-neutral-400"
+											xmlns="http://www.w3.org/2000/svg"
+											width="24"
+											height="24"
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="2"
+											stroke-linecap="round"
+											stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg
+										>
+										<svg
+											class="hidden size-5 shrink-0 text-gray-600 group-hover:text-gray-500 hs-accordion-active:block dark:text-neutral-400"
+											xmlns="http://www.w3.org/2000/svg"
+											width="24"
+											height="24"
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="2"
+											stroke-linecap="round"
+											stroke-linejoin="round"><path d="m18 15-6-6-6 6"></path></svg
+										>
+									</button>
+									<div
+										id="genralInfo-item-7"
+										class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300"
+										role="region"
+										aria-labelledby="genralInfo-item-aria-7"
+									>
+										<p class="text-gray-600 dark:text-neutral-400">
+											DB Investing was founded with the mission to provide accessible and
+											transparent trading services to investors worldwide. We focus on leveraging
+											technology to offer efficient and effective trading solutions
+										</p>
+									</div>
+								</div>
+								<!-- item end  -->
+								<!-- item start -->
+								<div class="hs-accordion pb-3 pt-6" id="genralInfo-item-aria-8">
+									<button
+										class="hs-accordion-toggle group inline-flex w-full items-center justify-between gap-x-3 rounded-lg pb-3 text-start font-semibold text-gray-800 transition hover:text-gray-500 focus:text-gray-500 focus:outline-none dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400 md:text-lg"
+										aria-expanded="false"
+										aria-controls="genralInfo-item-8"
+									>
+										<span class="flex items-center justify-center gap-3">
+											<svg
+												xmlns="http://www.w3.org/2000/svg"
+												width="32"
+												height="32"
+												viewBox="0 0 24 24"
+												class="min-w-[32px] text-dbgreen-500"
+											>
+												<g
+													fill="currentColor"
+													fill-opacity="0"
+													stroke="currentColor"
+													stroke-linecap="round"
+													stroke-linejoin="round"
+													stroke-width="2"
+												>
+													<path
+														stroke-dasharray="64"
+														stroke-dashoffset="64"
+														d="M12 3c4.97 0 9 4.03 9 9c0 4.97 -4.03 9 -9 9c-4.97 0 -9 -4.03 -9 -9c0 -4.97 4.03 -9 9 -9Z"
+													>
+														<animate
+															fill="freeze"
+															attributeName="stroke-dashoffset"
+															dur="0.6s"
+															values="64;0"></animate>
+													</path>
+													<path
+														fill="none"
+														stroke-dasharray="16"
+														stroke-dashoffset="16"
+														d="M9 10c0 -1.66 1.34 -3 3 -3c1.66 0 3 1.34 3 3c0 0.98 -0.47 1.85 -1.2 2.4c-0.73 0.55 -1.3 0.6 -1.8 1.6"
+													>
+														<animate
+															fill="freeze"
+															attributeName="stroke-dashoffset"
+															begin="0.6s"
+															dur="0.2s"
+															values="16;0"></animate>
+													</path>
+													<path
+														fill="none"
+														stroke-dasharray="2"
+														stroke-dashoffset="2"
+														d="M12 17v0.01"
+													>
+														<animate
+															fill="freeze"
+															attributeName="stroke-dashoffset"
+															begin="0.8s"
+															dur="0.2s"
+															values="2;0"></animate>
+													</path>
+													<animate
+														fill="freeze"
+														attributeName="fill-opacity"
+														begin="1.1s"
+														dur="0.15s"
+														values="0;0.3"></animate>
+												</g>
+											</svg>
+											Can i use DB Investing on my mobile device?
+										</span>
+										<svg
+											class="block size-5 shrink-0 text-gray-600 group-hover:text-gray-500 hs-accordion-active:hidden dark:text-neutral-400"
+											xmlns="http://www.w3.org/2000/svg"
+											width="24"
+											height="24"
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="2"
+											stroke-linecap="round"
+											stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg
+										>
+										<svg
+											class="hidden size-5 shrink-0 text-gray-600 group-hover:text-gray-500 hs-accordion-active:block dark:text-neutral-400"
+											xmlns="http://www.w3.org/2000/svg"
+											width="24"
+											height="24"
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="2"
+											stroke-linecap="round"
+											stroke-linejoin="round"><path d="m18 15-6-6-6 6"></path></svg
+										>
+									</button>
+									<div
+										id="genralInfo-item-8"
+										class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300"
+										role="region"
+										aria-labelledby="genralInfo-item-aria-8"
+									>
+										<p class="text-gray-600 dark:text-neutral-400">
+											Yes, we offer a mobile trading platform that is compatible with both iOS and
+											Android devices, allowing users to trade on the go.
+										</p>
+									</div>
+								</div>
+								<!-- item end  -->
+							</div>
+							<!-- End Accordion -->
+						</div>
+						<div
+							id="accountManagement"
+							class="hidden"
+							role="tabpanel"
+							aria-labelledby="accountManagement-item"
+						>
+							<!-- Accordion -->
+							<div class="hs-accordion-group divide-y divide-gray-200 dark:divide-neutral-700">
+								<!-- item start -->
+								<div class="hs-accordion active pb-3" id="accountManagement-item-aria-1">
+									<button
+										class="hs-accordion-toggle group inline-flex w-full items-center justify-between gap-x-3 rounded-lg pb-3 text-start font-semibold text-gray-800 transition hover:text-gray-500 focus:text-gray-500 focus:outline-none dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400 md:text-lg"
+										aria-expanded="true"
+										aria-controls="accountManagement-item-1"
+									>
+										<span class="flex items-center justify-center gap-3">
+											<svg
+												xmlns="http://www.w3.org/2000/svg"
+												width="32"
+												height="32"
+												viewBox="0 0 24 24"
+												class="min-w-[32px] text-dbgreen-500"
+											>
+												<g
+													fill="currentColor"
+													fill-opacity="0"
+													stroke="currentColor"
+													stroke-linecap="round"
+													stroke-linejoin="round"
+													stroke-width="2"
+												>
+													<path
+														stroke-dasharray="64"
+														stroke-dashoffset="64"
+														d="M12 3c4.97 0 9 4.03 9 9c0 4.97 -4.03 9 -9 9c-4.97 0 -9 -4.03 -9 -9c0 -4.97 4.03 -9 9 -9Z"
+													>
+														<animate
+															fill="freeze"
+															attributeName="stroke-dashoffset"
+															dur="0.6s"
+															values="64;0"></animate>
+													</path>
+													<path
+														fill="none"
+														stroke-dasharray="16"
+														stroke-dashoffset="16"
+														d="M9 10c0 -1.66 1.34 -3 3 -3c1.66 0 3 1.34 3 3c0 0.98 -0.47 1.85 -1.2 2.4c-0.73 0.55 -1.3 0.6 -1.8 1.6"
+													>
+														<animate
+															fill="freeze"
+															attributeName="stroke-dashoffset"
+															begin="0.6s"
+															dur="0.2s"
+															values="16;0"></animate>
+													</path>
+													<path
+														fill="none"
+														stroke-dasharray="2"
+														stroke-dashoffset="2"
+														d="M12 17v0.01"
+													>
+														<animate
+															fill="freeze"
+															attributeName="stroke-dashoffset"
+															begin="0.8s"
+															dur="0.2s"
+															values="2;0"></animate>
+													</path>
+													<animate
+														fill="freeze"
+														attributeName="fill-opacity"
+														begin="1.1s"
+														dur="0.15s"
+														values="0;0.3"></animate>
+												</g>
+											</svg>
+											Why is the verification of my account important?
+										</span>
+										<svg
+											class="block size-5 shrink-0 text-gray-600 group-hover:text-gray-500 hs-accordion-active:hidden dark:text-neutral-400"
+											xmlns="http://www.w3.org/2000/svg"
+											width="24"
+											height="24"
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="2"
+											stroke-linecap="round"
+											stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg
+										>
+										<svg
+											class="hidden size-5 shrink-0 text-gray-600 group-hover:text-gray-500 hs-accordion-active:block dark:text-neutral-400"
+											xmlns="http://www.w3.org/2000/svg"
+											width="24"
+											height="24"
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="2"
+											stroke-linecap="round"
+											stroke-linejoin="round"><path d="m18 15-6-6-6 6"></path></svg
+										>
+									</button>
+									<div
+										id="accountManagement-item-1"
+										class="hs-accordion-content w-full overflow-hidden transition-[height] duration-300"
+										role="region"
+										aria-labelledby="accountManagement-item-aria-1"
+									>
+										<p class="text-gray-600 dark:text-neutral-400">
+											For <span class="font-semibold text-dbgreen-500">DB Investing</span> it's crucial
+											to maintain the integrity and fairness of our platform to ensure a secure trading
+											environment for all our clients, these procedures help us to verify the authenticity
+											of our clients.
+										</p>
+									</div>
+								</div>
+								<!-- item end -->
+								<!-- item start -->
+								<div class="hs-accordion pb-3 pt-6" id="accountManagement-item-aria-2">
+									<button
+										class="hs-accordion-toggle group inline-flex w-full items-center justify-between gap-x-3 rounded-lg pb-3 text-start font-semibold text-gray-800 transition hover:text-gray-500 focus:text-gray-500 focus:outline-none dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400 md:text-lg"
+										aria-expanded="false"
+										aria-controls="accountManagement-item-2"
+									>
+										<span class="flex items-center justify-center gap-3">
+											<svg
+												xmlns="http://www.w3.org/2000/svg"
+												width="32"
+												height="32"
+												viewBox="0 0 24 24"
+												class="min-w-[32px] text-dbgreen-500"
+											>
+												<g
+													fill="currentColor"
+													fill-opacity="0"
+													stroke="currentColor"
+													stroke-linecap="round"
+													stroke-linejoin="round"
+													stroke-width="2"
+												>
+													<path
+														stroke-dasharray="64"
+														stroke-dashoffset="64"
+														d="M12 3c4.97 0 9 4.03 9 9c0 4.97 -4.03 9 -9 9c-4.97 0 -9 -4.03 -9 -9c0 -4.97 4.03 -9 9 -9Z"
+													>
+														<animate
+															fill="freeze"
+															attributeName="stroke-dashoffset"
+															dur="0.6s"
+															values="64;0"></animate>
+													</path>
+													<path
+														fill="none"
+														stroke-dasharray="16"
+														stroke-dashoffset="16"
+														d="M9 10c0 -1.66 1.34 -3 3 -3c1.66 0 3 1.34 3 3c0 0.98 -0.47 1.85 -1.2 2.4c-0.73 0.55 -1.3 0.6 -1.8 1.6"
+													>
+														<animate
+															fill="freeze"
+															attributeName="stroke-dashoffset"
+															begin="0.6s"
+															dur="0.2s"
+															values="16;0"></animate>
+													</path>
+													<path
+														fill="none"
+														stroke-dasharray="2"
+														stroke-dashoffset="2"
+														d="M12 17v0.01"
+													>
+														<animate
+															fill="freeze"
+															attributeName="stroke-dashoffset"
+															begin="0.8s"
+															dur="0.2s"
+															values="2;0"></animate>
+													</path>
+													<animate
+														fill="freeze"
+														attributeName="fill-opacity"
+														begin="1.1s"
+														dur="0.15s"
+														values="0;0.3"></animate>
+												</g>
+											</svg>
+											What services does DB Investing Offer?
+										</span>
+										<svg
+											class="block size-5 shrink-0 text-gray-600 group-hover:text-gray-500 hs-accordion-active:hidden dark:text-neutral-400"
+											xmlns="http://www.w3.org/2000/svg"
+											width="24"
+											height="24"
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="2"
+											stroke-linecap="round"
+											stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg
+										>
+										<svg
+											class="hidden size-5 shrink-0 text-gray-600 group-hover:text-gray-500 hs-accordion-active:block dark:text-neutral-400"
+											xmlns="http://www.w3.org/2000/svg"
+											width="24"
+											height="24"
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="2"
+											stroke-linecap="round"
+											stroke-linejoin="round"><path d="m18 15-6-6-6 6"></path></svg
+										>
+									</button>
+									<div
+										id="accountManagement-item-2"
+										class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300"
+										role="region"
+										aria-labelledby="accountManagement-item-aria-2"
+									>
+										<p class="mb-4 text-gray-600 dark:text-neutral-400">
+											This process includes document verification such as ID Card, Passport or
+											Driving License, please note that these documents must contain your <span
+												class="font-semibold text-dbgreen-500"
+												>full name, date of birth, and expiry date.</span
+											>
+										</p>
+										<p class="text-gray-600 dark:text-neutral-400">
+											Also, we require your <strong>Proof of Address (POA)</strong>, such as a
+											Certificate of Residence, utility bill, or Bank Statement. This document must
+											show us your <span class="font-semibold text-dbgreen-500"
+												>full name and current residential address and date within the last six (06)
+												months.</span
+											>
+										</p>
+									</div>
+								</div>
+								<!-- item end  -->
+								<!-- item start -->
+								<div class="hs-accordion pb-3 pt-6" id="accountManagement-item-aria-3">
+									<button
+										class="hs-accordion-toggle group inline-flex w-full items-center justify-between gap-x-3 rounded-lg pb-3 text-start font-semibold text-gray-800 transition hover:text-gray-500 focus:text-gray-500 focus:outline-none dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400 md:text-lg"
+										aria-expanded="false"
+										aria-controls="accountManagement-item-3"
+									>
+										<span class="flex items-center justify-center gap-3">
+											<svg
+												xmlns="http://www.w3.org/2000/svg"
+												width="32"
+												height="32"
+												viewBox="0 0 24 24"
+												class="min-w-[32px] text-dbgreen-500"
+											>
+												<g
+													fill="currentColor"
+													fill-opacity="0"
+													stroke="currentColor"
+													stroke-linecap="round"
+													stroke-linejoin="round"
+													stroke-width="2"
+												>
+													<path
+														stroke-dasharray="64"
+														stroke-dashoffset="64"
+														d="M12 3c4.97 0 9 4.03 9 9c0 4.97 -4.03 9 -9 9c-4.97 0 -9 -4.03 -9 -9c0 -4.97 4.03 -9 9 -9Z"
+													>
+														<animate
+															fill="freeze"
+															attributeName="stroke-dashoffset"
+															dur="0.6s"
+															values="64;0"></animate>
+													</path>
+													<path
+														fill="none"
+														stroke-dasharray="16"
+														stroke-dashoffset="16"
+														d="M9 10c0 -1.66 1.34 -3 3 -3c1.66 0 3 1.34 3 3c0 0.98 -0.47 1.85 -1.2 2.4c-0.73 0.55 -1.3 0.6 -1.8 1.6"
+													>
+														<animate
+															fill="freeze"
+															attributeName="stroke-dashoffset"
+															begin="0.6s"
+															dur="0.2s"
+															values="16;0"></animate>
+													</path>
+													<path
+														fill="none"
+														stroke-dasharray="2"
+														stroke-dashoffset="2"
+														d="M12 17v0.01"
+													>
+														<animate
+															fill="freeze"
+															attributeName="stroke-dashoffset"
+															begin="0.8s"
+															dur="0.2s"
+															values="2;0"></animate>
+													</path>
+													<animate
+														fill="freeze"
+														attributeName="fill-opacity"
+														begin="1.1s"
+														dur="0.15s"
+														values="0;0.3"></animate>
+												</g>
+											</svg>
+											How can I upload my documents?
+										</span>
+										<svg
+											class="block size-5 shrink-0 text-gray-600 group-hover:text-gray-500 hs-accordion-active:hidden dark:text-neutral-400"
+											xmlns="http://www.w3.org/2000/svg"
+											width="24"
+											height="24"
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="2"
+											stroke-linecap="round"
+											stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg
+										>
+										<svg
+											class="hidden size-5 shrink-0 text-gray-600 group-hover:text-gray-500 hs-accordion-active:block dark:text-neutral-400"
+											xmlns="http://www.w3.org/2000/svg"
+											width="24"
+											height="24"
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="2"
+											stroke-linecap="round"
+											stroke-linejoin="round"><path d="m18 15-6-6-6 6"></path></svg
+										>
+									</button>
+									<div
+										id="accountManagement-item-3"
+										class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300"
+										role="region"
+										aria-labelledby="accountManagement-item-aria-3"
+									>
+										<p class="mb-4 text-gray-600 dark:text-neutral-400">
+											<strong>1st Step.</strong> On the left side of your dashboard, you should click
+											on 'Profile'. Seven tabs will be displayed. Please click on Upload Documents.
+										</p>
+										<Image
+											src={images[`/src/images/${'upload_document_1.png'}`]()}
+											alt="account-img-item-2"
+											class="max-w-[200px]"
+										/>
+										<p class="my-4 text-gray-600 dark:text-neutral-400">
+											<strong>2nd Step.</strong> you will be able to select if you want to upload your
+											ID/Passport or your Proof of Address and fill in all the information in the blank
+											spaces.
+										</p>
+										<Image
+											src={images[`/src/images/${'upload_document_2.png'}`]()}
+											alt="account-img-item-2"
+											class="max-w-[300px]"
+										/>
+									</div>
+								</div>
+								<!-- item end  -->
+								<!-- item start -->
+								<div class="hs-accordion pb-3 pt-6" id="accountManagement-item-aria-4">
+									<button
+										class="hs-accordion-toggle group inline-flex w-full items-center justify-between gap-x-3 rounded-lg pb-3 text-start font-semibold text-gray-800 transition hover:text-gray-500 focus:text-gray-500 focus:outline-none dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400 md:text-lg"
+										aria-expanded="false"
+										aria-controls="accountManagement-item-4"
+									>
+										<span class="flex items-center justify-center gap-3">
+											<svg
+												xmlns="http://www.w3.org/2000/svg"
+												width="32"
+												height="32"
+												viewBox="0 0 24 24"
+												class="min-w-[32px] text-dbgreen-500"
+											>
+												<g
+													fill="currentColor"
+													fill-opacity="0"
+													stroke="currentColor"
+													stroke-linecap="round"
+													stroke-linejoin="round"
+													stroke-width="2"
+												>
+													<path
+														stroke-dasharray="64"
+														stroke-dashoffset="64"
+														d="M12 3c4.97 0 9 4.03 9 9c0 4.97 -4.03 9 -9 9c-4.97 0 -9 -4.03 -9 -9c0 -4.97 4.03 -9 9 -9Z"
+													>
+														<animate
+															fill="freeze"
+															attributeName="stroke-dashoffset"
+															dur="0.6s"
+															values="64;0"></animate>
+													</path>
+													<path
+														fill="none"
+														stroke-dasharray="16"
+														stroke-dashoffset="16"
+														d="M9 10c0 -1.66 1.34 -3 3 -3c1.66 0 3 1.34 3 3c0 0.98 -0.47 1.85 -1.2 2.4c-0.73 0.55 -1.3 0.6 -1.8 1.6"
+													>
+														<animate
+															fill="freeze"
+															attributeName="stroke-dashoffset"
+															begin="0.6s"
+															dur="0.2s"
+															values="16;0"></animate>
+													</path>
+													<path
+														fill="none"
+														stroke-dasharray="2"
+														stroke-dashoffset="2"
+														d="M12 17v0.01"
+													>
+														<animate
+															fill="freeze"
+															attributeName="stroke-dashoffset"
+															begin="0.8s"
+															dur="0.2s"
+															values="2;0"></animate>
+													</path>
+													<animate
+														fill="freeze"
+														attributeName="fill-opacity"
+														begin="1.1s"
+														dur="0.15s"
+														values="0;0.3"></animate>
+												</g>
+											</svg>
+											How do I reset my password?
+										</span>
+										<svg
+											class="block size-5 shrink-0 text-gray-600 group-hover:text-gray-500 hs-accordion-active:hidden dark:text-neutral-400"
+											xmlns="http://www.w3.org/2000/svg"
+											width="24"
+											height="24"
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="2"
+											stroke-linecap="round"
+											stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg
+										>
+										<svg
+											class="hidden size-5 shrink-0 text-gray-600 group-hover:text-gray-500 hs-accordion-active:block dark:text-neutral-400"
+											xmlns="http://www.w3.org/2000/svg"
+											width="24"
+											height="24"
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="2"
+											stroke-linecap="round"
+											stroke-linejoin="round"><path d="m18 15-6-6-6 6"></path></svg
+										>
+									</button>
+									<div
+										id="accountManagement-item-4"
+										class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300"
+										role="region"
+										aria-labelledby="accountManagement-item-aria-4"
+									>
+										<p class="mb-4 text-gray-600 dark:text-neutral-400">
+											To reset your password, go to the login page and click on "Forgot Password."
+											Follow the instructions to reset your password via email.
+										</p>
+									</div>
+								</div>
+								<!-- item end  -->
+								<!-- item start -->
+								<div class="hs-accordion pb-3 pt-6" id="accountManagement-item-aria-5">
+									<button
+										class="hs-accordion-toggle group inline-flex w-full items-center justify-between gap-x-3 rounded-lg pb-3 text-start font-semibold text-gray-800 transition hover:text-gray-500 focus:text-gray-500 focus:outline-none dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400 md:text-lg"
+										aria-expanded="false"
+										aria-controls="accountManagement-item-5"
+									>
+										<span class="flex items-center justify-center gap-3">
+											<svg
+												xmlns="http://www.w3.org/2000/svg"
+												width="32"
+												height="32"
+												viewBox="0 0 24 24"
+												class="min-w-[32px] text-dbgreen-500"
+											>
+												<g
+													fill="currentColor"
+													fill-opacity="0"
+													stroke="currentColor"
+													stroke-linecap="round"
+													stroke-linejoin="round"
+													stroke-width="2"
+												>
+													<path
+														stroke-dasharray="64"
+														stroke-dashoffset="64"
+														d="M12 3c4.97 0 9 4.03 9 9c0 4.97 -4.03 9 -9 9c-4.97 0 -9 -4.03 -9 -9c0 -4.97 4.03 -9 9 -9Z"
+													>
+														<animate
+															fill="freeze"
+															attributeName="stroke-dashoffset"
+															dur="0.6s"
+															values="64;0"></animate>
+													</path>
+													<path
+														fill="none"
+														stroke-dasharray="16"
+														stroke-dashoffset="16"
+														d="M9 10c0 -1.66 1.34 -3 3 -3c1.66 0 3 1.34 3 3c0 0.98 -0.47 1.85 -1.2 2.4c-0.73 0.55 -1.3 0.6 -1.8 1.6"
+													>
+														<animate
+															fill="freeze"
+															attributeName="stroke-dashoffset"
+															begin="0.6s"
+															dur="0.2s"
+															values="16;0"></animate>
+													</path>
+													<path
+														fill="none"
+														stroke-dasharray="2"
+														stroke-dashoffset="2"
+														d="M12 17v0.01"
+													>
+														<animate
+															fill="freeze"
+															attributeName="stroke-dashoffset"
+															begin="0.8s"
+															dur="0.2s"
+															values="2;0"></animate>
+													</path>
+													<animate
+														fill="freeze"
+														attributeName="fill-opacity"
+														begin="1.1s"
+														dur="0.15s"
+														values="0;0.3"></animate>
+												</g>
+											</svg>
+											What types of accounts does DB Investing have?
+										</span>
+										<svg
+											class="block size-5 shrink-0 text-gray-600 group-hover:text-gray-500 hs-accordion-active:hidden dark:text-neutral-400"
+											xmlns="http://www.w3.org/2000/svg"
+											width="24"
+											height="24"
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="2"
+											stroke-linecap="round"
+											stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg
+										>
+										<svg
+											class="hidden size-5 shrink-0 text-gray-600 group-hover:text-gray-500 hs-accordion-active:block dark:text-neutral-400"
+											xmlns="http://www.w3.org/2000/svg"
+											width="24"
+											height="24"
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="2"
+											stroke-linecap="round"
+											stroke-linejoin="round"><path d="m18 15-6-6-6 6"></path></svg
+										>
+									</button>
+									<div
+										id="accountManagement-item-5"
+										class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300"
+										role="region"
+										aria-labelledby="accountManagement-item-aria-5"
+									>
+										<p class="mb-4 text-gray-600 dark:text-neutral-400">
+											At DB Investing, we offer different types of accounts that adapt to your needs
+											and preferences. Each one offers different services that can help you trade
+											more effectively.
+										</p>
+										<a href="account-types" class="mb-4 font-semibold text-dbgreen-500">
+											Check the list of accounts
+										</a>
+									</div>
+								</div>
+								<!-- item end  -->
+								<!-- item start -->
+								<div class="hs-accordion pb-3 pt-6" id="accountManagement-item-aria-6">
+									<button
+										class="hs-accordion-toggle group inline-flex w-full items-center justify-between gap-x-3 rounded-lg pb-3 text-start font-semibold text-gray-800 transition hover:text-gray-500 focus:text-gray-500 focus:outline-none dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400 md:text-lg"
+										aria-expanded="false"
+										aria-controls="accountManagement-item-6"
+									>
+										<span class="flex items-center justify-center gap-3">
+											<svg
+												xmlns="http://www.w3.org/2000/svg"
+												width="32"
+												height="32"
+												viewBox="0 0 24 24"
+												class="min-w-[32px] text-dbgreen-500"
+											>
+												<g
+													fill="currentColor"
+													fill-opacity="0"
+													stroke="currentColor"
+													stroke-linecap="round"
+													stroke-linejoin="round"
+													stroke-width="2"
+												>
+													<path
+														stroke-dasharray="64"
+														stroke-dashoffset="64"
+														d="M12 3c4.97 0 9 4.03 9 9c0 4.97 -4.03 9 -9 9c-4.97 0 -9 -4.03 -9 -9c0 -4.97 4.03 -9 9 -9Z"
+													>
+														<animate
+															fill="freeze"
+															attributeName="stroke-dashoffset"
+															dur="0.6s"
+															values="64;0"></animate>
+													</path>
+													<path
+														fill="none"
+														stroke-dasharray="16"
+														stroke-dashoffset="16"
+														d="M9 10c0 -1.66 1.34 -3 3 -3c1.66 0 3 1.34 3 3c0 0.98 -0.47 1.85 -1.2 2.4c-0.73 0.55 -1.3 0.6 -1.8 1.6"
+													>
+														<animate
+															fill="freeze"
+															attributeName="stroke-dashoffset"
+															begin="0.6s"
+															dur="0.2s"
+															values="16;0"></animate>
+													</path>
+													<path
+														fill="none"
+														stroke-dasharray="2"
+														stroke-dashoffset="2"
+														d="M12 17v0.01"
+													>
+														<animate
+															fill="freeze"
+															attributeName="stroke-dashoffset"
+															begin="0.8s"
+															dur="0.2s"
+															values="2;0"></animate>
+													</path>
+													<animate
+														fill="freeze"
+														attributeName="fill-opacity"
+														begin="1.1s"
+														dur="0.15s"
+														values="0;0.3"></animate>
+												</g>
+											</svg>
+											How can I open my trading account?
+										</span>
+										<svg
+											class="block size-5 shrink-0 text-gray-600 group-hover:text-gray-500 hs-accordion-active:hidden dark:text-neutral-400"
+											xmlns="http://www.w3.org/2000/svg"
+											width="24"
+											height="24"
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="2"
+											stroke-linecap="round"
+											stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg
+										>
+										<svg
+											class="hidden size-5 shrink-0 text-gray-600 group-hover:text-gray-500 hs-accordion-active:block dark:text-neutral-400"
+											xmlns="http://www.w3.org/2000/svg"
+											width="24"
+											height="24"
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="2"
+											stroke-linecap="round"
+											stroke-linejoin="round"><path d="m18 15-6-6-6 6"></path></svg
+										>
+									</button>
+									<div
+										id="accountManagement-item-6"
+										class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300"
+										role="region"
+										aria-labelledby="accountManagement-item-aria-6"
+									>
+										<p class="mb-4 text-gray-600 dark:text-neutral-400">
+											<strong>1st Step.</strong>
+											On the left side of your dashboard, you should click on <strong
+												>'Accounts'</strong
+											>. Three tabs will be displayed. Please click on <strong
+												>'Open Live Account'</strong
+											>.
+										</p>
+										<Image
+											src={images[`/src/images/${'open_account_1.png'}`]()}
+											alt="account-img-item-2"
+											class=""
+										/>
+										<p class="my-4 text-gray-600 dark:text-neutral-400">
+											<strong>2nd Step.</strong>
+											Immediately, the option to create the account that best suits your needs will be
+											displayed. Choose the best one for you, and you're all set!
+										</p>
+										<Image
+											src={images[`/src/images/${'open_account_2.png'}`]()}
+											alt="account-img-item-2"
+											class=""
+										/>
+									</div>
+								</div>
+								<!-- item end  -->
+								<!-- item start -->
+								<div class="hs-accordion pb-3 pt-6" id="accountManagement-item-aria-7">
+									<button
+										class="hs-accordion-toggle group inline-flex w-full items-center justify-between gap-x-3 rounded-lg pb-3 text-start font-semibold text-gray-800 transition hover:text-gray-500 focus:text-gray-500 focus:outline-none dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400 md:text-lg"
+										aria-expanded="false"
+										aria-controls="accountManagement-item-7"
+									>
+										<span class="flex items-center justify-center gap-3">
+											<svg
+												xmlns="http://www.w3.org/2000/svg"
+												width="32"
+												height="32"
+												viewBox="0 0 24 24"
+												class="min-w-[32px] text-dbgreen-500"
+											>
+												<g
+													fill="currentColor"
+													fill-opacity="0"
+													stroke="currentColor"
+													stroke-linecap="round"
+													stroke-linejoin="round"
+													stroke-width="2"
+												>
+													<path
+														stroke-dasharray="64"
+														stroke-dashoffset="64"
+														d="M12 3c4.97 0 9 4.03 9 9c0 4.97 -4.03 9 -9 9c-4.97 0 -9 -4.03 -9 -9c0 -4.97 4.03 -9 9 -9Z"
+													>
+														<animate
+															fill="freeze"
+															attributeName="stroke-dashoffset"
+															dur="0.6s"
+															values="64;0"></animate>
+													</path>
+													<path
+														fill="none"
+														stroke-dasharray="16"
+														stroke-dashoffset="16"
+														d="M9 10c0 -1.66 1.34 -3 3 -3c1.66 0 3 1.34 3 3c0 0.98 -0.47 1.85 -1.2 2.4c-0.73 0.55 -1.3 0.6 -1.8 1.6"
+													>
+														<animate
+															fill="freeze"
+															attributeName="stroke-dashoffset"
+															begin="0.6s"
+															dur="0.2s"
+															values="16;0"></animate>
+													</path>
+													<path
+														fill="none"
+														stroke-dasharray="2"
+														stroke-dashoffset="2"
+														d="M12 17v0.01"
+													>
+														<animate
+															fill="freeze"
+															attributeName="stroke-dashoffset"
+															begin="0.8s"
+															dur="0.2s"
+															values="2;0"></animate>
+													</path>
+													<animate
+														fill="freeze"
+														attributeName="fill-opacity"
+														begin="1.1s"
+														dur="0.15s"
+														values="0;0.3"></animate>
+												</g>
+											</svg>
+											What is a “Demo Account”?
+										</span>
+										<svg
+											class="block size-5 shrink-0 text-gray-600 group-hover:text-gray-500 hs-accordion-active:hidden dark:text-neutral-400"
+											xmlns="http://www.w3.org/2000/svg"
+											width="24"
+											height="24"
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="2"
+											stroke-linecap="round"
+											stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg
+										>
+										<svg
+											class="hidden size-5 shrink-0 text-gray-600 group-hover:text-gray-500 hs-accordion-active:block dark:text-neutral-400"
+											xmlns="http://www.w3.org/2000/svg"
+											width="24"
+											height="24"
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="2"
+											stroke-linecap="round"
+											stroke-linejoin="round"><path d="m18 15-6-6-6 6"></path></svg
+										>
+									</button>
+									<div
+										id="accountManagement-item-7"
+										class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300"
+										role="region"
+										aria-labelledby="accountManagement-item-aria-7"
+									>
+										<p class="mb-4 text-gray-600 dark:text-neutral-400">
+											If you are starting in the world of trading or want to try out new strategies,
+											DB Investing offers you this tool so that you can practice financial
+											operations and become familiar with our platform <span
+												class="font-semibold text-dbgreen-500 underline"
+												>without risking real money</span
+											>.
+										</p>
+										<Image
+											src={images[`/src/images/${'demo_1.png'}`]()}
+											alt="account-img-item-2"
+											class=""
+										/>
+									</div>
+								</div>
+								<!-- item end  -->
+								<!-- item start -->
+								<div class="hs-accordion pb-3 pt-6" id="accountManagement-item-aria-8">
+									<button
+										class="hs-accordion-toggle group inline-flex w-full items-center justify-between gap-x-3 rounded-lg pb-3 text-start font-semibold text-gray-800 transition hover:text-gray-500 focus:text-gray-500 focus:outline-none dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400 md:text-lg"
+										aria-expanded="false"
+										aria-controls="accountManagement-item-8"
+									>
+										<span class="flex items-center justify-center gap-3">
+											<svg
+												xmlns="http://www.w3.org/2000/svg"
+												width="32"
+												height="32"
+												viewBox="0 0 24 24"
+												class="min-w-[32px] text-dbgreen-500"
+											>
+												<g
+													fill="currentColor"
+													fill-opacity="0"
+													stroke="currentColor"
+													stroke-linecap="round"
+													stroke-linejoin="round"
+													stroke-width="2"
+												>
+													<path
+														stroke-dasharray="64"
+														stroke-dashoffset="64"
+														d="M12 3c4.97 0 9 4.03 9 9c0 4.97 -4.03 9 -9 9c-4.97 0 -9 -4.03 -9 -9c0 -4.97 4.03 -9 9 -9Z"
+													>
+														<animate
+															fill="freeze"
+															attributeName="stroke-dashoffset"
+															dur="0.6s"
+															values="64;0"></animate>
+													</path>
+													<path
+														fill="none"
+														stroke-dasharray="16"
+														stroke-dashoffset="16"
+														d="M9 10c0 -1.66 1.34 -3 3 -3c1.66 0 3 1.34 3 3c0 0.98 -0.47 1.85 -1.2 2.4c-0.73 0.55 -1.3 0.6 -1.8 1.6"
+													>
+														<animate
+															fill="freeze"
+															attributeName="stroke-dashoffset"
+															begin="0.6s"
+															dur="0.2s"
+															values="16;0"></animate>
+													</path>
+													<path
+														fill="none"
+														stroke-dasharray="2"
+														stroke-dashoffset="2"
+														d="M12 17v0.01"
+													>
+														<animate
+															fill="freeze"
+															attributeName="stroke-dashoffset"
+															begin="0.8s"
+															dur="0.2s"
+															values="2;0"></animate>
+													</path>
+													<animate
+														fill="freeze"
+														attributeName="fill-opacity"
+														begin="1.1s"
+														dur="0.15s"
+														values="0;0.3"></animate>
+												</g>
+											</svg>
+											Which payment methods DB Investing have?
+										</span>
+										<svg
+											class="block size-5 shrink-0 text-gray-600 group-hover:text-gray-500 hs-accordion-active:hidden dark:text-neutral-400"
+											xmlns="http://www.w3.org/2000/svg"
+											width="24"
+											height="24"
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="2"
+											stroke-linecap="round"
+											stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg
+										>
+										<svg
+											class="hidden size-5 shrink-0 text-gray-600 group-hover:text-gray-500 hs-accordion-active:block dark:text-neutral-400"
+											xmlns="http://www.w3.org/2000/svg"
+											width="24"
+											height="24"
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="2"
+											stroke-linecap="round"
+											stroke-linejoin="round"><path d="m18 15-6-6-6 6"></path></svg
+										>
+									</button>
+									<div
+										id="accountManagement-item-8"
+										class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300"
+										role="region"
+										aria-labelledby="accountManagement-item-aria-8"
+									>
+										<p class="mb-4 text-gray-600 dark:text-neutral-400">
+											We offer a wide portfolio of deposit and withdrawal methods, including bank
+											transfers and Crypto Wallet, to ensure you can enjoy our services in the best
+											possible way.
+										</p>
+										<Image
+											src={images[`/src/images/${'payment_methods_1.png'}`]()}
+											alt="account-img-item-2"
+											class=""
+										/>
+									</div>
+								</div>
+								<!-- item end  -->
+								<!-- item start -->
+								<div class="hs-accordion pb-3 pt-6" id="accountManagement-item-aria-9">
+									<button
+										class="hs-accordion-toggle group inline-flex w-full items-center justify-between gap-x-3 rounded-lg pb-3 text-start font-semibold text-gray-800 transition hover:text-gray-500 focus:text-gray-500 focus:outline-none dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400 md:text-lg"
+										aria-expanded="false"
+										aria-controls="accountManagement-item-9"
+									>
+										<span class="flex items-center justify-center gap-3">
+											<svg
+												xmlns="http://www.w3.org/2000/svg"
+												width="32"
+												height="32"
+												viewBox="0 0 24 24"
+												class="min-w-[32px] text-dbgreen-500"
+											>
+												<g
+													fill="currentColor"
+													fill-opacity="0"
+													stroke="currentColor"
+													stroke-linecap="round"
+													stroke-linejoin="round"
+													stroke-width="2"
+												>
+													<path
+														stroke-dasharray="64"
+														stroke-dashoffset="64"
+														d="M12 3c4.97 0 9 4.03 9 9c0 4.97 -4.03 9 -9 9c-4.97 0 -9 -4.03 -9 -9c0 -4.97 4.03 -9 9 -9Z"
+													>
+														<animate
+															fill="freeze"
+															attributeName="stroke-dashoffset"
+															dur="0.6s"
+															values="64;0"></animate>
+													</path>
+													<path
+														fill="none"
+														stroke-dasharray="16"
+														stroke-dashoffset="16"
+														d="M9 10c0 -1.66 1.34 -3 3 -3c1.66 0 3 1.34 3 3c0 0.98 -0.47 1.85 -1.2 2.4c-0.73 0.55 -1.3 0.6 -1.8 1.6"
+													>
+														<animate
+															fill="freeze"
+															attributeName="stroke-dashoffset"
+															begin="0.6s"
+															dur="0.2s"
+															values="16;0"></animate>
+													</path>
+													<path
+														fill="none"
+														stroke-dasharray="2"
+														stroke-dashoffset="2"
+														d="M12 17v0.01"
+													>
+														<animate
+															fill="freeze"
+															attributeName="stroke-dashoffset"
+															begin="0.8s"
+															dur="0.2s"
+															values="2;0"></animate>
+													</path>
+													<animate
+														fill="freeze"
+														attributeName="fill-opacity"
+														begin="1.1s"
+														dur="0.15s"
+														values="0;0.3"></animate>
+												</g>
+											</svg>
+											How can I deposit funds?
+										</span>
+										<svg
+											class="block size-5 shrink-0 text-gray-600 group-hover:text-gray-500 hs-accordion-active:hidden dark:text-neutral-400"
+											xmlns="http://www.w3.org/2000/svg"
+											width="24"
+											height="24"
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="2"
+											stroke-linecap="round"
+											stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg
+										>
+										<svg
+											class="hidden size-5 shrink-0 text-gray-600 group-hover:text-gray-500 hs-accordion-active:block dark:text-neutral-400"
+											xmlns="http://www.w3.org/2000/svg"
+											width="24"
+											height="24"
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="2"
+											stroke-linecap="round"
+											stroke-linejoin="round"><path d="m18 15-6-6-6 6"></path></svg
+										>
+									</button>
+									<div
+										id="accountManagement-item-9"
+										class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300"
+										role="region"
+										aria-labelledby="accountManagement-item-aria-9"
+									>
+										<p class="mb-4 text-gray-600 dark:text-neutral-400">
+											<strong>1st Step</strong> - On the left side of your dashboard, you should click
+											on <strong>'Funds'</strong>. A tab will appear, and you should click on <strong
+												>'Deposit Funds’</strong
+											>.
+										</p>
+										<Image
+											src={images[`/src/images/${'deposit_1.png'}`]()}
+											alt="account-img-item-2"
+											class=""
+										/>
+										<p class="my-4 text-gray-600 dark:text-neutral-400">
+											<strong>2nd Step</strong> - you will be able to select the account in which you
+											want to make the deposit and the deposit method. Remember that we accept credit
+											cards, cryptocurrency, bank transfers, and more.
+										</p>
+										<Image
+											src={images[`/src/images/${'deposit_2.png'}`]()}
+											alt="account-img-item-2"
+											class=""
+										/>
+									</div>
+								</div>
+								<!-- item end  -->
+								<!-- item start -->
+								<div class="hs-accordion pb-3 pt-6" id="accountManagement-item-aria-10">
+									<button
+										class="hs-accordion-toggle group inline-flex w-full items-center justify-between gap-x-3 rounded-lg pb-3 text-start font-semibold text-gray-800 transition hover:text-gray-500 focus:text-gray-500 focus:outline-none dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400 md:text-lg"
+										aria-expanded="false"
+										aria-controls="accountManagement-item-10"
+									>
+										<span class="flex items-center justify-center gap-3">
+											<svg
+												xmlns="http://www.w3.org/2000/svg"
+												width="32"
+												height="32"
+												viewBox="0 0 24 24"
+												class="min-w-[32px] text-dbgreen-500"
+											>
+												<g
+													fill="currentColor"
+													fill-opacity="0"
+													stroke="currentColor"
+													stroke-linecap="round"
+													stroke-linejoin="round"
+													stroke-width="2"
+												>
+													<path
+														stroke-dasharray="64"
+														stroke-dashoffset="64"
+														d="M12 3c4.97 0 9 4.03 9 9c0 4.97 -4.03 9 -9 9c-4.97 0 -9 -4.03 -9 -9c0 -4.97 4.03 -9 9 -9Z"
+													>
+														<animate
+															fill="freeze"
+															attributeName="stroke-dashoffset"
+															dur="0.6s"
+															values="64;0"></animate>
+													</path>
+													<path
+														fill="none"
+														stroke-dasharray="16"
+														stroke-dashoffset="16"
+														d="M9 10c0 -1.66 1.34 -3 3 -3c1.66 0 3 1.34 3 3c0 0.98 -0.47 1.85 -1.2 2.4c-0.73 0.55 -1.3 0.6 -1.8 1.6"
+													>
+														<animate
+															fill="freeze"
+															attributeName="stroke-dashoffset"
+															begin="0.6s"
+															dur="0.2s"
+															values="16;0"></animate>
+													</path>
+													<path
+														fill="none"
+														stroke-dasharray="2"
+														stroke-dashoffset="2"
+														d="M12 17v0.01"
+													>
+														<animate
+															fill="freeze"
+															attributeName="stroke-dashoffset"
+															begin="0.8s"
+															dur="0.2s"
+															values="2;0"></animate>
+													</path>
+													<animate
+														fill="freeze"
+														attributeName="fill-opacity"
+														begin="1.1s"
+														dur="0.15s"
+														values="0;0.3"></animate>
+												</g>
+											</svg>
+											How can I Withdraw funds from my account?
+										</span>
+										<svg
+											class="block size-5 shrink-0 text-gray-600 group-hover:text-gray-500 hs-accordion-active:hidden dark:text-neutral-400"
+											xmlns="http://www.w3.org/2000/svg"
+											width="24"
+											height="24"
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="2"
+											stroke-linecap="round"
+											stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg
+										>
+										<svg
+											class="hidden size-5 shrink-0 text-gray-600 group-hover:text-gray-500 hs-accordion-active:block dark:text-neutral-400"
+											xmlns="http://www.w3.org/2000/svg"
+											width="24"
+											height="24"
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="2"
+											stroke-linecap="round"
+											stroke-linejoin="round"><path d="m18 15-6-6-6 6"></path></svg
+										>
+									</button>
+									<div
+										id="accountManagement-item-10"
+										class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300"
+										role="region"
+										aria-labelledby="accountManagement-item-aria-10"
+									>
+										<p class="mb-4 text-gray-600 dark:text-neutral-400">
+											<strong>1st Step</strong> - Go to the left side of your dashboard, you should click
+											on ‘Funds, you will see a tab with the name “Withdraw Funds”, click on it.
+										</p>
+										<Image
+											src={images[`/src/images/${'deposit_1.png'}`]()}
+											alt="account-img-item-2"
+											class=""
+										/>
+										<p class="my-4 text-gray-600 dark:text-neutral-400">
+											<strong>2nd Step</strong> - you will be able to select the account in which you
+											want to make the deposit and the Withdraw method.
+										</p>
+										<p class="my-4 font-semibold text-dbgreen-500 underline">
+											Please remember that for compliance reasons, it is essential that the
+											withdrawal is made through the same deposit method used.
+										</p>
+									</div>
+								</div>
+								<!-- item end  -->
+								<!-- item start -->
+								<div class="hs-accordion pb-3 pt-6" id="accountManagement-item-aria-11">
+									<button
+										class="hs-accordion-toggle group inline-flex w-full items-center justify-between gap-x-3 rounded-lg pb-3 text-start font-semibold text-gray-800 transition hover:text-gray-500 focus:text-gray-500 focus:outline-none dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400 md:text-lg"
+										aria-expanded="false"
+										aria-controls="accountManagement-item-11"
+									>
+										<span class="flex items-center justify-center gap-3">
+											<svg
+												xmlns="http://www.w3.org/2000/svg"
+												width="32"
+												height="32"
+												viewBox="0 0 24 24"
+												class="min-w-[32px] text-dbgreen-500"
+											>
+												<g
+													fill="currentColor"
+													fill-opacity="0"
+													stroke="currentColor"
+													stroke-linecap="round"
+													stroke-linejoin="round"
+													stroke-width="2"
+												>
+													<path
+														stroke-dasharray="64"
+														stroke-dashoffset="64"
+														d="M12 3c4.97 0 9 4.03 9 9c0 4.97 -4.03 9 -9 9c-4.97 0 -9 -4.03 -9 -9c0 -4.97 4.03 -9 9 -9Z"
+													>
+														<animate
+															fill="freeze"
+															attributeName="stroke-dashoffset"
+															dur="0.6s"
+															values="64;0"></animate>
+													</path>
+													<path
+														fill="none"
+														stroke-dasharray="16"
+														stroke-dashoffset="16"
+														d="M9 10c0 -1.66 1.34 -3 3 -3c1.66 0 3 1.34 3 3c0 0.98 -0.47 1.85 -1.2 2.4c-0.73 0.55 -1.3 0.6 -1.8 1.6"
+													>
+														<animate
+															fill="freeze"
+															attributeName="stroke-dashoffset"
+															begin="0.6s"
+															dur="0.2s"
+															values="16;0"></animate>
+													</path>
+													<path
+														fill="none"
+														stroke-dasharray="2"
+														stroke-dashoffset="2"
+														d="M12 17v0.01"
+													>
+														<animate
+															fill="freeze"
+															attributeName="stroke-dashoffset"
+															begin="0.8s"
+															dur="0.2s"
+															values="2;0"></animate>
+													</path>
+													<animate
+														fill="freeze"
+														attributeName="fill-opacity"
+														begin="1.1s"
+														dur="0.15s"
+														values="0;0.3"></animate>
+												</g>
+											</svg>
+											Are there any fees for deposits or withdrawals?
+										</span>
+										<svg
+											class="block size-5 shrink-0 text-gray-600 group-hover:text-gray-500 hs-accordion-active:hidden dark:text-neutral-400"
+											xmlns="http://www.w3.org/2000/svg"
+											width="24"
+											height="24"
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="2"
+											stroke-linecap="round"
+											stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg
+										>
+										<svg
+											class="hidden size-5 shrink-0 text-gray-600 group-hover:text-gray-500 hs-accordion-active:block dark:text-neutral-400"
+											xmlns="http://www.w3.org/2000/svg"
+											width="24"
+											height="24"
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="2"
+											stroke-linecap="round"
+											stroke-linejoin="round"><path d="m18 15-6-6-6 6"></path></svg
+										>
+									</button>
+									<div
+										id="accountManagement-item-11"
+										class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300"
+										role="region"
+										aria-labelledby="accountManagement-item-aria-11"
+									>
+										<p class="mb-4 text-gray-600 dark:text-neutral-400">
+											A <strong>$5</strong> fee applies for transactions under <strong>$100</strong
+											>.
+										</p>
+									</div>
+								</div>
+								<!-- item end  -->
+								<!-- item start -->
+								<div class="hs-accordion pb-3 pt-6" id="accountManagement-item-aria-12">
+									<button
+										class="hs-accordion-toggle group inline-flex w-full items-center justify-between gap-x-3 rounded-lg pb-3 text-start font-semibold text-gray-800 transition hover:text-gray-500 focus:text-gray-500 focus:outline-none dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400 md:text-lg"
+										aria-expanded="false"
+										aria-controls="accountManagement-item-12"
+									>
+										<span class="flex items-center justify-center gap-3">
+											<svg
+												xmlns="http://www.w3.org/2000/svg"
+												width="32"
+												height="32"
+												viewBox="0 0 24 24"
+												class="min-w-[32px] text-dbgreen-500"
+											>
+												<g
+													fill="currentColor"
+													fill-opacity="0"
+													stroke="currentColor"
+													stroke-linecap="round"
+													stroke-linejoin="round"
+													stroke-width="2"
+												>
+													<path
+														stroke-dasharray="64"
+														stroke-dashoffset="64"
+														d="M12 3c4.97 0 9 4.03 9 9c0 4.97 -4.03 9 -9 9c-4.97 0 -9 -4.03 -9 -9c0 -4.97 4.03 -9 9 -9Z"
+													>
+														<animate
+															fill="freeze"
+															attributeName="stroke-dashoffset"
+															dur="0.6s"
+															values="64;0"></animate>
+													</path>
+													<path
+														fill="none"
+														stroke-dasharray="16"
+														stroke-dashoffset="16"
+														d="M9 10c0 -1.66 1.34 -3 3 -3c1.66 0 3 1.34 3 3c0 0.98 -0.47 1.85 -1.2 2.4c-0.73 0.55 -1.3 0.6 -1.8 1.6"
+													>
+														<animate
+															fill="freeze"
+															attributeName="stroke-dashoffset"
+															begin="0.6s"
+															dur="0.2s"
+															values="16;0"></animate>
+													</path>
+													<path
+														fill="none"
+														stroke-dasharray="2"
+														stroke-dashoffset="2"
+														d="M12 17v0.01"
+													>
+														<animate
+															fill="freeze"
+															attributeName="stroke-dashoffset"
+															begin="0.8s"
+															dur="0.2s"
+															values="2;0"></animate>
+													</path>
+													<animate
+														fill="freeze"
+														attributeName="fill-opacity"
+														begin="1.1s"
+														dur="0.15s"
+														values="0;0.3"></animate>
+												</g>
+											</svg>
+											Why do I need to upload my payment details?
+										</span>
+										<svg
+											class="block size-5 shrink-0 text-gray-600 group-hover:text-gray-500 hs-accordion-active:hidden dark:text-neutral-400"
+											xmlns="http://www.w3.org/2000/svg"
+											width="24"
+											height="24"
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="2"
+											stroke-linecap="round"
+											stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg
+										>
+										<svg
+											class="hidden size-5 shrink-0 text-gray-600 group-hover:text-gray-500 hs-accordion-active:block dark:text-neutral-400"
+											xmlns="http://www.w3.org/2000/svg"
+											width="24"
+											height="24"
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="2"
+											stroke-linecap="round"
+											stroke-linejoin="round"><path d="m18 15-6-6-6 6"></path></svg
+										>
+									</button>
+									<div
+										id="accountManagement-item-12"
+										class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300"
+										role="region"
+										aria-labelledby="accountManagement-item-aria-12"
+									>
+										<p class="mb-4 text-gray-600 dark:text-neutral-400">
+											It is necessary to provide these details to deposit funds and start trading on
+											the platform. Please note that we have all security measures in place to
+											protect our clients' payment details, in compliance with the highest industry
+											security standards.
+										</p>
+										<p class="my-4 font-semibold text-dbgreen-500">
+											Please be aware that, if necessary, we will contact you through your dashboard
+											- 'ticket' to request additional financial information, only if strictly
+											necessary.
+										</p>
+									</div>
+								</div>
+								<!-- item end  -->
+								<!-- item start -->
+								<div class="hs-accordion pb-3 pt-6" id="accountManagement-item-aria-13">
+									<button
+										class="hs-accordion-toggle group inline-flex w-full items-center justify-between gap-x-3 rounded-lg pb-3 text-start font-semibold text-gray-800 transition hover:text-gray-500 focus:text-gray-500 focus:outline-none dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400 md:text-lg"
+										aria-expanded="false"
+										aria-controls="accountManagement-item-13"
+									>
+										<span class="flex items-center justify-center gap-3">
+											<svg
+												xmlns="http://www.w3.org/2000/svg"
+												width="32"
+												height="32"
+												viewBox="0 0 24 24"
+												class="min-w-[32px] text-dbgreen-500"
+											>
+												<g
+													fill="currentColor"
+													fill-opacity="0"
+													stroke="currentColor"
+													stroke-linecap="round"
+													stroke-linejoin="round"
+													stroke-width="2"
+												>
+													<path
+														stroke-dasharray="64"
+														stroke-dashoffset="64"
+														d="M12 3c4.97 0 9 4.03 9 9c0 4.97 -4.03 9 -9 9c-4.97 0 -9 -4.03 -9 -9c0 -4.97 4.03 -9 9 -9Z"
+													>
+														<animate
+															fill="freeze"
+															attributeName="stroke-dashoffset"
+															dur="0.6s"
+															values="64;0"></animate>
+													</path>
+													<path
+														fill="none"
+														stroke-dasharray="16"
+														stroke-dashoffset="16"
+														d="M9 10c0 -1.66 1.34 -3 3 -3c1.66 0 3 1.34 3 3c0 0.98 -0.47 1.85 -1.2 2.4c-0.73 0.55 -1.3 0.6 -1.8 1.6"
+													>
+														<animate
+															fill="freeze"
+															attributeName="stroke-dashoffset"
+															begin="0.6s"
+															dur="0.2s"
+															values="16;0"></animate>
+													</path>
+													<path
+														fill="none"
+														stroke-dasharray="2"
+														stroke-dashoffset="2"
+														d="M12 17v0.01"
+													>
+														<animate
+															fill="freeze"
+															attributeName="stroke-dashoffset"
+															begin="0.8s"
+															dur="0.2s"
+															values="2;0"></animate>
+													</path>
+													<animate
+														fill="freeze"
+														attributeName="fill-opacity"
+														begin="1.1s"
+														dur="0.15s"
+														values="0;0.3"></animate>
+												</g>
+											</svg>
+											How can I upload my payment details?
+										</span>
+										<svg
+											class="block size-5 shrink-0 text-gray-600 group-hover:text-gray-500 hs-accordion-active:hidden dark:text-neutral-400"
+											xmlns="http://www.w3.org/2000/svg"
+											width="24"
+											height="24"
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="2"
+											stroke-linecap="round"
+											stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg
+										>
+										<svg
+											class="hidden size-5 shrink-0 text-gray-600 group-hover:text-gray-500 hs-accordion-active:block dark:text-neutral-400"
+											xmlns="http://www.w3.org/2000/svg"
+											width="24"
+											height="24"
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="2"
+											stroke-linecap="round"
+											stroke-linejoin="round"><path d="m18 15-6-6-6 6"></path></svg
+										>
+									</button>
+									<div
+										id="accountManagement-item-13"
+										class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300"
+										role="region"
+										aria-labelledby="accountManagement-item-aria-13"
+									>
+										<p class="mb-4 text-gray-600 dark:text-neutral-400">
+											<strong>1st Step - </strong> On the left side of your dashboard, you should click
+											on 'Funds'. A tab will appear, and you should click on “Payment Details”.
+										</p>
+										<Image
+											src={images[`/src/images/${'payment_detail_1.png'}`]()}
+											alt="account-img-item-2"
+											class=""
+										/>
+										<p class="my-4 text-gray-600 dark:text-neutral-400">
+											<strong>2nd Step - </strong> you will be able to select the payment detail that
+											you want to upload the information, we have different options as well.
+										</p>
+										<Image
+											src={images[`/src/images/${'payment_detail_2.png'}`]()}
+											alt="account-img-item-2"
+											class=""
+										/>
+										<p class="my-4 text-gray-600 dark:text-neutral-400">
+											Choose one or more payment methods with which you wish to trade on our
+											platform and fill in all the information in the blank spaces.
+										</p>
+										<p class="my-4 font-semibold text-dbgreen-500">
+											Remember that all data you upload must belong to the account owner and
+											therefore must match the ID/Passport that was attached in previous steps.
+										</p>
+									</div>
+								</div>
+								<!-- item end  -->
+								<!-- item start -->
+								<div class="hs-accordion pb-3 pt-6" id="accountManagement-item-aria-14">
+									<button
+										class="hs-accordion-toggle group inline-flex w-full items-center justify-between gap-x-3 rounded-lg pb-3 text-start font-semibold text-gray-800 transition hover:text-gray-500 focus:text-gray-500 focus:outline-none dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400 md:text-lg"
+										aria-expanded="false"
+										aria-controls="accountManagement-item-14"
+									>
+										<span class="flex items-center justify-center gap-3">
+											<svg
+												xmlns="http://www.w3.org/2000/svg"
+												width="32"
+												height="32"
+												viewBox="0 0 24 24"
+												class="min-w-[32px] text-dbgreen-500"
+											>
+												<g
+													fill="currentColor"
+													fill-opacity="0"
+													stroke="currentColor"
+													stroke-linecap="round"
+													stroke-linejoin="round"
+													stroke-width="2"
+												>
+													<path
+														stroke-dasharray="64"
+														stroke-dashoffset="64"
+														d="M12 3c4.97 0 9 4.03 9 9c0 4.97 -4.03 9 -9 9c-4.97 0 -9 -4.03 -9 -9c0 -4.97 4.03 -9 9 -9Z"
+													>
+														<animate
+															fill="freeze"
+															attributeName="stroke-dashoffset"
+															dur="0.6s"
+															values="64;0"></animate>
+													</path>
+													<path
+														fill="none"
+														stroke-dasharray="16"
+														stroke-dashoffset="16"
+														d="M9 10c0 -1.66 1.34 -3 3 -3c1.66 0 3 1.34 3 3c0 0.98 -0.47 1.85 -1.2 2.4c-0.73 0.55 -1.3 0.6 -1.8 1.6"
+													>
+														<animate
+															fill="freeze"
+															attributeName="stroke-dashoffset"
+															begin="0.6s"
+															dur="0.2s"
+															values="16;0"></animate>
+													</path>
+													<path
+														fill="none"
+														stroke-dasharray="2"
+														stroke-dashoffset="2"
+														d="M12 17v0.01"
+													>
+														<animate
+															fill="freeze"
+															attributeName="stroke-dashoffset"
+															begin="0.8s"
+															dur="0.2s"
+															values="2;0"></animate>
+													</path>
+													<animate
+														fill="freeze"
+														attributeName="fill-opacity"
+														begin="1.1s"
+														dur="0.15s"
+														values="0;0.3"></animate>
+												</g>
+											</svg>
+											How long does it take for my withdrawal request to be processed?
+										</span>
+										<svg
+											class="block size-5 shrink-0 text-gray-600 group-hover:text-gray-500 hs-accordion-active:hidden dark:text-neutral-400"
+											xmlns="http://www.w3.org/2000/svg"
+											width="24"
+											height="24"
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="2"
+											stroke-linecap="round"
+											stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg
+										>
+										<svg
+											class="hidden size-5 shrink-0 text-gray-600 group-hover:text-gray-500 hs-accordion-active:block dark:text-neutral-400"
+											xmlns="http://www.w3.org/2000/svg"
+											width="24"
+											height="24"
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="2"
+											stroke-linecap="round"
+											stroke-linejoin="round"><path d="m18 15-6-6-6 6"></path></svg
+										>
+									</button>
+									<div
+										id="accountManagement-item-14"
+										class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300"
+										role="region"
+										aria-labelledby="accountManagement-item-aria-14"
+									>
+										<p class="mb-4 text-gray-600 dark:text-neutral-400">
+											Our team will take up to 1 hour to investigate your withdrawal and determine
+											if your account is fully verified and eligible for withdrawal approval. Once
+											verified, the time for the money to reach your external account may vary from
+											one payment method to another. The time frame goes as follows:
+										</p>
+										<ul class="list-inside list-disc space-y-3">
+											<li>Wire transfer 2-3 working days.</li>
+											<li>Credit card up to 10 working days.</li>
+											<li>
+												The crypto transfer is a live transfer; therefore, the transaction is
+												instant.
+											</li>
+										</ul>
+									</div>
+								</div>
+								<!-- item end  -->
+								<!-- item start -->
+								<div class="hs-accordion pb-3 pt-6" id="accountManagement-item-aria-15">
+									<button
+										class="hs-accordion-toggle group inline-flex w-full items-center justify-between gap-x-3 rounded-lg pb-3 text-start font-semibold text-gray-800 transition hover:text-gray-500 focus:text-gray-500 focus:outline-none dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400 md:text-lg"
+										aria-expanded="false"
+										aria-controls="accountManagement-item-15"
+									>
+										<span class="flex items-center justify-center gap-3">
+											<svg
+												xmlns="http://www.w3.org/2000/svg"
+												width="32"
+												height="32"
+												viewBox="0 0 24 24"
+												class="min-w-[32px] text-dbgreen-500"
+											>
+												<g
+													fill="currentColor"
+													fill-opacity="0"
+													stroke="currentColor"
+													stroke-linecap="round"
+													stroke-linejoin="round"
+													stroke-width="2"
+												>
+													<path
+														stroke-dasharray="64"
+														stroke-dashoffset="64"
+														d="M12 3c4.97 0 9 4.03 9 9c0 4.97 -4.03 9 -9 9c-4.97 0 -9 -4.03 -9 -9c0 -4.97 4.03 -9 9 -9Z"
+													>
+														<animate
+															fill="freeze"
+															attributeName="stroke-dashoffset"
+															dur="0.6s"
+															values="64;0"></animate>
+													</path>
+													<path
+														fill="none"
+														stroke-dasharray="16"
+														stroke-dashoffset="16"
+														d="M9 10c0 -1.66 1.34 -3 3 -3c1.66 0 3 1.34 3 3c0 0.98 -0.47 1.85 -1.2 2.4c-0.73 0.55 -1.3 0.6 -1.8 1.6"
+													>
+														<animate
+															fill="freeze"
+															attributeName="stroke-dashoffset"
+															begin="0.6s"
+															dur="0.2s"
+															values="16;0"></animate>
+													</path>
+													<path
+														fill="none"
+														stroke-dasharray="2"
+														stroke-dashoffset="2"
+														d="M12 17v0.01"
+													>
+														<animate
+															fill="freeze"
+															attributeName="stroke-dashoffset"
+															begin="0.8s"
+															dur="0.2s"
+															values="2;0"></animate>
+													</path>
+													<animate
+														fill="freeze"
+														attributeName="fill-opacity"
+														begin="1.1s"
+														dur="0.15s"
+														values="0;0.3"></animate>
+												</g>
+											</svg>
+											What should I do if encounter issues with my account?
+										</span>
+										<svg
+											class="block size-5 shrink-0 text-gray-600 group-hover:text-gray-500 hs-accordion-active:hidden dark:text-neutral-400"
+											xmlns="http://www.w3.org/2000/svg"
+											width="24"
+											height="24"
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="2"
+											stroke-linecap="round"
+											stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg
+										>
+										<svg
+											class="hidden size-5 shrink-0 text-gray-600 group-hover:text-gray-500 hs-accordion-active:block dark:text-neutral-400"
+											xmlns="http://www.w3.org/2000/svg"
+											width="24"
+											height="24"
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="2"
+											stroke-linecap="round"
+											stroke-linejoin="round"><path d="m18 15-6-6-6 6"></path></svg
+										>
+									</button>
+									<div
+										id="accountManagement-item-15"
+										class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300"
+										role="region"
+										aria-labelledby="accountManagement-item-aria-15"
+									>
+										<p class="mb-4 text-gray-600 dark:text-neutral-400">
+											If you encounter any issues with your account, you can contact our customer
+											support through email, phone, or live chat for assistance.
+										</p>
+									</div>
+								</div>
+								<!-- item end  -->
+								<!-- item start -->
+								<div class="hs-accordion pb-3 pt-6" id="accountManagement-item-aria-16">
+									<button
+										class="hs-accordion-toggle group inline-flex w-full items-center justify-between gap-x-3 rounded-lg pb-3 text-start font-semibold text-gray-800 transition hover:text-gray-500 focus:text-gray-500 focus:outline-none dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400 md:text-lg"
+										aria-expanded="false"
+										aria-controls="accountManagement-item-16"
+									>
+										<span class="flex items-center justify-center gap-3">
+											<svg
+												xmlns="http://www.w3.org/2000/svg"
+												width="32"
+												height="32"
+												viewBox="0 0 24 24"
+												class="min-w-[32px] text-dbgreen-500"
+											>
+												<g
+													fill="currentColor"
+													fill-opacity="0"
+													stroke="currentColor"
+													stroke-linecap="round"
+													stroke-linejoin="round"
+													stroke-width="2"
+												>
+													<path
+														stroke-dasharray="64"
+														stroke-dashoffset="64"
+														d="M12 3c4.97 0 9 4.03 9 9c0 4.97 -4.03 9 -9 9c-4.97 0 -9 -4.03 -9 -9c0 -4.97 4.03 -9 9 -9Z"
+													>
+														<animate
+															fill="freeze"
+															attributeName="stroke-dashoffset"
+															dur="0.6s"
+															values="64;0"></animate>
+													</path>
+													<path
+														fill="none"
+														stroke-dasharray="16"
+														stroke-dashoffset="16"
+														d="M9 10c0 -1.66 1.34 -3 3 -3c1.66 0 3 1.34 3 3c0 0.98 -0.47 1.85 -1.2 2.4c-0.73 0.55 -1.3 0.6 -1.8 1.6"
+													>
+														<animate
+															fill="freeze"
+															attributeName="stroke-dashoffset"
+															begin="0.6s"
+															dur="0.2s"
+															values="16;0"></animate>
+													</path>
+													<path
+														fill="none"
+														stroke-dasharray="2"
+														stroke-dashoffset="2"
+														d="M12 17v0.01"
+													>
+														<animate
+															fill="freeze"
+															attributeName="stroke-dashoffset"
+															begin="0.8s"
+															dur="0.2s"
+															values="2;0"></animate>
+													</path>
+													<animate
+														fill="freeze"
+														attributeName="fill-opacity"
+														begin="1.1s"
+														dur="0.15s"
+														values="0;0.3"></animate>
+												</g>
+											</svg>
+											Does DB Investing offer Non - Deposit Bonus (NDB)?
+										</span>
+										<svg
+											class="block size-5 shrink-0 text-gray-600 group-hover:text-gray-500 hs-accordion-active:hidden dark:text-neutral-400"
+											xmlns="http://www.w3.org/2000/svg"
+											width="24"
+											height="24"
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="2"
+											stroke-linecap="round"
+											stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg
+										>
+										<svg
+											class="hidden size-5 shrink-0 text-gray-600 group-hover:text-gray-500 hs-accordion-active:block dark:text-neutral-400"
+											xmlns="http://www.w3.org/2000/svg"
+											width="24"
+											height="24"
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="2"
+											stroke-linecap="round"
+											stroke-linejoin="round"><path d="m18 15-6-6-6 6"></path></svg
+										>
+									</button>
+									<div
+										id="accountManagement-item-16"
+										class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300"
+										role="region"
+										aria-labelledby="accountManagement-item-aria-16"
+									>
+										<p class="mb-4 text-gray-600 dark:text-neutral-400">
+											Yes! Ask our customer service department about this month's campaign and start
+											enjoying its benefits.
+										</p>
+									</div>
+								</div>
+								<!-- item end  -->
+								<!-- item start -->
+								<div class="hs-accordion pb-3 pt-6" id="accountManagement-item-aria-17">
+									<button
+										class="hs-accordion-toggle group inline-flex w-full items-center justify-between gap-x-3 rounded-lg pb-3 text-start font-semibold text-gray-800 transition hover:text-gray-500 focus:text-gray-500 focus:outline-none dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400 md:text-lg"
+										aria-expanded="false"
+										aria-controls="accountManagement-item-17"
+									>
+										<span class="flex items-center justify-center gap-3">
+											<svg
+												xmlns="http://www.w3.org/2000/svg"
+												width="32"
+												height="32"
+												viewBox="0 0 24 24"
+												class="min-w-[32px] text-dbgreen-500"
+											>
+												<g
+													fill="currentColor"
+													fill-opacity="0"
+													stroke="currentColor"
+													stroke-linecap="round"
+													stroke-linejoin="round"
+													stroke-width="2"
+												>
+													<path
+														stroke-dasharray="64"
+														stroke-dashoffset="64"
+														d="M12 3c4.97 0 9 4.03 9 9c0 4.97 -4.03 9 -9 9c-4.97 0 -9 -4.03 -9 -9c0 -4.97 4.03 -9 9 -9Z"
+													>
+														<animate
+															fill="freeze"
+															attributeName="stroke-dashoffset"
+															dur="0.6s"
+															values="64;0"></animate>
+													</path>
+													<path
+														fill="none"
+														stroke-dasharray="16"
+														stroke-dashoffset="16"
+														d="M9 10c0 -1.66 1.34 -3 3 -3c1.66 0 3 1.34 3 3c0 0.98 -0.47 1.85 -1.2 2.4c-0.73 0.55 -1.3 0.6 -1.8 1.6"
+													>
+														<animate
+															fill="freeze"
+															attributeName="stroke-dashoffset"
+															begin="0.6s"
+															dur="0.2s"
+															values="16;0"></animate>
+													</path>
+													<path
+														fill="none"
+														stroke-dasharray="2"
+														stroke-dashoffset="2"
+														d="M12 17v0.01"
+													>
+														<animate
+															fill="freeze"
+															attributeName="stroke-dashoffset"
+															begin="0.8s"
+															dur="0.2s"
+															values="2;0"></animate>
+													</path>
+													<animate
+														fill="freeze"
+														attributeName="fill-opacity"
+														begin="1.1s"
+														dur="0.15s"
+														values="0;0.3"></animate>
+												</g>
+											</svg>
+											How long do I have to use my No deposit Bonus (NDB)?
+										</span>
+										<svg
+											class="block size-5 shrink-0 text-gray-600 group-hover:text-gray-500 hs-accordion-active:hidden dark:text-neutral-400"
+											xmlns="http://www.w3.org/2000/svg"
+											width="24"
+											height="24"
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="2"
+											stroke-linecap="round"
+											stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg
+										>
+										<svg
+											class="hidden size-5 shrink-0 text-gray-600 group-hover:text-gray-500 hs-accordion-active:block dark:text-neutral-400"
+											xmlns="http://www.w3.org/2000/svg"
+											width="24"
+											height="24"
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="2"
+											stroke-linecap="round"
+											stroke-linejoin="round"><path d="m18 15-6-6-6 6"></path></svg
+										>
+									</button>
+									<div
+										id="accountManagement-item-17"
+										class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300"
+										role="region"
+										aria-labelledby="accountManagement-item-aria-17"
+									>
+										<p class="mb-4 text-gray-600 dark:text-neutral-400">
+											You will have a timeframe of <strong class="font-semibold text-dbgreen-500"
+												>30 calendar days</strong
+											> to trade with your No Deposit Bonus. In the case that you haven’t started trading
+											between that time, your bonus will be removed from your account automatically.
+										</p>
+									</div>
+								</div>
+								<!-- item end  -->
+								<!-- item start -->
+								<div class="hs-accordion pb-3 pt-6" id="accountManagement-item-aria-18">
+									<button
+										class="hs-accordion-toggle group inline-flex w-full items-center justify-between gap-x-3 rounded-lg pb-3 text-start font-semibold text-gray-800 transition hover:text-gray-500 focus:text-gray-500 focus:outline-none dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400 md:text-lg"
+										aria-expanded="false"
+										aria-controls="accountManagement-item-18"
+									>
+										<span class="flex items-center justify-center gap-3">
+											<svg
+												xmlns="http://www.w3.org/2000/svg"
+												width="32"
+												height="32"
+												viewBox="0 0 24 24"
+												class="min-w-[32px] text-dbgreen-500"
+											>
+												<g
+													fill="currentColor"
+													fill-opacity="0"
+													stroke="currentColor"
+													stroke-linecap="round"
+													stroke-linejoin="round"
+													stroke-width="2"
+												>
+													<path
+														stroke-dasharray="64"
+														stroke-dashoffset="64"
+														d="M12 3c4.97 0 9 4.03 9 9c0 4.97 -4.03 9 -9 9c-4.97 0 -9 -4.03 -9 -9c0 -4.97 4.03 -9 9 -9Z"
+													>
+														<animate
+															fill="freeze"
+															attributeName="stroke-dashoffset"
+															dur="0.6s"
+															values="64;0"></animate>
+													</path>
+													<path
+														fill="none"
+														stroke-dasharray="16"
+														stroke-dashoffset="16"
+														d="M9 10c0 -1.66 1.34 -3 3 -3c1.66 0 3 1.34 3 3c0 0.98 -0.47 1.85 -1.2 2.4c-0.73 0.55 -1.3 0.6 -1.8 1.6"
+													>
+														<animate
+															fill="freeze"
+															attributeName="stroke-dashoffset"
+															begin="0.6s"
+															dur="0.2s"
+															values="16;0"></animate>
+													</path>
+													<path
+														fill="none"
+														stroke-dasharray="2"
+														stroke-dashoffset="2"
+														d="M12 17v0.01"
+													>
+														<animate
+															fill="freeze"
+															attributeName="stroke-dashoffset"
+															begin="0.8s"
+															dur="0.2s"
+															values="2;0"></animate>
+													</path>
+													<animate
+														fill="freeze"
+														attributeName="fill-opacity"
+														begin="1.1s"
+														dur="0.15s"
+														values="0;0.3"></animate>
+												</g>
+											</svg>
+											Into which account will my No Deposit Bonus (NDB) be loaded?
+										</span>
+										<svg
+											class="block size-5 shrink-0 text-gray-600 group-hover:text-gray-500 hs-accordion-active:hidden dark:text-neutral-400"
+											xmlns="http://www.w3.org/2000/svg"
+											width="24"
+											height="24"
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="2"
+											stroke-linecap="round"
+											stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg
+										>
+										<svg
+											class="hidden size-5 shrink-0 text-gray-600 group-hover:text-gray-500 hs-accordion-active:block dark:text-neutral-400"
+											xmlns="http://www.w3.org/2000/svg"
+											width="24"
+											height="24"
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="2"
+											stroke-linecap="round"
+											stroke-linejoin="round"><path d="m18 15-6-6-6 6"></path></svg
+										>
+									</button>
+									<div
+										id="accountManagement-item-18"
+										class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300"
+										role="region"
+										aria-labelledby="accountManagement-item-aria-18"
+									>
+										<p class="mb-4 text-gray-600 dark:text-neutral-400">
+											Your No Deposit Bonus will be loaded into your <strong>STP account</strong>,
+											once you meet the specified requirements.
+										</p>
+									</div>
+								</div>
+								<!-- item end  -->
+							</div>
+							<!-- End Accordion -->
+						</div>
+						<div
+							id="tradeInvesting"
+							class="hidden"
+							role="tabpanel"
+							aria-labelledby="tradingInvesting-item"
+						>
+							<!-- Accordion -->
+							<div class="hs-accordion-group divide-y divide-gray-200 dark:divide-neutral-700">
+								<!-- item start -->
+								<div class="hs-accordion active pb-3" id="tradeInvesting-item-aria-1">
+									<button
+										class="hs-accordion-toggle group inline-flex w-full items-center justify-between gap-x-3 rounded-lg pb-3 text-start font-semibold text-gray-800 transition hover:text-gray-500 focus:text-gray-500 focus:outline-none dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400 md:text-lg"
+										aria-expanded="true"
+										aria-controls="tradeInvesting-item-1"
+									>
+										<span class="flex items-center justify-center gap-3">
+											<svg
+												xmlns="http://www.w3.org/2000/svg"
+												width="32"
+												height="32"
+												viewBox="0 0 24 24"
+												class="min-w-[32px] text-dbgreen-500"
+											>
+												<g
+													fill="currentColor"
+													fill-opacity="0"
+													stroke="currentColor"
+													stroke-linecap="round"
+													stroke-linejoin="round"
+													stroke-width="2"
+												>
+													<path
+														stroke-dasharray="64"
+														stroke-dashoffset="64"
+														d="M12 3c4.97 0 9 4.03 9 9c0 4.97 -4.03 9 -9 9c-4.97 0 -9 -4.03 -9 -9c0 -4.97 4.03 -9 9 -9Z"
+													>
+														<animate
+															fill="freeze"
+															attributeName="stroke-dashoffset"
+															dur="0.6s"
+															values="64;0"></animate>
+													</path>
+													<path
+														fill="none"
+														stroke-dasharray="16"
+														stroke-dashoffset="16"
+														d="M9 10c0 -1.66 1.34 -3 3 -3c1.66 0 3 1.34 3 3c0 0.98 -0.47 1.85 -1.2 2.4c-0.73 0.55 -1.3 0.6 -1.8 1.6"
+													>
+														<animate
+															fill="freeze"
+															attributeName="stroke-dashoffset"
+															begin="0.6s"
+															dur="0.2s"
+															values="16;0"></animate>
+													</path>
+													<path
+														fill="none"
+														stroke-dasharray="2"
+														stroke-dashoffset="2"
+														d="M12 17v0.01"
+													>
+														<animate
+															fill="freeze"
+															attributeName="stroke-dashoffset"
+															begin="0.8s"
+															dur="0.2s"
+															values="2;0"></animate>
+													</path>
+													<animate
+														fill="freeze"
+														attributeName="fill-opacity"
+														begin="1.1s"
+														dur="0.15s"
+														values="0;0.3"></animate>
+												</g>
+											</svg>
+											What types of assets can I trade on DB Investing?
+										</span>
+										<svg
+											class="block size-5 shrink-0 text-gray-600 group-hover:text-gray-500 hs-accordion-active:hidden dark:text-neutral-400"
+											xmlns="http://www.w3.org/2000/svg"
+											width="24"
+											height="24"
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="2"
+											stroke-linecap="round"
+											stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg
+										>
+										<svg
+											class="hidden size-5 shrink-0 text-gray-600 group-hover:text-gray-500 hs-accordion-active:block dark:text-neutral-400"
+											xmlns="http://www.w3.org/2000/svg"
+											width="24"
+											height="24"
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="2"
+											stroke-linecap="round"
+											stroke-linejoin="round"><path d="m18 15-6-6-6 6"></path></svg
+										>
+									</button>
+									<div
+										id="tradeInvesting-item-1"
+										class="hs-accordion-content w-full overflow-hidden transition-[height] duration-300"
+										role="region"
+										aria-labelledby="tradeInvesting-item-aria-1"
+									>
+										<p class="text-gray-600 dark:text-neutral-400">
+											We offer trading in various asset classes including forex, commodities,
+											indices, and cryptocurrencies.
+										</p>
+									</div>
+								</div>
+								<!-- item end -->
+								<!-- item start -->
+								<div class="hs-accordion pb-3 pt-6" id="tradeInvesting-item-aria-2">
+									<button
+										class="hs-accordion-toggle group inline-flex w-full items-center justify-between gap-x-3 rounded-lg pb-3 text-start font-semibold text-gray-800 transition hover:text-gray-500 focus:text-gray-500 focus:outline-none dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400 md:text-lg"
+										aria-expanded="false"
+										aria-controls="tradeInvesting-item-2"
+									>
+										<span class="flex items-center justify-center gap-3">
+											<svg
+												xmlns="http://www.w3.org/2000/svg"
+												width="32"
+												height="32"
+												viewBox="0 0 24 24"
+												class="min-w-[32px] text-dbgreen-500"
+											>
+												<g
+													fill="currentColor"
+													fill-opacity="0"
+													stroke="currentColor"
+													stroke-linecap="round"
+													stroke-linejoin="round"
+													stroke-width="2"
+												>
+													<path
+														stroke-dasharray="64"
+														stroke-dashoffset="64"
+														d="M12 3c4.97 0 9 4.03 9 9c0 4.97 -4.03 9 -9 9c-4.97 0 -9 -4.03 -9 -9c0 -4.97 4.03 -9 9 -9Z"
+													>
+														<animate
+															fill="freeze"
+															attributeName="stroke-dashoffset"
+															dur="0.6s"
+															values="64;0"></animate>
+													</path>
+													<path
+														fill="none"
+														stroke-dasharray="16"
+														stroke-dashoffset="16"
+														d="M9 10c0 -1.66 1.34 -3 3 -3c1.66 0 3 1.34 3 3c0 0.98 -0.47 1.85 -1.2 2.4c-0.73 0.55 -1.3 0.6 -1.8 1.6"
+													>
+														<animate
+															fill="freeze"
+															attributeName="stroke-dashoffset"
+															begin="0.6s"
+															dur="0.2s"
+															values="16;0"></animate>
+													</path>
+													<path
+														fill="none"
+														stroke-dasharray="2"
+														stroke-dashoffset="2"
+														d="M12 17v0.01"
+													>
+														<animate
+															fill="freeze"
+															attributeName="stroke-dashoffset"
+															begin="0.8s"
+															dur="0.2s"
+															values="2;0"></animate>
+													</path>
+													<animate
+														fill="freeze"
+														attributeName="fill-opacity"
+														begin="1.1s"
+														dur="0.15s"
+														values="0;0.3"></animate>
+												</g>
+											</svg>
+											Which Trading platform does DB Investing use?
+										</span>
+										<svg
+											class="block size-5 shrink-0 text-gray-600 group-hover:text-gray-500 hs-accordion-active:hidden dark:text-neutral-400"
+											xmlns="http://www.w3.org/2000/svg"
+											width="24"
+											height="24"
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="2"
+											stroke-linecap="round"
+											stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg
+										>
+										<svg
+											class="hidden size-5 shrink-0 text-gray-600 group-hover:text-gray-500 hs-accordion-active:block dark:text-neutral-400"
+											xmlns="http://www.w3.org/2000/svg"
+											width="24"
+											height="24"
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="2"
+											stroke-linecap="round"
+											stroke-linejoin="round"><path d="m18 15-6-6-6 6"></path></svg
+										>
+									</button>
+									<div
+										id="accountManagement-item-2"
+										class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300"
+										role="region"
+										aria-labelledby="accountManagement-item-aria-2"
+									>
+										<p class="mb-4 text-gray-600 dark:text-neutral-400">
+											You can look for at the top of your profile, on the left-hand side:
+										</p>
+										<ul class="my-4 list-inside list-disc space-y-3">
+											<li>MetaTrader5 Web Trader</li>
+											<li>Sirix Web Trader</li>
+										</ul>
+										<Image
+											src={images[`/src/images/${'platforms_1.png'}`]()}
+											alt="account-img-item-2"
+											class=""
+										/>
+									</div>
+								</div>
+								<!-- item end  -->
+								<!-- item start -->
+								<div class="hs-accordion pb-3 pt-6" id="tradeInvesting-item-aria-3">
+									<button
+										class="hs-accordion-toggle group inline-flex w-full items-center justify-between gap-x-3 rounded-lg pb-3 text-start font-semibold text-gray-800 transition hover:text-gray-500 focus:text-gray-500 focus:outline-none dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400 md:text-lg"
+										aria-expanded="false"
+										aria-controls="tradeInvesting-item-3"
+									>
+										<span class="flex items-center justify-center gap-3">
+											<svg
+												xmlns="http://www.w3.org/2000/svg"
+												width="32"
+												height="32"
+												viewBox="0 0 24 24"
+												class="min-w-[32px] text-dbgreen-500"
+											>
+												<g
+													fill="currentColor"
+													fill-opacity="0"
+													stroke="currentColor"
+													stroke-linecap="round"
+													stroke-linejoin="round"
+													stroke-width="2"
+												>
+													<path
+														stroke-dasharray="64"
+														stroke-dashoffset="64"
+														d="M12 3c4.97 0 9 4.03 9 9c0 4.97 -4.03 9 -9 9c-4.97 0 -9 -4.03 -9 -9c0 -4.97 4.03 -9 9 -9Z"
+													>
+														<animate
+															fill="freeze"
+															attributeName="stroke-dashoffset"
+															dur="0.6s"
+															values="64;0"></animate>
+													</path>
+													<path
+														fill="none"
+														stroke-dasharray="16"
+														stroke-dashoffset="16"
+														d="M9 10c0 -1.66 1.34 -3 3 -3c1.66 0 3 1.34 3 3c0 0.98 -0.47 1.85 -1.2 2.4c-0.73 0.55 -1.3 0.6 -1.8 1.6"
+													>
+														<animate
+															fill="freeze"
+															attributeName="stroke-dashoffset"
+															begin="0.6s"
+															dur="0.2s"
+															values="16;0"></animate>
+													</path>
+													<path
+														fill="none"
+														stroke-dasharray="2"
+														stroke-dashoffset="2"
+														d="M12 17v0.01"
+													>
+														<animate
+															fill="freeze"
+															attributeName="stroke-dashoffset"
+															begin="0.8s"
+															dur="0.2s"
+															values="2;0"></animate>
+													</path>
+													<animate
+														fill="freeze"
+														attributeName="fill-opacity"
+														begin="1.1s"
+														dur="0.15s"
+														values="0;0.3"></animate>
+												</g>
+											</svg>
+											How can I log into my Trading account?
+										</span>
+										<svg
+											class="block size-5 shrink-0 text-gray-600 group-hover:text-gray-500 hs-accordion-active:hidden dark:text-neutral-400"
+											xmlns="http://www.w3.org/2000/svg"
+											width="24"
+											height="24"
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="2"
+											stroke-linecap="round"
+											stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg
+										>
+										<svg
+											class="hidden size-5 shrink-0 text-gray-600 group-hover:text-gray-500 hs-accordion-active:block dark:text-neutral-400"
+											xmlns="http://www.w3.org/2000/svg"
+											width="24"
+											height="24"
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="2"
+											stroke-linecap="round"
+											stroke-linejoin="round"><path d="m18 15-6-6-6 6"></path></svg
+										>
+									</button>
+									<div
+										id="accountManagement-item-3"
+										class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300"
+										role="region"
+										aria-labelledby="accountManagement-item-aria-3"
+									>
+										<p class="mb-4 text-gray-600 dark:text-neutral-400">
+											<strong>1st Step-</strong> Verify your email, upon creating your account on our
+											platform, automatically we send you an email containing your credentials to access
+											MT5, as follows
+										</p>
+										<Image
+											src={images[`/src/images/${'open_trading_account_1.png'}`]()}
+											alt="account-img-item-2"
+											class=""
+										/>
+										<p class="my-4 text-gray-600 dark:text-neutral-400">
+											<strong>2nd Step-</strong> Considering the previous information, at the top of
+											your dashboard, you'll see the tab "Platforms" where you can click on any of our
+											platforms, either "MetaTrader5 Web Trader" or "Sirix Web Trader”.
+										</p>
+										<Image
+											src={images[`/src/images/${'open_trading_account_2.png'}`]()}
+											alt="account-img-item-2"
+											class=""
+										/>
+									</div>
+								</div>
+								<!-- item end  -->
+								<!-- item start -->
+								<div class="hs-accordion pb-3 pt-6" id="tradeInvesting-item-aria-4">
+									<button
+										class="hs-accordion-toggle group inline-flex w-full items-center justify-between gap-x-3 rounded-lg pb-3 text-start font-semibold text-gray-800 transition hover:text-gray-500 focus:text-gray-500 focus:outline-none dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400 md:text-lg"
+										aria-expanded="false"
+										aria-controls="tradeInvesting-item-4"
+									>
+										<span class="flex items-center justify-center gap-3">
+											<svg
+												xmlns="http://www.w3.org/2000/svg"
+												width="32"
+												height="32"
+												viewBox="0 0 24 24"
+												class="min-w-[32px] text-dbgreen-500"
+											>
+												<g
+													fill="currentColor"
+													fill-opacity="0"
+													stroke="currentColor"
+													stroke-linecap="round"
+													stroke-linejoin="round"
+													stroke-width="2"
+												>
+													<path
+														stroke-dasharray="64"
+														stroke-dashoffset="64"
+														d="M12 3c4.97 0 9 4.03 9 9c0 4.97 -4.03 9 -9 9c-4.97 0 -9 -4.03 -9 -9c0 -4.97 4.03 -9 9 -9Z"
+													>
+														<animate
+															fill="freeze"
+															attributeName="stroke-dashoffset"
+															dur="0.6s"
+															values="64;0"></animate>
+													</path>
+													<path
+														fill="none"
+														stroke-dasharray="16"
+														stroke-dashoffset="16"
+														d="M9 10c0 -1.66 1.34 -3 3 -3c1.66 0 3 1.34 3 3c0 0.98 -0.47 1.85 -1.2 2.4c-0.73 0.55 -1.3 0.6 -1.8 1.6"
+													>
+														<animate
+															fill="freeze"
+															attributeName="stroke-dashoffset"
+															begin="0.6s"
+															dur="0.2s"
+															values="16;0"></animate>
+													</path>
+													<path
+														fill="none"
+														stroke-dasharray="2"
+														stroke-dashoffset="2"
+														d="M12 17v0.01"
+													>
+														<animate
+															fill="freeze"
+															attributeName="stroke-dashoffset"
+															begin="0.8s"
+															dur="0.2s"
+															values="2;0"></animate>
+													</path>
+													<animate
+														fill="freeze"
+														attributeName="fill-opacity"
+														begin="1.1s"
+														dur="0.15s"
+														values="0;0.3"></animate>
+												</g>
+											</svg>
+											Do you have any issues with the server's name?
+										</span>
+										<svg
+											class="block size-5 shrink-0 text-gray-600 group-hover:text-gray-500 hs-accordion-active:hidden dark:text-neutral-400"
+											xmlns="http://www.w3.org/2000/svg"
+											width="24"
+											height="24"
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="2"
+											stroke-linecap="round"
+											stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg
+										>
+										<svg
+											class="hidden size-5 shrink-0 text-gray-600 group-hover:text-gray-500 hs-accordion-active:block dark:text-neutral-400"
+											xmlns="http://www.w3.org/2000/svg"
+											width="24"
+											height="24"
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="2"
+											stroke-linecap="round"
+											stroke-linejoin="round"><path d="m18 15-6-6-6 6"></path></svg
+										>
+									</button>
+									<div
+										id="accountManagement-item-4"
+										class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300"
+										role="region"
+										aria-labelledby="accountManagement-item-aria-4"
+									>
+										<p class="mb-4 text-gray-600 dark:text-neutral-400">
+											We kindly request that you attempt to use either DBInvest-Limited or the IP
+											address 18.194.170.225
+										</p>
+									</div>
+								</div>
+								<!-- item end  -->
+								<!-- item start -->
+								<div class="hs-accordion pb-3 pt-6" id="tradeInvesting-item-aria-5">
+									<button
+										class="hs-accordion-toggle group inline-flex w-full items-center justify-between gap-x-3 rounded-lg pb-3 text-start font-semibold text-gray-800 transition hover:text-gray-500 focus:text-gray-500 focus:outline-none dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400 md:text-lg"
+										aria-expanded="false"
+										aria-controls="tradeInvesting-item-5"
+									>
+										<span class="flex items-center justify-center gap-3">
+											<svg
+												xmlns="http://www.w3.org/2000/svg"
+												width="32"
+												height="32"
+												viewBox="0 0 24 24"
+												class="min-w-[32px] text-dbgreen-500"
+											>
+												<g
+													fill="currentColor"
+													fill-opacity="0"
+													stroke="currentColor"
+													stroke-linecap="round"
+													stroke-linejoin="round"
+													stroke-width="2"
+												>
+													<path
+														stroke-dasharray="64"
+														stroke-dashoffset="64"
+														d="M12 3c4.97 0 9 4.03 9 9c0 4.97 -4.03 9 -9 9c-4.97 0 -9 -4.03 -9 -9c0 -4.97 4.03 -9 9 -9Z"
+													>
+														<animate
+															fill="freeze"
+															attributeName="stroke-dashoffset"
+															dur="0.6s"
+															values="64;0"></animate>
+													</path>
+													<path
+														fill="none"
+														stroke-dasharray="16"
+														stroke-dashoffset="16"
+														d="M9 10c0 -1.66 1.34 -3 3 -3c1.66 0 3 1.34 3 3c0 0.98 -0.47 1.85 -1.2 2.4c-0.73 0.55 -1.3 0.6 -1.8 1.6"
+													>
+														<animate
+															fill="freeze"
+															attributeName="stroke-dashoffset"
+															begin="0.6s"
+															dur="0.2s"
+															values="16;0"></animate>
+													</path>
+													<path
+														fill="none"
+														stroke-dasharray="2"
+														stroke-dashoffset="2"
+														d="M12 17v0.01"
+													>
+														<animate
+															fill="freeze"
+															attributeName="stroke-dashoffset"
+															begin="0.8s"
+															dur="0.2s"
+															values="2;0"></animate>
+													</path>
+													<animate
+														fill="freeze"
+														attributeName="fill-opacity"
+														begin="1.1s"
+														dur="0.15s"
+														values="0;0.3"></animate>
+												</g>
+											</svg>
+											What are the trading hours for different markets?
+										</span>
+										<svg
+											class="block size-5 shrink-0 text-gray-600 group-hover:text-gray-500 hs-accordion-active:hidden dark:text-neutral-400"
+											xmlns="http://www.w3.org/2000/svg"
+											width="24"
+											height="24"
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="2"
+											stroke-linecap="round"
+											stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg
+										>
+										<svg
+											class="hidden size-5 shrink-0 text-gray-600 group-hover:text-gray-500 hs-accordion-active:block dark:text-neutral-400"
+											xmlns="http://www.w3.org/2000/svg"
+											width="24"
+											height="24"
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="2"
+											stroke-linecap="round"
+											stroke-linejoin="round"><path d="m18 15-6-6-6 6"></path></svg
+										>
+									</button>
+									<div
+										id="accountManagement-item-5"
+										class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300"
+										role="region"
+										aria-labelledby="accountManagement-item-aria-5"
+									>
+										<p class="mb-4 text-gray-600 dark:text-neutral-400">
+											Trading hours vary depending on the asset and market. Forex markets are
+											generally open 24 hours from Monday to Friday, while other markets such as
+											commodities and indices have specific trading hours. Check our trading
+											platform for detailed information.
+										</p>
+									</div>
+								</div>
+								<!-- item end  -->
+								<!-- item start -->
+								<div class="hs-accordion pb-3 pt-6" id="tradeInvesting-item-aria-6">
+									<button
+										class="hs-accordion-toggle group inline-flex w-full items-center justify-between gap-x-3 rounded-lg pb-3 text-start font-semibold text-gray-800 transition hover:text-gray-500 focus:text-gray-500 focus:outline-none dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400 md:text-lg"
+										aria-expanded="false"
+										aria-controls="tradeInvesting-item-6"
+									>
+										<span class="flex items-center justify-center gap-3">
+											<svg
+												xmlns="http://www.w3.org/2000/svg"
+												width="32"
+												height="32"
+												viewBox="0 0 24 24"
+												class="min-w-[32px] text-dbgreen-500"
+											>
+												<g
+													fill="currentColor"
+													fill-opacity="0"
+													stroke="currentColor"
+													stroke-linecap="round"
+													stroke-linejoin="round"
+													stroke-width="2"
+												>
+													<path
+														stroke-dasharray="64"
+														stroke-dashoffset="64"
+														d="M12 3c4.97 0 9 4.03 9 9c0 4.97 -4.03 9 -9 9c-4.97 0 -9 -4.03 -9 -9c0 -4.97 4.03 -9 9 -9Z"
+													>
+														<animate
+															fill="freeze"
+															attributeName="stroke-dashoffset"
+															dur="0.6s"
+															values="64;0"></animate>
+													</path>
+													<path
+														fill="none"
+														stroke-dasharray="16"
+														stroke-dashoffset="16"
+														d="M9 10c0 -1.66 1.34 -3 3 -3c1.66 0 3 1.34 3 3c0 0.98 -0.47 1.85 -1.2 2.4c-0.73 0.55 -1.3 0.6 -1.8 1.6"
+													>
+														<animate
+															fill="freeze"
+															attributeName="stroke-dashoffset"
+															begin="0.6s"
+															dur="0.2s"
+															values="16;0"></animate>
+													</path>
+													<path
+														fill="none"
+														stroke-dasharray="2"
+														stroke-dashoffset="2"
+														d="M12 17v0.01"
+													>
+														<animate
+															fill="freeze"
+															attributeName="stroke-dashoffset"
+															begin="0.8s"
+															dur="0.2s"
+															values="2;0"></animate>
+													</path>
+													<animate
+														fill="freeze"
+														attributeName="fill-opacity"
+														begin="1.1s"
+														dur="0.15s"
+														values="0;0.3"></animate>
+												</g>
+											</svg>
+											What are the fees associated with trading?
+										</span>
+										<svg
+											class="block size-5 shrink-0 text-gray-600 group-hover:text-gray-500 hs-accordion-active:hidden dark:text-neutral-400"
+											xmlns="http://www.w3.org/2000/svg"
+											width="24"
+											height="24"
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="2"
+											stroke-linecap="round"
+											stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg
+										>
+										<svg
+											class="hidden size-5 shrink-0 text-gray-600 group-hover:text-gray-500 hs-accordion-active:block dark:text-neutral-400"
+											xmlns="http://www.w3.org/2000/svg"
+											width="24"
+											height="24"
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="2"
+											stroke-linecap="round"
+											stroke-linejoin="round"><path d="m18 15-6-6-6 6"></path></svg
+										>
+									</button>
+									<div
+										id="accountManagement-item-6"
+										class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300"
+										role="region"
+										aria-labelledby="accountManagement-item-aria-6"
+									>
+										<p class="mb-4 text-gray-600 dark:text-neutral-400">
+											Trading fees include spreads, commissions, and potential overnight financing
+											charges. The exact fees can vary depending on the asset and account type.
+											Detailed fee information is available on our website.
+										</p>
+									</div>
+								</div>
+								<!-- item end  -->
+								<!-- item start -->
+								<div class="hs-accordion pb-3 pt-6" id="tradeInvesting-item-aria-7">
+									<button
+										class="hs-accordion-toggle group inline-flex w-full items-center justify-between gap-x-3 rounded-lg pb-3 text-start font-semibold text-gray-800 transition hover:text-gray-500 focus:text-gray-500 focus:outline-none dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400 md:text-lg"
+										aria-expanded="false"
+										aria-controls="tradeInvesting-item-7"
+									>
+										<span class="flex items-center justify-center gap-3">
+											<svg
+												xmlns="http://www.w3.org/2000/svg"
+												width="32"
+												height="32"
+												viewBox="0 0 24 24"
+												class="min-w-[32px] text-dbgreen-500"
+											>
+												<g
+													fill="currentColor"
+													fill-opacity="0"
+													stroke="currentColor"
+													stroke-linecap="round"
+													stroke-linejoin="round"
+													stroke-width="2"
+												>
+													<path
+														stroke-dasharray="64"
+														stroke-dashoffset="64"
+														d="M12 3c4.97 0 9 4.03 9 9c0 4.97 -4.03 9 -9 9c-4.97 0 -9 -4.03 -9 -9c0 -4.97 4.03 -9 9 -9Z"
+													>
+														<animate
+															fill="freeze"
+															attributeName="stroke-dashoffset"
+															dur="0.6s"
+															values="64;0"></animate>
+													</path>
+													<path
+														fill="none"
+														stroke-dasharray="16"
+														stroke-dashoffset="16"
+														d="M9 10c0 -1.66 1.34 -3 3 -3c1.66 0 3 1.34 3 3c0 0.98 -0.47 1.85 -1.2 2.4c-0.73 0.55 -1.3 0.6 -1.8 1.6"
+													>
+														<animate
+															fill="freeze"
+															attributeName="stroke-dashoffset"
+															begin="0.6s"
+															dur="0.2s"
+															values="16;0"></animate>
+													</path>
+													<path
+														fill="none"
+														stroke-dasharray="2"
+														stroke-dashoffset="2"
+														d="M12 17v0.01"
+													>
+														<animate
+															fill="freeze"
+															attributeName="stroke-dashoffset"
+															begin="0.8s"
+															dur="0.2s"
+															values="2;0"></animate>
+													</path>
+													<animate
+														fill="freeze"
+														attributeName="fill-opacity"
+														begin="1.1s"
+														dur="0.15s"
+														values="0;0.3"></animate>
+												</g>
+											</svg>
+											How does DB Investing ensure the best execution for trades?
+										</span>
+										<svg
+											class="block size-5 shrink-0 text-gray-600 group-hover:text-gray-500 hs-accordion-active:hidden dark:text-neutral-400"
+											xmlns="http://www.w3.org/2000/svg"
+											width="24"
+											height="24"
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="2"
+											stroke-linecap="round"
+											stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg
+										>
+										<svg
+											class="hidden size-5 shrink-0 text-gray-600 group-hover:text-gray-500 hs-accordion-active:block dark:text-neutral-400"
+											xmlns="http://www.w3.org/2000/svg"
+											width="24"
+											height="24"
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="2"
+											stroke-linecap="round"
+											stroke-linejoin="round"><path d="m18 15-6-6-6 6"></path></svg
+										>
+									</button>
+									<div
+										id="accountManagement-item-7"
+										class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300"
+										role="region"
+										aria-labelledby="accountManagement-item-aria-7"
+									>
+										<p class="mb-4 text-gray-600 dark:text-neutral-400">
+											We employ advanced trading technology and liquidity providers to ensure the
+											best execution for trades. We strive to offer competitive spreads and fast
+											execution speeds.
+										</p>
+									</div>
+								</div>
+								<!-- item end  -->
+								<!-- item start -->
+								<div class="hs-accordion pb-3 pt-6" id="tradeInvesting-item-aria-8">
+									<button
+										class="hs-accordion-toggle group inline-flex w-full items-center justify-between gap-x-3 rounded-lg pb-3 text-start font-semibold text-gray-800 transition hover:text-gray-500 focus:text-gray-500 focus:outline-none dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400 md:text-lg"
+										aria-expanded="false"
+										aria-controls="tradeInvesting-item-8"
+									>
+										<span class="flex items-center justify-center gap-3">
+											<svg
+												xmlns="http://www.w3.org/2000/svg"
+												width="32"
+												height="32"
+												viewBox="0 0 24 24"
+												class="min-w-[32px] text-dbgreen-500"
+											>
+												<g
+													fill="currentColor"
+													fill-opacity="0"
+													stroke="currentColor"
+													stroke-linecap="round"
+													stroke-linejoin="round"
+													stroke-width="2"
+												>
+													<path
+														stroke-dasharray="64"
+														stroke-dashoffset="64"
+														d="M12 3c4.97 0 9 4.03 9 9c0 4.97 -4.03 9 -9 9c-4.97 0 -9 -4.03 -9 -9c0 -4.97 4.03 -9 9 -9Z"
+													>
+														<animate
+															fill="freeze"
+															attributeName="stroke-dashoffset"
+															dur="0.6s"
+															values="64;0"></animate>
+													</path>
+													<path
+														fill="none"
+														stroke-dasharray="16"
+														stroke-dashoffset="16"
+														d="M9 10c0 -1.66 1.34 -3 3 -3c1.66 0 3 1.34 3 3c0 0.98 -0.47 1.85 -1.2 2.4c-0.73 0.55 -1.3 0.6 -1.8 1.6"
+													>
+														<animate
+															fill="freeze"
+															attributeName="stroke-dashoffset"
+															begin="0.6s"
+															dur="0.2s"
+															values="16;0"></animate>
+													</path>
+													<path
+														fill="none"
+														stroke-dasharray="2"
+														stroke-dashoffset="2"
+														d="M12 17v0.01"
+													>
+														<animate
+															fill="freeze"
+															attributeName="stroke-dashoffset"
+															begin="0.8s"
+															dur="0.2s"
+															values="2;0"></animate>
+													</path>
+													<animate
+														fill="freeze"
+														attributeName="fill-opacity"
+														begin="1.1s"
+														dur="0.15s"
+														values="0;0.3"></animate>
+												</g>
+											</svg>
+											Can I trade on margin, and what are the requirements?
+										</span>
+										<svg
+											class="block size-5 shrink-0 text-gray-600 group-hover:text-gray-500 hs-accordion-active:hidden dark:text-neutral-400"
+											xmlns="http://www.w3.org/2000/svg"
+											width="24"
+											height="24"
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="2"
+											stroke-linecap="round"
+											stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg
+										>
+										<svg
+											class="hidden size-5 shrink-0 text-gray-600 group-hover:text-gray-500 hs-accordion-active:block dark:text-neutral-400"
+											xmlns="http://www.w3.org/2000/svg"
+											width="24"
+											height="24"
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="2"
+											stroke-linecap="round"
+											stroke-linejoin="round"><path d="m18 15-6-6-6 6"></path></svg
+										>
+									</button>
+									<div
+										id="accountManagement-item-8"
+										class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300"
+										role="region"
+										aria-labelledby="accountManagement-item-aria-8"
+									>
+										<p class="mb-4 text-gray-600 dark:text-neutral-400">
+											Yes, we offer margin trading. The requirements for margin trading include
+											maintaining a minimum account balance and understanding the risks associated
+											with leverage. Specific details can be found on our website or by contacting
+											customer support.
+										</p>
+									</div>
+								</div>
+								<!-- item end  -->
+								<!-- item start -->
+								<div class="hs-accordion pb-3 pt-6" id="tradeInvesting-item-aria-9">
+									<button
+										class="hs-accordion-toggle group inline-flex w-full items-center justify-between gap-x-3 rounded-lg pb-3 text-start font-semibold text-gray-800 transition hover:text-gray-500 focus:text-gray-500 focus:outline-none dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400 md:text-lg"
+										aria-expanded="false"
+										aria-controls="tradeInvesting-item-9"
+									>
+										<span class="flex items-center justify-center gap-3">
+											<svg
+												xmlns="http://www.w3.org/2000/svg"
+												width="32"
+												height="32"
+												viewBox="0 0 24 24"
+												class="min-w-[32px] text-dbgreen-500"
+											>
+												<g
+													fill="currentColor"
+													fill-opacity="0"
+													stroke="currentColor"
+													stroke-linecap="round"
+													stroke-linejoin="round"
+													stroke-width="2"
+												>
+													<path
+														stroke-dasharray="64"
+														stroke-dashoffset="64"
+														d="M12 3c4.97 0 9 4.03 9 9c0 4.97 -4.03 9 -9 9c-4.97 0 -9 -4.03 -9 -9c0 -4.97 4.03 -9 9 -9Z"
+													>
+														<animate
+															fill="freeze"
+															attributeName="stroke-dashoffset"
+															dur="0.6s"
+															values="64;0"></animate>
+													</path>
+													<path
+														fill="none"
+														stroke-dasharray="16"
+														stroke-dashoffset="16"
+														d="M9 10c0 -1.66 1.34 -3 3 -3c1.66 0 3 1.34 3 3c0 0.98 -0.47 1.85 -1.2 2.4c-0.73 0.55 -1.3 0.6 -1.8 1.6"
+													>
+														<animate
+															fill="freeze"
+															attributeName="stroke-dashoffset"
+															begin="0.6s"
+															dur="0.2s"
+															values="16;0"></animate>
+													</path>
+													<path
+														fill="none"
+														stroke-dasharray="2"
+														stroke-dashoffset="2"
+														d="M12 17v0.01"
+													>
+														<animate
+															fill="freeze"
+															attributeName="stroke-dashoffset"
+															begin="0.8s"
+															dur="0.2s"
+															values="2;0"></animate>
+													</path>
+													<animate
+														fill="freeze"
+														attributeName="fill-opacity"
+														begin="1.1s"
+														dur="0.15s"
+														values="0;0.3"></animate>
+												</g>
+											</svg>
+											How Can I Change My Account Password in MT5?
+										</span>
+										<svg
+											class="block size-5 shrink-0 text-gray-600 group-hover:text-gray-500 hs-accordion-active:hidden dark:text-neutral-400"
+											xmlns="http://www.w3.org/2000/svg"
+											width="24"
+											height="24"
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="2"
+											stroke-linecap="round"
+											stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg
+										>
+										<svg
+											class="hidden size-5 shrink-0 text-gray-600 group-hover:text-gray-500 hs-accordion-active:block dark:text-neutral-400"
+											xmlns="http://www.w3.org/2000/svg"
+											width="24"
+											height="24"
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="2"
+											stroke-linecap="round"
+											stroke-linejoin="round"><path d="m18 15-6-6-6 6"></path></svg
+										>
+									</button>
+									<div
+										id="accountManagement-item-9"
+										class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300"
+										role="region"
+										aria-labelledby="accountManagement-item-aria-9"
+									>
+										<p class="mb-4 text-gray-600 dark:text-neutral-400">
+											<strong>1st Step-</strong> Select the account for which you want to modify the
+											password, Click on "View".
+										</p>
+										<Image
+											src={images[`/src/images/${'reset_mt5_pass_1.png'}`]()}
+											alt="account-img-item-2"
+											class=""
+										/>
+										<p class="my-4 text-gray-600 dark:text-neutral-400">
+											<strong>2nd Step-</strong> A new tab will open. Click on "Change" within the "Trading
+											Platform Password" section and modify your password as desired.
+										</p>
+										<Image
+											src={images[`/src/images/${'reset_mt5_pass_2.png'}`]()}
+											alt="account-img-item-2"
+											class=""
+										/>
+									</div>
+								</div>
+								<!-- item end  -->
+								<!-- item start -->
+								<div class="hs-accordion pb-3 pt-6" id="tradeInvesting-item-aria-10">
+									<button
+										class="hs-accordion-toggle group inline-flex w-full items-center justify-between gap-x-3 rounded-lg pb-3 text-start font-semibold text-gray-800 transition hover:text-gray-500 focus:text-gray-500 focus:outline-none dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400 md:text-lg"
+										aria-expanded="false"
+										aria-controls="tradeInvesting-item-10"
+									>
+										<span class="flex items-center justify-center gap-3">
+											<svg
+												xmlns="http://www.w3.org/2000/svg"
+												width="32"
+												height="32"
+												viewBox="0 0 24 24"
+												class="min-w-[32px] text-dbgreen-500"
+											>
+												<g
+													fill="currentColor"
+													fill-opacity="0"
+													stroke="currentColor"
+													stroke-linecap="round"
+													stroke-linejoin="round"
+													stroke-width="2"
+												>
+													<path
+														stroke-dasharray="64"
+														stroke-dashoffset="64"
+														d="M12 3c4.97 0 9 4.03 9 9c0 4.97 -4.03 9 -9 9c-4.97 0 -9 -4.03 -9 -9c0 -4.97 4.03 -9 9 -9Z"
+													>
+														<animate
+															fill="freeze"
+															attributeName="stroke-dashoffset"
+															dur="0.6s"
+															values="64;0"></animate>
+													</path>
+													<path
+														fill="none"
+														stroke-dasharray="16"
+														stroke-dashoffset="16"
+														d="M9 10c0 -1.66 1.34 -3 3 -3c1.66 0 3 1.34 3 3c0 0.98 -0.47 1.85 -1.2 2.4c-0.73 0.55 -1.3 0.6 -1.8 1.6"
+													>
+														<animate
+															fill="freeze"
+															attributeName="stroke-dashoffset"
+															begin="0.6s"
+															dur="0.2s"
+															values="16;0"></animate>
+													</path>
+													<path
+														fill="none"
+														stroke-dasharray="2"
+														stroke-dashoffset="2"
+														d="M12 17v0.01"
+													>
+														<animate
+															fill="freeze"
+															attributeName="stroke-dashoffset"
+															begin="0.8s"
+															dur="0.2s"
+															values="2;0"></animate>
+													</path>
+													<animate
+														fill="freeze"
+														attributeName="fill-opacity"
+														begin="1.1s"
+														dur="0.15s"
+														values="0;0.3"></animate>
+												</g>
+											</svg>
+											What is the process for transferring assets between accounts?
+										</span>
+										<svg
+											class="block size-5 shrink-0 text-gray-600 group-hover:text-gray-500 hs-accordion-active:hidden dark:text-neutral-400"
+											xmlns="http://www.w3.org/2000/svg"
+											width="24"
+											height="24"
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="2"
+											stroke-linecap="round"
+											stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg
+										>
+										<svg
+											class="hidden size-5 shrink-0 text-gray-600 group-hover:text-gray-500 hs-accordion-active:block dark:text-neutral-400"
+											xmlns="http://www.w3.org/2000/svg"
+											width="24"
+											height="24"
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="2"
+											stroke-linecap="round"
+											stroke-linejoin="round"><path d="m18 15-6-6-6 6"></path></svg
+										>
+									</button>
+									<div
+										id="accountManagement-item-10"
+										class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300"
+										role="region"
+										aria-labelledby="accountManagement-item-aria-10"
+									>
+										<p class="mb-4 text-gray-600 dark:text-neutral-400">
+											The process for transferring assets between accounts involves initiating a
+											transfer request through the platform. You may need to provide certain details
+											and adhere to any applicable transfer limits or fees
+										</p>
+									</div>
+								</div>
+								<!-- item end  -->
+								<!-- item start -->
+								<div class="hs-accordion pb-3 pt-6" id="tradeInvesting-item-aria-11">
+									<button
+										class="hs-accordion-toggle group inline-flex w-full items-center justify-between gap-x-3 rounded-lg pb-3 text-start font-semibold text-gray-800 transition hover:text-gray-500 focus:text-gray-500 focus:outline-none dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400 md:text-lg"
+										aria-expanded="false"
+										aria-controls="tradeInvesting-item-11"
+									>
+										<span class="flex items-center justify-center gap-3">
+											<svg
+												xmlns="http://www.w3.org/2000/svg"
+												width="32"
+												height="32"
+												viewBox="0 0 24 24"
+												class="min-w-[32px] text-dbgreen-500"
+											>
+												<g
+													fill="currentColor"
+													fill-opacity="0"
+													stroke="currentColor"
+													stroke-linecap="round"
+													stroke-linejoin="round"
+													stroke-width="2"
+												>
+													<path
+														stroke-dasharray="64"
+														stroke-dashoffset="64"
+														d="M12 3c4.97 0 9 4.03 9 9c0 4.97 -4.03 9 -9 9c-4.97 0 -9 -4.03 -9 -9c0 -4.97 4.03 -9 9 -9Z"
+													>
+														<animate
+															fill="freeze"
+															attributeName="stroke-dashoffset"
+															dur="0.6s"
+															values="64;0"></animate>
+													</path>
+													<path
+														fill="none"
+														stroke-dasharray="16"
+														stroke-dashoffset="16"
+														d="M9 10c0 -1.66 1.34 -3 3 -3c1.66 0 3 1.34 3 3c0 0.98 -0.47 1.85 -1.2 2.4c-0.73 0.55 -1.3 0.6 -1.8 1.6"
+													>
+														<animate
+															fill="freeze"
+															attributeName="stroke-dashoffset"
+															begin="0.6s"
+															dur="0.2s"
+															values="16;0"></animate>
+													</path>
+													<path
+														fill="none"
+														stroke-dasharray="2"
+														stroke-dashoffset="2"
+														d="M12 17v0.01"
+													>
+														<animate
+															fill="freeze"
+															attributeName="stroke-dashoffset"
+															begin="0.8s"
+															dur="0.2s"
+															values="2;0"></animate>
+													</path>
+													<animate
+														fill="freeze"
+														attributeName="fill-opacity"
+														begin="1.1s"
+														dur="0.15s"
+														values="0;0.3"></animate>
+												</g>
+											</svg>
+											What risk management tools are available?
+										</span>
+										<svg
+											class="block size-5 shrink-0 text-gray-600 group-hover:text-gray-500 hs-accordion-active:hidden dark:text-neutral-400"
+											xmlns="http://www.w3.org/2000/svg"
+											width="24"
+											height="24"
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="2"
+											stroke-linecap="round"
+											stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg
+										>
+										<svg
+											class="hidden size-5 shrink-0 text-gray-600 group-hover:text-gray-500 hs-accordion-active:block dark:text-neutral-400"
+											xmlns="http://www.w3.org/2000/svg"
+											width="24"
+											height="24"
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="2"
+											stroke-linecap="round"
+											stroke-linejoin="round"><path d="m18 15-6-6-6 6"></path></svg
+										>
+									</button>
+									<div
+										id="accountManagement-item-11"
+										class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300"
+										role="region"
+										aria-labelledby="accountManagement-item-aria-11"
+									>
+										<p class="mb-4 text-gray-600 dark:text-neutral-400">
+											We provide various risk management tools such as stop-loss orders, take-profit
+											orders, and margin alerts to help traders manage their risk effectively.
+										</p>
+									</div>
+								</div>
+								<!-- item end  -->
+								<!-- item start -->
+								<div class="hs-accordion pb-3 pt-6" id="tradeInvesting-item-aria-12">
+									<button
+										class="hs-accordion-toggle group inline-flex w-full items-center justify-between gap-x-3 rounded-lg pb-3 text-start font-semibold text-gray-800 transition hover:text-gray-500 focus:text-gray-500 focus:outline-none dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400 md:text-lg"
+										aria-expanded="false"
+										aria-controls="tradeInvesting-item-12"
+									>
+										<span class="flex items-center justify-center gap-3">
+											<svg
+												xmlns="http://www.w3.org/2000/svg"
+												width="32"
+												height="32"
+												viewBox="0 0 24 24"
+												class="min-w-[32px] text-dbgreen-500"
+											>
+												<g
+													fill="currentColor"
+													fill-opacity="0"
+													stroke="currentColor"
+													stroke-linecap="round"
+													stroke-linejoin="round"
+													stroke-width="2"
+												>
+													<path
+														stroke-dasharray="64"
+														stroke-dashoffset="64"
+														d="M12 3c4.97 0 9 4.03 9 9c0 4.97 -4.03 9 -9 9c-4.97 0 -9 -4.03 -9 -9c0 -4.97 4.03 -9 9 -9Z"
+													>
+														<animate
+															fill="freeze"
+															attributeName="stroke-dashoffset"
+															dur="0.6s"
+															values="64;0"></animate>
+													</path>
+													<path
+														fill="none"
+														stroke-dasharray="16"
+														stroke-dashoffset="16"
+														d="M9 10c0 -1.66 1.34 -3 3 -3c1.66 0 3 1.34 3 3c0 0.98 -0.47 1.85 -1.2 2.4c-0.73 0.55 -1.3 0.6 -1.8 1.6"
+													>
+														<animate
+															fill="freeze"
+															attributeName="stroke-dashoffset"
+															begin="0.6s"
+															dur="0.2s"
+															values="16;0"></animate>
+													</path>
+													<path
+														fill="none"
+														stroke-dasharray="2"
+														stroke-dashoffset="2"
+														d="M12 17v0.01"
+													>
+														<animate
+															fill="freeze"
+															attributeName="stroke-dashoffset"
+															begin="0.8s"
+															dur="0.2s"
+															values="2;0"></animate>
+													</path>
+													<animate
+														fill="freeze"
+														attributeName="fill-opacity"
+														begin="1.1s"
+														dur="0.15s"
+														values="0;0.3"></animate>
+												</g>
+											</svg>
+											How can I know how many lots I have traded in an operation?
+										</span>
+										<svg
+											class="block size-5 shrink-0 text-gray-600 group-hover:text-gray-500 hs-accordion-active:hidden dark:text-neutral-400"
+											xmlns="http://www.w3.org/2000/svg"
+											width="24"
+											height="24"
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="2"
+											stroke-linecap="round"
+											stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg
+										>
+										<svg
+											class="hidden size-5 shrink-0 text-gray-600 group-hover:text-gray-500 hs-accordion-active:block dark:text-neutral-400"
+											xmlns="http://www.w3.org/2000/svg"
+											width="24"
+											height="24"
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="2"
+											stroke-linecap="round"
+											stroke-linejoin="round"><path d="m18 15-6-6-6 6"></path></svg
+										>
+									</button>
+									<div
+										id="accountManagement-item-12"
+										class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300"
+										role="region"
+										aria-labelledby="accountManagement-item-aria-12"
+									>
+										<p class="mb-4 text-gray-600 dark:text-neutral-400">
+											<strong>1st Step-</strong> On the left side of your dashboard, you should click
+											on 'Accounts'. A tab will appear, and you should click on “Accounts Overview”.
+										</p>
+										<Image
+											src={images[`/src/images/${'operation_1.png'}`]()}
+											alt="account-img-item-2"
+											class=""
+										/>
+										<p class="my-4 text-gray-600 dark:text-neutral-400">
+											<strong>2nd Step</strong> - you will be able to select one for which you want to
+											check your lots.
+										</p>
+										<Image
+											src={images[`/src/images/${'operation_2.png'}`]()}
+											alt="account-img-item-2"
+											class=""
+										/>
+										<p class="my-4 text-gray-600 dark:text-neutral-400">
+											<strong>3rd Step</strong> - A window with the information for that account should
+											open immediately. In the bottom right corner, click on “Trading History”.
+										</p>
+										<Image
+											src={images[`/src/images/${'operation_3.png'}`]()}
+											alt="account-img-item-2"
+											class=""
+										/>
+										<p class="my-4 text-gray-600 dark:text-neutral-400">
+											<strong>4th Step</strong> - you can view your entire trading history. Go to the
+											“Lots” column and calculate the total sum of the numbers that you must find there.
+											This result will correspond to the total number of lots.
+										</p>
+										<Image
+											src={images[`/src/images/${'operation_4.png'}`]()}
+											alt="account-img-item-2"
+											class=""
+										/>
+									</div>
+								</div>
+								<!-- item end  -->
+								<!-- item start -->
+								<div class="hs-accordion pb-3 pt-6" id="tradeInvesting-item-aria-13">
+									<button
+										class="hs-accordion-toggle group inline-flex w-full items-center justify-between gap-x-3 rounded-lg pb-3 text-start font-semibold text-gray-800 transition hover:text-gray-500 focus:text-gray-500 focus:outline-none dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400 md:text-lg"
+										aria-expanded="false"
+										aria-controls="tradeInvesting-item-13"
+									>
+										<span class="flex items-center justify-center gap-3">
+											<svg
+												xmlns="http://www.w3.org/2000/svg"
+												width="32"
+												height="32"
+												viewBox="0 0 24 24"
+												class="min-w-[32px] text-dbgreen-500"
+											>
+												<g
+													fill="currentColor"
+													fill-opacity="0"
+													stroke="currentColor"
+													stroke-linecap="round"
+													stroke-linejoin="round"
+													stroke-width="2"
+												>
+													<path
+														stroke-dasharray="64"
+														stroke-dashoffset="64"
+														d="M12 3c4.97 0 9 4.03 9 9c0 4.97 -4.03 9 -9 9c-4.97 0 -9 -4.03 -9 -9c0 -4.97 4.03 -9 9 -9Z"
+													>
+														<animate
+															fill="freeze"
+															attributeName="stroke-dashoffset"
+															dur="0.6s"
+															values="64;0"></animate>
+													</path>
+													<path
+														fill="none"
+														stroke-dasharray="16"
+														stroke-dashoffset="16"
+														d="M9 10c0 -1.66 1.34 -3 3 -3c1.66 0 3 1.34 3 3c0 0.98 -0.47 1.85 -1.2 2.4c-0.73 0.55 -1.3 0.6 -1.8 1.6"
+													>
+														<animate
+															fill="freeze"
+															attributeName="stroke-dashoffset"
+															begin="0.6s"
+															dur="0.2s"
+															values="16;0"></animate>
+													</path>
+													<path
+														fill="none"
+														stroke-dasharray="2"
+														stroke-dashoffset="2"
+														d="M12 17v0.01"
+													>
+														<animate
+															fill="freeze"
+															attributeName="stroke-dashoffset"
+															begin="0.8s"
+															dur="0.2s"
+															values="2;0"></animate>
+													</path>
+													<animate
+														fill="freeze"
+														attributeName="fill-opacity"
+														begin="1.1s"
+														dur="0.15s"
+														values="0;0.3"></animate>
+												</g>
+											</svg>
+											How can I become a DB Investing Partner/ Introducer Broker - IB
+										</span>
+										<svg
+											class="block size-5 shrink-0 text-gray-600 group-hover:text-gray-500 hs-accordion-active:hidden dark:text-neutral-400"
+											xmlns="http://www.w3.org/2000/svg"
+											width="24"
+											height="24"
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="2"
+											stroke-linecap="round"
+											stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg
+										>
+										<svg
+											class="hidden size-5 shrink-0 text-gray-600 group-hover:text-gray-500 hs-accordion-active:block dark:text-neutral-400"
+											xmlns="http://www.w3.org/2000/svg"
+											width="24"
+											height="24"
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="2"
+											stroke-linecap="round"
+											stroke-linejoin="round"><path d="m18 15-6-6-6 6"></path></svg
+										>
+									</button>
+									<div
+										id="accountManagement-item-13"
+										class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300"
+										role="region"
+										aria-labelledby="accountManagement-item-aria-13"
+									>
+										<p>
+											To apply to become a partnership, you can do so through these two options:
+										</p>
+										<p class="my-2 font-semibold text-dbgreen-500">First Option:</p>
+										<p class="mb-4 text-gray-600 dark:text-neutral-400">
+											<strong>1st Step-</strong> from your dashboard, at the bottom left, you will see
+											"IB Menu." Click on "Request IB."
+										</p>
+										<Image
+											src={images[`/src/images/${'broker_opotion1.png'}`]()}
+											alt="account-img-item-2"
+											class=""
+										/>
+										<p class="my-4 text-gray-600 dark:text-neutral-400">
+											<strong>2nd Step</strong> - A new tab will open where you will need to indicate
+											the countries you want to target for your business, and your website, specify that
+											it will be in dollars, and then you should click on “continue”.
+										</p>
+										<Image
+											src={images[`/src/images/${'broker_opotion1_2.png'}`]()}
+											alt="account-img-item-2"
+											class=""
+										/>
+										<p class="my-4 text-gray-600 dark:text-neutral-400">
+											<strong>3rd Step</strong> - A manager will contact you as soon as possible and
+											provide you with more information.
+										</p>
+										<p class="my-6 font-semibold text-dbgreen-500">Second Option:</p>
+										<p class="mb-4 text-gray-600 dark:text-neutral-400">
+											<strong>1st Step-</strong> enter our website DB Investing - Dream Big Investing,
+											at the top right, click on "partnership."
+										</p>
+										<Image
+											src={images[`/src/images/${'broker_opotion2_1.png'}`]()}
+											alt="account-img-item-2"
+											class=""
+										/>
+										<p class="my-4 text-gray-600 dark:text-neutral-400">
+											<strong>2nd Step</strong> - A new page will open. At the bottom of this page, you
+											will find a box where you can initiate the partnership application, click on “Start
+											Now”.
+										</p>
+										<Image
+											src={images[`/src/images/${'broker_opotion2_2.png'}`]()}
+											alt="account-img-item-2"
+											class=""
+										/>
+										<p class="my-4 text-gray-600 dark:text-neutral-400">
+											<strong>3rd Step</strong> - you will need to fill out all the details in the form,
+											accept the terms and conditions, and click on continue.
+										</p>
+										<Image
+											src={images[`/src/images/${'broker_opotion2_3.png'}`]()}
+											alt="account-img-item-2"
+											class=""
+										/>
+										<p class="my-4 text-gray-600 dark:text-neutral-400">
+											<strong>4th Step-</strong> A manager will contact you as soon as possible and provide
+											you with more information.
+										</p>
+									</div>
+								</div>
+								<!-- item end  -->
+								<!-- item start -->
+								<div class="hs-accordion pb-3 pt-6" id="tradeInvesting-item-aria-14">
+									<button
+										class="hs-accordion-toggle group inline-flex w-full items-center justify-between gap-x-3 rounded-lg pb-3 text-start font-semibold text-gray-800 transition hover:text-gray-500 focus:text-gray-500 focus:outline-none dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400 md:text-lg"
+										aria-expanded="false"
+										aria-controls="tradeInvesting-item-14"
+									>
+										<span class="flex items-center justify-center gap-3">
+											<svg
+												xmlns="http://www.w3.org/2000/svg"
+												width="32"
+												height="32"
+												viewBox="0 0 24 24"
+												class="min-w-[32px] text-dbgreen-500"
+											>
+												<g
+													fill="currentColor"
+													fill-opacity="0"
+													stroke="currentColor"
+													stroke-linecap="round"
+													stroke-linejoin="round"
+													stroke-width="2"
+												>
+													<path
+														stroke-dasharray="64"
+														stroke-dashoffset="64"
+														d="M12 3c4.97 0 9 4.03 9 9c0 4.97 -4.03 9 -9 9c-4.97 0 -9 -4.03 -9 -9c0 -4.97 4.03 -9 9 -9Z"
+													>
+														<animate
+															fill="freeze"
+															attributeName="stroke-dashoffset"
+															dur="0.6s"
+															values="64;0"></animate>
+													</path>
+													<path
+														fill="none"
+														stroke-dasharray="16"
+														stroke-dashoffset="16"
+														d="M9 10c0 -1.66 1.34 -3 3 -3c1.66 0 3 1.34 3 3c0 0.98 -0.47 1.85 -1.2 2.4c-0.73 0.55 -1.3 0.6 -1.8 1.6"
+													>
+														<animate
+															fill="freeze"
+															attributeName="stroke-dashoffset"
+															begin="0.6s"
+															dur="0.2s"
+															values="16;0"></animate>
+													</path>
+													<path
+														fill="none"
+														stroke-dasharray="2"
+														stroke-dashoffset="2"
+														d="M12 17v0.01"
+													>
+														<animate
+															fill="freeze"
+															attributeName="stroke-dashoffset"
+															begin="0.8s"
+															dur="0.2s"
+															values="2;0"></animate>
+													</path>
+													<animate
+														fill="freeze"
+														attributeName="fill-opacity"
+														begin="1.1s"
+														dur="0.15s"
+														values="0;0.3"></animate>
+												</g>
+											</svg>
+											What is Leverage?
+										</span>
+										<svg
+											class="block size-5 shrink-0 text-gray-600 group-hover:text-gray-500 hs-accordion-active:hidden dark:text-neutral-400"
+											xmlns="http://www.w3.org/2000/svg"
+											width="24"
+											height="24"
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="2"
+											stroke-linecap="round"
+											stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg
+										>
+										<svg
+											class="hidden size-5 shrink-0 text-gray-600 group-hover:text-gray-500 hs-accordion-active:block dark:text-neutral-400"
+											xmlns="http://www.w3.org/2000/svg"
+											width="24"
+											height="24"
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="2"
+											stroke-linecap="round"
+											stroke-linejoin="round"><path d="m18 15-6-6-6 6"></path></svg
+										>
+									</button>
+									<div
+										id="accountManagement-item-14"
+										class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300"
+										role="region"
+										aria-labelledby="accountManagement-item-aria-14"
+									>
+										<p class="mb-4 text-gray-600 dark:text-neutral-400">
+											Is the ability to control a large amount of money using a relatively small
+											amount of capital. This is achieved by borrowing money from a broker and using
+											it to increase the size of a trade. Can range from 1:100 to 1:1000.
+										</p>
+									</div>
+								</div>
+								<!-- item end  -->
+								<!-- item start -->
+								<div class="hs-accordion pb-3 pt-6" id="tradeInvesting-item-aria-15">
+									<button
+										class="hs-accordion-toggle group inline-flex w-full items-center justify-between gap-x-3 rounded-lg pb-3 text-start font-semibold text-gray-800 transition hover:text-gray-500 focus:text-gray-500 focus:outline-none dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400 md:text-lg"
+										aria-expanded="false"
+										aria-controls="tradeInvesting-item-15"
+									>
+										<span class="flex items-center justify-center gap-3">
+											<svg
+												xmlns="http://www.w3.org/2000/svg"
+												width="32"
+												height="32"
+												viewBox="0 0 24 24"
+												class="min-w-[32px] text-dbgreen-500"
+											>
+												<g
+													fill="currentColor"
+													fill-opacity="0"
+													stroke="currentColor"
+													stroke-linecap="round"
+													stroke-linejoin="round"
+													stroke-width="2"
+												>
+													<path
+														stroke-dasharray="64"
+														stroke-dashoffset="64"
+														d="M12 3c4.97 0 9 4.03 9 9c0 4.97 -4.03 9 -9 9c-4.97 0 -9 -4.03 -9 -9c0 -4.97 4.03 -9 9 -9Z"
+													>
+														<animate
+															fill="freeze"
+															attributeName="stroke-dashoffset"
+															dur="0.6s"
+															values="64;0"></animate>
+													</path>
+													<path
+														fill="none"
+														stroke-dasharray="16"
+														stroke-dashoffset="16"
+														d="M9 10c0 -1.66 1.34 -3 3 -3c1.66 0 3 1.34 3 3c0 0.98 -0.47 1.85 -1.2 2.4c-0.73 0.55 -1.3 0.6 -1.8 1.6"
+													>
+														<animate
+															fill="freeze"
+															attributeName="stroke-dashoffset"
+															begin="0.6s"
+															dur="0.2s"
+															values="16;0"></animate>
+													</path>
+													<path
+														fill="none"
+														stroke-dasharray="2"
+														stroke-dashoffset="2"
+														d="M12 17v0.01"
+													>
+														<animate
+															fill="freeze"
+															attributeName="stroke-dashoffset"
+															begin="0.8s"
+															dur="0.2s"
+															values="2;0"></animate>
+													</path>
+													<animate
+														fill="freeze"
+														attributeName="fill-opacity"
+														begin="1.1s"
+														dur="0.15s"
+														values="0;0.3"></animate>
+												</g>
+											</svg>
+											How can I modify my Leverage?
+										</span>
+										<svg
+											class="block size-5 shrink-0 text-gray-600 group-hover:text-gray-500 hs-accordion-active:hidden dark:text-neutral-400"
+											xmlns="http://www.w3.org/2000/svg"
+											width="24"
+											height="24"
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="2"
+											stroke-linecap="round"
+											stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg
+										>
+										<svg
+											class="hidden size-5 shrink-0 text-gray-600 group-hover:text-gray-500 hs-accordion-active:block dark:text-neutral-400"
+											xmlns="http://www.w3.org/2000/svg"
+											width="24"
+											height="24"
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="2"
+											stroke-linecap="round"
+											stroke-linejoin="round"><path d="m18 15-6-6-6 6"></path></svg
+										>
+									</button>
+									<div
+										id="accountManagement-item-15"
+										class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300"
+										role="region"
+										aria-labelledby="accountManagement-item-aria-15"
+									>
+										<p class="mb-4 text-gray-600 dark:text-neutral-400">
+											<strong>1st Step-</strong> from your dashboard, at the bottom left, you will see
+											"Accounts" Click on "Accounts Overview"
+										</p>
+										<Image
+											src={images[`/src/images/${'leverage_1.png'}`]()}
+											alt="account-img-item-2"
+											class=""
+										/>
+										<p class="my-4 text-gray-600 dark:text-neutral-400">
+											<strong>2nd Step-</strong> you will be able to select the account that you want
+											to modify the leverage
+										</p>
+										<Image
+											src={images[`/src/images/${'leverage_2.png'}`]()}
+											alt="account-img-item-2"
+											class=""
+										/>
+										<p class="my-4 text-gray-600 dark:text-neutral-400">
+											<strong>3rd Step-</strong> when you're on the page with your account details, hit
+											the "Request New Leverage" button.
+										</p>
+										<Image
+											src={images[`/src/images/${'leverage_3.png'}`]()}
+											alt="account-img-item-2"
+											class=""
+										/>
+									</div>
+								</div>
+								<!-- item end  -->
+							</div>
+							<!-- End Accordion -->
+						</div>
+					</div>
+				</div>
+				<!-- End Col -->
+			</div>
+			<!-- End Grid -->
+		</di>
+		<!-- End FAQ -->
+	</section>
+</Layout>

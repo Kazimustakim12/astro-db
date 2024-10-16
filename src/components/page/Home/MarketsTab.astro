@@ -139,8 +139,7 @@ const marketList = [
 			th: 'การซื้อขายในตลาดสินค้าโภคภัณฑ์มีผู้ค้าเข้าร่วมจากทั่วโลกและคล้ายกับการซื้อขายในตลาดหุ้นหรือฟอเร็กซ์ แต่มีความแตกต่างบางประการ',
 			vi: 'Giao dịch trên sàn hàng hóa thu hút các nhà giao dịch trên toàn thế giới và rất giống với giao dịch trên thị trường chứng khoán hoặc Forex, nhưng có một số khác biệt.',
 			bn: 'পণ্য বিনিময়ে ট্রেডিং সারা বিশ্বের ব্যবসায়ীদের সাথে যুক্ত করে এবং এটি শেয়ার বাজার বা ফরেক্সে ট্রেডিংয়ের সাথে খুব মিল, তবে কিছু পার্থক্য রয়েছে।',
-			'zh-hans':
-				'在商品交易所交易吸引了全球交易员，与股票市场或外汇交易非常相似，但也有一些区别。',
+			'zh-hans': '在商品交易所交易吸引了全球交易员，与股票市场或外汇交易非常相似，但也有一些区别。',
 			'pt-br':
 				'Negociar na bolsa de mercadorias envolve traders de todo o mundo e é muito semelhante ao mercado de ações ou Forex, mas há algumas diferenças.'
 		}),
@@ -224,7 +223,7 @@ const marketList = [
 <section class="md:py-14">
 	<div class="container relative mx-auto">
 		<div
-			class="relative rounded-2xl bg-gray-100 p-4 shadow-xl dark:bg-neutral-700 lg:p-12 xl:p-16"
+			class="relative rounded-2xl bg-gray-100 p-4 shadow-xl dark:bg-neutral-800 lg:p-12 xl:p-16"
 			data-aos="fade-up-sm"
 		>
 			<div class="mb-7">
@@ -296,7 +295,7 @@ const marketList = [
 						return (
 							<button
 								type="button"
-								class={`inline-flex items-center gap-x-2 rounded-lg border border-dbgreen-900 bg-transparent px-4 py-3 text-center text-sm font-bold text-dbgreen-500 hover:text-dbgreen-500 focus:text-dbgreen-500 focus:outline-none disabled:pointer-events-none disabled:opacity-50 hs-tab-active:bg-dbgreen-900 hs-tab-active:text-white hs-tab-active:hover:text-white dark:text-dbgreen-500 dark:hover:text-dbgreen-500 hs-tab-active:dark:text-white ${item.active} font-bold capitalize`}
+								class={`inline-flex items-center gap-x-2 rounded-lg border border-dbgreen-500 bg-transparent px-4 py-3 text-center text-sm font-bold text-dbgreen-500 hover:text-dbgreen-500 focus:text-dbgreen-500 focus:outline-none disabled:pointer-events-none disabled:opacity-50 hs-tab-active:bg-dbgreen-500 hs-tab-active:text-white hs-tab-active:hover:text-white dark:text-dbgreen-500 dark:hover:text-dbgreen-500 hs-tab-active:dark:text-white ${item.active} font-bold capitalize`}
 								id={`${item.id}_${item.title}`}
 								data-hs-tab={`#${item.id}`}
 								aria-controls={`${item.id}`}
@@ -322,10 +321,7 @@ const marketList = [
 								<div class="row">
 									<div class="mx-auto max-w-[85rem] p-0">
 										<div class="grid lg:grid-cols-5 lg:items-center lg:gap-x-8 xl:gap-x-12">
-											<div
-												class="order-1 lg:order-[0] lg:col-span-3"
-												data-aos="fade-up-sm"
-											>
+											<div class="order-1 lg:order-[0] lg:col-span-3" data-aos="fade-up-sm">
 												<h1 class="block text-2xl font-bold capitalize text-gray-800 dark:text-white sm:text-2xl md:text-4xl lg:text-4xl">
 													{item.title} trading
 												</h1>

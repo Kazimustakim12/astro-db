@@ -6,9 +6,6 @@ import DataTable from '@/components/ui/DataTable/DataTable'
 const tradingHourHeader = [...TradingHoursData.columns]
 const tradingHourRows = TradingHoursData.original_rows.map((item) => ({...item.value} ))
 
-console.log(tradingHourRows,"tradingHourRows")
-
-
 export const getStaticPaths = () =>
 	Object.keys(LOCALES).map((lang) => ({
 		params: { lang }

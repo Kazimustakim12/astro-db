@@ -1,5 +1,5 @@
 ---
-import { LOCALES } from '@/i18n'
+import { LOCALES, useTranslations, type Lang } from '@/i18n'
 import Layout from '@/layouts/Layout.astro'
 import { Icon } from 'astro-icon/components'
 import { Image } from 'astro:assets'
@@ -9,6 +9,7 @@ import TrophyThree from '@/images/award-Ufawards.png'
 import TrophyFour from '@/images/award-top-100.png'
 import TrophyFive from '@/images/award-fastest-payout-broker.png'
 import TrophySix from '@/images/award-the-most-innovative-broker.png'
+const t = useTranslations(Astro.currentLocale as Lang)
 
 export const getStaticPaths = () =>
 	Object.keys(LOCALES).map((lang) => ({
@@ -19,7 +20,7 @@ export const getStaticPaths = () =>
 <Layout title="Awards DBInvesting">
 	<section>
 		<div
-			class="relative z-20 w-full overflow-hidden bg-gray-100 py-3 before:absolute before:start-1/2 before:top-0 before:-z-[1] before:size-full before:-translate-x-1/2 before:transform before:bg-[url('/src/images/world_bg.png')] before:bg-center before:bg-no-repeat before:opacity-45 before:hue-rotate-60 dark:bg-black dark:before:bg-[url('/src/images/world_bg.png')]"
+			class="relative z-20 w-full overflow-hidden bg-gray-100 py-3 before:absolute  before:top-0 before:-z-[1] before:size-full  before:transform before:bg-[url('/src/images/world_bg.png')] before:bg-center before:bg-no-repeat before:opacity-45 before:hue-rotate-60 dark:bg-black dark:before:bg-[url('/src/images/world_bg.png')]"
 		>
 			<div
 				class="container flex flex-col items-center justify-between gap-6 py-10 sm:flex-row"
@@ -27,8 +28,22 @@ export const getStaticPaths = () =>
 				<div>
 					<h1
 						class="block text-center text-4xl font-bold text-gray-800 dark:text-neutral-200 md:text-4xl lg:text-5xl"
-					>
-						<strong class="text-green-500">Awards</strong> DB Investing
+						set:html={
+								t({
+									en: '<strong class="text-green-500">Awards</strong> DB Investing',
+									ar: '<strong class="text-green-500">الجوائز</strong> DB Investing',
+									es: '<strong class="text-green-500">Premios</strong> DB Investing',
+									fr: '<strong class="text-green-500">Récompenses</strong> DB Investing',
+									hi: '<strong class="text-green-500">पुरस्कार</strong> DB Investing',
+									id: '<strong class="text-green-500">Penghargaan</strong> DB Investing',
+									ms: '<strong class="text-green-500">Anugerah</strong> DB Investing',
+									th: '<strong class="text-green-500">รางวัล</strong> DB Investing',
+									vi: '<strong class="text-green-500">Giải thưởng</strong> DB Investing',
+									bn: '<strong class="text-green-500">পুরস্কার</strong> DB Investing',
+									'zh-hans': '<strong class="text-green-500">奖项</strong> DB Investing',
+									'pt-br': '<strong class="text-green-500">Prêmios</strong> DB Investing'
+								})
+							}>
 					</h1>
 				</div>
 				<div>
@@ -296,13 +311,62 @@ export const getStaticPaths = () =>
 								class="flex w-full flex-col flex-wrap items-start justify-between gap-2"
 							>
 								<h1 class="text-xl font-semibold text-green-500">
-									Best Forex Introducing Broker Provider
+									{
+    t({
+        en: 'Best Forex Introducing Broker Provider',
+        ar: 'أفضل مزود وساطة معرف في الفوركس',
+        es: 'Mejor Proveedor de Broker Introductor de Forex',
+        fr: 'Meilleur Fournisseur de Courtier Introducteur Forex',
+        hi: 'सर्वश्रेष्ठ फॉरेक्स परिचय दलाल प्रदाता',
+        id: 'Penyedia Broker Pengantar Forex Terbaik',
+        ms: 'Penyedia Broker Pengenal Forex Terbaik',
+        th: 'ผู้ให้บริการโบรกเกอร์ฟอเร็กซ์แนะนำที่ดีที่สุด',
+        vi: 'Nhà cung cấp môi giới giới thiệu Forex tốt nhất',
+        bn: 'সেরা ফরেক্স পরিচয় ব্রোকার প্রদানকারী',
+        'zh-hans': '最佳外汇介绍经纪商提供商',
+        'pt-br': 'Melhor Provedor de Corretor de Introdução Forex'
+    })
+}
+
 								</h1>
 								<p class="text-sm text-black dark:text-neutral-200">
-									Forex Traders Summit Dubai 2024
+									{
+    t({
+        en: 'Forex Traders Summit Dubai 2024',
+        ar: 'قمة متداولي الفوركس دبي 2024',
+        es: 'Cumbre de Traders de Forex Dubái 2024',
+        fr: 'Sommet des Traders Forex Dubaï 2024',
+        hi: 'फॉरेक्स ट्रेडर्स समिट दुबई 2024',
+        id: 'KTT Pedagang Forex Dubai 2024',
+        ms: 'Sidang Kemuncak Pedagang Forex Dubai 2024',
+        th: 'การประชุมสุดยอดผู้ค้าฟอเร็กซ์ดูไบ 2024',
+        vi: 'Hội nghị thượng đỉnh Nhà giao dịch Forex Dubai 2024',
+        bn: 'ফরেক্স ট্রেডারস সামিট দুবাই ২০২৪',
+        'zh-hans': '2024 年迪拜外汇交易者峰会',
+        'pt-br': 'Cúpula de Traders de Forex Dubai 2024'
+    })
+}
 								</p>
 							</div>
-							<p class="text-sm">Smart Vision 2024 Fxdailyinfo.com</p>
+							<p class="text-sm">
+								{
+    t({
+        en: 'Smart Vision 2024 Fxdailyinfo.com',
+        ar: 'رؤية ذكية 2024 Fxdailyinfo.com',
+        es: 'Visión Inteligente 2024 Fxdailyinfo.com',
+        fr: 'Vision Intelligente 2024 Fxdailyinfo.com',
+        hi: 'स्मार्ट विज़न 2024 Fxdailyinfo.com',
+        id: 'Visi Cerdas 2024 Fxdailyinfo.com',
+        ms: 'Visi Pintar 2024 Fxdailyinfo.com',
+        th: 'สมาร์ทวิชั่น 2024 Fxdailyinfo.com',
+        vi: 'Tầm nhìn thông minh 2024 Fxdailyinfo.com',
+        bn: 'স্মার্ট ভিশন ২০২৪ Fxdailyinfo.com',
+        'zh-hans': '智慧愿景 2024 Fxdailyinfo.com',
+        'pt-br': 'Visão Inteligente 2024 Fxdailyinfo.com'
+    })
+}
+
+							</p>
 						</div>
 					</div>
 					<div
@@ -321,13 +385,63 @@ export const getStaticPaths = () =>
 								class="flex w-full flex-col flex-wrap items-start justify-between gap-2"
 							>
 								<h1 class="text-xl font-semibold text-green-500">
-									Forex Broker Award 2024
+									{
+    t({
+        en: 'Forex Broker Award 2024',
+        ar: 'جائزة وسيط الفوركس 2024',
+        es: 'Premio al Broker de Forex 2024',
+        fr: 'Prix du courtier Forex 2024',
+        hi: 'फॉरेक्स ब्रोकर अवार्ड 2024',
+        id: 'Penghargaan Broker Forex 2024',
+        ms: 'Anugerah Broker Forex 2024',
+        th: 'รางวัลโบรกเกอร์ฟอเร็กซ์ 2024',
+        vi: 'Giải thưởng Nhà môi giới Forex 2024',
+        bn: 'ফরেক্স ব্রোকার পুরস্কার ২০২৪',
+        'zh-hans': '外汇经纪商奖 2024',
+        'pt-br': 'Prêmio Corretor Forex 2024'
+    })
+}
+
 								</h1>
 								<p class="text-sm text-black dark:text-neutral-200">
-									Forex Traders Summit Dubai 2024
+									{
+    t({
+        en: 'Forex Traders Summit Dubai 2024',
+        ar: 'قمة متداولي الفوركس دبي 2024',
+        es: 'Cumbre de Traders de Forex Dubái 2024',
+        fr: 'Sommet des traders Forex Dubaï 2024',
+        hi: 'फॉरेक्स ट्रेडर्स समिट दुबई 2024',
+        id: 'KTT Pedagang Forex Dubai 2024',
+        ms: 'Sidang Kemuncak Pedagang Forex Dubai 2024',
+        th: 'ฟอเร็กซ์ เทรดเดอร์ ซัมมิท ดูไบ 2024',
+        vi: 'Hội nghị thượng đỉnh Nhà giao dịch Forex Dubai 2024',
+        bn: 'ফরেক্স ট্রেডারস সামিট দুবাই ২০২৪',
+        'zh-hans': '外汇交易员峰会 迪拜 2024',
+        'pt-br': 'Cúpula de Traders Forex Dubai 2024'
+    })
+}
+
 								</p>
 							</div>
-							<p class="text-sm">Best Global MT5 Broker 2024</p>
+							<p class="text-sm">
+								{
+    t({
+        en: 'Best Global MT5 Broker 2024',
+        ar: 'أفضل وسيط MT5 عالمي 2024',
+        es: 'Mejor Broker Global MT5 2024',
+        fr: 'Meilleur Broker MT5 Global 2024',
+        hi: 'सर्वश्रेष्ठ वैश्विक MT5 ब्रोकर 2024',
+        id: 'Broker MT5 Global Terbaik 2024',
+        ms: 'Broker MT5 Global Terbaik 2024',
+        th: 'โบรกเกอร์ MT5 ระดับโลกที่ดีที่สุด 2024',
+        vi: 'Nhà môi giới MT5 toàn cầu tốt nhất 2024',
+        bn: 'সেরা গ্লোবাল এমটি৫ ব্রোকার ২০২৪',
+        'zh-hans': '2024年全球最佳MT5经纪商',
+        'pt-br': 'Melhor Corretora Global MT5 2024'
+    })
+}
+
+							</p>
 						</div>
 					</div>
 					<div
@@ -346,13 +460,63 @@ export const getStaticPaths = () =>
 								class="flex w-full flex-col flex-wrap items-start justify-between gap-2"
 							>
 								<h1 class="text-xl font-semibold text-green-500">
-									Fastest Growing Broker
+									{
+    t({
+        en: 'Fastest Growing Broker',
+        ar: 'الوسيط الأسرع نموًا',
+        es: 'Corredor de más rápido crecimiento',
+        fr: 'Courtier à la croissance la plus rapide',
+        hi: 'सबसे तेजी से बढ़ता ब्रोकर',
+        id: 'Broker Berkembang Tercepat',
+        ms: 'Broker Paling Pesat Berkembang',
+        th: 'โบรกเกอร์ที่เติบโตเร็วที่สุด',
+        vi: 'Nhà môi giới phát triển nhanh nhất',
+        bn: 'সবচেয়ে দ্রুত বর্ধনশীল ব্রোকার',
+        'zh-hans': '增长最快的经纪商',
+        'pt-br': 'Corretora de crescimento mais rápido'
+    })
+}
+
 								</h1>
 								<p class="text-sm text-black dark:text-neutral-200">
-									Columbia Beach venue in Limassol, Cyprus 2023
+									{
+    t({
+        en: 'Columbia Beach venue in Limassol, Cyprus 2023',
+        ar: 'مكان كولومبيا بيتش في ليماسول، قبرص 2023',
+        es: 'Lugar Columbia Beach en Limassol, Chipre 2023',
+        fr: 'Lieu Columbia Beach à Limassol, Chypre 2023',
+        hi: 'कोलंबिया बीच स्थल लिमासोल, साइप्रस 2023',
+        id: 'Venue Columbia Beach di Limassol, Siprus 2023',
+        ms: 'Tempat Columbia Beach di Limassol, Cyprus 2023',
+        th: 'สถานที่จัดงาน Columbia Beach ใน Limassol, ไซปรัส 2023',
+        vi: 'Địa điểm Columbia Beach tại Limassol, Síp 2023',
+        bn: 'কোলাম্বিয়া বিচ ভেন্যু লিমাসল, সাইপ্রাস 2023',
+        'zh-hans': '2023年塞浦路斯利马索尔的哥伦比亚海滩场地',
+        'pt-br': 'Local Columbia Beach em Limassol, Chipre 2023'
+    })
+}
+
 								</p>
 							</div>
-							<p class="text-sm">UF AWARDS</p>
+							<p class="text-sm">
+								{
+    t({
+        en: 'UF AWARDS',
+        ar: 'جوائز UF',
+        es: 'Premios UF',
+        fr: 'Prix UF',
+        hi: 'यूएफ पुरस्कार',
+        id: 'Penghargaan UF',
+        ms: 'Anugerah UF',
+        th: 'รางวัล UF',
+        vi: 'Giải thưởng UF',
+        bn: 'ইউএফ পুরস্কার',
+        'zh-hans': 'UF 奖项',
+        'pt-br': 'Prêmios UF'
+    })
+}
+
+							</p>
 						</div>
 					</div>
 					<div
@@ -371,13 +535,63 @@ export const getStaticPaths = () =>
 								class="flex w-full flex-col flex-wrap items-start justify-between gap-2"
 							>
 								<h1 class="text-xl font-semibold text-green-500">
-									Top 100 Trusted Financial Institution
+									{
+    t({
+        en: 'Top 100 Trusted Financial Institution',
+        ar: 'أفضل 100 مؤسسة مالية موثوقة',
+        es: 'Top 100 Institución Financiera de Confianza',
+        fr: 'Top 100 Institutions Financières de Confiance',
+        hi: 'शीर्ष 100 विश्वसनीय वित्तीय संस्थान',
+        id: '100 Lembaga Keuangan Terpercaya Teratas',
+        ms: '100 Institusi Kewangan Terpercaya Teratas',
+        th: '100 สถาบันการเงินที่เชื่อถือได้สูงสุด',
+        vi: 'Top 100 Tổ Chức Tài Chính Đáng Tin Cậy',
+        bn: 'শীর্ষ 100 Trusted Financial Institution',
+        'zh-hans': '前100名可信赖的金融机构',
+        'pt-br': 'As 100 Melhores Instituições Financeiras Confiáveis'
+    })
+}
+
 								</h1>
 								<p class="text-sm text-black dark:text-neutral-200">
-									Smart Vision Event in Dubai 2023
+									{
+    t({
+        en: 'Smart Vision Event in Dubai 2023',
+        ar: 'حدث الرؤية الذكية في دبي 2023',
+        es: 'Evento Smart Vision en Dubái 2023',
+        fr: 'Événement Smart Vision à Dubaï 2023',
+        hi: 'दुबई में स्मार्ट विजन इवेंट 2023',
+        id: 'Acara Smart Vision di Dubai 2023',
+        ms: 'Acara Visi Pintar di Dubai 2023',
+        th: 'งาน Smart Vision ในดูไบ 2023',
+        vi: 'Sự kiện Smart Vision tại Dubai 2023',
+        bn: 'দুবাইতে স্মার্ট ভিশন ইভেন্ট ২০২৩',
+        'zh-hans': '2023年迪拜智能愿景活动',
+        'pt-br': 'Evento Smart Vision em Dubai 2023'
+    })
+}
+
 								</p>
 							</div>
-							<p class="text-sm">Smart Vision Event 2023</p>
+							<p class="text-sm">
+								{
+    t({
+        en: 'Smart Vision Event 2023',
+        ar: 'حدث الرؤية الذكية 2023',
+        es: 'Evento Smart Vision 2023',
+        fr: 'Événement Smart Vision 2023',
+        hi: 'स्मार्ट विजन इवेंट 2023',
+        id: 'Acara Smart Vision 2023',
+        ms: 'Acara Visi Pintar 2023',
+        th: 'งาน Smart Vision 2023',
+        vi: 'Sự kiện Smart Vision 2023',
+        bn: 'স্মার্ট ভিশন ইভেন্ট ২০২৩',
+        'zh-hans': '2023年智能愿景活动',
+        'pt-br': 'Evento Smart Vision 2023'
+    })
+}
+
+							</p>
 						</div>
 					</div>
 					<div
@@ -396,13 +610,63 @@ export const getStaticPaths = () =>
 								class="flex w-full flex-col flex-wrap items-start justify-between gap-2"
 							>
 								<h1 class="text-xl font-semibold text-green-500">
-									Fastest Payout Broker
+									{
+    t({
+        en: 'Fastest Payout Broker',
+        ar: 'وسيط الدفع الأسرع',
+        es: 'Corredor de pago más rápido',
+        fr: 'Courtier de paiement le plus rapide',
+        hi: 'सबसे तेज़ भुगतान ब्रोकर',
+        id: 'Brokers Pembayaran Tercepat',
+        ms: 'Brokers Pembayaran Terpantas',
+        th: 'โบรกเกอร์จ่ายเงินที่เร็วที่สุด',
+        vi: 'Nhà môi giới thanh toán nhanh nhất',
+        bn: 'সর্বাধিক দ্রুত পেমেন্ট ব্রোকার',
+        'zh-hans': '最快支付的经纪人',
+        'pt-br': 'Corretor de Pagamento Mais Rápido'
+    })
+}
+
 								</h1>
 								<p class="text-sm text-black dark:text-neutral-200">
-									Forex Expo in Dubai 2023
+									{
+    t({
+        en: 'Forex Expo in Dubai 2023',
+        ar: 'معرض الفوركس في دبي 2023',
+        es: 'Expo de Forex en Dubái 2023',
+        fr: 'Expo Forex à Dubaï 2023',
+        hi: 'दुबई में फॉरेक्स एक्सपो 2023',
+        id: 'Expo Forex di Dubai 2023',
+        ms: 'Pameran Forex di Dubai 2023',
+        th: 'งาน Forex ที่ดูไบ 2023',
+        vi: 'Triển lãm Forex tại Dubai 2023',
+        bn: 'দুবাইয়ে ফরেক্স এক্সপো ২০২৩',
+        'zh-hans': '2023年迪拜外汇博览会',
+        'pt-br': 'Expo de Forex em Dubai 2023'
+    })
+}
+
 								</p>
 							</div>
-							<p class="text-sm">Forex Expo 2023</p>
+							<p class="text-sm">
+								{
+    t({
+        en: 'Forex Expo 2023',
+        ar: 'معرض الفوركس 2023',
+        es: 'Expo de Forex 2023',
+        fr: 'Expo Forex 2023',
+        hi: 'फॉरेक्स एक्सपो 2023',
+        id: 'Expo Forex 2023',
+        ms: 'Pameran Forex 2023',
+        th: 'งาน Forex 2023',
+        vi: 'Triển lãm Forex 2023',
+        bn: 'ফরেক্স এক্সপো ২০২৩',
+        'zh-hans': '2023年外汇博览会',
+        'pt-br': 'Expo de Forex 2023'
+    })
+}
+
+							</p>
 						</div>
 					</div>
 					<div
@@ -421,13 +685,63 @@ export const getStaticPaths = () =>
 								class="flex w-full flex-col flex-wrap items-start justify-between gap-2"
 							>
 								<h1 class="text-xl font-semibold text-green-500">
-									The Most Innovative Broker
+									{
+    t({
+        en: 'The Most Innovative Broker',
+        ar: 'أكثر وسيط ابتكارًا',
+        es: 'El Broker Más Innovador',
+        fr: 'Le Courtier le Plus Innovant',
+        hi: 'सबसे नवोन्मेषी ब्रोकर',
+        id: 'Brokernya Paling Inovatif',
+        ms: 'Broker Paling Inovatif',
+        th: 'โบรกเกอร์ที่มีนวัตกรรมที่สุด',
+        vi: 'Nhà môi giới đổi mới nhất',
+        bn: 'সর্বাধিক উদ্ভাবনী ব্রোকার',
+        'zh-hans': '最具创新性的经纪商',
+        'pt-br': 'O Corretor Mais Inovador'
+    })
+}
+
 								</h1>
 								<p class="text-sm text-black dark:text-neutral-200">
-									Smart Vision Investment Expo in Cairo, Egypt 2023
+									{
+    t({
+        en: 'Smart Vision Investment Expo in Cairo, Egypt 2023',
+        ar: 'معرض سمارت فيجن للاستثمار في القاهرة، مصر 2023',
+        es: 'Expo de Inversiones Smart Vision en El Cairo, Egipto 2023',
+        fr: 'Expo d\'Investissement Smart Vision au Caire, Égypte 2023',
+        hi: 'काहिरा, मिस्र में स्मार्ट विज़न निवेश एक्सपो 2023',
+        id: 'Pameran Investasi Smart Vision di Kairo, Mesir 2023',
+        ms: 'Ekspo Pelaburan Smart Vision di Kaherah, Mesir 2023',
+        th: 'Smart Vision Investment Expo ในกรุงไคโร ประเทศอียิปต์ 2023',
+        vi: 'Triển lãm Đầu tư Smart Vision tại Cairo, Ai Cập 2023',
+        bn: 'কায়রো, মিশরে স্মার্ট ভিশন বিনিয়োগ এক্সপো 2023',
+        'zh-hans': '2023年埃及开罗智能愿景投资博览会',
+        'pt-br': 'Expo de Investimentos Smart Vision no Cairo, Egito 2023'
+    })
+}
+
 								</p>
 							</div>
-							<p class="text-sm">Smart Vision Investment Expo 2023</p>
+							<p class="text-sm">
+								{
+    t({
+        en: 'Smart Vision Investment Expo 2023',
+        ar: 'معرض سمارت فيجن للاستثمار 2023',
+        es: 'Expo de Inversiones Smart Vision 2023',
+        fr: 'Expo d\'Investissement Smart Vision 2023',
+        hi: 'स्मार्ट विज़न निवेश एक्सपो 2023',
+        id: 'Pameran Investasi Smart Vision 2023',
+        ms: 'Ekspo Pelaburan Smart Vision 2023',
+        th: 'Smart Vision Investment Expo 2023',
+        vi: 'Triển lãm Đầu tư Smart Vision 2023',
+        bn: 'স্মার্ট ভিশন বিনিয়োগ এক্সপো 2023',
+        'zh-hans': '2023年智能愿景投资博览会',
+        'pt-br': 'Expo de Investimentos Smart Vision 2023'
+    })
+}
+
+							</p>
 						</div>
 					</div>
 				</div>

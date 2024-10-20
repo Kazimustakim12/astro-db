@@ -1,5 +1,6 @@
 ---
-import ContactForm from '@/components/ui/Forms/ContactForm'
+
+import EmailTemplateDesign from '@/components/ui/Forms/ui/EmailTemplateDesign.astro'
 import { LOCALES } from '@/i18n'
 import Layout from '@/layouts/Layout.astro'
 export const prerender = true
@@ -10,5 +11,5 @@ export const getStaticPaths = () =>
 ---
 
 <Layout title="Contact Us">
-	<ContactForm client:only="react" />
+	<EmailTemplateDesign />
 </Layout>

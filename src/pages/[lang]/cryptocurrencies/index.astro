@@ -3,6 +3,8 @@ import Banner from '@/components/page/Investment/Banner.astro'
 import GoogleSheetDataTable from '@/components/ui/DataTable/GoogleSheetDataTable'
 import { LOCALES, useTranslations, type Lang } from '@/i18n'
 import Layout from '@/layouts/Layout.astro'
+const lang = Astro.params.lang || 'en'
+
 const t = useTranslations(Astro.currentLocale as Lang)
 export const getStaticPaths = () =>
 	Object.keys(LOCALES).map((lang) => ({
@@ -172,6 +174,7 @@ export const getStaticPaths = () =>
 		<GoogleSheetDataTable
 			sheetName="Cryptos"
 			client:load
+			language={lang}
 		/>
 	</div>
 </Layout>

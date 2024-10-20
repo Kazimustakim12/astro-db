@@ -3,6 +3,8 @@ import GoogleSheetDataTable from '@/components/ui/DataTable/GoogleSheetDataTable
 import { LOCALES, useTranslations, type Lang } from '@/i18n'
 import Layout from '@/layouts/Layout.astro'
 const t = useTranslations(Astro.currentLocale as Lang)
+const lang = Astro.params.lang || 'en'
+
 export const getStaticPaths = () =>
 	Object.keys(LOCALES).map((lang) => ({
 		params: { lang }
@@ -60,6 +62,7 @@ export const getStaticPaths = () =>
 			<GoogleSheetDataTable
 				sheetName="Commodities"
 				client:load
+				language={lang}
 			/>
 		</div>
 	</section>

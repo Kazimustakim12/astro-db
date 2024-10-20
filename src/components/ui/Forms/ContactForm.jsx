@@ -16,6 +16,7 @@ export default function ContactForm() {
 	// const onSubmit = (data) => console.log(data)
 	const onSubmit = async (data) => {
 		setStatus('Sending...')
+		console.log(data, 'Data')
 
 		try {
 			const response = await fetch('/api/test', {

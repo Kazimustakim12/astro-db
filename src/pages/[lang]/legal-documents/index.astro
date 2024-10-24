@@ -1,6 +1,20 @@
 ---
-import { LOCALES } from '@/i18n'
+import { LOCALES, useTranslations, type Lang } from '@/i18n'
 import Layout from '@/layouts/Layout.astro'
+const t = useTranslations(Astro.currentLocale as Lang)
+import TC_Bonus_Program from '/assets/pdf/T&C_Bonus_Program.pdf'
+import IB_Agreement from '/assets/pdf/IB_Agreement.pdf'
+import PAMM_TC from '/assets/pdf/PAMM_TC.pdf'
+import AML_KYC_policies from '/assets/pdf/AML_and_KYC_policies.pdf'
+import Limited_Power_Attorney from '/assets/pdf/Limited_Power_of_Attorney.pdf'
+import API_Agreement from '/assets/pdf/API_Agreement.pdf'
+import DB_Investing_TC from '/assets/pdf/DBInvesting_TC.pdf'
+import LEI_Certificate from '/assets/pdf/LEI_Certificate.pdf'
+import Risk_Disclosure_Statement from '/assets/pdf/Risk_Disclosure_Statement.pdf'
+import Privacy_Policy from '/assets/pdf/Privacy_Policy.pdf'
+import Orders_Execution_Policy from '/assets/pdf/Orders_Execution_Policy.pdf'
+import Conflict_Interest_Policy from '/assets/pdf/Conflict_Interest_Policy.pdf'
+import Complaints_Handling_Policy from '/assets/pdf/Complaints_Handling_Policy.pdf'
 
 const images = import.meta.glob<{ default: ImageMetadata }>('/src/images/*.{jpeg,jpg,png,gif}')
 export const getStaticPaths = () =>
@@ -9,18 +23,45 @@ export const getStaticPaths = () =>
 	}))
 ---
 
-<Layout title="Legal Documents">
+<Layout
+	title={t({
+		en: 'Legal Documents',
+		ar: 'المستندات القانونية',
+		es: 'Documentos Legales',
+		fr: 'Documents Juridiques',
+		hi: 'कानूनी दस्तावेज',
+		id: 'Dokumen Hukum',
+		ms: 'Dokumen Perundangan',
+		th: 'เอกสารทางกฎหมาย',
+		vi: 'Tài liệu Pháp lý',
+		bn: 'আইনি নথি',
+		'zh-hans': '法律文件',
+		'pt-br': 'Documentos Legais'
+	})}
+>
 	<section>
 		<div
-			class="relative z-20 w-full overflow-hidden bg-gray-100 py-3 before:absolute before:start-1/2 before:top-0 before:-z-[1] before:size-full before:-translate-x-1/2 before:transform before:bg-[url('/src/images/world_bg.png')] before:bg-center before:bg-no-repeat before:opacity-45 before:hue-rotate-60 dark:bg-black dark:before:bg-[url('/src/images/world_bg.png')]"
+			class="relative z-20 w-full overflow-hidden bg-gray-100 py-3 before:absolute before:top-0 before:-z-[1] before:size-full before:transform before:bg-[url('/src/images/world_bg.png')] before:bg-center before:bg-no-repeat before:opacity-45 before:hue-rotate-60 dark:bg-black dark:before:bg-[url('/src/images/world_bg.png')]"
 		>
 			<div class="container flex flex-col items-center justify-between gap-6 py-10 sm:flex-row">
 				<div>
 					<h1
 						class="block text-center text-4xl font-bold text-gray-800 dark:text-neutral-200 sm:text-left md:text-4xl lg:text-5xl"
-					>
-						Legal <strong class="text-green-500">Documents </strong>
-					</h1>
+						set:html={t({
+							en: 'Legal <strong class="text-green-500">Documents</strong>',
+							ar: ' القانونية <strong class="text-green-500">المستندات</strong>',
+							es: ' Legales <strong class="text-green-500">Documentos</strong>',
+							fr: ' Juridiques <strong class="text-green-500">Documents</strong>',
+							hi: 'कानूनी  <strong class="text-green-500">दस्तावेज़</strong>',
+							id: ' Hukum <strong class="text-green-500">Dokumen</strong>',
+							ms: ' Perundangan <strong class="text-green-500">Dokumen</strong>',
+							th: 'ทางกฎหมาย <strong class="text-green-500">เอกสาร</strong>',
+							vi: ' Pháp lý <strong class="text-green-500">Tài liệu</strong>',
+							bn: 'আইনি  <strong class="text-green-500">নথি</strong>',
+							'zh-hans': '法律 <strong class="text-green-500">文件</strong>',
+							'pt-br': ' Legais <strong class="text-green-500">Documentos</strong>'
+						})}
+					/>
 				</div>
 				<div>
 					<svg
@@ -54,10 +95,25 @@ export const getStaticPaths = () =>
 				<div
 					class="flex flex-col rounded-xl border bg-white shadow-sm hover:border-dbgreen-500 dark:border-neutral-700 dark:bg-neutral-800 dark:hover:border-dbgreen-500"
 				>
-					<a href="" class="p-4 md:p-5">
+					<a href={TC_Bonus_Program} target="_blank" class="p-4 md:p-5">
 						<div class="flex items-center gap-x-2">
 							<p class="text-xs uppercase tracking-wide text-gray-500 dark:text-neutral-500">
-								Downloads
+								{
+									t({
+										en: 'Downloads',
+										ar: 'التنزيلات',
+										es: 'Descargas',
+										fr: 'Téléchargements',
+										hi: 'डाउनलोड',
+										id: 'Unduhan',
+										ms: 'Muat Turun',
+										th: 'ดาวน์โหลด',
+										vi: 'Tải xuống',
+										bn: 'ডাউনলোড',
+										'zh-hans': '下载',
+										'pt-br': 'Downloads'
+									})
+								}
 							</p>
 							<div class="hs-tooltip">
 								<div class="hs-tooltip-toggle">
@@ -83,7 +139,22 @@ export const getStaticPaths = () =>
 										style="position: fixed; inset: auto auto 0px 0px; margin: 0px; transform: translate(318px, -820px);"
 										data-popper-placement="top"
 									>
-										Download our Legal Documnets
+										{
+											t({
+												en: 'Download our Legal Documents',
+												ar: 'قم بتنزيل مستنداتنا القانونية',
+												es: 'Descarga nuestros Documentos Legales',
+												fr: 'Téléchargez nos Documents Juridiques',
+												hi: 'हमारे कानूनी दस्तावेज़ डाउनलोड करें',
+												id: 'Unduh Dokumen Hukum Kami',
+												ms: 'Muat Turun Dokumen Perundangan Kami',
+												th: 'ดาวน์โหลดเอกสารทางกฎหมายของเรา',
+												vi: 'Tải xuống Tài liệu Pháp lý của chúng tôi',
+												bn: 'আমাদের আইনি নথি ডাউনলোড করুন',
+												'zh-hans': '下载我们的法律文件',
+												'pt-br': 'Baixe nossos Documentos Legais'
+											})
+										}
 									</span>
 								</div>
 							</div>
@@ -91,7 +162,22 @@ export const getStaticPaths = () =>
 
 						<div class="mt-1 flex items-center justify-between gap-x-2">
 							<h3 class="text-xl font-semibold text-gray-800 dark:text-neutral-200 sm:text-2xl">
-								T&C Bonus Program
+								{
+									t({
+										en: 'T&C Bonus Program',
+										ar: 'برنامج مكافآت الشروط والأحكام',
+										es: 'Programa de Bonificación T&C',
+										fr: 'Programme de Bonus T&C',
+										hi: 'टी&C बोनस कार्यक्रम',
+										id: 'Program Bonus T&C',
+										ms: 'Program Bonus T&C',
+										th: 'โปรแกรมโบนัส T&C',
+										vi: 'Chương trình Thưởng T&C',
+										bn: 'টি&C বোনাস প্রোগ্রাম',
+										'zh-hans': 'T&C奖金计划',
+										'pt-br': 'Programa de Bônus T&C'
+									})
+								}
 							</h3>
 							<span class="flex items-center gap-x-1 text-green-600">
 								<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
@@ -220,10 +306,25 @@ export const getStaticPaths = () =>
 				<div
 					class="flex flex-col rounded-xl border bg-white shadow-sm hover:border-dbgreen-500 dark:border-neutral-700 dark:bg-neutral-800 dark:hover:border-dbgreen-500"
 				>
-					<a href="" class="p-4 md:p-5">
+					<a href={IB_Agreement} target="_blank" class="p-4 md:p-5">
 						<div class="flex items-center gap-x-2">
 							<p class="text-xs uppercase tracking-wide text-gray-500 dark:text-neutral-500">
-								Downloads
+								{
+									t({
+										en: 'Downloads',
+										ar: 'التنزيلات',
+										es: 'Descargas',
+										fr: 'Téléchargements',
+										hi: 'डाउनलोड',
+										id: 'Unduhan',
+										ms: 'Muat Turun',
+										th: 'ดาวน์โหลด',
+										vi: 'Tải xuống',
+										bn: 'ডাউনলোড',
+										'zh-hans': '下载',
+										'pt-br': 'Downloads'
+									})
+								}
 							</p>
 							<div class="hs-tooltip">
 								<div class="hs-tooltip-toggle">
@@ -249,7 +350,22 @@ export const getStaticPaths = () =>
 										style="position: fixed; inset: auto auto 0px 0px; margin: 0px; transform: translate(318px, -820px);"
 										data-popper-placement="top"
 									>
-										Download our Legal Documnets
+										{
+											t({
+												en: 'Download our Legal Documents',
+												ar: 'قم بتنزيل مستنداتنا القانونية',
+												es: 'Descarga nuestros Documentos Legales',
+												fr: 'Téléchargez nos Documents Juridiques',
+												hi: 'हमारे कानूनी दस्तावेज़ डाउनलोड करें',
+												id: 'Unduh Dokumen Hukum Kami',
+												ms: 'Muat Turun Dokumen Perundangan Kami',
+												th: 'ดาวน์โหลดเอกสารทางกฎหมายของเรา',
+												vi: 'Tải xuống Tài liệu Pháp lý của chúng tôi',
+												bn: 'আমাদের আইনি নথি ডাউনলোড করুন',
+												'zh-hans': '下载我们的法律文件',
+												'pt-br': 'Baixe nossos Documentos Legais'
+											})
+										}
 									</span>
 								</div>
 							</div>
@@ -257,7 +373,22 @@ export const getStaticPaths = () =>
 
 						<div class="mt-1 flex items-center justify-between gap-x-2">
 							<h3 class="text-xl font-semibold text-gray-800 dark:text-neutral-200 sm:text-2xl">
-								IB Agreement
+								{
+									t({
+										en: 'IB Agreement',
+										ar: 'اتفاقية IB',
+										es: 'Acuerdo de IB',
+										fr: 'Accord IB',
+										hi: 'आईबी समझौता',
+										id: 'Perjanjian IB',
+										ms: 'Perjanjian IB',
+										th: 'ข้อตกลง IB',
+										vi: 'Thỏa thuận IB',
+										bn: 'আইবি চুক্তি',
+										'zh-hans': 'IB协议',
+										'pt-br': 'Acordo IB'
+									})
+								}
 							</h3>
 							<span class="flex items-center gap-x-1 text-green-600">
 								<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
@@ -386,10 +517,25 @@ export const getStaticPaths = () =>
 				<div
 					class="flex flex-col rounded-xl border bg-white shadow-sm hover:border-dbgreen-500 dark:border-neutral-700 dark:bg-neutral-800 dark:hover:border-dbgreen-500"
 				>
-					<a href="" class="p-4 md:p-5">
+					<a href={PAMM_TC} target="_blank" class="p-4 md:p-5">
 						<div class="flex items-center gap-x-2">
 							<p class="text-xs uppercase tracking-wide text-gray-500 dark:text-neutral-500">
-								Downloads
+								{
+									t({
+										en: 'Downloads',
+										ar: 'التنزيلات',
+										es: 'Descargas',
+										fr: 'Téléchargements',
+										hi: 'डाउनलोड',
+										id: 'Unduhan',
+										ms: 'Muat Turun',
+										th: 'ดาวน์โหลด',
+										vi: 'Tải xuống',
+										bn: 'ডাউনলোড',
+										'zh-hans': '下载',
+										'pt-br': 'Downloads'
+									})
+								}
 							</p>
 							<div class="hs-tooltip">
 								<div class="hs-tooltip-toggle">
@@ -415,7 +561,22 @@ export const getStaticPaths = () =>
 										style="position: fixed; inset: auto auto 0px 0px; margin: 0px; transform: translate(318px, -820px);"
 										data-popper-placement="top"
 									>
-										Download our Legal Documnets
+										{
+											t({
+												en: 'Download our Legal Documents',
+												ar: 'قم بتنزيل مستنداتنا القانونية',
+												es: 'Descarga nuestros Documentos Legales',
+												fr: 'Téléchargez nos Documents Juridiques',
+												hi: 'हमारे कानूनी दस्तावेज़ डाउनलोड करें',
+												id: 'Unduh Dokumen Hukum Kami',
+												ms: 'Muat Turun Dokumen Perundangan Kami',
+												th: 'ดาวน์โหลดเอกสารทางกฎหมายของเรา',
+												vi: 'Tải xuống Tài liệu Pháp lý của chúng tôi',
+												bn: 'আমাদের আইনি নথি ডাউনলোড করুন',
+												'zh-hans': '下载我们的法律文件',
+												'pt-br': 'Baixe nossos Documentos Legais'
+											})
+										}
 									</span>
 								</div>
 							</div>
@@ -423,7 +584,22 @@ export const getStaticPaths = () =>
 
 						<div class="mt-1 flex items-center justify-between gap-x-2">
 							<h3 class="text-xl font-semibold text-gray-800 dark:text-neutral-200 sm:text-2xl">
-								PAMM T&C
+								{
+									t({
+										en: 'PAMM T&C',
+										ar: 'شروط وأحكام PAMM',
+										es: 'T&C de PAMM',
+										fr: 'Conditions générales de PAMM',
+										hi: 'PAMM की शर्तें और नियम',
+										id: 'Syarat dan Ketentuan PAMM',
+										ms: 'T&C PAMM',
+										th: 'T&C PAMM',
+										vi: 'Điều khoản và điều kiện PAMM',
+										bn: 'PAMM-এর শর্তাবলী',
+										'zh-hans': 'PAMM条款',
+										'pt-br': 'Termos e Condições PAMM'
+									})
+								}
 							</h3>
 							<span class="flex items-center gap-x-1 text-green-600">
 								<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
@@ -552,10 +728,25 @@ export const getStaticPaths = () =>
 				<div
 					class="flex flex-col rounded-xl border bg-white shadow-sm hover:border-dbgreen-500 dark:border-neutral-700 dark:bg-neutral-800 dark:hover:border-dbgreen-500"
 				>
-					<a href="" class="p-4 md:p-5">
+					<a href={AML_KYC_policies} target="_blank" class="p-4 md:p-5">
 						<div class="flex items-center gap-x-2">
 							<p class="text-xs uppercase tracking-wide text-gray-500 dark:text-neutral-500">
-								Downloads
+								{
+									t({
+										en: 'Downloads',
+										ar: 'التنزيلات',
+										es: 'Descargas',
+										fr: 'Téléchargements',
+										hi: 'डाउनलोड',
+										id: 'Unduhan',
+										ms: 'Muat Turun',
+										th: 'ดาวน์โหลด',
+										vi: 'Tải xuống',
+										bn: 'ডাউনলোড',
+										'zh-hans': '下载',
+										'pt-br': 'Downloads'
+									})
+								}
 							</p>
 							<div class="hs-tooltip">
 								<div class="hs-tooltip-toggle">
@@ -581,7 +772,22 @@ export const getStaticPaths = () =>
 										style="position: fixed; inset: auto auto 0px 0px; margin: 0px; transform: translate(318px, -820px);"
 										data-popper-placement="top"
 									>
-										Download our Legal Documnets
+										{
+											t({
+												en: 'Download our Legal Documents',
+												ar: 'قم بتنزيل مستنداتنا القانونية',
+												es: 'Descarga nuestros Documentos Legales',
+												fr: 'Téléchargez nos Documents Juridiques',
+												hi: 'हमारे कानूनी दस्तावेज़ डाउनलोड करें',
+												id: 'Unduh Dokumen Hukum Kami',
+												ms: 'Muat Turun Dokumen Perundangan Kami',
+												th: 'ดาวน์โหลดเอกสารทางกฎหมายของเรา',
+												vi: 'Tải xuống Tài liệu Pháp lý của chúng tôi',
+												bn: 'আমাদের আইনি নথি ডাউনলোড করুন',
+												'zh-hans': '下载我们的法律文件',
+												'pt-br': 'Baixe nossos Documentos Legais'
+											})
+										}
 									</span>
 								</div>
 							</div>
@@ -589,7 +795,22 @@ export const getStaticPaths = () =>
 
 						<div class="mt-1 flex items-center justify-between gap-x-2">
 							<h3 class="text-xl font-semibold text-gray-800 dark:text-neutral-200 sm:text-2xl">
-								AML and KYC policies
+								{
+									t({
+										en: 'AML and KYC policies',
+										ar: 'سياسات AML و KYC',
+										es: 'Políticas AML y KYC',
+										fr: 'Politiques AML et KYC',
+										hi: 'AML और KYC नीतियाँ',
+										id: 'Kebijakan AML dan KYC',
+										ms: 'Dasar AML dan KYC',
+										th: 'นโยบาย AML และ KYC',
+										vi: 'Chính sách AML và KYC',
+										bn: 'এএমএল এবং কেওয়াইসি নীতিসমূহ',
+										'zh-hans': '反洗钱和客户尽职调查政策',
+										'pt-br': 'Políticas de AML e KYC'
+									})
+								}
 							</h3>
 							<span class="flex items-center gap-x-1 text-green-600">
 								<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
@@ -718,10 +939,25 @@ export const getStaticPaths = () =>
 				<div
 					class="flex flex-col rounded-xl border bg-white shadow-sm hover:border-dbgreen-500 dark:border-neutral-700 dark:bg-neutral-800 dark:hover:border-dbgreen-500"
 				>
-					<a href="" class="p-4 md:p-5">
+					<a href={Limited_Power_Attorney} target="_blank" class="p-4 md:p-5">
 						<div class="flex items-center gap-x-2">
 							<p class="text-xs uppercase tracking-wide text-gray-500 dark:text-neutral-500">
-								Downloads
+								{
+									t({
+										en: 'Downloads',
+										ar: 'التنزيلات',
+										es: 'Descargas',
+										fr: 'Téléchargements',
+										hi: 'डाउनलोड',
+										id: 'Unduhan',
+										ms: 'Muat Turun',
+										th: 'ดาวน์โหลด',
+										vi: 'Tải xuống',
+										bn: 'ডাউনলোড',
+										'zh-hans': '下载',
+										'pt-br': 'Downloads'
+									})
+								}
 							</p>
 							<div class="hs-tooltip">
 								<div class="hs-tooltip-toggle">
@@ -747,7 +983,22 @@ export const getStaticPaths = () =>
 										style="position: fixed; inset: auto auto 0px 0px; margin: 0px; transform: translate(318px, -820px);"
 										data-popper-placement="top"
 									>
-										Download our Legal Documnets
+										{
+											t({
+												en: 'Download our Legal Documents',
+												ar: 'قم بتنزيل مستنداتنا القانونية',
+												es: 'Descarga nuestros Documentos Legales',
+												fr: 'Téléchargez nos Documents Juridiques',
+												hi: 'हमारे कानूनी दस्तावेज़ डाउनलोड करें',
+												id: 'Unduh Dokumen Hukum Kami',
+												ms: 'Muat Turun Dokumen Perundangan Kami',
+												th: 'ดาวน์โหลดเอกสารทางกฎหมายของเรา',
+												vi: 'Tải xuống Tài liệu Pháp lý của chúng tôi',
+												bn: 'আমাদের আইনি নথি ডাউনলোড করুন',
+												'zh-hans': '下载我们的法律文件',
+												'pt-br': 'Baixe nossos Documentos Legais'
+											})
+										}
 									</span>
 								</div>
 							</div>
@@ -755,7 +1006,22 @@ export const getStaticPaths = () =>
 
 						<div class="mt-1 flex items-center justify-between gap-x-2">
 							<h3 class="text-xl font-semibold text-gray-800 dark:text-neutral-200 sm:text-2xl">
-								Limited Power of Attorney
+								{
+									t({
+										en: 'Limited Power of Attorney',
+										ar: 'تفويض محدود',
+										es: 'Poder Notarial Limitado',
+										fr: 'Pouvoir Notarial Limité',
+										hi: 'सीमित शक्ति का वकील',
+										id: 'Surat Kuasa Terbatas',
+										ms: 'Surat Kuasa Terhad',
+										th: 'หนังสือมอบอำนาจที่จำกัด',
+										vi: 'Giấy ủy quyền có giới hạn',
+										bn: 'সীমিত ক্ষমতা অ্যাটর্নি',
+										'zh-hans': '有限授权书',
+										'pt-br': 'Procuração Limitada'
+									})
+								}
 							</h3>
 							<span class="flex items-center gap-x-1 text-green-600">
 								<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
@@ -884,10 +1150,25 @@ export const getStaticPaths = () =>
 				<div
 					class="flex flex-col rounded-xl border bg-white shadow-sm hover:border-dbgreen-500 dark:border-neutral-700 dark:bg-neutral-800 dark:hover:border-dbgreen-500"
 				>
-					<a href="" class="p-4 md:p-5">
+					<a href={API_Agreement} target="_blank" class="p-4 md:p-5">
 						<div class="flex items-center gap-x-2">
 							<p class="text-xs uppercase tracking-wide text-gray-500 dark:text-neutral-500">
-								Downloads
+								{
+									t({
+										en: 'Downloads',
+										ar: 'التنزيلات',
+										es: 'Descargas',
+										fr: 'Téléchargements',
+										hi: 'डाउनलोड',
+										id: 'Unduhan',
+										ms: 'Muat Turun',
+										th: 'ดาวน์โหลด',
+										vi: 'Tải xuống',
+										bn: 'ডাউনলোড',
+										'zh-hans': '下载',
+										'pt-br': 'Downloads'
+									})
+								}
 							</p>
 							<div class="hs-tooltip">
 								<div class="hs-tooltip-toggle">
@@ -913,7 +1194,22 @@ export const getStaticPaths = () =>
 										style="position: fixed; inset: auto auto 0px 0px; margin: 0px; transform: translate(318px, -820px);"
 										data-popper-placement="top"
 									>
-										Download our Legal Documnets
+										{
+											t({
+												en: 'Download our Legal Documents',
+												ar: 'قم بتنزيل مستنداتنا القانونية',
+												es: 'Descarga nuestros Documentos Legales',
+												fr: 'Téléchargez nos Documents Juridiques',
+												hi: 'हमारे कानूनी दस्तावेज़ डाउनलोड करें',
+												id: 'Unduh Dokumen Hukum Kami',
+												ms: 'Muat Turun Dokumen Perundangan Kami',
+												th: 'ดาวน์โหลดเอกสารทางกฎหมายของเรา',
+												vi: 'Tải xuống Tài liệu Pháp lý của chúng tôi',
+												bn: 'আমাদের আইনি নথি ডাউনলোড করুন',
+												'zh-hans': '下载我们的法律文件',
+												'pt-br': 'Baixe nossos Documentos Legais'
+											})
+										}
 									</span>
 								</div>
 							</div>
@@ -921,7 +1217,22 @@ export const getStaticPaths = () =>
 
 						<div class="mt-1 flex items-center justify-between gap-x-2">
 							<h3 class="text-xl font-semibold text-gray-800 dark:text-neutral-200 sm:text-2xl">
-								API Agreement
+								{
+									t({
+										en: 'API Agreement',
+										ar: 'اتفاقية واجهة برمجة التطبيقات',
+										es: 'Acuerdo de API',
+										fr: 'Accord API',
+										hi: 'एपीआई अनुबंध',
+										id: 'Perjanjian API',
+										ms: 'Perjanjian API',
+										th: 'ข้อตกลง API',
+										vi: 'Thỏa thuận API',
+										bn: 'এপিআই চুক্তি',
+										'zh-hans': 'API协议',
+										'pt-br': 'Contrato de API'
+									})
+								}
 							</h3>
 							<span class="flex items-center gap-x-1 text-green-600">
 								<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
@@ -1050,10 +1361,25 @@ export const getStaticPaths = () =>
 				<div
 					class="flex flex-col rounded-xl border bg-white shadow-sm hover:border-dbgreen-500 dark:border-neutral-700 dark:bg-neutral-800 dark:hover:border-dbgreen-500"
 				>
-					<a href="" class="p-4 md:p-5">
+					<a href={DB_Investing_TC} target="_blank" class="p-4 md:p-5">
 						<div class="flex items-center gap-x-2">
 							<p class="text-xs uppercase tracking-wide text-gray-500 dark:text-neutral-500">
-								Downloads
+								{
+									t({
+										en: 'Downloads',
+										ar: 'التنزيلات',
+										es: 'Descargas',
+										fr: 'Téléchargements',
+										hi: 'डाउनलोड',
+										id: 'Unduhan',
+										ms: 'Muat Turun',
+										th: 'ดาวน์โหลด',
+										vi: 'Tải xuống',
+										bn: 'ডাউনলোড',
+										'zh-hans': '下载',
+										'pt-br': 'Downloads'
+									})
+								}
 							</p>
 							<div class="hs-tooltip">
 								<div class="hs-tooltip-toggle">
@@ -1079,7 +1405,22 @@ export const getStaticPaths = () =>
 										style="position: fixed; inset: auto auto 0px 0px; margin: 0px; transform: translate(318px, -820px);"
 										data-popper-placement="top"
 									>
-										Download our Legal Documnets
+										{
+											t({
+												en: 'Download our Legal Documents',
+												ar: 'قم بتنزيل مستنداتنا القانونية',
+												es: 'Descarga nuestros Documentos Legales',
+												fr: 'Téléchargez nos Documents Juridiques',
+												hi: 'हमारे कानूनी दस्तावेज़ डाउनलोड करें',
+												id: 'Unduh Dokumen Hukum Kami',
+												ms: 'Muat Turun Dokumen Perundangan Kami',
+												th: 'ดาวน์โหลดเอกสารทางกฎหมายของเรา',
+												vi: 'Tải xuống Tài liệu Pháp lý của chúng tôi',
+												bn: 'আমাদের আইনি নথি ডাউনলোড করুন',
+												'zh-hans': '下载我们的法律文件',
+												'pt-br': 'Baixe nossos Documentos Legais'
+											})
+										}
 									</span>
 								</div>
 							</div>
@@ -1087,7 +1428,22 @@ export const getStaticPaths = () =>
 
 						<div class="mt-1 flex items-center justify-between gap-x-2">
 							<h3 class="text-xl font-semibold text-gray-800 dark:text-neutral-200 sm:text-2xl">
-								DB Investing T&C
+								{
+									t({
+										en: 'DB Investing T&C',
+										ar: 'الشروط والأحكام لـ DB Investing',
+										es: 'T&C de DB Investing',
+										fr: 'CGU de DB Investing',
+										hi: 'DB Investing की शर्तें और नियम',
+										id: 'Syarat dan Ketentuan DB Investing',
+										ms: 'T&C DB Investing',
+										th: 'เงื่อนไขและข้อตกลงของ DB Investing',
+										vi: 'T&C của DB Investing',
+										bn: 'DB Investing এর শর্তাবলী',
+										'zh-hans': 'DB Investing 的条款和条件',
+										'pt-br': 'Termos e Condições da DB Investing'
+									})
+								}
 							</h3>
 							<span class="flex items-center gap-x-1 text-green-600">
 								<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
@@ -1216,10 +1572,25 @@ export const getStaticPaths = () =>
 				<div
 					class="flex flex-col rounded-xl border bg-white shadow-sm hover:border-dbgreen-500 dark:border-neutral-700 dark:bg-neutral-800 dark:hover:border-dbgreen-500"
 				>
-					<a href="" class="p-4 md:p-5">
+					<a href={LEI_Certificate} target="_blank" class="p-4 md:p-5">
 						<div class="flex items-center gap-x-2">
 							<p class="text-xs uppercase tracking-wide text-gray-500 dark:text-neutral-500">
-								Downloads
+								{
+									t({
+										en: 'Downloads',
+										ar: 'التنزيلات',
+										es: 'Descargas',
+										fr: 'Téléchargements',
+										hi: 'डाउनलोड',
+										id: 'Unduhan',
+										ms: 'Muat Turun',
+										th: 'ดาวน์โหลด',
+										vi: 'Tải xuống',
+										bn: 'ডাউনলোড',
+										'zh-hans': '下载',
+										'pt-br': 'Downloads'
+									})
+								}
 							</p>
 							<div class="hs-tooltip">
 								<div class="hs-tooltip-toggle">
@@ -1245,7 +1616,22 @@ export const getStaticPaths = () =>
 										style="position: fixed; inset: auto auto 0px 0px; margin: 0px; transform: translate(318px, -820px);"
 										data-popper-placement="top"
 									>
-										Download our Legal Documnets
+										{
+											t({
+												en: 'Download our Legal Documents',
+												ar: 'قم بتنزيل مستنداتنا القانونية',
+												es: 'Descarga nuestros Documentos Legales',
+												fr: 'Téléchargez nos Documents Juridiques',
+												hi: 'हमारे कानूनी दस्तावेज़ डाउनलोड करें',
+												id: 'Unduh Dokumen Hukum Kami',
+												ms: 'Muat Turun Dokumen Perundangan Kami',
+												th: 'ดาวน์โหลดเอกสารทางกฎหมายของเรา',
+												vi: 'Tải xuống Tài liệu Pháp lý của chúng tôi',
+												bn: 'আমাদের আইনি নথি ডাউনলোড করুন',
+												'zh-hans': '下载我们的法律文件',
+												'pt-br': 'Baixe nossos Documentos Legais'
+											})
+										}
 									</span>
 								</div>
 							</div>
@@ -1253,7 +1639,22 @@ export const getStaticPaths = () =>
 
 						<div class="mt-1 flex items-center justify-between gap-x-2">
 							<h3 class="text-xl font-semibold text-gray-800 dark:text-neutral-200 sm:text-2xl">
-								LEI Certificate
+								{
+									t({
+										en: 'LEI Certificate',
+										ar: 'شهادة LEI',
+										es: 'Certificado LEI',
+										fr: 'Certificat LEI',
+										hi: 'LEI प्रमाणपत्र',
+										id: 'Sertifikat LEI',
+										ms: 'Sijil LEI',
+										th: 'ใบรับรอง LEI',
+										vi: 'Chứng chỉ LEI',
+										bn: 'LEI সার্টিফিকেট',
+										'zh-hans': 'LEI证书',
+										'pt-br': 'Certificado LEI'
+									})
+								}
 							</h3>
 							<span class="flex items-center gap-x-1 text-green-600">
 								<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
@@ -1382,10 +1783,25 @@ export const getStaticPaths = () =>
 				<div
 					class="flex flex-col rounded-xl border bg-white shadow-sm hover:border-dbgreen-500 dark:border-neutral-700 dark:bg-neutral-800 dark:hover:border-dbgreen-500"
 				>
-					<a href="" class="p-4 md:p-5">
+					<a href={Risk_Disclosure_Statement} target="_blank" class="p-4 md:p-5">
 						<div class="flex items-center gap-x-2">
 							<p class="text-xs uppercase tracking-wide text-gray-500 dark:text-neutral-500">
-								Downloads
+								{
+									t({
+										en: 'Downloads',
+										ar: 'التنزيلات',
+										es: 'Descargas',
+										fr: 'Téléchargements',
+										hi: 'डाउनलोड',
+										id: 'Unduhan',
+										ms: 'Muat Turun',
+										th: 'ดาวน์โหลด',
+										vi: 'Tải xuống',
+										bn: 'ডাউনলোড',
+										'zh-hans': '下载',
+										'pt-br': 'Downloads'
+									})
+								}
 							</p>
 							<div class="hs-tooltip">
 								<div class="hs-tooltip-toggle">
@@ -1411,7 +1827,22 @@ export const getStaticPaths = () =>
 										style="position: fixed; inset: auto auto 0px 0px; margin: 0px; transform: translate(318px, -820px);"
 										data-popper-placement="top"
 									>
-										Download our Legal Documnets
+										{
+											t({
+												en: 'Download our Legal Documents',
+												ar: 'قم بتنزيل مستنداتنا القانونية',
+												es: 'Descarga nuestros Documentos Legales',
+												fr: 'Téléchargez nos Documents Juridiques',
+												hi: 'हमारे कानूनी दस्तावेज़ डाउनलोड करें',
+												id: 'Unduh Dokumen Hukum Kami',
+												ms: 'Muat Turun Dokumen Perundangan Kami',
+												th: 'ดาวน์โหลดเอกสารทางกฎหมายของเรา',
+												vi: 'Tải xuống Tài liệu Pháp lý của chúng tôi',
+												bn: 'আমাদের আইনি নথি ডাউনলোড করুন',
+												'zh-hans': '下载我们的法律文件',
+												'pt-br': 'Baixe nossos Documentos Legais'
+											})
+										}
 									</span>
 								</div>
 							</div>
@@ -1419,7 +1850,22 @@ export const getStaticPaths = () =>
 
 						<div class="mt-1 flex items-center justify-between gap-x-2">
 							<h3 class="text-xl font-semibold text-gray-800 dark:text-neutral-200 sm:text-2xl">
-								Risk Disclosure Statement
+								{
+									t({
+										en: 'Risk Disclosure Statement',
+										ar: 'بيان إخلاء المسؤولية عن المخاطر',
+										es: 'Declaración de divulgación de riesgos',
+										fr: 'Déclaration de divulgation des risques',
+										hi: 'जोखिम प्रकटीकरण वक्तव्य',
+										id: 'Pernyataan Pengungkapan Risiko',
+										ms: 'Pernyataan Pendedahan Risiko',
+										th: 'ข้อความเปิดเผยความเสี่ยง',
+										vi: 'Tuyên bố tiết lộ rủi ro',
+										bn: 'ঝুঁকি প্রকাশ বিবৃতি',
+										'zh-hans': '风险披露声明',
+										'pt-br': 'Declaração de Divulgação de Riscos'
+									})
+								}
 							</h3>
 							<span class="flex items-center gap-x-1 text-green-600">
 								<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
@@ -1548,10 +1994,25 @@ export const getStaticPaths = () =>
 				<div
 					class="flex flex-col rounded-xl border bg-white shadow-sm hover:border-dbgreen-500 dark:border-neutral-700 dark:bg-neutral-800 dark:hover:border-dbgreen-500"
 				>
-					<a href="" class="p-4 md:p-5">
+					<a href={Privacy_Policy} target="_blank" class="p-4 md:p-5">
 						<div class="flex items-center gap-x-2">
 							<p class="text-xs uppercase tracking-wide text-gray-500 dark:text-neutral-500">
-								Downloads
+								{
+									t({
+										en: 'Downloads',
+										ar: 'التنزيلات',
+										es: 'Descargas',
+										fr: 'Téléchargements',
+										hi: 'डाउनलोड',
+										id: 'Unduhan',
+										ms: 'Muat Turun',
+										th: 'ดาวน์โหลด',
+										vi: 'Tải xuống',
+										bn: 'ডাউনলোড',
+										'zh-hans': '下载',
+										'pt-br': 'Downloads'
+									})
+								}
 							</p>
 							<div class="hs-tooltip">
 								<div class="hs-tooltip-toggle">
@@ -1577,7 +2038,22 @@ export const getStaticPaths = () =>
 										style="position: fixed; inset: auto auto 0px 0px; margin: 0px; transform: translate(318px, -820px);"
 										data-popper-placement="top"
 									>
-										Download our Legal Documnets
+										{
+											t({
+												en: 'Download our Legal Documents',
+												ar: 'قم بتنزيل مستنداتنا القانونية',
+												es: 'Descarga nuestros Documentos Legales',
+												fr: 'Téléchargez nos Documents Juridiques',
+												hi: 'हमारे कानूनी दस्तावेज़ डाउनलोड करें',
+												id: 'Unduh Dokumen Hukum Kami',
+												ms: 'Muat Turun Dokumen Perundangan Kami',
+												th: 'ดาวน์โหลดเอกสารทางกฎหมายของเรา',
+												vi: 'Tải xuống Tài liệu Pháp lý của chúng tôi',
+												bn: 'আমাদের আইনি নথি ডাউনলোড করুন',
+												'zh-hans': '下载我们的法律文件',
+												'pt-br': 'Baixe nossos Documentos Legais'
+											})
+										}
 									</span>
 								</div>
 							</div>
@@ -1585,7 +2061,22 @@ export const getStaticPaths = () =>
 
 						<div class="mt-1 flex items-center justify-between gap-x-2">
 							<h3 class="text-xl font-semibold text-gray-800 dark:text-neutral-200 sm:text-2xl">
-								Privacy Policy
+								{
+									t({
+										en: 'Privacy Policy',
+										ar: 'سياسة الخصوصية',
+										es: 'Política de Privacidad',
+										fr: 'Politique de Confidentialité',
+										hi: 'गोपनीयता नीति',
+										id: 'Kebijakan Privasi',
+										ms: 'Dasar Privasi',
+										th: 'นโยบายความเป็นส่วนตัว',
+										vi: 'Chính sách Bảo mật',
+										bn: 'গোপনীয়তা নীতি',
+										'zh-hans': '隐私政策',
+										'pt-br': 'Política de Privacidade'
+									})
+								}
 							</h3>
 							<span class="flex items-center gap-x-1 text-green-600">
 								<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
@@ -1714,10 +2205,25 @@ export const getStaticPaths = () =>
 				<div
 					class="flex flex-col rounded-xl border bg-white shadow-sm hover:border-dbgreen-500 dark:border-neutral-700 dark:bg-neutral-800 dark:hover:border-dbgreen-500"
 				>
-					<a href="" class="p-4 md:p-5">
+					<a href={Orders_Execution_Policy} target="_blank" class="p-4 md:p-5">
 						<div class="flex items-center gap-x-2">
 							<p class="text-xs uppercase tracking-wide text-gray-500 dark:text-neutral-500">
-								Downloads
+								{
+									t({
+										en: 'Downloads',
+										ar: 'التنزيلات',
+										es: 'Descargas',
+										fr: 'Téléchargements',
+										hi: 'डाउनलोड',
+										id: 'Unduhan',
+										ms: 'Muat Turun',
+										th: 'ดาวน์โหลด',
+										vi: 'Tải xuống',
+										bn: 'ডাউনলোড',
+										'zh-hans': '下载',
+										'pt-br': 'Downloads'
+									})
+								}
 							</p>
 							<div class="hs-tooltip">
 								<div class="hs-tooltip-toggle">
@@ -1743,7 +2249,22 @@ export const getStaticPaths = () =>
 										style="position: fixed; inset: auto auto 0px 0px; margin: 0px; transform: translate(318px, -820px);"
 										data-popper-placement="top"
 									>
-										Download our Legal Documnets
+										{
+											t({
+												en: 'Download our Legal Documents',
+												ar: 'قم بتنزيل مستنداتنا القانونية',
+												es: 'Descarga nuestros Documentos Legales',
+												fr: 'Téléchargez nos Documents Juridiques',
+												hi: 'हमारे कानूनी दस्तावेज़ डाउनलोड करें',
+												id: 'Unduh Dokumen Hukum Kami',
+												ms: 'Muat Turun Dokumen Perundangan Kami',
+												th: 'ดาวน์โหลดเอกสารทางกฎหมายของเรา',
+												vi: 'Tải xuống Tài liệu Pháp lý của chúng tôi',
+												bn: 'আমাদের আইনি নথি ডাউনলোড করুন',
+												'zh-hans': '下载我们的法律文件',
+												'pt-br': 'Baixe nossos Documentos Legais'
+											})
+										}
 									</span>
 								</div>
 							</div>
@@ -1751,7 +2272,22 @@ export const getStaticPaths = () =>
 
 						<div class="mt-1 flex items-center justify-between gap-x-2">
 							<h3 class="text-xl font-semibold text-gray-800 dark:text-neutral-200 sm:text-2xl">
-								Orders Execution Policy
+								{
+									t({
+										en: 'Orders Execution Policy',
+										ar: 'سياسة تنفيذ الأوامر',
+										es: 'Política de Ejecución de Órdenes',
+										fr: "Politique d'Exécution des Ordres",
+										hi: 'आदेश निष्पादन नीति',
+										id: 'Kebijakan Eksekusi Pesanan',
+										ms: 'Dasar Pelaksanaan Pesanan',
+										th: 'นโยบายการดำเนินการคำสั่ง',
+										vi: 'Chính sách Thực hiện Đơn hàng',
+										bn: 'অর্ডার কার্যকর করার নীতি',
+										'zh-hans': '订单执行政策',
+										'pt-br': 'Política de Execução de Ordens'
+									})
+								}
 							</h3>
 							<span class="flex items-center gap-x-1 text-green-600">
 								<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
@@ -1880,10 +2416,25 @@ export const getStaticPaths = () =>
 				<div
 					class="flex flex-col rounded-xl border bg-white shadow-sm hover:border-dbgreen-500 dark:border-neutral-700 dark:bg-neutral-800 dark:hover:border-dbgreen-500"
 				>
-					<a href="" class="p-4 md:p-5">
+					<a href={Conflict_Interest_Policy} target="_blank" class="p-4 md:p-5">
 						<div class="flex items-center gap-x-2">
 							<p class="text-xs uppercase tracking-wide text-gray-500 dark:text-neutral-500">
-								Downloads
+								{
+									t({
+										en: 'Downloads',
+										ar: 'التنزيلات',
+										es: 'Descargas',
+										fr: 'Téléchargements',
+										hi: 'डाउनलोड',
+										id: 'Unduhan',
+										ms: 'Muat Turun',
+										th: 'ดาวน์โหลด',
+										vi: 'Tải xuống',
+										bn: 'ডাউনলোড',
+										'zh-hans': '下载',
+										'pt-br': 'Downloads'
+									})
+								}
 							</p>
 							<div class="hs-tooltip">
 								<div class="hs-tooltip-toggle">
@@ -1909,7 +2460,22 @@ export const getStaticPaths = () =>
 										style="position: fixed; inset: auto auto 0px 0px; margin: 0px; transform: translate(318px, -820px);"
 										data-popper-placement="top"
 									>
-										Download our Legal Documnets
+										{
+											t({
+												en: 'Download our Legal Documents',
+												ar: 'قم بتنزيل مستنداتنا القانونية',
+												es: 'Descarga nuestros Documentos Legales',
+												fr: 'Téléchargez nos Documents Juridiques',
+												hi: 'हमारे कानूनी दस्तावेज़ डाउनलोड करें',
+												id: 'Unduh Dokumen Hukum Kami',
+												ms: 'Muat Turun Dokumen Perundangan Kami',
+												th: 'ดาวน์โหลดเอกสารทางกฎหมายของเรา',
+												vi: 'Tải xuống Tài liệu Pháp lý của chúng tôi',
+												bn: 'আমাদের আইনি নথি ডাউনলোড করুন',
+												'zh-hans': '下载我们的法律文件',
+												'pt-br': 'Baixe nossos Documentos Legais'
+											})
+										}
 									</span>
 								</div>
 							</div>
@@ -1917,7 +2483,22 @@ export const getStaticPaths = () =>
 
 						<div class="mt-1 flex items-center justify-between gap-x-2">
 							<h3 class="text-xl font-semibold text-gray-800 dark:text-neutral-200 sm:text-2xl">
-								Conflict Interest Policy
+								{
+									t({
+										en: 'Conflict Interest Policy',
+										ar: 'سياسة تضارب المصالح',
+										es: 'Política de Conflicto de Intereses',
+										fr: "Politique de Conflit d'Intérêts",
+										hi: 'हितों के टकराव की नीति',
+										id: 'Kebijakan Konflik Kepentingan',
+										ms: 'Dasar Konflik Kepentingan',
+										th: 'นโยบายความขัดแย้งทางผลประโยชน์',
+										vi: 'Chính sách Xung đột Lợi ích',
+										bn: 'স্বার্থের সংঘাতের নীতি',
+										'zh-hans': '利益冲突政策',
+										'pt-br': 'Política de Conflito de Interesses'
+									})
+								}
 							</h3>
 							<span class="flex items-center gap-x-1 text-green-600">
 								<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
@@ -2046,14 +2627,25 @@ export const getStaticPaths = () =>
 				<div
 					class="flex flex-col rounded-xl border bg-white shadow-sm hover:border-dbgreen-500 dark:border-neutral-700 dark:bg-neutral-800 dark:hover:border-dbgreen-500"
 				>
-					<a
-						href="https://dbinvesting.com/wp-content/uploads/2024/08/DB-Terms-and-Conditions-Bonus-Program-2.pdf"
-						download
-						class="p-4 md:p-5"
-					>
+					<a href={Complaints_Handling_Policy} target="_blank" class="p-4 md:p-5">
 						<div class="flex items-center gap-x-2">
 							<p class="text-xs uppercase tracking-wide text-gray-500 dark:text-neutral-500">
-								Downloads
+								{
+									t({
+										en: 'Downloads',
+										ar: 'التنزيلات',
+										es: 'Descargas',
+										fr: 'Téléchargements',
+										hi: 'डाउनलोड',
+										id: 'Unduhan',
+										ms: 'Muat Turun',
+										th: 'ดาวน์โหลด',
+										vi: 'Tải xuống',
+										bn: 'ডাউনলোড',
+										'zh-hans': '下载',
+										'pt-br': 'Downloads'
+									})
+								}
 							</p>
 							<div class="hs-tooltip">
 								<div class="hs-tooltip-toggle">
@@ -2079,7 +2671,22 @@ export const getStaticPaths = () =>
 										style="position: fixed; inset: auto auto 0px 0px; margin: 0px; transform: translate(318px, -820px);"
 										data-popper-placement="top"
 									>
-										Download our Legal Documnets
+										{
+											t({
+												en: 'Download our Legal Documents',
+												ar: 'قم بتنزيل مستنداتنا القانونية',
+												es: 'Descarga nuestros Documentos Legales',
+												fr: 'Téléchargez nos Documents Juridiques',
+												hi: 'हमारे कानूनी दस्तावेज़ डाउनलोड करें',
+												id: 'Unduh Dokumen Hukum Kami',
+												ms: 'Muat Turun Dokumen Perundangan Kami',
+												th: 'ดาวน์โหลดเอกสารทางกฎหมายของเรา',
+												vi: 'Tải xuống Tài liệu Pháp lý của chúng tôi',
+												bn: 'আমাদের আইনি নথি ডাউনলোড করুন',
+												'zh-hans': '下载我们的法律文件',
+												'pt-br': 'Baixe nossos Documentos Legais'
+											})
+										}
 									</span>
 								</div>
 							</div>
@@ -2087,7 +2694,22 @@ export const getStaticPaths = () =>
 
 						<div class="mt-1 flex items-center justify-between gap-x-2">
 							<h3 class="text-xl font-semibold text-gray-800 dark:text-neutral-200 sm:text-2xl">
-								Complaints Handling Policy
+								{
+									t({
+										en: 'Complaints Handling Policy',
+										ar: 'سياسة التعامل مع الشكاوى',
+										es: 'Política de Manejo de Quejas',
+										fr: 'Politique de Gestion des Plaintes',
+										hi: 'शिकायत निपटान नीति',
+										id: 'Kebijakan Penanganan Keluhan',
+										ms: 'Dasar Penanganan Aduan',
+										th: 'นโยบายการจัดการข้อร้องเรียน',
+										vi: 'Chính sách Xử lý Khiếu nại',
+										bn: 'শিকায়াত পরিচালনার নীতি',
+										'zh-hans': '投诉处理政策',
+										'pt-br': 'Política de Tratamento de Reclamações'
+									})
+								}
 							</h3>
 							<span class="flex items-center gap-x-1 text-green-600">
 								<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">

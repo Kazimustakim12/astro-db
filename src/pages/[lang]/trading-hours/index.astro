@@ -1,10 +1,13 @@
 ---
-import { LOCALES } from '@/i18n'
+import { LOCALES, useTranslations, type Lang } from '@/i18n'
 import Layout from '@/layouts/Layout.astro'
+const t = useTranslations(Astro.currentLocale as Lang)
 import TradingHoursData from '@/data/tradinghours.json'
 import DataTable from '@/components/ui/DataTable/DataTable'
 const tradingHourHeader = [...TradingHoursData.columns]
-const tradingHourRows = TradingHoursData.original_rows.map((item) => ({...item.value} ))
+const tradingHourRows = TradingHoursData.original_rows.map((item) => ({ ...item.value }))
+
+const lang = Astro.params.lang || 'en'
 
 export const getStaticPaths = () =>
 	Object.keys(LOCALES).map((lang) => ({
@@ -12,37 +15,74 @@ export const getStaticPaths = () =>
 	}))
 ---
 
-<Layout title="Trading Hours">
+<Layout
+	title={t({
+		en: 'Trading Hours',
+		ar: 'ساعات التداول',
+		es: 'Horas de negociación',
+		fr: 'Heures de trading',
+		hi: 'व्यापार के घंटे',
+		id: 'Jam Trading',
+		ms: 'Waktu Dagangan',
+		th: 'ชั่วโมงการซื้อขาย',
+		vi: 'Giờ giao dịch',
+		bn: 'বাণিজ্যের সময়',
+		'zh-hans': '交易时间',
+		'pt-br': 'Horários de Negociação'
+	})}
+>
 	<section>
 		<div
-			class="relative z-20 w-full overflow-hidden bg-gray-100 py-3 before:absolute before:start-1/2 before:top-0 before:-z-[1] before:size-full before:-translate-x-1/2 before:transform before:bg-[url('/src/images/world_bg.png')] before:bg-center before:bg-no-repeat before:opacity-45 before:hue-rotate-60 dark:bg-black dark:before:bg-[url('/src/images/world_bg.png')]"
+			class="relative z-20 w-full overflow-hidden bg-gray-100 py-3 before:absolute before:top-0 before:-z-[1] before:size-full before:transform before:bg-[url('/src/images/world_bg.png')] before:bg-center before:bg-no-repeat before:opacity-45 before:hue-rotate-60 dark:bg-black dark:before:bg-[url('/src/images/world_bg.png')]"
 		>
 			<div class="container flex flex-col items-center justify-between gap-6 py-10 sm:flex-row">
 				<div>
 					<h1
 						class="block text-center text-4xl font-bold text-gray-800 dark:text-neutral-200 md:text-4xl lg:text-5xl"
-					>
-						<strong class="text-green-500">Trading Hours </strong> GMT+0
-
-					</h1>
+						set:html={t({
+							en: '<strong class="text-green-500">Trading Hours </strong> GMT+0',
+							ar: '<strong class="text-green-500">ساعات التداول </strong> GMT+0',
+							es: '<strong class="text-green-500">Horas de trading </strong> GMT+0',
+							fr: '<strong class="text-green-500">Heures de trading </strong> GMT+0',
+							hi: '<strong class="text-green-500">व्यापार के घंटे </strong> GMT+0',
+							id: '<strong class="text-green-500">Jam Perdagangan </strong> GMT+0',
+							ms: '<strong class="text-green-500">Waktu Perdagangan </strong> GMT+0',
+							th: '<strong class="text-green-500">ชั่วโมงการซื้อขาย </strong> GMT+0',
+							vi: '<strong class="text-green-500">Giờ giao dịch </strong> GMT+0',
+							bn: '<strong class="text-green-500">ট্রেডিং ঘণ্টা </strong> GMT+0',
+							'zh-hans': '<strong class="text-green-500">交易时间 </strong> GMT+0',
+							'pt-br': '<strong class="text-green-500">Horas de negociação </strong> GMT+0'
+						})}
+					/>
 				</div>
 				<div>
-					
-                    <svg xmlns="http://www.w3.org/2000/svg"	class="w-[120px] md:w-[180px]" height="100%" viewBox="0 0 24 24">
-                        <path fill="currentColor" d="M17.5 13a4.5 4.5 0 1 0 0 9a4.5 4.5 0 0 0 0-9m.5 2.5v1.793l.854.853a.5.5 0 0 1-.708.708l-1-1A.5.5 0 0 1 17 17.5v-2a.5.5 0 0 1 1 0" />
-                        <path fill="currentColor" d="M2 11.75a9.75 9.75 0 0 0 9.75 9.75q.309 0 .611-.019A6.47 6.47 0 0 1 11 17.5v2.337c-.73-.311-1.478-1.072-2.124-2.283a11.3 11.3 0 0 1-.904-2.322c.943.14 1.963.23 3.028.258v2.01c0-1.58.563-3.027 1.5-4.154V9.511c1.215.034 2.35.15 3.358.33c.065.44.108.888.129 1.336q.721-.173 1.493-.177a15 15 0 0 0-.065-.803q.24.07.462.143c.77.257 1.34.546 1.701.831c.13.102.22.192.282.27c.587.23 1.132.54 1.621.92q.02-.303.019-.611C21.5 6.365 17.135 2 11.75 2S2 6.365 2 11.75m3.149-2.833a9 9 0 0 0-1.33.552a8.27 8.27 0 0 1 4.266-5.112q-.288.424-.532.883c-.523.981-.935 2.126-1.202 3.338q-.641.152-1.202.34m3.727-2.971C9.522 4.736 10.27 3.974 11 3.663V8.01a25 25 0 0 0-3.028.258a11.3 11.3 0 0 1 .904-2.322M7.642 9.84A23 23 0 0 1 11 9.511v4.478a23 23 0 0 1-3.358-.33A13 13 0 0 1 7.5 11.75c0-.639.05-1.28.142-1.909m-3.823 4.19c.398.207.847.39 1.33.552q.56.187 1.202.34c.267 1.211.679 2.356 1.202 3.337q.243.459.532.883a8.27 8.27 0 0 1-4.266-5.112m1.804-.871c-.77-.257-1.34-.546-1.702-.831c-.37-.292-.421-.493-.421-.579s.052-.287.421-.579c.362-.285.932-.574 1.702-.83q.222-.075.462-.144a14.4 14.4 0 0 0 0 3.106q-.24-.07-.462-.143m10.324-7.92a10 10 0 0 0-.532-.883a8.27 8.27 0 0 1 4.266 5.112a9 9 0 0 0-1.33-.552a14 14 0 0 0-1.202-.34c-.267-1.211-.679-2.356-1.202-3.337M12.5 8.01V3.663c.73.311 1.478 1.072 2.124 2.283c.366.687.673 1.476.904 2.322c-.943-.14-1.963-.23-3.028-.258" />
-                    </svg>
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						class="w-[120px] md:w-[180px]"
+						height="100%"
+						viewBox="0 0 24 24"
+					>
+						<path
+							fill="currentColor"
+							d="M17.5 13a4.5 4.5 0 1 0 0 9a4.5 4.5 0 0 0 0-9m.5 2.5v1.793l.854.853a.5.5 0 0 1-.708.708l-1-1A.5.5 0 0 1 17 17.5v-2a.5.5 0 0 1 1 0"
+						></path>
+						<path
+							fill="currentColor"
+							d="M2 11.75a9.75 9.75 0 0 0 9.75 9.75q.309 0 .611-.019A6.47 6.47 0 0 1 11 17.5v2.337c-.73-.311-1.478-1.072-2.124-2.283a11.3 11.3 0 0 1-.904-2.322c.943.14 1.963.23 3.028.258v2.01c0-1.58.563-3.027 1.5-4.154V9.511c1.215.034 2.35.15 3.358.33c.065.44.108.888.129 1.336q.721-.173 1.493-.177a15 15 0 0 0-.065-.803q.24.07.462.143c.77.257 1.34.546 1.701.831c.13.102.22.192.282.27c.587.23 1.132.54 1.621.92q.02-.303.019-.611C21.5 6.365 17.135 2 11.75 2S2 6.365 2 11.75m3.149-2.833a9 9 0 0 0-1.33.552a8.27 8.27 0 0 1 4.266-5.112q-.288.424-.532.883c-.523.981-.935 2.126-1.202 3.338q-.641.152-1.202.34m3.727-2.971C9.522 4.736 10.27 3.974 11 3.663V8.01a25 25 0 0 0-3.028.258a11.3 11.3 0 0 1 .904-2.322M7.642 9.84A23 23 0 0 1 11 9.511v4.478a23 23 0 0 1-3.358-.33A13 13 0 0 1 7.5 11.75c0-.639.05-1.28.142-1.909m-3.823 4.19c.398.207.847.39 1.33.552q.56.187 1.202.34c.267 1.211.679 2.356 1.202 3.337q.243.459.532.883a8.27 8.27 0 0 1-4.266-5.112m1.804-.871c-.77-.257-1.34-.546-1.702-.831c-.37-.292-.421-.493-.421-.579s.052-.287.421-.579c.362-.285.932-.574 1.702-.83q.222-.075.462-.144a14.4 14.4 0 0 0 0 3.106q-.24-.07-.462-.143m10.324-7.92a10 10 0 0 0-.532-.883a8.27 8.27 0 0 1 4.266 5.112a9 9 0 0 0-1.33-.552a14 14 0 0 0-1.202-.34c-.267-1.211-.679-2.356-1.202-3.337M12.5 8.01V3.663c.73.311 1.478 1.072 2.124 2.283c.366.687.673 1.476.904 2.322c-.943-.14-1.963-.23-3.028-.258"
+						></path>
+					</svg>
 				</div>
 			</div>
 		</div>
 		<div class="container py-10">
 			<DataTable
-					headers={tradingHourHeader}
-					data={tradingHourRows}
-					isLoading={false}
-					loadingTag="<h1>Loading...</h1>"
-					client:load
-				/>
+				headers={tradingHourHeader}
+				data={tradingHourRows}
+				isLoading={false}
+				loadingTag="<h1>Loading...</h1>"
+				client:load
+				language={lang}
+			/>
 		</div>
 	</section>
 </Layout>

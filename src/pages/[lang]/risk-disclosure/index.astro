@@ -1,6 +1,7 @@
 ---
-import { LOCALES } from '@/i18n'
+import { LOCALES, useTranslations, type Lang } from '@/i18n'
 import Layout from '@/layouts/Layout.astro'
+const t = useTranslations(Astro.currentLocale as Lang)
 
 const images = import.meta.glob<{ default: ImageMetadata }>('/src/images/*.{jpeg,jpg,png,gif}')
 export const getStaticPaths = () =>
@@ -9,18 +10,45 @@ export const getStaticPaths = () =>
 	}))
 ---
 
-<Layout title="Risk Dislosure">
+<Layout
+	title={t({
+		en: 'Risk Disclosure:',
+		ar: 'إفصاح المخاطر:',
+		es: 'Divulgación de riesgos:',
+		fr: 'Divulgation des risques :',
+		hi: 'जोखिम प्रकटीकरण:',
+		id: 'Pengungkapan Risiko:',
+		ms: 'Pendedahan Risiko:',
+		th: 'การเปิดเผยความเสี่ยง:',
+		vi: 'Tiết lộ rủi ro:',
+		bn: 'ঝুঁকি প্রকাশ:',
+		'zh-hans': '风险披露：',
+		'pt-br': 'Divulgação de riscos:'
+	})}
+>
 	<section>
 		<div
-			class="relative z-20 w-full overflow-hidden bg-gray-100 py-3 before:absolute before:start-1/2 before:top-0 before:-z-[1] before:size-full before:-translate-x-1/2 before:transform before:bg-[url('/src/images/world_bg.png')] before:bg-center before:bg-no-repeat before:opacity-45 before:hue-rotate-60 dark:bg-black dark:before:bg-[url('/src/images/world_bg.png')]"
+			class="relative z-20 w-full overflow-hidden bg-gray-100 py-3 before:absolute before:top-0 before:-z-[1] before:size-full before:transform before:bg-[url('/src/images/world_bg.png')] before:bg-center before:bg-no-repeat before:opacity-45 before:hue-rotate-60 dark:bg-black dark:before:bg-[url('/src/images/world_bg.png')]"
 		>
 			<div class="container flex flex-col items-center justify-between gap-6 py-10 sm:flex-row">
 				<div>
 					<h1
 						class="block text-center text-4xl font-bold text-gray-800 dark:text-neutral-200 sm:text-left md:text-4xl lg:text-5xl"
-					>
-						Risk Disclosure <span class="text-green-500">Statement</span>
-					</h1>
+						set:html={t({
+							en: 'Risk Disclosure <span class="text-green-500">Statement</span>',
+							ar: 'إفصاح عن المخاطر <span class="text-green-500">بيان</span>',
+							es: 'Divulgación de Riesgos <span class="text-green-500">Declaración</span>',
+							fr: 'Avertissement sur les Risques <span class="text-green-500">Déclaration</span>',
+							hi: 'जोखिम खुलासा <span class="text-green-500">बयान</span>',
+							id: 'Pernyataan Risiko <span class="text-green-500">Pernyataan</span>',
+							ms: 'Pendedahan Risiko <span class="text-green-500">Pernyataan</span>',
+							th: 'การเปิดเผยความเสี่ยง <span class="text-green-500">คำชี้แจง</span>',
+							vi: 'Tuyên bố <span class="text-green-500">Rủi ro</span>',
+							bn: 'ঝুঁকি প্রকাশ <span class="text-green-500">বিবৃতি</span>',
+							'zh-hans': '风险披露 <span class="text-green-500">声明</span>',
+							'pt-br': 'Declaração de Risco <span class="text-green-500">Declaração</span>'
+						})}
+					/>
 				</div>
 				<div>
 					<svg
@@ -44,105 +72,396 @@ export const getStaticPaths = () =>
 		<div class="container py-10">
 			<div class="mb-5">
 				<p class="text-color mb-3">
-					The execution of financial transactions, similar in nature to the transactions
-					contemplated and described in this agreement involve the use of a financial leverage. the
-					use of a high financial leverage coupled with execution of the transactions described in
-					this agreement should be considered as high-risk financial activities. you should
-					carefully consider whether this kind of financial activity suits your needs, your
-					financial resources and your personal circumstances. since the risk of loss of part or all
-					of the invested funds in a short period of time is high, it is advisable to use funds
-					which are designated by you for high-risk speculative financial transactions.
+					{
+						t({
+							en: 'The execution of financial transactions, similar in nature to the transactions contemplated and described in this agreement involve the use of a financial leverage. The use of a high financial leverage coupled with execution of the transactions described in this agreement should be considered as high-risk financial activities. You should carefully consider whether this kind of financial activity suits your needs, your financial resources and your personal circumstances. Since the risk of loss of part or all of the invested funds in a short period of time is high, it is advisable to use funds which are designated by you for high-risk speculative financial transactions.',
+							ar: 'تنفيذ المعاملات المالية، التي تشبه في طبيعتها المعاملات المتوخاة والمذكورة في هذه الاتفاقية، يتضمن استخدام الرافعة المالية. يجب اعتبار استخدام الرافعة المالية العالية مع تنفيذ المعاملات المذكورة في هذه الاتفاقية أنشطة مالية عالية المخاطر. يجب عليك أن تنظر بعناية فيما إذا كان هذا النوع من الأنشطة المالية يناسب احتياجاتك ومواردك المالية وظروفك الشخصية. نظرًا لأن خطر فقدان جزء أو كل الأموال المستثمرة في فترة زمنية قصيرة مرتفع، فمن المستحسن استخدام الأموال التي خصصتها للمعاملات المالية المضاربة عالية المخاطر.',
+							es: 'La ejecución de transacciones financieras, similares en naturaleza a las transacciones contempladas y descritas en este acuerdo, implica el uso de un apalancamiento financiero. El uso de un alto apalancamiento financiero junto con la ejecución de las transacciones descritas en este acuerdo debe considerarse como actividades financieras de alto riesgo. Debe considerar cuidadosamente si este tipo de actividad financiera se adapta a sus necesidades, sus recursos financieros y sus circunstancias personales. Dado que el riesgo de pérdida de parte o la totalidad de los fondos invertidos en un corto período de tiempo es alto, es aconsejable utilizar fondos que usted haya designado para transacciones financieras especulativas de alto riesgo.',
+							fr: "L'exécution de transactions financières, de nature similaire aux transactions envisagées et décrites dans cet accord, implique l'utilisation d'un effet de levier financier. L'utilisation d'un effet de levier financier élevé, associée à l'exécution des transactions décrites dans cet accord, doit être considérée comme des activités financières à haut risque. Vous devez soigneusement considérer si ce type d'activité financière convient à vos besoins, à vos ressources financières et à vos circonstances personnelles. Étant donné que le risque de perte d'une partie ou de la totalité des fonds investis en peu de temps est élevé, il est conseillé d'utiliser des fonds que vous avez désignés pour des transactions financières spéculatives à haut risque.",
+							hi: 'वित्तीय लेन-देन का निष्पादन, जो इस समझौते में वर्णित लेन-देन के समान प्रकृति का है, वित्तीय उत्तोलन का उपयोग शामिल करता है। इस समझौते में वर्णित लेन-देन के निष्पादन के साथ उच्च वित्तीय उत्तोलन का उपयोग उच्च-जोखिम वाली वित्तीय गतिविधियों के रूप में माना जाना चाहिए। आपको सावधानीपूर्वक विचार करना चाहिए कि क्या इस प्रकार की वित्तीय गतिविधि आपकी आवश्यकताओं, आपके वित्तीय संसाधनों और आपकी व्यक्तिगत परिस्थितियों के अनुकूल है। चूंकि अल्पावधि में निवेशित धन का हिस्सा या पूरा नुकसान होने का जोखिम अधिक है, इसलिए यह सलाह दी जाती है कि आप उच्च-जोखिम वाली सट्टा वित्तीय लेन-देन के लिए नामित धन का उपयोग करें।',
+							id: 'Pelaksanaan transaksi keuangan, yang serupa dengan transaksi yang dipertimbangkan dan dijelaskan dalam perjanjian ini, melibatkan penggunaan leverage keuangan. Penggunaan leverage keuangan yang tinggi bersama dengan pelaksanaan transaksi yang dijelaskan dalam perjanjian ini harus dianggap sebagai kegiatan keuangan berisiko tinggi. Anda harus mempertimbangkan dengan cermat apakah jenis kegiatan keuangan ini sesuai dengan kebutuhan, sumber daya keuangan, dan keadaan pribadi Anda. Karena risiko kehilangan sebagian atau seluruh dana yang diinvestasikan dalam waktu singkat tinggi, disarankan untuk menggunakan dana yang Anda tunjuk untuk transaksi keuangan spekulatif berisiko tinggi.',
+							ms: 'Pelaksanaan transaksi kewangan, yang serupa dengan transaksi yang dibayangkan dan diterangkan dalam perjanjian ini melibatkan penggunaan leverage kewangan. Penggunaan leverage kewangan yang tinggi bersama dengan pelaksanaan transaksi yang diterangkan dalam perjanjian ini harus dianggap sebagai aktiviti kewangan berisiko tinggi. Anda harus mempertimbangkan dengan teliti sama ada jenis aktiviti kewangan ini sesuai dengan keperluan, sumber kewangan dan keadaan peribadi anda. Oleh kerana risiko kehilangan sebahagian atau semua dana yang dilaburkan dalam tempoh masa yang singkat adalah tinggi, adalah dinasihatkan untuk menggunakan dana yang telah anda tetapkan untuk transaksi kewangan spekulatif berisiko tinggi.',
+							th: 'การดำเนินการทำธุรกรรมทางการเงินที่มีลักษณะคล้ายกับธุรกรรมที่พิจารณาและอธิบายไว้ในข้อตกลงนี้เกี่ยวข้องกับการใช้เลเวอเรจทางการเงิน การใช้เลเวอเรจทางการเงินสูงควบคู่กับการดำเนินการทำธุรกรรมที่อธิบายไว้ในข้อตกลงนี้ควรถือเป็นกิจกรรมทางการเงินที่มีความเสี่ยงสูง คุณควรพิจารณาอย่างรอบคอบว่ากิจกรรมทางการเงินประเภทนี้เหมาะสมกับความต้องการ ทรัพยากรทางการเงิน และสถานการณ์ส่วนบุคคลของคุณหรือไม่ เนื่องจากความเสี่ยงในการสูญเสียเงินลงทุนบางส่วนหรือทั้งหมดในระยะเวลาอันสั้นนั้นสูง จึงแนะนำให้ใช้เงินทุนที่คุณกำหนดไว้สำหรับการทำธุรกรรมทางการเงินที่มีความเสี่ยงสูง',
+							vi: 'Việc thực hiện các giao dịch tài chính, tương tự như các giao dịch được dự tính và mô tả trong thỏa thuận này, liên quan đến việc sử dụng đòn bẩy tài chính. Việc sử dụng đòn bẩy tài chính cao cùng với việc thực hiện các giao dịch được mô tả trong thỏa thuận này nên được coi là các hoạt động tài chính có rủi ro cao. Bạn nên cân nhắc kỹ lưỡng xem loại hoạt động tài chính này có phù hợp với nhu cầu, nguồn lực tài chính và hoàn cảnh cá nhân của bạn hay không. Vì rủi ro mất một phần hoặc toàn bộ số tiền đầu tư trong một thời gian ngắn là cao, nên sử dụng các quỹ mà bạn đã chỉ định cho các giao dịch tài chính đầu cơ có rủi ro cao.',
+							bn: 'আর্থিক লেনদেনের কার্যকরীতা, এই চুক্তিতে বর্ণিত লেনদেনের সাথে সাদৃশ্যপূর্ণ, আর্থিক লিভারেজের ব্যবহার অন্তর্ভুক্ত করে। এই চুক্তিতে বর্ণিত লেনদেনের কার্যকরীতা সহ উচ্চ আর্থিক লিভারেজের ব্যবহারকে উচ্চ-ঝুঁকিপূর্ণ আর্থিক কার্যকলাপ হিসাবে বিবেচনা করা উচিত। আপনাকে সাবধানে বিবেচনা করা উচিত যে এই ধরনের আর্থিক কার্যকলাপ আপনার প্রয়োজন, আপনার আর্থিক সম্পদ এবং আপনার ব্যক্তিগত পরিস্থিতির সাথে মানানসই কিনা। যেহেতু স্বল্প সময়ের মধ্যে বিনিয়োগকৃত তহবিলের অংশ বা সমস্ত ক্ষতির ঝুঁকি বেশি, তাই উচ্চ-ঝুঁকিপূর্ণ অনুমানমূলক আর্থিক লেনদেনের জন্য আপনার দ্বারা মনোনীত তহবিল ব্যবহার করা পরামর্শযোগ্য।',
+							'zh-hans':
+								'执行类似于本协议中设想和描述的交易的金融交易涉及使用金融杠杆。使用高金融杠杆加上执行本协议中描述的交易应被视为高风险金融活动。您应仔细考虑这种金融活动是否适合您的需求、您的财务资源和您的个人情况。由于在短时间内损失部分或全部投资资金的风险很高，建议使用您指定的资金进行高风险投机性金融交易。',
+							'pt-br':
+								'A execução de transações financeiras, de natureza semelhante às transações contempladas e descritas neste acordo, envolve o uso de alavancagem financeira. O uso de uma alavancagem financeira alta, juntamente com a execução das transações descritas neste acordo, deve ser considerado como atividades financeiras de alto risco. Você deve considerar cuidadosamente se esse tipo de atividade financeira atende às suas necessidades, seus recursos financeiros e suas circunstâncias pessoais. Como o risco de perda de parte ou de todo o capital investido em um curto período de tempo é alto, é aconselhável usar fundos que você designou para transações financeiras especulativas de alto risco.'
+						})
+					}
 				</p>
 				<p class="text-color mb-3">
-					The cautions detailed in this disclosure section do not include all possible risks
-					associated with the kind of transactions contemplated under this agreement.
+					{
+						t({
+							en: 'The cautions detailed in this disclosure section do not include all possible risks associated with the kind of transactions contemplated under this agreement.',
+							ar: 'التحذيرات المفصلة في هذا القسم من الإفصاح لا تشمل جميع المخاطر المحتملة المرتبطة بنوع المعاملات المتوخاة بموجب هذه الاتفاقية.',
+							es: 'Las precauciones detalladas en esta sección de divulgación no incluyen todos los posibles riesgos asociados con el tipo de transacciones contempladas en este acuerdo.',
+							fr: "Les avertissements détaillés dans cette section de divulgation n'incluent pas tous les risques possibles associés au type de transactions envisagées dans le cadre de cet accord.",
+							hi: 'इस प्रकटीकरण अनुभाग में विस्तृत सावधानियां इस समझौते के तहत विचार किए गए लेन-देन के प्रकार से जुड़े सभी संभावित जोखिमों को शामिल नहीं करती हैं।',
+							id: 'Peringatan yang dirinci dalam bagian pengungkapan ini tidak mencakup semua risiko yang mungkin terkait dengan jenis transaksi yang dipertimbangkan dalam perjanjian ini.',
+							ms: 'Amaran yang diperincikan dalam bahagian pendedahan ini tidak termasuk semua risiko yang mungkin berkaitan dengan jenis transaksi yang dibayangkan di bawah perjanjian ini.',
+							th: 'คำเตือนที่มีรายละเอียดในส่วนการเปิดเผยนี้ไม่ได้รวมถึงความเสี่ยงที่เป็นไปได้ทั้งหมดที่เกี่ยวข้องกับธุรกรรมประเภทที่พิจารณาภายใต้ข้อตกลงนี้',
+							vi: 'Các cảnh báo chi tiết trong phần tiết lộ này không bao gồm tất cả các rủi ro có thể liên quan đến loại giao dịch được xem xét theo thỏa thuận này.',
+							bn: 'এই প্রকাশ বিভাগে বিস্তারিত সতর্কতাগুলি এই চুক্তির অধীনে বিবেচিত লেনদেনের ধরণের সাথে সম্পর্কিত সমস্ত সম্ভাব্য ঝুঁকি অন্তর্ভুক্ত করে না।',
+							'zh-hans':
+								'本披露部分中详细说明的警告不包括与本协议下拟进行的交易类型相关的所有可能风险。',
+							'pt-br':
+								'Os avisos detalhados nesta seção de divulgação não incluem todos os possíveis riscos associados ao tipo de transações contempladas neste acordo.'
+						})
+					}
 				</p>
 				<p class="text-color mb-3">
-					Trading in financial markets in general and purchasing CFD in particular is speculative
-					and involves extremely high risk and high financial leverage. It is manifestly stated by
-					the Client that he fully understands that minor differences in market prices may occur in
-					short time periods and may cause high profits or losses in relation to the securities, as
-					high as total loss of all securities, all in short time period and that there is no
-					existing method that can assure profits from Transactions in financial markets.
+					{
+						t({
+							en: 'Trading in financial markets in general and purchasing CFD in particular is speculative and involves extremely high risk and high financial leverage. It is manifestly stated by the Client that he fully understands that minor differences in market prices may occur in short time periods and may cause high profits or losses in relation to the securities, as high as total loss of all securities, all in short time period and that there is no existing method that can assure profits from Transactions in financial markets.',
+							ar: 'التداول في الأسواق المالية بشكل عام وشراء العقود مقابل الفروقات بشكل خاص هو تداول مضارب وينطوي على مخاطر عالية للغاية ورافعة مالية عالية. يصرح العميل بشكل واضح أنه يفهم تمامًا أن الاختلافات الطفيفة في أسعار السوق قد تحدث في فترات زمنية قصيرة وقد تتسبب في أرباح أو خسائر كبيرة بالنسبة للأوراق المالية، تصل إلى خسارة كاملة لجميع الأوراق المالية، كل ذلك في فترة زمنية قصيرة وأنه لا توجد طريقة قائمة يمكن أن تضمن الأرباح من المعاملات في الأسواق المالية.',
+							es: 'El comercio en los mercados financieros en general y la compra de CFD en particular es especulativo e implica un riesgo extremadamente alto y un alto apalancamiento financiero. El Cliente manifiesta que comprende plenamente que pueden ocurrir pequeñas diferencias en los precios del mercado en períodos de tiempo cortos y que pueden causar grandes ganancias o pérdidas en relación con los valores, llegando a la pérdida total de todos los valores, todo en un corto período de tiempo y que no existe un método que pueda asegurar ganancias en las Transacciones en los mercados financieros.',
+							fr: "Le trading sur les marchés financiers en général et l'achat de CFD en particulier est spéculatif et implique un risque extrêmement élevé et un effet de levier financier élevé. Il est manifestement déclaré par le Client qu'il comprend pleinement que de petites différences de prix sur le marché peuvent survenir sur de courtes périodes de temps et peuvent entraîner des profits ou des pertes importants par rapport aux valeurs mobilières, pouvant aller jusqu'à la perte totale de toutes les valeurs, le tout sur une courte période de temps et qu'il n'existe aucun moyen garantissant des profits dans les transactions sur les marchés financiers.",
+							hi: 'वित्तीय बाजारों में सामान्य रूप से व्यापार करना और विशेष रूप से सीएफडी खरीदना एक सट्टा गतिविधि है और इसमें अत्यधिक उच्च जोखिम और उच्च वित्तीय लीवरेज शामिल है। यह स्पष्ट रूप से ग्राहक द्वारा बताया गया है कि वह पूरी तरह से समझता है कि बाजार की कीमतों में छोटे अंतर छोटे समय के भीतर हो सकते हैं और यह प्रतिभूतियों के संबंध में उच्च लाभ या हानि का कारण बन सकते हैं, जो सभी प्रतिभूतियों की कुल हानि तक हो सकता है, सभी एक छोटे समय के भीतर और यह कि वित्तीय बाजारों में लेनदेन से लाभ सुनिश्चित करने का कोई मौजूदा तरीका नहीं है।',
+							id: 'Perdagangan di pasar keuangan secara umum dan pembelian CFD secara khusus adalah spekulatif dan melibatkan risiko yang sangat tinggi serta leverage keuangan yang tinggi. Klien secara jelas menyatakan bahwa dia sepenuhnya memahami bahwa perbedaan kecil dalam harga pasar dapat terjadi dalam waktu yang singkat dan dapat menyebabkan keuntungan atau kerugian yang tinggi terkait dengan sekuritas, bahkan sampai kehilangan total semua sekuritas, semuanya dalam waktu yang singkat dan bahwa tidak ada metode yang ada yang dapat menjamin keuntungan dari Transaksi di pasar keuangan.',
+							ms: 'Perdagangan di pasaran kewangan secara amnya dan pembelian CFD khususnya adalah spekulatif dan melibatkan risiko yang sangat tinggi dan leverage kewangan yang tinggi. Pelanggan secara jelas menyatakan bahawa dia sepenuhnya memahami bahawa perbezaan kecil dalam harga pasaran mungkin berlaku dalam jangka masa yang singkat dan boleh menyebabkan keuntungan atau kerugian yang tinggi berkaitan dengan sekuriti, setinggi kehilangan semua sekuriti, semuanya dalam jangka masa yang singkat dan bahawa tiada kaedah yang wujud yang dapat menjamin keuntungan daripada Transaksi di pasaran kewangan.',
+							th: 'การซื้อขายในตลาดการเงินทั่วไปและการซื้อ CFD โดยเฉพาะนั้นเป็นการเก็งกำไรและมีความเสี่ยงสูงมากและเลเวอเรจทางการเงินสูง ลูกค้ารับทราบอย่างชัดเจนว่าเขาเข้าใจเป็นอย่างดีว่าอาจเกิดความแตกต่างเล็กน้อยในราคาตลาดในช่วงเวลาสั้น ๆ และอาจทำให้เกิดกำไรหรือขาดทุนสูงเกี่ยวกับหลักทรัพย์ อาจถึงการสูญเสียหลักทรัพย์ทั้งหมดในช่วงเวลาสั้น ๆ และไม่มีวิธีการใดที่สามารถรับประกันกำไรจากธุรกรรมในตลาดการเงินได้',
+							vi: 'Giao dịch trên các thị trường tài chính nói chung và việc mua CFD nói riêng là đầu cơ và liên quan đến rủi ro cực kỳ cao và đòn bẩy tài chính cao. Khách hàng tuyên bố rõ ràng rằng họ hoàn toàn hiểu rằng những khác biệt nhỏ trong giá thị trường có thể xảy ra trong thời gian ngắn và có thể gây ra lợi nhuận hoặc thua lỗ lớn liên quan đến chứng khoán, có thể lên đến việc mất hoàn toàn tất cả các chứng khoán, tất cả trong khoảng thời gian ngắn và rằng không có phương pháp nào hiện có có thể đảm bảo lợi nhuận từ các giao dịch trên các thị trường tài chính.',
+							bn: 'আর্থিক বাজারে বাণিজ্য করা এবং বিশেষ করে সিএফডি ক্রয় করা একটি কল্পনাপ্রবণ কাজ এবং এতে অত্যন্ত উচ্চ ঝুঁকি এবং উচ্চ আর্থিক লিভারেজ অন্তর্ভুক্ত। এটি ক্লায়েন্ট দ্বারা স্পষ্টভাবে উল্লেখ করা হয়েছে যে তিনি সম্পূর্ণরূপে বোঝেন যে বাজারের মূল্যগুলিতে সামান্য পার্থক্য ছোট সময়ের মধ্যে ঘটতে পারে এবং এটি সিকিউরিটিগুলির সম্পর্কিত উচ্চ লাভ বা ক্ষতি সৃষ্টি করতে পারে, যা সমস্ত সিকিউরিটির সম্পূর্ণ ক্ষতি পর্যন্ত হতে পারে, সবই ছোট সময়ের মধ্যে এবং যে কোনও বিদ্যমান পদ্ধতি নেই যা আর্থিক বাজারে লেনদেন থেকে লাভ নিশ্চিত করতে পারে।',
+							'zh-hans':
+								'一般而言，在金融市场进行交易，特别是购买差价合约(CFD)，是投机性的，并涉及极高的风险和高财务杠杆。客户明确表示，他完全理解市场价格的微小差异可能在短时间内发生，并可能导致与证券相关的高利润或损失，甚至可能导致所有证券的全部损失，所有这些都发生在短时间内，并且没有任何现有的方法可以确保金融市场交易的利润。',
+							'pt-br':
+								'A negociação nos mercados financeiros, em geral, e a compra de CFD, em particular, é especulativa e envolve risco extremamente alto e alta alavancagem financeira. O Cliente declara manifestamente que entende plenamente que pequenas diferenças nos preços do mercado podem ocorrer em curtos períodos de tempo e podem causar altos lucros ou perdas em relação aos valores mobiliários, chegando até a perda total de todos os valores mobiliários, tudo em um curto período de tempo e que não existe um método existente que possa garantir lucros nas Transações nos mercados financeiros.'
+						})
+					}
 				</p>
 				<p class="text-color mb-3">
-					By registering to the Site opening an account and carrying out Transactions, you hereby
-					approve that you are aware of the following:
+					{
+						t({
+							en: 'By registering to the Site, opening an account, and carrying out Transactions, you hereby approve that you are aware of the following:',
+							ar: 'من خلال التسجيل في الموقع وفتح حساب وإجراء المعاملات، فإنك توافق بموجب هذا على أنك على علم بما يلي:',
+							es: 'Al registrarse en el sitio, abrir una cuenta y realizar transacciones, usted aprueba que es consciente de lo siguiente:',
+							fr: 'En vous inscrivant sur le site, en ouvrant un compte et en effectuant des transactions, vous approuvez par la présente que vous êtes conscient de ce qui suit :',
+							hi: 'साइट पर पंजीकरण करके, एक खाता खोलकर और लेन-देन करके, आप इस बात की पुष्टि करते हैं कि आप निम्नलिखित से अवगत हैं:',
+							id: 'Dengan mendaftar ke Situs, membuka akun, dan melakukan Transaksi, Anda dengan ini menyetujui bahwa Anda menyadari hal-hal berikut:',
+							ms: 'Dengan mendaftar ke Laman Web, membuka akaun, dan menjalankan Transaksi, anda dengan ini meluluskan bahawa anda sedar akan perkara berikut:',
+							th: 'โดยการลงทะเบียนในเว็บไซต์ เปิดบัญชี และดำเนินการธุรกรรม คุณยอมรับว่าคุณทราบถึงสิ่งต่อไปนี้:',
+							vi: 'Bằng cách đăng ký vào Trang web, mở tài khoản và thực hiện Giao dịch, bạn đồng ý rằng bạn nhận thức được những điều sau:',
+							bn: 'সাইটে নিবন্ধন করে, একটি অ্যাকাউন্ট খুলে এবং লেনদেন সম্পাদন করে, আপনি নিম্নলিখিত সম্পর্কে সচেতন আছেন তা অনুমোদন করছেন:',
+							'zh-hans': '通过注册网站、开设账户和进行交易，您在此确认您已知悉以下内容：',
+							'pt-br':
+								'Ao se registrar no site, abrir uma conta e realizar transações, você aprova que está ciente do seguinte:'
+						})
+					}
 				</p>
 				<p class="text-color mb-3">
-					The type of Transactions offered by the System may be considered special risk transactions
-					and carrying them out might involve high level of risk.
+					{
+						t({
+							en: 'The type of Transactions offered by the System may be considered special risk transactions and carrying them out might involve high level of risk.',
+							ar: 'يمكن اعتبار نوع المعاملات المقدمة من قبل النظام معاملات ذات مخاطر خاصة وقد يتضمن تنفيذها مستوى عالٍ من المخاطر.',
+							es: 'El tipo de transacciones ofrecidas por el sistema puede considerarse transacciones de riesgo especial y llevarlas a cabo podría implicar un alto nivel de riesgo.',
+							fr: 'Le type de transactions proposé par le système peut être considéré comme des transactions à risque spécial et leur réalisation peut impliquer un niveau élevé de risque.',
+							hi: 'सिस्टम द्वारा प्रस्तुत लेनदेन के प्रकार को विशेष जोखिम लेनदेन माना जा सकता है और इन्हें करना उच्च स्तर के जोखिम में शामिल हो सकता है।',
+							id: 'Jenis transaksi yang ditawarkan oleh sistem dapat dianggap sebagai transaksi berisiko khusus dan pelaksanaannya mungkin melibatkan tingkat risiko yang tinggi.',
+							ms: 'Jenis transaksi yang ditawarkan oleh sistem boleh dianggap sebagai transaksi risiko khas dan melaksanakannya mungkin melibatkan tahap risiko yang tinggi.',
+							th: 'ประเภทของการทำธุรกรรมที่เสนอโดยระบบอาจถือเป็นธุรกรรมที่มีความเสี่ยงพิเศษและการดำเนินการอาจเกี่ยวข้องกับความเสี่ยงในระดับสูง',
+							vi: 'Loại giao dịch mà hệ thống cung cấp có thể được coi là giao dịch có rủi ro đặc biệt và việc thực hiện chúng có thể liên quan đến mức độ rủi ro cao.',
+							bn: 'সিস্টেম দ্বারা অফার করা লেনদেনের ধরনের বিশেষ ঝুঁকির লেনদেন হিসাবে বিবেচনা করা যেতে পারে এবং এগুলি পরিচালনা করা উচ্চ স্তরের ঝুঁকি জড়িত থাকতে পারে।',
+							'zh-hans':
+								'系统提供的交易类型可以被视为特殊风险交易，执行这些交易可能涉及高水平的风险。',
+							'pt-br':
+								'O tipo de transações oferecidas pelo sistema pode ser considerado transações de risco especial e realizá-las pode envolver um alto nível de risco.'
+						})
+					}
 				</p>
 				<p class="text-color mb-3">
-					You agree and confirm that you have full information and knowledge regarding CFDs,
-					including Digital Currencies and the risks involved in trade. Carrying out Transactions is
-					at your sole discretion and you hereby undertake the risks involved in such Transactions
-					and has the financial capability to finance the aforesaid Transactions.
+					{
+						t({
+							en: 'You agree and confirm that you have full information and knowledge regarding CFDs, including Digital Currencies and the risks involved in trade. Carrying out Transactions is at your sole discretion and you hereby undertake the risks involved in such Transactions and have the financial capability to finance the aforesaid Transactions.',
+							ar: 'أنت توافق وتؤكد أنك لديك المعلومات والمعرفة الكاملة بشأن عقود الفروقات (CFDs)، بما في ذلك العملات الرقمية والمخاطر المرتبطة بالتجارة. تنفيذ المعاملات هو على مسؤوليتك الخاصة وتتحمل بموجب هذا المخاطر المرتبطة بهذه المعاملات ولديك القدرة المالية لتمويل المعاملات المذكورة.',
+							es: 'Usted acepta y confirma que tiene toda la información y el conocimiento sobre los CFDs, incluidas las monedas digitales y los riesgos involucrados en el comercio. La realización de transacciones es a su entera discreción y, por la presente, asume los riesgos involucrados en dichas transacciones y tiene la capacidad financiera para financiar las transacciones mencionadas.',
+							fr: 'Vous acceptez et confirmez que vous avez toutes les informations et connaissances concernant les CFD, y compris les monnaies numériques et les risques liés au commerce. La réalisation des transactions est à votre seule discrétion et vous assumez par la présente les risques liés à ces transactions et avez la capacité financière de financer les transactions susmentionnées.',
+							hi: 'आप सहमत हैं और पुष्टि करते हैं कि आपके पास सीएफडी, जिसमें डिजिटल मुद्राएं और व्यापार में शामिल जोखिम शामिल हैं, के बारे में पूरी जानकारी और ज्ञान है। लेन-देन करना आपके विवेक पर है और आप इस प्रकार के लेन-देन में शामिल जोखिमों को स्वीकार करते हैं और आपके पास उपरोक्त लेन-देन को वित्तपोषित करने की वित्तीय क्षमता है।',
+							id: 'Anda setuju dan mengonfirmasi bahwa Anda memiliki informasi dan pengetahuan penuh mengenai CFD, termasuk Mata Uang Digital dan risiko yang terlibat dalam perdagangan. Melakukan Transaksi sepenuhnya atas kebijaksanaan Anda dan dengan ini Anda menanggung risiko yang terlibat dalam Transaksi tersebut dan memiliki kemampuan finansial untuk membiayai Transaksi tersebut.',
+							ms: 'Anda bersetuju dan mengesahkan bahawa anda mempunyai maklumat dan pengetahuan penuh mengenai CFD, termasuk Mata Wang Digital dan risiko yang terlibat dalam perdagangan. Melaksanakan Transaksi adalah atas budi bicara anda sendiri dan anda dengan ini menanggung risiko yang terlibat dalam Transaksi tersebut dan mempunyai keupayaan kewangan untuk membiayai Transaksi tersebut.',
+							th: 'คุณยอมรับและยืนยันว่าคุณมีข้อมูลและความรู้ครบถ้วนเกี่ยวกับ CFD รวมถึงสกุลเงินดิจิทัลและความเสี่ยงที่เกี่ยวข้องกับการซื้อขาย การดำเนินการธุรกรรมเป็นดุลยพินิจของคุณแต่เพียงผู้เดียวและคุณยอมรับความเสี่ยงที่เกี่ยวข้องกับธุรกรรมดังกล่าวและมีความสามารถทางการเงินในการจัดหาเงินทุนสำหรับธุรกรรมดังกล่าว',
+							vi: 'Bạn đồng ý và xác nhận rằng bạn có đầy đủ thông tin và kiến thức về CFD, bao gồm cả Tiền tệ Kỹ thuật số và các rủi ro liên quan đến giao dịch. Việc thực hiện Giao dịch hoàn toàn do bạn quyết định và bạn đồng ý chịu các rủi ro liên quan đến các Giao dịch đó và có khả năng tài chính để tài trợ cho các Giao dịch nói trên.',
+							bn: 'আপনি সম্মত হন এবং নিশ্চিত করেন যে আপনার কাছে সিএফডি, যার মধ্যে ডিজিটাল মুদ্রা এবং বাণিজ্যে জড়িত ঝুঁকি সম্পর্কে সম্পূর্ণ তথ্য এবং জ্ঞান রয়েছে। লেনদেন করা আপনার একমাত্র বিবেচনার ভিত্তিতে এবং আপনি এই ধরনের লেনদেনের সাথে জড়িত ঝুঁকি গ্রহণ করেন এবং উল্লিখিত লেনদেনগুলি অর্থায়নের জন্য আপনার আর্থিক ক্ষমতা রয়েছে।',
+							'zh-hans':
+								'您同意并确认您已充分了解和掌握有关差价合约（CFD）的信息和知识，包括数字货币及其交易风险。进行交易完全由您自行决定，您在此承担此类交易的风险，并且具有为上述交易提供资金的财务能力。',
+							'pt-br':
+								'Você concorda e confirma que possui todas as informações e conhecimentos sobre CFDs, incluindo Moedas Digitais e os riscos envolvidos no comércio. A realização de Transações é de sua exclusiva responsabilidade e você assume os riscos envolvidos nessas Transações e tem a capacidade financeira para financiar as referidas Transações.'
+						})
+					}
 				</p>
 				<p class="text-color mb-3">
-					In order to complete any withdrawal, all customers must complete DB Investing’s withdrawal
-					compliance procedures.
+					{
+						t({
+							en: 'In order to complete any withdrawal, all customers must complete DB Investing’s withdrawal compliance procedures.',
+							ar: 'من أجل إكمال أي سحب، يجب على جميع العملاء إكمال إجراءات الامتثال للسحب في DB Investing.',
+							es: 'Para completar cualquier retiro, todos los clientes deben completar los procedimientos de cumplimiento de retiro de DB Investing.',
+							fr: 'Pour effectuer un retrait, tous les clients doivent compléter les procédures de conformité de retrait de DB Investing.',
+							hi: 'किसी भी निकासी को पूरा करने के लिए, सभी ग्राहकों को DB Investing की निकासी अनुपालन प्रक्रियाओं को पूरा करना होगा।',
+							id: 'Untuk menyelesaikan penarikan apa pun, semua pelanggan harus menyelesaikan prosedur kepatuhan penarikan DB Investing.',
+							ms: 'Untuk menyelesaikan sebarang pengeluaran, semua pelanggan mesti melengkapkan prosedur pematuhan pengeluaran DB Investing.',
+							th: 'เพื่อให้การถอนเงินเสร็จสมบูรณ์ ลูกค้าทุกคนต้องทำตามขั้นตอนการปฏิบัติตามข้อกำหนดการถอนของ DB Investing',
+							vi: 'Để hoàn tất bất kỳ giao dịch rút tiền nào, tất cả khách hàng phải hoàn thành các quy trình tuân thủ rút tiền của DB Investing.',
+							bn: 'যেকোনো প্রত্যাহার সম্পন্ন করতে, সকল গ্রাহককে DB Investing-এর প্রত্যাহার সম্মতি পদ্ধতি সম্পন্ন করতে হবে।',
+							'zh-hans': '为了完成任何提款，所有客户必须完成DB Investing的提款合规程序。',
+							'pt-br':
+								'Para concluir qualquer retirada, todos os clientes devem concluir os procedimentos de conformidade de retirada da DB Investing.'
+						})
+					}
 				</p>
 				<p class="text-color mb-3">
-					You read the terms of this Agreement and all terms relating to Financial Contracts as they
-					are defined in this Agreement prior to the execution of any Financial Contract and fully
-					understand the consequences and results of success or failure.
+					{
+						t({
+							en: 'You read the terms of this Agreement and all terms relating to Financial Contracts as they are defined in this Agreement prior to the execution of any Financial Contract and fully understand the consequences and results of success or failure.',
+							ar: 'لقد قرأت شروط هذه الاتفاقية وجميع الشروط المتعلقة بالعقود المالية كما هي محددة في هذه الاتفاقية قبل تنفيذ أي عقد مالي وتفهم تمامًا العواقب والنتائج المترتبة على النجاح أو الفشل.',
+							es: 'Usted lee los términos de este Acuerdo y todos los términos relacionados con los Contratos Financieros tal como se definen en este Acuerdo antes de la ejecución de cualquier Contrato Financiero y comprende completamente las consecuencias y resultados del éxito o fracaso.',
+							fr: "Vous lisez les termes de cet Accord et tous les termes relatifs aux Contrats Financiers tels qu'ils sont définis dans cet Accord avant l'exécution de tout Contrat Financier et comprenez pleinement les conséquences et les résultats du succès ou de l'échec.",
+							hi: 'आप इस समझौते की शर्तों और किसी भी वित्तीय अनुबंध के निष्पादन से पहले इस समझौते में परिभाषित वित्तीय अनुबंधों से संबंधित सभी शर्तों को पढ़ते हैं और सफलता या विफलता के परिणामों और परिणामों को पूरी तरह से समझते हैं।',
+							id: 'Anda membaca syarat-syarat Perjanjian ini dan semua syarat yang berkaitan dengan Kontrak Keuangan sebagaimana didefinisikan dalam Perjanjian ini sebelum pelaksanaan Kontrak Keuangan apa pun dan sepenuhnya memahami konsekuensi dan hasil dari keberhasilan atau kegagalan.',
+							ms: 'Anda membaca terma Perjanjian ini dan semua terma yang berkaitan dengan Kontrak Kewangan seperti yang ditakrifkan dalam Perjanjian ini sebelum pelaksanaan mana-mana Kontrak Kewangan dan memahami sepenuhnya akibat dan hasil kejayaan atau kegagalan.',
+							th: 'คุณอ่านข้อกำหนดของข้อตกลงนี้และข้อกำหนดทั้งหมดที่เกี่ยวข้องกับสัญญาทางการเงินตามที่กำหนดไว้ในข้อตกลงนี้ก่อนที่จะดำเนินการตามสัญญาทางการเงินใด ๆ และเข้าใจผลที่ตามมาและผลลัพธ์ของความสำเร็จหรือความล้มเหลวอย่างครบถ้วน',
+							vi: 'Bạn đọc các điều khoản của Thỏa thuận này và tất cả các điều khoản liên quan đến Hợp đồng Tài chính như được định nghĩa trong Thỏa thuận này trước khi thực hiện bất kỳ Hợp đồng Tài chính nào và hoàn toàn hiểu các hậu quả và kết quả của thành công hoặc thất bại.',
+							bn: 'আপনি এই চুক্তির শর্তাবলী এবং এই চুক্তিতে সংজ্ঞায়িত হিসাবে আর্থিক চুক্তির সাথে সম্পর্কিত সমস্ত শর্তাবলী পড়েন এবং কোনও আর্থিক চুক্তি কার্যকর করার আগে এবং সাফল্য বা ব্যর্থতার পরিণতি এবং ফলাফলগুলি সম্পূর্ণরূপে বোঝেন।',
+							'zh-hans':
+								'您在执行任何金融合同之前，阅读本协议的条款以及本协议中定义的所有与金融合同相关的条款，并完全理解成功或失败的后果和结果。',
+							'pt-br':
+								'Você lê os termos deste Acordo e todos os termos relacionados aos Contratos Financeiros conforme definidos neste Acordo antes da execução de qualquer Contrato Financeiro e compreende totalmente as consequências e os resultados do sucesso ou fracasso.'
+						})
+					}
 				</p>
 				<p class="text-color mb-3">
-					You know that incorrect investment may cause you considerable loss.
+					{
+						t({
+							en: 'You know that incorrect investment may cause you considerable loss.',
+							ar: 'أنت تعلم أن الاستثمار غير الصحيح قد يتسبب لك في خسائر كبيرة.',
+							es: 'Sabes que una inversión incorrecta puede causarte pérdidas considerables.',
+							fr: "Vous savez qu'un investissement incorrect peut vous causer une perte considérable.",
+							hi: 'आप जानते हैं कि गलत निवेश से आपको काफी नुकसान हो सकता है।',
+							id: 'Anda tahu bahwa investasi yang tidak tepat dapat menyebabkan Anda kehilangan yang cukup besar.',
+							ms: 'Anda tahu bahawa pelaburan yang tidak betul boleh menyebabkan anda kerugian yang besar.',
+							th: 'คุณรู้ว่าการลงทุนที่ไม่ถูกต้องอาจทำให้คุณขาดทุนอย่างมาก',
+							vi: 'Bạn biết rằng đầu tư sai lầm có thể gây ra cho bạn những tổn thất đáng kể.',
+							bn: 'আপনি জানেন যে ভুল বিনিয়োগ আপনার জন্য উল্লেখযোগ্য ক্ষতির কারণ হতে পারে।',
+							'zh-hans': '您知道不正确的投资可能会给您带来相当大的损失。',
+							'pt-br': 'Você sabe que um investimento incorreto pode causar uma perda considerável.'
+						})
+					}
 				</p>
 				<p class="text-color mb-3">
-					You know that the lifetime of any Financial Contract offered by the System may be as short
-					as a few minutes.
+					{
+						t({
+							en: 'You know that the lifetime of any Financial Contract offered by the System may be as short as a few minutes.',
+							ar: 'أنت تعلم أن مدة أي عقد مالي يقدمه النظام قد تكون قصيرة تصل إلى بضع دقائق.',
+							es: 'Usted sabe que la duración de cualquier Contrato Financiero ofrecido por el Sistema puede ser tan corta como unos pocos minutos.',
+							fr: 'Vous savez que la durée de vie de tout Contrat Financier proposé par le Système peut être aussi courte que quelques minutes.',
+							hi: 'आप जानते हैं कि सिस्टम द्वारा पेश किए गए किसी भी वित्तीय अनुबंध की अवधि कुछ मिनटों जितनी कम हो सकती है।',
+							id: 'Anda tahu bahwa masa berlaku Kontrak Keuangan yang ditawarkan oleh Sistem bisa sesingkat beberapa menit.',
+							ms: 'Anda tahu bahawa jangka hayat mana-mana Kontrak Kewangan yang ditawarkan oleh Sistem mungkin sependek beberapa minit.',
+							th: 'คุณทราบว่าระยะเวลาของสัญญาทางการเงินใด ๆ ที่เสนอโดยระบบอาจสั้นเพียงไม่กี่นาที',
+							vi: 'Bạn biết rằng thời hạn của bất kỳ Hợp đồng Tài chính nào được Hệ thống cung cấp có thể ngắn như vài phút.',
+							bn: 'আপনি জানেন যে সিস্টেম দ্বারা প্রদত্ত কোনও আর্থিক চুক্তির জীবনকাল কয়েক মিনিটের মতো ছোট হতে পারে।',
+							'zh-hans': '您知道系统提供的任何金融合同的期限可能短至几分钟。',
+							'pt-br':
+								'Você sabe que a duração de qualquer Contrato Financeiro oferecido pelo Sistema pode ser tão curta quanto alguns minutos.'
+						})
+					}
 				</p>
 				<p class="text-color mb-3">
-					The use of the System is solely designated for sophisticated users with the ability to
-					sustain swift losses up to total loss of the invested money and/or the securities. You are
-					responsible for careful consideration whether such Transactions suits you and your
-					purposes while taking into consideration your resources, your personal circumstances and
-					understanding the implications of actions made by yourself. It is highly recommended that
-					you consult with tax experts and legal advisors.
+					{
+						t({
+							en: 'The use of the System is solely designated for sophisticated users with the ability to sustain swift losses up to total loss of the invested money and/or the securities. You are responsible for careful consideration whether such Transactions suit you and your purposes while taking into consideration your resources, your personal circumstances and understanding the implications of actions made by yourself. It is highly recommended that you consult with tax experts and legal advisors.',
+							ar: 'يقتصر استخدام النظام على المستخدمين المتقدمين الذين لديهم القدرة على تحمل الخسائر السريعة حتى الخسارة الكاملة للأموال المستثمرة و/أو الأوراق المالية. أنت مسؤول عن النظر بعناية فيما إذا كانت هذه المعاملات تناسبك وتناسب أغراضك مع مراعاة مواردك وظروفك الشخصية وفهمك لتداعيات الإجراءات التي تقوم بها. يوصى بشدة بأن تستشير خبراء الضرائب والمستشارين القانونيين.',
+							es: 'El uso del Sistema está destinado únicamente a usuarios sofisticados con la capacidad de soportar pérdidas rápidas hasta la pérdida total del dinero invertido y/o los valores. Usted es responsable de considerar cuidadosamente si dichas transacciones son adecuadas para usted y sus propósitos, teniendo en cuenta sus recursos, sus circunstancias personales y comprendiendo las implicaciones de las acciones realizadas por usted mismo. Se recomienda encarecidamente que consulte con expertos fiscales y asesores legales.',
+							fr: "L'utilisation du Système est uniquement destinée aux utilisateurs avertis ayant la capacité de supporter des pertes rapides allant jusqu'à la perte totale de l'argent investi et/ou des titres. Vous êtes responsable de considérer attentivement si de telles transactions vous conviennent et conviennent à vos objectifs, en tenant compte de vos ressources, de vos circonstances personnelles et en comprenant les implications des actions que vous entreprenez. Il est fortement recommandé de consulter des experts fiscaux et des conseillers juridiques.",
+							hi: 'सिस्टम का उपयोग केवल परिष्कृत उपयोगकर्ताओं के लिए नामित है जिनके पास निवेशित धन और/या प्रतिभूतियों के कुल नुकसान तक त्वरित नुकसान को बनाए रखने की क्षमता है। यह विचार करना आपकी जिम्मेदारी है कि क्या इस प्रकार के लेन-देन आपके और आपके उद्देश्यों के लिए उपयुक्त हैं, जबकि आपके संसाधनों, आपकी व्यक्तिगत परिस्थितियों और आपके द्वारा किए गए कार्यों के निहितार्थों को ध्यान में रखते हुए। यह अत्यधिक अनुशंसा की जाती है कि आप कर विशेषज्ञों और कानूनी सलाहकारों से परामर्श करें।',
+							id: 'Penggunaan Sistem hanya ditujukan untuk pengguna yang canggih dengan kemampuan untuk menanggung kerugian cepat hingga kehilangan total uang yang diinvestasikan dan/atau sekuritas. Anda bertanggung jawab untuk mempertimbangkan dengan cermat apakah Transaksi tersebut sesuai untuk Anda dan tujuan Anda sambil mempertimbangkan sumber daya Anda, keadaan pribadi Anda, dan memahami implikasi dari tindakan yang Anda lakukan. Sangat disarankan agar Anda berkonsultasi dengan pakar pajak dan penasihat hukum.',
+							ms: 'Penggunaan Sistem hanya ditetapkan untuk pengguna yang canggih dengan keupayaan untuk menanggung kerugian pantas sehingga kehilangan keseluruhan wang yang dilaburkan dan/atau sekuriti. Anda bertanggungjawab untuk mempertimbangkan dengan teliti sama ada Transaksi tersebut sesuai untuk anda dan tujuan anda sambil mengambil kira sumber anda, keadaan peribadi anda dan memahami implikasi tindakan yang dilakukan oleh diri anda sendiri. Adalah sangat disyorkan agar anda berunding dengan pakar cukai dan penasihat undang-undang.',
+							th: 'การใช้ระบบนี้มีไว้สำหรับผู้ใช้ที่มีความเชี่ยวชาญซึ่งมีความสามารถในการรับความสูญเสียอย่างรวดเร็วถึงการสูญเสียเงินลงทุนทั้งหมดและ/หรือหลักทรัพย์ คุณมีหน้าที่รับผิดชอบในการพิจารณาอย่างรอบคอบว่าธุรกรรมดังกล่าวเหมาะสมกับคุณและวัตถุประสงค์ของคุณหรือไม่ โดยคำนึงถึงทรัพยากรของคุณ สถานการณ์ส่วนบุคคลของคุณ และทำความเข้าใจถึงผลกระทบของการกระทำที่คุณทำ ขอแนะนำอย่างยิ่งให้คุณปรึกษากับผู้เชี่ยวชาญด้านภาษีและที่ปรึกษากฎหมาย',
+							vi: 'Việc sử dụng Hệ thống chỉ dành cho những người dùng tinh vi có khả năng chịu tổn thất nhanh chóng lên đến toàn bộ số tiền đã đầu tư và/hoặc chứng khoán. Bạn có trách nhiệm cân nhắc cẩn thận liệu các Giao dịch đó có phù hợp với bạn và mục đích của bạn hay không, đồng thời xem xét các nguồn lực, hoàn cảnh cá nhân của bạn và hiểu rõ các tác động của các hành động do chính bạn thực hiện. Rất khuyến khích bạn tham khảo ý kiến của các chuyên gia thuế và cố vấn pháp lý.',
+							bn: 'সিস্টেমের ব্যবহার শুধুমাত্র পরিশীলিত ব্যবহারকারীদের জন্য মনোনীত করা হয়েছে যারা বিনিয়োগ করা অর্থ এবং/অথবা সিকিউরিটির মোট ক্ষতি পর্যন্ত দ্রুত ক্ষতি বজায় রাখার ক্ষমতা রাখে। এই ধরনের লেনদেনগুলি আপনার এবং আপনার উদ্দেশ্যগুলির জন্য উপযুক্ত কিনা তা সাবধানে বিবেচনা করা আপনার দায়িত্ব, আপনার সংস্থানগুলি, আপনার ব্যক্তিগত পরিস্থিতি এবং আপনার দ্বারা করা ক্রিয়াকলাপগুলির প্রভাবগুলি বিবেচনা করে। এটি অত্যন্ত পরামর্শ দেওয়া হয় যে আপনি ট্যাক্স বিশেষজ্ঞ এবং আইনি উপদেষ্টাদের সাথে পরামর্শ করুন।',
+							'zh-hans':
+								'系统的使用仅适用于能够承受迅速损失至全部投资资金和/或证券损失的高级用户。您有责任仔细考虑此类交易是否适合您和您的目的，同时考虑到您的资源、个人情况并理解您自己行为的影响。强烈建议您咨询税务专家和法律顾问。',
+							'pt-br':
+								'O uso do Sistema é designado exclusivamente para usuários sofisticados com a capacidade de sustentar perdas rápidas até a perda total do dinheiro investido e/ou dos valores mobiliários. Você é responsável por considerar cuidadosamente se tais Transações são adequadas para você e seus propósitos, levando em consideração seus recursos, suas circunstâncias pessoais e entendendo as implicações das ações realizadas por você. É altamente recomendável que você consulte especialistas fiscais e consultores jurídicos.'
+						})
+					}
+				</p>
+				<p
+					class="text-color mb-3"
+					set:html={t({
+						en: 'The content provided by DB Investing is for <strong>educational purposes only</strong>.',
+						ar: 'المحتوى المقدم من DB Investing هو لأغراض <strong>تعليمية فقط</strong>.',
+						es: 'El contenido proporcionado por DB Investing es solo para <strong>fines educativos</strong>.',
+						fr: "Le contenu fourni par DB Investing est à des fins <strong>d'éducation uniquement</strong>.",
+						hi: 'DB Investing द्वारा प्रदान किया गया सामग्री <strong>शैक्षिक उद्देश्यों के लिए ही</strong> है।',
+						id: 'Konten yang disediakan oleh DB Investing hanya untuk <strong>tujuan edukasi</strong>.',
+						ms: 'Kandungan yang disediakan oleh DB Investing adalah untuk <strong>tujuan pendidikan sahaja</strong>.',
+						th: 'เนื้อหาที่จัดทำโดย DB Investing เป็นเพื่อ <strong>วัตถุประสงค์ในการศึกษาเท่านั้น</strong>.',
+						vi: 'Nội dung do DB Investing cung cấp chỉ dành cho <strong>mục đích giáo dục</strong>.',
+						bn: 'DB Investing দ্বারা প্রদত্ত সামগ্রীটি <strong>শিক্ষামূলক উদ্দেশ্যে মাত্র</strong>।',
+						'zh-hans': 'DB Investing 提供的内容仅用于 <strong>教育目的</strong>。',
+						'pt-br':
+							'O conteúdo fornecido pela DB Investing é apenas para <strong>fins educacionais</strong>.'
+					})}
+				/>
+				<p class="text-color mb-3">
+					{
+						t({
+							en: 'No information presented constitutes a recommendation by DB Investing to buy, sell, or hold any security, financial product or instrument or to engage in any specific investment strategy.',
+							ar: 'لا تشكل أي معلومات مقدمة توصية من DB Investing لشراء أو بيع أو الاحتفاظ بأي ورقة مالية أو منتج مالي أو أداة مالية أو الانخراط في أي استراتيجية استثمارية محددة.',
+							es: 'Ninguna información presentada constituye una recomendación de DB Investing para comprar, vender o mantener cualquier valor, producto financiero o instrumento, o para participar en cualquier estrategia de inversión específica.',
+							fr: "Aucune information présentée ne constitue une recommandation de DB Investing d'acheter, de vendre ou de détenir un titre, un produit financier ou un instrument, ou de s'engager dans une stratégie d'investissement spécifique.",
+							hi: 'प्रस्तुत की गई कोई भी जानकारी DB Investing द्वारा किसी भी सुरक्षा, वित्तीय उत्पाद या उपकरण को खरीदने, बेचने या रखने या किसी विशिष्ट निवेश रणनीति में संलग्न होने की सिफारिश नहीं करती है।',
+							id: 'Tidak ada informasi yang disajikan yang merupakan rekomendasi oleh DB Investing untuk membeli, menjual, atau menahan sekuritas, produk keuangan, atau instrumen apa pun atau untuk terlibat dalam strategi investasi tertentu.',
+							ms: 'Tiada maklumat yang dibentangkan merupakan cadangan oleh DB Investing untuk membeli, menjual, atau memegang sebarang sekuriti, produk kewangan atau instrumen atau untuk terlibat dalam sebarang strategi pelaburan tertentu.',
+							th: 'ไม่มีข้อมูลใดที่นำเสนอถือเป็นคำแนะนำโดย DB Investing ในการซื้อ ขาย หรือถือหลักทรัพย์ ผลิตภัณฑ์ทางการเงิน หรือเครื่องมือทางการเงินใด ๆ หรือมีส่วนร่วมในกลยุทธ์การลงทุนเฉพาะใด ๆ',
+							vi: 'Không có thông tin nào được trình bày cấu thành khuyến nghị của DB Investing để mua, bán hoặc nắm giữ bất kỳ chứng khoán, sản phẩm tài chính hoặc công cụ nào hoặc tham gia vào bất kỳ chiến lược đầu tư cụ thể nào.',
+							bn: 'উপস্থাপিত কোনও তথ্য DB Investing দ্বারা কোনও সিকিউরিটি, আর্থিক পণ্য বা যন্ত্র কেনা, বিক্রি বা ধারণ করার বা কোনও নির্দিষ্ট বিনিয়োগ কৌশলে জড়িত থাকার সুপারিশ গঠন করে না।',
+							'zh-hans':
+								'所提供的信息不构成DB Investing对购买、出售或持有任何证券、金融产品或工具或参与任何特定投资策略的建议。',
+							'pt-br':
+								'Nenhuma informação apresentada constitui uma recomendação da DB Investing para comprar, vender ou manter qualquer título, produto financeiro ou instrumento ou para se envolver em qualquer estratégia de investimento específica.'
+						})
+					}
 				</p>
 				<p class="text-color mb-3">
-					The content provided by DB Investing is for <strong>educational purposes only</strong>.
+					{
+						t({
+							en: 'Forex, options, futures, spread betting, and CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage.',
+							ar: 'الفوركس، والخيارات، والعقود الآجلة، والمراهنات المتقطعة، وعقود الفروقات هي أدوات معقدة وتأتي مع مخاطر عالية لفقدان الأموال بسرعة بسبب الرافعة المالية.',
+							es: 'El forex, las opciones, los futuros, las apuestas por diferencia y los CFD son instrumentos complejos y presentan un alto riesgo de perder dinero rápidamente debido al apalancamiento.',
+							fr: "Le forex, les options, les contrats à terme, les paris sur les écarts et les CFD sont des instruments complexes et présentent un risque élevé de perte d'argent rapidement en raison de l'effet de levier.",
+							hi: 'फॉरेक्स, विकल्प, वायदा, स्प्रेड बेटिंग, और CFDs जटिल उपकरण हैं और इनमें उच्च जोखिम होता है कि लीवरेज के कारण पैसा तेजी से खो सकता है।',
+							id: 'Forex, opsi, futures, taruhan spread, dan CFD adalah instrumen kompleks dan datang dengan risiko tinggi kehilangan uang dengan cepat karena leverage.',
+							ms: 'Forex, pilihan, niaga hadapan, pertaruhan spread, dan CFD adalah instrumen kompleks dan mempunyai risiko tinggi kehilangan wang dengan cepat disebabkan oleh leverage.',
+							th: 'ฟอเร็กซ์, ตัวเลือก, ฟิวเจอร์ส, การพนันแบบสเปรด และ CFD เป็นเครื่องมือที่ซับซ้อนและมาพร้อมกับความเสี่ยงสูงในการสูญเสียเงินอย่างรวดเร็วเนื่องจากเลเวอเรจ.',
+							vi: 'Forex, quyền chọn, hợp đồng tương lai, cá cược chênh lệch và CFD là những công cụ phức tạp và có rủi ro cao về việc mất tiền nhanh chóng do đòn bẩy.',
+							bn: 'ফরেক্স, অপশন, ফিউচার, স্প্রেড বেটিং এবং CFD জটিল যন্ত্র এবং লিভারেজের কারণে দ্রুত অর্থ হারানোর উচ্চ ঝুঁকি নিয়ে আসে।',
+							'zh-hans':
+								'外汇、期权、期货、差价投注和CFD是复杂的工具，并伴随因杠杆作用而迅速亏损的高风险。',
+							'pt-br':
+								'Forex, opções, futuros, apostas em spreads e CFDs são instrumentos complexos e apresentam um alto risco de perda rápida de dinheiro devido à alavancagem.'
+						})
+					}
 				</p>
 				<p class="text-color mb-3">
-					No information presented constitutes a recommendation by DB Investing to buy, sell, or
-					hold any security, financial product or instrument or to engage in any specific investment
-					strategy.
+					{
+						t({
+							en: 'You should consider whether you understand how derivatives like spread bets, rolling spot FX contracts, and CFDs work, and whether you can afford to take the high risk of losing your money.',
+							ar: 'يجب أن تفكر فيما إذا كنت تفهم كيفية عمل المشتقات مثل الرهانات على الفروق، وعقود الفوركس الفورية المتجددة، وعقود الفروقات (CFDs)، وما إذا كنت تستطيع تحمل المخاطر العالية لفقدان أموالك.',
+							es: 'Debe considerar si comprende cómo funcionan los derivados como las apuestas por diferencias, los contratos de divisas al contado y los CFDs, y si puede permitirse asumir el alto riesgo de perder su dinero.',
+							fr: 'Vous devez vous demander si vous comprenez comment fonctionnent les produits dérivés tels que les paris sur les écarts, les contrats de change au comptant roulants et les CFD, et si vous pouvez vous permettre de prendre le risque élevé de perdre votre argent.',
+							hi: 'आपको यह विचार करना चाहिए कि क्या आप समझते हैं कि स्प्रेड बेट्स, रोलिंग स्पॉट एफएक्स कॉन्ट्रैक्ट्स और सीएफडी जैसे डेरिवेटिव्स कैसे काम करते हैं, और क्या आप अपने पैसे खोने के उच्च जोखिम को वहन कर सकते हैं।',
+							id: 'Anda harus mempertimbangkan apakah Anda memahami cara kerja derivatif seperti taruhan spread, kontrak spot FX bergulir, dan CFD, dan apakah Anda mampu mengambil risiko tinggi kehilangan uang Anda.',
+							ms: 'Anda harus mempertimbangkan sama ada anda memahami cara derivatif seperti pertaruhan spread, kontrak FX spot bergulir, dan CFD berfungsi, dan sama ada anda mampu mengambil risiko tinggi kehilangan wang anda.',
+							th: 'คุณควรพิจารณาว่าคุณเข้าใจวิธีการทำงานของอนุพันธ์ เช่น การเดิมพันแบบกระจาย สัญญา FX แบบโรลลิ่งสปอต และ CFD หรือไม่ และคุณสามารถรับความเสี่ยงสูงในการสูญเสียเงินของคุณได้หรือไม่',
+							vi: 'Bạn nên cân nhắc liệu bạn có hiểu cách thức hoạt động của các công cụ phái sinh như cược chênh lệch, hợp đồng FX giao ngay cuộn và CFD hay không và liệu bạn có đủ khả năng chịu rủi ro cao khi mất tiền hay không.',
+							bn: 'আপনাকে বিবেচনা করা উচিত যে আপনি স্প্রেড বেট, রোলিং স্পট এফএক্স চুক্তি এবং সিএফডি-এর মতো ডেরিভেটিভগুলি কীভাবে কাজ করে তা বোঝেন কিনা এবং আপনি আপনার অর্থ হারানোর উচ্চ ঝুঁকি নিতে পারেন কিনা।',
+							'zh-hans':
+								'您应该考虑是否了解差价合约、滚动现货外汇合约和差价合约等衍生品的运作方式，以及是否能够承担亏损的高风险。',
+							'pt-br':
+								'Você deve considerar se entende como funcionam os derivativos, como apostas de spread, contratos de FX à vista e CFDs, e se pode arcar com o alto risco de perder seu dinheiro.'
+						})
+					}
 				</p>
-				<p class="text-color mb-3">
-					Forex, options, futures, spread betting, and CFDs are complex instruments and come with a
-					high risk of losing money rapidly due to leverage.
-				</p>
-				<p class="text-color mb-3">
-					You should consider whether you understand how derivatives like spread bets, rolling spot
-					FX contracts, and CFDs work, and whether you can afford to take the high risk of losing
-					your money.
-				</p>
-				<p class="text-color mb-3">
-					Any opinions, news, research, analyses, prices, or other information contained on this
-					website is provided as <strong>general market commentary</strong> and does NOT constitute investment
-					advice.
-				</p>
+				<p
+					class="text-color mb-3"
+					set:html={t({
+						en: 'Any opinions, news, research, analyses, prices, or other information contained on this website is provided as <strong>general market commentary</strong> and does NOT constitute investment advice.',
+						ar: 'أي آراء أو أخبار أو أبحاث أو تحليلات أو أسعار أو معلومات أخرى موجودة على هذا الموقع تُقدَّم كـ <strong>تعليق عام على السوق</strong> ولا تُعتبر نصيحة استثمارية.',
+						es: 'Cualquier opinión, noticia, investigación, análisis, precios u otra información contenida en este sitio web se proporciona como <strong>comentario general del mercado</strong> y NO constituye asesoramiento de inversión.',
+						fr: 'Tout avis, actualité, recherche, analyse, prix ou autre information contenue sur ce site web est fourni comme <strong>commentaire général du marché</strong> et ne constitue PAS un conseil en investissement.',
+						hi: 'इस वेबसाइट पर दी गई कोई भी राय, समाचार, शोध, विश्लेषण, कीमतें या अन्य जानकारी <strong>सामान्य बाजार टिप्पणी</strong> के रूप में प्रदान की जाती है और इसे निवेश सलाह नहीं माना जाता है।',
+						id: 'Pendapat, berita, penelitian, analisis, harga, atau informasi lain yang terdapat di situs web ini disediakan sebagai <strong>komentar pasar umum</strong> dan TIDAK merupakan nasihat investasi.',
+						ms: 'Apa-apa pendapat, berita, penyelidikan, analisis, harga, atau maklumat lain yang terkandung di laman web ini disediakan sebagai <strong>komentar pasaran umum</strong> dan TIDAK merupakan nasihat pelaburan.',
+						th: 'ความคิดเห็น, ข่าว, การวิจัย, การวิเคราะห์, ราคา หรือข้อมูลอื่นใดที่มีอยู่ในเว็บไซต์นี้ถูกนำเสนอในฐานะ <strong>ความคิดเห็นทั่วไปเกี่ยวกับตลาด</strong> และไม่ได้ถือเป็นคำแนะนำการลงทุน.',
+						vi: 'Bất kỳ ý kiến, tin tức, nghiên cứu, phân tích, giá cả hoặc thông tin khác có trên trang web này được cung cấp như là <strong>bình luận chung về thị trường</strong> và KHÔNG cấu thành lời khuyên đầu tư.',
+						bn: 'এই ওয়েবসাইটে থাকা যে কোনো মতামত, সংবাদ, গবেষণা, বিশ্লেষণ, দাম বা অন্যান্য তথ্য <strong>সাধারণ বাজার মন্তব্য</strong> হিসাবে প্রদান করা হয় এবং এটি বিনিয়োগ পরামর্শ হিসাবে গণ্য হয় না।',
+						'zh-hans':
+							'本网站上的任何意见、新闻、研究、分析、价格或其他信息均作为<strong>一般市场评论</strong>提供，不构成投资建议。',
+						'pt-br':
+							'Quaisquer opiniões, notícias, pesquisas, análises, preços ou outras informações contidas neste site são fornecidas como <strong>comentário geral do mercado</strong> e NÃO constituem aconselhamento de investimento.'
+					})}
+				/>
 				<p class="text-color mb-3 font-semibold">
-					DB Investing will not accept liability for any loss or damage, including without
-					limitation to, any loss of profit, which may arise directly or indirectly from use of or
-					reliance on such information.
+					{
+						t({
+							en: 'DB Investing will not accept liability for any loss or damage, including without limitation to, any loss of profit, which may arise directly or indirectly from use of or reliance on such information.',
+							ar: 'لن تقبل DB Investing المسؤولية عن أي خسارة أو ضرر، بما في ذلك على سبيل المثال لا الحصر، أي خسارة في الأرباح، والتي قد تنشأ بشكل مباشر أو غير مباشر عن استخدام أو الاعتماد على هذه المعلومات.',
+							es: 'DB Investing no aceptará responsabilidad por ninguna pérdida o daño, incluyendo sin limitación, cualquier pérdida de ganancias, que pueda surgir directa o indirectamente del uso o la confianza en dicha información.',
+							fr: "DB Investing n'acceptera aucune responsabilité pour toute perte ou dommage, y compris, sans s'y limiter, toute perte de profit, pouvant découler directement ou indirectement de l'utilisation ou de la confiance accordée à ces informations.",
+							hi: 'DB Investing किसी भी हानि या क्षति के लिए उत्तरदायित्व स्वीकार नहीं करेगा, जिसमें बिना किसी सीमा के, किसी भी लाभ की हानि शामिल है, जो इस जानकारी के उपयोग या उस पर निर्भरता से सीधे या अप्रत्यक्ष रूप से उत्पन्न हो सकती है।',
+							id: 'DB Investing tidak akan menerima tanggung jawab atas kerugian atau kerusakan apa pun, termasuk tanpa batasan, kehilangan keuntungan apa pun, yang mungkin timbul secara langsung atau tidak langsung dari penggunaan atau ketergantungan pada informasi tersebut.',
+							ms: 'DB Investing tidak akan menerima liabiliti untuk sebarang kerugian atau kerosakan, termasuk tanpa had, sebarang kehilangan keuntungan, yang mungkin timbul secara langsung atau tidak langsung daripada penggunaan atau pergantungan pada maklumat tersebut.',
+							th: 'DB Investing จะไม่รับผิดชอบต่อความสูญเสียหรือความเสียหายใด ๆ รวมถึงแต่ไม่จำกัดเพียงการสูญเสียผลกำไรใด ๆ ซึ่งอาจเกิดขึ้นโดยตรงหรือโดยอ้อมจากการใช้หรือพึ่งพาข้อมูลดังกล่าว',
+							vi: 'DB Investing sẽ không chịu trách nhiệm về bất kỳ tổn thất hoặc thiệt hại nào, bao gồm nhưng không giới hạn, bất kỳ tổn thất lợi nhuận nào, có thể phát sinh trực tiếp hoặc gián tiếp từ việc sử dụng hoặc dựa vào thông tin đó.',
+							bn: 'DB Investing কোনও ক্ষতি বা ক্ষতির জন্য দায়বদ্ধতা গ্রহণ করবে না, যার মধ্যে সীমাবদ্ধতা ছাড়াই, মুনাফার কোনও ক্ষতি, যা এই ধরনের তথ্যের ব্যবহার বা নির্ভরতার কারণে সরাসরি বা পরোক্ষভাবে উদ্ভূত হতে পারে।',
+							'zh-hans':
+								'DB Investing 不对任何损失或损害承担责任，包括但不限于因使用或依赖此类信息而直接或间接导致的任何利润损失。',
+							'pt-br':
+								'A DB Investing não aceitará responsabilidade por qualquer perda ou dano, incluindo, sem limitação, qualquer perda de lucro, que possa surgir direta ou indiretamente do uso ou da confiança em tais informações.'
+						})
+					}
 				</p>
 				<p class="text-color mb-3">
-					You are fully responsible for any investment decisions you make. Such decisions should be
-					based solely on your evaluation of your financial circumstances, investment objectives,
-					risk tolerance, and liquidity needs.
+					{
+						t({
+							en: 'You are fully responsible for any investment decisions you make. Such decisions should be based solely on your evaluation of your financial circumstances, investment objectives, risk tolerance, and liquidity needs.',
+							ar: 'أنت مسؤول بالكامل عن أي قرارات استثمارية تتخذها. يجب أن تستند هذه القرارات فقط إلى تقييمك لظروفك المالية وأهداف الاستثمار وقابلية المخاطر واحتياجات السيولة.',
+							es: 'Usted es completamente responsable de cualquier decisión de inversión que tome. Dichas decisiones deben basarse únicamente en su evaluación de sus circunstancias financieras, objetivos de inversión, tolerancia al riesgo y necesidades de liquidez.',
+							fr: "Vous êtes entièrement responsable de toute décision d'investissement que vous prenez. De telles décisions doivent être basées uniquement sur votre évaluation de vos circonstances financières, de vos objectifs d'investissement, de votre tolérance au risque et de vos besoins de liquidité.",
+							hi: 'आप द्वारा किए गए किसी भी निवेश निर्णय के लिए आप पूरी तरह से जिम्मेदार हैं। ऐसे निर्णय केवल आपके वित्तीय परिस्थितियों, निवेश के उद्देश्यों, जोखिम सहिष्णुता और तरलता की आवश्यकताओं के मूल्यांकन पर आधारित होने चाहिए।',
+							id: 'Anda sepenuhnya bertanggung jawab atas keputusan investasi apa pun yang Anda buat. Keputusan tersebut harus didasarkan hanya pada evaluasi Anda terhadap keadaan keuangan, tujuan investasi, toleransi risiko, dan kebutuhan likuiditas Anda.',
+							ms: 'Anda bertanggungjawab sepenuhnya ke atas sebarang keputusan pelaburan yang anda buat. Keputusan tersebut harus berdasarkan hanya pada penilaian anda terhadap keadaan kewangan, objektif pelaburan, toleransi risiko, dan keperluan kecairan anda.',
+							th: 'คุณมีความรับผิดชอบเต็มที่ต่อการตัดสินใจลงทุนใด ๆ ที่คุณทำ การตัดสินใจเหล่านี้ควรขึ้นอยู่กับการประเมินสถานการณ์ทางการเงิน เป้าหมายการลงทุน ความเสี่ยงที่ยอมรับได้ และความต้องการสภาพคล่องของคุณเท่านั้น',
+							vi: 'Bạn hoàn toàn chịu trách nhiệm về bất kỳ quyết định đầu tư nào mà bạn đưa ra. Những quyết định này chỉ nên dựa trên đánh giá của bạn về hoàn cảnh tài chính, mục tiêu đầu tư, khả năng chấp nhận rủi ro và nhu cầu thanh khoản của bạn.',
+							bn: 'আপনি যে কোনো বিনিয়োগের সিদ্ধান্তের জন্য পুরোপুরি দায়ী। এই সিদ্ধান্তগুলি শুধুমাত্র আপনার আর্থিক পরিস্থিতি, বিনিয়োগের লক্ষ্য, ঝুঁকির সহনশীলতা এবং তরলতার প্রয়োজনীয়তার মূল্যায়নের ভিত্তিতে হওয়া উচিত।',
+							'zh-hans':
+								'您对自己所做的任何投资决策负全责。这些决策应仅基于您对自身财务状况、投资目标、风险承受能力和流动性需求的评估。',
+							'pt-br':
+								'Você é totalmente responsável por quaisquer decisões de investimento que tomar. Tais decisões devem ser baseadas exclusivamente em sua avaliação de suas circunstâncias financeiras, objetivos de investimento, tolerância ao risco e necessidades de liquidez.'
+						})
+					}
 				</p>
 				<p class="text-color mb-3">
-					You should NOT rely solely upon the information or opinions that you read on the website.
-					Rather, you should use what you read as a starting point for doing your own independent
-					research, your own independent analysis, and refine your own trading methods before
-					placing your money at risk.
+					{
+						t({
+							en: 'You should NOT rely solely upon the information or opinions that you read on the website. Rather, you should use what you read as a starting point for doing your own independent research, your own independent analysis, and refine your own trading methods before placing your money at risk.',
+							ar: 'يجب ألا تعتمد فقط على المعلومات أو الآراء التي تقرأها على الموقع. بل يجب عليك استخدام ما تقرأه كنقطة انطلاق لإجراء بحثك المستقل الخاص بك، وتحليلك المستقل الخاص بك، وتحسين طرق التداول الخاصة بك قبل المخاطرة بأموالك.',
+							es: 'No debe confiar únicamente en la información u opiniones que lea en el sitio web. Más bien, debe usar lo que lee como punto de partida para hacer su propia investigación independiente, su propio análisis independiente y refinar sus propios métodos de negociación antes de arriesgar su dinero.',
+							fr: 'Vous ne devez PAS vous fier uniquement aux informations ou aux opinions que vous lisez sur le site Web. Vous devez plutôt utiliser ce que vous lisez comme point de départ pour effectuer vos propres recherches indépendantes, vos propres analyses indépendantes et affiner vos propres méthodes de trading avant de risquer votre argent.',
+							hi: 'आपको वेबसाइट पर पढ़ी गई जानकारी या राय पर पूरी तरह से निर्भर नहीं होना चाहिए। बल्कि, आपको अपने स्वयं के स्वतंत्र शोध, अपने स्वयं के स्वतंत्र विश्लेषण करने और अपने पैसे को जोखिम में डालने से पहले अपने स्वयं के ट्रेडिंग तरीकों को परिष्कृत करने के लिए जो कुछ भी पढ़ते हैं उसका उपयोग प्रारंभिक बिंदु के रूप में करना चाहिए।',
+							id: 'Anda seharusnya TIDAK hanya mengandalkan informasi atau pendapat yang Anda baca di situs web. Sebaliknya, Anda harus menggunakan apa yang Anda baca sebagai titik awal untuk melakukan penelitian independen Anda sendiri, analisis independen Anda sendiri, dan menyempurnakan metode perdagangan Anda sendiri sebelum mempertaruhkan uang Anda.',
+							ms: 'Anda TIDAK seharusnya bergantung sepenuhnya pada maklumat atau pendapat yang anda baca di laman web. Sebaliknya, anda harus menggunakan apa yang anda baca sebagai titik permulaan untuk melakukan penyelidikan bebas anda sendiri, analisis bebas anda sendiri, dan memperhalusi kaedah perdagangan anda sendiri sebelum mempertaruhkan wang anda.',
+							th: 'คุณไม่ควรพึ่งพาข้อมูลหรือความคิดเห็นที่คุณอ่านบนเว็บไซต์เพียงอย่างเดียว แต่คุณควรใช้สิ่งที่คุณอ่านเป็นจุดเริ่มต้นในการทำวิจัยอิสระของคุณเอง การวิเคราะห์อิสระของคุณเอง และปรับปรุงวิธีการซื้อขายของคุณเองก่อนที่จะนำเงินของคุณไปเสี่ยง',
+							vi: 'Bạn không nên chỉ dựa vào thông tin hoặc ý kiến mà bạn đọc trên trang web. Thay vào đó, bạn nên sử dụng những gì bạn đọc làm điểm khởi đầu để thực hiện nghiên cứu độc lập của riêng bạn, phân tích độc lập của riêng bạn và tinh chỉnh các phương pháp giao dịch của riêng bạn trước khi đặt tiền của bạn vào rủi ro.',
+							bn: 'আপনাকে ওয়েবসাইটে পড়া তথ্য বা মতামতের উপর একমাত্র নির্ভর করা উচিত নয়। বরং, আপনার নিজের স্বাধীন গবেষণা, আপনার নিজের স্বাধীন বিশ্লেষণ করার জন্য এবং আপনার অর্থ ঝুঁকিতে ফেলার আগে আপনার নিজের ট্রেডিং পদ্ধতিগুলিকে পরিমার্জন করার জন্য আপনি যা পড়েন তা একটি প্রারম্ভিক বিন্দু হিসাবে ব্যবহার করা উচিত।',
+							'zh-hans':
+								'您不应仅依赖您在网站上阅读的信息或意见。相反，您应该将您阅读的内容作为进行独立研究、独立分析并在将资金置于风险之前完善自己的交易方法的起点。',
+							'pt-br':
+								'Você NÃO deve confiar apenas nas informações ou opiniões que lê no site. Em vez disso, você deve usar o que lê como ponto de partida para fazer sua própria pesquisa independente, sua própria análise independente e refinar seus próprios métodos de negociação antes de colocar seu dinheiro em risco.'
+						})
+					}
 				</p>
 				<p class="text-color mb-3 font-semibold">DB Investing</p>
-				<p class="text-color mb-3 font-semibold">Risk Department</p>
+				<p class="text-color mb-3 font-semibold">
+					{
+						t({
+							en: 'Risk Department',
+							ar: 'قسم المخاطر',
+							es: 'Departamento de Riesgos',
+							fr: 'Département des Risques',
+							hi: 'जोखिम विभाग',
+							id: 'Departemen Risiko',
+							ms: 'Jabatan Risiko',
+							th: 'แผนกความเสี่ยง',
+							vi: 'Phòng Rủi ro',
+							bn: 'ঝুঁকি বিভাগ',
+							'zh-hans': '风险部门',
+							'pt-br': 'Departamento de Risco'
+						})
+					}
+				</p>
 			</div>
 		</div>
 	</section>

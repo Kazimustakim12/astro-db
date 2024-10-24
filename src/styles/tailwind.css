@@ -49,10 +49,13 @@
 	.post-content .wp-block-file__button {
 		@apply mx-2 rounded-md bg-dbgreen-600 p-2 px-3 text-white;
 	}
-	.post-content table {
-		@apply w-full border-collapse border border-slate-400 bg-white text-sm shadow-sm;
+	.post-content figure {
+		@apply relative overflow-x-auto
 	}
-	.post-content thead th {
+	.post-content table {
+		@apply w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400;
+	}
+	 .post-content thead th {
 		@apply px-6 py-3;
 	}
 	.post-content thead tr {
@@ -62,8 +65,8 @@
 		@apply border-b bg-white dark:bg-gray-800;
 	}
 	.post-content td {
-		@apply whitespace-nowrap px-6 py-4 font-medium text-gray-900;
-	}
+		@apply  px-6 py-4 font-medium text-gray-900 dark:text-neutral-100;
+	} 
 	.post-content details {
 		@apply border-b border-gray-200;
 	}

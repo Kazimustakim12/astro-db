@@ -12,17 +12,27 @@ export const getStaticPaths = () =>
 <Layout title="Demo Account">
 	<section>
 		<div
-			class="relative z-20 w-full overflow-hidden bg-gray-100 py-3 before:absolute before:start-1/2 before:top-0 before:-z-[1] before:size-full before:-translate-x-1/2 before:transform before:bg-[url('/src/images/world_bg.png')] before:bg-center before:bg-no-repeat before:opacity-45 before:hue-rotate-60 dark:bg-black dark:before:bg-[url('/src/images/world_bg.png')]"
+			class="relative z-20 w-full overflow-hidden bg-gray-100 py-3 before:absolute before:top-0 before:-z-[1] before:size-full before:transform before:bg-[url('/src/images/world_bg.png')] before:bg-center before:bg-no-repeat before:opacity-45 before:hue-rotate-60 dark:bg-black dark:before:bg-[url('/src/images/world_bg.png')]"
 		>
-			<div
-				class="container flex flex-col items-center justify-between gap-6 py-10 sm:flex-row"
-			>
+			<div class="container flex flex-col items-center justify-between gap-6 py-10 sm:flex-row">
 				<div>
 					<h1
 						class="block text-center text-4xl font-bold text-gray-800 dark:text-neutral-200 md:text-4xl lg:text-5xl"
-					>
-						<strong class="text-green-500">Demo </strong> Account
-					</h1>
+						set:html={t({
+							en: '<strong class="text-green-500">Demo </strong> Account',
+							ar: '<strong class="text-green-500">حساب </strong> تجريبي',
+							es: '<strong class="text-green-500">Cuenta </strong> demo',
+							fr: '<strong class="text-green-500">Compte </strong> démo',
+							hi: '<strong class="text-green-500">डेमो </strong> खाता',
+							id: '<strong class="text-green-500">Akun </strong> demo',
+							ms: '<strong class="text-green-500">Akaun </strong> demo',
+							th: '<strong class="text-green-500">บัญชี </strong> ทดลอง',
+							vi: '<strong class="text-green-500">Tài khoản </strong> demo',
+							bn: '<strong class="text-green-500">ডেমো </strong> অ্যাকাউন্ট',
+							'zh-hans': '<strong class="text-green-500">模拟 </strong> 账户',
+							'pt-br': '<strong class="text-green-500">Conta </strong> demo'
+						})}
+					/>
 				</div>
 				<div>
 					<svg
@@ -46,7 +56,22 @@ export const getStaticPaths = () =>
 				<!-- Title -->
 				<div class="mx-auto mb-8 max-w-2xl text-center lg:mb-14">
 					<h2 class="text-3xl font-bold text-gray-800 dark:text-neutral-200 lg:text-4xl">
-						DEMO Account
+						{
+							t({
+								en: 'DEMO Account',
+								ar: 'حساب ديمو',
+								es: 'Cuenta DEMO',
+								fr: 'Compte DEMO',
+								hi: 'डेमो खाता',
+								id: 'Akun DEMO',
+								ms: 'Akaun DEMO',
+								th: 'บัญชี DEMO',
+								vi: 'Tài khoản DEMO',
+								bn: 'ডেমো অ্যাকাউন্ট',
+								'zh-hans': 'DEMO账户',
+								'pt-br': 'Conta DEMO'
+							})
+						}
 					</h2>
 				</div>
 				<!-- End Title -->
@@ -60,13 +85,42 @@ export const getStaticPaths = () =>
 								class="relative z-10 rounded-xl border bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 md:p-10"
 							>
 								<h3 class="text-xl font-bold text-gray-800 dark:text-neutral-200">
-									Acccount
+									{
+										t({
+											en: 'Account',
+											ar: 'حساب',
+											es: 'Cuenta',
+											fr: 'Compte',
+											hi: 'खाता',
+											id: 'Akun',
+											ms: 'Akaun',
+											th: 'บัญชี',
+											vi: 'Tài khoản',
+											bn: 'অ্যাকাউন্ট',
+											'zh-hans': '账户',
+											'pt-br': 'Conta'
+										})
+									}
 								</h3>
 
 								<div class="mt-5">
-									<span
-										class="text-6xl font-bold text-gray-800 dark:text-neutral-200"
-										>STANDARD
+									<span class="text-6xl font-bold text-gray-800 dark:text-neutral-200">
+										{
+											t({
+												en: 'STANDARD',
+												ar: 'قياسي',
+												es: 'ESTÁNDAR',
+												fr: 'STANDARD',
+												hi: 'मानक',
+												id: 'STANDAR',
+												ms: 'STANDARD',
+												th: 'มาตรฐาน',
+												vi: 'TIÊU CHUẨN',
+												bn: 'মানক',
+												'zh-hans': '标准',
+												'pt-br': 'PADRÃO'
+											})
+										}
 									</span>
 								</div>
 
@@ -89,13 +143,26 @@ export const getStaticPaths = () =>
 													stroke="currentColor"
 													stroke-width="2"
 													stroke-linecap="round"
-													stroke-linejoin="round"
-													><polyline points="20 6 9 17 4 12"
-													></polyline></svg
+													stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg
 												>
 											</span>
 											<span class="text-gray-800 dark:text-neutral-200">
-												Spreads, as low as 1.6
+												{
+													t({
+														en: 'Spreads, as low as 1.6',
+														ar: 'السبريد، منخفضة حتى 1.6',
+														es: 'Spreads, tan bajos como 1.6',
+														fr: 'Spreads, aussi bas que 1,6',
+														hi: 'स्प्रेड, न्यूनतम 1.6',
+														id: 'Spread, serendah 1,6',
+														ms: 'Spread, serendah 1.6',
+														th: 'สเปรด ต่ำสุดที่ 1.6',
+														vi: 'Spread, thấp tới 1.6',
+														bn: 'স্প্রেড, সর্বনিম্ন ১.৬',
+														'zh-hans': '点差低至 1.6',
+														'pt-br': 'Spreads, a partir de 1,6'
+													})
+												}
 											</span>
 										</li>
 										<li class="flex gap-x-3">
@@ -112,13 +179,26 @@ export const getStaticPaths = () =>
 													stroke="currentColor"
 													stroke-width="2"
 													stroke-linecap="round"
-													stroke-linejoin="round"
-													><polyline points="20 6 9 17 4 12"
-													></polyline></svg
+													stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg
 												>
 											</span>
 											<span class="text-gray-800 dark:text-neutral-200">
-												Leverage, up to 1:500
+												{
+													t({
+														en: 'Leverage, up to 1:500',
+														ar: 'الرافعة المالية، حتى 1:500',
+														es: 'Apalancamiento, hasta 1:500',
+														fr: "Effet de levier, jusqu'à 1:500",
+														hi: 'लिवरेज, अधिकतम 1:500',
+														id: 'Leverage, hingga 1:500',
+														ms: 'Leverage, sehingga 1:500',
+														th: 'เลเวอเรจ สูงสุด 1:500',
+														vi: 'Đòn bẩy, lên đến 1:500',
+														bn: 'লিভারেজ, সর্বোচ্চ ১:৫০০',
+														'zh-hans': '杠杆，最高 1:500',
+														'pt-br': 'Alavancagem, até 1:500'
+													})
+												}
 											</span>
 										</li>
 										<li class="flex gap-x-3">
@@ -135,13 +215,26 @@ export const getStaticPaths = () =>
 													stroke="currentColor"
 													stroke-width="2"
 													stroke-linecap="round"
-													stroke-linejoin="round"
-													><polyline points="20 6 9 17 4 12"
-													></polyline></svg
+													stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg
 												>
 											</span>
 											<span class="text-gray-800 dark:text-neutral-200">
-												Platform, DB Invest & MT5
+												{
+													t({
+														en: 'Platform, DB Invest & MT5',
+														ar: 'المنصة، DB Invest و MT5',
+														es: 'Plataforma, DB Invest y MT5',
+														fr: 'Plateforme, DB Invest et MT5',
+														hi: 'प्लेटफ़ॉर्म, DB Invest और MT5',
+														id: 'Platform, DB Invest & MT5',
+														ms: 'Platform, DB Invest & MT5',
+														th: 'แพลตฟอร์ม, DB Invest & MT5',
+														vi: 'Nền tảng, DB Invest & MT5',
+														bn: 'প্ল্যাটফর্ম, DB Invest এবং MT5',
+														'zh-hans': '平台，DB Invest 和 MT5',
+														'pt-br': 'Plataforma, DB Invest e MT5'
+													})
+												}
 											</span>
 										</li>
 										<li class="flex gap-x-3">
@@ -158,13 +251,26 @@ export const getStaticPaths = () =>
 													stroke="currentColor"
 													stroke-width="2"
 													stroke-linecap="round"
-													stroke-linejoin="round"
-													><polyline points="20 6 9 17 4 12"
-													></polyline></svg
+													stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg
 												>
 											</span>
 											<span class="text-gray-800 dark:text-neutral-200">
-												Instruments, ( FX, Metals, Commodities, etc. )
+												{
+													t({
+														en: 'Instruments, ( FX, Metals, Commodities, etc. )',
+														ar: 'الأدوات، ( FX، المعادن، السلع، إلخ. )',
+														es: 'Instrumentos, ( FX, Metales, Materias Primas, etc. )',
+														fr: 'Instruments, ( FX, Métaux, Matières Premières, etc. )',
+														hi: 'उपकरण, ( FX, धातुएं, वस्तुएं आदि। )',
+														id: 'Instrumen, ( FX, Logam, Komoditas, dll. )',
+														ms: 'Instrumen, ( FX, Logam, Komoditi, dll. )',
+														th: 'เครื่องมือ, ( FX, โลหะ, สินค้าโภคภัณฑ์ ฯลฯ )',
+														vi: 'Công cụ, ( FX, Kim loại, Hàng hóa, v.v. )',
+														bn: 'যন্ত্র, ( FX, ধাতু, পণ্য ইত্যাদি )',
+														'zh-hans': '工具，( 外汇，贵金属，商品等 )',
+														'pt-br': 'Instrumentos, ( FX, Metais, Commodities, etc. )'
+													})
+												}
 											</span>
 										</li>
 										<li class="flex gap-x-3">
@@ -181,28 +287,69 @@ export const getStaticPaths = () =>
 													stroke="currentColor"
 													stroke-width="2"
 													stroke-linecap="round"
-													stroke-linejoin="round"
-													><polyline points="20 6 9 17 4 12"
-													></polyline></svg
+													stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg
 												>
 											</span>
 											<span class="text-gray-800 dark:text-neutral-200">
-												Free $10,000 account
+												{
+													t({
+														en: 'Free $10,000 account',
+														ar: 'حساب مجاني بقيمة 10,000 دولار',
+														es: 'Cuenta gratuita de $10,000',
+														fr: 'Compte gratuit de 10 000 $',
+														hi: 'फ्री $10,000 खाता',
+														id: 'Akun gratis $10.000',
+														ms: 'Akaun percuma $10,000',
+														th: 'บัญชีฟรี $10,000',
+														vi: 'Tài khoản miễn phí $10,000',
+														bn: 'ফ্রি $10,000 অ্যাকাউন্ট',
+														'zh-hans': '免费$10,000账户',
+														'pt-br': 'Conta gratuita de $10.000'
+													})
+												}
 											</span>
 										</li>
 									</ul>
 									<!-- End List -->
 								</div>
 
-								<div
-									class="mt-5 grid gap-x-4 py-4 first:pt-0 last:pb-0 sm:grid-cols-2"
-								>
+								<div class="mt-5 grid gap-x-4 py-4 first:pt-0 last:pb-0 sm:grid-cols-2">
 									<div>
 										<p class="text-sm text-gray-500 dark:text-neutral-500">
-											Cancel anytime.
+											{
+												t({
+													en: 'Cancel anytime',
+													ar: 'إلغاء في أي وقت',
+													es: 'Cancelar en cualquier momento',
+													fr: 'Annuler à tout moment',
+													hi: 'किसी भी समय रद्द करें',
+													id: 'Batalkan kapan saja',
+													ms: 'Batal bila-bila masa',
+													th: 'ยกเลิกได้ตลอดเวลา',
+													vi: 'Hủy bất cứ lúc nào',
+													bn: 'কোনও সময় বাতিল করুন',
+													'zh-hans': '随时取消',
+													'pt-br': 'Cancelar a qualquer momento'
+												})
+											}.
 										</p>
 										<p class="text-sm text-gray-500 dark:text-neutral-500">
-											No card required.
+											{
+												t({
+													en: 'No card required.',
+													ar: 'لا حاجة لبطاقة.',
+													es: 'No se requiere tarjeta.',
+													fr: 'Aucune carte requise.',
+													hi: 'कार्ड की आवश्यकता नहीं है।',
+													id: 'Tidak perlu kartu.',
+													ms: 'Tidak memerlukan kad.',
+													th: 'ไม่ต้องใช้บัตร.',
+													vi: 'Không cần thẻ.',
+													bn: 'কার্ডের প্রয়োজন নেই।',
+													'zh-hans': '无需卡片。',
+													'pt-br': 'Nenhum cartão necessário.'
+												})
+											}
 										</p>
 									</div>
 
@@ -240,19 +387,64 @@ export const getStaticPaths = () =>
 								class="relative z-10 rounded-xl border bg-white p-5 shadow-xl shadow-gray-200 dark:border-neutral-800 dark:bg-neutral-900 dark:shadow-gray-900/20 md:p-10"
 							>
 								<h3 class="text-xl font-bold text-gray-800 dark:text-neutral-200">
-									Account
+									{
+										t({
+											en: 'Account',
+											ar: 'حساب',
+											es: 'Cuenta',
+											fr: 'Compte',
+											hi: 'खाता',
+											id: 'Akun',
+											ms: 'Akaun',
+											th: 'บัญชี',
+											vi: 'Tài khoản',
+											bn: 'অ্যাকাউন্ট',
+											'zh-hans': '账户',
+											'pt-br': 'Conta'
+										})
+									}
 								</h3>
 
 								<span
-									class="absolute end-0 top-0 rounded-es-xl rounded-se-xl bg-gray-800 px-3 py-1.5 text-xs font-medium text-white dark:bg-dbgreen-600 dark:text-neutral-800"
-									>Most popular</span
+									class="absolute end-0 top-0 rounded-es-xl rounded-se-xl bg-gray-800 px-3 py-1.5 text-xs font-medium text-white dark:bg-dbgreen-600 dark:text-neutral-100"
 								>
+									{
+										t({
+											en: 'Most popular',
+											ar: 'الأكثر شعبية',
+											es: 'Más popular',
+											fr: 'Le plus populaire',
+											hi: 'सबसे लोकप्रिय',
+											id: 'Paling populer',
+											ms: 'Paling popular',
+											th: 'ที่นิยมที่สุด',
+											vi: 'Phổ biến nhất',
+											bn: 'সর্বাধিক জনপ্রিয়',
+											'zh-hans': '最受欢迎',
+											'pt-br': 'Mais popular'
+										})
+									}
+								</span>
 
 								<div class="mt-5">
-									<span
-										class="text-6xl font-bold text-gray-800 dark:text-neutral-200"
-										>ECN</span
-									>
+									<span class="text-6xl font-bold text-gray-800 dark:text-neutral-200">
+										{
+											t({
+												en: 'ECN',
+												ar: 'ECN',
+												es: 'ECN',
+												fr: 'ECN',
+												hi: 'ईसीएन',
+												id: 'ECN',
+												ms: 'ECN',
+												th: 'ECN',
+												vi: 'ECN',
+												bn: 'ইসিএন',
+												'zh-hans': 'ECN',
+												'pt-br': 'ECN'
+											})
+										}
+									</span>
 								</div>
 
 								<div
@@ -274,13 +466,26 @@ export const getStaticPaths = () =>
 													stroke="currentColor"
 													stroke-width="2"
 													stroke-linecap="round"
-													stroke-linejoin="round"
-													><polyline points="20 6 9 17 4 12"
-													></polyline></svg
+													stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg
 												>
 											</span>
 											<span class="text-gray-800 dark:text-neutral-200">
-												Spreads, as low as 0.1
+												{
+													t({
+														en: 'Spreads, as low as 0.1',
+														ar: 'السبريد، منخفضة حتى 0.1',
+														es: 'Spreads, tan bajos como 0.1',
+														fr: 'Spreads, aussi bas que 0,1',
+														hi: 'स्प्रेड, न्यूनतम 0.1',
+														id: 'Spread, serendah 0,1',
+														ms: 'Spread, serendah 0.1',
+														th: 'สเปรด ต่ำสุดที่ 0.1',
+														vi: 'Spread, thấp tới 0.1',
+														bn: 'স্প্রেড, সর্বনিম্ন ১.৬',
+														'zh-hans': '点差低至 0.1',
+														'pt-br': 'Spreads, a partir de 0,1'
+													})
+												}
 											</span>
 										</li>
 										<li class="flex gap-x-3">
@@ -297,13 +502,26 @@ export const getStaticPaths = () =>
 													stroke="currentColor"
 													stroke-width="2"
 													stroke-linecap="round"
-													stroke-linejoin="round"
-													><polyline points="20 6 9 17 4 12"
-													></polyline></svg
+													stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg
 												>
 											</span>
 											<span class="text-gray-800 dark:text-neutral-200">
-												Leverage, up to 1:500
+												{
+													t({
+														en: 'Leverage, up to 1:500',
+														ar: 'الرافعة المالية، حتى 1:500',
+														es: 'Apalancamiento, hasta 1:500',
+														fr: "Effet de levier, jusqu'à 1:500",
+														hi: 'लिवरेज, अधिकतम 1:500',
+														id: 'Leverage, hingga 1:500',
+														ms: 'Leverage, sehingga 1:500',
+														th: 'เลเวอเรจ สูงสุด 1:500',
+														vi: 'Đòn bẩy, lên đến 1:500',
+														bn: 'লিভারেজ, সর্বোচ্চ ১:৫০০',
+														'zh-hans': '杠杆，最高 1:500',
+														'pt-br': 'Alavancagem, até 1:500'
+													})
+												}
 											</span>
 										</li>
 										<li class="flex gap-x-3">
@@ -320,13 +538,26 @@ export const getStaticPaths = () =>
 													stroke="currentColor"
 													stroke-width="2"
 													stroke-linecap="round"
-													stroke-linejoin="round"
-													><polyline points="20 6 9 17 4 12"
-													></polyline></svg
+													stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg
 												>
 											</span>
 											<span class="text-gray-800 dark:text-neutral-200">
-												Platform, DB Invest & MT5
+												{
+													t({
+														en: 'Platform, DB Invest & MT5',
+														ar: 'المنصة، DB Invest و MT5',
+														es: 'Plataforma, DB Invest y MT5',
+														fr: 'Plateforme, DB Invest et MT5',
+														hi: 'प्लेटफ़ॉर्म, DB Invest और MT5',
+														id: 'Platform, DB Invest & MT5',
+														ms: 'Platform, DB Invest & MT5',
+														th: 'แพลตฟอร์ม, DB Invest & MT5',
+														vi: 'Nền tảng, DB Invest & MT5',
+														bn: 'প্ল্যাটফর্ম, DB Invest এবং MT5',
+														'zh-hans': '平台，DB Invest 和 MT5',
+														'pt-br': 'Plataforma, DB Invest e MT5'
+													})
+												}
 											</span>
 										</li>
 										<li class="flex gap-x-3">
@@ -343,13 +574,26 @@ export const getStaticPaths = () =>
 													stroke="currentColor"
 													stroke-width="2"
 													stroke-linecap="round"
-													stroke-linejoin="round"
-													><polyline points="20 6 9 17 4 12"
-													></polyline></svg
+													stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg
 												>
 											</span>
 											<span class="text-gray-800 dark:text-neutral-200">
-												Instruments, ( FX, Metals, Commodities, etc. )
+												{
+													t({
+														en: 'Instruments, ( FX, Metals, Commodities, etc. )',
+														ar: 'الأدوات، ( FX، المعادن، السلع، إلخ. )',
+														es: 'Instrumentos, ( FX, Metales, Materias Primas, etc. )',
+														fr: 'Instruments, ( FX, Métaux, Matières Premières, etc. )',
+														hi: 'उपकरण, ( FX, धातुएं, वस्तुएं आदि। )',
+														id: 'Instrumen, ( FX, Logam, Komoditas, dll. )',
+														ms: 'Instrumen, ( FX, Logam, Komoditi, dll. )',
+														th: 'เครื่องมือ, ( FX, โลหะ, สินค้าโภคภัณฑ์ ฯลฯ )',
+														vi: 'Công cụ, ( FX, Kim loại, Hàng hóa, v.v. )',
+														bn: 'যন্ত্র, ( FX, ধাতু, পণ্য ইত্যাদি )',
+														'zh-hans': '工具，( 外汇，贵金属，商品等 )',
+														'pt-br': 'Instrumentos, ( FX, Metais, Commodities, etc. )'
+													})
+												}
 											</span>
 										</li>
 										<li class="flex gap-x-3">
@@ -366,28 +610,69 @@ export const getStaticPaths = () =>
 													stroke="currentColor"
 													stroke-width="2"
 													stroke-linecap="round"
-													stroke-linejoin="round"
-													><polyline points="20 6 9 17 4 12"
-													></polyline></svg
+													stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg
 												>
 											</span>
 											<span class="text-gray-800 dark:text-neutral-200">
-												Free $10,000 account
+												{
+													t({
+														en: 'Free $10,000 account',
+														ar: 'حساب مجاني بقيمة 10,000 دولار',
+														es: 'Cuenta gratuita de $10,000',
+														fr: 'Compte gratuit de 10 000 $',
+														hi: 'फ्री $10,000 खाता',
+														id: 'Akun gratis $10.000',
+														ms: 'Akaun percuma $10,000',
+														th: 'บัญชีฟรี $10,000',
+														vi: 'Tài khoản miễn phí $10,000',
+														bn: 'ফ্রি $10,000 অ্যাকাউন্ট',
+														'zh-hans': '免费$10,000账户',
+														'pt-br': 'Conta gratuita de $10.000'
+													})
+												}
 											</span>
 										</li>
 									</ul>
 									<!-- End List -->
 								</div>
 
-								<div
-									class="mt-5 grid gap-x-4 py-4 first:pt-0 last:pb-0 sm:grid-cols-2"
-								>
+								<div class="mt-5 grid gap-x-4 py-4 first:pt-0 last:pb-0 sm:grid-cols-2">
 									<div>
 										<p class="text-sm text-gray-500 dark:text-neutral-500">
-											Cancel anytime.
+											{
+												t({
+													en: 'Cancel anytime',
+													ar: 'إلغاء في أي وقت',
+													es: 'Cancelar en cualquier momento',
+													fr: 'Annuler à tout moment',
+													hi: 'किसी भी समय रद्द करें',
+													id: 'Batalkan kapan saja',
+													ms: 'Batal bila-bila masa',
+													th: 'ยกเลิกได้ตลอดเวลา',
+													vi: 'Hủy bất cứ lúc nào',
+													bn: 'কোনও সময় বাতিল করুন',
+													'zh-hans': '随时取消',
+													'pt-br': 'Cancelar a qualquer momento'
+												})
+											}.
 										</p>
 										<p class="text-sm text-gray-500 dark:text-neutral-500">
-											No card required.
+											{
+												t({
+													en: 'No card required.',
+													ar: 'لا حاجة لبطاقة.',
+													es: 'No se requiere tarjeta.',
+													fr: 'Aucune carte requise.',
+													hi: 'कार्ड की आवश्यकता नहीं है।',
+													id: 'Tidak perlu kartu.',
+													ms: 'Tidak memerlukan kad.',
+													th: 'ไม่ต้องใช้บัตร.',
+													vi: 'Không cần thẻ.',
+													bn: 'কার্ডের প্রয়োজন নেই।',
+													'zh-hans': '无需卡片。',
+													'pt-br': 'Nenhum cartão necessário.'
+												})
+											}
 										</p>
 									</div>
 
@@ -435,28 +720,23 @@ export const getStaticPaths = () =>
 								d="M5 16.4754C11.7688 27.4499 21.2452 57.3224 5 89.0164"
 								stroke="currentColor"
 								stroke-width="10"
-								stroke-linecap="round"
-							></path>
+								stroke-linecap="round"></path>
 							<path
 								d="M33.6761 112.104C44.6984 98.1239 74.2618 57.6776 83.4821 5"
 								stroke="currentColor"
 								stroke-width="10"
-								stroke-linecap="round"
-							></path>
+								stroke-linecap="round"></path>
 							<path
 								d="M50.5525 130C68.2064 127.495 110.731 117.541 116 78.0874"
 								stroke="currentColor"
 								stroke-width="10"
-								stroke-linecap="round"
-							></path>
+								stroke-linecap="round"></path>
 						</svg>
 					</div>
 					<!-- End SVG Element -->
 
 					<!-- SVG Element -->
-					<div
-						class="absolute bottom-0 start-0 hidden -translate-x-16 translate-y-16 md:block"
-					>
+					<div class="absolute bottom-0 start-0 hidden -translate-x-16 translate-y-16 md:block">
 						<svg
 							class="h-auto w-56 text-cyan-500"
 							width="347"
@@ -469,8 +749,7 @@ export const getStaticPaths = () =>
 								d="M4 82.4591C54.7956 92.8751 30.9771 162.782 68.2065 181.385C112.642 203.59 127.943 78.57 122.161 25.5053C120.504 2.2376 93.4028 -8.11128 89.7468 25.5053C85.8633 61.2125 130.186 199.678 180.982 146.248L214.898 107.02C224.322 95.4118 242.9 79.2851 258.6 107.02C274.299 134.754 299.315 125.589 309.861 117.539L343 93.4426"
 								stroke="currentColor"
 								stroke-width="7"
-								stroke-linecap="round"
-							></path>
+								stroke-linecap="round"></path>
 						</svg>
 					</div>
 					<!-- End SVG Element -->

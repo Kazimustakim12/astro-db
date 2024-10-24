@@ -9,18 +9,14 @@ import vercel from '@astrojs/vercel/serverless'
 
 export default defineConfig({
 	site: 'http://localhost:4321/',
-	integrations: [
-		tailwind({ applyBaseStyles: false }),
-		icon(),
-		react()
-	],
+	integrations: [tailwind({ applyBaseStyles: false }), icon(), react()],
 
 	i18n: {
 		defaultLocale: 'en',
 		locales: ['en', 'fr', 'zh-hans', 'ar', 'es', 'hi', 'id', 'ms', 'th', 'vi', 'bn', 'pt-br'],
 		routing: {
 			prefixDefaultLocale: true,
-			redirectToDefaultLocale: false
+			redirectToDefaultLocale: true
 		}
 	},
 	output: 'hybrid',

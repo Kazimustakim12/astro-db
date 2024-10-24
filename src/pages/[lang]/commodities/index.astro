@@ -39,8 +39,7 @@ export const getStaticPaths = () =>
 			th: 'การซื้อขายในตลาดสินค้าโภคภัณฑ์มีผู้ค้าเข้าร่วมจากทั่วโลกและคล้ายกับการซื้อขายในตลาดหุ้นหรือฟอเร็กซ์ แต่มีความแตกต่างบางประการ',
 			vi: 'Giao dịch trên sàn hàng hóa thu hút các nhà giao dịch trên toàn thế giới và rất giống với giao dịch trên thị trường chứng khoán hoặc Forex, nhưng có một số khác biệt.',
 			bn: 'পণ্য বিনিময়ে ট্রেডিং সারা বিশ্বের ব্যবসায়ীদের সাথে যুক্ত করে এবং এটি শেয়ার বাজার বা ফরেক্সে ট্রেডিংয়ের সাথে খুব মিল, তবে কিছু পার্থক্য রয়েছে।',
-			'zh-hans':
-				'在商品交易所交易吸引了全球交易员，与股票市场或外汇交易非常相似，但也有一些区别。',
+			'zh-hans': '在商品交易所交易吸引了全球交易员，与股票市场或外汇交易非常相似，但也有一些区别。',
 			'pt-br':
 				'Negociar na bolsa de mercadorias envolve traders de todo o mundo e é muito semelhante ao mercado de ações ou Forex, mas há algumas diferenças.'
 		})}
@@ -51,60 +50,153 @@ export const getStaticPaths = () =>
 			<h2
 				class="mb-3 block text-2xl font-bold capitalize text-gray-800 dark:text-white sm:text-2xl md:text-3xl lg:text-3xl"
 			>
-				Choose CFDs on Commodities trading to affirm your premium status
+				{
+					t({
+						en: 'Choose CFDs on Commodities trading to affirm your premium status.',
+						ar: 'اختر تداول عقود الفروقات على السلع لتأكيد مكانتك المتميزة.',
+						es: 'Elija el comercio de CFD sobre materias primas para afirmar su estado premium.',
+						fr: 'Choisissez le trading de CFD sur les matières premières pour affirmer votre statut premium.',
+						hi: 'अपनी प्रीमियम स्थिति को प्रमाणित करने के लिए कमोडिटी ट्रेडिंग पर सीएफडी चुनें।',
+						id: 'Pilih perdagangan CFD pada komoditas untuk menegaskan status premium Anda.',
+						ms: 'Pilih perdagangan CFD pada komoditi untuk mengesahkan status premium anda.',
+						th: 'เลือกการซื้อขาย CFDs บนสินค้าโภคภัณฑ์เพื่อยืนยันสถานะพรีเมียมของคุณ',
+						vi: 'Chọn giao dịch CFD trên hàng hóa để khẳng định vị thế cao cấp của bạn.',
+						bn: 'আপনার প্রিমিয়াম স্ট্যাটাস নিশ্চিত করার জন্য পণ্য বাণিজ্যের উপর সিএফডি বেছে নিন।',
+						'zh-hans': '选择商品交易的CFD，以确认您的优质状态。',
+						'pt-br': 'Escolha o comércio de CFDs em commodities para afirmar seu status premium.'
+					})
+				}
 			</h2>
 			<div class="card flex flex-wrap gap-3">
 				<div
 					class="relative col-span-full w-full space-y-5 overflow-hidden rounded-2xl border-2 p-4 transition hover:border-dbgreen-900 dark:border-neutral-600 dark:hover:border-dbgreen-900 sm:p-8 md:p-5 lg:col-span-3 lg:max-w-[32%]"
 				>
-					<div
-						class="flex size-8 items-center justify-center rounded-full bg-black p-2 text-white"
-					>
+					<div class="flex size-8 items-center justify-center rounded-full bg-black p-2 text-white">
 						<span class="text-lg font-semibold">1</span>
 					</div>
-					<h2
-						class="mb-5 block text-2xl font-bold capitalize text-gray-800 dark:text-white"
-					>
-						Lower costs
+					<h2 class="mb-5 block text-2xl font-bold capitalize text-gray-800 dark:text-white">
+						{
+							t({
+								en: 'Lower costs',
+								ar: 'تكاليف أقل',
+								es: 'Costos más bajos',
+								fr: 'Coûts inférieurs',
+								hi: 'कम लागत',
+								id: 'Biaya lebih rendah',
+								ms: 'Kos lebih rendah',
+								th: 'ค่าธรรมเนียมต่ำกว่า',
+								vi: 'Chi phí thấp hơn',
+								bn: 'কম খরচ',
+								'zh-hans': '更低的成本',
+								'pt-br': 'Custos mais baixos'
+							})
+						}
 					</h2>
 					<p class="text-color">
-						0 Deposit & Withdrawal Fees on Credit Card Transactions
+						{
+							t({
+								en: '0 Deposit & Withdrawal Fees on Credit Card Transactions',
+								ar: '0 رسوم الإيداع والسحب على معاملات بطاقة الائتمان',
+								es: '0 tarifas de depósito y retiro en transacciones con tarjeta de crédito',
+								fr: '0 frais de dépôt et de retrait sur les transactions par carte de crédit',
+								hi: 'क्रेडिट कार्ड लेनदेन पर 0 जमा और निकासी शुल्क',
+								id: '0 Biaya Setoran & Penarikan pada Transaksi Kartu Kredit',
+								ms: '0 Yuran Deposit & Pengeluaran untuk Transaksi Kad Kredit',
+								th: '0 ค่าธรรมเนียมการฝากและถอนสำหรับธุรกรรมบัตรเครดิต',
+								vi: '0 phí gửi & rút tiền trên các giao dịch thẻ tín dụng',
+								bn: 'ক্রেডিট কার্ড লেনদেনে 0 জমা এবং প্রত্যাহার ফি',
+								'zh-hans': '信用卡交易零存款和取款费用',
+								'pt-br': '0 taxas de depósito e retirada em transações com cartão de crédito'
+							})
+						}
 					</p>
 				</div>
 				<div
 					class="relative col-span-full w-full space-y-5 overflow-hidden rounded-2xl border-2 p-4 transition hover:border-dbgreen-900 dark:border-neutral-600 dark:hover:border-dbgreen-900 sm:p-8 md:p-5 lg:col-span-3 lg:max-w-[32%]"
 				>
-					<div
-						class="flex size-8 items-center justify-center rounded-full bg-black p-2 text-white"
-					>
+					<div class="flex size-8 items-center justify-center rounded-full bg-black p-2 text-white">
 						<span class="text-lg font-semibold">2</span>
 					</div>
-					<h2
-						class="mb-5 block text-2xl font-bold capitalize text-gray-800 dark:text-white"
-					>
-						Higher Protection
+					<h2 class="mb-5 block text-2xl font-bold capitalize text-gray-800 dark:text-white">
+						{
+							t({
+								en: 'Higher Protection',
+								ar: 'حماية أعلى',
+								es: 'Mayor Protección',
+								fr: 'Protection Supérieure',
+								hi: 'उच्च सुरक्षा',
+								id: 'Perlindungan yang Lebih Tinggi',
+								ms: 'Perlindungan yang Lebih Tinggi',
+								th: 'การป้องกันที่สูงขึ้น',
+								vi: 'Bảo vệ cao hơn',
+								bn: 'উচ্চ সুরক্ষা',
+								'zh-hans': '更高的保护',
+								'pt-br': 'Maior Proteção'
+							})
+						}
 					</h2>
 					<p class="text-color">
-						Negative balance protection, smart stop out levels and membership in
-						Investor Compensation Fund (ICF)
+						{
+							t({
+								en: 'Negative balance protection, smart stop out levels and membership in Investor Compensation Fund (ICF)',
+								ar: 'حماية من الرصيد السلبي، مستويات وقف ذكي وعضوية في صندوق تعويضات المستثمرين (ICF)',
+								es: 'Protección de saldo negativo, niveles de stop out inteligentes y membresía en el Fondo de Compensación de Inversores (ICF)',
+								fr: "Protection contre le solde négatif, niveaux de stop out intelligents et adhésion au Fonds d'indemnisation des investisseurs (ICF)",
+								hi: 'नकारात्मक संतुलन सुरक्षा, स्मार्ट स्टॉप आउट स्तर और निवेशक मुआवजा कोष (ICF) में सदस्यता',
+								id: 'Perlindungan saldo negatif, tingkat stop out cerdas dan keanggotaan dalam Dana Kompensasi Investor (ICF)',
+								ms: 'Perlindungan baki negatif, tahap henti pintar dan keanggotaan dalam Dana Pampasan Pelabur (ICF)',
+								th: 'การป้องกันยอดเงินติดลบ, ระดับหยุดที่ชาญฉลาดและการเป็นสมาชิกในกองทุนชดเชยนักลงทุน (ICF)',
+								vi: 'Bảo vệ số dư âm, mức dừng thông minh và thành viên trong Quỹ Bồi thường Nhà đầu tư (ICF)',
+								bn: 'নেতিবাচক ব্যালেন্স সুরক্ষা, স্মার্ট স্টপ আউট স্তর এবং বিনিয়োগকারী ক্ষতিপূরণ তহবিল (ICF) এর সদস্যপদ',
+								'zh-hans': '负余额保护、智能止损水平和投资者赔偿基金 (ICF) 的成员资格',
+								'pt-br':
+									'Proteção contra saldo negativo, níveis de stop out inteligentes e adesão ao Fundo de Compensação de Investidores (ICF)'
+							})
+						}
 					</p>
 				</div>
 				<div
 					class="relative col-span-full w-full space-y-5 overflow-hidden rounded-2xl border-2 p-4 transition hover:border-dbgreen-900 dark:border-neutral-600 dark:hover:border-dbgreen-900 sm:p-8 md:p-5 lg:col-span-3 lg:max-w-[32%]"
 				>
-					<div
-						class="flex size-8 items-center justify-center rounded-full bg-black p-2 text-white"
-					>
+					<div class="flex size-8 items-center justify-center rounded-full bg-black p-2 text-white">
 						<span class="text-lg font-semibold">3</span>
 					</div>
-					<h2
-						class="mb-3 block text-2xl font-bold capitalize text-gray-800 dark:text-white"
-					>
-						Easier to start
+					<h2 class="mb-3 block text-2xl font-bold capitalize text-gray-800 dark:text-white">
+						{
+							t({
+								en: 'Easier to start',
+								ar: 'أسهل للبدء',
+								es: 'Más fácil de empezar',
+								fr: 'Plus facile à commencer',
+								hi: 'शुरू करना आसान',
+								id: 'Lebih mudah untuk memulai',
+								ms: 'Lebih mudah untuk memulakan',
+								th: 'เริ่มต้นได้ง่ายขึ้น',
+								vi: 'Dễ dàng bắt đầu hơn',
+								bn: 'শুরু করা সহজ',
+								'zh-hans': '更容易开始',
+								'pt-br': 'Mais fácil de começar'
+							})
+						}
 					</h2>
 					<p class="text-color">
-						Minimum lot size 0,01 1st Deposit from as minimum as $100 Free Demo Account
-						for the most convenient start
+						{
+							t({
+								en: 'Minimum lot size 0.01, 1st Deposit from as minimum as $100. Free Demo Account for the most convenient start.',
+								ar: 'حجم اللوت الأدنى 0.01 ، الحد الأدنى للإيداع الأول من 100 دولار. حساب تجريبي مجاني لبدء سهل.',
+								es: 'Tamaño mínimo del lote 0.01, primer depósito a partir de un mínimo de $100. Cuenta demo gratuita para un comienzo más conveniente.',
+								fr: "Taille minimale de lot de 0,01, premier dépôt à partir d'un minimum de 100 $. Compte de démonstration gratuit pour un démarrage des plus pratiques.",
+								hi: 'न्यूनतम लॉट आकार 0.01, पहला जमा न्यूनतम $100 से। सबसे सुविधाजनक शुरुआत के लिए मुफ्त डेमो खाता।',
+								id: 'Ukuran lot minimum 0,01, Setoran pertama mulai dari minimal $100. Akun Demo Gratis untuk memulai yang paling nyaman.',
+								ms: 'Saiz lot minimum 0.01, Deposit pertama bermula serendah $100. Akaun Demo Percuma untuk permulaan yang paling mudah.',
+								th: 'ขนาดล็อตขั้นต่ำ 0.01, เงินฝากครั้งแรกเริ่มต้นเพียง $100 บัญชีทดลองฟรีเพื่อเริ่มต้นที่สะดวกที่สุด',
+								vi: 'Kích thước lô tối thiểu 0,01, Khoản tiền gửi đầu tiên từ tối thiểu 100 đô la. Tài khoản Demo miễn phí cho sự khởi đầu thuận tiện nhất.',
+								bn: 'ন্যূনতম লট সাইজ 0.01, প্রথম জমা 100 ডলারের ন্যূনতম থেকে। সবচেয়ে সুবিধাজনক শুরু করার জন্য ফ্রি ডেমো অ্যাকাউন্ট।',
+								'zh-hans': '最低手数为0.01，首次存款最低为100美元。免费模拟账户，方便开始。',
+								'pt-br':
+									'Tamanho mínimo do lote 0,01, Primeiro depósito a partir de um mínimo de $100. Conta demo gratuita para o início mais conveniente.'
+							})
+						}
 					</p>
 				</div>
 			</div>
@@ -114,58 +206,167 @@ export const getStaticPaths = () =>
 			<h1
 				class="mb-3 block text-2xl font-bold capitalize text-gray-800 dark:text-white sm:text-2xl md:text-3xl lg:text-3xl"
 			>
-				What to trade?
+				{
+					t({
+						en: 'What to trade?',
+						ar: 'ماذا تتداول؟',
+						es: '¿Qué comerciar?',
+						fr: 'Que trader?',
+						hi: 'क्या ट्रेड करें?',
+						id: 'Apa yang diperdagangkan?',
+						ms: 'Apa yang ingin diperdagangkan?',
+						th: 'ควรซื้อขายอะไร?',
+						vi: 'Giao dịch gì?',
+						bn: 'কী ট্রেড করবেন?',
+						'zh-hans': '交易什么？',
+						'pt-br': 'O que negociar?'
+					})
+				}
 			</h1>
 			<p class="text-color">
-				The energy market is one of the key markets in the global economy. It is highly
-				volatile due to its close connection to politics, the environment, and economic
-				conditions. Transactions with raw materials and energy resources attract investors
-				due to their active price dynamics. The cost of the instruments is constantly
-				changing, and that offers a wide range of opportunities to make gains*.
+				{
+					t({
+						en: 'The energy market is one of the key markets in the global economy. It is highly volatile due to its close connection to politics, the environment, and economic conditions. Transactions with raw materials and energy resources attract investors due to their active price dynamics. The cost of the instruments is constantly changing, and that offers a wide range of opportunities to make gains*.',
+						ar: 'سوق الطاقة هو أحد الأسواق الرئيسية في الاقتصاد العالمي. إنه متقلب للغاية بسبب ارتباطه الوثيق بالسياسة والبيئة والظروف الاقتصادية. تجذب المعاملات مع المواد الخام والموارد الطاقية المستثمرين بسبب ديناميكيات الأسعار النشطة. تتغير تكلفة الأدوات باستمرار، مما يوفر مجموعة واسعة من الفرص لتحقيق الأرباح*.',
+						es: 'El mercado de la energía es uno de los mercados clave en la economía global. Es altamente volátil debido a su estrecha conexión con la política, el medio ambiente y las condiciones económicas. Las transacciones con materias primas y recursos energéticos atraen a los inversores debido a su activa dinámica de precios. El costo de los instrumentos está cambiando constantemente, lo que ofrece una amplia gama de oportunidades para obtener ganancias*.',
+						fr: "Le marché de l'énergie est l'un des principaux marchés de l'économie mondiale. Il est très volatile en raison de son lien étroit avec la politique, l'environnement et les conditions économiques. Les transactions avec des matières premières et des ressources énergétiques attirent les investisseurs en raison de leur dynamique de prix active. Le coût des instruments change constamment, ce qui offre une large gamme d'opportunités de gains*.",
+						hi: 'ऊर्जा बाजार वैश्विक अर्थव्यवस्था में एक महत्वपूर्ण बाजारों में से एक है। यह राजनीति, पर्यावरण और आर्थिक स्थितियों के साथ निकट संबंध के कारण अत्यधिक अस्थिर है। कच्चे माल और ऊर्जा संसाधनों के साथ लेनदेन सक्रिय मूल्य गतिशीलता के कारण निवेशकों को आकर्षित करता है। उपकरणों की लागत लगातार बदलती रहती है, और यह लाभ प्राप्त करने के लिए एक विस्तृत श्रृंखला के अवसर प्रदान करता है*।',
+						id: 'Pasar energi adalah salah satu pasar kunci dalam ekonomi global. Ini sangat volatile karena keterkaitannya yang dekat dengan politik, lingkungan, dan kondisi ekonomi. Transaksi dengan bahan mentah dan sumber daya energi menarik investor karena dinamika harga yang aktif. Biaya instrumen terus berubah, dan itu menawarkan berbagai peluang untuk mendapatkan keuntungan*.',
+						ms: 'Pasaran tenaga adalah salah satu pasaran utama dalam ekonomi global. Ia sangat tidak stabil kerana hubungannya yang rapat dengan politik, alam sekitar, dan keadaan ekonomi. Transaksi dengan bahan mentah dan sumber tenaga menarik minat pelabur kerana dinamik harga yang aktif. Kos instrumen sentiasa berubah, dan ini menawarkan pelbagai peluang untuk meraih keuntungan*.',
+						th: 'ตลาดพลังงานเป็นหนึ่งในตลาดที่สำคัญในเศรษฐกิจโลก มีความผันผวนสูงเนื่องจากมีความเชื่อมโยงใกล้ชิดกับการเมือง สิ่งแวดล้อม และสภาวะเศรษฐกิจ การทำธุรกรรมกับวัตถุดิบและทรัพยากรพลังงานดึงดูดนักลงทุนเนื่องจากพลศาสตร์ราคาที่มีความเคลื่อนไหวอย่างแข็งขัน ราคาของเครื่องมือมีการเปลี่ยนแปลงอยู่ตลอดเวลา และนั่นเสนอทางเลือกมากมายในการสร้างกำไร*.',
+						vi: 'Thị trường năng lượng là một trong những thị trường chính trong nền kinh tế toàn cầu. Nó có tính biến động cao do mối liên hệ chặt chẽ với chính trị, môi trường và các điều kiện kinh tế. Các giao dịch với nguyên liệu thô và nguồn năng lượng thu hút các nhà đầu tư do động lực giá năng động của chúng. Chi phí của các công cụ liên tục thay đổi, điều này cung cấp một loạt các cơ hội để kiếm lời*.',
+						bn: 'শক্তির বাজার গ্লোবাল অর্থনীতির অন্যতম প্রধান বাজার। এটি রাজনৈতিক, পরিবেশগত এবং অর্থনৈতিক অবস্থার সঙ্গে ঘনিষ্ঠ সংযোগের কারণে অত্যন্ত অস্থির। কাঁচামাল এবং শক্তির উত্সের সাথে লেনদেন সক্রিয় মূল্য গতিশীলতার কারণে বিনিয়োগকারীদের আকর্ষণ করে। যন্ত্রের দাম ক্রমাগত পরিবর্তিত হয়, এবং এটি লাভ অর্জনের জন্য একটি বিস্তৃত সুযোগের পরিসর প্রদান করে*।',
+						'zh-hans':
+							'能源市场是全球经济中关键市场之一。由于与政治、环境和经济状况的紧密联系，它的波动性很大。与原材料和能源资源的交易由于其活跃的价格动态而吸引投资者。工具的成本不断变化，这提供了广泛的获利机会*。',
+						'pt-br':
+							'O mercado de energia é um dos principais mercados da economia global. Ele é altamente volátil devido à sua estreita conexão com a política, o meio ambiente e as condições econômicas. As transações com matérias-primas e recursos energéticos atraem investidores devido à sua dinâmica de preços ativa. O custo dos instrumentos está mudando constantemente, e isso oferece uma ampla gama de oportunidades para obter ganhos*.'
+					})
+				}
 			</p>
 			<p class="text-color">
-				Investments in the energy sector never go out of fashion: there’s always the need
-				for electricity and fuel. This sector is promising in terms of capital increase.
-				This is due, for example, to seasonal fluctuations in oil and gas prices driven by
-				sharp increases in demand for heating, sowing, harvesting, and other fundamental
-				factors. At the same time, there is constant market demand.
+				{
+					t({
+						en: 'Investments in the energy sector never go out of fashion: there’s always the need for electricity and fuel. This sector is promising in terms of capital increase. This is due, for example, to seasonal fluctuations in oil and gas prices driven by sharp increases in demand for heating, sowing, harvesting, and other fundamental factors. At the same time, there is constant market demand.',
+						ar: 'الاستثمار في قطاع الطاقة لا يخرج عن الموضة: هناك دائمًا حاجة للكهرباء والوقود. هذا القطاع واعد من حيث زيادة رأس المال. وذلك بسبب، على سبيل المثال، التقلبات الموسمية في أسعار النفط والغاز الناتجة عن الزيادات الحادة في الطلب على التدفئة والزراعة والحصاد وعوامل أساسية أخرى. في الوقت نفسه، هناك طلب مستمر في السوق.',
+						es: 'Las inversiones en el sector energético nunca pasan de moda: siempre existe la necesidad de electricidad y combustible. Este sector es prometedor en términos de aumento de capital. Esto se debe, por ejemplo, a las fluctuaciones estacionales en los precios del petróleo y del gas impulsadas por los aumentos repentinos en la demanda de calefacción, siembra, cosecha y otros factores fundamentales. Al mismo tiempo, existe una demanda constante en el mercado.',
+						fr: "Les investissements dans le secteur de l'énergie ne se démodent jamais : il y a toujours un besoin d'électricité et de carburant. Ce secteur est prometteur en termes d'augmentation de capital. Cela est dû, par exemple, à des fluctuations saisonnières des prix du pétrole et du gaz entraînées par des augmentations brusques de la demande de chauffage, de semis, de récolte et d'autres facteurs fondamentaux. En même temps, il y a une demande constante sur le marché.",
+						hi: 'ऊर्जा क्षेत्र में निवेश कभी भी पुराना नहीं होता: बिजली और ईंधन की हमेशा आवश्यकता होती है। यह क्षेत्र पूंजी वृद्धि के संदर्भ में आशाजनक है। इसका कारण, उदाहरण के लिए, हीटिंग, बुवाई, फसल और अन्य मौलिक कारकों के लिए मांग में अचानक वृद्धि के कारण तेल और गैस की कीमतों में मौसमी उतार-चढ़ाव है। उसी समय, बाजार में निरंतर मांग है।',
+						id: 'Investasi di sektor energi tidak pernah ketinggalan zaman: selalu ada kebutuhan akan listrik dan bahan bakar. Sektor ini menjanjikan dalam hal peningkatan modal. Hal ini disebabkan, misalnya, oleh fluktuasi musiman dalam harga minyak dan gas yang didorong oleh lonjakan tajam dalam permintaan untuk pemanasan, penanaman, panen, dan faktor-faktor mendasar lainnya. Pada saat yang sama, ada permintaan pasar yang konstan.',
+						ms: 'Pelaburan dalam sektor tenaga tidak pernah ketinggalan zaman: sentiasa ada keperluan untuk elektrik dan bahan bakar. Sektor ini menjanjikan dari segi peningkatan modal. Ini disebabkan, sebagai contoh, oleh turun naik bermusim dalam harga minyak dan gas yang didorong oleh peningkatan mendadak dalam permintaan untuk pemanasan, penanaman, penuaian, dan faktor-faktor asas lain. Pada masa yang sama, terdapat permintaan pasaran yang berterusan.',
+						th: 'การลงทุนในภาคพลังงานไม่เคยล้าสมัย: ยังมีความต้องการไฟฟ้าและเชื้อเพลิงเสมอ ภาคนี้มีแนวโน้มในแง่ของการเพิ่มทุน สาเหตุนี้เกิดจากการเปลี่ยนแปลงตามฤดูกาลในราคาน้ำมันและก๊าซซึ่งเกิดจากความต้องการที่เพิ่มขึ้นอย่างรวดเร็วสำหรับการทำความร้อน การเพาะปลูก การเก็บเกี่ยว และปัจจัยพื้นฐานอื่นๆ ในขณะเดียวกัน ยังมีความต้องการในตลาดอย่างต่อเนื่อง',
+						vi: 'Đầu tư vào lĩnh vực năng lượng không bao giờ lỗi thời: luôn có nhu cầu về điện và nhiên liệu. Lĩnh vực này hứa hẹn trong việc tăng vốn. Điều này là do, ví dụ, sự biến động theo mùa trong giá dầu và khí đốt do sự gia tăng đột ngột về nhu cầu cho việc sưởi ấm, gieo trồng, thu hoạch và các yếu tố cơ bản khác. Đồng thời, có nhu cầu liên tục trên thị trường.',
+						bn: 'শক্তি খাতে বিনিয়োগ কখনও পুরনো হয় না: বিদ্যুৎ এবং জ্বালানীর জন্য সর্বদা প্রয়োজন। এই ক্ষেত্রটি মূলধন বৃদ্ধির দিক থেকে আশাপ্রদ। এর কারণ, উদাহরণস্বরূপ, তাপ, বপন, কাটা এবং অন্যান্য মৌলিক কারণগুলির জন্য চাহিদায় তীব্র বৃদ্ধির কারণে তেলের এবং গ্যাসের দামে মৌসুমি পরিবর্তন। একই সময়ে, বাজারে অব্যাহত চাহিদা রয়েছে।',
+						'zh-hans':
+							'能源部门的投资从未过时：电力和燃料的需求始终存在。这个行业在资本增长方面是有前景的。这是由于，例如，由于取暖、播种、收获和其他基本因素的需求急剧增加，导致油气价格的季节性波动。同时，市场需求也在不断增加。',
+						'pt-br':
+							'Os investimentos no setor de energia nunca saem de moda: sempre há necessidade de eletricidade e combustível. Este setor é promissor em termos de aumento de capital. Isso se deve, por exemplo, a flutuações sazonais nos preços do petróleo e do gás impulsionadas por aumentos acentuados na demanda por aquecimento, semeadura, colheita e outros fatores fundamentais. Ao mesmo tempo, há uma demanda constante do mercado.'
+					})
+				}
 			</p>
 			<p class="text-color">
-				Oil fields are finite in their extent, but almost every company in the world
-				consumes oil. They support the demand for raw materials all year round, influencing
-				oil prices and allowing investors to make gains. Due to the development of
-				technologies, the opportunities for profitable investments widen every year. Today,
-				many countries are developing renewable energy sources. This area represents another
-				promising asset class for investors.
+				{
+					t({
+						en: 'Oil fields are finite in their extent, but almost every company in the world consumes oil. They support the demand for raw materials all year round, influencing oil prices and allowing investors to make gains. Due to the development of technologies, the opportunities for profitable investments widen every year. Today, many countries are developing renewable energy sources. This area represents another promising asset class for investors.',
+						ar: 'حقول النفط محدودة في مساحتها، لكن تقريبًا كل شركة في العالم تستهلك النفط. يدعمون الطلب على المواد الخام على مدار السنة، مما يؤثر على أسعار النفط ويسمح للمستثمرين بتحقيق الأرباح. بسبب تطور التكنولوجيا، تتوسع الفرص للاستثمار المربح كل عام. اليوم، تقوم العديد من البلدان بتطوير مصادر الطاقة المتجددة. يمثل هذا المجال فئة أصول واعدة أخرى للمستثمرين.',
+						es: 'Los campos de petróleo son finitos en su extensión, pero casi todas las empresas del mundo consumen petróleo. Apoyan la demanda de materias primas durante todo el año, influyendo en los precios del petróleo y permitiendo a los inversores obtener ganancias. Debido al desarrollo de tecnologías, las oportunidades de inversiones rentables se amplían cada año. Hoy en día, muchos países están desarrollando fuentes de energía renovable. Esta área representa otra clase de activos prometedora para los inversores.',
+						fr: "Les champs pétroliers sont limités dans leur étendue, mais presque toutes les entreprises du monde consomment du pétrole. Ils soutiennent la demande de matières premières tout au long de l'année, influençant les prix du pétrole et permettant aux investisseurs de réaliser des gains. Grâce au développement des technologies, les opportunités d'investissements rentables s'élargissent chaque année. Aujourd'hui, de nombreux pays développent des sources d'énergie renouvelable. Ce domaine représente une autre classe d'actifs prometteuse pour les investisseurs.",
+						hi: 'तेल के क्षेत्र अपनी सीमा में सीमित होते हैं, लेकिन लगभग हर कंपनी विश्व में तेल का उपभोग करती है। वे पूरे साल कच्चे माल की मांग का समर्थन करते हैं, जो तेल की कीमतों को प्रभावित करता है और निवेशकों को लाभ कमाने की अनुमति देता है। प्रौद्योगिकियों के विकास के कारण, लाभदायक निवेश के अवसर हर वर्ष बढ़ते हैं। आज, कई देश नवीकरणीय ऊर्जा स्रोतों का विकास कर रहे हैं। यह क्षेत्र निवेशकों के लिए एक और आशाजनक संपत्ति वर्ग का प्रतिनिधित्व करता है।',
+						id: 'Ladang minyak terbatas dalam luasnya, tetapi hampir setiap perusahaan di dunia mengonsumsi minyak. Mereka mendukung permintaan bahan mentah sepanjang tahun, memengaruhi harga minyak dan memungkinkan investor untuk mendapatkan keuntungan. Karena perkembangan teknologi, peluang investasi yang menguntungkan semakin meluas setiap tahun. Saat ini, banyak negara sedang mengembangkan sumber energi terbarukan. Bidang ini mewakili kelas aset menjanjikan lainnya bagi investor.',
+						ms: 'Ladang minyak adalah terhad dalam luasnya, tetapi hampir setiap syarikat di dunia menggunakan minyak. Mereka menyokong permintaan bahan mentah sepanjang tahun, mempengaruhi harga minyak dan membolehkan pelabur memperoleh keuntungan. Oleh kerana perkembangan teknologi, peluang untuk pelaburan yang menguntungkan semakin meluas setiap tahun. Hari ini, banyak negara sedang membangunkan sumber tenaga boleh diperbaharui. Kawasan ini mewakili satu lagi kelas aset yang menjanjikan bagi pelabur.',
+						th: 'แหล่งน้ำมันมีขีดจำกัดในขอบเขตของพวกเขา แต่แทบทุกบริษัทในโลกต่างใช้พลังงานน้ำมัน พวกเขาสนับสนุนความต้องการวัตถุดิบตลอดทั้งปี ส่งผลต่อราคาน้ำมันและอนุญาตให้นักลงทุนทำกำไรได้ เนื่องจากการพัฒนาเทคโนโลยี โอกาสในการลงทุนที่มีกำไรจึงเพิ่มขึ้นทุกปี วันนี้ หลายประเทศกำลังพัฒนาพลังงานทดแทน พื้นที่นี้เป็นตัวแทนของกลุ่มสินทรัพย์ที่มีแนวโน้มอีกกลุ่มหนึ่งสำหรับนักลงทุน',
+						vi: 'Các mỏ dầu có phạm vi hạn chế, nhưng hầu hết mọi công ty trên thế giới đều tiêu thụ dầu. Họ hỗ trợ nhu cầu nguyên liệu thô quanh năm, ảnh hưởng đến giá dầu và cho phép các nhà đầu tư kiếm lợi. Nhờ sự phát triển của công nghệ, cơ hội đầu tư có lãi ngày càng mở rộng mỗi năm. Ngày nay, nhiều quốc gia đang phát triển các nguồn năng lượng tái tạo. Khu vực này đại diện cho một loại tài sản đầy hứa hẹn khác cho các nhà đầu tư.',
+						bn: 'তেলের ক্ষেত্রগুলি তাদের বিস্তারে সীমাবদ্ধ, কিন্তু প্রায় প্রতিটি কোম্পানি বিশ্বজুড়ে তেল ব্যবহার করে। তারা সারা বছর কাঁচামালের জন্য চাহিদা সমর্থন করে, যা তেলের দামকে প্রভাবিত করে এবং বিনিয়োগকারীদের লাভ করতে দেয়। প্রযুক্তির উন্নয়নের কারণে, লাভজনক বিনিয়োগের সুযোগ প্রতি বছর বৃদ্ধি পায়। আজ, অনেক দেশ পুনর্নবীকরণযোগ্য শক্তির উৎস তৈরি করছে। এই ক্ষেত্রটি বিনিয়োগকারীদের জন্য আরেকটি প্রতিশ্রুতিবদ্ধ সম্পত্তির শ্রেণীকে উপস্থাপন করে।',
+						'zh-hans':
+							'石油田在其范围内是有限的，但几乎每个公司都消费石油。它们全年支持原材料的需求，影响油价，并允许投资者获利。由于技术的发展，盈利投资的机会每年都在扩大。如今，许多国家正在开发可再生能源。这一领域代表了另一个对投资者充满前景的资产类别。',
+						'pt-br':
+							'Os campos de petróleo são finitos em sua extensão, mas quase todas as empresas do mundo consomem petróleo. Eles apoiam a demanda por matérias-primas durante todo o ano, influenciando os preços do petróleo e permitindo que os investidores obtenham lucros. Devido ao desenvolvimento de tecnologias, as oportunidades de investimentos lucrativos se ampliam a cada ano. Hoje, muitos países estão desenvolvendo fontes de energia renovável. Essa área representa outra classe de ativos promissora para os investidores.'
+					})
+				}
 			</p>
 			<p class="text-color">
-				The off-exchange market does not imply any restrictions on volumes, so transactions
-				on raw materials and resources are available to any investor with even a small
-				amount of funds.
+				{
+					t({
+						en: 'The off-exchange market does not imply any restrictions on volumes, so transactions on raw materials and resources are available to any investor with even a small amount of funds.',
+						ar: 'سوق خارج البورصة لا يفرض أي قيود على الأحجام، لذا فإن المعاملات على المواد الخام والموارد متاحة لأي مستثمر حتى مع مبلغ صغير من الأموال.',
+						es: 'El mercado extrabursátil no implica ninguna restricción en los volúmenes, por lo que las transacciones sobre materias primas y recursos están disponibles para cualquier inversor con incluso una pequeña cantidad de fondos.',
+						fr: "Le marché hors bourse n'impose aucune restriction sur les volumes, de sorte que les transactions sur les matières premières et les ressources sont accessibles à tout investisseur disposant même d'un petit montant de fonds.",
+						hi: 'ऑफ-एक्सचेंज बाजार में किसी भी मात्रा पर कोई प्रतिबंध नहीं होता है, इसलिए कच्चे माल और संसाधनों पर लेनदेन किसी भी निवेशक के लिए उपलब्ध है, जिसके पास थोड़ी मात्रा में धन भी हो।',
+						id: 'Pasar di luar bursa tidak mengenakan batasan pada volume, sehingga transaksi pada bahan mentah dan sumber daya tersedia bagi setiap investor bahkan dengan sejumlah kecil dana.',
+						ms: 'Pasaran luar bursa tidak mempunyai sekatan pada jumlah, jadi transaksi mengenai bahan mentah dan sumber tersedia untuk mana-mana pelabur walaupun dengan jumlah dana yang kecil.',
+						th: 'ตลาดนอกตลาดหลักทรัพย์ไม่มีข้อจำกัดเกี่ยวกับปริมาณ ดังนั้นการทำธุรกรรมเกี่ยวกับวัตถุดิบและทรัพยากรจึงเปิดให้กับนักลงทุนทุกคนแม้จะมีเงินทุนเพียงเล็กน้อยก็ตาม',
+						vi: 'Thị trường ngoài sàn không áp đặt bất kỳ hạn chế nào về khối lượng, vì vậy các giao dịch về nguyên liệu thô và tài nguyên có sẵn cho bất kỳ nhà đầu tư nào ngay cả với một khoản tiền nhỏ.',
+						bn: 'অফ-এক্সচেঞ্জ বাজারে কোনও পরিমাণের উপর কোনও বিধিনিষেধ নেই, তাই কাঁচামাল এবং সম্পদে লেনদেনগুলি এমন যেকোনো বিনিয়োগকারীর জন্য উপলব্ধ, যার কাছে কিছু পরিমাণ তহবিলও রয়েছে।',
+						'zh-hans':
+							'场外市场对交易量没有任何限制，因此即使是资金很少的投资者也可以进行原材料和资源的交易。',
+						'pt-br':
+							'O mercado de balcão não implica restrições de volumes, portanto, transações em matérias-primas e recursos estão disponíveis para qualquer investidor, mesmo com uma pequena quantia de fundos.'
+					})
+				}
 			</p>
 		</div>
 		<div class="mt-7 w-full space-y-4">
 			<h1
 				class="mb-3 block text-2xl font-bold capitalize text-gray-800 dark:text-white sm:text-2xl md:text-3xl lg:text-3xl"
 			>
-				How to trade on the commodities exchange?
+				{
+					t({
+						en: 'How to trade on the commodities exchange?',
+						ar: 'كيف تتداول في بورصة السلع؟',
+						es: '¿Cómo operar en la bolsa de materias primas?',
+						fr: 'Comment trader sur la bourse des matières premières ?',
+						hi: 'कमोडिटी एक्सचेंज पर व्यापार कैसे करें?',
+						id: 'Bagaimana cara berdagang di bursa komoditas?',
+						ms: 'Bagaimana untuk berdagang di bursa komoditi?',
+						th: 'จะซื้อขายในตลาดสินค้าโภคภัณฑ์ได้อย่างไร?',
+						vi: 'Cách giao dịch trên sàn hàng hóa?',
+						bn: 'পণ্য বিনিময়ে কীভাবে ট্রেড করবেন?',
+						'zh-hans': '如何在商品交易所交易？',
+						'pt-br': 'Como negociar na bolsa de commodities?'
+					})
+				}
 			</h1>
 			<p class="text-color">
-				The commodities market is full of exciting trading opportunities. Covering dozens of
-				popular assets, from sugar and coffee to oil and gas, commodity trading becomes a
-				unique arena for your trader’s portfolio diversification.
+				{
+					t({
+						en: 'The commodities market is full of exciting trading opportunities. Covering dozens of popular assets, from sugar and coffee to oil and gas, commodity trading becomes a unique arena for your trader’s portfolio diversification.',
+						ar: 'سوق السلع مليء بفرص التداول المثيرة. يشمل العشرات من الأصول الشهيرة، من السكر والقهوة إلى النفط والغاز، مما يجعل تداول السلع ساحة فريدة لتنويع محفظة المتداولين الخاصة بك.',
+						es: 'El mercado de commodities está lleno de oportunidades de trading emocionantes. Cubriendo docenas de activos populares, desde azúcar y café hasta petróleo y gas, el trading de commodities se convierte en una arena única para la diversificación de la cartera de tu trader.',
+						fr: "Le marché des matières premières regorge d'opportunités de trading passionnantes. Couvrant des dizaines d'actifs populaires, du sucre et du café au pétrole et au gaz, le trading de matières premières devient un domaine unique pour la diversification du portefeuille de votre trader.",
+						hi: 'कमोडिटी मार्केट रोमांचक ट्रेडिंग अवसरों से भरा है। चीनी और कॉफी से लेकर तेल और गैस तक के दर्जनों लोकप्रिय संपत्तियों को कवर करते हुए, कमोडिटी ट्रेडिंग आपके व्यापारी के पोर्टफोलियो के विविधीकरण के लिए एक अनूठा क्षेत्र बन जाता है।',
+						id: 'Pasar komoditas penuh dengan peluang trading yang menarik. Mencakup puluhan aset populer, mulai dari gula dan kopi hingga minyak dan gas, trading komoditas menjadi arena unik untuk diversifikasi portofolio trader Anda.',
+						ms: 'Pasaran komoditi penuh dengan peluang perdagangan yang menarik. Menutupi puluhan aset popular, dari gula dan kopi hingga minyak dan gas, perdagangan komoditi menjadi arena unik untuk kepelbagaian portfolio pedagang anda.',
+						th: 'ตลาดสินค้าโภคภัณฑ์เต็มไปด้วยโอกาสการซื้อขายที่น่าตื่นเต้น ครอบคลุมสินทรัพย์ยอดนิยมหลายสิบรายการ ตั้งแต่น้ำตาลและกาแฟไปจนถึงน้ำมันและก๊าซ การซื้อขายสินค้าโภคภัณฑ์จึงกลายเป็นเวทีที่ไม่เหมือนใครสำหรับการกระจายความเสี่ยงของพอร์ตการลงทุนของคุณ',
+						vi: 'Thị trường hàng hóa đầy những cơ hội giao dịch thú vị. Bao gồm hàng chục tài sản phổ biến, từ đường và cà phê đến dầu mỏ và khí đốt, giao dịch hàng hóa trở thành một lĩnh vực độc đáo cho sự đa dạng hóa danh mục đầu tư của nhà giao dịch của bạn.',
+						bn: 'কমোডিটি মার্কেট উত্তেজনাপূর্ণ ট্রেডিং সুযোগে পূর্ণ। চিনি ও কফি থেকে শুরু করে তেল ও গ্যাস পর্যন্ত জনপ্রিয় সম্পদগুলোর ডজন কভার করে, কমোডিটি ট্রেডিং আপনার ট্রেডারের পোর্টফোলিও বৈচিত্র্যের জন্য একটি অনন্য ক্ষেত্র হয়ে ওঠে।',
+						'zh-hans':
+							'商品市场充满了令人兴奋的交易机会。从糖和咖啡到石油和天然气，覆盖数十种受欢迎的资产，商品交易成为您交易者投资组合多样化的独特领域。',
+						'pt-br':
+							'O mercado de commodities está cheio de oportunidades de negociação emocionantes. Cobrir dezenas de ativos populares, desde açúcar e café até petróleo e gás, a negociação de commodities se torna uma arena única para a diversificação da carteira do seu trader.'
+					})
+				}
 			</p>
 			<p class="text-color">
-				Use your CFD trading opportunities here, as you don’t need to get involved in the
-				market itself.
+				{
+					t({
+						en: 'Use your CFD trading opportunities here, as you don’t need to get involved in the market itself.',
+						ar: 'استخدم فرص تداول العقود مقابل الفروقات الخاصة بك هنا، حيث لا تحتاج إلى التورط في السوق نفسها.',
+						es: 'Utiliza tus oportunidades de trading de CFD aquí, ya que no necesitas involucrarte en el mercado en sí.',
+						fr: "Utilisez vos opportunités de trading CFD ici, car vous n'avez pas besoin de vous impliquer dans le marché lui-même.",
+						hi: 'यहां अपने सीएफडी ट्रेडिंग के अवसरों का उपयोग करें, क्योंकि आपको खुद बाजार में शामिल होने की आवश्यकता नहीं है।',
+						id: 'Gunakan peluang trading CFD Anda di sini, karena Anda tidak perlu terlibat langsung di pasar itu sendiri.',
+						ms: 'Gunakan peluang perdagangan CFD anda di sini, kerana anda tidak perlu terlibat dalam pasaran itu sendiri.',
+						th: 'ใช้โอกาสการซื้อขาย CFD ของคุณที่นี่ เพราะคุณไม่จำเป็นต้องเข้าไปมีส่วนร่วมในตลาดเอง',
+						vi: 'Sử dụng cơ hội giao dịch CFD của bạn ở đây, vì bạn không cần phải tham gia vào chính thị trường.',
+						bn: 'এখানে আপনার সিএফডি ট্রেডিংয়ের সুযোগ ব্যবহার করুন, যেহেতু আপনাকে বাজারে নিজে জড়িত হওয়ার প্রয়োজন নেই।',
+						'zh-hans': '在这里利用你的CFD交易机会，因为你无需直接参与市场。',
+						'pt-br':
+							'Use suas oportunidades de negociação de CFD aqui, pois você não precisa se envolver no mercado em si.'
+					})
+				}
 			</p>
 		</div>
 	</div>
 	<div class="container pb-10 pt-4">
-		<GoogleSheetDataTable
-			sheetName="Commodities"
-			client:load
-			language={lang}
-		/>
+		<GoogleSheetDataTable sheetName="Commodities" client:load language={lang} />
 	</div>
 </Layout>

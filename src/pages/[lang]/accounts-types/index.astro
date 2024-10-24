@@ -1,0 +1,1655 @@
+---
+import { LOCALES, useTranslations, type Lang } from '@/i18n'
+import Layout from '@/layouts/Layout.astro'
+const t = useTranslations(Astro.currentLocale as Lang)
+const lang = Astro.params.lang || 'en'
+export const getStaticPaths = () =>
+	Object.keys(LOCALES).map((lang) => ({
+		params: { lang }
+	}))
+---
+
+<Layout title="Account Types">
+	<section>
+		<div
+			class="relative z-20 w-full overflow-hidden bg-gray-100 py-3 before:absolute before:top-0 before:-z-[1] before:size-full before:transform before:bg-[url('/src/images/world_bg.png')] before:bg-center before:bg-no-repeat before:opacity-45 before:hue-rotate-60 dark:bg-black dark:before:bg-[url('/src/images/world_bg.png')]"
+		>
+			<div class="container flex flex-col items-center justify-between gap-6 py-10 sm:flex-row">
+				<div>
+					<h1
+						class="block text-center text-4xl font-bold text-gray-800 dark:text-neutral-200 md:text-4xl lg:text-5xl"
+						set:html={t({
+							en: '<strong class="text-green-500">Account</strong> Comparisson',
+							ar: '<strong class="text-green-500">حساب</strong> مقارنة',
+							es: '<strong class="text-green-500">Cuenta</strong> Comparación',
+							fr: '<strong class="text-green-500">Compte</strong> Comparaison',
+							hi: '<strong class="text-green-500">खाता</strong> तुलना',
+							id: '<strong class="text-green-500">Akun</strong> Perbandingan',
+							ms: '<strong class="text-green-500">Akaun</strong> Perbandingan',
+							th: '<strong class="text-green-500">บัญชี</strong> การเปรียบเทียบ',
+							vi: '<strong class="text-green-500">Tài khoản</strong> So sánh',
+							bn: '<strong class="text-green-500">হিসাব</strong> তুলনা',
+							'zh-hans': '<strong class="text-green-500">账户</strong> 比较',
+							'pt-br': '<strong class="text-green-500">Conta</strong> Comparação'
+						})}
+					/>
+				</div>
+				<div>
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						class="w-[120px] md:w-[180px]"
+						height="auto"
+						viewBox="0 0 20 20"
+					>
+						<path
+							fill="currentColor"
+							d="M5.497 3a2.5 2.5 0 0 0-2.5 2.5v9a2.5 2.5 0 0 0 2.5 2.5h4.664a3.5 3.5 0 0 1-.16-1H5.497a1.5 1.5 0 0 1-1.5-1.5V7H17V6h-.003v-.5a2.5 2.5 0 0 0-2.5-2.5zm10.5 2.5V6h-12v-.5a1.5 1.5 0 0 1 1.5-1.5h9a1.5 1.5 0 0 1 1.5 1.5M15 12a1.5 1.5 0 0 1 0-3h2a2.5 2.5 0 1 0 0 3zm-2.45 3c-.115 0-.25.06-.369.193a.68.68 0 0 0-.181.427v.32c0 .889.97 2.06 3 2.06h2.988c-.708.608-1.747 1-2.988 1c-2.367 0-4-1.426-4-3.06v-.32c0-.405.175-.8.434-1.091c.261-.294.651-.529 1.116-.529h4.9c.465 0 .855.235 1.116.529c.122.137.226.298.3.471zm4.95-4.5q0 .257-.05.5H15v-1h2.45q.05.243.05.5M15 17h3.761a2.5 2.5 0 0 0 .238-1H15z"
+						></path>
+					</svg>
+				</div>
+			</div>
+		</div>
+
+		<!-- Comparison Table -->
+		<div class="relative">
+			<div class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 md:py-14 lg:px-8 lg:py-20">
+				<div class="mx-auto mb-10 max-w-2xl text-center lg:mb-14">
+					<h2 class="text-2xl font-bold dark:text-white md:text-3xl md:leading-tight">
+						{
+							t({
+								en: 'Compare Account Types',
+								ar: 'قارن أنواع الحسابات',
+								es: 'Comparar Tipos de Cuenta',
+								fr: 'Comparer les Types de Compte',
+								hi: 'खाता प्रकारों की तुलना करें',
+								id: 'Bandingkan Jenis Akun',
+								ms: 'Bandingkan Jenis Akaun',
+								th: 'เปรียบเทียบประเภทบัญชี',
+								vi: 'So sánh Các Loại Tài Khoản',
+								bn: 'হিসাবের ধরন তুলনা করুন',
+								'zh-hans': '比较账户类型',
+								'pt-br': 'Comparar Tipos de Conta'
+							})
+						}
+					</h2>
+				</div>
+
+				<!-- Header -->
+				<div
+					class="sticky start-0 top-0 hidden bg-white/60 py-2 backdrop-blur-md dark:bg-neutral-900/60 lg:block"
+				>
+					<!-- Grid -->
+					<div class="grid grid-cols-6 gap-6">
+						<div class="col-span-1">
+							<span class="text-lg font-semibold text-dbgreen-600 dark:text-dbgreen-500"> </span>
+						</div>
+						<!-- End Col -->
+
+						<div class="col-span-1">
+							<span class="text-lg font-semibold text-dbgreen-600 dark:text-dbgreen-500">
+								{
+									t({
+										en: 'STP',
+										ar: 'STP',
+										es: 'STP',
+										fr: 'STP',
+										hi: 'एसटीपी',
+										id: 'STP',
+										ms: 'STP',
+										th: 'STP',
+										vi: 'STP',
+										bn: 'এসটিপি',
+										'zh-hans': 'STP',
+										'pt-br': 'STP'
+									})
+								}
+							</span>
+						</div>
+						<!-- End Col -->
+
+						<div class="col-span-1">
+							<span class="text-lg font-semibold text-dbgreen-600 dark:text-dbgreen-500">
+								{
+									t({
+										en: 'ECN',
+										ar: 'ECN',
+										es: 'ECN',
+										fr: 'ECN',
+										hi: 'ईसीएन',
+										id: 'ECN',
+										ms: 'ECN',
+										th: 'ECN',
+										vi: 'ECN',
+										bn: 'ইসিএন',
+										'zh-hans': 'ECN',
+										'pt-br': 'ECN'
+									})
+								}
+							</span>
+						</div>
+						<!-- End Col -->
+
+						<div class="col-span-1">
+							<span class="text-lg font-semibold text-dbgreen-600 dark:text-dbgreen-500">
+								{
+									t({
+										en: 'PRO',
+										ar: 'PRO',
+										es: 'PRO',
+										fr: 'PRO',
+										hi: 'प्रो',
+										id: 'PRO',
+										ms: 'PRO',
+										th: 'PRO',
+										vi: 'PRO',
+										bn: 'প্রো',
+										'zh-hans': 'PRO',
+										'pt-br': 'PRO'
+									})
+								}
+							</span>
+						</div>
+						<!-- End Col -->
+
+						<div class="col-span-1">
+							<span class="text-lg font-semibold text-dbgreen-600 dark:text-dbgreen-500">
+								{
+									t({
+										en: 'ISLAMIC',
+										ar: 'إسلامي',
+										es: 'ISLÁMICO',
+										fr: 'ISLAMIQUE',
+										hi: 'इस्लामी',
+										id: 'ISLAM',
+										ms: 'ISLAM',
+										th: 'อิสลาม',
+										vi: 'HỒI GIÁO',
+										bn: 'ইসলামী',
+										'zh-hans': '伊斯兰教',
+										'pt-br': 'ISLÂMICO'
+									})
+								}
+							</span>
+						</div>
+						<!-- End Col -->
+
+						<div class="col-span-1">
+							<span class="text-lg font-semibold text-dbgreen-600 dark:text-dbgreen-500">
+								{
+									t({
+										en: 'ISLAMIC+',
+										ar: 'إسلامي+',
+										es: 'ISLÁMICO+',
+										fr: 'ISLAMIQUE+',
+										hi: 'इस्लामी+',
+										id: 'ISLAM+',
+										ms: 'ISLAM+',
+										th: 'อิสลาม+',
+										vi: 'HỒI GIÁO+',
+										bn: 'ইসলামী+',
+										'zh-hans': '伊斯兰教+',
+										'pt-br': 'ISLÂMICO+'
+									})
+								}
+							</span>
+						</div>
+						<!-- End Col -->
+					</div>
+					<!-- End Grid -->
+				</div>
+				<!-- End Header -->
+
+				<!-- Section -->
+				<div class="space-y-8 lg:space-y-0">
+					<!-- List -->
+					<ul class="grid gap-2 lg:grid-cols-6 lg:gap-6">
+						<!-- Item -->
+						<li class="lg:col-span-2 lg:py-3">
+							<span class="text-lg font-semibold text-gray-800 dark:text-neutral-200"> </span>
+						</li>
+						<!-- End Item -->
+
+						<!-- Item -->
+						<li class="hidden px-4 py-1.5 lg:col-span-1 lg:block lg:px-0 lg:py-3 lg:text-center">
+						</li>
+						<!-- End Item -->
+
+						<!-- Item -->
+						<li class="hidden px-4 py-1.5 lg:col-span-1 lg:block lg:px-0 lg:py-3 lg:text-center">
+						</li>
+						<!-- End Item -->
+
+						<!-- Item -->
+						<li class="hidden px-4 py-1.5 lg:col-span-1 lg:block lg:px-0 lg:py-3 lg:text-center">
+						</li>
+						<!-- End Item -->
+
+						<!-- Item -->
+						<li class="hidden px-4 py-1.5 lg:col-span-1 lg:block lg:px-0 lg:py-3 lg:text-center">
+						</li>
+						<!-- End Item -->
+					</ul>
+					<!-- End List -->
+
+					<!-- List -->
+					<ul class="grid gap-2 lg:grid-cols-6 lg:gap-6">
+						<!-- Item -->
+						<li class="pb-1.5 lg:col-span-1 lg:py-3">
+							<span class="text-md font-bold text-dbgreen-600 dark:text-dbgreen-500 lg:font-normal">
+								{
+									t({
+										en: 'Minimum Deposit',
+										ar: 'الحد الأدنى للإيداع',
+										es: 'Depósito Mínimo',
+										fr: 'Dépôt Minimum',
+										hi: 'न्यूनतम जमा',
+										id: 'Setoran Minimum',
+										ms: 'Deposit Minimum',
+										th: 'เงินฝากขั้นต่ำ',
+										vi: 'Số tiền gửi tối thiểu',
+										bn: 'ন্যূনতম আমানত',
+										'zh-hans': '最低存款',
+										'pt-br': 'Depósito Mínimo'
+									})
+								}
+							</span>
+						</li>
+						<!-- End Item -->
+
+						<!-- Item -->
+						<li class="col-span-1 border-b border-gray-200 py-1.5 dark:border-neutral-800 lg:py-3">
+							<div class="grid grid-cols-2 md:grid-cols-6 lg:block">
+								<span
+									class="text-sm text-dbgreen-600 dark:text-dbgreen-500 md:col-span-2 lg:hidden"
+								>
+									{
+										t({
+											en: 'STP',
+											ar: 'STP',
+											es: 'STP',
+											fr: 'STP',
+											hi: 'एसटीपी',
+											id: 'STP',
+											ms: 'STP',
+											th: 'STP',
+											vi: 'STP',
+											bn: 'এসটিপি',
+											'zh-hans': 'STP',
+											'pt-br': 'STP'
+										})
+									}
+								</span>
+								<span class="text-sm text-gray-800 dark:text-neutral-200"> $ 100 </span>
+							</div>
+						</li>
+						<!-- End Item -->
+
+						<!-- Item -->
+						<li class="col-span-1 border-b border-gray-200 py-1.5 dark:border-neutral-800 lg:py-3">
+							<div class="grid grid-cols-2 md:grid-cols-6 lg:block">
+								<span
+									class="text-sm text-dbgreen-600 dark:text-dbgreen-500 md:col-span-2 lg:hidden"
+								>
+									{
+										t({
+											en: 'ECN',
+											ar: 'ECN',
+											es: 'ECN',
+											fr: 'ECN',
+											hi: 'ईसीएन',
+											id: 'ECN',
+											ms: 'ECN',
+											th: 'ECN',
+											vi: 'ECN',
+											bn: 'ইসিএন',
+											'zh-hans': 'ECN',
+											'pt-br': 'ECN'
+										})
+									}
+								</span>
+								<span class="text-sm text-gray-800 dark:text-neutral-200"> $ 100 </span>
+							</div>
+						</li>
+						<!-- End Item -->
+
+						<!-- Item -->
+						<li class="col-span-1 border-b border-gray-200 py-1.5 dark:border-neutral-800 lg:py-3">
+							<div class="grid grid-cols-2 md:grid-cols-6 lg:block">
+								<span
+									class="text-sm text-dbgreen-600 dark:text-dbgreen-500 md:col-span-2 lg:hidden"
+								>
+									{
+										t({
+											en: 'PRO',
+											ar: 'PRO',
+											es: 'PRO',
+											fr: 'PRO',
+											hi: 'प्रो',
+											id: 'PRO',
+											ms: 'PRO',
+											th: 'PRO',
+											vi: 'PRO',
+											bn: 'প্রো',
+											'zh-hans': 'PRO',
+											'pt-br': 'PRO'
+										})
+									}
+								</span>
+								<span class="text-sm text-gray-800 dark:text-neutral-200"> $ 100 </span>
+							</div>
+						</li>
+						<!-- End Item -->
+
+						<!-- Item -->
+						<li class="col-span-1 border-b border-gray-200 py-1.5 dark:border-neutral-800 lg:py-3">
+							<div class="grid grid-cols-2 md:grid-cols-6 lg:block">
+								<span
+									class="text-sm text-dbgreen-600 dark:text-dbgreen-500 md:col-span-2 lg:hidden"
+								>
+									{
+										t({
+											en: 'ISLAMIC',
+											ar: 'إسلامي',
+											es: 'ISLÁMICO',
+											fr: 'ISLAMIQUE',
+											hi: 'इस्लामी',
+											id: 'ISLAM',
+											ms: 'ISLAM',
+											th: 'อิสลาม',
+											vi: 'HỒI GIÁO',
+											bn: 'ইসলামী',
+											'zh-hans': '伊斯兰教',
+											'pt-br': 'ISLÂMICO'
+										})
+									}
+								</span>
+								<span class="text-sm text-gray-800 dark:text-neutral-200"> $ 100 </span>
+							</div>
+						</li>
+						<!-- End Item -->
+
+						<!-- Item -->
+						<li class="col-span-1 border-b border-gray-200 py-1.5 dark:border-neutral-800 lg:py-3">
+							<div class="grid grid-cols-2 md:grid-cols-6 lg:block">
+								<span
+									class="text-sm text-dbgreen-600 dark:text-dbgreen-500 md:col-span-2 lg:hidden"
+								>
+									{
+										t({
+											en: 'ISLAMIC+',
+											ar: 'إسلامي+',
+											es: 'ISLÁMICO+',
+											fr: 'ISLAMIQUE+',
+											hi: 'इस्लामी+',
+											id: 'ISLAM+',
+											ms: 'ISLAM+',
+											th: 'อิสลาม+',
+											vi: 'HỒI GIÁO+',
+											bn: 'ইসলামী+',
+											'zh-hans': '伊斯兰教+',
+											'pt-br': 'ISLÂMICO+'
+										})
+									}
+								</span>
+								<span class="text-sm text-gray-800 dark:text-neutral-200"> $ 100 </span>
+							</div>
+						</li>
+						<!-- End Item -->
+					</ul>
+					<!-- End List -->
+
+					<!-- List -->
+					<ul class="grid gap-2 lg:grid-cols-6 lg:gap-6">
+						<!-- Item -->
+						<li class="pb-1.5 lg:col-span-1 lg:py-3">
+							<span class="text-md font-bold text-dbgreen-600 dark:text-dbgreen-500 lg:font-normal">
+								{
+									t({
+										en: 'Spread as low as',
+										ar: 'سبريد يبدأ من',
+										es: 'Spread tan bajo como',
+										fr: 'Spread aussi bas que',
+										hi: 'स्प्रेड न्यूनतम',
+										id: 'Spread serendah',
+										ms: 'Spread serendah',
+										th: 'สเปรดต่ำสุดที่',
+										vi: 'Chênh lệch thấp nhất là',
+										bn: 'স্প্রেড হিসাবে কম',
+										'zh-hans': '点差低至',
+										'pt-br': 'Spread tão baixo quanto'
+									})
+								}
+							</span>
+						</li>
+						<!-- End Item -->
+
+						<!-- Item -->
+						<li class="col-span-1 border-b border-gray-200 py-1.5 dark:border-neutral-800 lg:py-3">
+							<div class="grid grid-cols-2 md:grid-cols-6 lg:block">
+								<span
+									class="text-sm text-dbgreen-600 dark:text-dbgreen-500 md:col-span-2 lg:hidden"
+								>
+									{
+										t({
+											en: 'STP',
+											ar: 'STP',
+											es: 'STP',
+											fr: 'STP',
+											hi: 'एसटीपी',
+											id: 'STP',
+											ms: 'STP',
+											th: 'STP',
+											vi: 'STP',
+											bn: 'এসটিপি',
+											'zh-hans': 'STP',
+											'pt-br': 'STP'
+										})
+									}
+								</span>
+								<span class="text-sm text-gray-800 dark:text-neutral-200"> 1 </span>
+							</div>
+						</li>
+						<!-- End Item -->
+
+						<!-- Item -->
+						<li class="col-span-1 border-b border-gray-200 py-1.5 dark:border-neutral-800 lg:py-3">
+							<div class="grid grid-cols-2 md:grid-cols-6 lg:block">
+								<span
+									class="text-sm text-dbgreen-600 dark:text-dbgreen-500 md:col-span-2 lg:hidden"
+								>
+									{
+										t({
+											en: 'ECN',
+											ar: 'ECN',
+											es: 'ECN',
+											fr: 'ECN',
+											hi: 'ईसीएन',
+											id: 'ECN',
+											ms: 'ECN',
+											th: 'ECN',
+											vi: 'ECN',
+											bn: 'ইসিএন',
+											'zh-hans': 'ECN',
+											'pt-br': 'ECN'
+										})
+									}
+								</span>
+								<span class="text-sm text-gray-800 dark:text-neutral-200"> 0.0 </span>
+							</div>
+						</li>
+						<!-- End Item -->
+
+						<!-- Item -->
+						<li class="col-span-1 border-b border-gray-200 py-1.5 dark:border-neutral-800 lg:py-3">
+							<div class="grid grid-cols-2 md:grid-cols-6 lg:block">
+								<span
+									class="text-sm text-dbgreen-600 dark:text-dbgreen-500 md:col-span-2 lg:hidden"
+								>
+									{
+										t({
+											en: 'PRO',
+											ar: 'PRO',
+											es: 'PRO',
+											fr: 'PRO',
+											hi: 'प्रो',
+											id: 'PRO',
+											ms: 'PRO',
+											th: 'PRO',
+											vi: 'PRO',
+											bn: 'প্রো',
+											'zh-hans': 'PRO',
+											'pt-br': 'PRO'
+										})
+									}
+								</span>
+								<span class="text-sm text-gray-800 dark:text-neutral-200"> 0.3 </span>
+							</div>
+						</li>
+						<!-- End Item -->
+
+						<!-- Item -->
+						<li class="col-span-1 border-b border-gray-200 py-1.5 dark:border-neutral-800 lg:py-3">
+							<div class="grid grid-cols-2 md:grid-cols-6 lg:block">
+								<span
+									class="text-sm text-dbgreen-600 dark:text-dbgreen-500 md:col-span-2 lg:hidden"
+								>
+									{
+										t({
+											en: 'ISLAMIC',
+											ar: 'إسلامي',
+											es: 'ISLÁMICO',
+											fr: 'ISLAMIQUE',
+											hi: 'इस्लामी',
+											id: 'ISLAM',
+											ms: 'ISLAM',
+											th: 'อิสลาม',
+											vi: 'HỒI GIÁO',
+											bn: 'ইসলামী',
+											'zh-hans': '伊斯兰教',
+											'pt-br': 'ISLÂMICO'
+										})
+									}
+								</span>
+								<span class="text-sm text-gray-800 dark:text-neutral-200"> 1 </span>
+							</div>
+						</li>
+						<!-- End Item -->
+
+						<!-- Item -->
+						<li class="col-span-1 border-b border-gray-200 py-1.5 dark:border-neutral-800 lg:py-3">
+							<div class="grid grid-cols-2 md:grid-cols-6 lg:block">
+								<span
+									class="text-sm text-dbgreen-600 dark:text-dbgreen-500 md:col-span-2 lg:hidden"
+								>
+									{
+										t({
+											en: 'ISLAMIC+',
+											ar: 'إسلامي+',
+											es: 'ISLÁMICO+',
+											fr: 'ISLAMIQUE+',
+											hi: 'इस्लामी+',
+											id: 'ISLAM+',
+											ms: 'ISLAM+',
+											th: 'อิสลาม+',
+											vi: 'HỒI GIÁO+',
+											bn: 'ইসলামী+',
+											'zh-hans': '伊斯兰教+',
+											'pt-br': 'ISLÂMICO+'
+										})
+									}
+								</span>
+								<span class="text-sm text-gray-800 dark:text-neutral-200"> 0.0 </span>
+							</div>
+							<!-- End Item -->
+						</li>
+						<!-- End List -->
+					</ul>
+
+					<!-- List -->
+					<ul class="grid gap-2 lg:grid-cols-6 lg:gap-6">
+						<!-- Item -->
+						<li class="pb-1.5 lg:col-span-1 lg:py-3">
+							<span class="text-md font-bold text-dbgreen-600 dark:text-dbgreen-500 lg:font-normal">
+								{
+									t({
+										en: 'Minimum Trade Size',
+										ar: 'حجم التداول الأدنى',
+										es: 'Tamaño mínimo de comercio',
+										fr: 'Taille minimale de transaction',
+										hi: 'न्यूनतम व्यापार आकार',
+										id: 'Ukuran Perdagangan Minimum',
+										ms: 'Saiz Dagangan Minimum',
+										th: 'ขนาดการซื้อขายขั้นต่ำ',
+										vi: 'Kích thước giao dịch tối thiểu',
+										bn: 'সর্বনিম্ন বাণিজ্য আকার',
+										'zh-hans': '最小交易规模',
+										'pt-br': 'Tamanho mínimo de negociação'
+									})
+								}
+							</span>
+						</li>
+						<!-- End Item -->
+
+						<!-- Item -->
+						<li class="col-span-1 border-b border-gray-200 py-1.5 dark:border-neutral-800 lg:py-3">
+							<div class="grid grid-cols-2 md:grid-cols-6 lg:block">
+								<span
+									class="text-sm text-dbgreen-600 dark:text-dbgreen-500 md:col-span-2 lg:hidden"
+								>
+									{
+										t({
+											en: 'STP',
+											ar: 'STP',
+											es: 'STP',
+											fr: 'STP',
+											hi: 'एसटीपी',
+											id: 'STP',
+											ms: 'STP',
+											th: 'STP',
+											vi: 'STP',
+											bn: 'এসটিপি',
+											'zh-hans': 'STP',
+											'pt-br': 'STP'
+										})
+									}
+								</span>
+								<span class="text-sm text-gray-800 dark:text-neutral-200"> 0.01 </span>
+							</div>
+						</li>
+						<!-- End Item -->
+
+						<!-- Item -->
+						<li class="col-span-1 border-b border-gray-200 py-1.5 dark:border-neutral-800 lg:py-3">
+							<div class="grid grid-cols-2 md:grid-cols-6 lg:block">
+								<span
+									class="text-sm text-dbgreen-600 dark:text-dbgreen-500 md:col-span-2 lg:hidden"
+								>
+									{
+										t({
+											en: 'ECN',
+											ar: 'ECN',
+											es: 'ECN',
+											fr: 'ECN',
+											hi: 'ईसीएन',
+											id: 'ECN',
+											ms: 'ECN',
+											th: 'ECN',
+											vi: 'ECN',
+											bn: 'ইসিএন',
+											'zh-hans': 'ECN',
+											'pt-br': 'ECN'
+										})
+									}
+								</span>
+								<span class="text-sm text-gray-800 dark:text-neutral-200"> 0.01 </span>
+							</div>
+						</li>
+						<!-- End Item -->
+
+						<!-- Item -->
+						<li class="col-span-1 border-b border-gray-200 py-1.5 dark:border-neutral-800 lg:py-3">
+							<div class="grid grid-cols-2 md:grid-cols-6 lg:block">
+								<span
+									class="text-sm text-dbgreen-600 dark:text-dbgreen-500 md:col-span-2 lg:hidden"
+								>
+									{
+										t({
+											en: 'PRO',
+											ar: 'PRO',
+											es: 'PRO',
+											fr: 'PRO',
+											hi: 'प्रो',
+											id: 'PRO',
+											ms: 'PRO',
+											th: 'PRO',
+											vi: 'PRO',
+											bn: 'প্রো',
+											'zh-hans': 'PRO',
+											'pt-br': 'PRO'
+										})
+									}
+								</span>
+								<span class="text-sm text-gray-800 dark:text-neutral-200"> 0.01 </span>
+							</div>
+						</li>
+						<!-- End Item -->
+
+						<!-- Item -->
+						<li class="col-span-1 border-b border-gray-200 py-1.5 dark:border-neutral-800 lg:py-3">
+							<div class="grid grid-cols-2 md:grid-cols-6 lg:block">
+								<span
+									class="text-sm text-dbgreen-600 dark:text-dbgreen-500 md:col-span-2 lg:hidden"
+								>
+									{
+										t({
+											en: 'ISLAMIC',
+											ar: 'إسلامي',
+											es: 'ISLÁMICO',
+											fr: 'ISLAMIQUE',
+											hi: 'इस्लामी',
+											id: 'ISLAM',
+											ms: 'ISLAM',
+											th: 'อิสลาม',
+											vi: 'HỒI GIÁO',
+											bn: 'ইসলামী',
+											'zh-hans': '伊斯兰教',
+											'pt-br': 'ISLÂMICO'
+										})
+									}
+								</span>
+								<span class="text-sm text-gray-800 dark:text-neutral-200"> 0.01 </span>
+							</div>
+						</li>
+						<!-- End Item -->
+
+						<!-- Item -->
+						<li class="col-span-1 border-b border-gray-200 py-1.5 dark:border-neutral-800 lg:py-3">
+							<div class="grid grid-cols-2 md:grid-cols-6 lg:block">
+								<span
+									class="text-sm text-dbgreen-600 dark:text-dbgreen-500 md:col-span-2 lg:hidden"
+								>
+									{
+										t({
+											en: 'ISLAMIC+',
+											ar: 'إسلامي+',
+											es: 'ISLÁMICO+',
+											fr: 'ISLAMIQUE+',
+											hi: 'इस्लामी+',
+											id: 'ISLAM+',
+											ms: 'ISLAM+',
+											th: 'อิสลาม+',
+											vi: 'HỒI GIÁO+',
+											bn: 'ইসলামী+',
+											'zh-hans': '伊斯兰教+',
+											'pt-br': 'ISLÂMICO+'
+										})
+									}
+								</span>
+								<span class="text-sm text-gray-800 dark:text-neutral-200"> 0.01 </span>
+							</div>
+							<!-- End Item -->
+						</li>
+						<!-- End List -->
+					</ul>
+					<!-- End List -->
+
+					<!-- List -->
+					<ul class="grid gap-2 lg:grid-cols-6 lg:gap-6">
+						<!-- Item -->
+						<li class="pb-1.5 lg:col-span-1 lg:py-3">
+							<span class="text-md font-bold text-dbgreen-600 dark:text-dbgreen-500 lg:font-normal">
+								{
+									t({
+										en: 'Platform',
+										ar: 'منصة',
+										es: 'Plataforma',
+										fr: 'Plateforme',
+										hi: 'प्लेटफ़ॉर्म',
+										id: 'Platform',
+										ms: 'Platform',
+										th: 'แพลตฟอร์ม',
+										vi: 'Nền tảng',
+										bn: 'প্ল্যাটফর্ম',
+										'zh-hans': '平台',
+										'pt-br': 'Plataforma'
+									})
+								}
+							</span>
+						</li>
+						<!-- End Item -->
+
+						<!-- Item -->
+						<li class="col-span-1 border-b border-gray-200 py-1.5 dark:border-neutral-800 lg:py-3">
+							<div class="grid grid-cols-2 md:grid-cols-6 lg:block">
+								<span
+									class="text-sm text-dbgreen-600 dark:text-dbgreen-500 md:col-span-2 lg:hidden"
+								>
+									{
+										t({
+											en: 'STP',
+											ar: 'STP',
+											es: 'STP',
+											fr: 'STP',
+											hi: 'एसटीपी',
+											id: 'STP',
+											ms: 'STP',
+											th: 'STP',
+											vi: 'STP',
+											bn: 'এসটিপি',
+											'zh-hans': 'STP',
+											'pt-br': 'STP'
+										})
+									}
+								</span>
+								<span class="text-sm text-gray-800 dark:text-neutral-200"> MT5 </span>
+							</div>
+						</li>
+						<!-- End Item -->
+
+						<!-- Item -->
+						<li class="col-span-1 border-b border-gray-200 py-1.5 dark:border-neutral-800 lg:py-3">
+							<div class="grid grid-cols-2 md:grid-cols-6 lg:block">
+								<span
+									class="text-sm text-dbgreen-600 dark:text-dbgreen-500 md:col-span-2 lg:hidden"
+								>
+									{
+										t({
+											en: 'ECN',
+											ar: 'ECN',
+											es: 'ECN',
+											fr: 'ECN',
+											hi: 'ईसीएन',
+											id: 'ECN',
+											ms: 'ECN',
+											th: 'ECN',
+											vi: 'ECN',
+											bn: 'ইসিএন',
+											'zh-hans': 'ECN',
+											'pt-br': 'ECN'
+										})
+									}
+								</span>
+								<span class="text-sm text-gray-800 dark:text-neutral-200"> MT5 </span>
+							</div>
+						</li>
+						<!-- End Item -->
+
+						<!-- Item -->
+						<li class="col-span-1 border-b border-gray-200 py-1.5 dark:border-neutral-800 lg:py-3">
+							<div class="grid grid-cols-2 md:grid-cols-6 lg:block">
+								<span
+									class="text-sm text-dbgreen-600 dark:text-dbgreen-500 md:col-span-2 lg:hidden"
+								>
+									{
+										t({
+											en: 'PRO',
+											ar: 'PRO',
+											es: 'PRO',
+											fr: 'PRO',
+											hi: 'प्रो',
+											id: 'PRO',
+											ms: 'PRO',
+											th: 'PRO',
+											vi: 'PRO',
+											bn: 'প্রো',
+											'zh-hans': 'PRO',
+											'pt-br': 'PRO'
+										})
+									}
+								</span>
+								<span class="text-sm text-gray-800 dark:text-neutral-200"> MT5 </span>
+							</div>
+						</li>
+						<!-- End Item -->
+
+						<!-- Item -->
+						<li class="col-span-1 border-b border-gray-200 py-1.5 dark:border-neutral-800 lg:py-3">
+							<div class="grid grid-cols-2 md:grid-cols-6 lg:block">
+								<span
+									class="text-sm text-dbgreen-600 dark:text-dbgreen-500 md:col-span-2 lg:hidden"
+								>
+									{
+										t({
+											en: 'ISLAMIC',
+											ar: 'إسلامي',
+											es: 'ISLÁMICO',
+											fr: 'ISLAMIQUE',
+											hi: 'इस्लामी',
+											id: 'ISLAM',
+											ms: 'ISLAM',
+											th: 'อิสลาม',
+											vi: 'HỒI GIÁO',
+											bn: 'ইসলামী',
+											'zh-hans': '伊斯兰教',
+											'pt-br': 'ISLÂMICO'
+										})
+									}
+								</span>
+								<span class="text-sm text-gray-800 dark:text-neutral-200"> MT5 </span>
+							</div>
+						</li>
+						<!-- End Item -->
+
+						<!-- Item -->
+						<li class="col-span-1 border-b border-gray-200 py-1.5 dark:border-neutral-800 lg:py-3">
+							<div class="grid grid-cols-2 md:grid-cols-6 lg:block">
+								<span
+									class="text-sm text-dbgreen-600 dark:text-dbgreen-500 md:col-span-2 lg:hidden"
+								>
+									{
+										t({
+											en: 'ISLAMIC+',
+											ar: 'إسلامي+',
+											es: 'ISLÁMICO+',
+											fr: 'ISLAMIQUE+',
+											hi: 'इस्लामी+',
+											id: 'ISLAM+',
+											ms: 'ISLAM+',
+											th: 'อิสลาม+',
+											vi: 'HỒI GIÁO+',
+											bn: 'ইসলামী+',
+											'zh-hans': '伊斯兰教+',
+											'pt-br': 'ISLÂMICO+'
+										})
+									}
+								</span>
+								<span class="text-sm text-gray-800 dark:text-neutral-200"> MT5 </span>
+							</div>
+							<!-- End Item -->
+						</li>
+						<!-- End List -->
+					</ul>
+					<!-- End List -->
+
+					<!-- List -->
+					<ul class="grid gap-2 lg:grid-cols-6 lg:gap-6">
+						<!-- Item -->
+						<li class="pb-1.5 lg:col-span-1 lg:py-3">
+							<span class="text-md font-bold text-dbgreen-600 dark:text-dbgreen-500 lg:font-normal">
+								{
+									t({
+										en: 'Leverage Up to',
+										ar: 'الرافعة المالية تصل إلى',
+										es: 'Apalancamiento hasta',
+										fr: "Effet de levier jusqu'à",
+										hi: 'लिवरेज तक',
+										id: 'Leverage hingga',
+										ms: 'Leverage sehingga',
+										th: 'เลเวอเรจสูงสุด',
+										vi: 'Đòn bẩy lên đến',
+										bn: 'লিভারেজ পর্যন্ত',
+										'zh-hans': '杠杆最高可达',
+										'pt-br': 'Alavancagem de até'
+									})
+								}
+							</span>
+						</li>
+						<!-- End Item -->
+
+						<!-- Item -->
+						<li class="col-span-1 border-b border-gray-200 py-1.5 dark:border-neutral-800 lg:py-3">
+							<div class="grid grid-cols-2 md:grid-cols-6 lg:block">
+								<span
+									class="text-sm text-dbgreen-600 dark:text-dbgreen-500 md:col-span-2 lg:hidden"
+								>
+									{
+										t({
+											en: 'STP',
+											ar: 'STP',
+											es: 'STP',
+											fr: 'STP',
+											hi: 'एसटीपी',
+											id: 'STP',
+											ms: 'STP',
+											th: 'STP',
+											vi: 'STP',
+											bn: 'এসটিপি',
+											'zh-hans': 'STP',
+											'pt-br': 'STP'
+										})
+									}
+								</span>
+								<span class="text-sm text-gray-800 dark:text-neutral-200"> 1:1000 </span>
+							</div>
+						</li>
+						<!-- End Item -->
+
+						<!-- Item -->
+						<li class="col-span-1 border-b border-gray-200 py-1.5 dark:border-neutral-800 lg:py-3">
+							<div class="grid grid-cols-2 md:grid-cols-6 lg:block">
+								<span
+									class="text-sm text-dbgreen-600 dark:text-dbgreen-500 md:col-span-2 lg:hidden"
+								>
+									{
+										t({
+											en: 'ECN',
+											ar: 'ECN',
+											es: 'ECN',
+											fr: 'ECN',
+											hi: 'ईसीएन',
+											id: 'ECN',
+											ms: 'ECN',
+											th: 'ECN',
+											vi: 'ECN',
+											bn: 'ইসিএন',
+											'zh-hans': 'ECN',
+											'pt-br': 'ECN'
+										})
+									}
+								</span>
+								<span class="text-sm text-gray-800 dark:text-neutral-200"> 1:1000 </span>
+							</div>
+						</li>
+						<!-- End Item -->
+
+						<!-- Item -->
+						<li class="col-span-1 border-b border-gray-200 py-1.5 dark:border-neutral-800 lg:py-3">
+							<div class="grid grid-cols-2 md:grid-cols-6 lg:block">
+								<span
+									class="text-sm text-dbgreen-600 dark:text-dbgreen-500 md:col-span-2 lg:hidden"
+								>
+									{
+										t({
+											en: 'PRO',
+											ar: 'PRO',
+											es: 'PRO',
+											fr: 'PRO',
+											hi: 'प्रो',
+											id: 'PRO',
+											ms: 'PRO',
+											th: 'PRO',
+											vi: 'PRO',
+											bn: 'প্রো',
+											'zh-hans': 'PRO',
+											'pt-br': 'PRO'
+										})
+									}
+								</span>
+								<span class="text-sm text-gray-800 dark:text-neutral-200"> 1:1000 </span>
+							</div>
+						</li>
+						<!-- End Item -->
+
+						<!-- Item -->
+						<li class="col-span-1 border-b border-gray-200 py-1.5 dark:border-neutral-800 lg:py-3">
+							<div class="grid grid-cols-2 md:grid-cols-6 lg:block">
+								<span
+									class="text-sm text-dbgreen-600 dark:text-dbgreen-500 md:col-span-2 lg:hidden"
+								>
+									{
+										t({
+											en: 'ISLAMIC',
+											ar: 'إسلامي',
+											es: 'ISLÁMICO',
+											fr: 'ISLAMIQUE',
+											hi: 'इस्लामी',
+											id: 'ISLAM',
+											ms: 'ISLAM',
+											th: 'อิสลาม',
+											vi: 'HỒI GIÁO',
+											bn: 'ইসলামী',
+											'zh-hans': '伊斯兰教',
+											'pt-br': 'ISLÂMICO'
+										})
+									}
+								</span>
+								<span class="text-sm text-gray-800 dark:text-neutral-200"> 1:1000 </span>
+							</div>
+						</li>
+						<!-- End Item -->
+
+						<!-- Item -->
+						<li class="col-span-1 border-b border-gray-200 py-1.5 dark:border-neutral-800 lg:py-3">
+							<div class="grid grid-cols-2 md:grid-cols-6 lg:block">
+								<span
+									class="text-sm text-dbgreen-600 dark:text-dbgreen-500 md:col-span-2 lg:hidden"
+								>
+									{
+										t({
+											en: 'ISLAMIC+',
+											ar: 'إسلامي+',
+											es: 'ISLÁMICO+',
+											fr: 'ISLAMIQUE+',
+											hi: 'इस्लामी+',
+											id: 'ISLAM+',
+											ms: 'ISLAM+',
+											th: 'อิสลาม+',
+											vi: 'HỒI GIÁO+',
+											bn: 'ইসলামী+',
+											'zh-hans': '伊斯兰教+',
+											'pt-br': 'ISLÂMICO+'
+										})
+									}
+								</span>
+								<span class="text-sm text-gray-800 dark:text-neutral-200"> 1:1000 </span>
+							</div>
+							<!-- End Item -->
+						</li>
+						<!-- End List -->
+					</ul>
+					<!-- End List -->
+
+					<!-- List -->
+					<ul class="grid gap-2 lg:grid-cols-6 lg:gap-6">
+						<!-- Item -->
+						<li class="pb-1.5 lg:col-span-1 lg:py-3">
+							<span class="text-md font-bold text-dbgreen-600 dark:text-dbgreen-500 lg:font-normal">
+								{
+									t({
+										en: 'Commission',
+										ar: 'عمولة',
+										es: 'Comisión',
+										fr: 'Commission',
+										hi: 'आयोग',
+										id: 'Komisi',
+										ms: 'Komisyen',
+										th: 'ค่าคอมมิชชั่น',
+										vi: 'Hoa hồng',
+										bn: 'কমিশন',
+										'zh-hans': '佣金',
+										'pt-br': 'Comissão'
+									})
+								}
+							</span>
+						</li>
+						<!-- End Item -->
+
+						<!-- Item -->
+						<li class="col-span-1 border-b border-gray-200 py-1.5 dark:border-neutral-800 lg:py-3">
+							<div class="grid grid-cols-2 md:grid-cols-6 lg:block">
+								<span
+									class="text-sm text-dbgreen-600 dark:text-dbgreen-500 md:col-span-2 lg:hidden"
+								>
+									{
+										t({
+											en: 'STP',
+											ar: 'STP',
+											es: 'STP',
+											fr: 'STP',
+											hi: 'एसटीपी',
+											id: 'STP',
+											ms: 'STP',
+											th: 'STP',
+											vi: 'STP',
+											bn: 'এসটিপি',
+											'zh-hans': 'STP',
+											'pt-br': 'STP'
+										})
+									}
+								</span>
+								<span class="text-sm text-gray-800 dark:text-neutral-200">
+									{
+										t({
+											en: 'No Commission',
+											ar: 'بدون عمولة',
+											es: 'Sin comisión',
+											fr: 'Pas de commission',
+											hi: 'कोई आयोग नहीं',
+											id: 'Tanpa komisi',
+											ms: 'Tiada komisyen',
+											th: 'ไม่มีค่าคอมมิชชั่น',
+											vi: 'Không có hoa hồng',
+											bn: 'কোন কমিশন নেই',
+											'zh-hans': '无佣金',
+											'pt-br': 'Sem comissão'
+										})
+									}
+								</span>
+							</div>
+						</li>
+						<!-- End Item -->
+
+						<!-- Item -->
+						<li class="col-span-1 border-b border-gray-200 py-1.5 dark:border-neutral-800 lg:py-3">
+							<div class="grid grid-cols-2 md:grid-cols-6 lg:block">
+								<span
+									class="text-sm text-dbgreen-600 dark:text-dbgreen-500 md:col-span-2 lg:hidden"
+								>
+									{
+										t({
+											en: 'ECN',
+											ar: 'ECN',
+											es: 'ECN',
+											fr: 'ECN',
+											hi: 'ईसीएन',
+											id: 'ECN',
+											ms: 'ECN',
+											th: 'ECN',
+											vi: 'ECN',
+											bn: 'ইসিএন',
+											'zh-hans': 'ECN',
+											'pt-br': 'ECN'
+										})
+									}
+								</span>
+								<span class="text-sm text-gray-800 dark:text-neutral-200">
+									{
+										t({
+											en: 'From $4.00 per lot per side',
+											ar: 'ابتداءً من 4.00 دولارات لكل عقد لكل جانب',
+											es: 'Desde $4.00 por lote por lado',
+											fr: 'À partir de 4,00 $ par lot et par côté',
+											hi: 'प्रति पक्ष प्रति लॉट $4.00 से',
+											id: 'Dari $4,00 per lot per sisi',
+											ms: 'Dari $4.00 setiap lot setiap sisi',
+											th: 'เริ่มต้นที่ 4.00 ดอลลาร์ต่อล็อตต่อด้าน',
+											vi: 'Từ $4.00 mỗi lot mỗi bên',
+											bn: 'প্রতি পাশে প্রতি লট $4.00 থেকে',
+											'zh-hans': '每手每边从4.00美元起',
+											'pt-br': 'A partir de $4,00 por lote por lado'
+										})
+									}
+								</span>
+							</div>
+						</li>
+						<!-- End Item -->
+
+						<!-- Item -->
+						<li class="col-span-1 border-b border-gray-200 py-1.5 dark:border-neutral-800 lg:py-3">
+							<div class="grid grid-cols-2 md:grid-cols-6 lg:block">
+								<span
+									class="text-sm text-dbgreen-600 dark:text-dbgreen-500 md:col-span-2 lg:hidden"
+								>
+									{
+										t({
+											en: 'PRO',
+											ar: 'PRO',
+											es: 'PRO',
+											fr: 'PRO',
+											hi: 'प्रो',
+											id: 'PRO',
+											ms: 'PRO',
+											th: 'PRO',
+											vi: 'PRO',
+											bn: 'প্রো',
+											'zh-hans': 'PRO',
+											'pt-br': 'PRO'
+										})
+									}
+								</span>
+								<span class="text-sm text-gray-800 dark:text-neutral-200">
+									{
+										t({
+											en: 'From $1.50 per lot per side',
+											ar: 'ابتداءً من 1.50 دولارات لكل عقد لكل جانب',
+											es: 'Desde $1.50 por lote por lado',
+											fr: 'À partir de 1,50 $ par lot et par côté',
+											hi: 'प्रति पक्ष प्रति लॉट $1.50 से',
+											id: 'Dari $1,50 per lot per sisi',
+											ms: 'Dari $1.50 setiap lot setiap sisi',
+											th: 'เริ่มต้นที่ 1.50 ดอลลาร์ต่อล็อตต่อด้าน',
+											vi: 'Từ $1.50 mỗi lot mỗi bên',
+											bn: 'প্রতি পাশে প্রতি লট $1.50 থেকে',
+											'zh-hans': '每手每边从1.50美元起',
+											'pt-br': 'A partir de $1,50 por lote por lado'
+										})
+									}
+								</span>
+							</div>
+						</li>
+						<!-- End Item -->
+
+						<!-- Item -->
+						<li class="col-span-1 border-b border-gray-200 py-1.5 dark:border-neutral-800 lg:py-3">
+							<div class="grid grid-cols-2 md:grid-cols-6 lg:block">
+								<span
+									class="text-sm text-dbgreen-600 dark:text-dbgreen-500 md:col-span-2 lg:hidden"
+								>
+									{
+										t({
+											en: 'ISLAMIC',
+											ar: 'إسلامي',
+											es: 'ISLÁMICO',
+											fr: 'ISLAMIQUE',
+											hi: 'इस्लामी',
+											id: 'ISLAM',
+											ms: 'ISLAM',
+											th: 'อิสลาม',
+											vi: 'HỒI GIÁO',
+											bn: 'ইসলামী',
+											'zh-hans': '伊斯兰教',
+											'pt-br': 'ISLÂMICO'
+										})
+									}
+								</span>
+								<span class="text-sm text-gray-800 dark:text-neutral-200">
+									{
+										t({
+											en: 'No Commission',
+											ar: 'بدون عمولة',
+											es: 'Sin comisión',
+											fr: 'Pas de commission',
+											hi: 'कोई आयोग नहीं',
+											id: 'Tanpa komisi',
+											ms: 'Tiada komisyen',
+											th: 'ไม่มีค่าคอมมิชชั่น',
+											vi: 'Không có hoa hồng',
+											bn: 'কোন কমিশন নেই',
+											'zh-hans': '无佣金',
+											'pt-br': 'Sem comissão'
+										})
+									}
+								</span>
+							</div>
+						</li>
+						<!-- End Item -->
+
+						<!-- Item -->
+						<li class="col-span-1 border-b border-gray-200 py-1.5 dark:border-neutral-800 lg:py-3">
+							<div class="grid grid-cols-2 md:grid-cols-6 lg:block">
+								<span
+									class="text-sm text-dbgreen-600 dark:text-dbgreen-500 md:col-span-2 lg:hidden"
+								>
+									{
+										t({
+											en: 'ISLAMIC+',
+											ar: 'إسلامي+',
+											es: 'ISLÁMICO+',
+											fr: 'ISLAMIQUE+',
+											hi: 'इस्लामी+',
+											id: 'ISLAM+',
+											ms: 'ISLAM+',
+											th: 'อิสลาม+',
+											vi: 'HỒI GIÁO+',
+											bn: 'ইসলামী+',
+											'zh-hans': '伊斯兰教+',
+											'pt-br': 'ISLÂMICO+'
+										})
+									}
+								</span>
+								<span class="text-sm text-gray-800 dark:text-neutral-200">
+									{
+										t({
+											en: 'No Commission',
+											ar: 'بدون عمولة',
+											es: 'Sin comisión',
+											fr: 'Pas de commission',
+											hi: 'कोई आयोग नहीं',
+											id: 'Tanpa komisi',
+											ms: 'Tiada komisyen',
+											th: 'ไม่มีค่าคอมมิชชั่น',
+											vi: 'Không có hoa hồng',
+											bn: 'কোন কমিশন নেই',
+											'zh-hans': '无佣金',
+											'pt-br': 'Sem comissão'
+										})
+									}
+								</span>
+							</div>
+							<!-- End Item -->
+						</li>
+						<!-- End List -->
+					</ul>
+					<!-- End List -->
+
+					<!-- List -->
+					<ul class="grid gap-2 lg:grid-cols-6 lg:gap-6">
+						<!-- Item -->
+						<li class="pb-1.5 lg:col-span-1 lg:py-3">
+							<span class="text-md font-bold text-dbgreen-600 dark:text-dbgreen-500 lg:font-normal">
+								{
+									t({
+										en: 'Account Currency',
+										ar: 'عملة الحساب',
+										es: 'Moneda de la cuenta',
+										fr: 'Devise du compte',
+										hi: 'खाते की मुद्रा',
+										id: 'Mata Uang Akun',
+										ms: 'Mata Wang Akaun',
+										th: 'สกุลเงินบัญชี',
+										vi: 'Tiền tệ tài khoản',
+										bn: 'হিসাবের মুদ্রা',
+										'zh-hans': '账户货币',
+										'pt-br': 'Moeda da Conta'
+									})
+								}
+							</span>
+						</li>
+						<!-- End Item -->
+
+						<!-- Item -->
+						<li class="col-span-1 border-b border-gray-200 py-1.5 dark:border-neutral-800 lg:py-3">
+							<div class="grid grid-cols-2 md:grid-cols-6 lg:block">
+								<span
+									class="text-sm text-dbgreen-600 dark:text-dbgreen-500 md:col-span-2 lg:hidden"
+								>
+									{
+										t({
+											en: 'STP',
+											ar: 'STP',
+											es: 'STP',
+											fr: 'STP',
+											hi: 'एसटीपी',
+											id: 'STP',
+											ms: 'STP',
+											th: 'STP',
+											vi: 'STP',
+											bn: 'এসটিপি',
+											'zh-hans': 'STP',
+											'pt-br': 'STP'
+										})
+									}
+								</span>
+								<span class="text-sm text-gray-800 dark:text-neutral-200"> $ USD, € EUR </span>
+							</div>
+						</li>
+						<!-- End Item -->
+
+						<!-- Item -->
+						<li class="col-span-1 border-b border-gray-200 py-1.5 dark:border-neutral-800 lg:py-3">
+							<div class="grid grid-cols-2 md:grid-cols-6 lg:block">
+								<span
+									class="text-sm text-dbgreen-600 dark:text-dbgreen-500 md:col-span-2 lg:hidden"
+								>
+									{
+										t({
+											en: 'ECN',
+											ar: 'ECN',
+											es: 'ECN',
+											fr: 'ECN',
+											hi: 'ईसीएन',
+											id: 'ECN',
+											ms: 'ECN',
+											th: 'ECN',
+											vi: 'ECN',
+											bn: 'ইসিএন',
+											'zh-hans': 'ECN',
+											'pt-br': 'ECN'
+										})
+									}
+								</span>
+								<span class="text-sm text-gray-800 dark:text-neutral-200"> $ USD, € EUR </span>
+							</div>
+						</li>
+						<!-- End Item -->
+
+						<!-- Item -->
+						<li class="col-span-1 border-b border-gray-200 py-1.5 dark:border-neutral-800 lg:py-3">
+							<div class="grid grid-cols-2 md:grid-cols-6 lg:block">
+								<span
+									class="text-sm text-dbgreen-600 dark:text-dbgreen-500 md:col-span-2 lg:hidden"
+								>
+									{
+										t({
+											en: 'PRO',
+											ar: 'PRO',
+											es: 'PRO',
+											fr: 'PRO',
+											hi: 'प्रो',
+											id: 'PRO',
+											ms: 'PRO',
+											th: 'PRO',
+											vi: 'PRO',
+											bn: 'প্রো',
+											'zh-hans': 'PRO',
+											'pt-br': 'PRO'
+										})
+									}
+								</span>
+								<span class="text-sm text-gray-800 dark:text-neutral-200"> $ USD, € EUR </span>
+							</div>
+						</li>
+						<!-- End Item -->
+
+						<!-- Item -->
+						<li class="col-span-1 border-b border-gray-200 py-1.5 dark:border-neutral-800 lg:py-3">
+							<div class="grid grid-cols-2 md:grid-cols-6 lg:block">
+								<span
+									class="text-sm text-dbgreen-600 dark:text-dbgreen-500 md:col-span-2 lg:hidden"
+								>
+									{
+										t({
+											en: 'ISLAMIC',
+											ar: 'إسلامي',
+											es: 'ISLÁMICO',
+											fr: 'ISLAMIQUE',
+											hi: 'इस्लामी',
+											id: 'ISLAM',
+											ms: 'ISLAM',
+											th: 'อิสลาม',
+											vi: 'HỒI GIÁO',
+											bn: 'ইসলামী',
+											'zh-hans': '伊斯兰教',
+											'pt-br': 'ISLÂMICO'
+										})
+									}
+								</span>
+								<span class="text-sm text-gray-800 dark:text-neutral-200"> $ USD, € EUR </span>
+							</div>
+						</li>
+						<!-- End Item -->
+
+						<!-- Item -->
+						<li class="col-span-1 border-b border-gray-200 py-1.5 dark:border-neutral-800 lg:py-3">
+							<div class="grid grid-cols-2 md:grid-cols-6 lg:block">
+								<span
+									class="text-sm text-dbgreen-600 dark:text-dbgreen-500 md:col-span-2 lg:hidden"
+								>
+									{
+										t({
+											en: 'ISLAMIC+',
+											ar: 'إسلامي+',
+											es: 'ISLÁMICO+',
+											fr: 'ISLAMIQUE+',
+											hi: 'इस्लामी+',
+											id: 'ISLAM+',
+											ms: 'ISLAM+',
+											th: 'อิสลาม+',
+											vi: 'HỒI GIÁO+',
+											bn: 'ইসলামী+',
+											'zh-hans': '伊斯兰教+',
+											'pt-br': 'ISLÂMICO+'
+										})
+									}
+								</span>
+								<span class="text-sm text-gray-800 dark:text-neutral-200"> $ USD, € EUR </span>
+							</div>
+							<!-- End Item -->
+						</li>
+						<!-- End List -->
+					</ul>
+					<!-- End List -->
+					<!-- End Section -->
+					<!-- Header -->
+					<div class="mt-6 hidden lg:block">
+						<!-- Grid -->
+						<div class="grid grid-cols-6 gap-6">
+							<div class="col-span-1"></div>
+							<!-- End Col -->
+							<div class="col-span-1">
+								<a
+									class="inline-flex w-full items-center justify-center gap-x-2 rounded-lg border border-gray-200 px-4 py-3 text-sm font-medium text-gray-800 shadow-sm hover:bg-gray-50 focus:bg-gray-50 focus:outline-none disabled:pointer-events-none disabled:opacity-50 dark:border-neutral-700 dark:bg-transparent dark:text-neutral-300 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800"
+									href="https://my.dbinvesting.com/register/?_ga=2.250468613.2098514257.1685561091-309169148.1685360987"
+									target="_blank"
+								>
+									{
+										t({
+											en: 'Open Account',
+											ar: 'فتح حساب',
+											es: 'Abrir cuenta',
+											fr: 'Ouvrir un compte',
+											hi: 'खाता खोलें',
+											id: 'Buka Akun',
+											ms: 'Buka Akaun',
+											th: 'เปิดบัญชี',
+											vi: 'Mở tài khoản',
+											bn: 'হিসাব খুলুন',
+											'zh-hans': '开设账户',
+											'pt-br': 'Abrir Conta'
+										})
+									}
+								</a>
+							</div>
+							<div class="col-span-1">
+								<a
+									class="inline-flex w-full items-center justify-center gap-x-2 rounded-lg border border-gray-200 px-4 py-3 text-sm font-medium text-gray-800 shadow-sm hover:bg-gray-50 focus:bg-gray-50 focus:outline-none disabled:pointer-events-none disabled:opacity-50 dark:border-neutral-700 dark:bg-transparent dark:text-neutral-300 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800"
+									href="https://my.dbinvesting.com/register/?_ga=2.250468613.2098514257.1685561091-309169148.1685360987"
+									target="_blank"
+								>
+									{
+										t({
+											en: 'Open Account',
+											ar: 'فتح حساب',
+											es: 'Abrir cuenta',
+											fr: 'Ouvrir un compte',
+											hi: 'खाता खोलें',
+											id: 'Buka Akun',
+											ms: 'Buka Akaun',
+											th: 'เปิดบัญชี',
+											vi: 'Mở tài khoản',
+											bn: 'হিসাব খুলুন',
+											'zh-hans': '开设账户',
+											'pt-br': 'Abrir Conta'
+										})
+									}
+								</a>
+							</div>
+							<!-- End Col -->
+
+							<div class="col-span-1">
+								<a
+									class="inline-flex w-full items-center justify-center gap-x-2 rounded-lg border border-gray-200 px-4 py-3 text-sm font-medium text-gray-800 shadow-sm hover:bg-gray-50 focus:bg-gray-50 focus:outline-none disabled:pointer-events-none disabled:opacity-50 dark:border-neutral-700 dark:bg-transparent dark:text-neutral-300 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800"
+									href="https://my.dbinvesting.com/register/?_ga=2.250468613.2098514257.1685561091-309169148.1685360987"
+									target="_blank"
+								>
+									{
+										t({
+											en: 'Open Account',
+											ar: 'فتح حساب',
+											es: 'Abrir cuenta',
+											fr: 'Ouvrir un compte',
+											hi: 'खाता खोलें',
+											id: 'Buka Akun',
+											ms: 'Buka Akaun',
+											th: 'เปิดบัญชี',
+											vi: 'Mở tài khoản',
+											bn: 'হিসাব খুলুন',
+											'zh-hans': '开设账户',
+											'pt-br': 'Abrir Conta'
+										})
+									}
+								</a>
+							</div>
+							<!-- End Col -->
+
+							<div class="col-span-1">
+								<a
+									class="inline-flex w-full items-center justify-center gap-x-2 rounded-lg border border-gray-200 px-4 py-3 text-sm font-medium text-gray-800 shadow-sm hover:bg-gray-50 focus:bg-gray-50 focus:outline-none disabled:pointer-events-none disabled:opacity-50 dark:border-neutral-700 dark:bg-transparent dark:text-neutral-300 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800"
+									href="https://my.dbinvesting.com/register/?_ga=2.250468613.2098514257.1685561091-309169148.1685360987"
+									target="_blank"
+								>
+									{
+										t({
+											en: 'Open Account',
+											ar: 'فتح حساب',
+											es: 'Abrir cuenta',
+											fr: 'Ouvrir un compte',
+											hi: 'खाता खोलें',
+											id: 'Buka Akun',
+											ms: 'Buka Akaun',
+											th: 'เปิดบัญชี',
+											vi: 'Mở tài khoản',
+											bn: 'হিসাব খুলুন',
+											'zh-hans': '开设账户',
+											'pt-br': 'Abrir Conta'
+										})
+									}
+								</a>
+							</div>
+							<!-- End Col -->
+
+							<div class="col-span-1">
+								<a
+									class="inline-flex w-full items-center justify-center gap-x-2 rounded-lg border border-gray-200 px-4 py-3 text-sm font-medium text-gray-800 shadow-sm hover:bg-gray-50 focus:bg-gray-50 focus:outline-none disabled:pointer-events-none disabled:opacity-50 dark:border-neutral-700 dark:bg-transparent dark:text-neutral-300 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800"
+									href="https://my.dbinvesting.com/register/?_ga=2.250468613.2098514257.1685561091-309169148.1685360987"
+									target="_blank"
+								>
+									{
+										t({
+											en: 'Open Account',
+											ar: 'فتح حساب',
+											es: 'Abrir cuenta',
+											fr: 'Ouvrir un compte',
+											hi: 'खाता खोलें',
+											id: 'Buka Akun',
+											ms: 'Buka Akaun',
+											th: 'เปิดบัญชี',
+											vi: 'Mở tài khoản',
+											bn: 'হিসাব খুলুন',
+											'zh-hans': '开设账户',
+											'pt-br': 'Abrir Conta'
+										})
+									}
+								</a>
+							</div>
+							<!-- End Col -->
+						</div>
+						<!-- End Grid -->
+					</div>
+					<!-- End Header -->
+				</div>
+				<div class="mt-10">
+					<p
+						set:html={t({
+							en: '<span class="text-red-600 dark:text-red-500">Rules</span> applied on all <strong>ISLAMIC</strong> Accounts as follow : For the first 7 days swap free <strong>ONLY</strong> in specific instruments, if position has been hold open for more than 7 days charges will apply accordingly starting from the 8th day onwards. Additionally for <strong>ALL</strong> the other instruments we’ll charge.',
+							ar: '<span class="text-red-600 dark:text-red-500">القواعد</span> المطبقة على جميع <strong>الحسابات الإسلامية</strong> كالتالي: خلال الأيام السبعة الأولى خالية من التبادل <strong>فقط</strong> في أدوات محددة، إذا تم الاحتفاظ بالموضع مفتوحًا لأكثر من 7 أيام ستطبق الرسوم وفقًا لذلك اعتبارًا من اليوم الثامن فصاعدًا. بالإضافة إلى ذلك، بالنسبة لجميع الأدوات الأخرى سنفرض رسومًا.',
+							es: '<span class="text-red-600 dark:text-red-500">Reglas</span> aplicadas en todas las <strong>Cuentas ISLÁMICAS</strong> como sigue: Durante los primeros 7 días, sin swap <strong>SOLO</strong> en instrumentos específicos, si la posición se mantiene abierta durante más de 7 días se aplicarán cargos a partir del octavo día. Además, para <strong>TODOS</strong> los demás instrumentos cobraremos.',
+							fr: '<span class="text-red-600 dark:text-red-500">Règles</span> appliquées à tous les <strong>Comptes ISLAMIQUES</strong> comme suit : Pour les 7 premiers jours sans swap <strong>UNIQUEMENT</strong> sur des instruments spécifiques, si la position est maintenue ouverte pendant plus de 7 jours, des frais s\'appliqueront à partir du 8ème jour. De plus, pour <strong>TOUT</strong> autre instrument, nous facturerons.',
+							hi: '<span class="text-red-600 dark:text-red-500">नियम</span> सभी <strong>इस्लामिक</strong> खातों पर लागू होते हैं: पहले 7 दिनों के लिए केवल विशेष उपकरणों पर स्वैप फ्री, यदि स्थिति 7 दिनों से अधिक समय तक खुली रहती है तो आठवें दिन से शुल्क लागू होगा। इसके अलावा सभी अन्य उपकरणों पर हम शुल्क लेंगे।',
+							id: '<span class="text-red-600 dark:text-red-500">Aturan</span> diterapkan pada semua <strong>Rekening ISLAM</strong> sebagai berikut: Selama 7 hari pertama bebas swap <strong>HANYA</strong> pada instrumen tertentu, jika posisi telah dibuka selama lebih dari 7 hari biaya akan diterapkan mulai dari hari ke-8. Selain itu, untuk <strong>SEMUA</strong> instrumen lainnya kami akan mengenakan biaya.',
+							ms: '<span class="text-red-600 dark:text-red-500">Peraturan</span> yang dikenakan pada semua <strong>Rekening ISLAM</strong> adalah sebagai berikut: Selama 7 hari pertama bebas swap <strong>HANYA</strong> pada instrumen tertentu, jika kedudukan dibuka selama lebih dari 7 hari caj akan dikenakan mulai hari ke-8. Selain itu, untuk <strong>SEMUA</strong> instrumen lain, kami akan mengenakan caj.',
+							th: '<span class="text-red-600 dark:text-red-500">กฎ</span> ที่ใช้กับบัญชี <strong>อิสลาม</strong> ทั้งหมดดังนี้: ใน 7 วันแรกฟรีสวอป <strong>เท่านั้น</strong> ในเครื่องมือเฉพาะ หากตำแหน่งถูกถือเปิดนานกว่า 7 วันจะมีการเรียกเก็บค่าธรรมเนียมตามที่เริ่มจากวันที่ 8 เป็นต้นไป นอกจากนี้ สำหรับ <strong>ทั้งหมด</strong> เครื่องมืออื่นๆ เราจะเรียกเก็บค่าธรรมเนียม.',
+							vi: '<span class="text-red-600 dark:text-red-500">Quy tắc</span> áp dụng cho tất cả <strong>Tài khoản ISLAMIC</strong> như sau: Trong 7 ngày đầu tiên miễn phí hoán đổi <strong>CHỈ</strong> trong các công cụ cụ thể, nếu vị thế được giữ mở trong hơn 7 ngày, phí sẽ được áp dụng bắt đầu từ ngày thứ 8. Ngoài ra, đối với <strong>TẤT CẢ</strong> các công cụ khác, chúng tôi sẽ tính phí.',
+							bn: '<span class="text-red-600 dark:text-red-500">নিয়ম</span> সব <strong>ইসলামিক</strong> অ্যাকাউন্টে প্রয়োগ করা হয়: প্রথম 7 দিনের জন্য শুধুমাত্র নির্দিষ্ট যন্ত্রগুলিতে সোয়াপ ফ্রি, যদি অবস্থান 7 দিনের বেশি খোলা রাখা হয় তবে 8 তম দিনের পরে চার্জ প্রযোজ্য হবে। উপরন্তু <strong>সমস্ত</strong> অন্যান্য যন্ত্রের জন্য আমরা চার্জ নেব।',
+							'zh-hans':
+								'<span class="text-red-600 dark:text-red-500">规则</span> 适用于所有<strong>伊斯兰</strong>账户，如下所示：在前7天仅在特定工具中免收掉期费，如果头寸持有超过7天，将从第8天起相应收取费用。此外，对于<strong>所有</strong>其他工具，我们将收取费用。',
+							'pt-br':
+								'<span class="text-red-600 dark:text-red-500">Regras</span> aplicadas a todas as <strong>Contas ISLÂMICAS</strong> da seguinte forma: Nos primeiros 7 dias isenção de swap <strong>APENAS</strong> em instrumentos específicos, se a posição for mantida aberta por mais de 7 dias, as taxas serão aplicadas a partir do 8º dia. Além disso, para <strong>TODOS</strong> os outros instrumentos, cobraremos.'
+						})}
+					/>
+				</div>
+			</div>
+			<!-- End Comparison Table -->
+		</div>
+	</section>
+</Layout>

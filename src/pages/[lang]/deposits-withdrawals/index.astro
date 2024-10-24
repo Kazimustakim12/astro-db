@@ -1,27 +1,56 @@
 ---
-import { LOCALES } from '@/i18n'
+import { LOCALES, useTranslations, type Lang } from '@/i18n'
 import Layout from '@/layouts/Layout.astro'
 import { Icon } from 'astro-icon/components'
 import { Image } from 'astro:assets'
 const images = import.meta.glob<{ default: ImageMetadata }>('/src/images/*.{jpeg,jpg,png,gif}')
+const t = useTranslations(Astro.currentLocale as Lang)
+
 export const getStaticPaths = () =>
 	Object.keys(LOCALES).map((lang) => ({
 		params: { lang }
 	}))
 ---
 
-<Layout title="Payment Methods">
+<Layout
+	title={t({
+		en: 'Payment Methods',
+		ar: 'طرق الدفع',
+		es: 'Métodos de pago',
+		fr: 'Méthodes de paiement',
+		hi: 'भुगतान विधियाँ',
+		id: 'Metode Pembayaran',
+		ms: 'Kaedah Pembayaran',
+		th: 'วิธีการชำระเงิน',
+		vi: 'Phương thức thanh toán',
+		bn: 'পেমেন্ট পদ্ধতি',
+		'zh-hans': '付款方式',
+		'pt-br': 'Métodos de Pagamento'
+	})}
+>
 	<section>
 		<div
-			class="relative z-20 w-full overflow-hidden bg-gray-100 py-3 before:absolute before:start-1/2 before:top-0 before:-z-[1] before:size-full before:-translate-x-1/2 before:transform before:bg-[url('/src/images/world_bg.png')] before:bg-center before:bg-no-repeat before:opacity-45 before:hue-rotate-60 dark:bg-black dark:before:bg-[url('/src/images/world_bg.png')]"
+			class="relative z-20 w-full overflow-hidden bg-gray-100 py-3 before:absolute before:top-0 before:-z-[1] before:size-full before:transform before:bg-[url('/src/images/world_bg.png')] before:bg-center before:bg-no-repeat before:opacity-45 before:hue-rotate-60 dark:bg-black dark:before:bg-[url('/src/images/world_bg.png')]"
 		>
 			<div class="container flex flex-col items-center justify-between gap-6 py-10 sm:flex-row">
 				<div>
 					<h1
 						class="block text-center text-4xl font-bold text-gray-800 dark:text-neutral-200 sm:text-left md:text-4xl lg:text-5xl"
-					>
-						Deposits & <strong class="text-green-500">Withdrawals</strong>
-					</h1>
+						set:html={t({
+							en: 'Deposits & <strong class="text-green-500">Withdrawals</strong>',
+							ar: 'الودائع و<strong class="text-green-500">السحوبات</strong>',
+							es: 'Depósitos y <strong class="text-green-500">Retiros</strong>',
+							fr: 'Dépôts et <strong class="text-green-500">Retraits</strong>',
+							hi: 'जमा और <strong class="text-green-500">निकासी</strong>',
+							id: 'Setoran & <strong class="text-green-500">Penarikan</strong>',
+							ms: 'Deposit & <strong class="text-green-500">Pengeluaran</strong>',
+							th: 'เงินฝาก & <strong class="text-green-500">การถอน</strong>',
+							vi: 'Nạp tiền & <strong class="text-green-500">Rút tiền</strong>',
+							bn: 'ডিপোজিট এবং <strong class="text-green-500">উত্তোলন</strong>',
+							'zh-hans': '存款和<strong class="text-green-500">取款</strong>',
+							'pt-br': 'Depósitos e <strong class="text-green-500">Retiradas</strong>'
+						})}
+					/>
 				</div>
 				<div>
 					<svg
@@ -49,11 +78,96 @@ export const getStaticPaths = () =>
 				<table class="min-w-full border-collapse">
 					<thead>
 						<tr class="bg-black text-white">
-							<th class="px-6 py-3 text-left text-sm font-medium">FUNDING METHOD</th>
-							<th class="px-6 py-3 text-left text-sm font-medium">CURRENCY</th>
-							<th class="px-6 py-3 text-left text-sm font-medium">MIN. AMOUNT IN EUR</th>
-							<th class="px-6 py-3 text-left text-sm font-medium">FEES</th>
-							<th class="px-6 py-3 text-left text-sm font-medium">PROCESSING TIME</th>
+							<th class="px-6 py-3 text-left text-sm font-medium"
+								>{
+									t({
+										en: 'FUNDING METHOD',
+										ar: 'طريقة التمويل',
+										es: 'MÉTODO DE FINANCIACIÓN',
+										fr: 'MÉTHODE DE FINANCEMENT',
+										hi: 'फंडिंग विधि',
+										id: 'METODE PENDANAAN',
+										ms: 'KAEDAH PEMBIAYAAN',
+										th: 'วิธีการจัดหาเงินทุน',
+										vi: 'PHƯƠNG THỨC ĐẦU TƯ',
+										bn: 'ফান্ডিং পদ্ধতি',
+										'zh-hans': '资金方式',
+										'pt-br': 'MÉTODO DE FINANCIAMENTO'
+									})
+								}</th
+							>
+							<th class="px-6 py-3 text-left text-sm font-medium">
+								{
+									t({
+										en: 'CURRENCY',
+										ar: 'عملة',
+										es: 'MONEDA',
+										fr: 'MONNAIE',
+										hi: 'मुद्रा',
+										id: 'MATA UANG',
+										ms: 'MATA WANG',
+										th: 'สกุลเงิน',
+										vi: 'TIỀN TỆ',
+										bn: 'মুদ্রা',
+										'zh-hans': '货币',
+										'pt-br': 'MOEDA'
+									})
+								}
+							</th>
+							<th class="px-6 py-3 text-left text-sm font-medium"
+								>{
+									t({
+										en: 'MIN. AMOUNT IN EUR',
+										ar: 'الحد الأدنى للمبلغ باليورو',
+										es: 'CANTIDAD MÍNIMA EN EUR',
+										fr: 'MONTANT MINIMUM EN EUR',
+										hi: 'ईयूआर में न्यूनतम राशि',
+										id: 'JUMLAH MINIMUM DALAM EUR',
+										ms: 'JUMLAH MINIMUM DALAM EUR',
+										th: 'จำนวนขั้นต่ำเป็น EUR',
+										vi: 'SỐ TIỀN TỐI THIỂU TRONG EUR',
+										bn: 'ইইউআর-এ ন্যূনতম পরিমাণ',
+										'zh-hans': '欧元最低金额',
+										'pt-br': 'VALOR MÍNIMO EM EUR'
+									})
+								}</th
+							>
+							<th class="px-6 py-3 text-left text-sm font-medium"
+								>{
+									t({
+										en: 'FEES',
+										ar: 'الرسوم',
+										es: 'CARGOS',
+										fr: 'FRAIS',
+										hi: 'शुल्क',
+										id: 'BIAYA',
+										ms: 'YURAN',
+										th: 'ค่าธรรมเนียม',
+										vi: 'PHÍ',
+										bn: 'শुल्क',
+										'zh-hans': '费用',
+										'pt-br': 'TAXAS'
+									})
+								}</th
+							>
+							<th class="px-6 py-3 text-left text-sm font-medium"
+								>{
+									t({
+										en: 'PROCESSING TIME',
+										ar: 'زمن المعالجة',
+										es: 'TIEMPO DE PROCESAMIENTO',
+										fr: 'TEMPS DE TRAITEMENT',
+										hi: 'प्रसंस्करण समय',
+										id: 'WAKTU PROSES',
+										ms: 'MASA PROSES',
+										th: 'ระยะเวลาในการประมวลผล',
+										vi: 'THỜI GIAN XỬ LÝ',
+										bn: 'প্রক্রিয়াকরণের সময়',
+										'zh-hans': '处理时间',
+										'pt-br': 'TEMPO DE PROCESSAMENTO'
+									})
+								}</th
+							>
 							<th class="px-6 py-3 text-left text-sm font-medium"></th>
 						</tr>
 					</thead>
@@ -68,10 +182,44 @@ export const getStaticPaths = () =>
 									class="text-black dark:text-white"
 								/>
 							</td>
-							<td class="px-6 py-4 text-sm text-gray-700 dark:text-gray-100">EUR, USD, GBP</td>
+							<td class="px-6 py-4 text-sm text-gray-700 dark:text-gray-100"
+								>{
+									t({
+										en: 'EUR, USD, GBP',
+										ar: 'يورو، دولار أمريكي، جنيه إسترليني',
+										es: 'EUR, USD, GBP',
+										fr: 'EUR, USD, GBP',
+										hi: 'EUR, USD, GBP',
+										id: 'EUR, USD, GBP',
+										ms: 'EUR, USD, GBP',
+										th: 'EUR, USD, GBP',
+										vi: 'EUR, USD, GBP',
+										bn: 'EUR, USD, GBP',
+										'zh-hans': '欧元、美元、英镑',
+										'pt-br': 'EUR, USD, GBP'
+									})
+								}</td
+							>
 							<td class="px-6 py-4 text-sm text-gray-700 dark:text-gray-100">$100.00</td>
 							<td class="px-6 py-4 text-sm text-gray-700 dark:text-gray-100">$0.00</td>
-							<td class="px-6 py-4 text-sm text-gray-700 dark:text-gray-100">Instantly</td>
+							<td class="px-6 py-4 text-sm text-gray-700 dark:text-gray-100"
+								>{
+									t({
+										en: 'Instantly',
+										ar: 'على الفور',
+										es: 'Instantáneamente',
+										fr: 'Instantanément',
+										hi: 'तुरंत',
+										id: 'Instan',
+										ms: 'Segera',
+										th: 'ทันที',
+										vi: 'Ngay lập tức',
+										bn: 'তাত্ক্ষণিকভাবে',
+										'zh-hans': '立即',
+										'pt-br': 'Instantaneamente'
+									})
+								}</td
+							>
 							<td class="">
 								<button
 									class="flex items-center justify-center gap-3 rounded bg-green-600 px-6 py-2 text-sm text-white"
@@ -105,7 +253,22 @@ export const getStaticPaths = () =>
 											stroke-linecap="round"
 											stroke-linejoin="round"></circle>
 									</svg>
-									Deposit</button
+									{
+										t({
+											en: 'Deposit',
+											ar: 'إيداع',
+											es: 'Depósito',
+											fr: 'Dépôt',
+											hi: 'जमा',
+											id: 'Setoran',
+											ms: 'Deposit',
+											th: 'เงินฝาก',
+											vi: 'Tiền gửi',
+											bn: 'ডিপোজিট',
+											'zh-hans': '存款',
+											'pt-br': 'Depósito'
+										})
+									}</button
 								>
 							</td>
 						</tr>
@@ -120,10 +283,44 @@ export const getStaticPaths = () =>
 									class="text-black dark:text-white"
 								/>
 							</td>
-							<td class="px-6 py-4 text-sm text-gray-700 dark:text-gray-100">EUR, USD, GBP</td>
+							<td class="px-6 py-4 text-sm text-gray-700 dark:text-gray-100"
+								>{
+									t({
+										en: 'EUR, USD, GBP',
+										ar: 'يورو، دولار أمريكي، جنيه إسترليني',
+										es: 'EUR, USD, GBP',
+										fr: 'EUR, USD, GBP',
+										hi: 'EUR, USD, GBP',
+										id: 'EUR, USD, GBP',
+										ms: 'EUR, USD, GBP',
+										th: 'EUR, USD, GBP',
+										vi: 'EUR, USD, GBP',
+										bn: 'EUR, USD, GBP',
+										'zh-hans': '欧元、美元、英镑',
+										'pt-br': 'EUR, USD, GBP'
+									})
+								}</td
+							>
 							<td class="px-6 py-4 text-sm text-gray-700 dark:text-gray-100">$100.00</td>
 							<td class="px-6 py-4 text-sm text-gray-700 dark:text-gray-100">$0.00</td>
-							<td class="px-6 py-4 text-sm text-gray-700 dark:text-gray-100">Instantly</td>
+							<td class="px-6 py-4 text-sm text-gray-700 dark:text-gray-100"
+								>{
+									t({
+										en: 'Instantly',
+										ar: 'على الفور',
+										es: 'Instantáneamente',
+										fr: 'Instantanément',
+										hi: 'तुरंत',
+										id: 'Instan',
+										ms: 'Segera',
+										th: 'ทันที',
+										vi: 'Ngay lập tức',
+										bn: 'তাত্ক্ষণিকভাবে',
+										'zh-hans': '立即',
+										'pt-br': 'Instantaneamente'
+									})
+								}</td
+							>
 							<td class="">
 								<button
 									class="flex items-center justify-center gap-3 rounded bg-green-600 px-6 py-2 text-sm text-white"
@@ -157,7 +354,22 @@ export const getStaticPaths = () =>
 											stroke-linecap="round"
 											stroke-linejoin="round"></circle>
 									</svg>
-									Deposit</button
+									{
+										t({
+											en: 'Deposit',
+											ar: 'إيداع',
+											es: 'Depósito',
+											fr: 'Dépôt',
+											hi: 'जमा',
+											id: 'Setoran',
+											ms: 'Deposit',
+											th: 'เงินฝาก',
+											vi: 'Tiền gửi',
+											bn: 'ডিপোজিট',
+											'zh-hans': '存款',
+											'pt-br': 'Depósito'
+										})
+									}</button
 								>
 							</td>
 						</tr>
@@ -172,10 +384,44 @@ export const getStaticPaths = () =>
 									class="text-black dark:text-white"
 								/>
 							</td>
-							<td class="px-6 py-4 text-sm text-gray-700 dark:text-gray-100">EUR, USD, GBP</td>
+							<td class="px-6 py-4 text-sm text-gray-700 dark:text-gray-100"
+								>{
+									t({
+										en: 'EUR, USD, GBP',
+										ar: 'يورو، دولار أمريكي، جنيه إسترليني',
+										es: 'EUR, USD, GBP',
+										fr: 'EUR, USD, GBP',
+										hi: 'EUR, USD, GBP',
+										id: 'EUR, USD, GBP',
+										ms: 'EUR, USD, GBP',
+										th: 'EUR, USD, GBP',
+										vi: 'EUR, USD, GBP',
+										bn: 'EUR, USD, GBP',
+										'zh-hans': '欧元、美元、英镑',
+										'pt-br': 'EUR, USD, GBP'
+									})
+								}</td
+							>
 							<td class="px-6 py-4 text-sm text-gray-700 dark:text-gray-100">$100.00</td>
 							<td class="px-6 py-4 text-sm text-gray-700 dark:text-gray-100">$0.00</td>
-							<td class="px-6 py-4 text-sm text-gray-700 dark:text-gray-100">1-3 Working days</td>
+							<td class="px-6 py-4 text-sm text-gray-700 dark:text-gray-100"
+								>{
+									t({
+										en: '1-3 Working days',
+										ar: '1-3 أيام عمل',
+										es: '1-3 Días hábiles',
+										fr: '1-3 Jours ouvrables',
+										hi: '1-3 कार्यदिवस',
+										id: '1-3 Hari Kerja',
+										ms: '1-3 Hari Bekerja',
+										th: '1-3 วันทำการ',
+										vi: '1-3 Ngày làm việc',
+										bn: '1-3 কর্মদিবস',
+										'zh-hans': '1-3个工作日',
+										'pt-br': '1-3 Dias úteis'
+									})
+								}</td
+							>
 							<td class="">
 								<button
 									class="flex items-center justify-center gap-3 rounded bg-green-600 px-6 py-2 text-sm text-white"
@@ -209,7 +455,22 @@ export const getStaticPaths = () =>
 											stroke-linecap="round"
 											stroke-linejoin="round"></circle>
 									</svg>
-									Deposit</button
+									{
+										t({
+											en: 'Deposit',
+											ar: 'إيداع',
+											es: 'Depósito',
+											fr: 'Dépôt',
+											hi: 'जमा',
+											id: 'Setoran',
+											ms: 'Deposit',
+											th: 'เงินฝาก',
+											vi: 'Tiền gửi',
+											bn: 'ডিপোজিট',
+											'zh-hans': '存款',
+											'pt-br': 'Depósito'
+										})
+									}</button
 								>
 							</td>
 						</tr>
@@ -224,10 +485,44 @@ export const getStaticPaths = () =>
 									class="text-black dark:text-white"
 								/>
 							</td>
-							<td class="px-6 py-4 text-sm text-gray-700 dark:text-gray-100">EUR, USD, GBP</td>
+							<td class="px-6 py-4 text-sm text-gray-700 dark:text-gray-100"
+								>{
+									t({
+										en: 'EUR, USD, GBP',
+										ar: 'يورو، دولار أمريكي، جنيه إسترليني',
+										es: 'EUR, USD, GBP',
+										fr: 'EUR, USD, GBP',
+										hi: 'EUR, USD, GBP',
+										id: 'EUR, USD, GBP',
+										ms: 'EUR, USD, GBP',
+										th: 'EUR, USD, GBP',
+										vi: 'EUR, USD, GBP',
+										bn: 'EUR, USD, GBP',
+										'zh-hans': '欧元、美元、英镑',
+										'pt-br': 'EUR, USD, GBP'
+									})
+								}</td
+							>
 							<td class="px-6 py-4 text-sm text-gray-700 dark:text-gray-100">$100.00</td>
 							<td class="px-6 py-4 text-sm text-gray-700 dark:text-gray-100">$0.00</td>
-							<td class="px-6 py-4 text-sm text-gray-700 dark:text-gray-100">1-3 Working days</td>
+							<td class="px-6 py-4 text-sm text-gray-700 dark:text-gray-100"
+								>{
+									t({
+										en: '1-3 Working days',
+										ar: '1-3 أيام عمل',
+										es: '1-3 Días hábiles',
+										fr: '1-3 Jours ouvrables',
+										hi: '1-3 कार्यदिवस',
+										id: '1-3 Hari Kerja',
+										ms: '1-3 Hari Bekerja',
+										th: '1-3 วันทำการ',
+										vi: '1-3 Ngày làm việc',
+										bn: '1-3 কর্মদিবস',
+										'zh-hans': '1-3个工作日',
+										'pt-br': '1-3 Dias úteis'
+									})
+								}</td
+							>
 							<td class="">
 								<button
 									class="flex items-center justify-center gap-3 rounded bg-green-600 px-6 py-2 text-sm text-white"
@@ -261,7 +556,22 @@ export const getStaticPaths = () =>
 											stroke-linecap="round"
 											stroke-linejoin="round"></circle>
 									</svg>
-									Deposit</button
+									{
+										t({
+											en: 'Deposit',
+											ar: 'إيداع',
+											es: 'Depósito',
+											fr: 'Dépôt',
+											hi: 'जमा',
+											id: 'Setoran',
+											ms: 'Deposit',
+											th: 'เงินฝาก',
+											vi: 'Tiền gửi',
+											bn: 'ডিপোজিট',
+											'zh-hans': '存款',
+											'pt-br': 'Depósito'
+										})
+									}</button
 								>
 							</td>
 						</tr>
@@ -276,10 +586,44 @@ export const getStaticPaths = () =>
 									class="text-black dark:text-white"
 								/>
 							</td>
-							<td class="px-6 py-4 text-sm text-gray-700 dark:text-gray-100">EUR, USD, GBP</td>
+							<td class="px-6 py-4 text-sm text-gray-700 dark:text-gray-100"
+								>{
+									t({
+										en: 'EUR, USD, GBP',
+										ar: 'يورو، دولار أمريكي، جنيه إسترليني',
+										es: 'EUR, USD, GBP',
+										fr: 'EUR, USD, GBP',
+										hi: 'EUR, USD, GBP',
+										id: 'EUR, USD, GBP',
+										ms: 'EUR, USD, GBP',
+										th: 'EUR, USD, GBP',
+										vi: 'EUR, USD, GBP',
+										bn: 'EUR, USD, GBP',
+										'zh-hans': '欧元、美元、英镑',
+										'pt-br': 'EUR, USD, GBP'
+									})
+								}</td
+							>
 							<td class="px-6 py-4 text-sm text-gray-700 dark:text-gray-100">$100.00</td>
 							<td class="px-6 py-4 text-sm text-gray-700 dark:text-gray-100">$0.00</td>
-							<td class="px-6 py-4 text-sm text-gray-700 dark:text-gray-100">Instantly</td>
+							<td class="px-6 py-4 text-sm text-gray-700 dark:text-gray-100"
+								>{
+									t({
+										en: 'Instantly',
+										ar: 'على الفور',
+										es: 'Instantáneamente',
+										fr: 'Instantanément',
+										hi: 'तुरंत',
+										id: 'Instan',
+										ms: 'Segera',
+										th: 'ทันที',
+										vi: 'Ngay lập tức',
+										bn: 'তাত্ক্ষণিকভাবে',
+										'zh-hans': '立即',
+										'pt-br': 'Instantaneamente'
+									})
+								}</td
+							>
 							<td class="">
 								<button
 									class="flex items-center justify-center gap-3 rounded bg-green-600 px-6 py-2 text-sm text-white"
@@ -313,7 +657,22 @@ export const getStaticPaths = () =>
 											stroke-linecap="round"
 											stroke-linejoin="round"></circle>
 									</svg>
-									Deposit</button
+									{
+										t({
+											en: 'Deposit',
+											ar: 'إيداع',
+											es: 'Depósito',
+											fr: 'Dépôt',
+											hi: 'जमा',
+											id: 'Setoran',
+											ms: 'Deposit',
+											th: 'เงินฝาก',
+											vi: 'Tiền gửi',
+											bn: 'ডিপোজিট',
+											'zh-hans': '存款',
+											'pt-br': 'Depósito'
+										})
+									}</button
 								>
 							</td>
 						</tr>
@@ -328,10 +687,44 @@ export const getStaticPaths = () =>
 									class="text-black dark:text-white"
 								/>
 							</td>
-							<td class="px-6 py-4 text-sm text-gray-700 dark:text-gray-100">EUR, USD, GBP</td>
+							<td class="px-6 py-4 text-sm text-gray-700 dark:text-gray-100"
+								>{
+									t({
+										en: 'EUR, USD, GBP',
+										ar: 'يورو، دولار أمريكي، جنيه إسترليني',
+										es: 'EUR, USD, GBP',
+										fr: 'EUR, USD, GBP',
+										hi: 'EUR, USD, GBP',
+										id: 'EUR, USD, GBP',
+										ms: 'EUR, USD, GBP',
+										th: 'EUR, USD, GBP',
+										vi: 'EUR, USD, GBP',
+										bn: 'EUR, USD, GBP',
+										'zh-hans': '欧元、美元、英镑',
+										'pt-br': 'EUR, USD, GBP'
+									})
+								}</td
+							>
 							<td class="px-6 py-4 text-sm text-gray-700 dark:text-gray-100">$100.00</td>
 							<td class="px-6 py-4 text-sm text-gray-700 dark:text-gray-100">$0.00</td>
-							<td class="px-6 py-4 text-sm text-gray-700 dark:text-gray-100">Instantly</td>
+							<td class="px-6 py-4 text-sm text-gray-700 dark:text-gray-100"
+								>{
+									t({
+										en: 'Instantly',
+										ar: 'على الفور',
+										es: 'Instantáneamente',
+										fr: 'Instantanément',
+										hi: 'तुरंत',
+										id: 'Instan',
+										ms: 'Segera',
+										th: 'ทันที',
+										vi: 'Ngay lập tức',
+										bn: 'তাত্ক্ষণিকভাবে',
+										'zh-hans': '立即',
+										'pt-br': 'Instantaneamente'
+									})
+								}</td
+							>
 							<td class="">
 								<button
 									class="flex items-center justify-center gap-3 rounded bg-green-600 px-6 py-2 text-sm text-white"
@@ -365,7 +758,22 @@ export const getStaticPaths = () =>
 											stroke-linecap="round"
 											stroke-linejoin="round"></circle>
 									</svg>
-									Deposit</button
+									{
+										t({
+											en: 'Deposit',
+											ar: 'إيداع',
+											es: 'Depósito',
+											fr: 'Dépôt',
+											hi: 'जमा',
+											id: 'Setoran',
+											ms: 'Deposit',
+											th: 'เงินฝาก',
+											vi: 'Tiền gửi',
+											bn: 'ডিপোজিট',
+											'zh-hans': '存款',
+											'pt-br': 'Depósito'
+										})
+									}</button
 								>
 							</td>
 						</tr>
@@ -380,10 +788,44 @@ export const getStaticPaths = () =>
 									class="text-black dark:text-white"
 								/>
 							</td>
-							<td class="px-6 py-4 text-sm text-gray-700 dark:text-gray-100">EUR, USD, GBP</td>
+							<td class="px-6 py-4 text-sm text-gray-700 dark:text-gray-100"
+								>{
+									t({
+										en: 'EUR, USD, GBP',
+										ar: 'يورو، دولار أمريكي، جنيه إسترليني',
+										es: 'EUR, USD, GBP',
+										fr: 'EUR, USD, GBP',
+										hi: 'EUR, USD, GBP',
+										id: 'EUR, USD, GBP',
+										ms: 'EUR, USD, GBP',
+										th: 'EUR, USD, GBP',
+										vi: 'EUR, USD, GBP',
+										bn: 'EUR, USD, GBP',
+										'zh-hans': '欧元、美元、英镑',
+										'pt-br': 'EUR, USD, GBP'
+									})
+								}</td
+							>
 							<td class="px-6 py-4 text-sm text-gray-700 dark:text-gray-100">$100.00</td>
 							<td class="px-6 py-4 text-sm text-gray-700 dark:text-gray-100">$0.00</td>
-							<td class="px-6 py-4 text-sm text-gray-700 dark:text-gray-100">Instantly</td>
+							<td class="px-6 py-4 text-sm text-gray-700 dark:text-gray-100"
+								>{
+									t({
+										en: 'Instantly',
+										ar: 'على الفور',
+										es: 'Instantáneamente',
+										fr: 'Instantanément',
+										hi: 'तुरंत',
+										id: 'Instan',
+										ms: 'Segera',
+										th: 'ทันที',
+										vi: 'Ngay lập tức',
+										bn: 'তাত্ক্ষণিকভাবে',
+										'zh-hans': '立即',
+										'pt-br': 'Instantaneamente'
+									})
+								}</td
+							>
 							<td class="">
 								<button
 									class="flex items-center justify-center gap-3 rounded bg-green-600 px-6 py-2 text-sm text-white"
@@ -417,7 +859,22 @@ export const getStaticPaths = () =>
 											stroke-linecap="round"
 											stroke-linejoin="round"></circle>
 									</svg>
-									Deposit</button
+									{
+										t({
+											en: 'Deposit',
+											ar: 'إيداع',
+											es: 'Depósito',
+											fr: 'Dépôt',
+											hi: 'जमा',
+											id: 'Setoran',
+											ms: 'Deposit',
+											th: 'เงินฝาก',
+											vi: 'Tiền gửi',
+											bn: 'ডিপোজিট',
+											'zh-hans': '存款',
+											'pt-br': 'Depósito'
+										})
+									}</button
 								>
 							</td>
 						</tr>

@@ -2,9 +2,9 @@
 import Banner from '@/components/page/Investment/Banner.astro'
 import GoogleSheetDataTable from '@/components/ui/DataTable/GoogleSheetDataTable'
 import { LOCALES, useTranslations, type Lang } from '@/i18n'
-import Layout from '@/layouts/Layout.astro'
 const t = useTranslations(Astro.currentLocale as Lang)
 const lang = Astro.params.lang || 'en'
+import Layout from '@/layouts/Layout.astro'
 export const getStaticPaths = () =>
 	Object.keys(LOCALES).map((lang) => ({
 		params: { lang }
@@ -52,84 +52,138 @@ export const getStaticPaths = () =>
 			>
 				{
 					t({
-  "en": "How to trade on Forex?",
-  "ar": "كيف تتداول في الفوركس؟",
-  "es": "¿Cómo operar en Forex?",
-  "fr": "Comment trader sur le Forex ?",
-  "hi": "फॉरेक्स पर ट्रेड कैसे करें?",
-  "id": "Bagaimana cara berdagang di Forex?",
-  "ms": "Bagaimana untuk berdagang di Forex?",
-  "th": "วิธีการเทรดในฟอเร็กซ์?",
-  "vi": "Cách giao dịch trên Forex?",
-  "bn": "ফরেক্সে কীভাবে ট্রেড করবেন?",
-  "zh-hans": "如何在外汇市场上交易？",
-  "pt-br": "Como negociar no Forex?"
-}
-)
+						en: 'How to trade on Forex?',
+						ar: 'كيف تتداول في الفوركس؟',
+						es: '¿Cómo operar en Forex?',
+						fr: 'Comment trader sur le Forex ?',
+						hi: 'फॉरेक्स पर ट्रेड कैसे करें?',
+						id: 'Bagaimana cara berdagang di Forex?',
+						ms: 'Bagaimana untuk berdagang di Forex?',
+						th: 'วิธีการเทรดในฟอเร็กซ์?',
+						vi: 'Cách giao dịch trên Forex?',
+						bn: 'ফরেক্সে কীভাবে ট্রেড করবেন?',
+						'zh-hans': '如何在外汇市场上交易？',
+						'pt-br': 'Como negociar no Forex?'
+					})
 				}
 			</h1>
 			<p class="text-color">
 				{
 					t({
-  "en": "Transactions are performed through the trading terminal which shows the quotes of currency pairs. The trader assesses the market condition and decides on the purchase or sale of an asset. After that, the trader gives a command to open the requested position. A brokerage company by applying data from a liquidity provider gives its client the result on the requested position and the trader determines the price level at which the transaction will be closed.",
-  "ar": "تُجرى العمليات عبر المنصة التداولية التي تعرض أسعار أزواج العملات. يُقيّم المتداول حالة السوق ويقرر شراء أو بيع الأصل. بعد ذلك، يعطي المتداول الأمر لفتح الصفقة المطلوبة. تقوم شركة الوساطة باستخدام البيانات من مزود السيولة بإعطاء العميل النتيجة على الصفقة المطلوبة ويحدد المتداول مستوى السعر الذي سيتم عنده إغلاق الصفقة.",
-  "es": "Las transacciones se realizan a través del terminal de trading que muestra las cotizaciones de los pares de divisas. El trader evalúa la condición del mercado y decide sobre la compra o venta de un activo. Después de eso, el trader da una orden para abrir la posición solicitada. Una compañía de corretaje, aplicando datos de un proveedor de liquidez, le da a su cliente el resultado de la posición solicitada y el trader determina el nivel de precio al cual se cerrará la transacción.",
-  "fr": "Les transactions sont effectuées via le terminal de trading qui affiche les cotations des paires de devises. Le trader évalue l'état du marché et décide de l'achat ou de la vente d'un actif. Ensuite, le trader donne l'ordre d'ouvrir la position demandée. Une société de courtage, en appliquant des données d'un fournisseur de liquidité, donne à son client le résultat de la position demandée et le trader détermine le niveau de prix auquel la transaction sera clôturée.",
-  "hi": "लेन-देन ट्रेडिंग टर्मिनल के माध्यम से किए जाते हैं, जो मुद्रा जोड़ों के उद्धरण दिखाता है। व्यापारी बाजार की स्थिति का आकलन करता है और संपत्ति की खरीद या बिक्री का निर्णय लेता है। इसके बाद, व्यापारी अनुरोधित स्थिति खोलने का आदेश देता है। एक ब्रोकरेज कंपनी, एक तरलता प्रदाता से डेटा लागू करके, अपने ग्राहक को अनुरोधित स्थिति पर परिणाम देती है और व्यापारी उस मूल्य स्तर को निर्धारित करता है जिस पर लेन-देन बंद किया जाएगा।",
-  "id": "Transaksi dilakukan melalui terminal perdagangan yang menunjukkan kutipan pasangan mata uang. Trader menilai kondisi pasar dan memutuskan pembelian atau penjualan aset. Setelah itu, trader memberi perintah untuk membuka posisi yang diminta. Perusahaan pialang dengan menerapkan data dari penyedia likuiditas memberikan hasil posisi yang diminta kepada kliennya dan trader menentukan tingkat harga di mana transaksi akan ditutup.",
-  "ms": "Transaksi dilakukan melalui terminal dagangan yang menunjukkan sebut harga pasangan mata wang. Pedagang menilai keadaan pasaran dan memutuskan pembelian atau penjualan aset. Selepas itu, pedagang memberikan arahan untuk membuka posisi yang diminta. Syarikat pembrokeran dengan menggunakan data daripada penyedia kecairan memberikan hasil pada posisi yang diminta kepada pelanggannya dan pedagang menentukan tahap harga di mana transaksi akan ditutup.",
-  "th": "การทำธุรกรรมดำเนินการผ่านเทอร์มินัลการซื้อขายซึ่งแสดงราคาของคู่สกุลเงิน เทรดเดอร์ประเมินสภาพตลาดและตัดสินใจเกี่ยวกับการซื้อหรือขายสินทรัพย์ หลังจากนั้นเทรดเดอร์จะสั่งเปิดตำแหน่งที่ต้องการ บริษัทนายหน้าซื้อขายหลักทรัพย์โดยใช้ข้อมูลจากผู้ให้บริการสภาพคล่องจะให้ผลลัพธ์เกี่ยวกับตำแหน่งที่ต้องการแก่ลูกค้า และเทรดเดอร์จะกำหนดระดับราคาที่จะปิดธุรกรรม",
-  "vi": "Các giao dịch được thực hiện thông qua thiết bị đầu cuối giao dịch hiển thị báo giá của các cặp tiền tệ. Nhà giao dịch đánh giá tình hình thị trường và quyết định mua hoặc bán một tài sản. Sau đó, nhà giao dịch đưa ra lệnh mở vị thế đã yêu cầu. Một công ty môi giới bằng cách áp dụng dữ liệu từ nhà cung cấp thanh khoản sẽ cung cấp cho khách hàng kết quả về vị thế đã yêu cầu và nhà giao dịch xác định mức giá mà giao dịch sẽ được đóng lại.",
-  "bn": "লেনদেনগুলি ট্রেডিং টার্মিনালের মাধ্যমে সম্পাদিত হয় যা মুদ্রা জোড়ার উদ্ধৃতি দেখায়। ব্যবসায়ী বাজারের অবস্থার মূল্যায়ন করে এবং একটি সম্পদের ক্রয় বা বিক্রির বিষয়ে সিদ্ধান্ত নেয়। এর পরে, ব্যবসায়ী অনুরোধকৃত অবস্থানটি খুলতে একটি কমান্ড দেয়। একজন ব্রোকারেজ কোম্পানি একটি লিকুইডিটি প্রদানকারীর ডেটা প্রয়োগ করে তার ক্লায়েন্টকে অনুরোধকৃত অবস্থানের ফলাফল দেয় এবং ব্যবসায়ী নির্ধারণ করে যে লেনদেনটি কোন মূল্য স্তরে বন্ধ করা হবে।",
-  "zh-hans": "交易通过显示货币对报价的交易终端进行。交易者评估市场状况，并决定购买或出售资产。之后，交易者发出指令以打开请求的头寸。经纪公司通过应用流动性提供者的数据，向其客户提供请求头寸的结果，交易者确定交易将关闭的价格水平。",
-  "pt-br": "As transações são realizadas através do terminal de negociação, que mostra as cotações dos pares de moedas. O trader avalia a condição do mercado e decide sobre a compra ou venda de um ativo. Após isso, o trader dá um comando para abrir a posição solicitada. Uma corretora, aplicando dados de um provedor de liquidez, fornece ao seu cliente o resultado da posição solicitada, e o trader determina o nível de preço em que a transação será fechada."
-}
-)
+						en: 'Transactions are performed through the trading terminal which shows the quotes of currency pairs. The trader assesses the market condition and decides on the purchase or sale of an asset. After that, the trader gives a command to open the requested position. A brokerage company by applying data from a liquidity provider gives its client the result on the requested position and the trader determines the price level at which the transaction will be closed.',
+						ar: 'تُجرى العمليات عبر المنصة التداولية التي تعرض أسعار أزواج العملات. يُقيّم المتداول حالة السوق ويقرر شراء أو بيع الأصل. بعد ذلك، يعطي المتداول الأمر لفتح الصفقة المطلوبة. تقوم شركة الوساطة باستخدام البيانات من مزود السيولة بإعطاء العميل النتيجة على الصفقة المطلوبة ويحدد المتداول مستوى السعر الذي سيتم عنده إغلاق الصفقة.',
+						es: 'Las transacciones se realizan a través del terminal de trading que muestra las cotizaciones de los pares de divisas. El trader evalúa la condición del mercado y decide sobre la compra o venta de un activo. Después de eso, el trader da una orden para abrir la posición solicitada. Una compañía de corretaje, aplicando datos de un proveedor de liquidez, le da a su cliente el resultado de la posición solicitada y el trader determina el nivel de precio al cual se cerrará la transacción.',
+						fr: "Les transactions sont effectuées via le terminal de trading qui affiche les cotations des paires de devises. Le trader évalue l'état du marché et décide de l'achat ou de la vente d'un actif. Ensuite, le trader donne l'ordre d'ouvrir la position demandée. Une société de courtage, en appliquant des données d'un fournisseur de liquidité, donne à son client le résultat de la position demandée et le trader détermine le niveau de prix auquel la transaction sera clôturée.",
+						hi: 'लेन-देन ट्रेडिंग टर्मिनल के माध्यम से किए जाते हैं, जो मुद्रा जोड़ों के उद्धरण दिखाता है। व्यापारी बाजार की स्थिति का आकलन करता है और संपत्ति की खरीद या बिक्री का निर्णय लेता है। इसके बाद, व्यापारी अनुरोधित स्थिति खोलने का आदेश देता है। एक ब्रोकरेज कंपनी, एक तरलता प्रदाता से डेटा लागू करके, अपने ग्राहक को अनुरोधित स्थिति पर परिणाम देती है और व्यापारी उस मूल्य स्तर को निर्धारित करता है जिस पर लेन-देन बंद किया जाएगा।',
+						id: 'Transaksi dilakukan melalui terminal perdagangan yang menunjukkan kutipan pasangan mata uang. Trader menilai kondisi pasar dan memutuskan pembelian atau penjualan aset. Setelah itu, trader memberi perintah untuk membuka posisi yang diminta. Perusahaan pialang dengan menerapkan data dari penyedia likuiditas memberikan hasil posisi yang diminta kepada kliennya dan trader menentukan tingkat harga di mana transaksi akan ditutup.',
+						ms: 'Transaksi dilakukan melalui terminal dagangan yang menunjukkan sebut harga pasangan mata wang. Pedagang menilai keadaan pasaran dan memutuskan pembelian atau penjualan aset. Selepas itu, pedagang memberikan arahan untuk membuka posisi yang diminta. Syarikat pembrokeran dengan menggunakan data daripada penyedia kecairan memberikan hasil pada posisi yang diminta kepada pelanggannya dan pedagang menentukan tahap harga di mana transaksi akan ditutup.',
+						th: 'การทำธุรกรรมดำเนินการผ่านเทอร์มินัลการซื้อขายซึ่งแสดงราคาของคู่สกุลเงิน เทรดเดอร์ประเมินสภาพตลาดและตัดสินใจเกี่ยวกับการซื้อหรือขายสินทรัพย์ หลังจากนั้นเทรดเดอร์จะสั่งเปิดตำแหน่งที่ต้องการ บริษัทนายหน้าซื้อขายหลักทรัพย์โดยใช้ข้อมูลจากผู้ให้บริการสภาพคล่องจะให้ผลลัพธ์เกี่ยวกับตำแหน่งที่ต้องการแก่ลูกค้า และเทรดเดอร์จะกำหนดระดับราคาที่จะปิดธุรกรรม',
+						vi: 'Các giao dịch được thực hiện thông qua thiết bị đầu cuối giao dịch hiển thị báo giá của các cặp tiền tệ. Nhà giao dịch đánh giá tình hình thị trường và quyết định mua hoặc bán một tài sản. Sau đó, nhà giao dịch đưa ra lệnh mở vị thế đã yêu cầu. Một công ty môi giới bằng cách áp dụng dữ liệu từ nhà cung cấp thanh khoản sẽ cung cấp cho khách hàng kết quả về vị thế đã yêu cầu và nhà giao dịch xác định mức giá mà giao dịch sẽ được đóng lại.',
+						bn: 'লেনদেনগুলি ট্রেডিং টার্মিনালের মাধ্যমে সম্পাদিত হয় যা মুদ্রা জোড়ার উদ্ধৃতি দেখায়। ব্যবসায়ী বাজারের অবস্থার মূল্যায়ন করে এবং একটি সম্পদের ক্রয় বা বিক্রির বিষয়ে সিদ্ধান্ত নেয়। এর পরে, ব্যবসায়ী অনুরোধকৃত অবস্থানটি খুলতে একটি কমান্ড দেয়। একজন ব্রোকারেজ কোম্পানি একটি লিকুইডিটি প্রদানকারীর ডেটা প্রয়োগ করে তার ক্লায়েন্টকে অনুরোধকৃত অবস্থানের ফলাফল দেয় এবং ব্যবসায়ী নির্ধারণ করে যে লেনদেনটি কোন মূল্য স্তরে বন্ধ করা হবে।',
+						'zh-hans':
+							'交易通过显示货币对报价的交易终端进行。交易者评估市场状况，并决定购买或出售资产。之后，交易者发出指令以打开请求的头寸。经纪公司通过应用流动性提供者的数据，向其客户提供请求头寸的结果，交易者确定交易将关闭的价格水平。',
+						'pt-br':
+							'As transações são realizadas através do terminal de negociação, que mostra as cotações dos pares de moedas. O trader avalia a condição do mercado e decide sobre a compra ou venda de um ativo. Após isso, o trader dá um comando para abrir a posição solicitada. Uma corretora, aplicando dados de um provedor de liquidez, fornece ao seu cliente o resultado da posição solicitada, e o trader determina o nível de preço em que a transação será fechada.'
+					})
 				}
 			</p>
 			<p class="text-color">
 				{
-					t(
-						{
-  "en": "As a result, a profit or loss is recorded on trader’s account. Before you start to participate in the bidding, you need to understand the key aspects of making trades in Forex. Each currency has its own encoding consisting of three Latin letters for example, the currency pair “British pound / US dollar” looks like the abbreviation GBP / USD.",
-  "ar": "نتيجة لذلك، يتم تسجيل ربح أو خسارة في حساب المتداول. قبل أن تبدأ في المشاركة في المزايدة، تحتاج إلى فهم الجوانب الأساسية لإجراء الصفقات في الفوركس. لكل عملة رمزها الخاص المكون من ثلاثة أحرف لاتينية، على سبيل المثال، زوج العملات \"الجنيه الإسترليني/الدولار الأمريكي\" يبدو مثل الاختصار GBP/USD.",
-  "es": "Como resultado, se registra una ganancia o pérdida en la cuenta del trader. Antes de empezar a participar en la subasta, necesitas comprender los aspectos clave de hacer operaciones en Forex. Cada moneda tiene su propio código compuesto por tres letras latinas. Por ejemplo, el par de divisas “Libra esterlina / Dólar estadounidense” se ve como la abreviatura GBP / USD.",
-  "fr": "En conséquence, un bénéfice ou une perte est enregistré sur le compte du trader. Avant de commencer à participer aux enchères, vous devez comprendre les aspects clés de la réalisation des transactions sur le Forex. Chaque devise a son propre codage composé de trois lettres latines, par exemple, la paire de devises « Livre britannique / Dollar américain » se présente sous la forme de l'abréviation GBP / USD.",
-  "hi": "परिणामस्वरूप, व्यापारी के खाते में लाभ या हानि दर्ज की जाती है। बोली लगाने में भाग लेने से पहले, आपको फॉरेक्स में व्यापार करने के मुख्य पहलुओं को समझना होगा। प्रत्येक मुद्रा का अपना तीन लैटिन अक्षरों वाला कोडिंग होता है। उदाहरण के लिए, मुद्रा जोड़ी “ब्रिटिश पाउंड / यूएस डॉलर” का संक्षिप्त रूप GBP / USD जैसा दिखता है।",
-  "id": "Sebagai hasilnya, keuntungan atau kerugian dicatat di akun trader. Sebelum Anda mulai berpartisipasi dalam lelang, Anda perlu memahami aspek-aspek kunci dalam melakukan perdagangan di Forex. Setiap mata uang memiliki kode tersendiri yang terdiri dari tiga huruf Latin, misalnya, pasangan mata uang “Pound Inggris / Dolar AS” terlihat seperti singkatan GBP / USD.",
-  "ms": "Akibatnya, keuntungan atau kerugian dicatatkan dalam akaun pedagang. Sebelum anda mula menyertai bidaan, anda perlu memahami aspek-aspek utama dalam membuat dagangan dalam Forex. Setiap mata wang mempunyai kodnya sendiri yang terdiri daripada tiga huruf Latin, sebagai contoh, pasangan mata wang \"Pound British / Dolar AS\" kelihatan seperti singkatan GBP / USD.",
-  "th": "ผลลัพธ์คือกำไรหรือขาดทุนจะถูกบันทึกในบัญชีของเทรดเดอร์ ก่อนที่คุณจะเริ่มเข้าร่วมการประมูล คุณจำเป็นต้องเข้าใจแง่มุมสำคัญในการทำธุรกรรมในตลาดฟอเร็กซ์ แต่ละสกุลเงินมีรหัสที่ประกอบด้วยตัวอักษรละตินสามตัว ตัวอย่างเช่น คู่สกุลเงิน “ปอนด์อังกฤษ / ดอลลาร์สหรัฐ” จะปรากฏในรูปแบบย่อว่า GBP / USD",
-  "vi": "Kết quả là, lợi nhuận hoặc thua lỗ sẽ được ghi nhận vào tài khoản của nhà giao dịch. Trước khi bạn tham gia vào việc đặt giá, bạn cần phải hiểu các khía cạnh chính của việc thực hiện các giao dịch trong Forex. Mỗi loại tiền tệ có mã riêng gồm ba chữ cái Latin, ví dụ, cặp tiền tệ “Bảng Anh / Đô la Mỹ” được viết tắt là GBP / USD.",
-  "bn": "ফলস্বরূপ, ব্যবসায়ীর অ্যাকাউন্টে লাভ বা ক্ষতি রেকর্ড করা হয়। আপনি নিলামে অংশগ্রহণ শুরু করার আগে, আপনাকে ফরেক্সে ট্রেড করার মূল দিকগুলি বুঝতে হবে। প্রতিটি মুদ্রার নিজস্ব কোডিং থাকে যা তিনটি ল্যাটিন অক্ষর নিয়ে গঠিত। উদাহরণস্বরূপ, মুদ্রা জোড়া “ব্রিটিশ পাউন্ড / ইউএস ডলার” সংক্ষিপ্ত রূপে GBP / USD এর মতো দেখায়।",
-  "zh-hans": "结果，交易者的账户上会记录利润或亏损。在参与竞价之前，您需要了解外汇交易的关键方面。每种货币都有自己的编码，由三个拉丁字母组成。例如，货币对“英镑/美元”的缩写是GBP/USD。",
-  "pt-br": "Como resultado, um lucro ou perda é registrado na conta do trader. Antes de começar a participar do leilão, você precisa entender os principais aspectos das operações no Forex. Cada moeda tem seu próprio código composto por três letras latinas, por exemplo, o par de moedas “Libra esterlina / Dólar americano” é representado pela abreviação GBP / USD."
-}
-
-					)
+					t({
+						en: 'As a result, a profit or loss is recorded on trader’s account. Before you start to participate in the bidding, you need to understand the key aspects of making trades in Forex. Each currency has its own encoding consisting of three Latin letters for example, the currency pair “British pound / US dollar” looks like the abbreviation GBP / USD.',
+						ar: 'نتيجة لذلك، يتم تسجيل ربح أو خسارة في حساب المتداول. قبل أن تبدأ في المشاركة في المزايدة، تحتاج إلى فهم الجوانب الأساسية لإجراء الصفقات في الفوركس. لكل عملة رمزها الخاص المكون من ثلاثة أحرف لاتينية، على سبيل المثال، زوج العملات "الجنيه الإسترليني/الدولار الأمريكي" يبدو مثل الاختصار GBP/USD.',
+						es: 'Como resultado, se registra una ganancia o pérdida en la cuenta del trader. Antes de empezar a participar en la subasta, necesitas comprender los aspectos clave de hacer operaciones en Forex. Cada moneda tiene su propio código compuesto por tres letras latinas. Por ejemplo, el par de divisas “Libra esterlina / Dólar estadounidense” se ve como la abreviatura GBP / USD.',
+						fr: "En conséquence, un bénéfice ou une perte est enregistré sur le compte du trader. Avant de commencer à participer aux enchères, vous devez comprendre les aspects clés de la réalisation des transactions sur le Forex. Chaque devise a son propre codage composé de trois lettres latines, par exemple, la paire de devises « Livre britannique / Dollar américain » se présente sous la forme de l'abréviation GBP / USD.",
+						hi: 'परिणामस्वरूप, व्यापारी के खाते में लाभ या हानि दर्ज की जाती है। बोली लगाने में भाग लेने से पहले, आपको फॉरेक्स में व्यापार करने के मुख्य पहलुओं को समझना होगा। प्रत्येक मुद्रा का अपना तीन लैटिन अक्षरों वाला कोडिंग होता है। उदाहरण के लिए, मुद्रा जोड़ी “ब्रिटिश पाउंड / यूएस डॉलर” का संक्षिप्त रूप GBP / USD जैसा दिखता है।',
+						id: 'Sebagai hasilnya, keuntungan atau kerugian dicatat di akun trader. Sebelum Anda mulai berpartisipasi dalam lelang, Anda perlu memahami aspek-aspek kunci dalam melakukan perdagangan di Forex. Setiap mata uang memiliki kode tersendiri yang terdiri dari tiga huruf Latin, misalnya, pasangan mata uang “Pound Inggris / Dolar AS” terlihat seperti singkatan GBP / USD.',
+						ms: 'Akibatnya, keuntungan atau kerugian dicatatkan dalam akaun pedagang. Sebelum anda mula menyertai bidaan, anda perlu memahami aspek-aspek utama dalam membuat dagangan dalam Forex. Setiap mata wang mempunyai kodnya sendiri yang terdiri daripada tiga huruf Latin, sebagai contoh, pasangan mata wang "Pound British / Dolar AS" kelihatan seperti singkatan GBP / USD.',
+						th: 'ผลลัพธ์คือกำไรหรือขาดทุนจะถูกบันทึกในบัญชีของเทรดเดอร์ ก่อนที่คุณจะเริ่มเข้าร่วมการประมูล คุณจำเป็นต้องเข้าใจแง่มุมสำคัญในการทำธุรกรรมในตลาดฟอเร็กซ์ แต่ละสกุลเงินมีรหัสที่ประกอบด้วยตัวอักษรละตินสามตัว ตัวอย่างเช่น คู่สกุลเงิน “ปอนด์อังกฤษ / ดอลลาร์สหรัฐ” จะปรากฏในรูปแบบย่อว่า GBP / USD',
+						vi: 'Kết quả là, lợi nhuận hoặc thua lỗ sẽ được ghi nhận vào tài khoản của nhà giao dịch. Trước khi bạn tham gia vào việc đặt giá, bạn cần phải hiểu các khía cạnh chính của việc thực hiện các giao dịch trong Forex. Mỗi loại tiền tệ có mã riêng gồm ba chữ cái Latin, ví dụ, cặp tiền tệ “Bảng Anh / Đô la Mỹ” được viết tắt là GBP / USD.',
+						bn: 'ফলস্বরূপ, ব্যবসায়ীর অ্যাকাউন্টে লাভ বা ক্ষতি রেকর্ড করা হয়। আপনি নিলামে অংশগ্রহণ শুরু করার আগে, আপনাকে ফরেক্সে ট্রেড করার মূল দিকগুলি বুঝতে হবে। প্রতিটি মুদ্রার নিজস্ব কোডিং থাকে যা তিনটি ল্যাটিন অক্ষর নিয়ে গঠিত। উদাহরণস্বরূপ, মুদ্রা জোড়া “ব্রিটিশ পাউন্ড / ইউএস ডলার” সংক্ষিপ্ত রূপে GBP / USD এর মতো দেখায়।',
+						'zh-hans':
+							'结果，交易者的账户上会记录利润或亏损。在参与竞价之前，您需要了解外汇交易的关键方面。每种货币都有自己的编码，由三个拉丁字母组成。例如，货币对“英镑/美元”的缩写是GBP/USD。',
+						'pt-br':
+							'Como resultado, um lucro ou perda é registrado na conta do trader. Antes de começar a participar do leilão, você precisa entender os principais aspectos das operações no Forex. Cada moeda tem seu próprio código composto por três letras latinas, por exemplo, o par de moedas “Libra esterlina / Dólar americano” é representado pela abreviação GBP / USD.'
+					})
 				}
 			</p>
 			<p class="text-color">
-				The first indicates base currency. In the example above, it is the British pound (GBP). The
-				second monetary unit in the pair is the quote currency (USD).Every financial instrument on
-				Forex has two prices:
+				{
+					t({
+						en: 'The first indicates base currency. In the example above, it is the British pound (GBP). The second monetary unit in the pair is the quote currency (USD). Every financial instrument on Forex has two prices:',
+						ar: 'يشير الأول إلى العملة الأساسية. في المثال أعلاه، هي الجنيه الإسترليني (GBP). الوحدة النقدية الثانية في الزوج هي عملة التسعير (USD). كل أداة مالية في الفوركس لها سعران:',
+						es: 'El primero indica la moneda base. En el ejemplo anterior, es la libra esterlina (GBP). La segunda unidad monetaria en el par es la moneda de cotización (USD). Cada instrumento financiero en Forex tiene dos precios:',
+						fr: "Le premier indique la devise de base. Dans l'exemple ci-dessus, c'est la livre sterling (GBP). La deuxième unité monétaire dans le couple est la devise de cotation (USD). Chaque instrument financier sur le Forex a deux prix :",
+						hi: 'पहला आधार मुद्रा को दर्शाता है। उपरोक्त उदाहरण में, यह ब्रिटिश पाउंड (GBP) है। जोड़ी में दूसरा मौद्रिक इकाई उद्धरण मुद्रा (USD) है। फॉरेक्स में हर वित्तीय उपकरण के दो मूल्य होते हैं:',
+						id: 'Yang pertama menunjukkan mata uang dasar. Dalam contoh di atas, itu adalah pound Inggris (GBP). Unit moneter kedua dalam pasangan ini adalah mata uang kutipan (USD). Setiap instrumen keuangan di Forex memiliki dua harga:',
+						ms: 'Yang pertama menunjukkan mata wang asas. Dalam contoh di atas, ia adalah pound British (GBP). Unit kewangan kedua dalam pasangan itu ialah mata wang sebut harga (USD). Setiap instrumen kewangan di Forex mempunyai dua harga:',
+						th: 'ตัวแรกแสดงถึงสกุลเงินหลัก ในตัวอย่างข้างต้นคือปอนด์อังกฤษ (GBP) หน่วยเงินที่สองในคู่คือสกุลเงินอ้างอิง (USD) เครื่องมือทางการเงินทุกชนิดในฟอเร็กซ์มีสองราคา:',
+						vi: 'Đầu tiên là chỉ định tiền tệ cơ sở. Trong ví dụ trên, đó là đồng bảng Anh (GBP). Đơn vị tiền tệ thứ hai trong cặp là tiền tệ định giá (USD). Mỗi công cụ tài chính trên Forex có hai mức giá:',
+						bn: 'প্রথমটি বেস মুদ্রা নির্দেশ করে। উপরের উদাহরণে, এটি ব্রিটিশ পাউন্ড (GBP)। জোড়ার দ্বিতীয় মুদ্রা ইউনিটটি হল কোট মুদ্রা (USD)। ফরেক্সের প্রতিটি আর্থিক উপকরণের দুটি মূল্য রয়েছে:',
+						'zh-hans':
+							'第一个表示基础货币。在上面的例子中，它是英镑（GBP）。该货币对的第二个货币单位是报价货币（USD）。外汇市场上的每种金融工具都有两个价格：',
+						'pt-br':
+							'A primeira indica a moeda base. No exemplo acima, é a libra esterlina (GBP). A segunda unidade monetária do par é a moeda de cotação (USD). Todo instrumento financeiro no Forex tem dois preços:'
+					})
+				}
 			</p>
+			<p
+				class="text-color"
+				set:html={t({
+					en: '<span class="mb-1 block font-semibold">Ask price:</span> The purchase price of the base currency (GBP) and sale of the quoted (USD).',
+					ar: '<span class="mb-1 block font-semibold">سعر الطلب:</span> سعر شراء العملة الأساسية (GBP) وبيع العملة المسعرة (USD).',
+					es: '<span class="mb-1 block font-semibold">Precio de compra:</span> El precio de compra de la moneda base (GBP) y venta de la moneda cotizada (USD).',
+					fr: '<span class="mb-1 block font-semibold">Prix demandé :</span> Le prix d\'achat de la devise de base (GBP) et la vente de la devise cotée (USD).',
+					hi: '<span class="mb-1 block font-semibold">आस्क मूल्य:</span> आधार मुद्रा (GBP) की खरीद और उद्धृत मुद्रा (USD) की बिक्री।',
+					id: '<span class="mb-1 block font-semibold">Harga penawaran:</span> Harga beli mata uang dasar (GBP) dan penjualan mata uang kutipan (USD).',
+					ms: '<span class="mb-1 block font-semibold">Harga tanya:</span> Harga pembelian mata wang asas (GBP) dan penjualan mata wang sebutan (USD).',
+					th: '<span class="mb-1 block font-semibold">ราคาเสนอซื้อ:</span> ราคาซื้อสกุลเงินหลัก (GBP) และการขายสกุลเงินอ้างอิง (USD)',
+					vi: '<span class="mb-1 block font-semibold">Giá hỏi mua:</span> Giá mua của đồng tiền cơ sở (GBP) và bán đồng tiền định giá (USD).',
+					bn: '<span class="mb-1 block font-semibold">জিজ্ঞাসা মূল্য:</span> বেস মুদ্রা (GBP) এর ক্রয় মূল্য এবং উদ্ধৃত মুদ্রার (USD) বিক্রয়।',
+					'zh-hans':
+						'<span class="mb-1 block font-semibold">卖价：</span> 基础货币（GBP）的购买价格和报价货币（USD）的出售。',
+					'pt-br':
+						'<span class="mb-1 block font-semibold">Preço de venda:</span> O preço de compra da moeda base (GBP) e a venda da moeda cotada (USD).'
+				})}
+			/>
+			<p
+				class="text-color"
+				set:html={t({
+					en: '<span class="mb-1 block font-semibold">Bid price:</span> Cost of sale of the underlying asset and purchase of the quoted one.',
+					ar: '<span class="mb-1 block font-semibold">سعر العرض:</span> تكلفة بيع الأصل الأساسي وشراء الأصل المسعّر.',
+					es: '<span class="mb-1 block font-semibold">Precio de venta:</span> Costo de la venta del activo subyacente y la compra del cotizado.',
+					fr: "<span class=\"mb-1 block font-semibold\">Prix de l'offre :</span> Coût de la vente de l'actif sous-jacent et de l'achat de l'actif coté.",
+					hi: '<span class="mb-1 block font-semibold">बिड मूल्य:</span> अंतर्निहित संपत्ति की बिक्री की लागत और उद्धृत संपत्ति की खरीद।',
+					id: '<span class="mb-1 block font-semibold">Harga penawaran:</span> Biaya penjualan aset dasar dan pembelian aset yang dikutip.',
+					ms: '<span class="mb-1 block font-semibold">Harga bida:</span> Kos penjualan aset asas dan pembelian aset yang disebut harga.',
+					th: '<span class="mb-1 block font-semibold">ราคาเสนอขาย:</span> ต้นทุนการขายสินทรัพย์พื้นฐานและการซื้อสินทรัพย์ที่เสนอราคา',
+					vi: '<span class="mb-1 block font-semibold">Giá chào mua:</span> Chi phí bán tài sản cơ sở và mua tài sản được báo giá.',
+					bn: '<span class="mb-1 block font-semibold">বিড মূল্য:</span> অন্তর্নিহিত সম্পদের বিক্রয় এবং উদ্ধৃত একটির ক্রয়ের খরচ।',
+					'zh-hans':
+						'<span class="mb-1 block font-semibold">买价：</span> 标的资产的销售成本和报价资产的购买成本。',
+					'pt-br':
+						'<span class="mb-1 block font-semibold">Preço de compra:</span> Custo da venda do ativo subjacente e da compra do cotado.'
+				})}
+			/>
 			<p class="text-color">
-				<span class="mb-1 block font-semibold">Ask price:</span>
-				The purchase price of the base currency (GBP) and sale of the quoted (USD).
-			</p>
-			<p class="text-color">
-				<span class="mb-1 block font-semibold">Bid price:</span>
-				Cost of sale of the underlying asset and purchase of the quoted one.
-			</p>
-			<p class="text-color">
-				The difference between the bid and ask prices is called the spread. The size of the
-				transaction is determined in lots. One lot is equal to 100 thousand units of the base
-				currency. Previously, only traders with significant capital could participate in such
-				trades. However, with the advent of margin trading, trading became available to a wider
-				audience. With margin trading the broker provides the service called leverage on the
-				security (margin) of the trader’s deposit. If the amount of leverage is 1:30, this means
-				that the trader can make a transaction in the amount of 30 times more the size of the
-				deposit.
+				{
+					t({
+						en: 'The difference between the bid and ask prices is called the spread. The size of the transaction is determined in lots. One lot is equal to 100 thousand units of the base currency. Previously, only traders with significant capital could participate in such trades. However, with the advent of margin trading, trading became available to a wider audience. With margin trading the broker provides the service called leverage on the security (margin) of the trader’s deposit. If the amount of leverage is 1:30, this means that the trader can make a transaction in the amount of 30 times more the size of the deposit.',
+						ar: 'الفرق بين سعر العرض والطلب يسمى السبريد. يتم تحديد حجم المعاملة باللوت. لوت واحد يساوي 100 ألف وحدة من العملة الأساسية. في السابق، كان بإمكان المتداولين ذوي رأس المال الكبير فقط المشاركة في مثل هذه الصفقات. ومع ذلك، مع ظهور التداول بالهامش، أصبح التداول متاحًا لجمهور أوسع. مع التداول بالهامش، يقدم الوسيط خدمة تسمى الرافعة المالية على ضمان (الهامش) وديعة المتداول. إذا كانت نسبة الرافعة المالية 1:30، فهذا يعني أن المتداول يمكنه إجراء معاملة بحجم يزيد بمقدار 30 مرة عن حجم الوديعة.',
+						es: 'La diferencia entre los precios de compra y venta se llama el spread. El tamaño de la transacción se determina en lotes. Un lote equivale a 100 mil unidades de la moneda base. Anteriormente, solo los traders con capital significativo podían participar en tales operaciones. Sin embargo, con la llegada del trading con margen, el comercio se hizo disponible para una audiencia más amplia. Con el trading con margen, el corredor proporciona un servicio llamado apalancamiento sobre la garantía (margen) del depósito del trader. Si la cantidad de apalancamiento es 1:30, esto significa que el trader puede realizar una transacción por un monto 30 veces mayor que el tamaño del depósito.',
+						fr: "La différence entre le prix d'achat et le prix de vente s'appelle le spread. La taille de la transaction est déterminée en lots. Un lot est égal à 100 000 unités de la devise de base. Auparavant, seuls les traders ayant des capitaux importants pouvaient participer à de telles transactions. Cependant, avec l'avènement du trading sur marge, le trading est devenu accessible à un public plus large. Avec le trading sur marge, le courtier fournit un service appelé effet de levier sur la garantie (marge) du dépôt du trader. Si le montant de l'effet de levier est de 1:30, cela signifie que le trader peut effectuer une transaction d'un montant 30 fois supérieur à la taille du dépôt.",
+						hi: 'बोली और पूछ मूल्य के बीच का अंतर स्प्रेड कहलाता है। लेनदेन का आकार लॉट में निर्धारित होता है। एक लॉट बेस मुद्रा की 100 हजार इकाइयों के बराबर होता है। पहले, केवल बड़े पूंजी वाले व्यापारी ही ऐसे व्यापारों में भाग ले सकते थे। हालांकि, मार्जिन ट्रेडिंग के आगमन के साथ, व्यापार एक व्यापक दर्शकों के लिए उपलब्ध हो गया। मार्जिन ट्रेडिंग के साथ, ब्रोकर व्यापारी की जमा राशि की सुरक्षा (मार्जिन) पर लीवरेज नामक सेवा प्रदान करता है। यदि लीवरेज की राशि 1:30 है, तो इसका अर्थ है कि व्यापारी जमा राशि के आकार से 30 गुना अधिक लेनदेन कर सकता है।',
+						id: 'Perbedaan antara harga penawaran dan harga permintaan disebut spread. Ukuran transaksi ditentukan dalam lot. Satu lot setara dengan 100 ribu unit mata uang dasar. Sebelumnya, hanya trader dengan modal besar yang dapat berpartisipasi dalam perdagangan semacam itu. Namun, dengan adanya perdagangan margin, perdagangan menjadi lebih tersedia untuk khalayak yang lebih luas. Dengan perdagangan margin, broker menyediakan layanan yang disebut leverage pada jaminan (margin) dari deposit trader. Jika jumlah leverage adalah 1:30, ini berarti trader dapat melakukan transaksi dengan jumlah 30 kali lebih besar dari ukuran deposit.',
+						ms: 'Perbezaan antara harga bida dan harga tanya dipanggil spread. Saiz transaksi ditentukan dalam lot. Satu lot bersamaan dengan 100 ribu unit mata wang asas. Dahulu, hanya pedagang dengan modal yang besar boleh mengambil bahagian dalam perdagangan sedemikian. Namun, dengan kemunculan perdagangan margin, perdagangan menjadi lebih tersedia kepada audiens yang lebih luas. Dengan perdagangan margin, broker menyediakan perkhidmatan yang dipanggil leverage pada jaminan (margin) deposit pedagang. Jika jumlah leverage adalah 1:30, ini bermakna pedagang boleh membuat transaksi dengan jumlah 30 kali lebih besar daripada saiz deposit.',
+						th: 'ส่วนต่างระหว่างราคาเสนอซื้อและราคาเสนอขายเรียกว่าสเปรด ขนาดของธุรกรรมถูกกำหนดเป็นล็อต หนึ่งล็อตเท่ากับ 100,000 หน่วยของสกุลเงินหลัก ก่อนหน้านี้ เฉพาะเทรดเดอร์ที่มีทุนสำคัญเท่านั้นที่สามารถเข้าร่วมในการซื้อขายดังกล่าวได้ อย่างไรก็ตาม ด้วยการมาของการซื้อขายแบบมาร์จิ้น การซื้อขายจึงกลายเป็นสิ่งที่เข้าถึงได้สำหรับผู้ชมในวงกว้างมากขึ้น ด้วยการซื้อขายแบบมาร์จิ้น นายหน้าให้บริการที่เรียกว่าเลเวอเรจบนหลักประกัน (มาร์จิ้น) ของเงินฝากของเทรดเดอร์ หากปริมาณเลเวอเรจคือ 1:30 หมายความว่าเทรดเดอร์สามารถทำธุรกรรมได้มากกว่าขนาดของเงินฝากถึง 30 เท่า',
+						vi: 'Sự khác biệt giữa giá mua và giá bán được gọi là chênh lệch. Kích thước của giao dịch được xác định bằng lô. Một lô bằng 100 nghìn đơn vị tiền tệ cơ bản. Trước đây, chỉ các nhà giao dịch có vốn lớn mới có thể tham gia vào các giao dịch như vậy. Tuy nhiên, với sự xuất hiện của giao dịch ký quỹ, giao dịch đã trở nên khả dụng cho một đối tượng rộng hơn. Với giao dịch ký quỹ, nhà môi giới cung cấp dịch vụ được gọi là đòn bẩy dựa trên sự đảm bảo (ký quỹ) của khoản tiền gửi của nhà giao dịch. Nếu số lượng đòn bẩy là 1:30, điều này có nghĩa là nhà giao dịch có thể thực hiện giao dịch với số tiền lớn hơn 30 lần so với khoản tiền gửi.',
+						bn: 'বিড এবং আস্ক মূল্যের মধ্যে পার্থক্যকে স্প্রেড বলা হয়। লেনদেনের আকার লটে নির্ধারিত হয়। এক লট বেস মুদ্রার 100 হাজার ইউনিটের সমান। পূর্বে, শুধুমাত্র উল্লেখযোগ্য মূলধন সহ ব্যবসায়ীরা এই ধরনের ব্যবসায় অংশগ্রহণ করতে পারত। তবে, মার্জিন ট্রেডিংয়ের আগমনের সাথে সাথে, ট্রেডিং একটি বৃহত্তর শ্রোতার জন্য উপলব্ধ হয়ে ওঠে। মার্জিন ট্রেডিংয়ের সাথে, ব্রোকার ব্যবসায়ীর আমানতের নিরাপত্তা (মার্জিন) উপর লিভারেজ নামক পরিষেবা প্রদান করে। যদি লিভারেজের পরিমাণ 1:30 হয়, এর মানে হল ব্যবসায়ী আমানতের আকারের তুলনায় 30 গুণ বেশি পরিমাণে লেনদেন করতে পারে।',
+						'zh-hans':
+							'买价和卖价之间的差异称为点差。交易的规模由手数决定。 一标准手等于10万基本货币单位。以前，只有拥有大量资本的交易者才能参与这样的交易。然而，随着保证金交易的出现，交易变得对更广泛的受众开放。在保证金交易中， 经纪商提供一种称为杠杆的服务，基于交易者存款的保证金。如果杠杆比例为1:30，这意味着交易者可以进行相当于其存款规模30倍的交易。',
+						'pt-br':
+							'A diferença entre os preços de compra e venda é chamada de spread. O tamanho da transação é determinado em lotes. Um lote equivale a 100 mil unidades da moeda base. Anteriormente, apenas traders com capital significativo podiam participar dessas negociações. No entanto, com o advento da negociação de margem, a negociação tornou-se disponível para um público mais amplo. Com a negociação de margem, o corretor fornece um serviço chamado alavancagem sobre a segurança (margem) do depósito do trader. Se a alavancagem for de 1:30, isso significa que o trader pode fazer uma transação de 30 vezes o valor do depósito.'
+					})
+				}
 			</p>
 		</div>
 	</div>

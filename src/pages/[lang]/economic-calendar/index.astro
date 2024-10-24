@@ -1,7 +1,7 @@
 ---
-import { LOCALES } from '@/i18n'
+import { LOCALES, useTranslations, type Lang } from '@/i18n'
 import Layout from '@/layouts/Layout.astro'
-
+const t = useTranslations(Astro.currentLocale as Lang)
 export const getStaticPaths = () =>
 	Object.keys(LOCALES).map((lang) => ({
 		params: { lang }
@@ -11,15 +11,27 @@ export const getStaticPaths = () =>
 <Layout title="Economic Calendar">
 	<section>
 		<div
-			class="relative z-20 w-full overflow-hidden bg-gray-100 py-3 before:absolute before:start-1/2 before:top-0 before:-z-[1] before:size-full before:-translate-x-1/2 before:transform before:bg-[url('/src/images/world_bg.png')] before:bg-center before:bg-no-repeat before:opacity-45 before:hue-rotate-60 dark:bg-black dark:before:bg-[url('/src/images/world_bg.png')]"
+			class="relative z-20 w-full overflow-hidden bg-gray-100 py-3 before:absolute before:top-0 before:-z-[1] before:size-full before:transform before:bg-[url('/src/images/world_bg.png')] before:bg-center before:bg-no-repeat before:opacity-45 before:hue-rotate-60 dark:bg-black dark:before:bg-[url('/src/images/world_bg.png')]"
 		>
 			<div class="container flex flex-col items-center justify-between gap-6 py-10 sm:flex-row">
 				<div>
 					<h1
 						class="block text-center text-4xl font-bold text-gray-800 dark:text-neutral-200 md:text-4xl lg:text-5xl"
-					>
-						<strong class="text-green-500">Economic</strong> Calendar
-					</h1>
+						set:html={t({
+							en: '<strong class="text-green-500">Economic</strong> Calendar',
+							ar: '<strong class="text-green-500">التقويم الاقتصادي</strong>',
+							es: '<strong class="text-green-500">Calendario Económico</strong>',
+							fr: '<strong class="text-green-500">Calendrier Économique</strong>',
+							hi: '<strong class="text-green-500">आर्थिक</strong> कैलेंडर',
+							id: '<strong class="text-green-500">Kalender Ekonomi</strong>',
+							ms: '<strong class="text-green-500">Kalender Ekonomi</strong>',
+							th: '<strong class="text-green-500">ปฏิทินเศรษฐกิจ</strong>',
+							vi: '<strong class="text-green-500">Lịch Kinh Tế</strong>',
+							bn: '<strong class="text-green-500">অর্থনৈতিক</strong> ক্যালেন্ডার',
+							'zh-hans': '<strong class="text-green-500">经济</strong> 日历',
+							'pt-br': '<strong class="text-green-500">Calendário Econômico</strong>'
+						})}
+					/>
 				</div>
 				<div>
 					<svg

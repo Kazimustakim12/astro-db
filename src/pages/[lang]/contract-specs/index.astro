@@ -14,11 +14,9 @@ export const getStaticPaths = () =>
 <Layout title="Contract Speces">
 	<section>
 		<div
-			class="relative z-20 w-full overflow-hidden bg-gray-100 py-3 before:absolute before:start-1/2 before:top-0 before:-z-[1] before:size-full before:-translate-x-1/2 before:transform before:bg-[url('/src/images/world_bg.png')] before:bg-center before:bg-no-repeat before:opacity-45 before:hue-rotate-60 dark:bg-black dark:before:bg-[url('/src/images/world_bg.png')]"
+			class="relative z-20 w-full overflow-hidden bg-gray-100 py-3 before:absolute before:top-0 before:-z-[1] before:size-full before:transform before:bg-[url('/src/images/world_bg.png')] before:bg-center before:bg-no-repeat before:opacity-45 before:hue-rotate-60 dark:bg-black dark:before:bg-[url('/src/images/world_bg.png')]"
 		>
-			<div
-				class="container flex flex-col items-center justify-between gap-6 py-10 sm:flex-row"
-			>
+			<div class="container flex flex-col items-center justify-between gap-6 py-10 sm:flex-row">
 				<div>
 					<h1
 						class="block text-center text-4xl font-bold text-gray-800 dark:text-neutral-200 md:text-4xl lg:text-5xl"
@@ -26,8 +24,8 @@ export const getStaticPaths = () =>
 						<strong class="text-green-500">Account Type</strong> Markets Assets
 					</h1>
 					<p class="mt-4">
-						We can apply changes based on the client's Risk and client's Jurisdiction
-						and Regulations in place
+						We can apply changes based on the client's Risk and client's Jurisdiction and
+						Regulations in place
 					</p>
 				</div>
 				<div>
@@ -37,33 +35,199 @@ export const getStaticPaths = () =>
 						height="auto"
 						viewBox="0 0 48 48"
 					>
-						<g
-							fill="none"
-							stroke="currentColor"
-							stroke-linejoin="round"
-							stroke-width="4"
-						>
+						<g fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="4">
 							<path d="M6 20h8v14H6zm14-6h8v26h-8z"></path>
-							<path
-								stroke-linecap="round"
-								d="M24 44v-4"
-							></path>
+							<path stroke-linecap="round" d="M24 44v-4"></path>
 							<path d="M34 12h8v9h-8z"></path>
-							<path
-								stroke-linecap="round"
-								d="M10 20V10m28 24V21m0-9V4"
-							></path>
+							<path stroke-linecap="round" d="M10 20V10m28 24V21m0-9V4"></path>
 						</g>
 					</svg>
 				</div>
 			</div>
 		</div>
-		<div class="container py-4">
-			<GoogleSheetDataTable
-				sheetName="Commodities"
-				client:load
-				language={lang}
-			/>
+		<div class="container py-10">
+			<!-- First Dropdown: Asset Class -->
+			<div class="account-dropdown-container m-auto mb-5 max-w-[420px]">
+				<select
+					id="asset-class-dropdown"
+					class="w-full max-w-fit rounded border border-gray-600 p-2 dark:bg-black dark:text-white"
+				>
+					<option value="0">Select an Asset Class</option>
+					<option value="forex">Forex</option>
+					<option value="metals">Metals</option>
+					<option value="indices">Indices</option>
+					<option value="commodities">Commodities</option>
+					<option value="cryptocurrencies">Cryptocurrencies</option>
+					<option value="stocks">Stocks</option>
+					<option value="real">Real Stocks</option>
+					<option value="etfs">ETFS</option>
+					<option value="bonds">Bonds</option>
+				</select>
+
+				<!-- Second Dropdown: Account Type -->
+				<select
+					id="account-type-dropdown"
+					class="w-full max-w-fit rounded border border-gray-600 p-2 dark:bg-black dark:text-white"
+				>
+					<option value="0">Select an Account Type</option>
+					<option value="type">STP</option>
+					<option value="type">ECN</option>
+					<option value="type">PRO</option>
+					<option value="type">ISLAMIC</option>
+					<option value="type">ISLAMIC+</option>
+				</select>
+			</div>
+			<!-- Tab Contents -->
+			<div id="tab-container" class="m-auto w-full md:max-w-[80%]">
+				<!-- Forex Tabs -->
+
+				<div id="forex-type" class="tab-content">
+					<div class="account-table">
+						<GoogleSheetDataTable sheetName="Forex" client:load language={lang} />
+					</div>
+				</div>
+				<!-- Metals Tabs -->
+				<div id="metals-type" class="tab-content">
+					<div class="account-table">
+						<GoogleSheetDataTable sheetName="Metals" client:load language={lang} />
+					</div>
+				</div>
+				<!-- Indices Tabs -->
+				<div id="indices-type" class="tab-content">
+					<div class="account-table">
+						<GoogleSheetDataTable sheetName="Indices" client:load language={lang} />
+					</div>
+				</div>
+
+				<!-- Commodities Tabs -->
+				<div id="commodities-type" class="tab-content">
+					<div class="account-table">
+						<GoogleSheetDataTable sheetName="Commodities" client:load language={lang} />
+					</div>
+				</div>
+
+				<!--Cryptocurrencies Tabs -->
+				<div id="cryptocurrencies-type" class="tab-content">
+					<div class="account-table">
+						<GoogleSheetDataTable sheetName="Cryptos" client:load language={lang} />
+					</div>
+				</div>
+
+				<!--Stocks Tabs -->
+				<div id="stocks-type" class="tab-content">
+					<div class="account-table">
+						<GoogleSheetDataTable sheetName="Stocks" client:load language={lang} />
+					</div>
+				</div>
+
+				<!--Real stocks Tabs -->
+				<div id="real-type" class="tab-content">
+					<div class="account-table">
+						<GoogleSheetDataTable sheetName="Cash Equites" client:load language={lang} />
+					</div>
+				</div>
+
+				<!--ETFS stocks Tabs -->
+				<div id="etfs-type" class="tab-content">
+					<div class="account-table">
+						<GoogleSheetDataTable sheetName="ETFS" client:load language={lang} />
+					</div>
+				</div>
+
+				<!--Bomds stocks Tabs -->
+				<div id="bonds-type" class="tab-content">
+					<div class="account-table">
+						<GoogleSheetDataTable sheetName="Bonds" client:load language={lang} />
+					</div>
+				</div>
+			</div>
+
+			<!-- CSS for Tabs -->
+
+			<!-- JavaScript for Cascading Dropdowns and Tabs -->
 		</div>
 	</section>
 </Layout>
+
+<style>
+	.tab-content {
+		display: none;
+		padding: 20px;
+		margin-top: 10px;
+	}
+
+	.tab-content.active {
+		display: block;
+	}
+
+	/* #asset-class-dropdown,
+	#account-type-dropdown {
+		margin-top: 10px;
+		display: block;
+		width: auto;
+		height: 40px;
+		font-size: 13px;
+		line-height: 1.1;
+		padding: 8px 40px;
+		border-radius: 3px;
+		background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 140"><polyline points="10,50 70,110 130,50" style="fill:none;stroke:%238B8C8F;stroke-width:15;stroke-linecap:round"/></svg>')
+			no-repeat right 15px center;
+		background-size: 10px;
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		appearance: none;
+		cursor: pointer;
+		margin: 0px;
+		box-sizing: border-box;
+		display: block;
+		color: black;
+	} */
+
+	.account-dropdown-container {
+		display: flex;
+		gap: 15px;
+		justify-content: center;
+		align-items: center;
+	}
+	@media only screen and (max-width: 600px) {
+		.account-dropdown-container {
+			flex-direction: column;
+		}
+	}
+</style>
+
+<script>
+	document.addEventListener('DOMContentLoaded', function () {
+		const assetClassDropdown = document.getElementById('asset-class-dropdown')
+		const accountTypeDropdown = document.getElementById('account-type-dropdown')
+		const contents = document.querySelectorAll('.tab-content')
+
+		// Show account type dropdown when an asset class is selected
+		assetClassDropdown.addEventListener('change', function () {
+			if (assetClassDropdown.value !== '0') {
+				accountTypeDropdown.style.display = 'block'
+			} else {
+				accountTypeDropdown.style.display = 'none'
+			}
+
+			// Reset account type selection and hide all tab content
+			accountTypeDropdown.selectedIndex = 0
+			contents.forEach((content) => content.classList.remove('active'))
+		})
+
+		// Show the corresponding tab content based on selections
+		accountTypeDropdown.addEventListener('change', function () {
+			const selectedAssetClass = assetClassDropdown.value
+			const selectedAccountType = accountTypeDropdown.value
+
+			// Hide all tab content
+			contents.forEach((content) => content.classList.remove('active'))
+
+			// Show the correct tab content based on the selected asset class and account type
+			if (selectedAssetClass !== '0' && selectedAccountType !== '0') {
+				const tabId = `${selectedAssetClass}-${selectedAccountType}`
+				document.getElementById(tabId).classList.add('active')
+			}
+		})
+	})
+</script>

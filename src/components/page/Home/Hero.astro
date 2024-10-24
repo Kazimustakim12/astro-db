@@ -11,15 +11,12 @@ const t = useTranslations(Astro.currentLocale as Lang)
 
 <!-- Hero -->
 <div
-	class="relative z-20 overflow-hidden py-12 before:absolute before:start-1/2 before:top-0 before:-z-[1] before:size-full before:-translate-x-1/2 before:transform before:bg-[url('/src/icons/squared-bg-element_white.svg')] before:bg-top before:bg-repeat before:opacity-25 dark:before:bg-[url('/src/icons/squared-bg-element.svg')]"
+	class="relative z-20 overflow-hidden py-12 before:absolute before:top-0 before:-z-[1] before:size-full before:transform before:bg-[url('/src/icons/squared-bg-element_white.svg')] before:bg-top before:bg-repeat before:opacity-25 dark:before:bg-[url('/src/icons/squared-bg-element.svg')]"
 >
 	<div class="container mx-auto flex justify-between">
 		<div class="w-full">
 			<!-- Announcement Banner -->
-			<div
-				class="flex justify-start"
-				data-aos="fade-up-sm"
-			>
+			<div class="flex justify-start" data-aos="fade-up-sm">
 				<a
 					class="inline-flex items-center gap-x-2 rounded-full border border-gray-200 bg-white p-2 px-3 text-xs text-gray-600 transition hover:border-gray-300 focus:border-gray-300 focus:outline-none dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-400 dark:hover:border-neutral-600 dark:focus:border-neutral-600"
 					href="/explore"
@@ -70,8 +67,7 @@ const t = useTranslations(Astro.currentLocale as Lang)
 							stroke="currentColor"
 							stroke-width="2"
 							stroke-linecap="round"
-							stroke-linejoin="round"
-							><path d="m9 18 6-6-6-6"></path></svg
+							stroke-linejoin="round"><path d="m9 18 6-6-6-6"></path></svg
 						>
 					</span>
 				</a>
@@ -79,10 +75,7 @@ const t = useTranslations(Astro.currentLocale as Lang)
 			<!-- End Announcement Banner -->
 
 			<!-- Title -->
-			<div
-				class="mt-5 max-w-2xl"
-				data-aos="fade-up-sm"
-			>
+			<div class="mt-5 max-w-2xl" data-aos="fade-up-sm">
 				<WordRotate
 					className="text-6xl font-bold text-dbgreen-500 dark:text-dbgreen-500 md:text-5xl lg:text-7xl"
 					words={[
@@ -154,10 +147,7 @@ const t = useTranslations(Astro.currentLocale as Lang)
 			</div>
 			<!-- End Title -->
 
-			<div
-				class="mt-5 max-w-3xl text-left"
-				data-aos="fade-up-sm"
-			>
+			<div class="mt-5 max-w-3xl text-left" data-aos="fade-up-sm">
 				<p class="text-lg text-gray-600 dark:text-neutral-400">
 					{
 						t({
@@ -181,10 +171,7 @@ const t = useTranslations(Astro.currentLocale as Lang)
 			</div>
 
 			<!-- Buttons -->
-			<div
-				class="mt-8 flex w-fit flex-col gap-3 sm:flex-row"
-				data-aos="fade-up-sm"
-			>
+			<div class="mt-8 flex w-fit flex-col gap-3 sm:flex-row" data-aos="fade-up-sm">
 				<Button
 					primary={true}
 					rippleEffect={true}
@@ -225,10 +212,7 @@ const t = useTranslations(Astro.currentLocale as Lang)
 							'zh-hans': '或尝试一个',
 							'pt-br': 'ou experimente um'
 						})
-					} &nbsp; <a
-						href="#"
-						class="text-red-600"
-					>
+					} &nbsp; <a href="#" class="text-red-600">
 						{
 							t({
 								en: 'Free Demo Account',
@@ -248,9 +232,7 @@ const t = useTranslations(Astro.currentLocale as Lang)
 					>
 
 					<br /><span class="mt-0 text-center"
-						><a
-							href="#"
-							class="text-[11px]"
+						><a href="#" class="text-[11px]"
 							>{
 								t({
 									en: 'Terms and Conditions apply',
@@ -316,9 +298,7 @@ const t = useTranslations(Astro.currentLocale as Lang)
 					>
 						<div class="flex justify-between gap-x-3 p-4 md:p-5">
 							<div>
-								<p
-									class="text-xs uppercase tracking-wide text-gray-500 dark:text-neutral-500"
-								>
+								<p class="text-xs uppercase tracking-wide text-gray-500 dark:text-neutral-500">
 									{
 										t({
 											en: 'Seychelles',
@@ -337,9 +317,7 @@ const t = useTranslations(Astro.currentLocale as Lang)
 									}
 								</p>
 								<div class="mt-2 flex items-center gap-x-2">
-									<h3
-										class="text-xl font-medium text-gray-800 dark:text-neutral-200 sm:text-2xl"
-									>
+									<h3 class="text-xl font-medium text-gray-800 dark:text-neutral-200 sm:text-2xl">
 										FSA
 									</h3>
 									<span class="items-base flex gap-x-1 text-green-600">
@@ -365,12 +343,7 @@ const t = useTranslations(Astro.currentLocale as Lang)
 								</div>
 							</div>
 							<div>
-								<Image
-									src={FSAImage}
-									width={80}
-									height={60}
-									alt="fsa-image"
-								/>
+								<Image src={FSAImage} width={80} height={60} alt="fsa-image" />
 							</div>
 						</div>
 						<a
@@ -403,8 +376,7 @@ const t = useTranslations(Astro.currentLocale as Lang)
 								stroke="currentColor"
 								stroke-width="2"
 								stroke-linecap="round"
-								stroke-linejoin="round"
-								><path d="m9 18 6-6-6-6"></path></svg
+								stroke-linejoin="round"><path d="m9 18 6-6-6-6"></path></svg
 							>
 						</a>
 					</div>
@@ -417,9 +389,7 @@ const t = useTranslations(Astro.currentLocale as Lang)
 					>
 						<div class="flex justify-between gap-x-3 p-4 md:p-5">
 							<div>
-								<p
-									class="text-xs uppercase tracking-wide text-gray-500 dark:text-neutral-500"
-								>
+								<p class="text-xs uppercase tracking-wide text-gray-500 dark:text-neutral-500">
 									{
 										t({
 											en: 'United Arab Emirates',
@@ -438,9 +408,7 @@ const t = useTranslations(Astro.currentLocale as Lang)
 									}
 								</p>
 								<div class="mt-2 flex items-center gap-x-2">
-									<h3
-										class="text-xl font-medium text-gray-800 dark:text-neutral-200 sm:text-2xl"
-									>
+									<h3 class="text-xl font-medium text-gray-800 dark:text-neutral-200 sm:text-2xl">
 										SCA
 									</h3>
 									<span class="flex items-center gap-x-1 text-green-600">
@@ -473,8 +441,7 @@ const t = useTranslations(Astro.currentLocale as Lang)
 													vi: 'Cơ quan Chứng khoán và Hàng hóa',
 													bn: 'সিকিউরিটিজ এবং পণ্য কর্তৃপক্ষ',
 													'zh-hans': '证券与商品管理局',
-													'pt-br':
-														'Autoridade de Valores Mobiliários e Commodities'
+													'pt-br': 'Autoridade de Valores Mobiliários e Commodities'
 												})
 											}
 										</span>
@@ -482,12 +449,7 @@ const t = useTranslations(Astro.currentLocale as Lang)
 								</div>
 							</div>
 							<div>
-								<Image
-									src={SCAImage}
-									width={80}
-									height={80}
-									alt="fsa-image"
-								/>
+								<Image src={SCAImage} width={80} height={80} alt="fsa-image" />
 							</div>
 						</div>
 
@@ -521,8 +483,7 @@ const t = useTranslations(Astro.currentLocale as Lang)
 								stroke="currentColor"
 								stroke-width="2"
 								stroke-linecap="round"
-								stroke-linejoin="round"
-								><path d="m9 18 6-6-6-6"></path></svg
+								stroke-linejoin="round"><path d="m9 18 6-6-6-6"></path></svg
 							>
 						</a>
 					</div>
@@ -535,11 +496,7 @@ const t = useTranslations(Astro.currentLocale as Lang)
 			class="hidden max-w-[40%] lg:flex lg:items-center lg:justify-center"
 			data-aos="fade-right-sm"
 		>
-			<Image
-				src={HeroImg}
-				alt="hero img"
-				class="w-full"
-			/>
+			<Image src={HeroImg} alt="hero img" class="w-full" />
 		</div>
 	</div>
 </div>

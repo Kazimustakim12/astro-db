@@ -1,6 +1,7 @@
 ---
-import { LOCALES } from '@/i18n'
+import { LOCALES, useTranslations, type Lang } from '@/i18n'
 import Layout from '@/layouts/Layout.astro'
+const t = useTranslations(Astro.currentLocale as Lang)
 
 const images = import.meta.glob<{ default: ImageMetadata }>('/src/images/*.{jpeg,jpg,png,gif}')
 export const getStaticPaths = () =>
@@ -9,18 +10,45 @@ export const getStaticPaths = () =>
 	}))
 ---
 
-<Layout title="Insurance Coverage">
+<Layout
+	title={t({
+		en: 'Insurance Coverage',
+		ar: 'تغطية التأمين',
+		es: 'Cobertura de seguro',
+		fr: "Couverture d'assurance",
+		hi: 'बीमा कवरेज',
+		id: 'Cakupan Asuransi',
+		ms: 'Perlindungan Insurans',
+		th: 'ความคุ้มครองประกันภัย',
+		vi: 'Bảo hiểm',
+		bn: 'বীমা কভারেজ',
+		'zh-hans': '保险覆盖',
+		'pt-br': 'Cobertura de seguro'
+	})}
+>
 	<section>
 		<div
-			class="relative z-20 w-full overflow-hidden bg-gray-100 py-3 before:absolute before:start-1/2 before:top-0 before:-z-[1] before:size-full before:-translate-x-1/2 before:transform before:bg-[url('/src/images/world_bg.png')] before:bg-center before:bg-no-repeat before:opacity-45 before:hue-rotate-60 dark:bg-black dark:before:bg-[url('/src/images/world_bg.png')]"
+			class="relative z-20 w-full overflow-hidden bg-gray-100 py-3 before:absolute before:top-0 before:-z-[1] before:size-full before:transform before:bg-[url('/src/images/world_bg.png')] before:bg-center before:bg-no-repeat before:opacity-45 before:hue-rotate-60 dark:bg-black dark:before:bg-[url('/src/images/world_bg.png')]"
 		>
 			<div class="container flex flex-col items-center justify-between gap-6 py-10 sm:flex-row">
 				<div>
 					<h1
 						class="block text-center text-4xl font-bold text-gray-800 dark:text-neutral-200 sm:text-left md:text-4xl lg:text-5xl"
-					>
-						Insurance <span class="text-green-500">Coverage </span>
-					</h1>
+						set:html={t({
+							en: 'Insurance <span class="text-green-500">Coverage</span>',
+							ar: 'تغطية <span class="text-green-500">التأمين</span>',
+							es: 'Cobertura <span class="text-green-500">de Seguro</span>',
+							fr: 'Couverture <span class="text-green-500">d\'Assurance</span>',
+							hi: 'बीमा <span class="text-green-500">कवरेज</span>',
+							id: 'Cakupan <span class="text-green-500">Asuransi</span>',
+							ms: 'Liputan <span class="text-green-500">Insurans</span>',
+							th: 'ความคุ้มครอง <span class="text-green-500">ประกันภัย</span>',
+							vi: 'Bảo hiểm <span class="text-green-500">Bao phủ</span>',
+							bn: 'বীমা <span class="text-green-500">কভারেজ</span>',
+							'zh-hans': '保险 <span class="text-green-500">覆盖</span>',
+							'pt-br': 'Cobertura <span class="text-green-500">de Seguro</span>'
+						})}
+					/>
 				</div>
 				<div>
 					<svg
@@ -50,13 +78,60 @@ export const getStaticPaths = () =>
 		</div>
 		<div class="container py-10">
 			<div class="text-center">
-				<p class="text-md mb-2 md:text-xl">We have got you covered</p>
+				<p class="text-md mb-2 md:text-xl">
+					{
+						t({
+							en: 'We have got you covered',
+							ar: 'لقد قمنا بتغطيتك',
+							es: 'Te tenemos cubierto',
+							fr: 'Nous vous avons couvert',
+							hi: 'हमने आपको कवर कर लिया है',
+							id: 'Kami telah melindungi Anda',
+							ms: 'Kami telah melindungi anda',
+							th: 'เราคุ้มครองคุณแล้ว',
+							vi: 'Chúng tôi đã bảo vệ bạn',
+							bn: 'আমরা আপনাকে কভার করেছি',
+							'zh-hans': '我们为您提供保障',
+							'pt-br': 'Nós temos você coberto'
+						})
+					}
+				</p>
 				<h1
 					class="mb-5 block text-2xl font-bold capitalize text-gray-800 dark:text-white sm:text-2xl md:text-3xl lg:text-5xl"
-				>
-					Client Funds Insurance up to <span class="text-dbgreen-500">20.000$</span>
-				</h1>
-				<p class="text-md mb-2 md:text-xl">*No opt-in is required and no extra costs</p>
+					set:html={t({
+						en: 'Client Funds Insurance up to <span class="text-dbgreen-500">20.000$</span>',
+						ar: 'تأمين أموال العملاء يصل إلى <span class="text-dbgreen-500">20.000$</span>',
+						es: 'Seguro de Fondos del Cliente de hasta <span class="text-dbgreen-500">20.000$</span>',
+						fr: 'Assurance des Fonds Clients jusqu\'à <span class="text-dbgreen-500">20.000$</span>',
+						hi: 'ग्राहक निधियों का बीमा <span class="text-dbgreen-500">20.000$</span> तक',
+						id: 'Asuransi Dana Klien hingga <span class="text-dbgreen-500">20.000$</span>',
+						ms: 'Insurans Dana Pelanggan sehingga <span class="text-dbgreen-500">20.000$</span>',
+						th: 'ประกันเงินทุนของลูกค้าสูงสุดถึง <span class="text-dbgreen-500">20.000$</span>',
+						vi: 'Bảo hiểm Quỹ Khách hàng lên đến <span class="text-dbgreen-500">20.000$</span>',
+						bn: 'ক্লায়েন্ট তহবিলের বীমা <span class="text-dbgreen-500">20.000$</span> পর্যন্ত',
+						'zh-hans': '客户资金保险高达 <span class="text-dbgreen-500">20.000$</span>',
+						'pt-br':
+							'Seguro de Fundos do Cliente de até <span class="text-dbgreen-500">20.000$</span>'
+					})}
+				/>
+				<p class="text-md mb-2 md:text-xl">
+					{
+						t({
+							en: 'No opt-in is required and no extra costs',
+							ar: 'لا يلزم الاشتراك ولا توجد تكاليف إضافية',
+							es: 'No se requiere suscripción y no hay costos adicionales',
+							fr: 'Aucune inscription requise et aucun coût supplémentaire',
+							hi: 'कोई ऑप्ट-इन आवश्यक नहीं है और कोई अतिरिक्त लागत नहीं है',
+							id: 'Tidak diperlukan pendaftaran dan tidak ada biaya tambahan',
+							ms: 'Tiada pendaftaran diperlukan dan tiada kos tambahan',
+							th: 'ไม่จำเป็นต้องเลือกเข้าร่วมและไม่มีค่าใช้จ่ายเพิ่มเติม',
+							vi: 'Không cần đăng ký và không có chi phí bổ sung',
+							bn: 'কোনও অপ্ট-ইন প্রয়োজন নেই এবং কোনও অতিরিক্ত খরচ নেই',
+							'zh-hans': '无需选择加入且无额外费用',
+							'pt-br': 'Nenhuma adesão é necessária e sem custos adicionais'
+						})
+					}
+				</p>
 			</div>
 			<div>
 				<!-- FAQ -->
@@ -134,7 +209,22 @@ export const getStaticPaths = () =>
 														values="0;0.3"></animate>
 												</g>
 											</svg>
-											What is DB investing Global's Insurance Coverage?
+											{
+												t({
+													en: "What is DB Investing Global's Insurance Coverage?",
+													ar: 'ما هي تغطية التأمين العالمية لـ DB Investing؟',
+													es: '¿Cuál es la cobertura de seguro global de DB Investing?',
+													fr: "Quelle est la couverture d'assurance mondiale de DB Investing ?",
+													hi: 'DB Investing Global का बीमा कवरेज क्या है?',
+													id: 'Apa Cakupan Asuransi Global DB Investing?',
+													ms: 'Apakah Perlindungan Insurans Global DB Investing?',
+													th: 'การประกันภัยทั่วโลกของ DB Investing คืออะไร?',
+													vi: 'Bảo hiểm toàn cầu của DB Investing là gì?',
+													bn: 'DB Investing Global এর বীমা কভারেজ কি?',
+													'zh-hans': 'DB Investing Global 的保险覆盖范围是什么？',
+													'pt-br': 'Qual é a cobertura de seguro global da DB Investing?'
+												})
+											}
 										</span>
 										<svg
 											class="block size-5 shrink-0 text-gray-600 group-hover:text-gray-500 hs-accordion-active:hidden dark:text-neutral-400"
@@ -168,8 +258,24 @@ export const getStaticPaths = () =>
 										aria-labelledby="insurance-item-aria-1"
 									>
 										<p class="text-gray-600 dark:text-neutral-400">
-											We have added additional protection to your funds so you can continue trading
-											with more confidence. The insurance will cover up to US$20.000 per client.
+											{
+												t({
+													en: 'We have added additional protection to your funds so you can continue trading with more confidence. The insurance will cover up to US$20.000 per client.',
+													ar: 'لقد أضفنا حماية إضافية لأموالك حتى تتمكن من مواصلة التداول بثقة أكبر. ستغطي التأمين ما يصل إلى 20.000 دولار أمريكي لكل عميل.',
+													es: 'Hemos añadido protección adicional a sus fondos para que pueda seguir operando con más confianza. El seguro cubrirá hasta US$20.000 por cliente.',
+													fr: "Nous avons ajouté une protection supplémentaire à vos fonds afin que vous puissiez continuer à trader avec plus de confiance. L'assurance couvrira jusqu'à 20 000 $ US par client.",
+													hi: 'हमने आपके फंड्स के लिए अतिरिक्त सुरक्षा जोड़ी है ताकि आप अधिक आत्मविश्वास के साथ ट्रेडिंग जारी रख सकें। यह बीमा प्रति ग्राहक 20,000 अमेरिकी डॉलर तक कवर करेगा।',
+													id: 'Kami telah menambahkan perlindungan tambahan untuk dana Anda sehingga Anda dapat terus berdagang dengan lebih percaya diri. Asuransi akan mencakup hingga US$20.000 per klien.',
+													ms: 'Kami telah menambah perlindungan tambahan kepada dana anda supaya anda boleh terus berdagang dengan lebih yakin. Insurans akan meliputi sehingga US$20,000 bagi setiap pelanggan.',
+													th: 'เราได้เพิ่มการปกป้องเพิ่มเติมให้กับเงินทุนของคุณเพื่อให้คุณสามารถดำเนินการซื้อขายได้อย่างมั่นใจยิ่งขึ้น ประกันจะครอบคลุมสูงสุดถึง 20,000 ดอลลาร์สหรัฐต่อผู้ใช้บริการหนึ่งราย',
+													vi: 'Chúng tôi đã thêm sự bảo vệ bổ sung cho quỹ của bạn để bạn có thể tiếp tục giao dịch với nhiều sự tự tin hơn. Bảo hiểm sẽ chi trả lên đến 20.000 USD mỗi khách hàng.',
+													bn: 'আমরা আপনার তহবিলের জন্য অতিরিক্ত সুরক্ষা যুক্ত করেছি যাতে আপনি আরও আত্মবিশ্বাসের সাথে ট্রেডিং চালিয়ে যেতে পারেন। বীমা প্রতি গ্রাহক 20,000 মার্কিন ডলার পর্যন্ত কভার করবে।',
+													'zh-hans':
+														'我们为您的资金添加了额外的保护，以便您可以继续更有信心地交易。保险将为每位客户提供最高20,000美元的保障。',
+													'pt-br':
+														'Adicionamos proteção adicional aos seus fundos para que você possa continuar negociando com mais confiança. O seguro cobrirá até US$20.000 por cliente.'
+												})
+											}
 										</p>
 									</div>
 								</div>
@@ -243,7 +349,22 @@ export const getStaticPaths = () =>
 												</g>
 											</svg>
 
-											What does the Insurance Coverage include?
+											{
+												t({
+													en: 'What does the Insurance Coverage include?',
+													ar: 'ماذا تشمل تغطية التأمين؟',
+													es: '¿Qué incluye la cobertura de seguro?',
+													fr: "Que comprend la couverture d'assurance ?",
+													hi: 'बीमा कवरेज में क्या शामिल है?',
+													id: 'Apa yang termasuk dalam Cakupan Asuransi?',
+													ms: 'Apakah yang termasuk dalam Perlindungan Insurans?',
+													th: 'ความคุ้มครองประกันภัยรวมถึงอะไรบ้าง?',
+													vi: 'Bảo hiểm bao gồm những gì?',
+													bn: 'বীমা কভারেজে কি অন্তর্ভুক্ত?',
+													'zh-hans': '保险覆盖包括什么？',
+													'pt-br': 'O que a cobertura de seguro inclui?'
+												})
+											}
 										</span>
 										<svg
 											class="block size-5 shrink-0 text-gray-600 group-hover:text-gray-500 hs-accordion-active:hidden dark:text-neutral-400"
@@ -277,8 +398,23 @@ export const getStaticPaths = () =>
 										aria-labelledby="insurance-item-aria-2"
 									>
 										<p class="text-gray-600 dark:text-neutral-400">
-											The Insurance Coverage includes the available balance and open CFD positions
-											of the client.
+											{
+												t({
+													en: 'The Insurance Coverage includes the available balance and open CFD positions of the client.',
+													ar: 'تشمل تغطية التأمين الرصيد المتاح والمراكز المفتوحة لعقود الفروقات الخاصة بالعميل.',
+													es: 'La cobertura de seguro incluye el saldo disponible y las posiciones abiertas de CFD del cliente.',
+													fr: "La couverture d'assurance inclut le solde disponible et les positions CFD ouvertes du client.",
+													hi: 'बीमा कवरेज में ग्राहक का उपलब्ध बैलेंस और खुले सीएफडी पद शामिल हैं।',
+													id: 'Cakupan asuransi mencakup saldo yang tersedia dan posisi CFD terbuka dari klien.',
+													ms: 'Tutup insurans termasuk baki yang tersedia dan kedudukan CFD terbuka pelanggan.',
+													th: 'การประกันภัยครอบคลุมยอดคงเหลือที่มีอยู่และตำแหน่ง CFD ที่เปิดของลูกค้า',
+													vi: 'Bảo hiểm bao gồm số dư khả dụng và các vị thế CFD đang mở của khách hàng.',
+													bn: 'বীমা কভারেজে ক্লায়েন্টের উপলব্ধ ব্যালেন্স এবং খোলা সিএফডি পজিশন অন্তর্ভুক্ত।',
+													'zh-hans': '保险涵盖包括客户的可用余额和未平仓的CFD头寸。',
+													'pt-br':
+														'A cobertura do seguro inclui o saldo disponível e as posições em CFD abertas do cliente.'
+												})
+											}
 										</p>
 									</div>
 								</div>
@@ -352,7 +488,22 @@ export const getStaticPaths = () =>
 												</g>
 											</svg>
 
-											Can u benefit from the Insurance Coverage?
+											{
+												t({
+													en: 'Can you benefit from the Insurance Coverage?',
+													ar: 'هل يمكنك الاستفادة من تغطية التأمين؟',
+													es: '¿Puede beneficiarse de la cobertura de seguro?',
+													fr: "Pouvez-vous bénéficier de la couverture d'assurance ?",
+													hi: 'क्या आप बीमा कवरेज से लाभ उठा सकते हैं?',
+													id: 'Dapatkah Anda mendapatkan manfaat dari Cakupan Asuransi?',
+													ms: 'Bolehkah anda mendapat manfaat daripada Perlindungan Insurans?',
+													th: 'คุณสามารถได้รับประโยชน์จากความคุ้มครองประกันภัยหรือไม่?',
+													vi: 'Bạn có thể hưởng lợi từ Bảo hiểm không?',
+													bn: 'আপনি কি বীমা কভারেজ থেকে উপকৃত হতে পারেন?',
+													'zh-hans': '您能从保险覆盖中受益吗？',
+													'pt-br': 'Você pode se beneficiar da cobertura de seguro?'
+												})
+											}
 										</span>
 										<svg
 											class="block size-5 shrink-0 text-gray-600 group-hover:text-gray-500 hs-accordion-active:hidden dark:text-neutral-400"
@@ -386,9 +537,24 @@ export const getStaticPaths = () =>
 										aria-labelledby="insurance-item-aria-2"
 									>
 										<p class="text-gray-600 dark:text-neutral-400">
-											The Insurance Coverage is available to all the DB-investing Global clients of
-											DB Invest Limited and will be triggered only in the unlikely event of DB
-											Invest Limited insolvency.
+											{
+												t({
+													en: 'The Insurance Coverage is available to all the DB-investing Global clients of DB Invest Limited and will be triggered only in the unlikely event of DB Invest Limited insolvency.',
+													ar: 'تغطية التأمين متاحة لجميع عملاء DB-investing Global من DB Invest Limited وسيتم تفعيلها فقط في حالة إفلاس DB Invest Limited غير المحتملة.',
+													es: 'La cobertura de seguro está disponible para todos los clientes globales de DB-investing de DB Invest Limited y se activará solo en el improbable caso de insolvencia de DB Invest Limited.',
+													fr: "La couverture d'assurance est disponible pour tous les clients mondiaux de DB-investing de DB Invest Limited et ne sera déclenchée qu'en cas d'insolvabilité improbable de DB Invest Limited.",
+													hi: 'बीमा कवरेज DB Invest Limited के सभी DB-investing Global ग्राहकों के लिए उपलब्ध है और DB Invest Limited के दिवालिया होने की असंभावित स्थिति में ही इसे सक्रिय किया जाएगा।',
+													id: 'Cakupan Asuransi tersedia untuk semua klien DB-investing Global dari DB Invest Limited dan hanya akan dipicu jika terjadi kebangkrutan DB Invest Limited yang tidak mungkin terjadi.',
+													ms: 'Perlindungan Insurans tersedia untuk semua pelanggan DB-investing Global DB Invest Limited dan hanya akan dicetuskan sekiranya berlaku kebankrapan DB Invest Limited yang tidak mungkin berlaku.',
+													th: 'ความคุ้มครองประกันภัยมีให้สำหรับลูกค้า DB-investing Global ทั้งหมดของ DB Invest Limited และจะถูกเรียกใช้ก็ต่อเมื่อ DB Invest Limited ล้มละลายเท่านั้น',
+													vi: 'Bảo hiểm có sẵn cho tất cả các khách hàng DB-investing Global của DB Invest Limited và sẽ chỉ được kích hoạt trong trường hợp DB Invest Limited mất khả năng thanh toán.',
+													bn: 'বীমা কভারেজ DB Invest Limited এর সমস্ত DB-investing Global ক্লায়েন্টদের জন্য উপলব্ধ এবং DB Invest Limited দেউলিয়া হওয়ার অসম্ভাব্য ঘটনায়ই এটি সক্রিয় হবে।',
+													'zh-hans':
+														'保险覆盖适用于DB Invest Limited的所有DB-investing Global客户，并且仅在DB Invest Limited破产的情况下才会触发。',
+													'pt-br':
+														'A cobertura de seguro está disponível para todos os clientes globais da DB-investing da DB Invest Limited e será acionada apenas no caso improvável de insolvência da DB Invest Limited.'
+												})
+											}
 										</p>
 									</div>
 								</div>
@@ -402,10 +568,41 @@ export const getStaticPaths = () =>
 								class="max-w-full rounded-2xl border border-neutral-300 bg-dbgreen-400 px-4 py-6 text-center dark:border-neutral-700"
 							>
 								<h2 class="text-xl font-bold dark:text-black md:text-2xl md:leading-tight">
-									Have a question or require specialist assistance?
+									{
+										t({
+											en: 'Have a question or require specialist assistance?',
+											ar: 'هل لديك سؤال أو تحتاج إلى مساعدة متخصصة؟',
+											es: '¿Tiene alguna pregunta o necesita asistencia especializada?',
+											fr: "Vous avez une question ou besoin d'une assistance spécialisée ?",
+											hi: 'कोई प्रश्न है या विशेषज्ञ सहायता की आवश्यकता है?',
+											id: 'Punya pertanyaan atau membutuhkan bantuan spesialis?',
+											ms: 'Ada soalan atau memerlukan bantuan pakar?',
+											th: 'มีคำถามหรือต้องการความช่วยเหลือจากผู้เชี่ยวชาญหรือไม่?',
+											vi: 'Có câu hỏi hoặc cần hỗ trợ chuyên gia?',
+											bn: 'প্রশ্ন আছে বা বিশেষজ্ঞ সহায়তা প্রয়োজন?',
+											'zh-hans': '有问题或需要专家协助吗？',
+											'pt-br': 'Tem alguma dúvida ou precisa de assistência especializada?'
+										})
+									}
 								</h2>
 								<p class="mt-1 block text-black">
-									Our dedicated customer service team is here 24/7 to assist you.
+									{
+										t({
+											en: 'Our dedicated customer service team is here 24/7 to assist you.',
+											ar: 'فريق خدمة العملاء المخصص لدينا هنا على مدار الساعة وطوال أيام الأسبوع لمساعدتك.',
+											es: 'Nuestro dedicado equipo de atención al cliente está aquí las 24 horas, los 7 días de la semana para asistirte.',
+											fr: 'Notre équipe de service client dédiée est disponible 24h/24 et 7j/7 pour vous aider.',
+											hi: 'हमारी समर्पित ग्राहक सेवा टीम आपकी सहायता के लिए 24/7 उपलब्ध है।',
+											id: 'Tim layanan pelanggan kami yang berdedikasi tersedia 24/7 untuk membantu Anda.',
+											ms: 'Pasukan khidmat pelanggan kami yang berdedikasi berada di sini 24/7 untuk membantu anda.',
+											th: 'ทีมบริการลูกค้าของเราพร้อมให้บริการคุณตลอด 24 ชั่วโมง 7 วันต่อสัปดาห์',
+											vi: 'Đội ngũ dịch vụ khách hàng tận tâm của chúng tôi có mặt 24/7 để hỗ trợ bạn.',
+											bn: 'আমাদের নিবেদিত গ্রাহক সেবা দল 24/7 আপনাকে সহায়তা করতে এখানে রয়েছে।',
+											'zh-hans': '我们专门的客户服务团队全天候为您提供帮助。',
+											'pt-br':
+												'Nossa equipe dedicada de atendimento ao cliente está aqui 24 horas por dia, 7 dias por semana para ajudá-lo.'
+										})
+									}
 								</p>
 							</div>
 							<div class="mt-4 rounded-xl bg-neutral-300 dark:bg-neutral-700">
@@ -432,7 +629,24 @@ export const getStaticPaths = () =>
 												d="m14 8l-3 3l-1-1"></path>
 										</g>
 									</svg>
-									<h4 class="text-xl font-semibold">Certificate</h4>
+									<h4 class="text-xl font-semibold">
+										{
+											t({
+												en: 'Certificate',
+												ar: 'شهادة',
+												es: 'Certificado',
+												fr: 'Certificat',
+												hi: 'प्रमाणपत्र',
+												id: 'Sertifikat',
+												ms: 'Sijil',
+												th: 'ใบรับรอง',
+												vi: 'Chứng chỉ',
+												bn: 'সার্টিফিকেট',
+												'zh-hans': '证书',
+												'pt-br': 'Certificado'
+											})
+										}
+									</h4>
 								</a>
 							</div>
 						</div>

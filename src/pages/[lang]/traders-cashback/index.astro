@@ -1,7 +1,9 @@
 ---
 import Button from '@/components/ui/Button.astro'
-import { LOCALES } from '@/i18n'
+import { LOCALES, useTranslations, type Lang } from '@/i18n'
 import Layout from '@/layouts/Layout.astro'
+const t = useTranslations(Astro.currentLocale as Lang)
+const lang = Astro.params.lang || 'en'
 
 export const getStaticPaths = () =>
 	Object.keys(LOCALES).map((lang) => ({
@@ -12,15 +14,27 @@ export const getStaticPaths = () =>
 <Layout title="Trading Hours">
 	<section>
 		<div
-			class="relative z-20 w-full overflow-hidden bg-gray-100 py-3 before:absolute before:start-1/2 before:top-0 before:-z-[1] before:size-full before:-translate-x-1/2 before:transform before:bg-[url('/src/images/world_bg.png')] before:bg-center before:bg-no-repeat before:opacity-45 before:hue-rotate-60 dark:bg-black dark:before:bg-[url('/src/images/world_bg.png')]"
+			class="relative z-20 w-full overflow-hidden bg-gray-100 py-3 before:absolute before:top-0 before:-z-[1] before:size-full before:transform before:bg-[url('/src/images/world_bg.png')] before:bg-center before:bg-no-repeat before:opacity-45 before:hue-rotate-60 dark:bg-black dark:before:bg-[url('/src/images/world_bg.png')]"
 		>
 			<div class="container flex flex-col items-center justify-between gap-6 py-10 sm:flex-row">
 				<div>
 					<h1
 						class="block text-center text-4xl font-bold text-gray-800 dark:text-neutral-200 md:text-4xl lg:text-5xl"
-					>
-						<strong class="text-green-500">Cashback </strong> Promotion
-					</h1>
+						set:html={t({
+							en: '<strong class="text-green-500">Cashback </strong> Promotion',
+							ar: '<strong class="text-green-500">استرداد النقد </strong> عرض',
+							es: '<strong class="text-green-500">Reembolso en efectivo </strong> Promoción',
+							fr: '<strong class="text-green-500">Remboursement </strong> Promotion',
+							hi: '<strong class="text-green-500">कैशबैक </strong> प्रचार',
+							id: '<strong class="text-green-500">Cashback </strong> Promosi',
+							ms: '<strong class="text-green-500">Cashback </strong> Promosi',
+							th: '<strong class="text-green-500">เงินคืน </strong> โปรโมชั่น',
+							vi: '<strong class="text-green-500">Hoàn tiền </strong> Khuyến mãi',
+							bn: '<strong class="text-green-500">ক্যাশব্যাক </strong> প্রচারনা',
+							'zh-hans': '<strong class="text-green-500">现金返还 </strong> 促销',
+							'pt-br': '<strong class="text-green-500">Cashback </strong> Promoção'
+						})}
+					/>
 				</div>
 				<div>
 					<svg
@@ -51,31 +65,98 @@ export const getStaticPaths = () =>
 		<div class="container py-10">
 			<div class="grid gap-4 py-10 md:grid-cols-2 md:items-center md:gap-8 xl:gap-20">
 				<div class="p-3 md:col-span-1">
+					<p
+						class="text-color mb-3"
+						set:html={t({
+							en: 'We are thrilled to announce a brand-new promotion designed to reward your trading activity—our <span class="font-semibold text-neutral-800 dark:text-white">CashBack Promotion!</span>',
+							ar: 'نحن متحمسون للإعلان عن عرض ترويجي جديد تمامًا مصمم لمكافأة نشاط تداولك - <span class="font-semibold text-neutral-800 dark:text-white">عرض استرداد النقد!</span>',
+							es: 'Estamos emocionados de anunciar una nueva promoción diseñada para recompensar tu actividad de trading: ¡nuestra <span class="font-semibold text-neutral-800 dark:text-white">Promoción de Reembolso!</span>',
+							fr: 'Nous sommes ravis d\'annoncer une toute nouvelle promotion conçue pour récompenser votre activité de trading—notre <span class="font-semibold text-neutral-800 dark:text-white">Promotion de Remboursement!</span>',
+							hi: 'हम आपके व्यापार गतिविधियों को पुरस्कृत करने के लिए डिज़ाइन किए गए एक बिल्कुल नए प्रचार की घोषणा करते हुए बहुत खुश हैं—हमारा <span class="font-semibold text-neutral-800 dark:text-white">कैशबैक प्रचार!</span>',
+							id: 'Kami sangat senang mengumumkan promosi baru yang dirancang untuk menghargai aktivitas trading Anda—<span class="font-semibold text-neutral-800 dark:text-white">Promosi Cashback kami!</span>',
+							ms: 'Kami teruja untuk mengumumkan promosi baru yang direka untuk memberi ganjaran kepada aktiviti dagangan anda—<span class="font-semibold text-neutral-800 dark:text-white">Promosi Cashback kami!</span>',
+							th: 'เรารู้สึกตื่นเต้นที่จะประกาศโปรโมชั่นใหม่ล่าสุดที่ออกแบบมาเพื่อมอบรางวัลให้กับกิจกรรมการซื้อขายของคุณ—<span class="font-semibold text-neutral-800 dark:text-white">โปรโมชั่นคืนเงิน!</span>',
+							vi: 'Chúng tôi rất vui mừng thông báo về một chương trình khuyến mãi hoàn toàn mới được thiết kế để thưởng cho hoạt động giao dịch của bạn—<span class="font-semibold text-neutral-800 dark:text-white">Chương trình khuyến mãi Hoàn tiền!</span>',
+							bn: 'আমরা আপনার ট্রেডিং কার্যকলাপকে পুরস্কৃত করার জন্য ডিজাইন করা একটি নতুন প্রচারনা ঘোষণা করতে উল্লাসিত—আমাদের <span class="font-semibold text-neutral-800 dark:text-white">ক্যাশব্যাক প্রচারনা!</span>',
+							'zh-hans':
+								'我们很高兴地宣布一项全新的促销活动，旨在奖励您的交易活动——我们的<span class="font-semibold text-neutral-800 dark:text-white">现金返还促销!</span>',
+							'pt-br':
+								'Estamos empolgados em anunciar uma nova promoção projetada para recompensar sua atividade de negociação—nossa <span class="font-semibold text-neutral-800 dark:text-white">Promoção de Cashback!</span>'
+						})}
+					/>
+					<p
+						class="text-color mb-8"
+						set:html={t({
+							en: 'Starting today, you’ll receive <span class="font-semibold text-neutral-800 dark:text-white">up to $3</span> per lot for every lot you trade. This means you can earn up to an incredible <span class="font-semibold text-neutral-800 dark:text-white">$7410</span> directly into your account. It’s our way of saying thank you for choosing to trade with us and giving you more value for every trade you make.',
+							ar: 'بدءًا من اليوم، ستتلقى <span class="font-semibold text-neutral-800 dark:text-white">ما يصل إلى 3 دولارات</span> لكل عقد تقوم بتداوله. هذا يعني أنك يمكن أن تكسب ما يصل إلى <span class="font-semibold text-neutral-800 dark:text-white">7410 دولارات</span> مباشرة في حسابك. إنها طريقتنا لقول شكرًا لاختيارك التداول معنا ومنحك المزيد من القيمة عن كل صفقة تقوم بها.',
+							es: 'A partir de hoy, recibirás <span class="font-semibold text-neutral-800 dark:text-white">hasta $3</span> por lote por cada lote que operes. Esto significa que puedes ganar hasta un increíble <span class="font-semibold text-neutral-800 dark:text-white">$7410</span> directamente en tu cuenta. Es nuestra manera de agradecerte por elegir operar con nosotros y brindarte más valor por cada operación que realices.',
+							fr: "À partir d'aujourd'hui, vous recevrez <span class=\"font-semibold text-neutral-800 dark:text-white\">jusqu'à 3 $</span> par lot pour chaque lot que vous négociez. Cela signifie que vous pouvez gagner jusqu'à un incroyable <span class=\"font-semibold text-neutral-800 dark:text-white\">7410 $</span> directement sur votre compte. C'est notre façon de vous remercier d'avoir choisi de trader avec nous et de vous offrir plus de valeur pour chaque transaction que vous effectuez.",
+							hi: 'आज से, आप प्रति लॉट व्यापार करने के लिए <span class="font-semibold text-neutral-800 dark:text-white">3 डॉलर तक</span> प्राप्त करेंगे। इसका मतलब है कि आप सीधे अपने खाते में <span class="font-semibold text-neutral-800 dark:text-white">7410 डॉलर</span> तक कमा सकते हैं। यह हमारे द्वारा आपके द्वारा हमारे साथ व्यापार करने के लिए धन्यवाद कहने का तरीका है और हर व्यापार के लिए आपको अधिक मूल्य देने का तरीका है।',
+							id: 'Mulai hari ini, Anda akan menerima <span class="font-semibold text-neutral-800 dark:text-white">hingga $3</span> per lot untuk setiap lot yang Anda perdagangkan. Ini berarti Anda bisa mendapatkan hingga <span class="font-semibold text-neutral-800 dark:text-white">$7410</span> langsung ke akun Anda. Ini adalah cara kami mengucapkan terima kasih karena telah memilih untuk berdagang dengan kami dan memberikan Anda lebih banyak nilai untuk setiap perdagangan yang Anda lakukan.',
+							ms: 'Mulai hari ini, anda akan menerima <span class="font-semibold text-neutral-800 dark:text-white">sehingga $3</span> setiap lot untuk setiap lot yang anda dagangkan. Ini bermakna anda boleh memperoleh sehingga <span class="font-semibold text-neutral-800 dark:text-white">$7410</span> terus ke dalam akaun anda. Ini adalah cara kami mengucapkan terima kasih kerana memilih untuk berdagang dengan kami dan memberikan anda lebih banyak nilai untuk setiap perdagangan yang anda lakukan.',
+							th: 'เริ่มตั้งแต่วันนี้ คุณจะได้รับ <span class="font-semibold text-neutral-800 dark:text-white">สูงถึง 3 ดอลลาร์</span> ต่อล็อตสำหรับทุกล็อตที่คุณเทรด ซึ่งหมายความว่าคุณสามารถทำเงินได้สูงถึง <span class="font-semibold text-neutral-800 dark:text-white">7410 ดอลลาร์</span> เข้าสู่บัญชีของคุณโดยตรง นี่คือวิธีที่เราจะกล่าวขอบคุณที่คุณเลือกเทรดกับเราและมอบมูลค่าเพิ่มเติมให้คุณสำหรับทุกการเทรดที่คุณทำ',
+							vi: 'Bắt đầu từ hôm nay, bạn sẽ nhận được <span class="font-semibold text-neutral-800 dark:text-white">lên đến $3</span> cho mỗi lô bạn giao dịch. Điều này có nghĩa là bạn có thể kiếm được tối đa <span class="font-semibold text-neutral-800 dark:text-white">$7410</span> trực tiếp vào tài khoản của bạn. Đây là cách chúng tôi cảm ơn bạn đã chọn giao dịch với chúng tôi và mang lại giá trị hơn cho mỗi giao dịch bạn thực hiện.',
+							bn: 'আজ থেকে, আপনি প্রতি লটের জন্য <span class="font-semibold text-neutral-800 dark:text-white">$3 পর্যন্ত</span> পাবেন। এর মানে হল আপনি আপনার অ্যাকাউন্টে <span class="font-semibold text-neutral-800 dark:text-white">$7410</span> পর্যন্ত উপার্জন করতে পারেন। এটি আমাদের আপনার প্রতি ধন্যবাদ জানানোর উপায় এবং প্রতিটি ব্যবসায়ের জন্য আপনাকে আরও মূল্য দেওয়ার উপায়।',
+							'zh-hans':
+								'从今天开始，您将获得每手交易 <span class="font-semibold text-neutral-800 dark:text-white">最高 3 美元</span>。这意味着您可以直接在账户中赚取高达 <span class="font-semibold text-neutral-800 dark:text-white">7410 美元</span>。这是我们感谢您选择与我们交易并为您每次交易提供更多价值的一种方式。',
+							'pt-br':
+								'A partir de hoje, você receberá <span class="font-semibold text-neutral-800 dark:text-white">até $3</span> por lote para cada lote que negociar. Isso significa que você pode ganhar até incríveis <span class="font-semibold text-neutral-800 dark:text-white">$7410</span> diretamente em sua conta. É nossa maneira de agradecer por escolher negociar conosco e lhe dar mais valor a cada negociação que você realizar.'
+						})}
+					/>
 					<p class="text-color mb-3">
-						We are thrilled to announce a brand-new promotion designed to reward your trading
-						activity—our <span class="font-semibold text-neutral-800 dark:text-white"
-							>CashBack Promotion!</span
-						>
-					</p>
-					<p class="text-color mb-8">
-						Starting today, you’ll receive <span
-							class="font-semibold text-neutral-800 dark:text-white">up to $3</span
-						> per lot for every lot you trade. This means you can earn up to an incredible <span
-							class="font-semibold text-neutral-800 dark:text-white">$7410</span
-						> directly into your account. It’s our way of saying thank you for choosing to trade with
-						us and giving you more value for every trade you make.
-					</p>
-					<p class="text-color mb-3">
-						Don’t miss out on this fantastic opportunity to enhance your trading experience. Whether
-						you’re a seasoned trader or just getting started, this promotion is designed to boost
-						your trading potential.
+						{
+							t({
+								en: 'Don’t miss out on this fantastic opportunity to enhance your trading experience. Whether you’re a seasoned trader or just getting started, this promotion is designed to boost your trading potential.',
+								ar: 'لا تفوت هذه الفرصة الرائعة لتعزيز تجربتك في التداول. سواء كنت متداولًا ذو خبرة أو بدأت للتو، فإن هذه الحملة مصممة لتعزيز إمكانات تداولك.',
+								es: 'No te pierdas esta fantástica oportunidad para mejorar tu experiencia de trading. Ya seas un trader experimentado o estés comenzando, esta promoción está diseñada para potenciar tu potencial de trading.',
+								fr: "Ne manquez pas cette opportunité fantastique d'améliorer votre expérience de trading. Que vous soyez un trader expérimenté ou que vous commenciez tout juste, cette promotion est conçue pour renforcer votre potentiel de trading.",
+								hi: 'इस अद्भुत अवसर को अपनी व्यापारिक अनुभव को बढ़ाने का मौका न चूकें। चाहे आप एक अनुभवी व्यापारी हों या बस शुरुआत कर रहे हों, यह प्रचार आपके व्यापारिक क्षमता को बढ़ाने के लिए डिज़ाइन किया गया है।',
+								id: 'Jangan lewatkan kesempatan fantastis ini untuk meningkatkan pengalaman trading Anda. Apakah Anda seorang trader berpengalaman atau baru memulai, promosi ini dirancang untuk meningkatkan potensi trading Anda.',
+								ms: 'Jangan lepaskan peluang hebat ini untuk meningkatkan pengalaman perdagangan anda. Sama ada anda seorang pedagang berpengalaman atau baru memulakan, promosi ini direka untuk meningkatkan potensi perdagangan anda.',
+								th: 'อย่าพลาดโอกาสอันยอดเยี่ยมนี้ในการปรับปรุงประสบการณ์การซื้อขายของคุณ ไม่ว่าคุณจะเป็นเทรดเดอร์ที่มีประสบการณ์หรือเพิ่งเริ่มต้น โปรโมชั่นนี้ถูกออกแบบมาเพื่อเพิ่มศักยภาพการซื้อขายของคุณ',
+								vi: 'Đừng bỏ lỡ cơ hội tuyệt vời này để nâng cao trải nghiệm giao dịch của bạn. Dù bạn là một nhà giao dịch có kinh nghiệm hay chỉ mới bắt đầu, chương trình khuyến mãi này được thiết kế để tăng cường tiềm năng giao dịch của bạn.',
+								bn: 'এই চমৎকার সুযোগটি আপনার ট্রেডিং অভিজ্ঞতা বাড়ানোর জন্য মিস করবেন না। আপনি অভিজ্ঞ ট্রেডার হোন বা নতুন শুরু করুন, এই প্রচারটি আপনার ট্রেডিং সম্ভাবনা বাড়ানোর জন্য ডিজাইন করা হয়েছে।',
+								'zh-hans':
+									'不要错过这个提升您交易体验的绝佳机会。无论您是经验丰富的交易者还是刚刚起步，这个促销旨在提升您的交易潜力。',
+								'pt-br':
+									'Não perca esta oportunidade fantástica de aprimorar sua experiência de trading. Se você é um trader experiente ou está apenas começando, esta promoção é projetada para aumentar seu potencial de trading.'
+							})
+						}
 					</p>
 					<p class="mb-3 text-neutral-800 dark:text-white">
-						Start trading today and watch your rewards grow!
+						{
+							t({
+								en: 'Start trading today and watch your rewards grow!',
+								ar: 'ابدأ التداول اليوم وشاهد مكافآتك تنمو!',
+								es: '¡Comienza a operar hoy y observa cómo crecen tus recompensas!',
+								fr: "Commencez à trader aujourd'hui et regardez vos récompenses croître !",
+								hi: 'आज ही व्यापार करना शुरू करें और देखें कि आपकी पुरस्कार कैसे बढ़ती हैं!',
+								id: 'Mulailah berdagang hari ini dan saksikan imbalan Anda tumbuh!',
+								ms: 'Mulakan perdagangan hari ini dan saksikan ganjaran anda berkembang!',
+								th: 'เริ่มการซื้อขายวันนี้และชมรางวัลของคุณเติบโต!',
+								vi: 'Bắt đầu giao dịch hôm nay và xem phần thưởng của bạn tăng lên!',
+								bn: 'আজই ব্যবসা শুরু করুন এবং আপনার পুরস্কার বাড়তে দেখুন!',
+								'zh-hans': '今天就开始交易，看看你的奖励如何增长！',
+								'pt-br': 'Comece a negociar hoje e veja suas recompensas crescerem!'
+							})
+						}
 					</p>
 
 					<Button
-						text="Download MT5"
+						text={t({
+							en: 'Start Trading Now',
+							ar: 'ابدأ التداول الآن',
+							es: 'Comienza a operar ahora',
+							fr: 'Commencez à trader maintenant',
+							hi: 'अभी व्यापार शुरू करें',
+							id: 'Mulai berdagang sekarang',
+							ms: 'Mulakan perdagangan sekarang',
+							th: 'เริ่มการซื้อขายตอนนี้',
+							vi: 'Bắt đầu giao dịch ngay bây giờ',
+							bn: 'এখনই ব্যবসা শুরু করুন',
+							'zh-hans': '立即开始交易',
+							'pt-br': 'Comece a negociar agora'
+						})}
 						primary={false}
 						rippleEffect="true"
 						primary="true"
@@ -87,7 +168,22 @@ export const getStaticPaths = () =>
 					<h1
 						class="mb-5 block text-2xl font-bold capitalize text-gray-800 dark:text-white sm:text-2xl md:text-3xl lg:text-3xl"
 					>
-						Promotion Highlights
+						{
+							t({
+								en: 'Promotion Highlights',
+								ar: 'أبرز ملامح العرض',
+								es: 'Destacados de la promoción',
+								fr: 'Points forts de la promotion',
+								hi: 'प्रमोशन हाइलाइट्स',
+								id: 'Sorotan Promosi',
+								ms: 'Sorotan Promosi',
+								th: 'ไฮไลท์โปรโมชั่น',
+								vi: 'Điểm nổi bật của chương trình khuyến mãi',
+								bn: 'প্রচারিত বৈশিষ্ট্য',
+								'zh-hans': '促销亮点',
+								'pt-br': 'Destaques da Promoção'
+							})
+						}
 					</h1>
 					<div class="flex flex-col gap-8">
 						<div
@@ -115,8 +211,42 @@ export const getStaticPaths = () =>
 									</svg>
 								</div>
 								<div class="">
-									<h2 class="text-xl font-bold text-neutral-800 dark:text-white">CashBack Rate</h2>
-									<p class="">Up to $3 per lot traded</p>
+									<h2 class="text-xl font-bold text-neutral-800 dark:text-white">
+										{
+											t({
+												en: 'CashBack Rate',
+												ar: 'معدل استرداد النقود',
+												es: 'Tasa de Reembolso',
+												fr: 'Taux de Remboursement',
+												hi: 'कैशबैक दर',
+												id: 'Tingkat Cashback',
+												ms: 'Kadar Cashback',
+												th: 'อัตราเงินคืน',
+												vi: 'Tỷ lệ hoàn tiền',
+												bn: 'ক্যাশব্যাক হার',
+												'zh-hans': '现金返还率',
+												'pt-br': 'Taxa de Cashback'
+											})
+										}
+									</h2>
+									<p class="">
+										{
+											t({
+												en: 'Up to $3 per lot traded',
+												ar: 'حتى 3 دولارات لكل عقد تم تداوله',
+												es: 'Hasta $3 por lote negociado',
+												fr: "Jusqu'à 3 $ par lot échangé",
+												hi: 'प्रत्येक व्यापारित लॉट पर $3 तक',
+												id: 'Hingga $3 per lot yang diperdagangkan',
+												ms: 'Sehingga $3 setiap lot yang diperdagangkan',
+												th: 'สูงสุด 3 ดอลลาร์ต่อล็อตที่ซื้อขาย',
+												vi: 'Lên đến 3 đô la mỗi lô giao dịch',
+												bn: 'প্রতি লটে $3 পর্যন্ত',
+												'zh-hans': '每手交易最高可达3美元',
+												'pt-br': 'Até $3 por lote negociado'
+											})
+										}
+									</p>
 								</div>
 							</div>
 						</div>
@@ -150,8 +280,42 @@ export const getStaticPaths = () =>
 									</svg>
 								</div>
 								<div class="">
-									<h2 class="text-xl font-bold text-neutral-800 dark:text-white">Maximum Payout</h2>
-									<p class="">$7410 per client account</p>
+									<h2 class="text-xl font-bold text-neutral-800 dark:text-white">
+										{
+											t({
+												en: 'Maximum Payout',
+												ar: 'الحد الأقصى للدفع',
+												es: 'Pago Máximo',
+												fr: 'Montant Maximum',
+												hi: 'अधिकतम भुगतान',
+												id: 'Pembayaran Maksimum',
+												ms: 'Pembayaran Maksimum',
+												th: 'การจ่ายเงินสูงสุด',
+												vi: 'Số tiền thanh toán tối đa',
+												bn: 'সর্বাধিক অর্থপ্রদান',
+												'zh-hans': '最高付款',
+												'pt-br': 'Pagamento Máximo'
+											})
+										}
+									</h2>
+									<p class="">
+										{
+											t({
+												en: '$7410 per client account',
+												ar: '7410 دولار أمريكي لكل حساب عميل',
+												es: '7410 dólares por cuenta de cliente',
+												fr: '7410 $ par compte client',
+												hi: 'प्रति ग्राहक खाते $7410',
+												id: '7410 dolar per akun klien',
+												ms: '7410 dolar bagi setiap akaun pelanggan',
+												th: '7410 ดอลลาร์ต่อบัญชีลูกค้า',
+												vi: '7410 đô la mỗi tài khoản khách hàng',
+												bn: 'প্রতি ক্লায়েন্ট অ্যাকাউন্ট $7410',
+												'zh-hans': '每个客户账户7410美元',
+												'pt-br': '7410 dólares por conta de cliente'
+											})
+										}
+									</p>
 								</div>
 							</div>
 						</div>
@@ -176,8 +340,42 @@ export const getStaticPaths = () =>
 									</svg>
 								</div>
 								<div class="">
-									<h2 class="text-xl font-bold text-neutral-800 dark:text-white">Eligibility</h2>
-									<p class="">All trading accounts are automatically enrolled!</p>
+									<h2 class="text-xl font-bold text-neutral-800 dark:text-white">
+										{
+											t({
+												en: 'Eligibility',
+												ar: 'الأهلية',
+												es: 'Elegibilidad',
+												fr: 'Éligibilité',
+												hi: 'योग्यता',
+												id: 'Kelayakan',
+												ms: 'Kelayakan',
+												th: 'คุณสมบัติ',
+												vi: 'Đủ điều kiện',
+												bn: 'যোজ্যতা',
+												'zh-hans': '资格',
+												'pt-br': 'Elegibilidade'
+											})
+										}
+									</h2>
+									<p class="">
+										{
+											t({
+												en: 'All trading accounts are automatically enrolled!',
+												ar: 'يتم تسجيل جميع حسابات التداول تلقائيًا!',
+												es: '¡Todas las cuentas de trading están inscritas automáticamente!',
+												fr: 'Tous les comptes de trading sont automatiquement inscrits !',
+												hi: 'सभी ट्रेडिंग खाते स्वचालित रूप से पंजीकृत होते हैं!',
+												id: 'Semua akun trading secara otomatis terdaftar!',
+												ms: 'Semua akaun dagangan secara automatik didaftarkan!',
+												th: 'บัญชีซื้อขายทั้งหมดจะลงทะเบียนโดยอัตโนมัติ!',
+												vi: 'Tất cả các tài khoản giao dịch đều được tự động đăng ký!',
+												bn: 'সমস্ত ট্রেডিং অ্যাকাউন্ট স্বয়ংক্রিয়ভাবে নিবন্ধিত!',
+												'zh-hans': '所有交易账户自动注册！',
+												'pt-br': 'Todas as contas de negociação são automaticamente inscritas!'
+											})
+										}
+									</p>
 								</div>
 							</div>
 						</div>
@@ -188,7 +386,22 @@ export const getStaticPaths = () =>
 				<h1
 					class="mb-5 block text-center text-2xl font-bold capitalize text-gray-800 dark:text-white sm:text-2xl md:text-3xl lg:text-3xl"
 				>
-					Cashback scheme
+					{
+						t({
+							en: 'Cashback scheme',
+							ar: 'نظام استرداد النقود',
+							es: 'Esquema de reembolso',
+							fr: 'Système de cashback',
+							hi: 'कैशबैक योजना',
+							id: 'Skema cashback',
+							ms: 'Skim cashback',
+							th: 'โครงการเงินคืน',
+							vi: 'Chương trình hoàn tiền',
+							bn: 'ক্যাশব্যাক স্কিম',
+							'zh-hans': '现金返还计划',
+							'pt-br': 'Esquema de cashback'
+						})
+					}
 				</h1>
 				<div>
 					<div class="">
@@ -206,24 +419,87 @@ export const getStaticPaths = () =>
 												<th
 													scope="col"
 													class="whitespace-nowrap px-6 py-3 text-start text-lg font-semibold uppercase text-dbgreen-500"
-													colspan="3">CashBack Traders Promo Table</th
+													colspan="3"
+													>{
+														t({
+															en: 'CashBack Traders Promo Table',
+															ar: 'جدول ترويج المتداولين لاسترداد النقود',
+															es: 'Tabla de promoción de Traders CashBack',
+															fr: 'Tableau de promotion des traders CashBack',
+															hi: 'कैशबैक ट्रेडर्स प्रोमो टेबल',
+															id: 'Tabel Promo Trader CashBack',
+															ms: 'Jadual Promo Trader CashBack',
+															th: 'ตารางโปรโมชันผู้ค้าเงินคืน',
+															vi: 'Bảng khuyến mãi Traders CashBack',
+															bn: 'ক্যাশব্যাক ট্রেডারদের প্রমো টেবিল',
+															'zh-hans': '现金返还交易者促销表',
+															'pt-br': 'Tabela de Promoção Traders CashBack'
+														})
+													}</th
 												>
 											</tr>
 											<tr class="divide-x divide-gray-200 dark:divide-neutral-700">
 												<th
 													scope="col"
 													class="whitespace-nowrap px-6 py-3 text-start text-lg font-semibold uppercase text-dbgreen-500"
-													>Total Lots</th
 												>
+													{
+														t({
+															en: 'Total Lots',
+															ar: 'إجمالي الحصص',
+															es: 'Total de Lotes',
+															fr: 'Total des Lots',
+															hi: 'कुल लॉट',
+															id: 'Total Lot',
+															ms: 'Jumlah Lot',
+															th: 'จำนวนล็อตทั้งหมด',
+															vi: 'Tổng số lô',
+															bn: 'মোট লট',
+															'zh-hans': '总手数',
+															'pt-br': 'Total de Lotes'
+														})
+													}
+												</th>
 												<th
 													scope="col"
 													class="whitespace-nowrap px-6 py-3 text-start text-lg font-semibold uppercase text-dbgreen-500"
-													>USD/Lot</th
 												>
+													{
+														t({
+															en: 'USD/Lot',
+															ar: 'دولار/لوت',
+															es: 'USD/Lote',
+															fr: 'USD/LOT',
+															hi: 'यूएसडी/लॉट',
+															id: 'USD/Lot',
+															ms: 'USD/Lot',
+															th: 'ดอลลาร์/ล็อต',
+															vi: 'USD/Lô',
+															bn: 'মার্কিন ডলার/লট',
+															'zh-hans': '美元/手',
+															'pt-br': 'USD/Lote'
+														})
+													}
+												</th>
 												<th
 													scope="col"
 													class="whitespace-nowrap px-6 py-3 text-start text-lg font-semibold uppercase text-dbgreen-500"
-													>USD/Lot</th
+													>{
+														t({
+															en: 'Total CashBack',
+															ar: 'إجمالي الكاش باك',
+															es: 'Reembolso Total',
+															fr: 'Remboursement Total',
+															hi: 'कुल कैशबैक',
+															id: 'Total CashBack',
+															ms: 'Jumlah CashBack',
+															th: 'ยอดเงินคืนรวม',
+															vi: 'Tổng CashBack',
+															bn: 'মোট ক্যাশব্যাক',
+															'zh-hans': '总现金返还',
+															'pt-br': 'Total de CashBack'
+														})
+													}</th
 												>
 											</tr>
 										</thead>
@@ -374,7 +650,23 @@ export const getStaticPaths = () =>
 											>
 												<td
 													class="whitespace-nowrap px-6 py-4 text-sm font-medium text-gray-800 dark:text-neutral-200"
-													colspan="2">Conditions</td
+													colspan="2"
+													>{
+														t({
+															en: 'Conditions',
+															ar: 'الشروط',
+															es: 'Condiciones',
+															fr: 'Conditions',
+															hi: 'शर्तें',
+															id: 'Ketentuan',
+															ms: 'Syarat',
+															th: 'เงื่อนไข',
+															vi: 'Điều kiện',
+															bn: 'শর্ত',
+															'zh-hans': '条件',
+															'pt-br': 'Condições'
+														})
+													}</td
 												>
 											</tr>
 											<tr
@@ -382,7 +674,23 @@ export const getStaticPaths = () =>
 											>
 												<td
 													class="whitespace-nowrap px-6 py-4 text-sm font-medium text-gray-800 dark:text-neutral-200"
-													colspan="3">Minimum trade opening: 5 minutes, 300 seconds</td
+													colspan="3"
+													>{
+														t({
+															en: 'Minimum trade opening: 5 minutes, 300 seconds',
+															ar: 'الحد الأدنى لفتح التجارة: 5 دقائق، 300 ثانية',
+															es: 'Apertura mínima de operación: 5 minutos, 300 segundos',
+															fr: 'Ouverture minimale de transaction : 5 minutes, 300 secondes',
+															hi: 'न्यूनतम व्यापार खोलना: 5 मिनट, 300 सेकंड',
+															id: 'Pembukaan perdagangan minimum: 5 menit, 300 detik',
+															ms: 'Pembukaan perdagangan minimum: 5 minit, 300 saat',
+															th: 'การเปิดการค้าอย่างน้อย: 5 นาที, 300 วินาที',
+															vi: 'Thời gian mở giao dịch tối thiểu: 5 phút, 300 giây',
+															bn: 'ন্যূনতম ব্যবসায়ের খোলার সময়: 5 মিনিট, 300 সেকেন্ড',
+															'zh-hans': '最小交易开启：5分钟，300秒',
+															'pt-br': 'Abertura mínima de negociação: 5 minutos, 300 segundos'
+														})
+													}</td
 												>
 											</tr>
 											<tr
@@ -390,7 +698,23 @@ export const getStaticPaths = () =>
 											>
 												<td
 													class="whitespace-nowrap px-6 py-4 text-sm font-medium text-gray-800 dark:text-neutral-200"
-													colspan="3">Instruments: Forex and Metals</td
+													colspan="3"
+													>{
+														t({
+															en: 'Instruments: Forex and Metals',
+															ar: 'الأدوات: الفوركس والمعادن',
+															es: 'Instrumentos: Forex y Metales',
+															fr: 'Instruments : Forex et Métaux',
+															hi: 'उपकरण: फॉरेक्स और धातुएं',
+															id: 'Instrumen: Forex dan Logam',
+															ms: 'Instrumen: Forex dan Logam',
+															th: 'เครื่องมือ: ฟอเร็กซ์และโลหะ',
+															vi: 'Công cụ: Forex và Kim loại',
+															bn: 'যন্ত্র: ফরেক্স এবং ধাতু',
+															'zh-hans': '工具：外汇和贵金属',
+															'pt-br': 'Instrumentos: Forex e Metais'
+														})
+													}</td
 												>
 											</tr>
 										</tbody>

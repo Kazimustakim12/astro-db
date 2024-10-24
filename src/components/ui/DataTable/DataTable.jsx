@@ -202,7 +202,7 @@ const Pagination = ({
 					bn: 'এর',
 					'zh-hans': '的',
 					'pt-br': 'de'
-				})}
+				})}{' '}
 				{totalNumberOfPages} of {totalNumberOfPages}{' '}
 				{trans({
 					en: 'entries',
@@ -418,7 +418,6 @@ const DataTable = ({ headers, data, isLoading, loadingTag, language }) => {
 										'pt-br': 'Mostrar'
 									})}
 								</span>
-
 								<div>
 									<select
 										className="rounded-lg border border-neutral-200 px-3 py-2 dark:border-neutral-700"

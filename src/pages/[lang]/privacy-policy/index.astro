@@ -1,6 +1,7 @@
 ---
-import { LOCALES } from '@/i18n'
+import { LOCALES, useTranslations, type Lang } from '@/i18n'
 import Layout from '@/layouts/Layout.astro'
+const t = useTranslations(Astro.currentLocale as Lang)
 
 const images = import.meta.glob<{ default: ImageMetadata }>('/src/images/*.{jpeg,jpg,png,gif}')
 export const getStaticPaths = () =>
@@ -9,18 +10,45 @@ export const getStaticPaths = () =>
 	}))
 ---
 
-<Layout title="Privacy Policy">
+<Layout
+	title={t({
+		en: 'Privacy Policy',
+		ar: 'سياسة الخصوصية',
+		es: 'Política de Privacidad',
+		fr: 'Politique de Confidentialité',
+		hi: 'गोपनीयता नीति',
+		id: 'Kebijakan Privasi',
+		ms: 'Dasar Privasi',
+		th: 'นโยบายความเป็นส่วนตัว',
+		vi: 'Chính sách Bảo mật',
+		bn: 'গোপনীয়তা নীতি',
+		'zh-hans': '隐私政策',
+		'pt-br': 'Política de Privacidade'
+	})}
+>
 	<section>
 		<div
-			class="relative z-20 w-full overflow-hidden bg-gray-100 py-3 before:absolute before:start-1/2 before:top-0 before:-z-[1] before:size-full before:-translate-x-1/2 before:transform before:bg-[url('/src/images/world_bg.png')] before:bg-center before:bg-no-repeat before:opacity-45 before:hue-rotate-60 dark:bg-black dark:before:bg-[url('/src/images/world_bg.png')]"
+			class="relative z-20 w-full overflow-hidden bg-gray-100 py-3 before:absolute before:top-0 before:-z-[1] before:size-full before:transform before:bg-[url('/src/images/world_bg.png')] before:bg-center before:bg-no-repeat before:opacity-45 before:hue-rotate-60 dark:bg-black dark:before:bg-[url('/src/images/world_bg.png')]"
 		>
 			<div class="container flex flex-col items-center justify-between gap-6 py-10 sm:flex-row">
 				<div>
 					<h1
 						class="block text-center text-4xl font-bold text-gray-800 dark:text-neutral-200 sm:text-left md:text-4xl lg:text-5xl"
-					>
-						Privacy <span class="text-green-500">Policy</span>
-					</h1>
+						set:html={t({
+							en: 'Privacy <span class="text-green-500">Policy</span>',
+							ar: 'سياسة <span class="text-green-500">الخصوصية</span>',
+							es: 'Política de <span class="text-green-500">Privacidad</span>',
+							fr: 'Politique de <span class="text-green-500">Confidentialité</span>',
+							hi: 'गोपनीयता <span class="text-green-500">नीति</span>',
+							id: 'Kebijakan <span class="text-green-500">Privasi</span>',
+							ms: 'Dasar <span class="text-green-500">Privasi</span>',
+							th: 'นโยบาย<span class="text-green-500">ความเป็นส่วนตัว</span>',
+							vi: 'Chính sách <span class="text-green-500">Bảo mật</span>',
+							bn: 'গোপনীয়তা <span class="text-green-500">নীতি</span>',
+							'zh-hans': '隐私<span class="text-green-500">政策</span>',
+							'pt-br': 'Política de <span class="text-green-500">Privacidade</span>'
+						})}
+					/>
 				</div>
 				<div>
 					<svg
@@ -41,118 +69,356 @@ export const getStaticPaths = () =>
 		<div class="container py-10">
 			<div class="mb-5">
 				<p class="text-color mb-3">
-					Please read this privacy notice carefully as we would like to inform you that your privacy
-					on the Internet is of crucial importance to us and it also contains important information
-					on who we are, how and why we collect, store, use and share personal information, your
-					rights in relation to your personal information and on how to contact us and supervisory
-					authorities in the event you have a complaint.
+					{
+						t({
+							en: 'Please read this privacy notice carefully as we would like to inform you that your privacy on the Internet is of crucial importance to us and it also contains important information on who we are, how and why we collect, store, use and share personal information, your rights in relation to your personal information and on how to contact us and supervisory authorities in the event you have a complaint.',
+							ar: 'يرجى قراءة إشعار الخصوصية هذا بعناية حيث نود أن نعلمك بأن خصوصيتك على الإنترنت ذات أهمية قصوى بالنسبة لنا، كما يحتوي على معلومات هامة حول من نحن، وكيف ولماذا نجمع ونخزن ونستخدم ونشارك المعلومات الشخصية، وحقوقك المتعلقة بمعلوماتك الشخصية، وكيفية الاتصال بنا وبالسلطات الإشرافية في حال كانت لديك شكوى.',
+							es: 'Por favor, lea este aviso de privacidad con atención, ya que queremos informarle que su privacidad en Internet es de suma importancia para nosotros y también contiene información importante sobre quiénes somos, cómo y por qué recopilamos, almacenamos, usamos y compartimos información personal, sus derechos en relación con su información personal y cómo contactarnos y a las autoridades de supervisión en caso de que tenga una queja.',
+							fr: "Veuillez lire attentivement cet avis de confidentialité, car nous souhaitons vous informer que votre vie privée sur Internet est d'une importance cruciale pour nous. Il contient également des informations importantes sur qui nous sommes, comment et pourquoi nous collectons, stockons, utilisons et partageons des informations personnelles, vos droits concernant vos informations personnelles et comment nous contacter ainsi que les autorités de surveillance en cas de réclamation.",
+							hi: 'कृपया इस गोपनीयता नोटिस को ध्यान से पढ़ें क्योंकि हम आपको सूचित करना चाहते हैं कि इंटरनेट पर आपकी गोपनीयता हमारे लिए अत्यधिक महत्वपूर्ण है और इसमें महत्वपूर्ण जानकारी भी है कि हम कौन हैं, हम व्यक्तिगत जानकारी को कैसे और क्यों एकत्रित, संग्रहीत, उपयोग और साझा करते हैं, आपकी व्यक्तिगत जानकारी के संबंध में आपके अधिकार, और शिकायत की स्थिति में हमसे और पर्यवेक्षी अधिकारियों से कैसे संपर्क करें।',
+							id: 'Harap baca pemberitahuan privasi ini dengan seksama karena kami ingin memberi tahu Anda bahwa privasi Anda di Internet sangat penting bagi kami dan juga berisi informasi penting tentang siapa kami, bagaimana dan mengapa kami mengumpulkan, menyimpan, menggunakan, dan berbagi informasi pribadi, hak-hak Anda terkait dengan informasi pribadi Anda dan cara menghubungi kami serta otoritas pengawas jika Anda memiliki keluhan.',
+							ms: 'Sila baca notis privasi ini dengan teliti kerana kami ingin memberitahu anda bahawa privasi anda di Internet adalah sangat penting bagi kami dan ia juga mengandungi maklumat penting mengenai siapa kami, bagaimana dan mengapa kami mengumpul, menyimpan, menggunakan dan berkongsi maklumat peribadi, hak anda berkaitan maklumat peribadi anda dan bagaimana menghubungi kami dan pihak berkuasa penyeliaan sekiranya anda mempunyai aduan.',
+							th: 'โปรดอ่านประกาศความเป็นส่วนตัวนี้อย่างละเอียด เนื่องจากเราอยากแจ้งให้คุณทราบว่า ความเป็นส่วนตัวของคุณบนอินเทอร์เน็ตเป็นสิ่งที่สำคัญมากสำหรับเรา และยังมีข้อมูลสำคัญเกี่ยวกับว่าเราเป็นใคร วิธีการและเหตุผลที่เรารวบรวม จัดเก็บ ใช้ และแบ่งปันข้อมูลส่วนบุคคล สิทธิ์ของคุณเกี่ยวกับข้อมูลส่วนบุคคล และวิธีติดต่อเรารวมถึงหน่วยงานกำกับดูแลในกรณีที่คุณมีข้อร้องเรียน',
+							vi: 'Vui lòng đọc kỹ thông báo quyền riêng tư này vì chúng tôi muốn thông báo cho bạn rằng quyền riêng tư của bạn trên Internet rất quan trọng đối với chúng tôi và thông báo này cũng chứa thông tin quan trọng về chúng tôi là ai, cách và lý do chúng tôi thu thập, lưu trữ, sử dụng và chia sẻ thông tin cá nhân, quyền của bạn đối với thông tin cá nhân của mình và cách liên hệ với chúng tôi cũng như các cơ quan giám sát nếu bạn có khiếu nại.',
+							bn: 'এই গোপনীয়তা নোটিশটি মনোযোগ সহকারে পড়ুন কারণ আমরা আপনাকে অবহিত করতে চাই যে ইন্টারনেটে আপনার গোপনীয়তা আমাদের কাছে অত্যন্ত গুরুত্বপূর্ণ এবং এতে আমরা কারা, কীভাবে এবং কেন আমরা ব্যক্তিগত তথ্য সংগ্রহ, সংরক্ষণ, ব্যবহার এবং ভাগ করি, আপনার ব্যক্তিগত তথ্যের সাথে সম্পর্কিত আপনার অধিকার এবং আপনার অভিযোগ থাকলে আমাদের এবং তদারকি কর্তৃপক্ষের সাথে কীভাবে যোগাযোগ করবেন সে সম্পর্কে গুরুত্বপূর্ণ তথ্য রয়েছে।',
+							'zh-hans':
+								'请仔细阅读此隐私声明，因为我们想告知您，您的互联网隐私对我们至关重要，并且其中包含有关我们是谁、我们如何以及为何收集、存储、使用和共享个人信息、您在与个人信息相关的权利，以及如果您有投诉，如何联系我们和监管机构的重要信息。',
+							'pt-br':
+								'Leia atentamente este aviso de privacidade, pois gostaríamos de informar que sua privacidade na Internet é de extrema importância para nós e também contém informações importantes sobre quem somos, como e por que coletamos, armazenamos, usamos e compartilhamos informações pessoais, seus direitos em relação às suas informações pessoais e como nos contatar e as autoridades supervisoras caso tenha uma reclamação.'
+						})
+					}
 				</p>
 				<p class="text-color mb-3">
-					We require you to submit your contact details so that we can communicate with you and
-					introduce you to our services. We will inform you at the point of collecting information
-					from you, whether you are required to provide the information to us.
+					{
+						t({
+							en: 'We require you to submit your contact details so that we can communicate with you and introduce you to our services. We will inform you at the point of collecting information from you, whether you are required to provide the information to us.',
+							ar: 'نطلب منك تقديم تفاصيل الاتصال الخاصة بك حتى نتمكن من التواصل معك وتقديم خدماتنا لك. سنبلغك في وقت جمع المعلومات منك، إذا كان مطلوبًا منك تقديم هذه المعلومات لنا.',
+							es: 'Requerimos que proporcione sus datos de contacto para que podamos comunicarnos con usted y presentarle nuestros servicios. Le informaremos en el momento de recopilar la información si es necesario que nos la proporcione.',
+							fr: 'Nous vous demandons de soumettre vos coordonnées afin que nous puissions communiquer avec vous et vous présenter nos services. Nous vous informerons au moment de la collecte de vos informations si vous devez nous les fournir.',
+							hi: 'हम आपसे आपके संपर्क विवरण प्रस्तुत करने का अनुरोध करते हैं ताकि हम आपसे संवाद कर सकें और आपको अपनी सेवाओं से परिचित करा सकें। हम आपको जानकारी एकत्र करते समय सूचित करेंगे कि क्या आपको यह जानकारी हमें प्रदान करनी आवश्यक है।',
+							id: 'Kami meminta Anda untuk mengirimkan detail kontak Anda agar kami dapat berkomunikasi dengan Anda dan memperkenalkan layanan kami. Kami akan memberi tahu Anda pada saat pengumpulan informasi dari Anda, apakah Anda diharuskan memberikan informasi tersebut kepada kami.',
+							ms: 'Kami memerlukan anda untuk menyerahkan butiran hubungan anda supaya kami boleh berkomunikasi dengan anda dan memperkenalkan perkhidmatan kami kepada anda. Kami akan memaklumkan anda pada masa pengumpulan maklumat daripada anda, sama ada anda dikehendaki memberikan maklumat tersebut kepada kami.',
+							th: 'เราต้องการให้คุณส่งรายละเอียดการติดต่อของคุณเพื่อที่เราจะสามารถสื่อสารกับคุณและแนะนำคุณเกี่ยวกับบริการของเรา เราจะแจ้งให้คุณทราบเมื่อเรารวบรวมข้อมูลจากคุณว่าคุณจำเป็นต้องให้ข้อมูลกับเราหรือไม่',
+							vi: 'Chúng tôi yêu cầu bạn cung cấp thông tin liên hệ của mình để chúng tôi có thể liên lạc với bạn và giới thiệu các dịch vụ của chúng tôi. Chúng tôi sẽ thông báo cho bạn tại thời điểm thu thập thông tin từ bạn, liệu bạn có bắt buộc phải cung cấp thông tin đó cho chúng tôi hay không.',
+							bn: 'আমরা আপনার যোগাযোগের বিবরণ জমা দেওয়ার জন্য অনুরোধ করছি যাতে আমরা আপনার সাথে যোগাযোগ করতে পারি এবং আপনাকে আমাদের পরিষেবাগুলির সাথে পরিচয় করিয়ে দিতে পারি। আমরা আপনার কাছ থেকে তথ্য সংগ্রহের সময় আপনাকে জানিয়ে দেব যে আপনাকে তথ্য প্রদান করা প্রয়োজন কিনা।',
+							'zh-hans':
+								'我们要求您提供联系信息，以便我们能够与您沟通并向您介绍我们的服务。我们将在收集您的信息时告知您是否需要向我们提供这些信息。',
+							'pt-br':
+								'Solicitamos que você forneça seus dados de contato para que possamos nos comunicar com você e apresentá-lo aos nossos serviços. Iremos informá-lo no momento da coleta de informações se é necessário que você nos forneça essas informações.'
+						})
+					}
 				</p>
 			</div>
 			<div class="mb-5">
 				<h2
 					class="mb-5 block text-2xl font-bold capitalize text-gray-800 underline dark:text-white"
 				>
-					What we collect
+					{
+						t({
+							en: 'What we collect',
+							ar: 'ما نقوم بجمعه',
+							es: 'Lo que recopilamos',
+							fr: 'Ce que nous collectons',
+							hi: 'हम क्या एकत्र करते हैं',
+							id: 'Apa yang kami kumpulkan',
+							ms: 'Apa yang kami kumpulkan',
+							th: 'สิ่งที่เรารวบรวม',
+							vi: 'Những gì chúng tôi thu thập',
+							bn: 'আমরা যা সংগ্রহ করি',
+							'zh-hans': '我们收集的内容',
+							'pt-br': 'O que coletamos'
+						})
+					}
 				</h2>
 				<p class="text-color mb-3">
-					DB Investing may request personal information, such as names, addresses, personal
-					registration number, national identification number, passport number and e-mail addresses
-					etc. for account set up, maintenance and management of client accounts. We also require
-					your personal data to process deposits and withdrawals.
+					{
+						t({
+							en: 'DB Investing may request personal information, such as names, addresses, personal registration number, national identification number, passport number and e-mail addresses etc. for account set up, maintenance and management of client accounts. We also require your personal data to process deposits and withdrawals.',
+							ar: 'قد تطلب DB Investing معلومات شخصية مثل الأسماء والعناوين ورقم التسجيل الشخصي، ورقم الهوية الوطنية، ورقم جواز السفر وعناوين البريد الإلكتروني، إلخ. لإعداد الحسابات وصيانتها وإدارة حسابات العملاء. نحتاج أيضًا إلى بياناتك الشخصية لمعالجة الإيداعات والسحوبات.',
+							es: 'DB Investing puede solicitar información personal, como nombres, direcciones, número de registro personal, número de identificación nacional, número de pasaporte y direcciones de correo electrónico, etc., para configurar, mantener y gestionar cuentas de clientes. También necesitamos tus datos personales para procesar depósitos y retiros.',
+							fr: "DB Investing peut demander des informations personnelles, telles que des noms, adresses, numéro d'enregistrement personnel, numéro d'identification nationale, numéro de passeport et adresses e-mail, etc., pour la création, la gestion et l'administration des comptes clients. Nous avons également besoin de vos données personnelles pour traiter les dépôts et les retraits.",
+							hi: 'DB Investing खाता सेट अप, रखरखाव और ग्राहक खातों के प्रबंधन के लिए नाम, पते, व्यक्तिगत पंजीकरण संख्या, राष्ट्रीय पहचान संख्या, पासपोर्ट नंबर और ई-मेल पते आदि जैसी व्यक्तिगत जानकारी का अनुरोध कर सकता है। हमें जमा और निकासी को संसाधित करने के लिए भी आपके व्यक्तिगत डेटा की आवश्यकता होती है।',
+							id: 'DB Investing mungkin meminta informasi pribadi, seperti nama, alamat, nomor registrasi pribadi, nomor identifikasi nasional, nomor paspor dan alamat email, dll. untuk pengaturan, pemeliharaan, dan pengelolaan akun klien. Kami juga memerlukan data pribadi Anda untuk memproses deposit dan penarikan.',
+							ms: 'DB Investing mungkin meminta maklumat peribadi seperti nama, alamat, nombor pendaftaran peribadi, nombor pengenalan negara, nombor pasport dan alamat e-mel, dan lain-lain untuk penubuhan, penyelenggaraan dan pengurusan akaun pelanggan. Kami juga memerlukan data peribadi anda untuk memproses deposit dan pengeluaran.',
+							th: 'DB Investing อาจขอข้อมูลส่วนบุคคล เช่น ชื่อ ที่อยู่ หมายเลขทะเบียนส่วนบุคคล หมายเลขประจำตัวประชาชน หมายเลขหนังสือเดินทาง และที่อยู่อีเมล ฯลฯ เพื่อการตั้งค่า บำรุงรักษา และจัดการบัญชีลูกค้า นอกจากนี้เรายังต้องใช้ข้อมูลส่วนบุคคลของคุณเพื่อดำเนินการฝากและถอนเงิน',
+							vi: 'DB Investing có thể yêu cầu thông tin cá nhân, chẳng hạn như tên, địa chỉ, số đăng ký cá nhân, số chứng minh nhân dân, số hộ chiếu và địa chỉ email, v.v. để thiết lập, duy trì và quản lý tài khoản khách hàng. Chúng tôi cũng cần dữ liệu cá nhân của bạn để xử lý tiền gửi và rút tiền.',
+							bn: 'DB Investing অ্যাকাউন্ট সেট আপ, রক্ষণাবেক্ষণ এবং গ্রাহক অ্যাকাউন্ট পরিচালনার জন্য নাম, ঠিকানা, ব্যক্তিগত নিবন্ধন নম্বর, জাতীয় পরিচয়পত্র নম্বর, পাসপোর্ট নম্বর এবং ইমেল ঠিকানা ইত্যাদি ব্যক্তিগত তথ্যের অনুরোধ করতে পারে। আমানত এবং উত্তোলন প্রক্রিয়া করতে আমাদের আপনার ব্যক্তিগত ডেটারও প্রয়োজন।',
+							'zh-hans':
+								'DB Investing 可能会要求提供个人信息，例如姓名、地址、个人注册号、国家身份证号、护照号码和电子邮件地址等，以便设置、维护和管理客户账户。我们还需要您的个人数据来处理存款和取款。',
+							'pt-br':
+								'DB Investing pode solicitar informações pessoais, como nomes, endereços, número de registro pessoal, número de identificação nacional, número de passaporte e endereços de e-mail, etc. para configuração, manutenção e gerenciamento de contas de clientes. Também precisamos de seus dados pessoais para processar depósitos e retiradas.'
+						})
+					}
 				</p>
 				<p class="text-color mb-3">
-					DB Investing recognizes the importance of clients’ privacy and will never use, disclose,
-					sell, rent or lease the client’s personal and financial information to any third parties
-					except to persons acting in a judiciary, representative, or attorney capacity in relation
-					to the client’s trading account, in order to protect against fraud, money laundering,
-					unauthorized transactions, claims or other liabilities to government, regulatory or law
-					enforcement agencies to the extent permitted or required by law, or to comply with
-					applicable legal requirements. Information such as income, credit history, net worth will
-					not be shared by the Company under any circumstances.
+					{
+						t({
+							en: 'DB Investing recognizes the importance of clients’ privacy and will never use, disclose, sell, rent or lease the client’s personal and financial information to any third parties except to persons acting in a judiciary, representative, or attorney capacity in relation to the client’s trading account, in order to protect against fraud, money laundering, unauthorized transactions, claims or other liabilities to government, regulatory or law enforcement agencies to the extent permitted or required by law, or to comply with applicable legal requirements. Information such as income, credit history, net worth will not be shared by the Company under any circumstances.',
+							ar: 'تعترف DB Investing بأهمية خصوصية العملاء ولن تستخدم أو تفصح أو تبيع أو تؤجر أو تؤجر المعلومات الشخصية والمالية للعميل لأي أطراف ثالثة إلا للأشخاص الذين يعملون في السلك القضائي أو كممثلين أو محامين فيما يتعلق بحساب التداول الخاص بالعميل، من أجل الحماية من الاحتيال وغسيل الأموال والمعاملات غير المصرح بها والمطالبات أو غيرها من المسؤوليات للحكومة أو الهيئات التنظيمية أو وكالات إنفاذ القانون بالقدر الذي يسمح به أو يتطلبه القانون أو للامتثال للمتطلبات القانونية المعمول بها. لن تشارك الشركة معلومات مثل الدخل أو تاريخ الائتمان أو صافي القيمة تحت أي ظرف من الظروف.',
+							es: 'DB Investing reconoce la importancia de la privacidad de los clientes y nunca usará, divulgará, venderá, alquilará ni arrendará la información personal y financiera del cliente a terceros, excepto a personas que actúen en capacidad judicial, representativa o de abogado en relación con la cuenta de trading del cliente, con el fin de proteger contra el fraude, el lavado de dinero, transacciones no autorizadas, reclamaciones u otras responsabilidades ante agencias gubernamentales, regulatorias o de cumplimiento de la ley en la medida permitida o requerida por la ley, o para cumplir con los requisitos legales aplicables. Información como ingresos, historial crediticio y patrimonio neto no será compartida por la Compañía bajo ninguna circunstancia.',
+							fr: "DB Investing reconnaît l'importance de la confidentialité des clients et ne divulguera, vendra, louera ou cédera jamais les informations personnelles et financières des clients à des tiers, sauf aux personnes agissant en qualité judiciaire, représentative ou d'avocat en lien avec le compte de trading du client, afin de protéger contre la fraude, le blanchiment d'argent, les transactions non autorisées, les réclamations ou autres responsabilités envers les agences gouvernementales, réglementaires ou d'application de la loi dans la mesure permise ou exigée par la loi, ou pour se conformer aux exigences légales applicables. Les informations telles que les revenus, l'historique de crédit, la valeur nette ne seront pas partagées par la société sous aucune circonstance.",
+							hi: 'DB Investing ग्राहकों की गोपनीयता के महत्व को पहचानता है और कभी भी ग्राहक की व्यक्तिगत और वित्तीय जानकारी का उपयोग, खुलासा, बिक्री, किराये या पट्टे पर किसी तीसरे पक्ष को नहीं देगा, सिवाय उन व्यक्तियों के जो ग्राहक के ट्रेडिंग खाते के संबंध में न्यायिक, प्रतिनिधि, या वकील की क्षमता में कार्य कर रहे हों, धोखाधड़ी, मनी लॉन्ड्रिंग, अनधिकृत लेनदेन, दावों या अन्य देनदारियों से सरकारी, नियामक या कानून प्रवर्तन एजेंसियों के खिलाफ सुरक्षा करने के लिए, कानून द्वारा अनुमत या आवश्यक सीमा तक, या लागू कानूनी आवश्यकताओं का पालन करने के लिए। आय, क्रेडिट इतिहास, शुद्ध संपत्ति जैसी जानकारी किसी भी परिस्थिति में कंपनी द्वारा साझा नहीं की जाएगी।',
+							id: 'DB Investing mengakui pentingnya privasi klien dan tidak akan pernah menggunakan, mengungkapkan, menjual, menyewakan, atau menyewakan informasi pribadi dan keuangan klien kepada pihak ketiga kecuali kepada orang yang bertindak dalam kapasitas yudisial, perwakilan, atau pengacara sehubungan dengan akun perdagangan klien, untuk melindungi terhadap penipuan, pencucian uang, transaksi yang tidak sah, klaim atau kewajiban lain kepada pemerintah, badan pengatur atau penegak hukum sejauh yang diizinkan atau diwajibkan oleh hukum, atau untuk mematuhi persyaratan hukum yang berlaku. Informasi seperti pendapatan, riwayat kredit, kekayaan bersih tidak akan dibagikan oleh Perusahaan dalam keadaan apa pun.',
+							ms: 'DB Investing mengiktiraf kepentingan privasi pelanggan dan tidak akan menggunakan, mendedahkan, menjual, menyewa atau memajak maklumat peribadi dan kewangan pelanggan kepada mana-mana pihak ketiga kecuali kepada orang yang bertindak dalam kapasiti kehakiman, wakil, atau peguam berhubung dengan akaun dagangan pelanggan, untuk melindungi daripada penipuan, pengubahan wang haram, transaksi yang tidak dibenarkan, tuntutan atau liabiliti lain kepada kerajaan, badan pengawalseliaan atau agensi penguatkuasaan undang-undang setakat yang dibenarkan atau diperlukan oleh undang-undang, atau untuk mematuhi keperluan undang-undang yang berkenaan. Maklumat seperti pendapatan, sejarah kredit, nilai bersih tidak akan dikongsi oleh Syarikat dalam apa jua keadaan.',
+							th: 'DB Investing ตระหนักถึงความสำคัญของความเป็นส่วนตัวของลูกค้า และจะไม่มีวันใช้ เปิดเผย ขาย ให้เช่าหรือเช่าข้อมูลส่วนบุคคลและข้อมูลทางการเงินของลูกค้าแก่บุคคลที่สาม ยกเว้นบุคคลที่ทำหน้าที่ในฐานะตุลาการ ตัวแทน หรือทนายความที่เกี่ยวข้องกับบัญชีการซื้อขายของลูกค้า เพื่อป้องกันการฉ้อโกง การฟอกเงิน ธุรกรรมที่ไม่ได้รับอนุญาต การเรียกร้องหรือความรับผิดอื่นๆ ต่อรัฐบาล หน่วยงานกำกับดูแล หรือหน่วยงานบังคับใช้กฎหมายในขอบเขตที่กฎหมายอนุญาตหรือกำหนดไว้ หรือเพื่อปฏิบัติตามข้อกำหนดทางกฎหมายที่เกี่ยวข้อง ข้อมูล เช่น รายได้ ประวัติเครดิต มูลค่าสุทธิจะไม่ถูกเปิดเผยโดยบริษัทไม่ว่าในกรณีใดๆ',
+							vi: 'DB Investing công nhận tầm quan trọng của quyền riêng tư của khách hàng và sẽ không bao giờ sử dụng, tiết lộ, bán, cho thuê hoặc cho thuê thông tin cá nhân và tài chính của khách hàng cho bất kỳ bên thứ ba nào, ngoại trừ những người hoạt động trong tư cách tư pháp, đại diện hoặc luật sư liên quan đến tài khoản giao dịch của khách hàng, nhằm bảo vệ chống lại gian lận, rửa tiền, các giao dịch không được phép, khiếu nại hoặc các trách nhiệm pháp lý khác đối với chính phủ, cơ quan quản lý hoặc cơ quan thực thi pháp luật trong phạm vi luật pháp cho phép hoặc yêu cầu, hoặc để tuân thủ các yêu cầu pháp lý hiện hành. Thông tin như thu nhập, lịch sử tín dụng, giá trị ròng sẽ không được Công ty chia sẻ trong bất kỳ hoàn cảnh nào.',
+							bn: 'DB Investing গ্রাহকদের গোপনীয়তার গুরুত্বকে স্বীকৃতি দেয় এবং কখনই গ্রাহকের ব্যক্তিগত এবং আর্থিক তথ্য কোনো তৃতীয় পক্ষের কাছে ব্যবহার করবে না, প্রকাশ করবে না, বিক্রি করবে না, ভাড়া দেবে না বা লিজ দেবে না, গ্রাহকের ট্রেডিং অ্যাকাউন্টের সাথে সম্পর্কিত বিচারিক, প্রতিনিধি বা অ্যাটর্নির ক্ষমতায় থাকা ব্যক্তিদের ব্যতীত, প্রতারণা, অর্থ পাচার, অননুমোদিত লেনদেন, দাবি বা অন্যান্য দায় থেকে সরকার, নিয়ন্ত্রক বা আইন প্রয়োগকারী সংস্থার বিরুদ্ধে সুরক্ষার জন্য, আইন দ্বারা অনুমোদিত বা প্রয়োজনীয় পরিমাণে, বা প্রযোজ্য আইনি প্রয়োজনীয়তা মেনে চলার জন্য। আয়, ক্রেডিট ইতিহাস, নিট সম্পদের মতো তথ্য কোনো অবস্থাতেই কোম্পানির দ্বারা শেয়ার করা হবে না।',
+							'zh-hans':
+								'DB Investing 认识到客户隐私的重要性，绝不会将客户的个人和财务信息用于、披露、出售、出租或租赁给任何第三方，除非该等第三方以司法、代理或律师身份处理客户的交易账户，以便防范欺诈、洗钱、未经授权的交易、索赔或其他对政府、监管或执法机构的责任，在法律允许或要求的范围内，或遵守适用的法律要求。公司不会在任何情况下分享收入、信用历史、净资产等信息。',
+							'pt-br':
+								'A DB Investing reconhece a importância da privacidade dos clientes e nunca usará, divulgará, venderá, alugará ou cederá as informações pessoais e financeiras dos clientes a terceiros, exceto para pessoas que atuam em capacidade judicial, representativa ou advocatícia em relação à conta de negociação do cliente, a fim de proteger contra fraudes, lavagem de dinheiro, transações não autorizadas, reclamações ou outras responsabilidades perante agências governamentais, regulatórias ou de aplicação da lei, na medida permitida ou exigida por lei, ou para cumprir os requisitos legais aplicáveis. Informações como renda, histórico de crédito, patrimônio líquido não serão compartilhadas pela Empresa em nenhuma circunstância.'
+						})
+					}
 				</p>
 			</div>
 			<div class="mb-5">
 				<h2
 					class="mb-5 block text-2xl font-bold capitalize text-gray-800 underline dark:text-white"
 				>
-					Why we collect:
+					{
+						t({
+							en: 'Why we collect:',
+							ar: 'لماذا نجمع:',
+							es: 'Por qué recopilamos:',
+							fr: 'Pourquoi nous collectons :',
+							hi: 'हम क्यों इकट्ठा करते हैं:',
+							id: 'Mengapa kami mengumpulkan:',
+							ms: 'Mengapa kami mengumpul:',
+							th: 'ทำไมเราถึงเก็บรวบรวม:',
+							vi: 'Tại sao chúng tôi thu thập:',
+							bn: 'আমরা কেন সংগ্রহ করি:',
+							'zh-hans': '我们为什么收集：',
+							'pt-br': 'Por que coletamos:'
+						})
+					}
 				</h2>
 				<p class="text-color mb-3">
-					We collect your personal information such as Gender, Full Name, DOB and Address to comply
-					with our anti money laundering (AML) obligations and to complete the KYC and client due
-					diligence.
+					{
+						t({
+							en: 'We collect your personal information such as Gender, Full Name, DOB and Address to comply with our anti money laundering (AML) obligations and to complete the KYC and client due diligence.',
+							ar: 'نجمع معلوماتك الشخصية مثل الجنس، الاسم الكامل، تاريخ الميلاد والعنوان للامتثال لالتزاماتنا لمكافحة غسيل الأموال (AML) ولإكمال إجراءات اعرف عميلك (KYC) وعناية العملاء.',
+							es: 'Recopilamos su información personal, como género, nombre completo, fecha de nacimiento y dirección, para cumplir con nuestras obligaciones de prevención del lavado de dinero (AML) y completar el KYC y la debida diligencia del cliente.',
+							fr: "Nous collectons vos informations personnelles telles que le sexe, le nom complet, la date de naissance et l'adresse pour respecter nos obligations en matière de lutte contre le blanchiment d'argent (AML) et pour compléter le KYC et la diligence raisonnable des clients.",
+							hi: 'हम आपकी व्यक्तिगत जानकारी जैसे लिंग, पूरा नाम, जन्म तिथि और पता एकत्र करते हैं ताकि हम अपने एंटी मनी लॉन्ड्रिंग (AML) दायित्वों का पालन कर सकें और KYC और ग्राहक उचित परिश्रम को पूरा कर सकें।',
+							id: 'Kami mengumpulkan informasi pribadi Anda seperti Jenis Kelamin, Nama Lengkap, Tanggal Lahir, dan Alamat untuk memenuhi kewajiban anti pencucian uang (AML) kami dan untuk menyelesaikan KYC serta uji tuntas klien.',
+							ms: 'Kami mengumpul maklumat peribadi anda seperti Jantina, Nama Penuh, Tarikh Lahir dan Alamat untuk mematuhi obligasi anti pengubahan wang haram (AML) kami dan untuk melengkapkan KYC serta ketekunan wajar pelanggan.',
+							th: 'เรารวบรวมข้อมูลส่วนบุคคลของคุณ เช่น เพศ, ชื่อเต็ม, วันเกิด และที่อยู่ เพื่อปฏิบัติตามข้อกำหนดต่อต้านการฟอกเงิน (AML) ของเรา และเพื่อให้เสร็จสิ้น KYC และการตรวจสอบสถานะลูกค้า',
+							vi: 'Chúng tôi thu thập thông tin cá nhân của bạn như Giới tính, Họ và tên, Ngày sinh và Địa chỉ để tuân thủ các nghĩa vụ chống rửa tiền (AML) của chúng tôi và để hoàn tất KYC cũng như thẩm định khách hàng.',
+							bn: 'আমরা আপনার ব্যক্তিগত তথ্য যেমন লিঙ্গ, পূর্ণ নাম, জন্ম তারিখ এবং ঠিকানা সংগ্রহ করি যাতে আমাদের অ্যান্টি মানি লন্ডারিং (এএমএল) বাধ্যবাধকতা মেনে চলতে এবং KYC এবং ক্লায়েন্টের যথাযথ যত্ন সম্পন্ন করতে পারি।',
+							'zh-hans':
+								'我们收集您的个人信息，例如性别、全名、出生日期和地址，以遵守我们的反洗钱（AML）义务并完成客户尽职调查（KYC）。',
+							'pt-br':
+								'Coletamos suas informações pessoais, como gênero, nome completo, data de nascimento e endereço, para cumprir nossas obrigações de combate à lavagem de dinheiro (AML) e para completar o KYC e a devida diligência do cliente.'
+						})
+					}
 				</p>
 				<p class="text-color mb-3">
-					Your email and contact information is used to correspond to you regarding the services we
-					provide and to fulfil our compliance obligations.
+					{
+						t({
+							en: 'Your email and contact information is used to correspond to you regarding the services we provide and to fulfil our compliance obligations.',
+							ar: 'تُستخدم معلومات بريدك الإلكتروني ووسائل الاتصال الخاصة بك للتواصل معك بخصوص الخدمات التي نقدمها وللامتثال لالتزاماتنا.',
+							es: 'Su correo electrónico y la información de contacto se utilizan para comunicarse con usted sobre los servicios que ofrecemos y para cumplir con nuestras obligaciones de cumplimiento.',
+							fr: 'Votre adresse e-mail et vos coordonnées sont utilisées pour communiquer avec vous concernant les services que nous proposons et pour remplir nos obligations de conformité.',
+							hi: 'आपका ईमेल और संपर्क जानकारी हमारे द्वारा प्रदान की गई सेवाओं के संबंध में आपसे संवाद करने और हमारे अनुपालन दायित्वों को पूरा करने के लिए उपयोग की जाती है।',
+							id: 'Email dan informasi kontak Anda digunakan untuk berkorespondensi dengan Anda mengenai layanan yang kami berikan dan untuk memenuhi kewajiban kepatuhan kami.',
+							ms: 'Alamat emel dan maklumat kontak anda digunakan untuk berhubung dengan anda mengenai perkhidmatan yang kami sediakan dan untuk memenuhi kewajiban pematuhan kami.',
+							th: 'อีเมลและข้อมูลการติดต่อของคุณจะใช้เพื่อติดต่อคุณเกี่ยวกับบริการที่เรามีและเพื่อให้เป็นไปตามข้อกำหนดด้านการปฏิบัติตามกฎระเบียบของเรา',
+							vi: 'Email và thông tin liên lạc của bạn được sử dụng để liên lạc với bạn về các dịch vụ mà chúng tôi cung cấp và để thực hiện nghĩa vụ tuân thủ của chúng tôi.',
+							bn: 'আপনার ইমেল এবং যোগাযোগের তথ্য আমাদের দ্বারা প্রদত্ত পরিষেবাগুলির সাথে সম্পর্কিত যোগাযোগের জন্য এবং আমাদের সম্মতি বাধ্যবাধকতা পূরণের জন্য ব্যবহার করা হয়।',
+							'zh-hans':
+								'您的电子邮件和联系信息用于与您就我们提供的服务进行通信，并履行我们的合规义务。',
+							'pt-br':
+								'Seu e-mail e informações de contato são usados para se comunicar com você sobre os serviços que fornecemos e para cumprir nossas obrigações de conformidade.'
+						})
+					}
 				</p>
 				<p class="text-color mb-3">
-					We may also ask you about your ethnicity, citizenship, social security number or passport
-					number to comply with our KYC and to complete AML obligations.
+					{
+						t({
+							en: 'We may also ask you about your ethnicity, citizenship, social security number or passport number to comply with our KYC and to complete AML obligations.',
+							ar: 'قد نطلب منك أيضًا معلومات حول عرقك وجنسيتك ورقم الضمان الاجتماعي أو رقم جواز السفر للامتثال لمتطلبات KYC وإكمال التزامات AML.',
+							es: 'También podemos preguntarle sobre su etnia, ciudadanía, número de seguro social o número de pasaporte para cumplir con nuestras obligaciones de KYC y completar las obligaciones de AML.',
+							fr: 'Nous pouvons également vous demander votre ethnie, votre citoyenneté, votre numéro de sécurité sociale ou votre numéro de passeport pour respecter nos obligations KYC et compléter nos obligations AML.',
+							hi: 'हम आपकी जाति, नागरिकता, सामाजिक सुरक्षा संख्या या पासपोर्ट संख्या के बारे में भी पूछ सकते हैं ताकि हम अपनी KYC का पालन कर सकें और AML की आवश्यकताओं को पूरा कर सकें।',
+							id: 'Kami juga dapat menanyakan tentang etnis Anda, kewarganegaraan, nomor jaminan sosial, atau nomor paspor Anda untuk mematuhi KYC kami dan menyelesaikan kewajiban AML.',
+							ms: 'Kami juga mungkin bertanya tentang etnik, kewarganegaraan, nombor keselamatan sosial atau nombor pasport anda untuk mematuhi KYC kami dan melengkapkan obligasi AML.',
+							th: 'เราอาจถามเกี่ยวกับเชื้อชาติ สัญชาติ หมายเลขประกันสังคม หรือหมายเลขหนังสือเดินทางของคุณเพื่อปฏิบัติตาม KYC ของเราและเพื่อให้ครบถ้วนตามข้อกำหนด AML',
+							vi: 'Chúng tôi cũng có thể hỏi bạn về dân tộc, quốc tịch, số an sinh xã hội hoặc số hộ chiếu của bạn để tuân thủ KYC và hoàn thành nghĩa vụ AML.',
+							bn: 'আমরা আপনার জাতি, নাগরিকত্ব, সামাজিক নিরাপত্তা নম্বর বা পাসপোর্ট নম্বর সম্পর্কিত তথ্যও জানতে চাইতে পারি যাতে আমরা আমাদের KYC মেনে চলতে পারি এবং AML বাধ্যবাধকতা সম্পূর্ণ করতে পারি।',
+							'zh-hans':
+								'我们可能还会询问您的种族、公民身份、社会安全号码或护照号码，以遵守我们的KYC并完成AML义务。',
+							'pt-br':
+								'Também podemos perguntar sobre sua etnia, cidadania, número de seguridade social ou número do passaporte para cumprir com nosso KYC e concluir as obrigações de AML.'
+						})
+					}
 				</p>
 			</div>
 			<div class="mb-5">
 				<h2
 					class="mb-5 block text-2xl font-bold capitalize text-gray-800 underline dark:text-white"
 				>
-					Security of your Data:
+					{
+						t({
+							en: 'Security of your Data:',
+							ar: 'أمان بياناتك:',
+							es: 'Seguridad de sus datos:',
+							fr: 'Sécurité de vos données :',
+							hi: 'आपके डेटा की सुरक्षा:',
+							id: 'Keamanan Data Anda:',
+							ms: 'Keselamatan Data Anda:',
+							th: 'ความปลอดภัยของข้อมูลของคุณ:',
+							vi: 'Bảo mật dữ liệu của bạn:',
+							bn: 'আপনার ডেটার সুরক্ষা:',
+							'zh-hans': '您的数据安全：',
+							'pt-br': 'Segurança dos seus dados:'
+						})
+					}
 				</h2>
 				<p class="text-color mb-3">
-					We collect your personal information such as Gender, Full Name, DOB and Address to comply
-					with our anti money laundering (AML) obligations and to complete the KYC and client due
-					diligence.Keeping your personal information secure, your data is stored and kept
-					confidential according to the legislation on protection of personal data and processing
-					there of applicable in the jurisdiction in which DB Investing with which you have signed
-					up is located. We have appropriate security measures in place to prevent personal
-					information from being accidentally lost, misused, modification, disclosure or accessed in
-					an unauthorised way. We limit access to your personal information to those who have a
-					genuine business need to know it. Those processing your information will do so only in an
-					authorised manner and are subject to a duty of confidentiality. We also have procedures in
-					place to deal with any suspected data security breach. We will notify you of a suspected
-					data security breach where we are legally required to do so.
+					{
+						t({
+							en: 'We collect your personal information such as Gender, Full Name, DOB and Address to comply with our anti money laundering (AML) obligations and to complete the KYC and client due diligence. Keeping your personal information secure, your data is stored and kept confidential according to the legislation on protection of personal data and processing thereof applicable in the jurisdiction in which DB Investing with which you have signed up is located. We have appropriate security measures in place to prevent personal information from being accidentally lost, misused, modification, disclosure or accessed in an unauthorized way. We limit access to your personal information to those who have a genuine business need to know it. Those processing your information will do so only in an authorized manner and are subject to a duty of confidentiality. We also have procedures in place to deal with any suspected data security breach. We will notify you of a suspected data security breach where we are legally required to do so.',
+							ar: 'نجمع معلوماتك الشخصية مثل الجنس، الاسم الكامل، تاريخ الميلاد والعنوان للامتثال لالتزاماتنا بمكافحة غسيل الأموال (AML) وإكمال إجراءات اعرف عميلك (KYC) والعناية الواجبة. للحفاظ على أمان معلوماتك الشخصية، يتم تخزين بياناتك والحفاظ عليها سرية وفقًا للتشريعات المتعلقة بحماية البيانات الشخصية ومعالجتها المعمول بها في الاختصاص القضائي الذي تتواجد فيه DB Investing والتي قمت بالتسجيل معها. لدينا تدابير أمنية مناسبة لمنع فقدان المعلومات الشخصية عن طريق الخطأ أو إساءة استخدامها أو تعديلها أو الكشف عنها أو الوصول إليها بطريقة غير مصرح بها. نحن نحد من الوصول إلى معلوماتك الشخصية لأولئك الذين لديهم حاجة فعلية لمعرفتها. أولئك الذين يعالجون معلوماتك سيفعلون ذلك فقط بطريقة مصرح بها وهم خاضعون لواجب السرية. لدينا أيضًا إجراءات للتعامل مع أي خرق محتمل لأمان البيانات. سنقوم بإبلاغك بخرق محتمل لأمان البيانات حيثما يقتضي القانون ذلك.',
+							es: 'Recopilamos su información personal, como género, nombre completo, fecha de nacimiento y dirección, para cumplir con nuestras obligaciones de prevención del lavado de dinero (AML) y completar el KYC y la debida diligencia del cliente. Para mantener segura su información personal, sus datos se almacenan y se mantienen confidenciales de acuerdo con la legislación sobre protección de datos personales y su procesamiento aplicable en la jurisdicción en la que se encuentra DB Investing con la que se ha registrado. Tenemos medidas de seguridad adecuadas para prevenir que la información personal se pierda accidentalmente, se abuse, se modifique, se divulgue o se acceda de manera no autorizada. Limitamos el acceso a su información personal a quienes tienen una necesidad comercial genuina de conocerla. Aquellos que procesan su información lo harán solo de manera autorizada y están sujetos a un deber de confidencialidad. También tenemos procedimientos en su lugar para tratar cualquier posible violación de la seguridad de los datos. Le notificaremos sobre una posible violación de la seguridad de los datos cuando legalmente estemos obligados a hacerlo.',
+							fr: "Nous collectons vos informations personnelles telles que le sexe, le nom complet, la date de naissance et l'adresse pour nous conformer à nos obligations en matière de lutte contre le blanchiment d'argent (AML) et pour compléter le KYC et la diligence raisonnable des clients. Pour sécuriser vos informations personnelles, vos données sont stockées et maintenues confidentielles conformément à la législation sur la protection des données personnelles et le traitement de celles-ci applicable dans la juridiction où se trouve DB Investing avec laquelle vous vous êtes inscrit. Nous avons des mesures de sécurité appropriées en place pour empêcher que des informations personnelles ne soient perdues accidentellement, abusées, modifiées, divulguées ou accessibles de manière non autorisée. Nous limitons l'accès à vos informations personnelles à ceux qui ont un besoin commercial réel de les connaître. Ceux qui traitent vos informations le feront uniquement de manière autorisée et sont soumis à un devoir de confidentialité. Nous avons également des procédures en place pour traiter toute violation suspectée de la sécurité des données. Nous vous informerons d'une violation suspectée de la sécurité des données lorsque nous y serons légalement tenus.",
+							hi: 'हम आपकी व्यक्तिगत जानकारी जैसे लिंग, पूरा नाम, जन्म तिथि और पता एकत्र करते हैं ताकि हम अपने धन शोधन विरोधी (AML) दायित्वों का पालन कर सकें और KYC और ग्राहक के उचित परिश्रम को पूरा कर सकें। आपकी व्यक्तिगत जानकारी को सुरक्षित रखने के लिए, आपका डेटा उस न्यायक्षेत्र में लागू व्यक्तिगत डेटा की सुरक्षा और उसके प्रसंस्करण के संबंध में कानून के अनुसार संग्रहीत और गोपनीय रखा गया है जहां DB Investing स्थित है, जिसके साथ आपने पंजीकरण कराया है। हम यह सुनिश्चित करने के लिए उचित सुरक्षा उपाय करते हैं कि व्यक्तिगत जानकारी अनजाने में खो न जाए, दुरुपयोग न हो, संशोधन न किया जाए, प्रकट न किया जाए या किसी अनधिकृत तरीके से पहुंच न किया जाए। हम आपकी व्यक्तिगत जानकारी तक पहुँच को उन लोगों तक सीमित करते हैं जिनके पास इसे जानने की वास्तविक व्यावसायिक आवश्यकता है। आपकी जानकारी को संसाधित करने वाले केवल अधिकृत तरीके से ऐसा करेंगे और गोपनीयता के कर्तव्य के अधीन हैं। हमारे पास किसी भी संदिग्ध डेटा सुरक्षा उल्लंघन से निपटने के लिए प्रक्रियाएं भी हैं। जब हमें कानूनी रूप से ऐसा करने की आवश्यकता होती है, तो हम आपको किसी संदिग्ध डेटा सुरक्षा उल्लंघन के बारे में सूचित करेंगे।',
+							id: 'Kami mengumpulkan informasi pribadi Anda seperti Jenis Kelamin, Nama Lengkap, Tanggal Lahir, dan Alamat untuk mematuhi kewajiban anti pencucian uang (AML) kami dan untuk menyelesaikan KYC dan uji tuntas klien. Untuk menjaga keamanan informasi pribadi Anda, data Anda disimpan dan dijaga kerahasiaannya sesuai dengan undang-undang perlindungan data pribadi dan pengolahannya yang berlaku di yurisdiksi tempat DB Investing yang Anda daftarkan berada. Kami memiliki langkah-langkah keamanan yang tepat untuk mencegah informasi pribadi hilang secara tidak sengaja, disalahgunakan, dimodifikasi, diungkapkan, atau diakses dengan cara yang tidak sah. Kami membatasi akses ke informasi pribadi Anda hanya kepada mereka yang memiliki kebutuhan bisnis yang nyata untuk mengetahuinya. Mereka yang memproses informasi Anda hanya akan melakukannya dengan cara yang sah dan tunduk pada kewajiban kerahasiaan. Kami juga memiliki prosedur untuk menangani dugaan pelanggaran keamanan data. Kami akan memberi tahu Anda tentang dugaan pelanggaran keamanan data jika kami secara hukum diwajibkan untuk melakukannya.',
+							ms: 'Kami mengumpul maklumat peribadi anda seperti Jantina, Nama Penuh, Tarikh Lahir dan Alamat untuk mematuhi obligasi anti pengubahan wang haram (AML) kami dan untuk melengkapkan KYC dan ketekunan pelanggan. Untuk menjaga keselamatan maklumat peribadi anda, data anda disimpan dan dijaga kerahsiaannya mengikut undang-undang perlindungan data peribadi dan pemprosesannya yang terpakai di bidang kuasa di mana DB Investing yang anda daftarkan terletak. Kami mempunyai langkah-langkah keselamatan yang sesuai untuk mencegah maklumat peribadi daripada hilang secara tidak sengaja, disalahgunakan, diubah, didedahkan atau diakses dengan cara yang tidak dibenarkan. Kami mengehadkan akses kepada maklumat peribadi anda kepada mereka yang mempunyai keperluan perniagaan yang tulen untuk mengetahuinya. Mereka yang memproses maklumat anda hanya akan berbuat demikian dengan cara yang dibenarkan dan tertakluk kepada kewajipan kerahsiaan. Kami juga mempunyai prosedur untuk menangani sebarang pelanggaran keselamatan data yang disyaki. Kami akan memberitahu anda tentang pelanggaran keselamatan data yang disyaki apabila kami secara sah dikehendaki untuk berbuat demikian.',
+							th: 'เราเก็บข้อมูลส่วนบุคคลของคุณ เช่น เพศ ชื่อเต็ม วันเกิด และที่อยู่ เพื่อปฏิบัติตามข้อกำหนดในการต่อต้านการฟอกเงิน (AML) และเพื่อทำการ KYC และการตรวจสอบความน่าเชื่อถือของลูกค้าให้เสร็จสิ้น เพื่อให้ข้อมูลส่วนบุคคลของคุณปลอดภัย ข้อมูลของคุณจะถูกเก็บและรักษาความลับตามกฎหมายเกี่ยวกับการปกป้องข้อมูลส่วนบุคคลและการประมวลผลที่เกี่ยวข้องซึ่งบังคับใช้ในเขตอำนาจศาลที่ DB Investing ตั้งอยู่ ซึ่งคุณได้ลงทะเบียนไว้ เรามีมาตรการรักษาความปลอดภัยที่เหมาะสมเพื่อป้องกันไม่ให้ข้อมูลส่วนบุคคลสูญหายโดยไม่ตั้งใจ ถูกนำไปใช้ในทางที่ผิด แก้ไข เปิดเผย หรือเข้าถึงในทางที่ไม่ได้รับอนุญาต เราจำกัดการเข้าถึงข้อมูลส่วนบุคคลของคุณให้กับผู้ที่มีความจำเป็นทางธุรกิจที่แท้จริงในการรู้จักข้อมูลนั้น ผู้ที่ประมวลผลข้อมูลของคุณจะทำเช่นนั้นได้ในลักษณะที่ได้รับอนุญาตเท่านั้นและอยู่ภายใต้หน้าที่รักษาความลับ เรามีขั้นตอนในการจัดการกับการละเมิดความปลอดภัยของข้อมูลที่สงสัย เราจะแจ้งให้คุณทราบเกี่ยวกับการละเมิดความปลอดภัยของข้อมูลที่สงสัยเมื่อเรามีข้อกำหนดตามกฎหมายในการทำเช่นนั้น',
+							vi: 'Chúng tôi thu thập thông tin cá nhân của bạn như Giới tính, Họ tên, Ngày sinh và Địa chỉ để tuân thủ các nghĩa vụ phòng chống rửa tiền (AML) và để hoàn thành KYC và thẩm định khách hàng. Để bảo mật thông tin cá nhân của bạn, dữ liệu của bạn được lưu trữ và giữ bí mật theo luật bảo vệ dữ liệu cá nhân và việc xử lý chúng áp dụng ở khu vực pháp lý nơi DB Investing mà bạn đã đăng ký được đặt. Chúng tôi có các biện pháp an ninh phù hợp để ngăn thông tin cá nhân bị mất một cách ngẫu nhiên, bị lạm dụng, sửa đổi, tiết lộ hoặc bị truy cập theo cách không hợp pháp. Chúng tôi hạn chế quyền truy cập vào thông tin cá nhân của bạn chỉ cho những người có nhu cầu kinh doanh hợp lệ để biết. Những người xử lý thông tin của bạn chỉ làm điều đó theo cách được ủy quyền và phải tuân theo nghĩa vụ bảo mật. Chúng tôi cũng có các quy trình để xử lý bất kỳ vi phạm an ninh dữ liệu nào bị nghi ngờ. Chúng tôi sẽ thông báo cho bạn về một vi phạm an ninh dữ liệu bị nghi ngờ khi chúng tôi bị yêu cầu theo luật pháp phải làm như vậy.',
+							bn: 'আমরা আপনার ব্যক্তিগত তথ্য যেমন লিঙ্গ, পূর্ণ নাম, জন্ম তারিখ এবং ঠিকানা সংগ্রহ করি আমাদের মানি লন্ডারিং (এএমএল) বাধ্যবাধকতা মেনে চলার জন্য এবং কেওয়াইসি এবং ক্লায়েন্টের যথাযথ যত্ন সম্পন্ন করার জন্য। আপনার ব্যক্তিগত তথ্য সুরক্ষিত রাখতে, আপনার তথ্য সুরক্ষিত এবং গোপনীয়ভাবে সংরক্ষিত থাকে সংশ্লিষ্ট আইন অনুযায়ী যা DB Investing-এ প্রযোজ্য যা আপনি নিবন্ধন করেছেন। আমাদের কাছে সঠিক নিরাপত্তা ব্যবস্থা রয়েছে যাতে ব্যক্তিগত তথ্য দুর্ঘটনাক্রমে হারানো, অপব্যবহার, পরিবর্তন, প্রকাশ করা বা অনুমোদনহীন উপায়ে অ্যাক্সেস করা থেকে রোধ করা যায়। আমরা আপনার ব্যক্তিগত তথ্যের অ্যাক্সেস সীমিত করি তাদের কাছে যারা সত্যিকারের ব্যবসায়িক প্রয়োজনের জন্য এটি জানতে পারে। যারা আপনার তথ্য প্রক্রিয়া করে তারা শুধুমাত্র অনুমোদিত পদ্ধতিতে তাই করবে এবং গোপনীয়তার দায়িত্বের অধীনে রয়েছে। আমাদের কাছে কোনো সন্দেহজনক তথ্য নিরাপত্তার লঙ্ঘন মোকাবেলা করার জন্যও প্রক্রিয়া রয়েছে। আমরা আপনাকে একটি সন্দেহজনক তথ্য নিরাপত্তা লঙ্ঘনের বিষয়ে অবহিত করব যেখানে আইনগতভাবে এটি করার জন্য আমাদের বাধ্য করা হয়।',
+							'zh-hans':
+								'我们收集您的个人信息，例如性别、全名、出生日期和地址，以遵守我们的反洗钱（AML）义务，并完成客户尽职调查（KYC）。为了保护您的个人信息安全，您的数据根据适用于您注册的 DB Investing 所在司法管辖区的个人数据保护和处理的相关法律进行存储和保密。我们采取适当的安全措施，以防止个人信息意外丢失、滥用、修改、披露或以未经授权的方式访问。我们限制对您的个人信息的访问，仅限于那些真正有业务需要了解信息的人。处理您信息的人将仅以授权的方式进行处理，并承担保密义务。我们还制定了处理任何可疑数据安全漏洞的程序。如果我们在法律上被要求这样做，我们将通知您可疑的数据安全漏洞。',
+							'pt-br':
+								'Coletamos suas informações pessoais, como Gênero, Nome Completo, Data de Nascimento e Endereço, para cumprir nossas obrigações de combate à lavagem de dinheiro (AML) e para concluir o KYC e a devida diligência do cliente. Para manter suas informações pessoais seguras, seus dados são armazenados e mantidos em sigilo de acordo com a legislação sobre proteção de dados pessoais e seu processamento aplicável na jurisdição onde a DB Investing com a qual você se registrou está localizada. Temos medidas de segurança apropriadas para evitar que informações pessoais sejam acidentalmente perdidas, mal utilizadas, modificadas, divulgadas ou acessadas de forma não autorizada. Limitamos o acesso às suas informações pessoais apenas àqueles que têm uma necessidade genuína de conhecê-las. Aqueles que processam suas informações o farão apenas de forma autorizada e estão sujeitos a um dever de confidencialidade. Também temos procedimentos em vigor para lidar com qualquer suspeita de violação de segurança de dados. Notificaremos você sobre uma violação de segurança de dados suspeita quando formos legalmente obrigados a fazê-lo.'
+						})
+					}
 				</p>
 			</div>
 			<div class="mb-5">
 				<h2
 					class="mb-5 block text-2xl font-bold capitalize text-gray-800 underline dark:text-white"
 				>
-					Cookie Data:
+					{
+						t({
+							en: 'Cookie Data:',
+							ar: 'بيانات الكوكيز:',
+							es: 'Datos de cookies:',
+							fr: 'Données de cookies :',
+							hi: 'कुकी डेटा:',
+							id: 'Data Cookie:',
+							ms: 'Data Kuki:',
+							th: 'ข้อมูลคุกกี้:',
+							vi: 'Dữ liệu cookie:',
+							bn: 'কুকি ডেটা:',
+							'zh-hans': 'Cookie 数据：',
+							'pt-br': 'Dados de cookies:'
+						})
+					}
 				</h2>
 				<p class="text-color mb-3">
-					We use cookies and similar technologies to provide and support our Services. When you use
-					our website we will use cookies to distinguish you from other users of our website.
+					{
+						t({
+							en: 'We use cookies and similar technologies to provide and support our Services. When you use our website we will use cookies to distinguish you from other users of our website.',
+							ar: 'نستخدم ملفات تعريف الارتباط والتقنيات المماثلة لتقديم ودعم خدماتنا. عند استخدامك لموقعنا الإلكتروني، سنستخدم ملفات تعريف الارتباط لتمييزك عن المستخدمين الآخرين لموقعنا.',
+							es: 'Utilizamos cookies y tecnologías similares para proporcionar y respaldar nuestros servicios. Cuando utiliza nuestro sitio web, utilizamos cookies para distinguirlo de otros usuarios de nuestro sitio web.',
+							fr: 'Nous utilisons des cookies et des technologies similaires pour fournir et soutenir nos services. Lorsque vous utilisez notre site Web, nous utilisons des cookies pour vous distinguer des autres utilisateurs de notre site Web.',
+							hi: 'हम अपनी सेवाओं को प्रदान करने और समर्थन करने के लिए कुकीज़ और समान तकनीकों का उपयोग करते हैं। जब आप हमारी वेबसाइट का उपयोग करते हैं, तो हम आपको हमारी वेबसाइट के अन्य उपयोगकर्ताओं से अलग करने के लिए कुकीज़ का उपयोग करेंगे।',
+							id: 'Kami menggunakan cookie dan teknologi serupa untuk menyediakan dan mendukung Layanan kami. Saat Anda menggunakan situs web kami, kami akan menggunakan cookie untuk membedakan Anda dari pengguna lain di situs web kami.',
+							ms: 'Kami menggunakan kuki dan teknologi serupa untuk menyediakan dan menyokong Perkhidmatan kami. Apabila anda menggunakan laman web kami, kami akan menggunakan kuki untuk membezakan anda daripada pengguna lain di laman web kami.',
+							th: 'เราใช้คุกกี้และเทคโนโลยีที่คล้ายกันเพื่อให้บริการและสนับสนุนบริการของเรา เมื่อคุณใช้เว็บไซต์ของเรา เราจะใช้คุกกี้เพื่อแยกแยะคุณจากผู้ใช้รายอื่นของเว็บไซต์ของเรา',
+							vi: 'Chúng tôi sử dụng cookie và các công nghệ tương tự để cung cấp và hỗ trợ Dịch vụ của chúng tôi. Khi bạn sử dụng trang web của chúng tôi, chúng tôi sẽ sử dụng cookie để phân biệt bạn với những người dùng khác của trang web của chúng tôi.',
+							bn: 'আমরা আমাদের পরিষেবা প্রদান এবং সমর্থন করার জন্য কুকি এবং অনুরূপ প্রযুক্তি ব্যবহার করি। আপনি যখন আমাদের ওয়েবসাইট ব্যবহার করেন, তখন আমরা আপনাকে আমাদের ওয়েবসাইটের অন্যান্য ব্যবহারকারীদের থেকে আলাদা করতে কুকি ব্যবহার করব।',
+							'zh-hans':
+								'我们使用 Cookie 和类似技术来提供和支持我们的服务。当您使用我们的网站时，我们将使用 Cookie 将您与我们网站的其他用户区分开来。',
+							'pt-br':
+								'Usamos cookies e tecnologias semelhantes para fornecer e apoiar nossos serviços. Quando você usa nosso site, usaremos cookies para diferenciá-lo de outros usuários do nosso site.'
+						})
+					}
 				</p>
 			</div>
 			<div class="mb-5">
 				<h2
 					class="mb-5 block text-2xl font-bold capitalize text-gray-800 underline dark:text-white"
 				>
-					How long your personal information will be kept:
+					{
+						t({
+							en: 'How long your personal information will be kept:',
+							ar: 'مدة الاحتفاظ بمعلوماتك الشخصية:',
+							es: 'Cuánto tiempo se conservará su información personal:',
+							fr: 'Durée de conservation de vos informations personnelles :',
+							hi: 'आपकी व्यक्तिगत जानकारी कितने समय तक रखी जाएगी:',
+							id: 'Berapa lama informasi pribadi Anda akan disimpan:',
+							ms: 'Berapa lama maklumat peribadi anda akan disimpan:',
+							th: 'ระยะเวลาที่ข้อมูลส่วนบุคคลของคุณจะถูกเก็บไว้:',
+							vi: 'Thông tin cá nhân của bạn sẽ được lưu giữ trong bao lâu:',
+							bn: 'আপনার ব্যক্তিগত তথ্য কতদিন রাখা হবে:',
+							'zh-hans': '您的个人信息将被保存多长时间：',
+							'pt-br': 'Por quanto tempo suas informações pessoais serão mantidas:'
+						})
+					}
 				</h2>
 				<p class="text-color mb-3">
-					Once you close your account with DB Investing we shall hold your data for a period of five
-					years to comply with our record keeping obligations under the Money Laundering Regulations
-					2017. Your data will then be deleted at the end of the period.
+					{
+						t({
+							en: 'Once you close your account with DB Investing we shall hold your data for a period of five years to comply with our record keeping obligations under the Money Laundering Regulations 2017. Your data will then be deleted at the end of the period.',
+							ar: 'بمجرد أن تغلق حسابك مع DB Investing، سنحتفظ ببياناتك لفترة خمس سنوات للامتثال لالتزاماتنا في حفظ السجلات بموجب لوائح مكافحة غسل الأموال لعام 2017. سيتم حذف بياناتك في نهاية الفترة.',
+							es: 'Una vez que cierre su cuenta con DB Investing, conservaremos sus datos durante un período de cinco años para cumplir con nuestras obligaciones de mantenimiento de registros bajo las Regulaciones de Lavado de Dinero de 2017. Luego, sus datos serán eliminados al final del período.',
+							fr: "Une fois que vous fermez votre compte avec DB Investing, nous conserverons vos données pendant une période de cinq ans pour nous conformer à nos obligations de conservation des dossiers en vertu des Règlements de lutte contre le blanchiment d'argent de 2017. Vos données seront ensuite supprimées à la fin de la période.",
+							hi: 'जब आप DB Investing के साथ अपना खाता बंद करते हैं, तो हम धन शोधन निवारण नियमावली 2017 के तहत अपने रिकॉर्ड रखने के दायित्वों के अनुपालन के लिए आपकी डेटा को पांच साल की अवधि के लिए रखेंगे। इसके बाद आपकी डेटा को इस अवधि के अंत में हटा दिया जाएगा।',
+							id: 'Setelah Anda menutup akun Anda dengan DB Investing, kami akan menyimpan data Anda selama periode lima tahun untuk memenuhi kewajiban penyimpanan catatan kami berdasarkan Peraturan Pencucian Uang 2017. Data Anda kemudian akan dihapus pada akhir periode.',
+							ms: 'Setelah anda menutup akaun anda dengan DB Investing, kami akan menyimpan data anda selama tempoh lima tahun untuk mematuhi kewajipan penyimpanan rekod di bawah Peraturan Pencucian Wang 2017. Data anda kemudiannya akan dipadamkan pada akhir tempoh.',
+							th: 'เมื่อคุณปิดบัญชีของคุณกับ DB Investing เราจะเก็บข้อมูลของคุณไว้เป็นระยะเวลาห้าปีเพื่อปฏิบัติตามข้อกำหนดในการเก็บบันทึกตามกฎหมายการป้องกันการฟอกเงินปี 2017 ข้อมูลของคุณจะถูกลบในสิ้นสุดระยะเวลานั้น',
+							vi: 'Khi bạn đóng tài khoản của mình với DB Investing, chúng tôi sẽ giữ dữ liệu của bạn trong vòng năm năm để tuân thủ nghĩa vụ lưu giữ hồ sơ theo Quy định về Rửa tiền năm 2017. Dữ liệu của bạn sẽ bị xóa vào cuối thời gian đó.',
+							bn: 'যখন আপনি DB Investing এর সাথে আপনার অ্যাউন্ট বন্ধ করেন, তখন আমরা আমাদের রেকর্ড সংরক্ষণের বাধ্যবাধকতার সাথে মেনে চলার জন্য পাঁচ বছরের জন্য আপনার তথ্য ধারণ করব যা 2017 সালের মাদক পাচারের বিধিমালার অধীনে। তারপর আপনার তথ্য সময়সীমার শেষে মুছে ফেলা হবে।',
+							'zh-hans':
+								'一旦您关闭与 DB Investing 的帐户，我们将保存您的数据五年，以遵守 2017 年反洗钱法规下的记录保存义务。您的数据将在该期限结束时被删除。',
+							'pt-br':
+								'Uma vez que você feche sua conta com a DB Investing, manteremos seus dados por um período de cinco anos para cumprir nossas obrigações de manutenção de registros sob as Regulamentações de Lavagem de Dinheiro de 2017. Seus dados serão excluídos ao final do período.'
+						})
+					}
 				</p>
 			</div>
 			<div class="mb-5">
 				<h2
 					class="mb-5 block text-2xl font-bold capitalize text-gray-800 underline dark:text-white"
 				>
-					Complaint Procedure:
+					{
+						t({
+							en: 'Complaint Procedure:',
+							ar: 'إجراءات الشكوى:',
+							es: 'Procedimiento de quejas:',
+							fr: 'Procédure de réclamation :',
+							hi: 'शिकायत प्रक्रिया:',
+							id: 'Prosedur Pengaduan:',
+							ms: 'Prosedur Aduan:',
+							th: 'ขั้นตอนการร้องเรียน:',
+							vi: 'Thủ tục khiếu nại:',
+							bn: 'অভিযোগ পদ্ধতি:',
+							'zh-hans': '投诉程序：',
+							'pt-br': 'Procedimento de reclamação:'
+						})
+					}
 				</h2>
-				<p class="text-color mb-3">
-					We try to satisfy all of our clients requirements but if you have any complaints or
-					require assistance then you write to our compliance team on <a
-						href="mailto:support@dbinvesting.com"
-						class="font-semibold text-dbgreen-500">support@dbinvesting.com</a
-					>
-				</p>
+				<p
+					class="text-color mb-3"
+					set:html={t({
+						en: 'We try to satisfy all of our clients\' requirements but if you have any complaints or require assistance then you write to our compliance team on <a href="mailto:support@dbinvesting.com" class="font-semibold text-dbgreen-500">support@dbinvesting.com</a>.',
+						ar: 'نحن نحاول تلبية جميع متطلبات عملائنا، ولكن إذا كان لديك أي شكاوى أو تحتاج إلى مساعدة، يرجى الكتابة إلى فريق الامتثال لدينا على <a href="mailto:support@dbinvesting.com" class="font-semibold text-dbgreen-500">support@dbinvesting.com</a>.',
+						es: 'Intentamos satisfacer todos los requisitos de nuestros clientes, pero si tienes alguna queja o necesitas asistencia, escribe a nuestro equipo de cumplimiento en <a href="mailto:support@dbinvesting.com" class="font-semibold text-dbgreen-500">support@dbinvesting.com</a>.',
+						fr: 'Nous essayons de satisfaire toutes les exigences de nos clients, mais si vous avez des plaintes ou avez besoin d\'aide, veuillez écrire à notre équipe de conformité à <a href="mailto:support@dbinvesting.com" class="font-semibold text-dbgreen-500">support@dbinvesting.com</a>.',
+						hi: 'हम अपने सभी ग्राहकों की आवश्यकताओं को पूरा करने की कोशिश करते हैं, लेकिन यदि आपकी कोई शिकायत है या सहायता की आवश्यकता है, तो कृपया हमारी अनुपालन टीम को लिखें <a href="mailto:support@dbinvesting.com" class="font-semibold text-dbgreen-500">support@dbinvesting.com</a> पर।',
+						id: 'Kami berusaha untuk memenuhi semua kebutuhan klien kami, tetapi jika Anda memiliki keluhan atau memerlukan bantuan, silakan tulis kepada tim kepatuhan kami di <a href="mailto:support@dbinvesting.com" class="font-semibold text-dbgreen-500">support@dbinvesting.com</a>.',
+						ms: 'Kami berusaha untuk memenuhi semua keperluan pelanggan kami tetapi jika anda mempunyai sebarang aduan atau memerlukan bantuan, sila tulis kepada pasukan pematuhan kami di <a href="mailto:support@dbinvesting.com" class="font-semibold text-dbgreen-500">support@dbinvesting.com</a>.',
+						th: 'เราพยายามตอบสนองความต้องการของลูกค้าทุกคน แต่หากคุณมีข้อร้องเรียนหรือจำเป็นต้องได้รับความช่วยเหลือ โปรดเขียนถึงทีมปฏิบัติตามกฎระเบียบของเราที่ <a href="mailto:support@dbinvesting.com" class="font-semibold text-dbgreen-500">support@dbinvesting.com</a>.',
+						vi: 'Chúng tôi cố gắng đáp ứng tất cả các yêu cầu của khách hàng, nhưng nếu bạn có bất kỳ khiếu nại nào hoặc cần hỗ trợ, vui lòng viết cho nhóm tuân thủ của chúng tôi tại <a href="mailto:support@dbinvesting.com" class="font-semibold text-dbgreen-500">support@dbinvesting.com</a>.',
+						bn: 'আমরা আমাদের সমস্ত ক্লায়েন্টের প্রয়োজনীয়তা পূরণ করতে চেষ্টা করি তবে আপনার যদি কোনও অভিযোগ থাকে বা সহায়তার প্রয়োজন হয় তবে আপনি আমাদের সম্মতি দলের কাছে লিখুন <a href="mailto:support@dbinvesting.com" class="font-semibold text-dbgreen-500">support@dbinvesting.com</a>।',
+						'zh-hans':
+							'我们努力满足所有客户的要求，但如果您有任何投诉或需要帮助，请向我们的合规团队写信至 <a href="mailto:support@dbinvesting.com" class="font-semibold text-dbgreen-500">support@dbinvesting.com</a>。',
+						'pt-br':
+							'Tentamos satisfazer todos os requisitos de nossos clientes, mas se você tiver alguma reclamação ou precisar de assistência, escreva para nossa equipe de conformidade em <a href="mailto:support@dbinvesting.com" class="font-semibold text-dbgreen-500">support@dbinvesting.com</a>.'
+					})}
+				/>
 			</div>
 		</div>
 	</section>

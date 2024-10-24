@@ -50,7 +50,22 @@ export const getStaticPaths = () =>
 			<h2
 				class="mb-3 block text-2xl font-bold capitalize text-gray-800 dark:text-white sm:text-2xl md:text-3xl lg:text-3xl"
 			>
-				Choose CFDs on stocks trading to Affirm your premium status
+				{
+					t({
+						en: 'Choose CFDs on stocks trading to Affirm your premium status',
+						ar: 'اختر تداول عقود الفروقات على الأسهم لتأكيد وضعك المميز',
+						es: 'Elige el comercio de CFDs sobre acciones para afirmar tu estatus premium',
+						fr: 'Choisissez le trading de CFDs sur les actions pour affirmer votre statut premium',
+						hi: 'अपने प्रीमियम स्टेटस की पुष्टि करने के लिए स्टॉक्स ट्रेडिंग पर CFDs चुनें',
+						id: 'Pilih perdagangan CFD pada saham untuk menegaskan status premium Anda',
+						ms: 'Pilih perdagangan CFD pada saham untuk menegaskan status premium anda',
+						th: 'เลือกการซื้อขาย CFDs บนหุ้นเพื่อยืนยันสถานะระดับพรีเมียมของคุณ',
+						vi: 'Chọn giao dịch CFD trên cổ phiếu để khẳng định vị thế cao cấp của bạn',
+						bn: 'আপনার প্রিমিয়াম স্থিতি নিশ্চিত করতে স্টক ট্রেডিংয়ে CFDs নির্বাচন করুন',
+						'zh-hans': '选择股票交易的CFD以确认您的高级状态',
+						'pt-br': 'Escolha CFDs de negociação de ações para afirmar seu status premium'
+					})
+				}
 			</h2>
 			<div class="card flex flex-wrap gap-3">
 				<div
@@ -60,11 +75,42 @@ export const getStaticPaths = () =>
 						<span class="text-lg font-semibold">1</span>
 					</div>
 					<h2 class="mb-5 block text-2xl font-bold capitalize text-gray-800 dark:text-white">
-						Balancing the market risks
+						{
+							t({
+								en: 'Balancing the market risks',
+								ar: 'توازن مخاطر السوق',
+								es: 'Equilibrando los riesgos del mercado',
+								fr: 'Équilibrer les risques du marché',
+								hi: 'बाजार के जोखिमों का संतुलन',
+								id: 'Menyeimbangkan risiko pasar',
+								ms: 'Menyeimbangkan risiko pasaran',
+								th: 'การปรับสมดุลความเสี่ยงของตลาด',
+								vi: 'Cân bằng rủi ro thị trường',
+								bn: 'বাজারের ঝুঁকি সমন্বয়',
+								'zh-hans': '平衡市场风险',
+								'pt-br': 'Equilibrando os riscos de mercado'
+							})
+						}
 					</h2>
 					<p class="text-color">
-						As Stocks CFDs gather from 30 to 500 stocks of publicly traded companies, they can also
-						boost your market risk resistance by creating a more stable asset.
+						{
+							t({
+								en: 'As Stocks CFDs gather from 30 to 500 stocks of publicly traded companies, they can also boost your market risk resistance by creating a more stable asset.',
+								ar: 'بينما تجمع عقود الفروقات على الأسهم من 30 إلى 500 سهم من الشركات المتداولة علنًا، يمكنها أيضًا تعزيز قدرتك على مقاومة مخاطر السوق من خلال خلق أصل أكثر استقرارًا.',
+								es: 'A medida que los CFDs de acciones agrupan de 30 a 500 acciones de empresas que cotizan en bolsa, también pueden aumentar tu resistencia al riesgo de mercado al crear un activo más estable.',
+								fr: "Alors que les CFDs sur actions rassemblent de 30 à 500 actions d'entreprises cotées en bourse, ils peuvent également renforcer votre résistance aux risques de marché en créant un actif plus stable.",
+								hi: 'जब स्टॉक्स CFDs 30 से 500 स्टॉक्स को सार्वजनिक रूप से कारोबार करने वाली कंपनियों से एकत्र करते हैं, तो वे एक अधिक स्थिर संपत्ति बनाकर आपके बाजार जोखिम प्रतिरोध को भी बढ़ा सकते हैं।',
+								id: 'Ketika CFD Saham mengumpulkan dari 30 hingga 500 saham perusahaan publik, mereka juga dapat meningkatkan ketahanan risiko pasar Anda dengan menciptakan aset yang lebih stabil.',
+								ms: 'Apabila CFDs Saham mengumpulkan dari 30 hingga 500 saham syarikat yang tersenarai awam, ia juga dapat meningkatkan ketahanan risiko pasaran anda dengan mewujudkan aset yang lebih stabil.',
+								th: 'เนื่องจาก CFDs ของหุ้นรวมหุ้นที่จดทะเบียนตั้งแต่ 30 ถึง 500 หุ้นของบริษัทที่จดทะเบียนในตลาดหลักทรัพย์ พวกมันยังสามารถช่วยเพิ่มความต้านทานต่อความเสี่ยงในตลาดของคุณโดยการสร้างสินทรัพย์ที่มีเสถียรภาพมากขึ้น',
+								vi: 'Khi CFDs Cổ phiếu tập hợp từ 30 đến 500 cổ phiếu của các công ty đại chúng, chúng cũng có thể tăng cường khả năng chống chịu rủi ro thị trường của bạn bằng cách tạo ra một tài sản ổn định hơn.',
+								bn: 'যেহেতু স্টক CFDs জনসাধারণের ট্রেডিং করা কোম্পানির 30 থেকে 500 স্টক একত্রিত করে, সেগুলি একটি আরও স্থিতিশীল সম্পদ তৈরি করে আপনার বাজারের ঝুঁকির প্রতিরোধ ক্ষমতাও বাড়িয়ে দিতে পারে।',
+								'zh-hans':
+									'由于股票CFD从30到500只上市公司的股票聚集在一起，它们还可以通过创建更稳定的资产来增强您的市场风险抵御能力。',
+								'pt-br':
+									'À medida que os CFDs de ações reúnem de 30 a 500 ações de empresas de capital aberto, eles também podem aumentar sua resistência ao risco de mercado, criando um ativo mais estável.'
+							})
+						}
 					</p>
 				</div>
 				<div
@@ -74,12 +120,42 @@ export const getStaticPaths = () =>
 						<span class="text-lg font-semibold">2</span>
 					</div>
 					<h2 class="mb-5 block text-2xl font-bold capitalize text-gray-800 dark:text-white">
-						Cross-platform trading access
+						{
+							t({
+								en: 'Cross-platform trading access',
+								ar: 'وصول التداول عبر المنصات',
+								es: 'Acceso a trading multiplataforma',
+								fr: 'Accès au trading multiplateforme',
+								hi: 'क्रॉस-प्लेटफ़ॉर्म ट्रेडिंग एक्सेस',
+								id: 'Akses trading lintas platform',
+								ms: 'Akses perdagangan merentas platform',
+								th: 'การเข้าถึงการซื้อขายข้ามแพลตฟอร์ม',
+								vi: 'Truy cập giao dịch đa nền tảng',
+								bn: 'ক্রস-প্ল্যাটফর্ম ট্রেডিং অ্যাক্সেস',
+								'zh-hans': '跨平台交易访问',
+								'pt-br': 'Acesso à negociação entre plataformas'
+							})
+						}
 					</h2>
 					<p class="text-color">
-						Choose your most comfortable way to access the international trading arena. Be it PC,
-						laptop, smartphone, or tablet – DB Investing supports it all. It’s you who is in control
-						of how and when you get to trade.
+						{
+							t({
+								en: 'Choose your most comfortable way to access the international trading arena. Be it PC, laptop, smartphone, or tablet – DB Investing supports it all. It’s you who is in control of how and when you get to trade.',
+								ar: 'اختر الطريقة التي تشعر فيها بالراحة للوصول إلى الساحة التجارية الدولية. سواء كان جهاز كمبيوتر شخصي أو لابتوب أو هاتف ذكي أو جهاز لوحي - يدعم DB Investing كل ذلك. أنت من يتحكم في كيفية ومتى تريد التداول.',
+								es: 'Elige la forma más cómoda de acceder a la arena de trading internacional. Ya sea PC, laptop, smartphone o tablet, DB Investing lo admite todo. Eres tú quien controla cómo y cuándo puedes operar.',
+								fr: "Choisissez votre moyen le plus confortable d'accéder à l'arène de trading internationale. Que ce soit un PC, un ordinateur portable, un smartphone ou une tablette, DB Investing prend tout en charge. C'est vous qui contrôlez comment et quand vous pouvez trader.",
+								hi: 'अंतरराष्ट्रीय व्यापार क्षेत्र तक पहुँचने का आपका सबसे आरामदायक तरीका चुनें। यह PC, लैपटॉप, स्मार्टफोन या टैबलेट हो - DB Investing इसे सभी का समर्थन करता है। यह आप हैं जो यह नियंत्रित करते हैं कि आप कैसे और कब व्यापार करना चाहते हैं।',
+								id: 'Pilih cara yang paling nyaman untuk mengakses arena perdagangan internasional. Apakah itu PC, laptop, smartphone, atau tablet - DB Investing mendukung semuanya. Anda yang mengontrol bagaimana dan kapan Anda ingin berdagang.',
+								ms: 'Pilih cara yang paling selesa untuk mengakses arena perdagangan antarabangsa. Sama ada PC, komputer riba, telefon pintar, atau tablet - DB Investing menyokong semuanya. Anda yang mengawal bagaimana dan bila anda ingin berdagang.',
+								th: 'เลือกวิธีที่คุณสะดวกที่สุดในการเข้าถึงตลาดการค้าระดับนานาชาติ ไม่ว่าจะเป็น PC แล็ปท็อป สมาร์ทโฟน หรือแท็บเล็ต - DB Investing รองรับทุกอย่าง คุณคือคนที่ควบคุมวิธีการและเวลาในการเทรด',
+								vi: 'Chọn cách bạn cảm thấy thoải mái nhất để truy cập vào đấu trường giao dịch quốc tế. Dù là PC, laptop, smartphone hay tablet – DB Investing đều hỗ trợ. Bạn là người kiểm soát cách và khi nào bạn muốn giao dịch.',
+								bn: 'আন্তর্জাতিক ট্রেডিং এরেনায় প্রবেশ করার জন্য আপনার সবচেয়ে স্বাচ্ছন্দ্যজনক উপায় নির্বাচন করুন। এটি PC, ল্যাপটপ, স্মার্টফোন বা ট্যাবলেট - DB Investing সবকিছুকে সমর্থন করে। এটি আপনি যিনি নিয়ন্ত্রণ করেন কিভাবে এবং কখন আপনি ট্রেড করবেন।',
+								'zh-hans':
+									'选择您最舒适的方式来访问国际交易市场。无论是 PC、笔记本电脑、智能手机还是平板电脑——DB Investing 都支持所有这些。您可以控制如何以及何时进行交易。',
+								'pt-br':
+									'Escolha a sua forma mais confortável de acessar a arena de negociação internacional. Seja PC, laptop, smartphone ou tablet - o DB Investing suporta tudo. É você quem controla como e quando você quer negociar.'
+							})
+						}
 					</p>
 				</div>
 			</div>
@@ -89,53 +165,208 @@ export const getStaticPaths = () =>
 			<h1
 				class="mb-3 block text-2xl font-bold capitalize text-gray-800 dark:text-white sm:text-2xl md:text-3xl lg:text-3xl"
 			>
-				Benefits of CFDs on stocks:
+				{
+					t({
+						en: 'Benefits of CFDs on stocks:',
+						ar: 'فوائد عقود الفروقات على الأسهم:',
+						es: 'Beneficios de los CFDs sobre acciones:',
+						fr: 'Avantages des CFD sur les actions :',
+						hi: 'शेयरों पर CFDs के लाभ:',
+						id: 'Manfaat CFD pada saham:',
+						ms: 'Manfaat CFD pada saham:',
+						th: 'ประโยชน์ของ CFD บนหุ้น:',
+						vi: 'Lợi ích của CFDs trên cổ phiếu:',
+						bn: 'শেয়ারের উপর CFDs এর সুবিধাসমূহ:',
+						'zh-hans': '股票CFD的好处：',
+						'pt-br': 'Benefícios dos CFDs sobre ações:'
+					})
+				}
 			</h1>
 			<p class="text-color">
-				Going short or long on stocks is a relatively complicated process with a traditional stock
-				trading, but with CFDs you can sell as easily as you can buy to take advantage of falling
-				markets.
+				{
+					t({
+						en: 'Going short or long on stocks is a relatively complicated process with traditional stock trading, but with CFDs you can sell as easily as you can buy to take advantage of falling markets.',
+						ar: 'الدخول في صفقات بيع أو شراء على الأسهم هو عملية معقدة نسبيًا في تداول الأسهم التقليدي، ولكن مع عقود الفروقات يمكنك البيع بسهولة كما يمكنك الشراء للاستفادة من الأسواق المتراجعة.',
+						es: 'Vender en corto o largo sobre acciones es un proceso relativamente complicado con el comercio de acciones tradicional, pero con CFDs puedes vender tan fácilmente como puedes comprar para aprovechar los mercados en caída.',
+						fr: "Vendre à découvert ou acheter des actions est un processus relativement compliqué avec le trading d'actions traditionnel, mais avec les CFD, vous pouvez vendre aussi facilement que vous pouvez acheter pour tirer parti des marchés en baisse.",
+						hi: 'स्टॉक्स पर शॉर्ट या लॉन्ग जाना एक पारंपरिक स्टॉक ट्रेडिंग के साथ अपेक्षाकृत जटिल प्रक्रिया है, लेकिन CFDs के साथ आप गिरते बाजारों का लाभ उठाने के लिए आसानी से बेच सकते हैं जैसे आप खरीद सकते हैं।',
+						id: 'Mengambil posisi pendek atau panjang pada saham adalah proses yang relatif rumit dengan perdagangan saham tradisional, tetapi dengan CFD Anda dapat menjual dengan mudah seperti Anda membeli untuk memanfaatkan pasar yang jatuh.',
+						ms: 'Mengambil posisi pendek atau panjang pada saham adalah proses yang agak rumit dengan perdagangan saham tradisional, tetapi dengan CFD, anda boleh menjual dengan mudah seperti anda boleh membeli untuk mengambil kesempatan daripada pasaran yang merosot.',
+						th: 'การทำการขายชอร์ตหรือยาวในหุ้นเป็นกระบวนการที่ค่อนข้างซับซ้อนด้วยการซื้อขายหุ้นแบบดั้งเดิม แต่ด้วย CFDs คุณสามารถขายได้ง่ายเหมือนที่คุณซื้อเพื่อใช้ประโยชน์จากตลาดที่ตกต่ำ',
+						vi: 'Mở vị thế bán hoặc mua trên cổ phiếu là một quy trình tương đối phức tạp với giao dịch cổ phiếu truyền thống, nhưng với CFDs, bạn có thể bán dễ dàng như bạn mua để tận dụng các thị trường đang giảm.',
+						bn: 'স্টকে শর্ট বা লং হওয়া একটি ঐতিহ্যবাহী স্টক ট্রেডিংয়ের সাথে তুলনামূলকভাবে জটিল প্রক্রিয়া, কিন্তু CFDs এর সাথে আপনি পড়তে থাকা বাজারের সুবিধা নেওয়ার জন্য কিনতে যত সহজে বিক্রি করতে পারেন।',
+						'zh-hans':
+							'在股票上做空或做多是传统股票交易中相对复杂的过程，但通过CFD，您可以像购买一样轻松地卖出，以利用下跌的市场。',
+						'pt-br':
+							'Ir vendido ou comprado em ações é um processo relativamente complicado com a negociação de ações tradicionais, mas com CFDs você pode vender tão facilmente quanto comprar para aproveitar mercados em queda.'
+					})
+				}
 			</p>
 			<p class="text-color">
-				Stock CFDs are easy to trade on MT5, without the need to trade through a stockbroker. Simply
-				buy or sell at the live market price.
+				{
+					t({
+						en: 'Stock CFDs are easy to trade on MT5, without the need to trade through a stockbroker. Simply buy or sell at the live market price.',
+						ar: 'عقود الفروقات على الأسهم سهلة التداول على MT5، دون الحاجة إلى التداول من خلال سمسار الأسهم. ببساطة اشترِ أو بِع بسعر السوق المباشر.',
+						es: 'Los CFD de acciones son fáciles de negociar en MT5, sin necesidad de operar a través de un corredor de bolsa. Simplemente compra o vende al precio de mercado en vivo.',
+						fr: "Les CFD sur actions sont faciles à négocier sur MT5, sans avoir besoin de passer par un courtier en actions. Il suffit d'acheter ou de vendre au prix du marché en direct.",
+						hi: 'स्टॉक CFDs MT5 पर ट्रेड करना आसान है, बिना स्टॉक ब्रोकर के माध्यम से ट्रेड करने की आवश्यकता के। सीधे मार्केट प्राइस पर खरीदें या बेचें।',
+						id: 'CFD saham mudah diperdagangkan di MT5, tanpa perlu berdagang melalui pialang saham. Cukup beli atau jual pada harga pasar langsung.',
+						ms: 'CFD saham mudah diniagakan di MT5, tanpa perlu berdagang melalui broker saham. Cukup beli atau jual pada harga pasaran langsung.',
+						th: 'CFD หุ้นสามารถซื้อขายได้ง่ายบน MT5 โดยไม่จำเป็นต้องซื้อขายผ่านนายหน้าหุ้น เพียงแค่ซื้อหรือขายในราคาตลาดสด',
+						vi: 'CFD cổ phiếu dễ giao dịch trên MT5, không cần phải giao dịch thông qua một nhà môi giới chứng khoán. Chỉ cần mua hoặc bán theo giá thị trường trực tiếp.',
+						bn: 'স্টক CFDs MT5-এ ট্রেড করা সহজ, স্টক ব্রোকারের মাধ্যমে ট্রেড করার প্রয়োজন ছাড়াই। সরাসরি লাইভ মার্কেট প্রাইসে কিনুন বা বিক্রি করুন।',
+						'zh-hans':
+							'股票CFD在MT5上易于交易，无需通过股票经纪人进行交易。只需按实时市场价格买入或卖出。',
+						'pt-br':
+							'Os CFDs de ações são fáceis de negociar no MT5, sem a necessidade de negociar por meio de um corretor de ações. Basta comprar ou vender ao preço de mercado ao vivo.'
+					})
+				}
 			</p>
-			<p class="text-color">Trade at a much lower cost compared to traditional stock trading.</p>
 			<p class="text-color">
-				You’re able to profit from the smallest market moves, as leverage allows you to increase
-				your position size relative to your investment. Leverage is also risky and can increase your
-				losses as well as your gains.
+				{
+					t({
+						en: 'Trade at a much lower cost compared to traditional stock trading.',
+						ar: 'تداول بتكلفة أقل بكثير مقارنة بتداول الأسهم التقليدي.',
+						es: 'Opera a un costo mucho menor en comparación con el comercio de acciones tradicional.',
+						fr: 'Commerce à un coût beaucoup plus bas par rapport au commerce traditionnel des actions.',
+						hi: 'पारंपरिक स्टॉक ट्रेडिंग की तुलना में बहुत कम लागत पर व्यापार करें।',
+						id: 'Perdagangkan dengan biaya yang jauh lebih rendah dibandingkan dengan perdagangan saham tradisional.',
+						ms: 'Berdagang dengan kos yang jauh lebih rendah berbanding dengan perdagangan saham tradisional.',
+						th: 'ทำการซื้อขายที่มีต้นทุนต่ำกว่ามากเมื่อเปรียบเทียบกับการซื้อขายหุ้นแบบดั้งเดิม.',
+						vi: 'Giao dịch với chi phí thấp hơn nhiều so với giao dịch cổ phiếu truyền thống.',
+						bn: 'পारম্পরিক স্টক ট্রেডিংয়ের তুলনায় অনেক কম খরচে ট্রেড করুন।',
+						'zh-hans': '与传统股票交易相比，以更低的成本进行交易。',
+						'pt-br':
+							'Negocie a um custo muito mais baixo em comparação com a negociação de ações tradicional.'
+					})
+				}
+			</p>
+			<p class="text-color">
+				{
+					t({
+						en: 'You’re able to profit from the smallest market moves, as leverage allows you to increase your position size relative to your investment. Leverage is also risky and can increase your losses as well as your gains.',
+						ar: 'يمكنك الربح من أصغر تحركات السوق، حيث يتيح لك الرافعة المالية زيادة حجم مركزك بالنسبة لاستثمارك. الرافعة المالية أيضًا محفوفة بالمخاطر ويمكن أن تزيد من خسائرك وكذلك أرباحك.',
+						es: 'Puedes beneficiarte de los movimientos más pequeños del mercado, ya que el apalancamiento te permite aumentar el tamaño de tu posición en relación con tu inversión. El apalancamiento también es arriesgado y puede aumentar tus pérdidas así como tus ganancias.',
+						fr: "Vous pouvez profiter des plus petits mouvements du marché, car l'effet de levier vous permet d'augmenter la taille de votre position par rapport à votre investissement. L'effet de levier est également risqué et peut augmenter vos pertes ainsi que vos gains.",
+						hi: 'आप सबसे छोटे बाजार के मूव्स से लाभ उठा सकते हैं, क्योंकि लीवरेज आपको अपने निवेश के संबंध में अपने स्थिति के आकार को बढ़ाने की अनुमति देता है। लीवरेज भी जोखिम भरा होता है और यह आपकी हानियों को बढ़ा सकता है साथ ही आपकी लाभ भी।',
+						id: 'Anda dapat memperoleh keuntungan dari pergerakan pasar terkecil, karena leverage memungkinkan Anda untuk meningkatkan ukuran posisi Anda relatif terhadap investasi Anda. Leverage juga berisiko dan dapat meningkatkan kerugian Anda serta keuntungan Anda.',
+						ms: 'Anda boleh mendapat untung daripada pergerakan pasaran yang paling kecil, kerana leveraj membolehkan anda meningkatkan saiz kedudukan anda berbanding dengan pelaburan anda. Leveraj juga berisiko dan boleh meningkatkan kerugian serta keuntungan anda.',
+						th: 'คุณสามารถทำกำไรจากการเคลื่อนไหวของตลาดที่เล็กที่สุด เนื่องจากเลเวอเรจช่วยให้คุณเพิ่มขนาดตำแหน่งเมื่อเปรียบเทียบกับการลงทุนของคุณ เลเวอเรจยังมีความเสี่ยงและสามารถเพิ่มการขาดทุนรวมถึงกำไรของคุณได้ด้วย',
+						vi: 'Bạn có thể kiếm lợi từ những biến động thị trường nhỏ nhất, vì đòn bẩy cho phép bạn tăng kích thước vị thế của mình so với khoản đầu tư của bạn. Đòn bẩy cũng rủi ro và có thể tăng cả khoản lỗ và lợi nhuận của bạn.',
+						bn: 'আপনি বাজারের সবচেয়ে ছোট আন্দোলন থেকে লাভ করতে পারেন, যেহেতু লিভারেজ আপনাকে আপনার বিনিয়োগের তুলনায় আপনার অবস্থানের আকার বাড়ানোর অনুমতি দেয়। লিভারেজও ঝুঁকিপূর্ণ এবং এটি আপনার ক্ষতি এবং লাভ উভয়ই বাড়াতে পারে।',
+						'zh-hans':
+							'您可以从最小的市场波动中获利，因为杠杆允许您根据投资增加头寸大小。杠杆也有风险，可能会增加您的损失和收益。',
+						'pt-br':
+							'Você pode lucrar com os menores movimentos do mercado, já que a alavancagem permite aumentar o tamanho da sua posição em relação ao seu investimento. A alavancagem também é arriscada e pode aumentar suas perdas, assim como seus ganhos.'
+					})
+				}
 			</p>
 		</div>
 		<div class="mt-7 w-full space-y-4">
 			<h1
 				class="mb-3 block text-2xl font-bold capitalize text-gray-800 dark:text-white sm:text-2xl md:text-3xl lg:text-3xl"
 			>
-				How does CFDs on Stocks trading work?
+				{
+					t({
+						en: 'How does CFDs on Stocks trading work?',
+						ar: 'كيف يعمل تداول عقود الفروقات على الأسهم؟',
+						es: '¿Cómo funciona el trading de CFDs sobre acciones?',
+						fr: 'Comment fonctionne le trading de CFD sur les actions ?',
+						hi: 'स्टॉक्स पर CFDs ट्रेडिंग कैसे काम करता है?',
+						id: 'Bagaimana cara kerja trading CFD pada saham?',
+						ms: 'Bagaimana cara kerja perdagangan CFD pada saham?',
+						th: 'การซื้อขาย CFD ในหุ้นทำงานอย่างไร?',
+						vi: 'Giao dịch CFDs trên cổ phiếu hoạt động như thế nào?',
+						bn: 'স্টকে CFDs ট্রেডিং কিভাবে কাজ করে?',
+						'zh-hans': '股票的CFD交易是如何运作的？',
+						'pt-br': 'Como funciona a negociação de CFDs em ações?'
+					})
+				}
 			</h1>
 			<p class="text-color">
-				There is no need to be directly involved in the market. Choose cross-platform trading, 60+
-				analytical tools, and quick connection during the market hours with DB Investing.
+				{
+					t({
+						en: 'There is no need to be directly involved in the market. Choose cross-platform trading, 60+ analytical tools, and quick connection during the market hours with DB Investing.',
+						ar: 'لا تحتاج إلى أن تكون متورطًا مباشرة في السوق. اختر التداول عبر منصات متعددة، وأكثر من 60 أداة تحليلية، واتصال سريع خلال ساعات السوق مع DB Investing.',
+						es: 'No es necesario estar directamente involucrado en el mercado. Elige el trading en múltiples plataformas, más de 60 herramientas analíticas y una conexión rápida durante las horas del mercado con DB Investing.',
+						fr: "Il n'est pas nécessaire d'être directement impliqué sur le marché. Choisissez le trading multiplateforme, plus de 60 outils analytiques et une connexion rapide pendant les heures de marché avec DB Investing.",
+						hi: 'बाजार में सीधे शामिल होने की आवश्यकता नहीं है। क्रॉस-प्लेटफ़ॉर्म ट्रेडिंग, 60+ विश्लेषणात्मक उपकरण और DB Investing के साथ बाजार घंटों के दौरान त्वरित कनेक्शन चुनें।',
+						id: 'Tidak perlu terlibat langsung di pasar. Pilih perdagangan lintas platform, lebih dari 60 alat analisis, dan koneksi cepat selama jam pasar dengan DB Investing.',
+						ms: 'Tidak perlu terlibat secara langsung dalam pasaran. Pilih perdagangan silang platform, lebih daripada 60 alat analisis, dan sambungan pantas semasa waktu pasaran dengan DB Investing.',
+						th: 'ไม่จำเป็นต้องมีส่วนร่วมในตลาดโดยตรง เลือกการซื้อขายข้ามแพลตฟอร์ม เครื่องมือวิเคราะห์มากกว่า 60 ชิ้น และการเชื่อมต่อที่รวดเร็วในช่วงเวลาทำการตลาดกับ DB Investing',
+						vi: 'Không cần phải tham gia trực tiếp vào thị trường. Chọn giao dịch đa nền tảng, hơn 60 công cụ phân tích và kết nối nhanh trong giờ giao dịch với DB Investing.',
+						bn: 'বাজারে সরাসরি জড়িত হওয়ার প্রয়োজন নেই। ক্রস-প্ল্যাটফর্ম ট্রেডিং, 60+ বিশ্লেষণাত্মক সরঞ্জাম এবং DB Investing-এর সাথে বাজারের সময়ে দ্রুত সংযোগ বেছে নিন।',
+						'zh-hans':
+							'无需直接参与市场。选择跨平台交易、60多种分析工具，并在市场开放时与DB Investing快速连接。',
+						'pt-br':
+							'Não há necessidade de estar diretamente envolvido no mercado. Escolha a negociação entre plataformas, mais de 60 ferramentas analíticas e conexão rápida durante o horário de mercado com a DB Investing.'
+					})
+				}
 			</p>
 		</div>
 		<div class="mt-7 w-full space-y-4">
 			<h1
 				class="mb-3 block text-2xl font-bold capitalize text-gray-800 dark:text-white sm:text-2xl md:text-3xl lg:text-3xl"
 			>
-				Why trade CFDs on Stocks with DB Investing?
+				{
+					t({
+						en: 'Why trade CFDs on Stocks with DB Investing?',
+						ar: 'لماذا تتداول عقود الفروقات على الأسهم مع DB Investing؟',
+						es: '¿Por qué negociar CFDs sobre acciones con DB Investing?',
+						fr: 'Pourquoi trader des CFDs sur des actions avec DB Investing ?',
+						hi: 'DB Investing के साथ स्टॉक्स पर CFD क्यों ट्रेड करें?',
+						id: 'Mengapa berdagang CFD pada Saham dengan DB Investing?',
+						ms: 'Mengapa berdagang CFD pada Saham dengan DB Investing?',
+						th: 'ทำไมต้องซื้อขาย CFD ในหุ้นกับ DB Investing?',
+						vi: 'Tại sao lại giao dịch CFDs trên cổ phiếu với DB Investing?',
+						bn: 'DB Investing এর সাথে শেয়ারের উপর CFD কেন ট্রেড করবেন?',
+						'zh-hans': '为什么要与DB Investing交易股票的差价合约？',
+						'pt-br': 'Por que negociar CFDs em ações com a DB Investing?'
+					})
+				}
 			</h1>
 			<p class="text-color">
-				You can choose among many different single stocks EU or US. There are up to 200 single
-				stocks available for trading including the most reputable in the world, so you can
-				participate by trading on CFDs into one of the largest markets globally. There are various
-				type of stocks traded on exchanges all over the world.
+				{
+					t({
+						en: 'You can choose among many different single stocks EU or US. There are up to 200 single stocks available for trading including the most reputable in the world, so you can participate by trading on CFDs into one of the largest markets globally. There are various type of stocks traded on exchanges all over the world.',
+						ar: 'يمكنك الاختيار من بين العديد من الأسهم الفردية المختلفة في الاتحاد الأوروبي أو الولايات المتحدة. هناك ما يصل إلى 200 سهم فردي متاح للتداول، بما في ذلك الأكثر شهرة في العالم، لذا يمكنك المشاركة من خلال التداول في عقود الفروقات في واحدة من أكبر الأسواق على مستوى العالم. هناك أنواع مختلفة من الأسهم تتداول في البورصات في جميع أنحاء العالم.',
+						es: 'Puedes elegir entre muchas acciones individuales diferentes de la UE o EE. UU. Hay hasta 200 acciones individuales disponibles para negociar, incluidas las más reconocidas del mundo, por lo que puedes participar operando con CFDs en uno de los mercados más grandes a nivel global. Hay varios tipos de acciones que se negocian en bolsas de todo el mundo.',
+						fr: "Vous pouvez choisir parmi de nombreuses actions individuelles différentes de l'UE ou des États-Unis. Jusqu'à 200 actions individuelles sont disponibles à la négociation, y compris les plus réputées au monde, vous pouvez donc participer en négociant des CFDs sur l'un des plus grands marchés mondiaux. Il existe différents types d'actions négociées sur les bourses du monde entier.",
+						hi: 'आप कई विभिन्न एकल स्टॉक्स EU या US में से चुन सकते हैं। ट्रेडिंग के लिए 200 तक एकल स्टॉक्स उपलब्ध हैं, जिसमें दुनिया के सबसे प्रतिष्ठित स्टॉक्स शामिल हैं, इसलिए आप दुनिया के सबसे बड़े बाजारों में से एक में CFDs पर ट्रेडिंग करके भाग ले सकते हैं। दुनिया भर के एक्सचेंजों पर विभिन्न प्रकार के स्टॉक्स ट्रेड किए जाते हैं।',
+						id: 'Anda dapat memilih di antara banyak saham tunggal yang berbeda dari UE atau AS. Terdapat hingga 200 saham tunggal yang tersedia untuk diperdagangkan, termasuk yang paling terkemuka di dunia, sehingga Anda dapat berpartisipasi dengan memperdagangkan CFD di salah satu pasar terbesar secara global. Ada berbagai jenis saham yang diperdagangkan di bursa di seluruh dunia.',
+						ms: 'Anda boleh memilih di antara banyak saham tunggal yang berbeza dari EU atau AS. Terdapat sehingga 200 saham tunggal yang tersedia untuk diperdagangkan termasuk yang paling terkenal di dunia, jadi anda boleh mengambil bahagian dengan berdagang dalam CFD di salah satu pasaran terbesar di seluruh dunia. Terdapat pelbagai jenis saham yang diperdagangkan di bursa di seluruh dunia.',
+						th: 'คุณสามารถเลือกหุ้นเดียวที่แตกต่างกันมากมายในสหภาพยุโรปหรือสหรัฐอเมริกา มีหุ้นเดียวมากถึง 200 ตัวที่พร้อมให้เทรด รวมถึงหุ้นที่มีชื่อเสียงที่สุดในโลก ดังนั้นคุณสามารถเข้าร่วมโดยการเทรด CFDs ในหนึ่งในตลาดที่ใหญ่ที่สุดทั่วโลก มีหุ้นหลายประเภทที่ซื้อขายในตลาดหุ้นทั่วโลก',
+						vi: 'Bạn có thể chọn trong số nhiều cổ phiếu đơn lẻ khác nhau của EU hoặc Mỹ. Có tới 200 cổ phiếu đơn lẻ có sẵn để giao dịch, bao gồm cả những cổ phiếu có uy tín nhất trên thế giới, vì vậy bạn có thể tham gia bằng cách giao dịch CFDs vào một trong những thị trường lớn nhất toàn cầu. Có nhiều loại cổ phiếu khác nhau được giao dịch trên các sàn giao dịch trên toàn thế giới.',
+						bn: 'আপনি ইউরোপীয় ইউনিয়ন বা মার্কিন যুক্তরাষ্ট্র থেকে বিভিন্ন একক শেয়ারের মধ্যে বেছে নিতে পারেন। ২০০ টিরও বেশি একক শেয়ার ট্রেডিংয়ের জন্য উপলব্ধ রয়েছে, যার মধ্যে বিশ্বের সবচেয়ে খ্যাতনামা শেয়ার রয়েছে, তাই আপনি বিশ্বের অন্যতম বৃহত্তম বাজারে CFDs ট্রেডিং করে অংশগ্রহণ করতে পারেন। বিশ্বের বিভিন্ন স্টক এক্সচেঞ্জে বিভিন্ন ধরনের শেয়ার ট্রেড হয়।',
+						'zh-hans':
+							'您可以在许多不同的欧盟或美国单一股票中进行选择。可供交易的单一股票最多可达200只，包括世界上最有声望的股票，因此您可以通过交易CFDs参与全球最大市场之一。全球各地的交易所都有各种类型的股票进行交易。',
+						'pt-br':
+							'Você pode escolher entre muitas ações individuais diferentes da UE ou dos EUA. Existem até 200 ações individuais disponíveis para negociação, incluindo as mais renomadas do mundo, para que você possa participar negociando CFDs em um dos maiores mercados do mundo. Existem vários tipos de ações negociadas em bolsas de valores ao redor do mundo.'
+					})
+				}
 			</p>
 			<p class="text-color">
-				Are separated into different categories such as technology stocks, pharmaceutical, energy.
+				{
+					t({
+						en: 'Are separated into different categories such as technology stocks, pharmaceutical, energy.',
+						ar: 'يتم فصلها إلى فئات مختلفة مثل أسهم التكنولوجيا ، والأدوية ، والطاقة.',
+						es: 'se separan en diferentes categorías como acciones tecnológicas, farmacéuticas y energéticas.',
+						fr: 'sont séparés en différentes catégories telles que les actions technologiques, pharmaceutiques et énergétiques.',
+						hi: 'इन्हें विभिन्न श्रेणियों में विभाजित किया गया है जैसे कि प्रौद्योगिकी स्टॉक्स, फार्मास्युटिकल, ऊर्जा।',
+						id: 'dipisahkan menjadi kategori yang berbeda seperti saham teknologi, farmasi, energi.',
+						ms: 'dibahagikan kepada kategori yang berbeza seperti saham teknologi, farmaseutikal, tenaga.',
+						th: 'แยกออกเป็นหมวดหมู่ต่างๆ เช่น หุ้นเทคโนโลยี ยา พลังงาน',
+						vi: 'được phân loại thành các danh mục khác nhau như cổ phiếu công nghệ, dược phẩm, năng lượng.',
+						bn: 'বিভিন্ন বিভাগে বিভক্ত যেমন প্রযুক্তি স্টক, ওষুধ, শক্তি।',
+						'zh-hans': '分为不同类别，例如科技股、制药、能源。',
+						'pt-br':
+							'são separadas em diferentes categorias, como ações de tecnologia, farmacêuticas e de energia.'
+					})
+				}
 			</p>
 		</div>
 	</div>
 	<div class="container pb-10 pt-4">
-		<GoogleSheetDataTable sheetName="Stocks" client:load language={lang}/>
+		<GoogleSheetDataTable sheetName="Stocks" client:load language={lang} />
 	</div>
 </Layout>

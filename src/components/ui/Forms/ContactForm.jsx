@@ -4,6 +4,8 @@ import { PhoneInput } from 'react-international-phone'
 import 'react-international-phone/style.css'
 export default function ContactForm() {
 	const [status, setStatus] = useState('')
+	const [statusCode, setStatusCode] = useState('')
+
 	const {
 		register,
 		handleSubmit,
@@ -19,7 +21,7 @@ export default function ContactForm() {
 		console.log(data, 'Data')
 
 		try {
-			const response = await fetch('/api/test', {
+			const response = await fetch('/api/sendemail', {
 				method: 'POST',
 				headers: { 'Content-Type': 'application/json' },
 				body: JSON.stringify(data)
@@ -29,6 +31,7 @@ export default function ContactForm() {
 
 			if (result.success) {
 				setStatus('Email sent successfully!')
+				setStatusCode(result.success)
 			} else {
 				setStatus('Failed to send email.')
 			}
@@ -92,11 +95,11 @@ export default function ContactForm() {
 					className="w-full rounded border border-gray-600 p-2"
 					{...register('query', { required: 'This is  required' })}
 				>
-					<option value="Genral Enquiry (no client)">Genral Enquiry (no client)</option>
+					<option value="General Enquiry">Genral Enquiry (no client)</option>
 					<option value="Onboarding Support">Onboarding Support</option>
-					<option value="Deposit Suport">Deposit Suport</option>
-					<option value="Wihdrawal Suport">Wihdrawal Suport</option>
-					<option value="Technical Issue Suport">Technical Issue Suport</option>
+					<option value="Deposit Support">Deposit Suport</option>
+					<option value="Withdrawal Support">Wihdrawal Suport</option>
+					<option value="Technical Issue Support">Technical Issue Suport</option>
 					<option value="Complaint">Complaint</option>
 				</select>
 				{errors?.query && <p className="mt-2 text-sm text-red-600">{errors?.query?.message}</p>}
@@ -128,7 +131,10 @@ export default function ContactForm() {
 					placeholder="Email"
 					{...register('email', {
 						required: 'Invalid email. Email must be a valid email address',
-						pattern: '/[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$/i'
+						pattern: {
+							value: /\S+@\S+\.\S+/,
+							message: 'Entered value does not match email format'
+						}
 					})}
 				/>
 				{errors?.email && <p className="mt-2 text-sm text-red-600">{errors?.email?.message}</p>}
@@ -177,7 +183,7 @@ export default function ContactForm() {
 								}
 							})}
 						/>
-						<span>Email</span>
+						<span className="text-white">Email</span>
 					</label>
 					<label className="flex items-center">
 						<input
@@ -192,7 +198,7 @@ export default function ContactForm() {
 								}
 							})}
 						/>
-						<span>Phone</span>
+						<span className="text-white">Phone</span>
 					</label>
 				</div>
 				{errors?.emailContactCheck && (
@@ -225,7 +231,7 @@ export default function ContactForm() {
 				{errors?.message && <p className="mt-2 text-sm text-red-600">{errors?.message?.message}</p>}
 			</div>
 
-			<p className="my-3 text-sm text-red-600">{status}</p>
+			<p className={`my-6 text-sm ${setStatusCode ? 'text-green-400' : ''}`}>{status}</p>
 			<button class="btn_gradient group relative inline-flex h-12 w-full items-center justify-center gap-x-2 overflow-hidden rounded-full bg-black px-6 text-center text-white transition dark:bg-white">
 				<span class="relative">Submit</span>
 				<div class="animate-shine-infinite absolute inset-0 -top-[20px] flex h-[calc(100%+40px)] w-full justify-center blur-[12px]">
@@ -235,41 +241,3 @@ export default function ContactForm() {
 		</form>
 	)
 }
-
-// export default function App() {
-//   const { register, handleSubmit, formState: { errors } } = useForm();
-//   const onSubmit = data => console.log(data);
-//   console.log(errors);
-
-//   return (
-//     <form onSubmit={handleSubmit(onSubmit)}>
-//       <select {...register("client", { required: 'This is  required' })}>
-//         <option value="No">No</option>
-//         <option value="yes">yes</option>
-//       </select>
-//       <input type="text" placeholder="fullName" {...register("fullName", {required: 'This is  required'})} />
-//       <select {...register("query", { required: 'This is  required' })}>
-//         <option value="Genral Enquiry (no client)">Genral Enquiry (no client)</option>
-//         <option value="Onboarding Support">Onboarding Support</option>
-//         <option value="Deposit Suport">Deposit Suport</option>
-//         <option value="Wihdrawal Suport">Wihdrawal Suport</option>
-//         <option value="Technical Issue Suport">Technical Issue Suport</option>
-//         <option value="Complaint">Complaint</option>
-//       </select>
-//       <select {...register("language", { required: 'This is  required' })}>
-//         <option value="English">English</option>
-//         <option value="Arabic">Arabic</option>
-//         <option value="Spanish">Spanish</option>
-//         <option value="Portuguese">Portuguese</option>
-//       </select>
-//       <input type="text" placeholder="email" {...register("email", {required: 'This is  required'})} />
-//       <input type="tel" placeholder="phoneNumber" {...register("phoneNumber", {required: 'This is  required'})} />
-//       <input type="checkbox" placeholder="emailContactCheck" {...register("emailContactCheck", {required: 'This is  required'})} />
-//       <input type="checkbox" placeholder="phoneContactCheck" {...register("phoneContactCheck", {})} />
-//       <input type="text" placeholder="subject" {...register("subject", {, min: 5})} />
-//       <input type="text" placeholder="message" {...register("message", {required: 'This is  required'})} />
-
-//       <input type="submit" />
-//     </form>
-//   );
-// }

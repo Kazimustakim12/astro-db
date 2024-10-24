@@ -1,7 +1,8 @@
 ---
-import { LOCALES } from '@/i18n'
+import { LOCALES, useTranslations, type Lang } from '@/i18n'
 import Layout from '@/layouts/Layout.astro'
-
+const t = useTranslations(Astro.currentLocale as Lang)
+const lang = Astro.params.lang || 'en'
 export const getStaticPaths = () =>
 	Object.keys(LOCALES).map((lang) => ({
 		params: { lang }
@@ -11,15 +12,27 @@ export const getStaticPaths = () =>
 <Layout title="Economic Calendar Tutorial">
 	<section>
 		<div
-			class="relative z-20 w-full overflow-hidden bg-gray-100 py-3 before:absolute before:start-1/2 before:top-0 before:-z-[1] before:size-full before:-translate-x-1/2 before:transform before:bg-[url('/src/images/world_bg.png')] before:bg-center before:bg-no-repeat before:opacity-45 before:hue-rotate-60 dark:bg-black dark:before:bg-[url('/src/images/world_bg.png')]"
+			class="relative z-20 w-full overflow-hidden bg-gray-100 py-3 before:absolute before:top-0 before:-z-[1] before:size-full before:transform before:bg-[url('/src/images/world_bg.png')] before:bg-center before:bg-no-repeat before:opacity-45 before:hue-rotate-60 dark:bg-black dark:before:bg-[url('/src/images/world_bg.png')]"
 		>
 			<div class="container flex flex-col items-center justify-between gap-6 py-10 sm:flex-row">
 				<div>
 					<h1
 						class="block text-center text-4xl font-bold text-gray-800 dark:text-neutral-200 md:text-4xl lg:text-5xl"
-					>
-						Economic Calendar <strong class="text-green-500">Tutorial </strong>
-					</h1>
+						set:html={t({
+							en: 'Economic Calendar <strong class="text-green-500">Tutorial</strong>',
+							ar: 'التقويم الاقتصادي <strong class="text-green-500">دليل</strong>',
+							es: 'Calendario Económico <strong class="text-green-500">Tutorial</strong>',
+							fr: 'Calendrier Économique <strong class="text-green-500">Tutoriel</strong>',
+							hi: 'आर्थिक कैलेंडर <strong class="text-green-500">ट्यूटोरियल</strong>',
+							id: 'Kalender Ekonomi <strong class="text-green-500">Tutorial</strong>',
+							ms: 'Kalender Ekonomi <strong class="text-green-500">Tutorial</strong>',
+							th: 'ปฏิทินเศรษฐกิจ <strong class="text-green-500">คู่มือ</strong>',
+							vi: 'Lịch Kinh Tế <strong class="text-green-500">Hướng Dẫn</strong>',
+							bn: 'অর্থনৈতিক ক্যালেন্ডার <strong class="text-green-500">টিউটোরিয়াল</strong>',
+							'zh-hans': '经济日历 <strong class="text-green-500">教程</strong>',
+							'pt-br': 'Calendário Econômico <strong class="text-green-500">Tutorial</strong>'
+						})}
+					/>
 				</div>
 				<div>
 					<svg
@@ -40,191 +53,691 @@ export const getStaticPaths = () =>
 		</div>
 		<div class="container py-10">
 			<h3 class="mb-5 block text-xl font-bold capitalize text-gray-800 dark:text-white">
-				Every trader wants to know what direction will follow. However, to get the most real answer
-				to this, it is necessary not only to oversee the chart on the trading platform but also to
-				constantly monitor what is happening globally in fundamentals, so you must use economic
-				calendar when day trading.
+				{
+					t({
+						en: 'Every trader wants to know what direction will follow. However, to get the most real answer to this, it is necessary not only to oversee the chart on the trading platform but also to constantly monitor what is happening globally in fundamentals, so you must use the economic calendar when day trading.',
+						ar: 'يرغب كل متداول في معرفة الاتجاه الذي سيتبعه. ومع ذلك، للحصول على الإجابة الأكثر واقعية على ذلك، من الضروري عدم مراقبة الرسم البياني على منصة التداول فحسب، بل أيضًا متابعة ما يحدث عالميًا في الأساسيات بشكل مستمر، لذلك يجب عليك استخدام التقويم الاقتصادي عند التداول اليومي.',
+						es: 'Cada trader quiere saber qué dirección seguirá. Sin embargo, para obtener la respuesta más real a esto, es necesario no solo supervisar el gráfico en la plataforma de trading, sino también monitorear constantemente lo que está sucediendo globalmente en los fundamentos, por lo que debes usar el calendario económico al hacer day trading.',
+						fr: 'Chaque trader veut savoir quelle direction sera suivie. Cependant, pour obtenir la réponse la plus réelle à cela, il est nécessaire non seulement de surveiller le graphique sur la plateforme de trading, mais aussi de surveiller constamment ce qui se passe dans le monde au niveau fondamental, donc vous devez utiliser le calendrier économique lors du day trading.',
+						hi: 'हर व्यापारी जानना चाहता है कि किस दिशा में जाना है। हालाँकि, इसका सबसे सच्चा उत्तर पाने के लिए, केवल ट्रेडिंग प्लेटफ़ॉर्म पर चार्ट की निगरानी करना पर्याप्त नहीं है, बल्कि वैश्विक रूप से मूलभूत चीज़ों पर क्या हो रहा है, उसकी निरंतर निगरानी भी करना आवश्यक है, इसलिए आपको दिन ट्रेडिंग करते समय आर्थिक कैलेंडर का उपयोग करना चाहिए।',
+						id: 'Setiap trader ingin tahu arah mana yang akan diambil. Namun, untuk mendapatkan jawaban yang paling nyata untuk ini, tidak hanya perlu mengawasi grafik di platform trading tetapi juga terus memantau apa yang terjadi secara global dalam fundamental, jadi Anda harus menggunakan kalender ekonomi saat melakukan day trading.',
+						ms: 'Setiap pedagang ingin tahu arah mana yang akan diambil. Namun, untuk mendapatkan jawapan yang paling nyata untuk ini, adalah perlu bukan sahaja untuk mengawasi carta di platform dagangan tetapi juga untuk sentiasa memantau apa yang berlaku secara global dalam asas-asas, jadi anda mesti menggunakan kalendar ekonomi semasa melakukan dagangan harian.',
+						th: 'นักเทรดทุกคนต้องการรู้ทิศทางที่จะไป อย่างไรก็ตาม เพื่อให้ได้คำตอบที่แท้จริงที่สุดเกี่ยวกับเรื่องนี้ จำเป็นต้องไม่เพียงแค่เฝ้าดูกราฟบนแพลตฟอร์มการซื้อขายเท่านั้น แต่ยังต้องติดตามสิ่งที่เกิดขึ้นทั่วโลกในแง่พื้นฐานอย่างต่อเนื่อง ดังนั้นคุณต้องใช้ปฏิทินเศรษฐกิจเมื่อทำการซื้อขายรายวัน',
+						vi: 'Mỗi trader đều muốn biết hướng đi sẽ theo. Tuy nhiên, để có câu trả lời thực tế nhất cho điều này, không chỉ cần theo dõi biểu đồ trên nền tảng giao dịch mà còn phải liên tục theo dõi những gì đang xảy ra toàn cầu trong các yếu tố cơ bản, vì vậy bạn phải sử dụng lịch kinh tế khi giao dịch trong ngày.',
+						bn: 'প্রত্যেকটি ব্যবসায়ী জানতে চায় কোন দিকে যেতে হবে। তবে, এর সবচেয়ে বাস্তব উত্তর পেতে, শুধুমাত্র ট্রেডিং প্ল্যাটফর্মে চার্টের উপর নজর রাখা যথেষ্ট নয়, বরং বিশ্বের মৌলিক বিষয়গুলোতে যা ঘটছে তার উপর নিয়মিত নজর রাখা প্রয়োজন, তাই আপনাকে দিন ট্রেডিং করার সময় অর্থনৈতিক ক্যালেন্ডার ব্যবহার করতে হবে।',
+						'zh-hans':
+							'每个交易者都想知道将会采取什么方向。然而，要获得最真实的答案，不仅需要在交易平台上监督图表，还需要不断监控全球基础面上发生的事情，因此在日间交易时必须使用经济日历。',
+						'pt-br':
+							'Todo trader quer saber qual direção seguirá. No entanto, para obter a resposta mais real para isso, é necessário não apenas supervisionar o gráfico na plataforma de negociação, mas também monitorar constantemente o que está acontecendo globalmente nos fundamentos, portanto, você deve usar o calendário econômico ao fazer day trading.'
+					})
+				}
 			</h3>
+			<p
+				class="text-color mb-3"
+				set:html={t({
+					en: `What is an <a href="/${lang}/economic-calendar" class="font-semibold text-dbgreen-500">economic calendar</a>? First of all, you need to know that the economic calendar is the diary of all announcements that are coming out related to the economy. The calendar can be used for different countries or different kinds of regions like EU, US and the economic announcements will be things like inflation, interest rates, job numbers, factory orders, CPI, PPI, all these kinds of things that can give us a gauge on the economy.`,
+					ar: `ما هو <a href="/${lang}/economic-calendar" class="font-semibold text-dbgreen-500">التقويم الاقتصادي</a>؟ أولاً، تحتاج إلى معرفة أن التقويم الاقتصادي هو سجل لجميع الإعلانات المتعلقة بالاقتصاد. يمكن استخدام التقويم لبلدان مختلفة أو أنواع مختلفة من المناطق مثل الاتحاد الأوروبي والولايات المتحدة، وستكون الإعلانات الاقتصادية أشياء مثل التضخم، وأسعار الفائدة، وأرقام الوظائف، وطلبات المصانع، ومؤشر أسعار المستهلكين، ومؤشر أسعار المنتجين، وكل هذه الأنواع من الأشياء التي يمكن أن تعطي لنا مقياسًا على الاقتصاد.`,
+					es: `¿Qué es un <a href="/${lang}/economic-calendar" class="font-semibold text-dbgreen-500">calendario económico</a>? Primero que nada, debes saber que el calendario económico es el diario de todos los anuncios relacionados con la economía. El calendario se puede usar para diferentes países o diferentes tipos de regiones como la UE y EE. UU., y los anuncios económicos serán cosas como inflación, tasas de interés, números de empleo, pedidos de fábrica, IPC, IPP, todas estas cosas que pueden darnos una medida de la economía.`,
+					fr: `Qu'est-ce qu'un <a href="/${lang}/economic-calendar" class="font-semibold text-dbgreen-500">calendrier économique</a>? Tout d'abord, vous devez savoir que le calendrier économique est le journal de toutes les annonces liées à l'économie. Le calendrier peut être utilisé pour différents pays ou différents types de régions comme l'UE et les États-Unis, et les annonces économiques porteront sur des choses telles que l'inflation, les taux d'intérêt, les chiffres de l'emploi, les commandes de fabrication, l'IPC, l'IPP, toutes ces choses qui peuvent nous donner une évaluation de l'économie.`,
+					hi: `आर्थिक कैलेंडर क्या है <a href="/${lang}/economic-calendar" class="font-semibold text-dbgreen-500">? सबसे पहले, आपको यह जानने की आवश्यकता है कि आर्थिक कैलेंडर सभी घोषणाओं का डायरी है जो अर्थव्यवस्था से संबंधित हैं। कैलेंडर का उपयोग विभिन्न देशों या विभिन्न प्रकार के क्षेत्रों जैसे EU, US के लिए किया जा सकता है और आर्थिक घोषणाएं ऐसी चीजें होंगी जैसे महंगाई, ब्याज दरें, नौकरियों के आंकड़े, फैक्ट्री ऑर्डर, CPI, PPI, ये सभी चीजें जो हमें अर्थव्यवस्था का आकलन करने में मदद कर सकती हैं।`,
+					id: `Apa itu <a href="/${lang}/economic-calendar" class="font-semibold text-dbgreen-500">kalender ekonomi</a>? Pertama-tama, Anda perlu tahu bahwa kalender ekonomi adalah buku harian semua pengumuman yang terkait dengan ekonomi. Kalender ini dapat digunakan untuk negara yang berbeda atau jenis wilayah yang berbeda seperti EU, AS, dan pengumuman ekonomi akan berupa hal-hal seperti inflasi, suku bunga, angka pekerjaan, pesanan pabrik, CPI, PPI, semua hal ini dapat memberikan kita ukuran ekonomi.`,
+					ms: `Apa itu <a href="/${lang}/economic-calendar" class="font-semibold text-dbgreen-500">kalendar ekonomi</a>? Pertama sekali, anda perlu tahu bahawa kalendar ekonomi adalah diari semua pengumuman yang berkaitan dengan ekonomi. Kalendar ini boleh digunakan untuk negara yang berbeza atau jenis kawasan yang berbeza seperti EU, AS dan pengumuman ekonomi akan meliputi perkara seperti inflasi, kadar faedah, angka pekerjaan, pesanan kilang, CPI, PPI, semua perkara ini boleh memberi kita penilaian terhadap ekonomi.`,
+					th: `ปฏิทินเศรษฐกิจคืออะไร <a href="/${lang}/economic-calendar" class="font-semibold text-dbgreen-500">? ก่อนอื่นคุณต้องรู้ว่าปฏิทินเศรษฐกิจคือสมุดบันทึกของประกาศทั้งหมดที่เกี่ยวข้องกับเศรษฐกิจ ปฏิทินนี้สามารถใช้สำหรับประเทศต่างๆ หรือภูมิภาคที่แตกต่างกันเช่น EU, สหรัฐอเมริกา และการประกาศทางเศรษฐกิจจะเป็นสิ่งต่างๆ เช่น เงินเฟ้อ อัตราดอกเบี้ย ตัวเลขการจ้างงาน คำสั่งซื้อจากโรงงาน CPI, PPI สิ่งเหล่านี้ทั้งหมดสามารถช่วยให้เราประเมินเศรษฐกิจได้`,
+					vi: `Lịch kinh tế là gì <a href="/${lang}/economic-calendar" class="font-semibold text-dbgreen-500">? Trước hết, bạn cần biết rằng lịch kinh tế là nhật ký của tất cả các thông báo liên quan đến nền kinh tế. Lịch có thể được sử dụng cho các quốc gia khác nhau hoặc các loại khu vực khác nhau như EU, Mỹ và các thông báo kinh tế sẽ là những thứ như lạm phát, lãi suất, số liệu việc làm, đơn đặt hàng nhà máy, CPI, PPI, tất cả những thứ này có thể cho chúng ta biết về nền kinh tế.`,
+					bn: `একটি <a href="/${lang}/economic-calendar" class="font-semibold text-dbgreen-500">অর্থনৈতিক ক্যালেন্ডার</a> কি? প্রথমত, আপনাকে জানতে হবে যে অর্থনৈতিক ক্যালেন্ডার হল সমস্ত ঘোষণার একটি ডায়েরি যা অর্থনীতির সাথে সম্পর্কিত। ক্যালেন্ডারটি বিভিন্ন দেশ বা বিভিন্ন ধরনের অঞ্চলের জন্য ব্যবহার করা যেতে পারে যেমন ইউরোপীয় ইউনিয়ন, মার্কিন যুক্তরাষ্ট্র এবং অর্থনৈতিক ঘোষণাগুলি হবে জিনিসগুলি যেমন মুদ্রাস্ফীতি, সুদের হার, চাকরির সংখ্যা, কারখানার অর্ডার, সিপিআই, পিপিআই, এই সমস্ত ধরণের জিনিসগুলি আমাদের অর্থনীতির একটি পরিমাপ দিতে পারে।`,
+					'zh-hans': `什么是<a href="/${lang}/economic-calendar" class="font-semibold text-dbgreen-500">经济日历</a>? 首先，您需要知道经济日历是与经济相关的所有公告的日记。该日历可以用于不同国家或不同区域，例如欧盟、美国，经济公告将包括通货膨胀、利率、就业数字、工厂订单、CPI、PPI等内容，这些内容可以为我们提供经济的衡量标准。`,
+					'pt-br': `O que é um <a href="/${lang}/economic-calendar" class="font-semibold text-dbgreen-500">calendário econômico</a>? Primeiro de tudo, você precisa saber que o calendário econômico é o diário de todos os anúncios relacionados à economia. O calendário pode ser usado para diferentes países ou diferentes tipos de regiões, como a UE, EUA, e os anúncios econômicos serão coisas como inflação, taxas de juros, números de empregos, pedidos de fábricas, IPC, PPI, todas essas coisas que podem nos dar uma medida da economia.`
+				})}
+			/>
 			<p class="text-color mb-3">
-				What is an <a href="#" class="font-semibold text-dbgreen-500">economic calendar</a> ? First of
-				all, you need to know that the economic calendar is the diary of all announcements that are coming
-				out related to the economy. The calendar can be used for different countries or different kind
-				of regions like EU, US and the economic announcements will be things like inflation interest
-				rates jobs numbers, factory orders CPI, PPI, all these kinds of things that can give us a gauge
-				on the economy.
-			</p>
-			<p class="text-color mb-3">
-				The economic news brings your attention even closer to reality, apart from technical and
-				these numbers have potential to move the markets that you are trading, so there is a hidden
-				risk.
+				{
+					t({
+						en: 'The economic news brings your attention even closer to reality, apart from technical and these numbers have the potential to move the markets that you are trading, so there is a hidden risk.',
+						ar: 'الأخبار الاقتصادية تجعل انتباهك أقرب إلى الواقع، بالإضافة إلى الجوانب الفنية، ولدى هذه الأرقام القدرة على تحريك الأسواق التي تتداول فيها، لذا هناك خطر خفي.',
+						es: 'Las noticias económicas acercan aún más su atención a la realidad, además de lo técnico, y estos números tienen el potencial de mover los mercados en los que está negociando, por lo que existe un riesgo oculto.',
+						fr: 'Les nouvelles économiques rapprochent votre attention encore plus de la réalité, en plus des aspects techniques, et ces chiffres ont le potentiel de faire bouger les marchés sur lesquels vous tradez, donc il y a un risque caché.',
+						hi: 'आर्थिक समाचार आपकी ध्यान को वास्तविकता के और करीब लाते हैं, तकनीकी के अलावा और ये आंकड़े आपके द्वारा व्यापार किए जाने वाले बाजारों को हिला सकते हैं, इसलिए एक छिपा हुआ जोखिम है।',
+						id: 'Berita ekonomi membawa perhatian Anda lebih dekat ke realitas, selain teknis dan angka-angka ini memiliki potensi untuk menggerakkan pasar yang Anda perdagangkan, jadi ada risiko tersembunyi.',
+						ms: 'Berita ekonomi membawa perhatian anda lebih dekat kepada realiti, selain teknikal dan nombor-nombor ini mempunyai potensi untuk menggerakkan pasaran yang anda dagangkan, jadi terdapat risiko tersembunyi.',
+						th: 'ข่าวเศรษฐกิจทำให้ความสนใจของคุณใกล้ชิดกับความเป็นจริงมากขึ้น นอกเหนือจากด้านเทคนิค และตัวเลขเหล่านี้มีศักยภาพในการเคลื่อนย้ายตลาดที่คุณกำลังซื้อขาย ดังนั้นจึงมีความเสี่ยงที่ซ่อนอยู่',
+						vi: 'Tin tức kinh tế khiến sự chú ý của bạn gần với thực tế hơn, bên cạnh các yếu tố kỹ thuật và những con số này có khả năng làm biến động thị trường mà bạn đang giao dịch, vì vậy có một rủi ro tiềm ẩn.',
+						bn: 'অর্থনৈতিক সংবাদ আপনার মনোযোগকে বাস্তবতার দিকে আরও কাছাকাছি নিয়ে আসে, প্রযুক্তিগত দিক ছাড়াও এবং এই সংখ্যাগুলির আপনার দ্বারা ট্রেড করা বাজারগুলি সরাতে সক্ষমতা রয়েছে, তাই একটি লুকানো ঝুঁকি রয়েছে।',
+						'zh-hans':
+							'经济新闻使您的关注更加贴近现实，除了技术因素，这些数字有可能影响您正在交易的市场，因此存在潜在风险。',
+						'pt-br':
+							'As notícias econômicas trazem sua atenção ainda mais perto da realidade, além do técnico, e esses números têm o potencial de mover os mercados que você está negociando, então há um risco oculto.'
+					})
+				}
 			</p>
 			<h2 class="mb-5 block text-xl font-bold capitalize text-gray-800 underline dark:text-white">
-				Reasons for using the Economic Calendar:
+				{
+					t({
+						en: 'Reasons for using the Economic Calendar:',
+						ar: 'أسباب استخدام التقويم الاقتصادي:',
+						es: 'Razones para usar el calendario económico:',
+						fr: "Raisons d'utiliser le calendrier économique :",
+						hi: 'आर्थिक कैलेंडर का उपयोग करने के कारण:',
+						id: 'Alasan menggunakan Kalender Ekonomi:',
+						ms: 'Sebab-sebab menggunakan Kalendar Ekonomi:',
+						th: 'เหตุผลในการใช้ปฏิทินเศรษฐกิจ:',
+						vi: 'Lý do sử dụng Lịch Kinh tế:',
+						bn: 'অর্থনৈতিক ক্যালেন্ডার ব্যবহারের কারণগুলি:',
+						'zh-hans': '使用经济日历的原因：',
+						'pt-br': 'Razões para usar o Calendário Econômico:'
+					})
+				}
 			</h2>
 			<p class="text-md mb-5 block font-bold capitalize text-gray-800 dark:text-white">
-				1. Hidden risks.
+				1. {
+					t({
+						en: 'Hidden risks.',
+						ar: 'المخاطر الخفية.',
+						es: 'Riesgos ocultos.',
+						fr: 'Risques cachés.',
+						hi: 'छिपे हुए जोखिम.',
+						id: 'Risiko tersembunyi.',
+						ms: 'Risiko tersembunyi.',
+						th: 'ความเสี่ยงที่ซ่อนอยู่.',
+						vi: 'Rủi ro tiềm ẩn.',
+						bn: 'গোপন ঝুঁকি.',
+						'zh-hans': '隐藏的风险。',
+						'pt-br': 'Riscos ocultos.'
+					})
+				}
 			</p>
 			<p class="text-color mb-3">
-				Imagine you are a day trader holding a position and you are not looking on the calendar, and
-				big figures coming out, potentially move the markets and might cause a spike on either
-				direction you are just giving up complete control of risk. This also could affect Swing
-				Traders however may lead to lower losses due to pre-determined risk plan. Eventually you can
-				holdover dates if you have done your analysis.
+				{
+					t({
+						en: 'Imagine you are a day trader holding a position and you are not looking at the calendar, and big figures are coming out, potentially moving the markets and might cause a spike in either direction. You are just giving up complete control of risk. This could also affect swing traders; however, it may lead to lower losses due to a pre-determined risk plan. Eventually, you can hold over dates if you have done your analysis.',
+						ar: 'تخيل أنك متداول يومي تحتفظ بمركز ولم تنظر إلى التقويم، وتظهر أرقام كبيرة قد تحرك الأسواق وقد تسبب ارتفاعًا في أي من الاتجاهين. أنت فقط تتخلى عن السيطرة الكاملة على المخاطر. يمكن أن يؤثر ذلك أيضًا على المتداولين المتأرجحين؛ ومع ذلك، قد يؤدي إلى خسائر أقل بسبب خطة المخاطر المحددة مسبقًا. في النهاية، يمكنك الاحتفاظ بالتواريخ إذا قمت بإجراء تحليلك.',
+						es: 'Imagina que eres un operador diario que mantiene una posición y no estás mirando el calendario, y salen grandes cifras que potencialmente mueven los mercados y pueden causar un aumento en cualquier dirección. Simplemente estás renunciando al control total del riesgo. Esto también podría afectar a los operadores de swing; sin embargo, puede llevar a menores pérdidas debido a un plan de riesgo predefinido. Eventualmente, puedes mantener las fechas si has realizado tu análisis.',
+						fr: "Imaginez que vous êtes un trader de jour détenant une position et que vous ne regardez pas le calendrier, et que de grandes chiffres sortent, potentiellement en mouvement les marchés et pouvant provoquer un pic dans une direction ou une autre. Vous abandonnez complètement le contrôle du risque. Cela pourrait également affecter les traders de swing ; cependant, cela pourrait entraîner des pertes moindres en raison d'un plan de risque prédéterminé. En fin de compte, vous pouvez maintenir les dates si vous avez fait votre analyse.",
+						hi: 'कल्पना कीजिए कि आप एक दिन के व्यापारी हैं जो एक स्थिति रखे हुए हैं और आप कैलेंडर को नहीं देख रहे हैं, और बड़े आंकड़े बाहर आ रहे हैं, संभावित रूप से बाजारों को हिला रहे हैं और किसी भी दिशा में स्पाइक का कारण बन सकते हैं। आप जोखिम का पूर्ण नियंत्रण छोड़ रहे हैं। यह स्विंग व्यापारियों को भी प्रभावित कर सकता है; हालाँकि, यह पूर्व-निर्धारित जोखिम योजना के कारण कम नुकसान का कारण बन सकता है। अंततः, आप तिथियों को बनाए रख सकते हैं यदि आपने अपने विश्लेषण को किया है।',
+						id: 'Bayangkan Anda adalah trader harian yang memegang posisi dan Anda tidak melihat kalender, dan angka besar muncul, berpotensi menggerakkan pasar dan mungkin menyebabkan lonjakan ke salah satu arah. Anda hanya menyerahkan kendali penuh atas risiko. Ini juga dapat mempengaruhi Trader Swing; namun, dapat menyebabkan kerugian yang lebih rendah karena rencana risiko yang telah ditentukan sebelumnya. Akhirnya, Anda dapat mempertahankan tanggal jika Anda telah melakukan analisis Anda.',
+						ms: 'Bayangkan anda seorang peniaga harian yang memegang posisi dan anda tidak melihat kalendar, dan angka besar muncul, berpotensi menggerakkan pasaran dan mungkin menyebabkan lonjakan ke arah yang mana. Anda hanya menyerahkan kawalan penuh terhadap risiko. Ini juga boleh memberi kesan kepada Pedagang Swing; namun, ia mungkin membawa kepada kerugian yang lebih rendah disebabkan oleh pelan risiko yang telah ditentukan. Akhirnya, anda boleh mengekalkan tarikh jika anda telah melakukan analisis anda.',
+						th: 'ลองจินตนาการว่าคุณเป็นนักเทรดรายวันที่ถือสถานะอยู่และคุณไม่ได้ดูปฏิทิน และตัวเลขใหญ่กำลังออกมา ซึ่งอาจทำให้ตลาดเคลื่อนไหวและอาจทำให้เกิดการเพิ่มขึ้นในทิศทางใดทิศทางหนึ่ง คุณกำลังยอมแพ้ต่อการควบคุมความเสี่ยงอย่างสมบูรณ์ สิ่งนี้อาจส่งผลกระทบต่อผู้ค้าสวิง อย่างไรก็ตามอาจนำไปสู่การขาดทุนที่น้อยลงเนื่องจากแผนความเสี่ยงที่กำหนดไว้ล่วงหน้า สุดท้ายคุณสามารถถือวันที่ถ้าคุณได้ทำการวิเคราะห์ของคุณแล้ว',
+						vi: 'Hãy tưởng tượng bạn là một nhà giao dịch trong ngày nắm giữ một vị thế và bạn không nhìn vào lịch, và những con số lớn xuất hiện, có khả năng di chuyển thị trường và có thể gây ra sự tăng vọt theo bất kỳ hướng nào. Bạn đang từ bỏ hoàn toàn quyền kiểm soát rủi ro. Điều này cũng có thể ảnh hưởng đến các nhà giao dịch Swing; tuy nhiên, nó có thể dẫn đến tổn thất thấp hơn nhờ vào kế hoạch rủi ro đã được xác định trước. Cuối cùng, bạn có thể giữ lại các ngày nếu bạn đã thực hiện phân tích của mình.',
+						bn: 'কল্পনা করুন আপনি একজন দিনের ব্যবসায়ী যে একটি অবস্থান ধরে রেখেছেন এবং আপনি ক্যালেন্ডারটি দেখছেন না, এবং বড় সংখ্যা বের হচ্ছে, সম্ভাব্যভাবে বাজারগুলি স্থানান্তরিত করছে এবং সম্ভবত কোনও এক দিকে স্পাইক তৈরি করতে পারে। আপনি কেবল ঝুঁকির সম্পূর্ণ নিয়ন্ত্রণ ছেড়ে দিচ্ছেন। এটি সুইং ট্রেডারদেরও প্রভাবিত করতে পারে; তবে, এটি পূর্বনির্ধারিত ঝুঁকির পরিকল্পনার কারণে কম ক্ষতির দিকে নিয়ে যেতে পারে। অবশেষে, আপনি আপনার বিশ্লেষণ করেছেন যদি আপনি তারিখগুলি ধরে রাখতে পারেন।',
+						'zh-hans':
+							'想象一下，你是一名持有头寸的日内交易者，而你并没有查看日历，并且一些重要数字即将发布，可能会影响市场并可能导致向任一方向的剧烈波动。你就完全放弃了风险控制。这也可能影响波段交易者；然而，由于预定的风险计划，这可能导致较小的损失。最终，如果你进行了分析，你可以继续持有这些日期。',
+						'pt-br':
+							'Imagine que você é um trader diário que possui uma posição e não está olhando para o calendário, e grandes números estão surgindo, potencialmente movendo os mercados e podem causar um pico em qualquer direção. Você está simplesmente abrindo mão do controle total do risco. Isso também pode afetar os traders de swing; no entanto, pode levar a perdas menores devido a um plano de risco pré-determinado. Eventualmente, você pode manter as datas se tiver feito sua análise.'
+					})
+				}
 			</p>
 			<p class="text-md mb-5 block font-bold capitalize text-gray-800 dark:text-white">
-				2. Patterns.
+				2. {
+					t({
+						en: 'Patterns.',
+						ar: 'أنماط.',
+						es: 'Patrones.',
+						fr: 'Modèles.',
+						hi: 'पैटर्न।',
+						id: 'Pola.',
+						ms: 'Corak.',
+						th: 'รูปแบบ.',
+						vi: 'Mô hình.',
+						bn: 'প্যাটার্ন।',
+						'zh-hans': '模式。',
+						'pt-br': 'Padrões.'
+					})
+				}
 			</p>
 			<p class="text-color mb-3">
-				Pattern of trading changes dramatically when we have big data coming out, so for example you
-				have got NFP (US jobs numbers) coming out, or you have got a big interest rate announcement,
-				more likelihood is the very correlated market to that. So, if we are talking about the
-				currency of the country, or bonds of the country or the index of the country, anything
-				related to the country will move, but if it’s a big number that everyone’s expecting, the
-				pattern of the trade will change and you may see a choppy trading because no one may want to
-				put their money up front, as a result you may end up gambling. Knowing the pattern and the
-				way the market is trading will alter when we you have big upcoming news.
+				{
+					t({
+						en: "The pattern of trading changes dramatically when we have big data coming out. For example, if you have NFP (US jobs numbers) coming out or a big interest rate announcement, there is a higher likelihood that correlated markets will react. If we are talking about the currency of the country, or the country's bonds, or the index of the country, anything related will move. However, if it’s a big number that everyone’s expecting, the trading pattern will change, and you may see choppy trading because no one may want to commit their money upfront, resulting in a gambling scenario. Knowing the pattern and the way the market is trading will alter when you have big upcoming news.",
+						ar: 'نمط التداول يتغير بشكل كبير عندما نواجه بيانات كبيرة. على سبيل المثال، إذا كان لديك تقرير الوظائف (NFP) (أرقام الوظائف الأمريكية) أو إعلان كبير عن سعر الفائدة، فهناك احتمال أكبر أن تتفاعل الأسواق المتداخلة. إذا كنا نتحدث عن عملة البلاد أو سندات البلاد أو مؤشر البلاد، فإن أي شيء متعلق سيتأثر. ومع ذلك، إذا كانت هناك رقم كبير يتوقعه الجميع، سيتغير نمط التداول وقد ترى تداولاً مضطرباً لأن لا أحد قد يرغب في وضع أمواله مسبقاً، مما يؤدي إلى حالة من المراهنة. معرفة النمط والطريقة التي يتداول بها السوق ستتغير عندما يكون لديك أخبار كبيرة قادمة.',
+						es: 'El patrón de trading cambia drásticamente cuando tenemos datos importantes que se publican. Por ejemplo, si tienes el NFP (números de empleo de EE. UU.) o un gran anuncio de tasas de interés, es más probable que el mercado correlacionado reaccione. Si estamos hablando de la moneda del país, o los bonos del país, o el índice del país, cualquier cosa relacionada se moverá. Sin embargo, si es un gran número que todos esperan, el patrón de trading cambiará y puedes ver un trading irregular porque nadie puede querer arriesgar su dinero por adelantado, lo que puede resultar en una situación de juego. Conocer el patrón y la forma en que el mercado está operando cambiará cuando tengas noticias importantes que se avecinan.',
+						fr: "Le schéma de trading change considérablement lorsque de grandes données sont publiées. Par exemple, si vous avez le NFP (chiffres de l'emploi américain) ou une annonce importante de taux d'intérêt, il y a plus de chances que le marché corrélé réagisse. Si nous parlons de la monnaie du pays, ou des obligations du pays, ou de l'indice du pays, tout ce qui est lié bougera. Cependant, s'il s'agit d'un grand nombre que tout le monde attend, le schéma de trading changera et vous pourrez voir un trading chaotique car personne ne voudra risquer son argent à l'avance, ce qui pourrait entraîner un comportement de jeu. Connaître le schéma et la façon dont le marché évolue changera lorsque vous aurez de grandes nouvelles à venir.",
+						hi: 'जब हमारे पास बड़ी डेटा आती है तो ट्रेडिंग का पैटर्न नाटकीय रूप से बदल जाता है। उदाहरण के लिए, यदि आपके पास NFP (यूएस जॉब्स नंबर) आ रहा है, या आपके पास एक बड़ा ब्याज दर घोषणा है, तो संबंधित बाजारों की प्रतिक्रिया की अधिक संभावना होती है। यदि हम देश की मुद्रा, या देश के बांड, या देश के इंडेक्स की बात कर रहे हैं, तो संबंधित कुछ भी हिल जाएगा। लेकिन यदि यह एक बड़ा नंबर है जिसे सभी उम्मीद कर रहे हैं, तो ट्रेड का पैटर्न बदल जाएगा और आप चिपचिपा ट्रेडिंग देख सकते हैं क्योंकि कोई भी अपनी पैसे को सामने नहीं लाना चाहता, परिणामस्वरूप आप जुआ खेल सकते हैं। पैटर्न जानना और जिस तरीके से बाजार ट्रेड कर रहा है, वह तब बदलेगा जब आपके पास बड़ी खबरें हों।',
+						id: 'Pola trading berubah secara dramatis ketika kita memiliki data besar yang keluar. Misalnya, jika Anda memiliki NFP (angka pekerjaan AS) yang akan dirilis, atau pengumuman suku bunga besar, kemungkinan besar pasar yang terkait akan bereaksi. Jika kita berbicara tentang mata uang negara, atau obligasi negara, atau indeks negara, apa pun yang terkait akan bergerak. Namun, jika itu angka besar yang diharapkan semua orang, pola trading akan berubah, dan Anda mungkin melihat trading yang tidak stabil karena tidak ada yang ingin menempatkan uang mereka di depan, yang mengakibatkan Anda mungkin berakhir berjudi. Mengetahui pola dan cara pasar trading akan berubah ketika Anda memiliki berita besar yang akan datang.',
+						ms: 'Pola perdagangan berubah dengan ketara apabila kita mempunyai data besar yang keluar. Sebagai contoh, jika anda mempunyai NFP (nombor pekerjaan AS) yang keluar, atau anda mempunyai pengumuman kadar faedah yang besar, kemungkinan besar pasaran yang berkaitan itu akan bergerak. Jika kita bercakap tentang mata wang negara, atau bon negara, atau indeks negara, apa sahaja yang berkaitan akan bergerak. Namun, jika ia adalah angka besar yang dijangka semua orang, pola perdagangan akan berubah dan anda mungkin melihat perdagangan yang tidak menentu kerana tiada siapa yang ingin meletakkan wang mereka ke hadapan, dan akibatnya anda mungkin berakhir berjudi. Mengetahui pola dan cara pasaran berdagang akan berubah apabila anda mempunyai berita besar yang akan datang.',
+						th: 'รูปแบบการซื้อขายเปลี่ยนแปลงอย่างมากเมื่อเรามีข้อมูลขนาดใหญ่ที่ออกมา ตัวอย่างเช่น หากคุณมี NFP (ตัวเลขการจ้างงานของสหรัฐ) ที่จะออก หรือคุณมีการประกาศอัตราดอกเบี้ยครั้งใหญ่ ความเป็นไปได้สูงที่ตลาดที่มีความสัมพันธ์จะตอบสนอง หากเรากำลังพูดถึงสกุลเงินของประเทศ หรือพันธบัตรของประเทศ หรือดัชนีของประเทศ สิ่งใดก็ตามที่เกี่ยวข้องจะเคลื่อนไหว แต่ถ้ามันเป็นหมายเลขใหญ่ที่ทุกคนคาดหวัง รูปแบบการซื้อขายจะเปลี่ยนไปและคุณอาจเห็นการซื้อขายที่ไม่มีระเบียบเนื่องจากไม่มีใครต้องการใส่เงินของตนข้างหน้า ผลที่ตามมา คุณอาจจบลงด้วยการเล่นพนัน การรู้จักรูปแบบและวิธีการที่ตลาดกำลังซื้อขายจะเปลี่ยนแปลงเมื่อคุณมีข่าวใหญ่ที่กำลังจะมาถึง',
+						vi: 'Mẫu giao dịch thay đổi đáng kể khi chúng ta có dữ liệu lớn được công bố. Ví dụ, nếu bạn có NFP (số liệu việc làm của Hoa Kỳ) ra mắt, hoặc bạn có một thông báo lãi suất lớn, có nhiều khả năng rằng các thị trường liên quan sẽ phản ứng. Nếu chúng ta đang nói về đồng tiền của quốc gia, hoặc trái phiếu của quốc gia, hoặc chỉ số của quốc gia, bất cứ điều gì liên quan sẽ di chuyển. Tuy nhiên, nếu đó là một con số lớn mà mọi người đều mong đợi, mẫu giao dịch sẽ thay đổi và bạn có thể thấy giao dịch chập chờn vì không ai muốn đặt tiền của họ lên trước, dẫn đến việc bạn có thể kết thúc việc đánh bạc. Biết được mẫu và cách mà thị trường đang giao dịch sẽ thay đổi khi bạn có tin tức lớn sắp ra mắt.',
+						bn: 'বাণিজ্যের প্যাটার্ন নাটকীয়ভাবে পরিবর্তিত হয় যখন আমাদের কাছে বড় ডেটা আসে। উদাহরণস্বরূপ, যদি আপনার কাছে NFP (যুক্তরাষ্ট্রের চাকরির সংখ্যা) বের হয়, বা আপনার কাছে একটি বড় সুদের হার ঘোষণা থাকে, তাহলে সম্পর্কিত বাজারের প্রতিক্রিয়া জানার সম্ভাবনা বেশি। যদি আমরা দেশের মুদ্রা, বা দেশের বন্ড, অথবা দেশের সূচক সম্পর্কে কথা বলি, তবে যে কোনও কিছুই সম্পর্কিত হবে। তবে যদি এটি একটি বড় সংখ্যা হয় যা সবাই আশা করছে, তাহলে ব্যবসায়ের প্যাটার্ন পরিবর্তিত হবে এবং আপনি খাপছাড়া ব্যবসা দেখতে পারেন কারণ কেউ হয়তো তাদের টাকা আগে দিতে চাইবে না, যার ফলস্বরূপ আপনি হয়তো জুয়া খেলতে শেষ করবেন। প্যাটার্ন এবং বাজারের ট্রেডিংয়ের পদ্ধতি জানলে বড় আসন্ন খবর থাকবে।',
+						'zh-hans':
+							'当我们有重要数据发布时，交易模式会发生剧烈变化。例如，如果您有NFP（美国就业人数）发布，或者有重大利率公告，那么相关市场的反应可能性会更高。如果我们讨论的是该国的货币、该国的债券或该国的指数，那么与之相关的任何东西都会受到影响。然而，如果这是一个大家都在期待的大数字，交易模式将发生变化，您可能会看到交易不稳定，因为没有人愿意提前投入资金，结果可能会导致您赌博。了解模式以及市场交易的方式会在您即将获得重大新闻时改变。',
+						'pt-br':
+							'O padrão de negociação muda drasticamente quando temos grandes dados saindo, então, por exemplo, você tem NFP (números de empregos dos EUA) saindo, ou você tem um grande anúncio de taxa de juros, mais provável é que o mercado esteja muito correlacionado a isso. Então, se estamos falando sobre a moeda do país, ou títulos do país ou o índice do país, qualquer coisa relacionada ao país se moverá, mas se for um grande número que todos estão esperando, o padrão da negociação mudará e você pode ver uma negociação instável porque ninguém pode querer colocar seu dinheiro na frente, como resultado, você pode acabar apostando. Conhecer o padrão e a maneira como o mercado está negociando mudará quando você tiver grandes notícias futuras.'
+					})
+				}
 			</p>
 			<p class="text-color mb-3">
-				You can build your trading strategy before the news, while the news coming out or you can
-				wait little longer after news come out to rest assured the that you will follow the correct
-				direction and avoid any possible manipulation that will cause spikes.
+				{
+					t({
+						en: 'You can build your trading strategy before the news, while the news coming out or you can wait a little longer after the news comes out to rest assured that you will follow the correct direction and avoid any possible manipulation that will cause spikes.',
+						ar: 'يمكنك بناء استراتيجيتك التجارية قبل الأخبار، أو أثناء صدور الأخبار، أو يمكنك الانتظار لفترة أطول قليلاً بعد صدور الأخبار لتكون مطمئنًا أنك ستتبع الاتجاه الصحيح وتجنب أي تلاعب محتمل قد يتسبب في حدوث تقلبات.',
+						es: 'Puedes construir tu estrategia de trading antes de las noticias, mientras salen las noticias o puedes esperar un poco más después de que salgan las noticias para asegurarte de que seguirás la dirección correcta y evitar cualquier posible manipulación que cause picos.',
+						fr: "Vous pouvez construire votre stratégie de trading avant les nouvelles, pendant que les nouvelles sortent, ou vous pouvez attendre un peu plus longtemps après la sortie des nouvelles pour être assuré de suivre la bonne direction et d'éviter toute manipulation possible qui pourrait provoquer des pics.",
+						hi: 'आप समाचार से पहले, समाचार आने पर या समाचार आने के बाद थोड़ी देर और इंतजार करके अपनी व्यापारिक रणनीति बना सकते हैं, ताकि आपको आश्वस्त हो सके कि आप सही दिशा का पालन करेंगे और किसी भी संभावित हेरफेर से बच सकेंगे जो उछाल का कारण बन सकता है।',
+						id: 'Anda dapat membangun strategi trading Anda sebelum berita, saat berita muncul, atau Anda bisa menunggu sedikit lebih lama setelah berita muncul untuk memastikan bahwa Anda akan mengikuti arah yang benar dan menghindari manipulasi yang mungkin menyebabkan lonjakan.',
+						ms: 'Anda boleh membina strategi perdagangan anda sebelum berita, semasa berita keluar atau anda boleh menunggu sedikit lebih lama selepas berita keluar untuk memastikan bahawa anda akan mengikuti arah yang betul dan mengelakkan sebarang kemungkinan manipulasi yang boleh menyebabkan lonjakan.',
+						th: 'คุณสามารถสร้างกลยุทธ์การซื้อขายของคุณก่อนที่จะมีข่าว ขณะที่มีข่าวออกมา หรือคุณสามารถรออีกสักครู่หลังจากข่าวออกมาเพื่อให้แน่ใจว่าคุณจะติดตามทิศทางที่ถูกต้องและหลีกเลี่ยงการจัดการที่อาจเกิดขึ้นซึ่งจะทำให้เกิดการกระโดด.',
+						vi: 'Bạn có thể xây dựng chiến lược giao dịch của mình trước khi có tin tức, trong khi tin tức được công bố hoặc bạn có thể đợi lâu hơn một chút sau khi tin tức được công bố để yên tâm rằng bạn sẽ đi đúng hướng và tránh bất kỳ sự thao túng nào có thể gây ra biến động.',
+						bn: 'আপনি সংবাদ আসার আগে, সংবাদ আসার সময় আপনার ট্রেডিং কৌশল তৈরি করতে পারেন অথবা সংবাদ প্রকাশের পরে একটু বেশি সময় অপেক্ষা করতে পারেন যাতে নিশ্চিত হতে পারেন যে আপনি সঠিক দিক অনুসরণ করছেন এবং যে কোনও সম্ভাব্য manupulation এড়িয়ে চলুন যা স্পাইক তৈরি করতে পারে।',
+						'zh-hans':
+							'您可以在新闻发布之前、新闻发布时建立交易策略，或者在新闻发布后稍等一段时间，以确保您将遵循正确的方向并避免可能导致波动的操纵。',
+						'pt-br':
+							'Você pode construir sua estratégia de negociação antes das notícias, enquanto as notícias estão saindo ou pode esperar um pouco mais depois que as notícias saem para ter certeza de que seguirá na direção correta e evitar qualquer possível manipulação que possa causar picos.'
+					})
+				}
 			</p>
 
 			<p class="text-md mb-5 block font-bold capitalize text-gray-800 dark:text-white">
-				3. Combination of a lot of different data which have inverse correlation (the value of one
-				variable is high then the value of the other variable is probably low):
+				3. {
+					t({
+						en: 'Combination of a lot of different data which have inverse correlation (the value of one variable is high then the value of the other variable is probably low):',
+						ar: 'تركيبة من الكثير من البيانات المختلفة التي لها علاقة عكسية (إذا كانت قيمة متغير واحد مرتفعة، فمن المحتمل أن تكون قيمة المتغير الآخر منخفضة):',
+						es: 'Combinación de muchos datos diferentes que tienen una correlación inversa (si el valor de una variable es alto, entonces el valor de la otra variable probablemente sea bajo):',
+						fr: "Combinaison de nombreuses données différentes ayant une corrélation inverse (si la valeur d'une variable est élevée, alors la valeur de l'autre variable est probablement faible) :",
+						hi: 'कई विभिन्न डेटा का संयोजन जिनका विपरीत संबंध है (यदि एक चर का मान उच्च है तो दूसरे चर का मान संभवतः निम्न होगा):',
+						id: 'Kombinasi dari banyak data berbeda yang memiliki korelasi invers (jika nilai satu variabel tinggi maka nilai variabel lainnya mungkin rendah):',
+						ms: 'Gabungan banyak data berbeza yang mempunyai korelasi terbalik (jika nilai satu pembolehubah tinggi maka nilai pembolehubah yang lain mungkin rendah):',
+						th: 'การรวมกันของข้อมูลที่แตกต่างกันมากมายซึ่งมีความสัมพันธ์แบบย้อนกลับ (หากค่าของตัวแปรหนึ่งสูงค่าของตัวแปรอื่นอาจต่ำ):',
+						vi: 'Sự kết hợp của nhiều dữ liệu khác nhau có mối tương quan ngược (nếu giá trị của một biến cao thì giá trị của biến còn lại có thể thấp):',
+						bn: 'বিভিন্ন তথ্যের সংমিশ্রণ যা বিপরীত সহস্রবৃত্তি (যদি একটি পরিবর্তনের মান উচ্চ হয় তবে অন্য পরিবর্তনের মান সম্ভবত নিম্ন হবে):',
+						'zh-hans':
+							'多种不同数据的组合，具有反向相关性（如果一个变量的值较高，则另一个变量的值可能较低）：',
+						'pt-br':
+							'Combinação de muitos dados diferentes que têm correlação inversa (se o valor de uma variável é alto, então o valor da outra variável provavelmente é baixo):'
+					})
+				}
+			</p>
+			<p
+				class="text-color mb-3"
+				set:html={t({
+					en: '<span class="font-semibold text-gray-800 dark:text-white">Negative Correlations:</span> For example, when bond yields are low and investors expect to earn very small amount, means stocks and other investments become more attractive. As a result, when inflation expectations increase, bonds are less desirable, and their prices are more likely to fall. Another example is gold against USD and gold against stock market. USD depreciation will lead to higher gold price, because will be cheaper for investors who holds foreign exchange currencies to buy it. Oil against dollar inverse correlation also exists because, when the U.S. dollar is weak, the price of oil is higher in dollar terms.',
+					ar: '<span class="font-semibold text-gray-800 dark:text-white">العلاقات السلبية:</span> على سبيل المثال، عندما تكون عوائد السندات منخفضة ويتوقع المستثمرون كسب مبلغ صغير جداً، فهذا يعني أن الأسهم والاستثمارات الأخرى تصبح أكثر جاذبية. نتيجة لذلك، عندما تزداد توقعات التضخم، تصبح السندات أقل جاذبية، ومن المرجح أن تنخفض أسعارها. مثال آخر هو الذهب مقابل الدولار الأمريكي والذهب مقابل سوق الأسهم. ستؤدي انخفاض قيمة الدولار الأمريكي إلى ارتفاع سعر الذهب، لأنه سيكون أرخص بالنسبة للمستثمرين الذين يحملون عملات أجنبية لشرائه. كما توجد علاقة عكسية بين النفط والدولار، لأنه عندما يكون الدولار الأمريكي ضعيفاً، يكون سعر النفط أعلى من حيث الدولار.',
+					es: '<span class="font-semibold text-gray-800 dark:text-white">Correlaciones Negativas:</span> Por ejemplo, cuando los rendimientos de los bonos son bajos y los inversores esperan ganar una cantidad muy pequeña, significa que las acciones y otras inversiones se vuelven más atractivas. Como resultado, cuando aumentan las expectativas de inflación, los bonos son menos deseables y es más probable que sus precios caigan. Otro ejemplo es el oro frente al USD y el oro frente al mercado de valores. La depreciación del USD llevará a un precio más alto del oro, porque será más barato para los inversores que poseen monedas extranjeras comprarlo. También existe una correlación inversa entre el petróleo y el dólar, porque, cuando el dólar estadounidense es débil, el precio del petróleo es más alto en términos de dólares.',
+					fr: "<span class=\"font-semibold text-gray-800 dark:text-white\">Corrélations Négatives :</span> Par exemple, lorsque les rendements des obligations sont faibles et que les investisseurs s'attendent à gagner très peu, cela signifie que les actions et d'autres investissements deviennent plus attrayants. En conséquence, lorsque les attentes en matière d'inflation augmentent, les obligations sont moins souhaitables et leurs prix sont plus susceptibles de baisser. Un autre exemple est l'or par rapport au USD et l'or par rapport au marché boursier. La dépréciation du USD entraînera un prix de l'or plus élevé, car il sera moins cher pour les investisseurs détenant des devises étrangères de l'acheter. Une corrélation inverse entre le pétrole et le dollar existe également, car lorsque le dollar américain est faible, le prix du pétrole est plus élevé en termes de dollars.",
+					hi: '<span class="font-semibold text-gray-800 dark:text-white">नकारात्मक सहसंबंध:</span> उदाहरण के लिए, जब बांड की उपज कम होती है और निवेशक बहुत छोटी राशि कमाने की उम्मीद करते हैं, तो इसका मतलब है कि स्टॉक और अन्य निवेश अधिक आकर्षक हो जाते हैं। परिणामस्वरूप, जब महंगाई की उम्मीदें बढ़ती हैं, तो बांड कम आकर्षक हो जाते हैं, और उनकी कीमतें गिरने की संभावना अधिक होती है। एक और उदाहरण है USD के मुकाबले सोना और स्टॉक बाजार के मुकाबले सोना। USD का अवमूल्यन सोने की कीमत को बढ़ा देगा, क्योंकि यह विदेशी मुद्रा धारकों के लिए इसे खरीदना सस्ता हो जाएगा। डॉलर के मुकाबले तेल में भी नकारात्मक सहसंबंध होता है क्योंकि, जब अमेरिकी डॉलर कमजोर होता है, तो तेल की कीमत डॉलर के संदर्भ में अधिक होती है।',
+					id: '<span class="font-semibold text-gray-800 dark:text-white">Korelasi Negatif:</span> Misalnya, ketika imbal hasil obligasi rendah dan investor mengharapkan untuk mendapatkan jumlah yang sangat kecil, itu berarti saham dan investasi lainnya menjadi lebih menarik. Akibatnya, ketika ekspektasi inflasi meningkat, obligasi menjadi kurang menarik, dan harga mereka lebih mungkin turun. Contoh lain adalah emas terhadap USD dan emas terhadap pasar saham. Depresiasi USD akan menyebabkan harga emas lebih tinggi, karena akan lebih murah bagi investor yang memegang mata uang asing untuk membelinya. Korelasi invers juga ada antara minyak dan dolar, karena ketika dolar AS lemah, harga minyak lebih tinggi dalam istilah dolar.',
+					ms: '<span class="font-semibold text-gray-800 dark:text-white">Korelasi Negatif:</span> Contohnya, apabila hasil bon rendah dan pelabur menjangkakan untuk memperoleh jumlah yang sangat kecil, ini bermakna saham dan pelaburan lain menjadi lebih menarik. Akibatnya, apabila jangkaan inflasi meningkat, bon menjadi kurang menarik dan harga mereka lebih cenderung untuk jatuh. Contoh lain adalah emas berbanding USD dan emas berbanding pasaran saham. Penurunan nilai USD akan menyebabkan harga emas lebih tinggi, kerana ia akan menjadi lebih murah bagi pelabur yang memegang mata wang asing untuk membelinya. Terdapat juga korelasi terbalik antara minyak dan dolar, kerana, apabila dolar AS lemah, harga minyak lebih tinggi dalam istilah dolar.',
+					th: '<span class="font-semibold text-gray-800 dark:text-white">ความสัมพันธ์เชิงลบ:</span> ตัวอย่างเช่น เมื่อผลตอบแทนพันธบัตรต่ำและนักลงทุนคาดหวังว่าจะได้รับผลตอบแทนที่น้อยมาก หมายความว่าหุ้นและการลงทุนอื่น ๆ จะมีความน่าสนใจมากขึ้น เป็นผลให้เมื่อคาดการณ์เงินเฟ้อเพิ่มขึ้น พันธบัตรจะมีความต้องการน้อยลงและราคาของมันมีแนวโน้มที่จะลดลง ตัวอย่างอีกประการหนึ่งคือทองคำเมื่อเปรียบเทียบกับ USD และทองคำเมื่อเปรียบเทียบกับตลาดหุ้น การด้อยค่า USD จะส่งผลให้ราคาทองคำสูงขึ้น เนื่องจากจะทำให้ซื้อง่ายขึ้นสำหรับนักลงทุนที่ถือสกุลเงินต่างประเทศ น้ำมันเมื่อเปรียบเทียบกับดอลลาร์ยังมีความสัมพันธ์เชิงกลับกัน เพราะเมื่อดอลลาร์สหรัฐอ่อนค่าราคาน้ำมันในแง่ของดอลลาร์จะสูงขึ้น',
+					vi: '<span class="font-semibold text-gray-800 dark:text-white">Mối Quan Hệ Âm:</span> Ví dụ, khi lợi suất trái phiếu thấp và các nhà đầu tư mong đợi kiếm được rất ít, điều đó có nghĩa là cổ phiếu và các khoản đầu tư khác trở nên hấp dẫn hơn. Do đó, khi kỳ vọng lạm phát tăng, trái phiếu trở nên kém hấp dẫn hơn và giá của chúng có khả năng giảm hơn. Một ví dụ khác là vàng so với USD và vàng so với thị trường chứng khoán. Việc đồng USD mất giá sẽ dẫn đến giá vàng cao hơn, vì sẽ rẻ hơn cho các nhà đầu tư nắm giữ ngoại tệ để mua nó. Mối quan hệ ngược giữa dầu và đô la cũng tồn tại, bởi vì khi đồng đô la Mỹ yếu, giá dầu sẽ cao hơn theo nghĩa đô la.',
+					bn: '<span class="font-semibold text-gray-800 dark:text-white">নেতিবাচক সম্পর্ক:</span> উদাহরণস্বরূপ, যখন বন্ডের ফলন কম এবং বিনিয়োগকারীরা খুব সামান্য পরিমাণ উপার্জনের আশা করেন, এর মানে হল শেয়ার এবং অন্যান্য বিনিয়োগগুলি আরও আকর্ষণীয় হয়ে ওঠে। ফলস্বরূপ, যখন মুদ্রাস্ফীতির প্রত্যাশা বৃদ্ধি পায়, বন্ডগুলি কম কাঙ্খিত হয়ে যায় এবং তাদের দাম পড়ার সম্ভাবনা বেশি। একটি আরেকটি উদাহরণ হল USD এর বিরুদ্ধে সোনার এবং শেয়ার বাজারের বিরুদ্ধে সোনা। USD এর অবমূল্যায়ন সোনার দামের দিকে নিয়ে যাবে, কারণ এটি বিদেশী মুদ্রার মালিকদের জন্য এটি কেনার জন্য সস্তা হবে। ডলারের বিরুদ্ধে তেলের বিপরীত সম্পর্কও বিদ্যমান, কারণ যখন মার্কিন ডলার দুর্বল হয়, তখন তেলের দাম ডলারের দিক থেকে উচ্চতর হয়।',
+					'zh-hans':
+						'<span class="font-semibold text-gray-800 dark:text-white">负相关：</span> 例如，当债券收益率低且投资者预计获得非常小的收益时，股票和其他投资变得更加吸引人。因此，当通胀预期增加时，债券就变得不那么受欢迎，其价格更可能下跌。另一个例子是黄金与美元的关系以及黄金与股票市场的关系。美元贬值将导致黄金价格上涨，因为对持有外汇货币的投资者来说，黄金购买成本更低。美元与石油之间的负相关关系也存在，因为当美元疲软时，石油价格以美元计算时更高。',
+					'pt-br':
+						'<span class="font-semibold text-gray-800 dark:text-white">Correlações Negativas:</span> Por exemplo, quando os rendimentos dos títulos são baixos e os investidores esperam ganhar uma quantia muito pequena, isso significa que as ações e outros investimentos se tornam mais atraentes. Como resultado, quando as expectativas de inflação aumentam, os títulos se tornam menos desejáveis e seus preços têm mais chances de cair. Outro exemplo é o ouro em relação ao USD e o ouro em relação ao mercado de ações. A desvalorização do USD levará a um preço mais alto do ouro, porque será mais barato para os investidores que possuem moedas estrangeiras comprá-lo. Também existe uma correlação inversa entre petróleo e dólar, porque, quando o dólar dos EUA está fraco, o preço do petróleo é mais alto em termos de dólares.'
+				})}
+			/>
+			<p
+				class="text-color mb-3"
+				set:html={t({
+					en: '<span class="font-semibold text-gray-800 dark:text-white">Positive Correlations:</span> EUR/USD and GBP/USD. If EUR/USD is trading up, then GBP/USD will also move in the same direction.',
+					ar: '<span class="font-semibold text-gray-800 dark:text-white">الارتباطات الإيجابية:</span> EUR/USD و GBP/USD. إذا كان EUR/USD يتداول في الاتجاه الصاعد، فسوف يتحرك GBP/USD أيضًا في نفس الاتجاه.',
+					es: '<span class="font-semibold text-gray-800 dark:text-white">Correlaciones Positivas:</span> EUR/USD y GBP/USD. Si EUR/USD está subiendo, entonces GBP/USD también se moverá en la misma dirección.',
+					fr: '<span class="font-semibold text-gray-800 dark:text-white">Corrélations Positives :</span> EUR/USD et GBP/USD. Si EUR/USD est à la hausse, alors GBP/USD se déplacera également dans la même direction.',
+					hi: '<span class="font-semibold text-gray-800 dark:text-white">सकारात्मक सहसंबंध:</span> EUR/USD और GBP/USD। यदि EUR/USD ऊपर की ओर व्यापार कर रहा है, तो GBP/USD भी उसी दिशा में चलेगा।',
+					id: '<span class="font-semibold text-gray-800 dark:text-white">Korelasi Positif:</span> EUR/USD dan GBP/USD. Jika EUR/USD naik, maka GBP/USD juga akan bergerak ke arah yang sama.',
+					ms: '<span class="font-semibold text-gray-800 dark:text-white">Korelasi Positif:</span> EUR/USD dan GBP/USD. Jika EUR/USD sedang meningkat, maka GBP/USD juga akan bergerak ke arah yang sama.',
+					th: '<span class="font-semibold text-gray-800 dark:text-white">ความสัมพันธ์เชิงบวก:</span> EUR/USD และ GBP/USD หาก EUR/USD กำลังซื้อขายในแนวโน้มขาขึ้น GBP/USD ก็จะเคลื่อนไหวในทิศทางเดียวกัน',
+					vi: '<span class="font-semibold text-gray-800 dark:text-white">Mối Quan Hệ Dương:</span> EUR/USD và GBP/USD. Nếu EUR/USD đang giao dịch tăng, thì GBP/USD cũng sẽ di chuyển theo cùng một hướng.',
+					bn: '<span class="font-semibold text-gray-800 dark:text-white">সकारাত্মক সম্পর্ক:</span> EUR/USD এবং GBP/USD। যদি EUR/USD ঊর্ধ্বমুখী হয়, তাহলে GBP/USD-ও একই দিকেই চলে যাবে।',
+					'zh-hans':
+						'<span class="font-semibold text-gray-800 dark:text-white">正相关：</span> EUR/USD 和 GBP/USD。如果 EUR/USD 正在上涨，那么 GBP/USD 也将朝同一方向移动。',
+					'pt-br':
+						'<span class="font-semibold text-gray-800 dark:text-white">Correlação Positiva:</span> EUR/USD e GBP/USD. Se EUR/USD estiver subindo, então GBP/USD também se moverá na mesma direção.'
+				})}
+			/>
+			<p class="text-color mb-3 font-semibold text-gray-800 dark:text-white">
+				{
+					t({
+						en: 'From Economic Calendar you can see the importance of the upcoming news and how big will be the market impact. You can compare previous rates against forecasted and current ones for each type of event. You can choose timeframe and or time zone and apply any filters of your preference.',
+						ar: 'من التقويم الاقتصادي، يمكنك رؤية أهمية الأخبار القادمة ومدى تأثيرها على السوق. يمكنك مقارنة الأسعار السابقة مع الأسعار المتوقعة والحالية لكل نوع من الأحداث. يمكنك اختيار الإطار الزمني أو المنطقة الزمنية وتطبيق أي فلاتر تفضلها.',
+						es: 'Desde el Calendario Económico, puedes ver la importancia de las noticias que se avecinan y cuán grande será el impacto en el mercado. Puedes comparar las tasas anteriores con las proyectadas y actuales para cada tipo de evento. Puedes elegir el marco temporal y/o la zona horaria y aplicar cualquier filtro que prefieras.',
+						fr: "À partir du calendrier économique, vous pouvez voir l'importance des nouvelles à venir et quel sera l'impact sur le marché. Vous pouvez comparer les taux précédents avec ceux prévus et actuels pour chaque type d'événement. Vous pouvez choisir la période et/ou le fuseau horaire et appliquer tous les filtres de votre choix.",
+						hi: 'आर्थिक कैलेंडर से आप आगामी समाचारों के महत्व और बाजार पर इसके प्रभाव को देख सकते हैं। आप प्रत्येक प्रकार के घटना के लिए पूर्व दरों की तुलना भविष्यवाणी की गई और वर्तमान दरों से कर सकते हैं। आप समय सीमा और/या समय क्षेत्र चुन सकते हैं और अपनी पसंद के अनुसार कोई भी फ़िल्टर लागू कर सकते हैं।',
+						id: 'Dari Kalender Ekonomi, Anda dapat melihat pentingnya berita mendatang dan seberapa besar dampaknya terhadap pasar. Anda dapat membandingkan tarif sebelumnya dengan yang diperkirakan dan saat ini untuk setiap jenis acara. Anda dapat memilih kerangka waktu dan/atau zona waktu dan menerapkan filter sesuai preferensi Anda.',
+						ms: 'Dari Kalendar Ekonomi, anda boleh melihat kepentingan berita yang akan datang dan sejauh mana kesan pasaran. Anda boleh membandingkan kadar sebelumnya dengan kadar yang diramalkan dan semasa untuk setiap jenis acara. Anda boleh memilih rangka masa dan/atau zon waktu dan menerapkan sebarang penapis mengikut pilihan anda.',
+						th: 'จากปฏิทินเศรษฐกิจ คุณสามารถดูความสำคัญของข่าวที่จะเกิดขึ้นและผลกระทบต่อการตลาดว่าจะใหญ่เพียงใด คุณสามารถเปรียบเทียบอัตราก่อนหน้าเทียบกับอัตราที่คาดการณ์และปัจจุบันสำหรับแต่ละประเภทของเหตุการณ์ คุณสามารถเลือกกรอบเวลาและ/หรือเขตเวลาและใช้ตัวกรองใด ๆ ตามที่คุณต้องการ',
+						vi: 'Từ Lịch Kinh tế, bạn có thể thấy tầm quan trọng của các tin tức sắp tới và ảnh hưởng của chúng đến thị trường sẽ lớn như thế nào. Bạn có thể so sánh tỷ lệ trước đây với các tỷ lệ dự đoán và hiện tại cho mỗi loại sự kiện. Bạn có thể chọn khung thời gian và/hoặc múi giờ và áp dụng bất kỳ bộ lọc nào mà bạn thích.',
+						bn: 'অর্থনৈতিক ক্যালেন্ডার থেকে আপনি আসন্ন সংবাদগুলোর গুরুত্ব এবং বাজারে এর প্রভাব কত বড় হবে তা দেখতে পারবেন। আপনি প্রতিটি ধরণের ইভেন্টের জন্য পূর্বের হারগুলোর সঙ্গে পূর্বাভাসিত এবং বর্তমান হারগুলোর তুলনা করতে পারেন। আপনি সময়সীমা এবং/অথবা সময় অঞ্চল নির্বাচন করতে পারেন এবং আপনার পছন্দ অনুযায়ী কোনো ফিল্টার প্রয়োগ করতে পারেন।',
+						'zh-hans':
+							'从经济日历中，您可以看到即将到来的新闻的重要性以及其对市场的影响程度。您可以比较每种事件的先前利率与预测利率和当前利率。您可以选择时间范围和/或时区，并应用您喜欢的任何筛选器。',
+						'pt-br':
+							'A partir do Calendário Econômico, você pode ver a importância das notícias que se aproximam e quão grande será o impacto no mercado. Você pode comparar as taxas anteriores com as previstas e atuais para cada tipo de evento. Você pode escolher o período de tempo e/ou o fuso horário e aplicar quaisquer filtros de sua preferência.'
+					})
+				}
+			</p>
+			<p class="text-color mb-3 font-semibold text-gray-800 dark:text-white">
+				{
+					t({
+						en: 'Trading needs discipline, consistency, and persistency, along always with a proper risk management to meet your targets.',
+						ar: 'تحتاج التجارة إلى الانضباط والاتساق والاستمرارية، دائمًا مع إدارة مخاطر مناسبة لتحقيق أهدافك.',
+						es: 'El trading necesita disciplina, consistencia y persistencia, siempre acompañado de una adecuada gestión de riesgos para alcanzar tus objetivos.',
+						fr: "Le trading nécessite de la discipline, de la constance et de la persévérance, toujours accompagnés d'une gestion des risques appropriée pour atteindre vos objectifs.",
+						hi: 'व्यापार के लिए अनुशासन, निरंतरता और दृढ़ता की आवश्यकता होती है, हमेशा अपने लक्ष्यों को प्राप्त करने के लिए उचित जोखिम प्रबंधन के साथ।',
+						id: 'Perdagangan membutuhkan disiplin, konsistensi, dan ketekunan, selalu disertai dengan manajemen risiko yang tepat untuk mencapai target Anda.',
+						ms: 'Perdagangan memerlukan disiplin, konsistensi, dan ketekunan, serta pengurusan risiko yang tepat untuk mencapai sasaran anda.',
+						th: 'การเทรดต้องการวินัย ความสม่ำเสมอ และความเพียรพยายาม พร้อมด้วยการจัดการความเสี่ยงที่เหมาะสมเพื่อบรรลุเป้าหมายของคุณ',
+						vi: 'Giao dịch cần có kỷ luật, sự nhất quán và kiên trì, luôn đi kèm với quản lý rủi ro hợp lý để đạt được mục tiêu của bạn.',
+						bn: 'ট্রেডিংয়ের জন্য শৃঙ্খলা, ধারাবাহিকতা এবং স্থিরতা প্রয়োজন, সবসময় আপনার লক্ষ্যগুলি পূরণ করতে উপযুক্ত ঝুঁকি ব্যবস্থাপনার সাথে।',
+						'zh-hans': '交易需要纪律、一致性和坚持性，并始终需要适当的风险管理来实现您的目标。',
+						'pt-br':
+							'O trading precisa de disciplina, consistência e persistência, sempre acompanhados de uma gestão de risco adequada para atingir seus objetivos.'
+					})
+				}
 			</p>
 			<p class="text-color mb-3">
-				<span class="font-semibold text-gray-800 dark:text-white">Negative Correlations:</span> For example,
-				when bond yields are low and investors expect to earn very small amount, means stocks and other
-				investments become more attractive. As a result, when inflation expectations increase, bonds
-				are less desirable, and their prices are more likely to fall. Another example is gold against
-				USD and gold against stock market. USD depreciation will lead to higher gold price, because will
-				be cheaper for investors who holds foreign exchange currencies to buy it. Oil against dollar
-				inverse correlation also exists because, when the U.S. dollar is weak, the price of oil is higher
-				in dollar terms.
-			</p>
-			<p class="text-color mb-3">
-				<span class="font-semibold text-gray-800 dark:text-white">Positive Correlations:</span> EUR/USD
-				and GBP/USD. If EUR/USD is trading up, then GBP/USD will also move in the same direction.
-			</p>
-			<p class="text-color mb-3">
-				<span class="font-semibold text-gray-800 dark:text-white"
-					>From Economic Calendar you can see the importance of the upcoming news and how big will
-					be the market impact. You can compare previous rates against forecasted and current ones
-					for each type of event. You can choose timeframe and or time zone and apply any filters of
-					your preference.</span
-				>
-			</p>
-			<p class="text-color mb-3">
-				<span class="font-semibold text-gray-800 dark:text-white"
-					>Trading needs discipline, consistency, and persistency, along always with a proper risk
-					management to meet your targets.</span
-				>
-			</p>
-			<p class="text-color mb-3">
-				As a result, the economic calendar becomes your friend and assist you taking informative
-				decisions. It also assists you in a way to be ready in advance and set up your strategy for
-				upcoming news from countries outside your time zone. Economic calendar can provide you
-				historical numbers for each type of event along with forecast and actual numbers to evaluate
-				further your risk tolerance.
+				{
+					t({
+						en: 'As a result, the economic calendar becomes your friend and assists you in making informed decisions. It also helps you to be ready in advance and set up your strategy for upcoming news from countries outside your time zone. The economic calendar can provide you with historical numbers for each type of event along with forecast and actual numbers to further evaluate your risk tolerance.',
+						ar: 'نتيجة لذلك، يصبح التقويم الاقتصادي صديقك ويساعدك في اتخاذ قرارات مستنيرة. كما أنه يساعدك على الاستعداد مسبقًا ووضع استراتيجيتك للأخبار القادمة من البلدان خارج منطقتك الزمنية. يمكن أن يوفر لك التقويم الاقتصادي أرقامًا تاريخية لكل نوع من الأحداث مع التوقعات والأرقام الفعلية لتقييم قدرتك على تحمل المخاطر بشكل أكبر.',
+						es: 'Como resultado, el calendario económico se convierte en tu amigo y te ayuda a tomar decisiones informadas. También te ayuda a estar preparado con anticipación y a establecer tu estrategia para las noticias que se avecinan de países fuera de tu zona horaria. El calendario económico puede proporcionarte números históricos para cada tipo de evento junto con números pronosticados y reales para evaluar aún más tu tolerancia al riesgo.',
+						fr: "En conséquence, le calendrier économique devient votre ami et vous aide à prendre des décisions éclairées. Il vous aide également à être prêt à l'avance et à mettre en place votre stratégie pour les nouvelles à venir des pays en dehors de votre fuseau horaire. Le calendrier économique peut vous fournir des chiffres historiques pour chaque type d'événement ainsi que des prévisions et des chiffres réels pour évaluer davantage votre tolérance au risque.",
+						hi: 'इसलिए, आर्थिक कैलेंडर आपका मित्र बन जाता है और आपको सूचित निर्णय लेने में सहायता करता है। यह आपको पूर्व में तैयार रहने और अपने समय क्षेत्र से बाहर के देशों की आगामी समाचारों के लिए अपनी रणनीति स्थापित करने में भी मदद करता है। आर्थिक कैलेंडर प्रत्येक प्रकार की घटना के लिए ऐतिहासिक आंकड़े प्रदान कर सकता है, साथ ही भविष्यवाणियाँ और वास्तविक आंकड़े भी, ताकि आप अपने जोखिम सहिष्णुता का और मूल्यांकन कर सकें।',
+						id: 'Akibatnya, kalender ekonomi menjadi teman Anda dan membantu Anda membuat keputusan yang informatif. Ini juga membantu Anda untuk siap sebelumnya dan menyiapkan strategi Anda untuk berita mendatang dari negara-negara di luar zona waktu Anda. Kalender ekonomi dapat memberikan Anda angka historis untuk setiap jenis acara bersama dengan perkiraan dan angka aktual untuk lebih mengevaluasi toleransi risiko Anda.',
+						ms: 'Hasilnya, kalendar ekonomi menjadi rakan anda dan membantu anda membuat keputusan yang berinformasi. Ia juga membantu anda untuk bersedia lebih awal dan menetapkan strategi anda untuk berita akan datang dari negara-negara di luar zon masa anda. Kalendar ekonomi boleh menyediakan anda dengan nombor sejarah untuk setiap jenis acara bersama dengan ramalan dan nombor sebenar untuk menilai lebih lanjut toleransi risiko anda.',
+						th: 'ผลลัพธ์คือปฏิทินเศรษฐกิจจะกลายเป็นเพื่อนของคุณและช่วยคุณในการตัดสินใจอย่างมีข้อมูล มันยังช่วยให้คุณเตรียมตัวล่วงหน้าและตั้งกลยุทธ์สำหรับข่าวที่จะมาจากประเทศนอกเขตเวลา ของคุณ ปฏิทินเศรษฐกิจสามารถให้ตัวเลขทางประวัติศาสตร์สำหรับแต่ละประเภทของเหตุการณ์พร้อมกับตัวเลขที่คาดการณ์และตัวเลขจริงเพื่อประเมินความเสี่ยงที่คุณสามารถรับได้เพิ่มเติม',
+						vi: 'Kết quả là, lịch kinh tế trở thành người bạn của bạn và hỗ trợ bạn trong việc đưa ra quyết định thông tin. Nó cũng giúp bạn chuẩn bị trước và thiết lập chiến lược cho các tin tức sắp tới từ các quốc gia ngoài múi giờ của bạn. Lịch kinh tế có thể cung cấp cho bạn các số liệu lịch sử cho mỗi loại sự kiện cùng với dự đoán và số liệu thực tế để đánh giá thêm khả năng chịu rủi ro của bạn.',
+						bn: 'ফলস্বরূপ, অর্থনৈতিক ক্যালেন্ডার আপনার বন্ধু হয়ে ওঠে এবং আপনাকে তথ্যপূর্ণ সিদ্ধান্ত নিতে সহায়তা করে। এটি আপনাকে আগেই প্রস্তুত হতে এবং আপনার সময় অঞ্চলের বাইরের দেশগুলির জন্য আসন্ন সংবাদগুলির জন্য আপনার কৌশল সেট আপ করতে সহায়তা করে। অর্থনৈতিক ক্যালেন্ডার প্রতিটি ধরনের ঘটনার জন্য ঐতিহাসিক সংখ্যা প্রদান করতে পারে পাশাপাশি পূর্বাভাস এবং প্রকৃত সংখ্যা আপনার ঝুঁকি সহনশীলতা আরও মূল্যায়নের জন্য।',
+						'zh-hans':
+							'因此，经济日历成为你的朋友，帮助你做出明智的决定。它还帮助你提前做好准备，为来自你所在时区之外的国家的即将到来的新闻制定策略。经济日历可以为每种事件提供历史数据，以及预测和实际数据，以进一步评估你的风险承受能力。',
+						'pt-br':
+							'Como resultado, o calendário econômico se torna seu amigo e o ajuda a tomar decisões informadas. Ele também ajuda você a se preparar com antecedência e a definir sua estratégia para as notícias que estão por vir de países fora do seu fuso horário. O calendário econômico pode fornecer números históricos para cada tipo de evento, juntamente com números previstos e reais para avaliar ainda mais sua tolerância ao risco.'
+					})
+				}
 			</p>
 			<h2 class="mb-5 block text-xl font-bold capitalize text-gray-800 underline dark:text-white">
-				Usefulness of Economic Calendar:
+				{
+					t({
+						en: 'Usefulness of Economic Calendar:',
+						ar: 'فائدة التقويم الاقتصادي:',
+						es: 'Utilidad del calendario económico:',
+						fr: 'Utilité du calendrier économique :',
+						hi: 'आर्थिक कैलेंडर की उपयोगिता:',
+						id: 'Kegunaan Kalender Ekonomi:',
+						ms: 'Kegunaan Kalendar Ekonomi:',
+						th: 'ประโยชน์ของปฏิทินเศรษฐกิจ:',
+						vi: 'Lợi ích của Lịch Kinh tế:',
+						bn: 'অর্থনৈতিক ক্যালেন্ডারের উপকারিতা:',
+						'zh-hans': '经济日历的实用性：',
+						'pt-br': 'Utilidade do calendário econômico:'
+					})
+				}
 			</h2>
 			<ul class="text-color mb-3 list-outside list-disc ps-8">
 				<li>
-					Provision of pre-existing historical data assisting you taking better trading decisions
-					and setting up your risk.
+					{
+						t({
+							en: 'Provision of pre-existing historical data assisting you in making better trading decisions and setting up your risk.',
+							ar: 'توفير بيانات تاريخية مسبقة تساعدك في اتخاذ قرارات تداول أفضل وإعداد مخاطر.',
+							es: 'Provisión de datos históricos preexistentes que te ayudan a tomar mejores decisiones comerciales y a establecer tu riesgo.',
+							fr: 'Fourniture de données historiques préexistantes vous aidant à prendre de meilleures décisions de trading et à définir votre risque.',
+							hi: 'पूर्व-निर्धारित ऐतिहासिक डेटा की उपलब्धता जो आपको बेहतर व्यापारिक निर्णय लेने और अपने जोखिम को निर्धारित करने में मदद करती है।',
+							id: 'Penyediaan data historis yang sudah ada sebelumnya untuk membantu Anda membuat keputusan trading yang lebih baik dan mengatur risiko Anda.',
+							ms: 'Penyediaan data sejarah yang telah ada sebelum ini untuk membantu anda membuat keputusan perdagangan yang lebih baik dan menetapkan risiko anda.',
+							th: 'การจัดหาข้อมูลประวัติศาสตร์ที่มีอยู่ก่อนซึ่งช่วยให้คุณตัดสินใจการซื้อขายได้ดีขึ้นและตั้งค่าความเสี่ยงของคุณ',
+							vi: 'Cung cấp dữ liệu lịch sử đã có sẵn giúp bạn đưa ra quyết định giao dịch tốt hơn và thiết lập rủi ro của bạn.',
+							bn: 'আপনার আরো ভালো ট্রেডিং সিদ্ধান্ত নেওয়ার এবং আপনার ঝুঁকি নির্ধারণের জন্য পূর্বে বিদ্যমান ঐতিহাসিক তথ্যের সরবরাহ।',
+							'zh-hans': '提供现有历史数据，帮助您做出更好的交易决策并设定风险。',
+							'pt-br':
+								'Fornecimento de dados históricos pré-existentes que ajudam você a tomar melhores decisões de negociação e a definir seu risco.'
+						})
+					}
 				</li>
-				<li>Adding alerts for upcoming news and be ready to get in the market.</li>
 				<li>
-					You can be informed for past market events that can have impact on the upcoming news, so
-					you can have integrated opinion.
+					{
+						t({
+							en: 'Adding alerts for upcoming news and being ready to get into the market.',
+							ar: 'إضافة تنبيهات للأخبار القادمة وكونك مستعدًا لدخول السوق.',
+							es: 'Añadiendo alertas para las próximas noticias y estando listo para entrar al mercado.',
+							fr: 'Ajouter des alertes pour les nouvelles à venir et être prêt à entrer sur le marché.',
+							hi: 'आने वाली खबरों के लिए अलर्ट जोड़ना और बाजार में प्रवेश करने के लिए तैयार रहना।',
+							id: 'Menambahkan peringatan untuk berita mendatang dan siap untuk masuk ke pasar.',
+							ms: 'Menambah amaran untuk berita yang akan datang dan bersedia untuk memasuki pasaran.',
+							th: 'เพิ่มการแจ้งเตือนสำหรับข่าวที่กำลังจะมาถึงและเตรียมตัวให้พร้อมเข้าสู่ตลาด',
+							vi: 'Thêm thông báo cho các tin tức sắp tới và sẵn sàng tham gia vào thị trường.',
+							bn: 'আসন্ন খবরের জন্য এলার্ট যুক্ত করা এবং বাজারে প্রবেশ করতে প্রস্তুত থাকা।',
+							'zh-hans': '添加即将发布新闻的提醒，准备进入市场。',
+							'pt-br':
+								'Adicionando alertas para as próximas notícias e estando pronto para entrar no mercado.'
+						})
+					}
 				</li>
 				<li>
-					The calendar gives substantial aid to newbies to monitor more effectively their
-					investments.
+					{
+						t({
+							en: 'You can be informed of past market events that can have an impact on the upcoming news, so you can have an integrated opinion.',
+							ar: 'يمكنك أن تكون على علم بالأحداث السابقة في السوق التي يمكن أن تؤثر على الأخبار القادمة، حتى تتمكن من الحصول على رأي متكامل.',
+							es: 'Puedes informarte sobre eventos de mercado pasados que pueden tener un impacto en las noticias próximas, para que puedas tener una opinión integrada.',
+							fr: "Vous pouvez être informé des événements passés du marché qui peuvent avoir un impact sur les nouvelles à venir, afin d'avoir une opinion intégrée.",
+							hi: 'आप पिछली बाजार घटनाओं के बारे में सूचित हो सकते हैं जो आने वाली खबरों पर प्रभाव डाल सकती हैं, ताकि आप एक समेकित राय बना सकें।',
+							id: 'Anda dapat diinformasikan tentang peristiwa pasar di masa lalu yang dapat mempengaruhi berita mendatang, sehingga Anda dapat memiliki pendapat yang terintegrasi.',
+							ms: 'Anda boleh dimaklumkan tentang peristiwa pasaran yang lalu yang boleh memberi kesan kepada berita akan datang, supaya anda boleh mempunyai pendapat yang terintegrasi.',
+							th: 'คุณสามารถรับข้อมูลเกี่ยวกับเหตุการณ์ในตลาดในอดีตที่สามารถส่งผลกระทบต่อข่าวที่กำลังจะมาถึง ดังนั้นคุณจึงสามารถมีความคิดเห็นที่บูรณาการ',
+							vi: 'Bạn có thể được thông báo về các sự kiện thị trường trong quá khứ có thể ảnh hưởng đến tin tức sắp tới, để bạn có thể có ý kiến tổng hợp.',
+							bn: 'আপনি অতীতের বাজারের ঘটনাগুলির বিষয়ে অবগত থাকতে পারেন যা আসন্ন খবরের উপর প্রভাব ফেলতে পারে, তাই আপনি একটি সংহত মতামত পেতে পারেন।',
+							'zh-hans':
+								'您可以了解过去的市场事件，这些事件可能会对即将发布的新闻产生影响，这样您就可以形成综合的观点。',
+							'pt-br':
+								'Você pode ser informado sobre eventos passados do mercado que podem ter um impacto nas notícias futuras, para que possa ter uma opinião integrada.'
+						})
+					}
+				</li>
+				<li>
+					{
+						t({
+							en: 'The calendar gives substantial aid to newbies to monitor more effectively their investments.',
+							ar: 'التقويم يقدم مساعدة كبيرة للمبتدئين لمراقبة استثماراتهم بشكل أكثر فعالية.',
+							es: 'El calendario ofrece una ayuda sustancial a los principiantes para monitorear sus inversiones de manera más efectiva.',
+							fr: 'Le calendrier apporte une aide considérable aux débutants pour surveiller plus efficacement leurs investissements.',
+							hi: 'कैलेंडर नए लोगों को उनके निवेशों की अधिक प्रभावी निगरानी करने में पर्याप्त सहायता प्रदान करता है।',
+							id: 'Kalender memberikan bantuan substansial kepada pemula untuk memantau investasi mereka dengan lebih efektif.',
+							ms: 'Kalendar memberikan bantuan yang besar kepada pemula untuk memantau pelaburan mereka dengan lebih berkesan.',
+							th: 'ปฏิทินให้ความช่วยเหลืออย่างมากกับผู้เริ่มต้นในการติดตามการลงทุนของตนได้อย่างมีประสิทธิภาพมากขึ้น',
+							vi: 'Lịch trình cung cấp hỗ trợ đáng kể cho những người mới bắt đầu để theo dõi hiệu quả hơn các khoản đầu tư của họ.',
+							bn: 'ক্যালেন্ডার নতুনদের তাদের বিনিয়োগের কার্যক্রম আরও কার্যকরভাবে পর্যবেক্ষণ করতে ব্যাপক সহায়তা করে।',
+							'zh-hans': '日历为新手有效监控他们的投资提供了 substantial 的帮助。',
+							'pt-br':
+								'O calendário oferece uma ajuda substancial aos novatos para monitorar suas investimentos de forma mais eficaz.'
+						})
+					}
 				</li>
 			</ul>
 			<h2 class="mb-5 block text-xl font-bold capitalize text-gray-800 underline dark:text-white">
-				Economic indicators which deemed lagging and their definition:
+				{
+					t({
+						en: 'Economic indicators which deemed lagging and their definition:',
+						ar: 'المؤشرات الاقتصادية التي تعتبر متأخرة وتعريفها:',
+						es: 'Indicadores económicos que se consideran rezagados y su definición:',
+						fr: 'Indicateurs économiques jugés retardés et leur définition :',
+						hi: 'आर्थिक संकेतक जो विलंबित माने जाते हैं और उनकी परिभाषा:',
+						id: 'Indikator ekonomi yang dianggap tertinggal dan definisinya:',
+						ms: 'Indikator ekonomi yang dianggap tertinggal dan definisinya:',
+						th: 'ตัวชี้วัดทางเศรษฐกิจที่ถือว่าล่าช้าและคำจำกัดความของพวกเขา:',
+						vi: 'Các chỉ số kinh tế được coi là trễ và định nghĩa của chúng:',
+						bn: 'অর্থনৈতিক সূচকগুলি যা পিছিয়ে পড়ে এবং তাদের সংজ্ঞা:',
+						'zh-hans': '被认为滞后的经济指标及其定义：',
+						'pt-br': 'Indicadores econômicos considerados defasados e suas definições:'
+					})
+				}
 			</h2>
-			<p class="text-color mb-3">
-				<span class="font-semibold text-gray-800 dark:text-white"
-					>Gross Domestic Product (GDP)
-				</span>- Gross Domestic Product (GDP) measures the annualized change in the
-				inflation-adjusted value of all goods and services produced by the economy. It is the
-				broadest measure of economic activity and the primary indicator of the economy’s health.
-				Released on monthly basis. There are 3 versions of GDP released a month apart – Advance,
-				second release and Final. Both, advance the second release are tagged as preliminary in the
-				economic calendar.
-			</p>
-			<p class="text-color mb-3">
-				<span class="font-semibold text-gray-800 dark:text-white">Interest rates </span>– Traders
-				watch interest rate changes closely as short-term interest rates are the primary factor in
-				currency valuation. A higher-than-expected rate is positive/bullish for a currency, while a
-				lower-than-expected rate is negative/bearish for a currency. Increase in interest rate set
-				by country’s Central Bank indicates that the economy grows, and inflations increases and the
-				opposite.
-			</p>
-			<p class="text-color mb-3">
-				<span class="font-semibold text-gray-800 dark:text-white">Unemployment rate </span>– The
-				Unemployment Rate measures the percentage of the total work force that is unemployed and
-				actively seeking employment during the previous month. A higher-than-expected reading should
-				be taken as negative/bearish for the currency, while a lower-than-expected reading should be
-				taken as positive/bullish for the currency.
-			</p>
-			<p class="text-color mb-3">
-				<span class="font-semibold text-gray-800 dark:text-white"
-					>Consumer Price Index (CPI)
-				</span>– The Consumer Price Index (CPI) measures the change in the price of goods and
-				services from the perspective of the consumer. It is a keyway to measure changes in
-				purchasing trends and inflation. A higher-than-expected reading should be taken as
-				positive/bullish for the currency, while a lower-than-expected reading should be taken as
-				negative/bearish for the currency. E.g., If the Fed prints more and more money inflation
-				target will increase along with money velocity which shows the average number of times an
-				average dollar is used to buy goods and services per unit of time.
-			</p>
-			<p class="text-color mb-3">
-				<span class="font-semibold text-gray-800 dark:text-white">Balance of trade </span>– The
-				difference between country’s exports and imports creates either deficit or surplus
-				respectively.
-			</p>
+			<p
+				class="text-color mb-3"
+				set:html={t({
+					en: '<span class="font-semibold text-gray-800 dark:text-white">Gross Domestic Product (GDP)</span> - Gross Domestic Product (GDP) measures the annualized change in the inflation-adjusted value of all goods and services produced by the economy. It is the broadest measure of economic activity and the primary indicator of the economy’s health. Released on a monthly basis. There are 3 versions of GDP released a month apart – Advance, second release, and Final. Both advance and the second release are tagged as preliminary in the economic calendar.',
+					ar: '<span class="font-semibold text-gray-800 dark:text-white">الناتج المحلي الإجمالي (GDP)</span> - يقيس الناتج المحلي الإجمالي (GDP) التغيير السنوي في القيمة المعدلة حسب التضخم لجميع السلع والخدمات التي تنتجها الاقتصاد. إنه أوسع مقياس للنشاط الاقتصادي والمؤشر الرئيسي لصحة الاقتصاد. يتم إصداره شهريًا. يتم إصدار 3 نسخ من الناتج المحلي الإجمالي بفارق شهر - النسخة الأولية، والنسخة الثانية، والنهائية. كلا النسختين الأولية والثانية مؤشرتان على أنهما تمهيديتان في التقويم الاقتصادي.',
+					es: '<span class="font-semibold text-gray-800 dark:text-white">Producto Interno Bruto (PIB)</span> - El Producto Interno Bruto (PIB) mide el cambio anualizado en el valor ajustado por inflación de todos los bienes y servicios producidos por la economía. Es la medida más amplia de la actividad económica y el principal indicador de la salud de la economía. Se publica mensualmente. Hay 3 versiones del PIB publicadas con un mes de diferencia: Avance, segunda publicación y Final. Tanto el avance como la segunda publicación están etiquetadas como preliminares en el calendario económico.',
+					fr: "<span class=\"font-semibold text-gray-800 dark:text-white\">Produit Intérieur Brut (PIB)</span> - Le Produit Intérieur Brut (PIB) mesure le changement annualisé de la valeur ajustée de l'inflation de tous les biens et services produits par l'économie. C'est la mesure la plus large de l'activité économique et l'indicateur principal de la santé de l'économie. Publié mensuellement. Il existe 3 versions du PIB publiées à un mois d'intervalle : Avancée, deuxième publication et Finale. Tant l'avancée que la deuxième publication sont étiquetées comme préliminaires dans le calendrier économique.",
+					hi: '<span class="font-semibold text-gray-800 dark:text-white">सकल घरेलू उत्पाद (GDP)</span> - सकल घरेलू उत्पाद (GDP) अर्थव्यवस्था द्वारा उत्पादित सभी वस्तुओं और सेवाओं के मुद्रास्फीति-समायोजित मूल्य में वार्षिक परिवर्तन को मापता है। यह आर्थिक गतिविधि का सबसे व्यापक माप और अर्थव्यवस्था के स्वास्थ्य का प्राथमिक संकेतक है। इसे मासिक आधार पर जारी किया जाता है। प्रत्येक महीने एक महीने के अंतराल पर GDP के 3 संस्करण जारी किए जाते हैं - अग्रिम, दूसरी रिलीज और अंतिम। अग्रिम और दूसरी रिलीज दोनों को आर्थिक कैलेंडर में प्राथमिक रूप से चिह्नित किया गया है।',
+					id: '<span class="font-semibold text-gray-800 dark:text-white">Produk Domestik Bruto (PDB)</span> - Produk Domestik Bruto (PDB) mengukur perubahan tahunan dalam nilai yang disesuaikan dengan inflasi dari semua barang dan jasa yang diproduksi oleh ekonomi. Ini adalah ukuran paling luas dari aktivitas ekonomi dan indikator utama kesehatan ekonomi. Dikeluarkan secara bulanan. Ada 3 versi PDB yang dirilis sebulan terpisah - Awal, rilis kedua, dan Akhir. Baik rilis awal maupun kedua ditandai sebagai awal dalam kalender ekonomi.',
+					ms: '<span class="font-semibold text-gray-800 dark:text-white">Keluaran Dalam Negeri Kasar (GDP)</span> - Keluaran Dalam Negeri Kasar (GDP) mengukur perubahan tahunan dalam nilai yang disesuaikan dengan inflasi dari semua barang dan perkhidmatan yang dihasilkan oleh ekonomi. Ia adalah ukuran yang paling luas bagi aktiviti ekonomi dan petunjuk utama kesihatan ekonomi. Dikeluarkan secara bulanan. Terdapat 3 versi GDP yang dikeluarkan sebulan sekali - Awal, keluaran kedua dan Akhir. Kedua-dua keluaran awal dan kedua ditandakan sebagai awal dalam kalendar ekonomi.',
+					th: '<span class="font-semibold text-gray-800 dark:text-white">ผลิตภัณฑ์มวลรวมภายในประเทศ (GDP)</span> - ผลิตภัณฑ์มวลรวมภายในประเทศ (GDP) วัดการเปลี่ยนแปลงตามรายปีในมูลค่าที่ปรับตามอัตราเงินเฟ้อของสินค้าทั้งหมดและบริการที่ผลิตโดยเศรษฐกิจ เป็นการวัดกิจกรรมทางเศรษฐกิจที่กว้างที่สุดและเป็นตัวบ่งชี้หลักของสุขภาพทางเศรษฐกิจ มีการเผยแพร่เป็นรายเดือน มีการเผยแพร่ GDP 3 รูปแบบในช่วงเวลาหนึ่งเดือน - ขั้นสูง การเผยแพร่ครั้งที่สองและขั้นสุดท้าย ทั้งการเผยแพร่ขั้นสูงและครั้งที่สองจะถูกติดแท็กว่าเบื้องต้นในปฏิทินเศรษฐกิจ',
+					vi: '<span class="font-semibold text-gray-800 dark:text-white">Tổng sản phẩm quốc nội (GDP)</span> - Tổng sản phẩm quốc nội (GDP) đo lường sự thay đổi hàng năm trong giá trị đã điều chỉnh lạm phát của tất cả hàng hóa và dịch vụ được sản xuất bởi nền kinh tế. Đây là thước đo rộng nhất về hoạt động kinh tế và là chỉ số chính về sức khỏe của nền kinh tế. Được phát hành hàng tháng. Có 3 phiên bản GDP được phát hành cách nhau một tháng - Tiến độ, phát hành thứ hai và Cuối cùng. Cả tiến độ và phát hành thứ hai đều được gán nhãn là tạm thời trong lịch kinh tế.',
+					bn: '<span class="font-semibold text-gray-800 dark:text-white">মোট দেশজ উৎপাদন (GDP)</span> - মোট দেশজ উৎপাদন (GDP) সমস্ত পণ্য এবং পরিষেবার মূল্য যা অর্থনীতির দ্বারা উত্পাদিত হয় তার মুদ্রাস্ফীতি-সমন্বিত পরিবর্তন পরিমাপ করে। এটি অর্থনৈতিক কার্যকলাপের সবচেয়ে বিস্তৃত মাপ এবং অর্থনীতির স্বাস্থ্যের প্রধান নির্দেশক। মাসিক ভিত্তিতে প্রকাশিত হয়। প্রতি মাসে একটি মাসের ব্যবধানে 3 টি সংস্করণ জিডিপি প্রকাশ করা হয় - অগ্রণী, দ্বিতীয় প্রকাশ এবং চূড়ান্ত। উভয় অগ্রণী এবং দ্বিতীয় প্রকাশকে অর্থনৈতিক ক্যালেন্ডারে প্রাথমিক হিসাবে ট্যাগ করা হয়েছে।',
+					'zh-hans':
+						'<span class="font-semibold text-gray-800 dark:text-white">国内生产总值 (GDP)</span> - 国内生产总值 (GDP) 衡量经过通胀调整的经济体生产的所有商品和服务的年化变化。它是经济活动的最广泛衡量标准，也是经济健康的主要指标。每月发布。GDP 的 3 个版本在一个月的时间间隔内发布 - 初步、第二次发布和最终。初步和第二次发布均在经济日历中标记为初步。',
+					'pt-br':
+						'<span class="font-semibold text-gray-800 dark:text-white">Produto Interno Bruto (PIB)</span> - O Produto Interno Bruto (PIB) mede a variação anualizada no valor ajustado pela inflação de todos os bens e serviços produzidos pela economia. É a medida mais ampla da atividade econômica e o principal indicador de saúde da economia. Publicado mensalmente. Existem 3 versões do PIB publicadas com um mês de intervalo - Avançada, segunda publicação e Final. Tanto a publicação antecipada quanto a segunda publicação são marcadas como preliminares no calendário econômico.'
+				})}
+			/>
+			<p
+				class="text-color mb-3"
+				set:html={t({
+					en: '<span class="font-semibold text-gray-800 dark:text-white">Interest rates</span> – Traders watch interest rate changes closely as short-term interest rates are the primary factor in currency valuation. A higher-than-expected rate is positive/bullish for a currency, while a lower-than-expected rate is negative/bearish for a currency. Increase in interest rate set by country’s Central Bank indicates that the economy grows, and inflation increases and the opposite.',
+					ar: '<span class="font-semibold text-gray-800 dark:text-white">أسعار الفائدة</span> – يراقب المتداولون تغييرات أسعار الفائدة عن كثب حيث إن أسعار الفائدة قصيرة الأجل هي العامل الأساسي في تقييم العملة. إن زيادة سعر الفائدة عن المتوقع تعتبر إيجابية/متفائلة للعملة، بينما تعتبر انخفاض سعر الفائدة عن المتوقع سلبية/متشائمة للعملة. زيادة في سعر الفائدة التي يحددها البنك المركزي للدولة تشير إلى أن الاقتصاد ينمو، وأن التضخم يزداد والعكس بالعكس.',
+					es: '<span class="font-semibold text-gray-800 dark:text-white">Tasas de interés</span> – Los traders observan de cerca los cambios en las tasas de interés, ya que las tasas de interés a corto plazo son el factor principal en la valoración de las divisas. Una tasa más alta de lo esperado es positiva / alcista para una moneda, mientras que una tasa más baja de lo esperado es negativa / bajista para una moneda. Un aumento en la tasa de interés establecida por el banco central del país indica que la economía está creciendo y que la inflación está aumentando, y viceversa.',
+					fr: "<span class=\"font-semibold text-gray-800 dark:text-white\">Taux d'intérêt</span> – Les traders surveillent de près les changements de taux d'intérêt, car les taux d'intérêt à court terme sont le principal facteur de valorisation des devises. Un taux supérieur aux attentes est positif / haussier pour une monnaie, tandis qu'un taux inférieur aux attentes est négatif / baissier pour une monnaie. Une augmentation du taux d'intérêt fixé par la banque centrale d'un pays indique que l'économie se développe et que l'inflation augmente, et vice versa.",
+					hi: '<span class="font-semibold text-gray-800 dark:text-white">ब्याज दरें</span> – व्यापारी ब्याज दरों में बदलाव को ध्यान से देखते हैं क्योंकि अल्पकालिक ब्याज दरें मुद्रा मूल्यांकन में प्राथमिक कारक होती हैं। अपेक्षित से अधिक दर मुद्रा के लिए सकारात्मक/उत्तेजक होती है, जबकि अपेक्षित से कम दर मुद्रा के लिए नकारात्मक/निषेधक होती है। देश के केंद्रीय बैंक द्वारा निर्धारित ब्याज दर में वृद्धि का मतलब है कि अर्थव्यवस्था बढ़ रही है, और महंगाई बढ़ रही है और इसके विपरीत।',
+					id: '<span class="font-semibold text-gray-800 dark:text-white">Suku bunga</span> – Trader mengamati perubahan suku bunga dengan cermat karena suku bunga jangka pendek adalah faktor utama dalam penilaian mata uang. Suku bunga yang lebih tinggi dari yang diharapkan positif/optimis untuk suatu mata uang, sementara suku bunga yang lebih rendah dari yang diharapkan negatif/pesimis untuk suatu mata uang. Peningkatan suku bunga yang ditetapkan oleh bank sentral negara menunjukkan bahwa ekonomi tumbuh, dan inflasi meningkat, dan sebaliknya.',
+					ms: '<span class="font-semibold text-gray-800 dark:text-white">Kadar faedah</span> – Trader memantau perubahan kadar faedah dengan teliti kerana kadar faedah jangka pendek adalah faktor utama dalam penilaian mata wang. Kadar yang lebih tinggi daripada yang dijangkakan adalah positif/optimis bagi mata wang, manakala kadar yang lebih rendah daripada yang dijangkakan adalah negatif/pesimis bagi mata wang. Peningkatan kadar faedah yang ditetapkan oleh Bank Pusat negara menunjukkan bahawa ekonomi berkembang, dan inflasi meningkat dan sebaliknya.',
+					th: '<span class="font-semibold text-gray-800 dark:text-white">อัตราดอกเบี้ย</span> – ผู้ค้าเฝ้าดูการเปลี่ยนแปลงอัตราดอกเบี้ยอย่างใกล้ชิด เนื่องจากอัตราดอกเบี้ยระยะสั้นเป็นปัจจัยหลักในการประเมินค่าเงิน อัตราที่สูงกว่าที่คาดการณ์ถือว่าเป็นบวก/เป็นการกระตุ้นสำหรับสกุลเงิน ในขณะที่อัตราที่ต่ำกว่าที่คาดการณ์ถือว่าเป็นลบ/ไม่สนับสนุนสำหรับสกุลเงิน การเพิ่มขึ้นของอัตราดอกเบี้ยที่กำหนดโดยธนาคารกลางของประเทศแสดงให้เห็นว่าเศรษฐกิจกำลังเติบโตและอัตราเงินเฟ้อเพิ่มขึ้นและในทางตรงกันข้าม',
+					vi: '<span class="font-semibold text-gray-800 dark:text-white">Lãi suất</span> – Các trader theo dõi sát sao sự thay đổi của lãi suất vì lãi suất ngắn hạn là yếu tố chính trong việc định giá đồng tiền. Một tỷ lệ cao hơn mong đợi là tích cực/tích cực cho một loại tiền tệ, trong khi một tỷ lệ thấp hơn mong đợi là tiêu cực/giảm giá cho một loại tiền tệ. Việc tăng lãi suất do Ngân hàng Trung ương của đất nước quy định cho thấy rằng nền kinh tế đang phát triển, và lạm phát đang gia tăng và ngược lại.',
+					bn: '<span class="font-semibold text-gray-800 dark:text-white">সুদের হার</span> – ব্যবসায়ীরা সুদের হারের পরিবর্তনগুলিকে ঘনিষ্ঠভাবে দেখেন কারণ স্বল্পমেয়াদী সুদের হার মুদ্রার মূল্যায়নের প্রধান কারণ। প্রত্যাশিতের চেয়ে উচ্চতর হার একটি মুদ্রার জন্য ইতিবাচক/বুলিশ, যখন প্রত্যাশিতের চেয়ে কম হার একটি মুদ্রার জন্য নেতিবাচক/বিয়ারিশ। দেশের কেন্দ্রীয় ব্যাংকের দ্বারা নির্ধারিত সুদের হার বাড়ানো নির্দেশ করে যে অর্থনীতি বেড়ে চলেছে এবং মূল্যস্ফীতি বাড়ছে এবং এর বিপরীত।',
+					'zh-hans':
+						'<span class="font-semibold text-gray-800 dark:text-white">利率</span> – 交易者密切关注利率的变化，因为短期利率是货币估值的主要因素。高于预期的利率对货币是积极的/看涨的，而低于预期的利率则对货币是消极的/看跌的。由国家中央银行设定的利率上升表明经济正在增长，通货膨胀也在上升，反之亦然。',
+					'pt-br':
+						'<span class="font-semibold text-gray-800 dark:text-white">Taxas de juros</span> – Os traders observam de perto as mudanças nas taxas de juros, pois as taxas de juros de curto prazo são o principal fator na avaliação da moeda. Uma taxa superior à esperada é positiva/otimista para uma moeda, enquanto uma taxa inferior à esperada é negativa/pessimista para uma moeda. Um aumento na taxa de juros definida pelo banco central do país indica que a economia está crescendo e a inflação está aumentando, e vice-versa.'
+				})}
+			/>
+			<p
+				class="text-color mb-3"
+				set:html={t({
+					en: '<span class="font-semibold text-gray-800 dark:text-white">Unemployment rate</span> – The Unemployment Rate measures the percentage of the total workforce that is unemployed and actively seeking employment during the previous month. A higher-than-expected reading should be taken as negative/bearish for the currency, while a lower-than-expected reading should be taken as positive/bullish for the currency.',
+					ar: '<span class="font-semibold text-gray-800 dark:text-white">معدل البطالة</span> – يقيس معدل البطالة النسبة المئوية من إجمالي القوة العاملة التي تكون عاطلة عن العمل وتبحث بنشاط عن عمل خلال الشهر السابق. ينبغي اعتبار القراءة الأعلى من المتوقع سلبية/متشائمة للعملة، بينما ينبغي اعتبار القراءة الأدنى من المتوقع إيجابية/متفائلة للعملة.',
+					es: '<span class="font-semibold text-gray-800 dark:text-white">Tasa de desempleo</span> – La tasa de desempleo mide el porcentaje de la fuerza laboral total que está desempleada y busca activamente empleo durante el mes anterior. Una lectura superior a la esperada debe tomarse como negativa / bajista para una moneda, mientras que una lectura inferior a la esperada debe considerarse positiva / alcista para una moneda.',
+					fr: '<span class="font-semibold text-gray-800 dark:text-white">Taux de chômage</span> – Le taux de chômage mesure le pourcentage de la population active totale qui est au chômage et qui cherche activement un emploi au cours du mois précédent. Une lecture supérieure aux attentes doit être considérée comme négative / baissière pour une monnaie, tandis qu\'une lecture inférieure aux attentes doit être considérée comme positive / haussière pour une monnaie.',
+					hi: '<span class="font-semibold text-gray-800 dark:text-white">बेरोजगारी दर</span> – बेरोजगारी दर उस कुल कार्यबल का प्रतिशत मापता है जो पिछले महीने बेरोजगार है और सक्रिय रूप से रोजगार की तलाश कर रहा है। अपेक्षित से अधिक पढ़ाई को मुद्रा के लिए नकारात्मक/निषेधक के रूप में लिया जाना चाहिए, जबकि अपेक्षित से कम पढ़ाई को मुद्रा के लिए सकारात्मक/उत्तेजक के रूप में लिया जाना चाहिए।',
+					id: '<span class="font-semibold text-gray-800 dark:text-white">Tingkat pengangguran</span> – Tingkat pengangguran mengukur persentase dari total angkatan kerja yang menganggur dan aktif mencari pekerjaan selama bulan sebelumnya. Pembacaan yang lebih tinggi dari yang diharapkan harus dianggap sebagai negatif/pesimis untuk suatu mata uang, sedangkan pembacaan yang lebih rendah dari yang diharapkan harus dianggap sebagai positif/optimis untuk suatu mata uang.',
+					ms: '<span class="font-semibold text-gray-800 dark:text-white">Kadar pengangguran</span> – Kadar pengangguran mengukur peratusan daripada jumlah tenaga kerja yang menganggur dan sedang aktif mencari pekerjaan dalam bulan sebelumnya. Bacaan yang lebih tinggi daripada yang dijangkakan harus dianggap sebagai negatif/pesimis untuk sesuatu mata wang, manakala bacaan yang lebih rendah daripada yang dijangkakan harus dianggap sebagai positif/optimis untuk sesuatu mata wang.',
+					th: '<span class="font-semibold text-gray-800 dark:text-white">อัตราการว่างงาน</span> – อัตราการว่างงานวัดเปอร์เซ็นต์ของกำลังแรงงานทั้งหมดที่ว่างงานและกำลังหางานทำอย่างแข็งขันในเดือนก่อนหน้า การอ่านที่สูงกว่าที่คาดไว้ควรถือว่าเป็นลบ/ไม่สนับสนุนสำหรับสกุลเงิน ในขณะที่การอ่านที่ต่ำกว่าที่คาดไว้ควรถือว่าเป็นบวก/สนับสนุนสำหรับสกุลเงิน',
+					vi: '<span class="font-semibold text-gray-800 dark:text-white">Tỷ lệ thất nghiệp</span> – Tỷ lệ thất nghiệp đo lường tỷ lệ phần trăm của tổng lực lượng lao động đang thất nghiệp và đang tích cực tìm kiếm việc làm trong tháng trước. Một con số cao hơn mong đợi nên được coi là tiêu cực/giảm giá đối với một loại tiền tệ, trong khi một con số thấp hơn mong đợi nên được coi là tích cực/tăng giá đối với một loại tiền tệ.',
+					bn: '<span class="font-semibold text-gray-800 dark:text-white">বেকারত্বের হার</span> – বেকারত্বের হার মোট কর্মশক্তির শতাংশ পরিমাপ করে যারা গত মাসে বেকার এবং সক্রিয়ভাবে চাকরি খুঁজছে। প্রত্যাশিতের চেয়ে উচ্চতর পড়াশোনাকে মুদ্রার জন্য নেতিবাচক/নিষিদ্ধ হিসেবে বিবেচনা করা উচিত, যখন প্রত্যাশিতের চেয়ে কম পড়াশোনা মুদ্রার জন্য ইতিবাচক/উত্তেজক হিসেবে বিবেচনা করা উচিত।',
+					'zh-hans':
+						'<span class="font-semibold text-gray-800 dark:text-white">失业率</span> – 失业率衡量总劳动力中失业并积极寻找工作的比例。高于预期的读数应视为对货币的负面/看跌影响，而低于预期的读数应视为对货币的正面/看涨影响。',
+					'pt-br':
+						'<span class="font-semibold text-gray-800 dark:text-white">Taxa de desemprego</span> – A taxa de desemprego mede a porcentagem da força de trabalho total que está desempregada e busca ativamente emprego durante o mês anterior. Uma leitura superior à esperada deve ser considerada negativa / pessimista para uma moeda, enquanto uma leitura inferior à esperada deve ser considerada positiva / otimista para uma moeda.'
+				})}
+			/>
+			<p
+				class="text-color mb-3"
+				set:html={t({
+					en: '<span class="font-semibold text-gray-800 dark:text-white">Consumer Price Index (CPI)</span> – The Consumer Price Index (CPI) measures the change in the price of goods and services from the perspective of the consumer. It is a key way to measure changes in purchasing trends and inflation. A higher-than-expected reading should be taken as positive/bullish for the currency, while a lower-than-expected reading should be taken as negative/bearish for the currency. E.g., If the Fed prints more and more money inflation target will increase along with money velocity which shows the average number of times an average dollar is used to buy goods and services per unit of time.',
+					ar: '<span class="font-semibold text-gray-800 dark:text-white">مؤشر أسعار المستهلك (CPI)</span> – يقيس مؤشر أسعار المستهلك (CPI) التغير في أسعار السلع والخدمات من منظور المستهلك. إنه وسيلة رئيسية لقياس التغيرات في اتجاهات الشراء والتضخم. يجب اعتبار القراءة الأعلى من المتوقع إيجابية/متفائلة للعملة، بينما يجب اعتبار القراءة الأدنى من المتوقع سلبية/متشائمة للعملة. على سبيل المثال، إذا كانت الاحتياطي الفيدرالي يطبع المزيد والمزيد من المال، فإن هدف التضخم سيزداد جنبًا إلى جنب مع سرعة المال، التي تُظهر متوسط عدد المرات التي يُستخدم فيها الدولار المتوسط لشراء السلع والخدمات لكل وحدة زمنية.',
+					es: '<span class="font-semibold text-gray-800 dark:text-white">Índice de Precios al Consumidor (CPI)</span> – El Índice de Precios al Consumidor (CPI) mide el cambio en el precio de bienes y servicios desde la perspectiva del consumidor. Es una forma clave de medir los cambios en las tendencias de compra y la inflación. Una lectura superior a la esperada debe tomarse como positiva / alcista para una moneda, mientras que una lectura inferior a la esperada debe considerarse negativa / bajista para una moneda. Por ejemplo, si la Reserva Federal imprime más y más dinero, el objetivo de inflación aumentará junto con la velocidad del dinero, que muestra el número promedio de veces que se utiliza un dólar promedio para comprar bienes y servicios por unidad de tiempo.',
+					fr: "<span class=\"font-semibold text-gray-800 dark:text-white\">Indice des Prix à la Consommation (CPI)</span> – L'Indice des Prix à la Consommation (CPI) mesure le changement du prix des biens et services du point de vue du consommateur. C'est un moyen clé de mesurer les changements dans les tendances d'achat et l'inflation. Une lecture supérieure aux attentes doit être considérée comme positive / haussière pour une monnaie, tandis qu'une lecture inférieure aux attentes doit être considérée comme négative / baissière pour une monnaie. Par exemple, si la Fed imprime de plus en plus d'argent, l'objectif d'inflation augmentera parallèlement à la vitesse de l'argent, qui montre le nombre moyen de fois qu'un dollar moyen est utilisé pour acheter des biens et des services par unité de temps.",
+					hi: '<span class="font-semibold text-gray-800 dark:text-white">उपभोक्ता मूल्य सूचकांक (CPI)</span> – उपभोक्ता मूल्य सूचकांक (CPI) उपभोक्ता के दृष्टिकोण से वस्तुओं और सेवाओं की कीमत में परिवर्तन को मापता है। यह खरीदारी के रुझानों और मुद्रास्फीति में बदलावों को मापने का एक प्रमुख तरीका है। अपेक्षित से अधिक पढ़ाई को मुद्रा के लिए सकारात्मक/उत्तेजक के रूप में लिया जाना चाहिए, जबकि अपेक्षित से कम पढ़ाई को मुद्रा के लिए नकारात्मक/निषेधक के रूप में लिया जाना चाहिए। उदाहरण के लिए, यदि फेड अधिक से अधिक पैसे प्रिंट करता है, तो मुद्रास्फीति का लक्ष्य बढ़ेगा, साथ ही धन की गति भी बढ़ेगी, जो दिखाती है कि एक औसत डॉलर को प्रति समय इकाई पर सामान और सेवाएं खरीदने के लिए औसतन कितनी बार उपयोग किया जाता है।',
+					id: '<span class="font-semibold text-gray-800 dark:text-white">Indeks Harga Konsumen (CPI)</span> – Indeks Harga Konsumen (CPI) mengukur perubahan harga barang dan jasa dari perspektif konsumen. Ini adalah cara kunci untuk mengukur perubahan dalam tren pembelian dan inflasi. Pembacaan yang lebih tinggi dari yang diharapkan harus dianggap sebagai positif/optimis untuk suatu mata uang, sementara pembacaan yang lebih rendah dari yang diharapkan harus dianggap sebagai negatif/pesimis untuk suatu mata uang. Misalnya, jika Fed mencetak lebih banyak uang, target inflasi akan meningkat seiring dengan kecepatan uang, yang menunjukkan rata-rata jumlah kali dolar rata-rata digunakan untuk membeli barang dan jasa per unit waktu.',
+					ms: '<span class="font-semibold text-gray-800 dark:text-white">Indeks Harga Pengguna (CPI)</span> – Indeks Harga Pengguna (CPI) mengukur perubahan harga barang dan perkhidmatan dari perspektif pengguna. Ini adalah cara utama untuk mengukur perubahan dalam tren pembelian dan inflasi. Bacaan yang lebih tinggi daripada yang dijangkakan harus dianggap sebagai positif/optimis untuk sesuatu mata wang, manakala bacaan yang lebih rendah daripada yang dijangkakan harus dianggap sebagai negatif/pesimis untuk sesuatu mata wang. Contohnya, jika Fed mencetak lebih banyak dan lebih banyak wang, sasaran inflasi akan meningkat bersama dengan kelajuan wang yang menunjukkan purata bilangan kali dolar purata digunakan untuk membeli barang dan perkhidmatan setiap unit masa.',
+					th: '<span class="font-semibold text-gray-800 dark:text-white">ดัชนีราคาผู้บริโภค (CPI)</span> – ดัชนีราคาผู้บริโภค (CPI) วัดการเปลี่ยนแปลงในราคาสินค้าและบริการจากมุมมองของผู้บริโภค เป็นวิธีสำคัญในการวัดการเปลี่ยนแปลงในแนวโน้มการซื้อและเงินเฟ้อ การอ่านที่สูงกว่าที่คาดไว้นั้นควรถือว่าเป็นบวก/สนับสนุนสำหรับสกุลเงิน ในขณะที่การอ่านที่ต่ำกว่าที่คาดไว้ควรถือว่าเป็นลบ/ไม่สนับสนุนสำหรับสกุลเงิน ตัวอย่างเช่น หากธนาคารกลางสหรัฐ (Fed) พิมพ์เงินมากขึ้นเรื่อย ๆ เป้าหมายเงินเฟ้อจะเพิ่มขึ้นพร้อมกับความเร็วของเงิน ซึ่งแสดงให้เห็นจำนวนเฉลี่ยที่ใช้ของดอลลาร์เฉลี่ยเพื่อซื้อสินค้าและบริการต่อหน่วยเวลา',
+					vi: '<span class="font-semibold text-gray-800 dark:text-white">Chỉ số Giá tiêu dùng (CPI)</span> – Chỉ số Giá tiêu dùng (CPI) đo lường sự thay đổi giá của hàng hóa và dịch vụ từ quan điểm của người tiêu dùng. Đây là một cách quan trọng để đo lường sự thay đổi trong xu hướng mua sắm và lạm phát. Một con số cao hơn mong đợi nên được coi là tích cực/tăng giá đối với một loại tiền tệ, trong khi một con số thấp hơn mong đợi nên được coi là tiêu cực/giảm giá đối với một loại tiền tệ. Ví dụ, nếu Fed in nhiều tiền hơn, mục tiêu lạm phát sẽ tăng lên cùng với tốc độ tiền, cho thấy số lần trung bình mà một đồng đô la trung bình được sử dụng để mua hàng hóa và dịch vụ trong mỗi đơn vị thời gian.',
+					bn: '<span class="font-semibold text-gray-800 dark:text-white">ভোক্তা মূল্য সূচক (CPI)</span> – ভোক্তা মূল্য সূচক (CPI) ভোক্তার দৃষ্টিকোণ থেকে পণ্য ও পরিষেবার মূল্যে পরিবর্তন পরিমাপ করে। এটি ক্রয় প্রবণতা এবং মুদ্রাস্ফীতির পরিবর্তন মাপার একটি প্রধান উপায়। প্রত্যাশিতের চেয়ে উচ্চতর পড়াশোনাকে মুদ্রার জন্য ইতিবাচক/উত্তেজক হিসেবে বিবেচনা করা উচিত, যখন প্রত্যাশিতের চেয়ে কম পড়াশোনা মুদ্রার জন্য নেতিবাচক/নিষেধক হিসেবে বিবেচনা করা উচিত। উদাহরণস্বরূপ, যদি ফেড আরও এবং আরও অর্থ মুদ্রণ করে, তবে মুদ্রাস্ফীতির লক্ষ্য বাড়বে এবং অর্থের গতির সাথে বাড়বে, যা দেখায় যে গড় এক ডলার গড়ে পণ্য এবং পরিষেবাগুলি কিনতে কতবার ব্যবহৃত হয় প্রতি একক সময়ে।',
+					'zh-hans':
+						'<span class="font-semibold text-gray-800 dark:text-white">消费者物价指数 (CPI)</span> – 消费者物价指数 (CPI) 从消费者的角度衡量商品和服务价格的变化。这是衡量购买趋势和通货膨胀变化的关键方式。高于预期的读数应被视为对货币的积极/看涨影响，而低于预期的读数应被视为对货币的负面/看跌影响。例如，如果美联储不断印钞，通胀目标将随之增加，以及货币流通速度，这表明平均每个单位时间内，平均每个美元用于购买商品和服务的次数。',
+					'pt-br':
+						'<span class="font-semibold text-gray-800 dark:text-white">Índice de Preços ao Consumidor (CPI)</span> – O Índice de Preços ao Consumidor (CPI) mede a mudança no preço de bens e serviços do ponto de vista do consumidor. É uma maneira chave de medir mudanças nas tendências de compra e inflação. Uma leitura superior à esperada deve ser considerada positiva / otimista para uma moeda, enquanto uma leitura inferior à esperada deve ser considerada negativa / pessimista para uma moeda. Por exemplo, se o Fed imprimir cada vez mais dinheiro, a meta de inflação aumentará junto com a velocidade do dinheiro, que mostra o número médio de vezes que um dólar médio é usado para comprar bens e serviços por unidade de tempo.'
+				})}
+			/>
+			<p
+				class="text-color mb-3"
+				set:html={t({
+					en: '<span class="font-semibold text-gray-800 dark:text-white">Balance of trade</span> – The difference between a country’s exports and imports creates either a deficit or surplus respectively.',
+					ar: '<span class="font-semibold text-gray-800 dark:text-white">ميزان المدفوعات</span> – الفارق بين صادرات وواردات الدولة يُنتج إما عجزًا أو فائضًا.',
+					es: '<span class="font-semibold text-gray-800 dark:text-white">Balanza comercial</span> – La diferencia entre las exportaciones e importaciones de un país crea un déficit o un superávit, respectivamente.',
+					fr: '<span class="font-semibold text-gray-800 dark:text-white">Balance commerciale</span> – La différence entre les exportations et les importations d\'un pays crée respectivement un déficit ou un excédent.',
+					hi: '<span class="font-semibold text-gray-800 dark:text-white">व्यापार संतुलन</span> – किसी देश के निर्यात और आयात के बीच का अंतर क्रमशः घाटा या अधिशेष उत्पन्न करता है।',
+					id: '<span class="font-semibold text-gray-800 dark:text-white">Neraca perdagangan</span> – Perbedaan antara ekspor dan impor suatu negara menciptakan defisit atau surplus masing-masing.',
+					ms: '<span class="font-semibold text-gray-800 dark:text-white">Balan perdagangan</span> – Perbezaan antara eksport dan import negara mencipta defisit atau lebihan masing-masing.',
+					th: '<span class="font-semibold text-gray-800 dark:text-white">ดุลการค้า</span> – ความแตกต่างระหว่างการส่งออกและนำเข้าสร้างขาดดุลหรือส่วนเกินตามลำดับ',
+					vi: '<span class="font-semibold text-gray-800 dark:text-white">Cán cân thương mại</span> – Sự chênh lệch giữa xuất khẩu và nhập khẩu của một quốc gia tạo ra thâm hụt hoặc thặng dư tương ứng.',
+					bn: '<span class="font-semibold text-gray-800 dark:text-white">বাণিজ্য ভারসাম্য</span> – একটি দেশের রপ্তানি এবং আমদানির মধ্যে পার্থক্য যথাক্রমে ঘাটতি বা উদ্বৃত্ত তৈরি করে।',
+					'zh-hans':
+						'<span class="font-semibold text-gray-800 dark:text-white">贸易平衡</span> – 一个国家的出口与进口之间的差额分别产生赤字或盈余。',
+					'pt-br':
+						'<span class="font-semibold text-gray-800 dark:text-white">Balança comercial</span> – A diferença entre as exportações e importações de um país cria um déficit ou um superávit, respectivamente.'
+				})}
+			/>
 			<h2 class="mb-5 block text-xl font-bold capitalize text-gray-800 underline dark:text-white">
-				Some economic indicators which deemed leading and their definition:
+				{
+					t({
+						en: 'Some economic indicators which are deemed leading and their definition:',
+						ar: 'بعض المؤشرات الاقتصادية التي تعتبر رائدة وتعريفها:',
+						es: 'Algunos indicadores económicos que se consideran adelantados y su definición:',
+						fr: 'Certains indicateurs économiques considérés comme des indicateurs avancés et leur définition :',
+						hi: 'कुछ आर्थिक संकेतक जो प्रमुख माने जाते हैं और उनकी परिभाषा:',
+						id: 'Beberapa indikator ekonomi yang dianggap memimpin dan definisinya:',
+						ms: 'Beberapa indikator ekonomi yang dianggap memimpin dan definisinya:',
+						th: 'บางตัวชี้วัดทางเศรษฐกิจที่ถือว่ามีนำและความหมายของพวกเขา:',
+						vi: 'Một số chỉ số kinh tế được coi là chỉ số hàng đầu và định nghĩa của chúng:',
+						bn: 'কিছু অর্থনৈতিক সূচক যা অগ্রণী বলে বিবেচিত এবং তাদের সংজ্ঞা:',
+						'zh-hans': '一些被视为领先的经济指标及其定义：',
+						'pt-br': 'Alguns indicadores econômicos que são considerados líderes e suas definições:'
+					})
+				}
 			</h2>
-			<p class="text-color mb-3">
-				<span class="font-semibold text-gray-800 dark:text-white">Retail Sales </span>– Retail Sales
-				measure the change in the total value of sales at the retail level. It counts the consumer
-				spending, which accounts for most of the overall economic activity. A higher-than-expected
-				reading should be taken as positive for the currency, while a lower-than-expected reading
-				should be taken as negative for the currency.
-			</p>
-			<p class="text-color mb-3">
-				<span class="font-semibold text-gray-800 dark:text-white"
-					>Purchasing Managing Index (PMI)
-				</span>– This major index measures the activity level of purchasing managers in the
-				manufacturing sector, where a reading above 50 indicates expansion in the sector, otherwise
-				indicates contraction.
-			</p>
-			<p class="text-color mb-3">
-				<span class="font-semibold text-gray-800 dark:text-white">Jobless Claims </span>– nitial
-				Jobless Claims measures the number of individuals who filed for unemployment insurance for
-				the first time during the week passed.
-			</p>
+			<p
+				class="text-color mb-3"
+				set:html={t({
+					en: '<span class="font-semibold text-gray-800 dark:text-white">Retail Sales </span>– Retail Sales measure the change in the total value of sales at the retail level. It counts the consumer spending, which accounts for most of the overall economic activity. A higher-than-expected reading should be taken as positive for the currency, while a lower-than-expected reading should be taken as negative for the currency.',
+					ar: '<span class="font-semibold text-gray-800 dark:text-white">مبيعات التجزئة</span> – تقيس مبيعات التجزئة التغير في القيمة الإجمالية للمبيعات على مستوى التجزئة. إنها تحسب إنفاق المستهلك، الذي يمثل معظم النشاط الاقتصادي الإجمالي. يجب اعتبار القراءة التي تفوق التوقعات إيجابية بالنسبة للعملة، بينما يجب اعتبار القراءة التي تقل عن التوقعات سلبية بالنسبة للعملة.',
+					es: '<span class="font-semibold text-gray-800 dark:text-white">Ventas Minoristas</span> – Las Ventas Minoristas miden el cambio en el valor total de las ventas a nivel minorista. Cuenta el gasto del consumidor, que representa la mayor parte de la actividad económica total. Una lectura superior a la esperada debe considerarse positiva para la moneda, mientras que una lectura inferior a la esperada debe considerarse negativa para la moneda.',
+					fr: '<span class="font-semibold text-gray-800 dark:text-white">Ventes au Détail</span> – Les Ventes au Détail mesurent le changement dans la valeur totale des ventes au niveau de détail. Elles comptent les dépenses des consommateurs, qui représentent la majorité de l\'activité économique globale. Une lecture supérieure aux attentes doit être considérée comme positive pour la monnaie, tandis qu\'une lecture inférieure aux attentes doit être considérée comme négative pour la monnaie.',
+					hi: '<span class="font-semibold text-gray-800 dark:text-white">खुदरा बिक्री</span> – खुदरा बिक्री स्तर पर बिक्री के कुल मूल्य में बदलाव को मापती है। यह उपभोक्ता व्यय की गणना करती है, जो कुल आर्थिक गतिविधि का अधिकांश हिस्सा होती है। अपेक्षा से अधिक पढ़ाई को मुद्रा के लिए सकारात्मक माना जाना चाहिए, जबकि अपेक्षा से कम पढ़ाई को मुद्रा के लिए नकारात्मक माना जाना चाहिए।',
+					id: '<span class="font-semibold text-gray-800 dark:text-white">Penjualan Ritel</span> – Penjualan Ritel mengukur perubahan dalam nilai total penjualan di tingkat ritel. Ini menghitung pengeluaran konsumen, yang menyumbang sebagian besar aktivitas ekonomi keseluruhan. Bacaan yang lebih tinggi dari yang diharapkan harus dianggap positif untuk mata uang, sementara bacaan yang lebih rendah dari yang diharapkan harus dianggap negatif untuk mata uang.',
+					ms: '<span class="font-semibold text-gray-800 dark:text-white">Jualan Runcit</span> – Jualan Runcit mengukur perubahan dalam nilai total jualan pada peringkat runcit. Ia mengira perbelanjaan pengguna, yang menyumbang sebahagian besar aktiviti ekonomi keseluruhan. Bacaan yang lebih tinggi daripada yang dijangkakan harus dianggap positif untuk mata wang, manakala bacaan yang lebih rendah daripada yang dijangkakan harus dianggap negatif untuk mata wang.',
+					th: '<span class="font-semibold text-gray-800 dark:text-white">ยอดขายปลีก</span> – ยอดขายปลีกวัดการเปลี่ยนแปลงในมูลค่ารวมของยอดขายที่ระดับปลีก มันนับการใช้จ่ายของผู้บริโภค ซึ่งคิดเป็นส่วนใหญ่ของกิจกรรมทางเศรษฐกิจโดยรวม การอ่านที่สูงกว่าที่คาดการณ์ไว้ควรถือเป็นบวกต่อสกุลเงิน ในขณะที่การอ่านที่ต่ำกว่าที่คาดการณ์ไว้ควรถือเป็นลบต่อสกุลเงิน',
+					vi: '<span class="font-semibold text-gray-800 dark:text-white">Doanh Thu Bán Lẻ</span> – Doanh Thu Bán Lẻ đo lường sự thay đổi trong tổng giá trị doanh thu ở mức bán lẻ. Nó tính toán chi tiêu của người tiêu dùng, chiếm phần lớn hoạt động kinh tế tổng thể. Một đọc cao hơn mong đợi nên được coi là tích cực cho đồng tiền, trong khi một đọc thấp hơn mong đợi nên được coi là tiêu cực cho đồng tiền.',
+					bn: '<span class="font-semibold text-gray-800 dark:text-white">খুচরা বিক্রয়</span> – খুচরা বিক্রয় স্তরের মোট বিক্রয়ের মানের পরিবর্তন পরিমাপ করে। এটি গ্রাহক ব্যয়ের হিসাব করে, যা সামগ্রিক অর্থনৈতিক কার্যকলাপের অধিকাংশ। প্রত্যাশার চেয়ে উচ্চতর একটি পড়া মুদ্রার জন্য ইতিবাচক হিসাবে নেওয়া উচিত, যখন প্রত্যাশার চেয়ে কম পড়া মুদ্রার জন্য নেতিবাচক হিসাবে নেওয়া উচিত।',
+					'zh-hans':
+						'<span class="font-semibold text-gray-800 dark:text-white">零售销售</span> – 零售销售衡量零售水平销售总值的变化。它计算消费者支出，占总体经济活动的大部分。高于预期的读数应被视为对货币有利，而低于预期的读数应被视为对货币不利。',
+					'pt-br':
+						'<span class="font-semibold text-gray-800 dark:text-white">Vendas no Varejo</span> – As Vendas no Varejo medem a mudança no valor total das vendas no nível varejista. Elas contabilizam o gasto do consumidor, que representa a maior parte da atividade econômica total. Uma leitura superior à esperada deve ser considerada positiva para a moeda, enquanto uma leitura inferior à esperada deve ser considerada negativa para a moeda.'
+				})}
+			/>
+			<p
+				class="text-color mb-3"
+				set:html={t({
+					en: '<span class="font-semibold text-gray-800 dark:text-white">Purchasing Managing Index (PMI)</span>– This major index measures the activity level of purchasing managers in the manufacturing sector, where a reading above 50 indicates expansion in the sector, otherwise indicates contraction.',
+					ar: '<span class="font-semibold text-gray-800 dark:text-white">مؤشر مديري المشتريات (PMI)</span>– يقيس هذا المؤشر الرئيسي مستوى نشاط مديري المشتريات في قطاع التصنيع، حيث تشير القراءة التي تزيد عن 50 إلى التوسع في القطاع، بينما تشير القراءة الأقل إلى الانكماش.',
+					es: '<span class="font-semibold text-gray-800 dark:text-white">Índice de Gerentes de Compras (PMI)</span>– Este índice principal mide el nivel de actividad de los gerentes de compras en el sector manufacturero, donde una lectura superior a 50 indica expansión en el sector, de lo contrario indica contracción.',
+					fr: "<span class=\"font-semibold text-gray-800 dark:text-white\">Indice des Directeurs d'Achat (PMI)</span>– Cet indice majeur mesure le niveau d'activité des directeurs d'achat dans le secteur manufacturier, où une lecture supérieure à 50 indique une expansion dans le secteur, sinon elle indique une contraction.",
+					hi: '<span class="font-semibold text-gray-800 dark:text-white">खरीद प्रबंधक सूचकांक (PMI)</span>– यह प्रमुख सूचकांक विनिर्माण क्षेत्र में खरीद प्रबंधकों की गतिविधि के स्तर को मापता है, जहाँ 50 से ऊपर का अंक क्षेत्र में विस्तार को दर्शाता है, अन्यथा अनुबंध को दर्शाता है।',
+					id: '<span class="font-semibold text-gray-800 dark:text-white">Indeks Manajer Pembelian (PMI)</span>– Indeks utama ini mengukur tingkat aktivitas manajer pembelian di sektor manufaktur, di mana bacaan di atas 50 menunjukkan ekspansi di sektor tersebut, sebaliknya menunjukkan kontraksi.',
+					ms: '<span class="font-semibold text-gray-800 dark:text-white">Indeks Pengurus Pembelian (PMI)</span>– Indeks utama ini mengukur tahap aktiviti pengurus pembelian dalam sektor pembuatan, di mana bacaan di atas 50 menunjukkan pengembangan dalam sektor tersebut, jika tidak menunjukkan penguncupan.',
+					th: '<span class="font-semibold text-gray-800 dark:text-white">ดัชนีผู้จัดการฝ่ายจัดซื้อ (PMI)</span>– ดัชนีหลักนี้วัดระดับกิจกรรมของผู้จัดการฝ่ายจัดซื้อในภาคการผลิต ซึ่งการอ่านที่สูงกว่า 50 แสดงถึงการขยายตัวในภาคส่วนนี้ มิฉะนั้นจะแสดงถึงการหดตัว',
+					vi: '<span class="font-semibold text-gray-800 dark:text-white">Chỉ số Quản lý Mua hàng (PMI)</span>– Chỉ số chính này đo lường mức độ hoạt động của các nhà quản lý mua hàng trong lĩnh vực sản xuất, trong đó đọc số trên 50 cho thấy sự mở rộng trong lĩnh vực này, ngược lại cho thấy sự thu hẹp.',
+					bn: '<span class="font-semibold text-gray-800 dark:text-white">ক্রয় ব্যবস্থাপনা সূচক (PMI)</span>– এই প্রধান সূচকটি উৎপাদন খাতে ক্রয় ব্যবস্থাপকগুলির কার্যক্রমের স্তর পরিমাপ করে, যেখানে 50 এর উপরে একটি পড়া খাতে সম্প্রসারণ নির্দেশ করে, অন্যথায় সংকোচন নির্দেশ করে।',
+					'zh-hans':
+						'<span class="font-semibold text-gray-800 dark:text-white">采购经理指数 (PMI)</span>– 该主要指数衡量制造业采购经理的活动水平，读数高于50表示该行业扩张，否则表示收缩。',
+					'pt-br':
+						'<span class="font-semibold text-gray-800 dark:text-white">Índice de Gerenciamento de Compras (PMI)</span>– Este índice principal mede o nível de atividade dos gerentes de compras no setor de manufatura, onde uma leitura acima de 50 indica expansão no setor, caso contrário, indica contração.'
+				})}
+			/>
+			<p
+				class="text-color mb-3"
+				set:html={t({
+					en: '<span class="font-semibold text-gray-800 dark:text-white">Jobless Claims </span>– Initial Jobless Claims measures the number of individuals who filed for unemployment insurance for the first time during the week passed.',
+					ar: '<span class="font-semibold text-gray-800 dark:text-white">طلبات إعانة البطالة </span>– تقيس طلبات إعانة البطالة الأولية عدد الأفراد الذين قدموا طلبًا للحصول على تأمين البطالة للمرة الأولى خلال الأسبوع الماضي.',
+					es: '<span class="font-semibold text-gray-800 dark:text-white">Solicitudes de Desempleo </span>– Las Solicitudes Iniciales de Desempleo miden el número de individuos que solicitaron seguro de desempleo por primera vez durante la semana pasada.',
+					fr: '<span class="font-semibold text-gray-800 dark:text-white">Demandes de Chômage </span>– Les Demandes Initiales de Chômage mesurent le nombre d\'individus ayant demandé une assurance chômage pour la première fois au cours de la semaine précédente.',
+					hi: '<span class="font-semibold text-gray-800 dark:text-white">बेरोजगारी भत्ते के लिए आवेदन </span>– प्रारंभिक बेरोजगारी भत्ते के लिए आवेदन उन व्यक्तियों की संख्या को मापता है जिन्होंने पिछले सप्ताह पहली बार बेरोजगारी बीमा के लिए आवेदन किया।',
+					id: '<span class="font-semibold text-gray-800 dark:text-white">Klaim Pengangguran </span>– Klaim Pengangguran Awal mengukur jumlah individu yang mengajukan asuransi pengangguran untuk pertama kalinya selama minggu yang lalu.',
+					ms: '<span class="font-semibold text-gray-800 dark:text-white">Tuntutan Pengangguran </span>– Tuntutan Pengangguran Awal mengukur bilangan individu yang memohon insurans pengangguran untuk pertama kalinya dalam minggu yang lalu.',
+					th: '<span class="font-semibold text-gray-800 dark:text-white">การขอรับเงินช่วยเหลือการว่างงาน </span>– การขอรับเงินช่วยเหลือการว่างงานเบื้องต้นวัดจำนวนบุคคลที่ยื่นขอรับเงินประกันการว่างงานเป็นครั้งแรกในสัปดาห์ที่ผ่านมา.',
+					vi: '<span class="font-semibold text-gray-800 dark:text-white">Yêu cầu thất nghiệp </span>– Yêu cầu thất nghiệp ban đầu đo lường số lượng cá nhân nộp đơn xin bảo hiểm thất nghiệp lần đầu trong tuần qua.',
+					bn: '<span class="font-semibold text-gray-800 dark:text-white">বেকারত্বের দাবি </span>– প্রাথমিক বেকারত্বের দাবি গত সপ্তাহে প্রথমবারের মতো বেকারত্বের জন্য বীমার জন্য আবেদনকারী ব্যক্তিদের সংখ্যা পরিমাপ করে।',
+					'zh-hans':
+						'<span class="font-semibold text-gray-800 dark:text-white">失业救济申请 </span>– 初次失业救济申请衡量在过去一周首次申请失业保险的个人数量。',
+					'pt-br':
+						'<span class="font-semibold text-gray-800 dark:text-white">Pedidos de Desemprego </span>– Os Pedidos Iniciais de Desemprego medem o número de indivíduos que solicitaram seguro-desemprego pela primeira vez durante a semana passada.'
+				})}
+			/>
 			<h2 class="mb-5 block text-xl font-bold capitalize text-gray-800 underline dark:text-white">
-				Calendar Tips:
+				{
+					t({
+						en: 'Calendar Tips:',
+						ar: 'نصائح التقويم:',
+						es: 'Consejos del Calendario:',
+						fr: 'Conseils du Calendrier :',
+						hi: 'कैलेंडर टिप्स:',
+						id: 'Tips Kalender:',
+						ms: 'Tip Kalendar:',
+						th: 'เคล็ดลับปฏิทิน:',
+						vi: 'Mẹo Lịch:',
+						bn: 'ক্যালেন্ডার টিপস:',
+						'zh-hans': '日历提示：',
+						'pt-br': 'Dicas do Calendário:'
+					})
+				}
 			</h2>
 			<ul class="text-color mb-3 list-outside list-disc ps-8">
-				<li>Understand what data is important and what is not.</li>
 				<li>
-					Avoid holding trades over data that are new or avoid investing immediately after news
-					coming out.
+					{
+						t({
+							en: 'Understand what data is important and what is not.',
+							ar: 'افهم أي البيانات مهمة وأيها ليست كذلك.',
+							es: 'Entiende qué datos son importantes y cuáles no.',
+							fr: 'Comprenez quelles données sont importantes et lesquelles ne le sont pas.',
+							hi: 'समझें कि कौन सा डेटा महत्वपूर्ण है और कौन सा नहीं है।',
+							id: 'Pahami data mana yang penting dan mana yang tidak.',
+							ms: 'Fahami data mana yang penting dan mana yang tidak.',
+							th: 'เข้าใจว่าข้อมูลใดมีความสำคัญและข้อมูลใดไม่สำคัญ',
+							vi: 'Hiểu dữ liệu nào là quan trọng và dữ liệu nào không.',
+							bn: 'বুঝুন কোন তথ্য গুরুত্বপূর্ণ এবং কোনটি নয়।',
+							'zh-hans': '了解哪些数据是重要的，哪些不是。',
+							'pt-br': 'Entenda quais dados são importantes e quais não são.'
+						})
+					}
 				</li>
-				<li>Plan how you will or not trade afterwards a major move in the market.</li>
-				<li>Understand how key data pauses market before news come out.</li>
-				<li>Take into account more factors along with the upcoming news before investing.</li>
+				<li>
+					{
+						t({
+							en: 'Avoid holding trades over data that are new or avoid investing immediately after news coming out.',
+							ar: 'تجنب الاحتفاظ بالتداولات خلال البيانات الجديدة أو تجنب الاستثمار مباشرة بعد صدور الأخبار.',
+							es: 'Evita mantener operaciones durante datos nuevos o evita invertir inmediatamente después de que salgan las noticias.',
+							fr: "Évitez de conserver des transactions pendant les nouvelles données ou d'investir immédiatement après la publication des nouvelles.",
+							hi: 'नए डेटा पर ट्रेड होल्ड करने से बचें या समाचार आने के तुरंत बाद निवेश करने से बचें।',
+							id: 'Hindari menahan perdagangan atas data baru atau hindari berinvestasi segera setelah berita keluar.',
+							ms: 'Elakkan menahan perdagangan pada data yang baru atau elakkan melabur serta-merta selepas berita dikeluarkan.',
+							th: 'หลีกเลี่ยงการถือครองการซื้อขายในข้อมูลใหม่หรือหลีกเลี่ยงการลงทุนทันทีหลังจากข่าวออกมา',
+							vi: 'Tránh giữ giao dịch khi có dữ liệu mới hoặc tránh đầu tư ngay sau khi có tin tức.',
+							bn: 'নতুন ডেটার উপরে ট্রেড ধরে রাখার এড়িয়ে চলুন বা সংবাদ প্রকাশের পরে অবিলম্বে বিনিয়োগ করা এড়িয়ে চলুন।',
+							'zh-hans': '避免在新数据上持有交易，或避免在新闻发布后立即投资。',
+							'pt-br':
+								'Evite manter negociações sobre dados novos ou evite investir imediatamente após a divulgação de notícias.'
+						})
+					}
+				</li>
+				<li>
+					{
+						t({
+							en: 'Plan how you will or not trade afterwards a major move in the market.',
+							ar: 'خطط كيف ستقوم بالتداول أو لا بعد حركة كبيرة في السوق.',
+							es: 'Planifica cómo operarás o no después de un movimiento importante en el mercado.',
+							fr: 'Planifiez comment vous allez ou non trader après un mouvement majeur sur le marché.',
+							hi: 'योजना बनाएं कि आप बाजार में बड़े बदलाव के बाद व्यापार करेंगे या नहीं।',
+							id: 'Rencanakan bagaimana Anda akan atau tidak berdagang setelah pergerakan besar di pasar.',
+							ms: 'Rancang bagaimana anda akan atau tidak berniaga selepas pergerakan besar di pasaran.',
+							th: 'วางแผนว่าคุณจะทำการซื้อขายหรือไม่หลังจากที่มีการเคลื่อนไหวครั้งใหญ่ในตลาด',
+							vi: 'Lên kế hoạch cho việc bạn sẽ giao dịch như thế nào hoặc không giao dịch sau một động thái lớn trên thị trường.',
+							bn: 'পরিকল্পনা করুন আপনি বাজারে একটি বড় পরিবর্তনের পরে কিভাবে বা না ট্রেড করবেন।',
+							'zh-hans': '计划您将在市场发生重大变动后如何交易或不交易。',
+							'pt-br': 'Planeje como você irá ou não negociar após um grande movimento no mercado.'
+						})
+					}
+				</li>
+				<li>
+					{
+						t({
+							en: 'Understand how key data pauses market before news come out.',
+							ar: 'افهم كيف توقف البيانات الرئيسية السوق قبل صدور الأخبار.',
+							es: 'Comprende cómo los datos clave detienen el mercado antes de que salgan las noticias.',
+							fr: 'Comprenez comment les données clés suspendent le marché avant la sortie des nouvelles.',
+							hi: 'समझें कि प्रमुख डेटा कैसे समाचार आने से पहले बाजार को रोकता है।',
+							id: 'Pahami bagaimana data kunci menghentikan pasar sebelum berita keluar.',
+							ms: 'Fahami bagaimana data utama menghentikan pasaran sebelum berita dikeluarkan.',
+							th: 'เข้าใจว่าข้อมูลสำคัญทำให้ตลาดหยุดนิ่งได้อย่างไรก่อนที่ข่าวจะออกมา',
+							vi: 'Hiểu cách dữ liệu chính làm tạm dừng thị trường trước khi có tin tức.',
+							bn: 'বুঝুন কীভাবে গুরুত্বপূর্ণ তথ্য সংবাদ প্রকাশের আগে বাজারকে স্থির করে।',
+							'zh-hans': '了解关键数据如何在新闻发布之前暂停市场。',
+							'pt-br':
+								'Entenda como dados importantes pausam o mercado antes que as notícias sejam divulgadas.'
+						})
+					}
+				</li>
+				<li>
+					{
+						t({
+							en: 'Take into account more factors along with the upcoming news before investing.',
+							ar: 'خذ في الاعتبار المزيد من العوامل جنبًا إلى جنب مع الأخبار القادمة قبل الاستثمار.',
+							es: 'Tenga en cuenta más factores junto con las noticias próximas antes de invertir.',
+							fr: "Prenez en compte d'autres facteurs avec les nouvelles à venir avant d'investir.",
+							hi: 'निवेश करने से पहले आने वाली खबरों के साथ-साथ अन्य कारकों को भी ध्यान में रखें।',
+							id: 'Pertimbangkan lebih banyak faktor bersama dengan berita yang akan datang sebelum berinvestasi.',
+							ms: 'Ambil kira lebih banyak faktor bersama dengan berita yang akan datang sebelum melabur.',
+							th: 'พิจารณาปัจจัยเพิ่มเติมพร้อมกับข่าวที่กำลังจะมาถึงก่อนการลงทุน',
+							vi: 'Xem xét nhiều yếu tố hơn cùng với tin tức sắp tới trước khi đầu tư.',
+							bn: 'নिवেশের আগে আসন্ন খবরের পাশাপাশি আরও কিছু বিষয় বিবেচনায় নিন।',
+							'zh-hans': '在投资之前，考虑更多因素以及即将发布的新闻。',
+							'pt-br':
+								'Leve em consideração mais fatores junto com as notícias futuras antes de investir.'
+						})
+					}
+				</li>
 			</ul>
 		</div>
 	</section>

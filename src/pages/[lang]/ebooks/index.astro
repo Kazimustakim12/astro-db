@@ -1,26 +1,73 @@
 ---
-import { LOCALES } from '@/i18n'
+import { LOCALES, useTranslations, type Lang } from '@/i18n'
 import Layout from '@/layouts/Layout.astro'
-import { YouTube } from 'astro-embed'
+import CoverBrocherEn from '@/images/Cover-Brochure-Investors-db-English.webp'
+import CoverBrocherEnPdf from '/assets/pdf/Investors-Brochure-English.pdf'
+import CoverCompanyAr from '@/images/Cover-Company-Profile-Arabic.webp'
+import CoverCompanyArPdf from '/assets/pdf/Company-Profile-Arabic.pdf'
+import CoverCompanyPr from '@/images/Cover-Company-Profile-Portuguese.webp'
+import CoverCompanyPrPdf from '/assets/pdf/Company-Profile-Portuguese.pdf'
+import CoverCompanyEn from '@/images/Cover-Company-Profile-English.webp'
+import CoverCompanyEnPdf from '/assets/pdf/Company-Profile-English.pdf'
+import CoverCompanyEs from '@/images/Cover-Company-Profile-Spanish.webp'
+import CoverCompanyEsPdf from '/assets/pdf/Company-Profile-Spanish.pdf'
+import CoverManulDe from '@/images/Cover-Manual-de-Trading-Soportes-y-Resistencias-Que-son.webp'
+import CoverManulDePdf from '/assets/pdf/Manual-de-Trading-Soportes-y-Resistencias-Que-son.pdf'
+import CoverManulGuia from '@/images/Cover-Manual-Forex-Trading-Guia-basica.webp'
+import CoverManulGuiaPdf from '/assets/pdf/Manual-Forex-Trading-Guia-basica.pdf'
+import CoverManulTipos from '@/images/Cover-Manual-Forex-Trading-Tipos-de-Afiliaciones.webp'
+import CoverManulTiposPdf from '/assets/pdf/Manual-Forex-Trading-Tipos-de-Afiliaciones.pdf'
+import CoverManulVelas from '@/images/Cover-Manual-Forex-Trading-Velas-Japonesas.webp'
+import CoverManulVelasPdf from '/assets/pdf/Manual-Forex-Trading-Velas-Japonesas.pdf'
+
+import { Image } from 'astro:assets'
+
+const t = useTranslations(Astro.currentLocale as Lang)
 export const getStaticPaths = () =>
 	Object.keys(LOCALES).map((lang) => ({
 		params: { lang }
 	}))
 ---
 
-<Layout title="Platform Tutorials">
+<Layout
+	title={t({
+		en: 'E-Books',
+		ar: 'الكتب الإلكترونية',
+		es: 'Libros electrónicos',
+		fr: 'E-books',
+		hi: 'ई-पुस्तकें',
+		id: 'E-Book',
+		ms: 'E-Buku',
+		th: 'E-Books',
+		vi: 'Sách điện tử',
+		bn: 'ই-বুক',
+		'zh-hans': '电子书',
+		'pt-br': 'E-books'
+	})}
+>
 	<section>
 		<div
-			class="relative z-20 w-full overflow-hidden bg-gray-100 py-3 before:absolute before:start-1/2 before:top-0 before:-z-[1] before:size-full before:-translate-x-1/2 before:transform before:bg-[url('/src/images/world_bg.png')] before:bg-center before:bg-no-repeat before:opacity-45 before:hue-rotate-60 dark:bg-black dark:before:bg-[url('/src/images/world_bg.png')]"
+			class="relative z-20 w-full overflow-hidden bg-gray-100 py-3 before:absolute before:top-0 before:-z-[1] before:size-full before:transform before:bg-[url('/src/images/world_bg.png')] before:bg-center before:bg-no-repeat before:opacity-45 before:hue-rotate-60 dark:bg-black dark:before:bg-[url('/src/images/world_bg.png')]"
 		>
 			<div class="container flex flex-col items-center justify-between gap-6 py-10 sm:flex-row">
 				<div>
 					<h1
 						class="block text-center text-4xl font-bold text-gray-800 dark:text-neutral-200 sm:text-left md:text-4xl lg:text-5xl"
-					>
-						DB Investing <br />
-						<strong class="text-green-500">E-Book</strong>
-					</h1>
+						set:html={t({
+							en: 'DB Investing <br /> <strong class="text-green-500">E-Book</strong>',
+							ar: 'استثمار DB <br /> <strong class="text-green-500">كتاب إلكتروني</strong>',
+							es: 'Inversión DB <br /> <strong class="text-green-500">Libro electrónico</strong>',
+							fr: 'Investissement DB <br /> <strong class="text-green-500">E-Book</strong>',
+							hi: 'डीबी निवेश <br /> <strong class="text-green-500">ई-पुस्तक</strong>',
+							id: 'Investasi DB <br /> <strong class="text-green-500">E-Book</strong>',
+							ms: 'Pelaburan DB <br /> <strong class="text-green-500">E-Buku</strong>',
+							th: 'การลงทุน DB <br /> <strong class="text-green-500">E-Book</strong>',
+							vi: 'Đầu tư DB <br /> <strong class="text-green-500">Sách điện tử</strong>',
+							bn: 'ডিবি বিনিয়োগ <br /> <strong class="text-green-500">ই-বুক</strong>',
+							'zh-hans': 'DB投资 <br /> <strong class="text-green-500">电子书</strong>',
+							'pt-br': 'Investimento DB <br /> <strong class="text-green-500">E-book</strong>'
+						})}
+					/>
 				</div>
 				<div>
 					<svg
@@ -39,138 +86,120 @@ export const getStaticPaths = () =>
 		</div>
 		<div class="container py-10">
 			<div class="flex flex-wrap justify-around gap-4">
-				<a href="" class="_df_thumb df-element df-popup-thumb df-tl-book-title-hover">
+				<a
+					href={CoverBrocherEnPdf}
+					target="_blank"
+					class="_df_thumb df-element df-popup-thumb df-tl-book-title-hover"
+				>
 					<div class="df-book-wrapper">
 						<div class="df-book-page1"></div><div class="df-book-page2"></div><div
 							class="df-book-cover"
 						>
-							<img
-								width="210px"
-								height="297px"
-								class=""
-								alt="Company Profile (Spanish version)"
-								src="https://staging.dbinvesting.com/wp-content/uploads/2024/07/Cover-Company-Profile-Spanish.webp"
-							/>
+							<Image src={CoverBrocherEn} alt="e-book" />
 						</div>
 					</div>
 				</a>
-				<a href="" class="_df_thumb df-element df-popup-thumb df-tl-book-title-hover">
+				<a
+					href={CoverCompanyArPdf}
+					target="_blank"
+					class="_df_thumb df-element df-popup-thumb df-tl-book-title-hover"
+				>
 					<div class="df-book-wrapper">
 						<div class="df-book-page1"></div><div class="df-book-page2"></div><div
 							class="df-book-cover"
 						>
-							<img
-								width="210px"
-								height="297px"
-								class=""
-								alt="Company Profile (Spanish version)"
-								src="https://staging.dbinvesting.com/wp-content/uploads/2024/07/Cover-Company-Profile-Spanish.webp"
-							/>
+							<Image src={CoverCompanyAr} alt="e-book" />
 						</div>
 					</div>
 				</a>
-				<a href="" class="_df_thumb df-element df-popup-thumb df-tl-book-title-hover">
+				<a
+					href={CoverCompanyPrPdf}
+					target="_blank"
+					class="_df_thumb df-element df-popup-thumb df-tl-book-title-hover"
+				>
 					<div class="df-book-wrapper">
 						<div class="df-book-page1"></div><div class="df-book-page2"></div><div
 							class="df-book-cover"
 						>
-							<img
-								width="210px"
-								height="297px"
-								class=""
-								alt="Company Profile (Spanish version)"
-								src="https://staging.dbinvesting.com/wp-content/uploads/2024/07/Cover-Company-Profile-Spanish.webp"
-							/>
+							<Image src={CoverCompanyPr} alt="e-book" />
 						</div>
 					</div>
 				</a>
-				<a href="" class="_df_thumb df-element df-popup-thumb df-tl-book-title-hover">
+				<a
+					href={CoverCompanyEnPdf}
+					target="_blank"
+					class="_df_thumb df-element df-popup-thumb df-tl-book-title-hover"
+				>
 					<div class="df-book-wrapper">
 						<div class="df-book-page1"></div><div class="df-book-page2"></div><div
 							class="df-book-cover"
 						>
-							<img
-								width="210px"
-								height="297px"
-								class=""
-								alt="Company Profile (Spanish version)"
-								src="https://staging.dbinvesting.com/wp-content/uploads/2024/07/Cover-Company-Profile-Spanish.webp"
-							/>
+							<Image src={CoverCompanyEn} alt="e-book" />
 						</div>
 					</div>
 				</a>
-				<a href="" class="_df_thumb df-element df-popup-thumb df-tl-book-title-hover">
+				<a
+					href={CoverCompanyEsPdf}
+					target="_blank"
+					class="_df_thumb df-element df-popup-thumb df-tl-book-title-hover"
+				>
 					<div class="df-book-wrapper">
 						<div class="df-book-page1"></div><div class="df-book-page2"></div><div
 							class="df-book-cover"
 						>
-							<img
-								width="210px"
-								height="297px"
-								class=""
-								alt="Company Profile (Spanish version)"
-								src="https://staging.dbinvesting.com/wp-content/uploads/2024/07/Cover-Company-Profile-Spanish.webp"
-							/>
+							<Image src={CoverCompanyEs} alt="e-book" />
 						</div>
 					</div>
 				</a>
-				<a href="" class="_df_thumb df-element df-popup-thumb df-tl-book-title-hover">
+				<a
+					href={CoverManulDePdf}
+					target="_blank"
+					class="_df_thumb df-element df-popup-thumb df-tl-book-title-hover"
+				>
 					<div class="df-book-wrapper">
 						<div class="df-book-page1"></div><div class="df-book-page2"></div><div
 							class="df-book-cover"
 						>
-							<img
-								width="210px"
-								height="297px"
-								class=""
-								alt="Company Profile (Spanish version)"
-								src="https://staging.dbinvesting.com/wp-content/uploads/2024/07/Cover-Company-Profile-Spanish.webp"
-							/>
+							<Image src={CoverManulDe} alt="e-book" />
 						</div>
 					</div>
 				</a>
-				<a href="" class="_df_thumb df-element df-popup-thumb df-tl-book-title-hover">
+				<a
+					href={CoverManulGuiaPdf}
+					target="_blank"
+					class="_df_thumb df-element df-popup-thumb df-tl-book-title-hover"
+				>
 					<div class="df-book-wrapper">
 						<div class="df-book-page1"></div><div class="df-book-page2"></div><div
 							class="df-book-cover"
 						>
-							<img
-								width="210px"
-								height="297px"
-								class=""
-								alt="Company Profile (Spanish version)"
-								src="https://staging.dbinvesting.com/wp-content/uploads/2024/07/Cover-Company-Profile-Spanish.webp"
-							/>
+							<Image src={CoverManulGuia} alt="e-book" />
 						</div>
 					</div>
 				</a>
-				<a href="" class="_df_thumb df-element df-popup-thumb df-tl-book-title-hover">
+				<a
+					href={CoverManulTiposPdf}
+					target="_blank"
+					class="_df_thumb df-element df-popup-thumb df-tl-book-title-hover"
+				>
 					<div class="df-book-wrapper">
 						<div class="df-book-page1"></div><div class="df-book-page2"></div><div
 							class="df-book-cover"
 						>
-							<img
-								width="210px"
-								height="297px"
-								class=""
-								alt="Company Profile (Spanish version)"
-								src="https://staging.dbinvesting.com/wp-content/uploads/2024/07/Cover-Company-Profile-Spanish.webp"
-							/>
+							<Image src={CoverManulTipos} alt="e-book" />
 						</div>
 					</div>
 				</a>
-				<a href="" class="_df_thumb df-element df-popup-thumb df-tl-book-title-hover">
+				<a
+					href={CoverManulVelasPdf}
+					target="_blank"
+					class="_df_thumb df-element df-popup-thumb df-tl-book-title-hover"
+				>
 					<div class="df-book-wrapper">
 						<div class="df-book-page1"></div><div class="df-book-page2"></div><div
 							class="df-book-cover"
 						>
-							<img
-								width="210px"
-								height="297px"
-								class=""
-								alt="Company Profile (Spanish version)"
-								src="https://staging.dbinvesting.com/wp-content/uploads/2024/07/Cover-Company-Profile-Spanish.webp"
-							/>
+							<Image src={CoverManulVelas} alt="e-book" />
 						</div>
 					</div>
 				</a>

@@ -5,7 +5,7 @@ import { LOCALES, useTranslations, type Lang } from '@/i18n'
 import Layout from '@/layouts/Layout.astro'
 const t = useTranslations(Astro.currentLocale as Lang)
 
-import MetaTraderMockImage from '@/images/mettrader-mock.png'
+import MetaTraderMockImage from '@/images/web-trading-features-img.png'
 import { Iphone15Pro } from '@/components/magicui/Iphone15Pro'
 
 export const getStaticPaths = () =>
@@ -24,16 +24,44 @@ export const getStaticPaths = () =>
 					<div>
 						<h1
 							class="block text-3xl font-bold text-gray-800 dark:text-white sm:text-4xl lg:text-6xl lg:leading-tight"
-						>
-							DB Investing on <span class="text-green-500">MetaTrader</span>
-						</h1>
+							set:html={t({
+								en: "DB Investing on <span class='text-green-500'>MetaTrader 5</span>",
+								ar: "دي بي إنفستينغ على <span class='text-green-500'>ميتاتريدر 5</span>",
+								es: "DB Investing en <span class='text-green-500'>MetaTrader 5</span>",
+								fr: "DB Investing sur <span class='text-green-500'>MetaTrader 5</span>",
+								hi: "DB इन्वेस्टिंग <span class='text-green-500'>मेटाट्रेडर 5</span> पर",
+								id: "DB Investing di <span class='text-green-500'>MetaTrader 5</span>",
+								ms: "DB Investing pada <span class='text-green-500'>MetaTrader 5</span>",
+								th: "DB Investing บน <span class='text-green-500'>MetaTrader 5</span>",
+								vi: "DB Investing trên <span class='text-green-500'>MetaTrader 5</span>",
+								bn: "<span class='text-green-500'>মেটাট্রেডার ৫</span> -এ ডিবি ইনভেস্টিং",
+								'zh-hans': "DB Investing 在 <span class='text-green-500'>MetaTrader 5</span>",
+								'pt-br': "DB Investing no <span class='text-green-500'>MetaTrader 5</span>"
+							})}
+						/>
 						<p class="mt-3 text-lg text-gray-800 dark:text-neutral-400">
-							Hand-picked professionals and expertly crafted components, designed for
-							any kind of entrepreneur.
+							{
+								t({
+									en: 'MetaTrader 5, also widely known as MT5, is a next-generation trading platform that is more powerful than MT4, offering greater flexibility, enhanced EA features, and more comprehensive testing, analytical, and trading functionalities. Download MT5',
+									ar: 'ميتاتريدر 5، المعروف أيضًا باسم MT5، هو منصة تداول من الجيل التالي أقوى من MT4، ويقدم مرونة أكبر، وميزات EA محسنة، ووظائف أكثر شمولاً للاختبار والتحليل والتداول. قم بتنزيل MT5',
+									es: 'MetaTrader 5, también conocido como MT5, es una plataforma de trading de próxima generación más poderosa que MT4, que ofrece mayor flexibilidad, funciones mejoradas de EA y más funcionalidades de prueba, análisis y trading. Descarga MT5',
+									fr: "MetaTrader 5, également connu sous le nom de MT5, est une plateforme de trading de nouvelle génération plus puissante que MT4, offrant plus de flexibilité, des fonctionnalités EA améliorées, ainsi que des capacités de test, d'analyse et de trading plus complètes. Téléchargez MT5",
+									hi: 'मेटाट्रेडर 5, जिसे व्यापक रूप से MT5 के रूप में भी जाना जाता है, MT4 की तुलना में अधिक शक्तिशाली अगली पीढ़ी का ट्रेडिंग प्लेटफॉर्म है, जो अधिक लचीलापन, उन्नत EA सुविधाएँ और अधिक व्यापक परीक्षण, विश्लेषण और ट्रेडिंग कार्यक्षमताएँ प्रदान करता है। MT5 डाउनलोड करें',
+									id: 'MetaTrader 5, juga dikenal luas sebagai MT5, adalah platform perdagangan generasi berikutnya yang lebih kuat daripada MT4, menawarkan fleksibilitas lebih besar, fitur EA yang ditingkatkan, dan pengujian, analisis, serta fungsi perdagangan yang lebih komprehensif. Unduh MT5',
+									ms: 'MetaTrader 5, juga dikenali sebagai MT5, adalah platform perdagangan generasi baharu yang lebih hebat daripada MT4, menawarkan fleksibiliti yang lebih besar, ciri EA yang dipertingkatkan, serta fungsi pengujian, analisis dan perdagangan yang lebih komprehensif. Muat turun MT5',
+									th: 'MetaTrader 5 หรือที่รู้จักกันอย่างแพร่หลายในชื่อ MT5 เป็นแพลตฟอร์มการซื้อขายรุ่นใหม่ที่ทรงพลังยิ่งกว่า MT4 มีความยืดหยุ่นมากขึ้น มีฟีเจอร์ EA ที่ได้รับการปรับปรุงและฟังก์ชันการทดสอบ วิเคราะห์ และการซื้อขายที่ครอบคลุมมากขึ้น ดาวน์โหลด MT5',
+									vi: 'MetaTrader 5, còn được biết đến rộng rãi với tên MT5, là một nền tảng giao dịch thế hệ mới mạnh mẽ hơn MT4, cung cấp tính linh hoạt lớn hơn, các tính năng EA nâng cao và các chức năng thử nghiệm, phân tích, giao dịch toàn diện hơn. Tải xuống MT5',
+									bn: 'মেটাট্রেডার ৫, যা এমটি৫ নামেও পরিচিত, একটি পরবর্তী প্রজন্মের ট্রেডিং প্ল্যাটফর্ম যা এমটি৪-এর চেয়ে বেশি শক্তিশালী, যা বেশি নমনীয়তা, উন্নত EA বৈশিষ্ট্য এবং আরও বিস্তৃত পরীক্ষার, বিশ্লেষণ এবং ট্রেডিং কার্যকারিতা অফার করে। MT5 ডাউনলোড করুন',
+									'zh-hans':
+										'MetaTrader 5，也被广泛称为MT5，是比MT4更强大的下一代交易平台，提供更大的灵活性、增强的EA功能，以及更全面的测试、分析和交易功能。下载MT5',
+									'pt-br':
+										'MetaTrader 5, também amplamente conhecido como MT5, é uma plataforma de negociação de próxima geração, mais poderosa que o MT4, oferecendo maior flexibilidade, recursos de EA aprimorados e funcionalidades mais abrangentes de teste, análise e negociação. Baixe o MT5'
+								})
+							}
 						</p>
 
 						<!-- Buttons -->
-						<div class="mt-7 grid w-full gap-3 sm:inline-flex">
+						<div class="mt-7 gap-3 sm:inline-flex">
 							<Button
 								primary={true}
 								rippleEffect={true}
@@ -51,7 +79,7 @@ export const getStaticPaths = () =>
 									'zh-hans': '立即创建账户',
 									'pt-br': 'Crie uma Conta Agora'
 								})}
-								class="rounded-full"
+								class="rounded-full text-center"
 								href="#"
 								buttonIcon={' <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" ><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2" ><path stroke-dasharray="20" stroke-dashoffset="20" d="M3 21V20C3 17.7909 4.79086 16 7 16H11C13.2091 16 15 17.7909 15 20V21" ><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.4s" values="20;0" ></animate></path><path stroke-dasharray="20" stroke-dashoffset="20" d="M9 13C7.34315 13 6 11.6569 6 10C6 8.34315 7.34315 7 9 7C10.6569 7 12 8.34315 12 10C12 11.6569 10.6569 13 9 13Z" ><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.5s" dur="0.4s" values="20;0" ></animate></path><path stroke-dasharray="8" stroke-dashoffset="8" d="M15 6H21" ><animate fill="freeze" attributeName="stroke-dashoffset" begin="1s" dur="0.2s" values="8;0" ></animate></path><path stroke-dasharray="8" stroke-dashoffset="8" d="M18 3V9" ><animate fill="freeze" attributeName="stroke-dashoffset" begin="1.2s" dur="0.2s" values="8;0" ></animate></path></g></svg>'}
 							/>
@@ -73,8 +101,7 @@ export const getStaticPaths = () =>
 									>
 										<path
 											d="M27.0352 1.6307L33.9181 16.3633C34.2173 16.6768 34.5166 16.9903 34.8158 16.9903L50.0779 19.1845C50.9757 19.1845 51.275 20.4383 50.6764 21.0652L39.604 32.3498C39.3047 32.6632 39.3047 32.9767 39.3047 33.2901L41.998 49.2766C42.2973 50.217 41.1002 50.8439 40.5017 50.5304L26.4367 43.3208C26.1375 43.3208 25.8382 43.3208 25.539 43.3208L11.7732 50.8439C10.8754 51.1573 9.97763 50.5304 10.2769 49.59L12.9702 33.6036C12.9702 33.2901 12.9702 32.9767 12.671 32.6632L1.29923 21.0652C0.700724 20.4383 0.999979 19.4979 1.89775 19.4979L17.1598 17.3037C17.459 17.3037 17.7583 16.9903 18.0575 16.6768L24.9404 1.6307C25.539 0.69032 26.736 0.69032 27.0352 1.6307Z"
-											fill="currentColor"
-										></path>
+											fill="currentColor"></path>
 									</svg>
 									<svg
 										class="size-4 text-gray-800 dark:text-neutral-200"
@@ -86,8 +113,7 @@ export const getStaticPaths = () =>
 									>
 										<path
 											d="M27.0352 1.6307L33.9181 16.3633C34.2173 16.6768 34.5166 16.9903 34.8158 16.9903L50.0779 19.1845C50.9757 19.1845 51.275 20.4383 50.6764 21.0652L39.604 32.3498C39.3047 32.6632 39.3047 32.9767 39.3047 33.2901L41.998 49.2766C42.2973 50.217 41.1002 50.8439 40.5017 50.5304L26.4367 43.3208C26.1375 43.3208 25.8382 43.3208 25.539 43.3208L11.7732 50.8439C10.8754 51.1573 9.97763 50.5304 10.2769 49.59L12.9702 33.6036C12.9702 33.2901 12.9702 32.9767 12.671 32.6632L1.29923 21.0652C0.700724 20.4383 0.999979 19.4979 1.89775 19.4979L17.1598 17.3037C17.459 17.3037 17.7583 16.9903 18.0575 16.6768L24.9404 1.6307C25.539 0.69032 26.736 0.69032 27.0352 1.6307Z"
-											fill="currentColor"
-										></path>
+											fill="currentColor"></path>
 									</svg>
 									<svg
 										class="size-4 text-gray-800 dark:text-neutral-200"
@@ -99,8 +125,7 @@ export const getStaticPaths = () =>
 									>
 										<path
 											d="M27.0352 1.6307L33.9181 16.3633C34.2173 16.6768 34.5166 16.9903 34.8158 16.9903L50.0779 19.1845C50.9757 19.1845 51.275 20.4383 50.6764 21.0652L39.604 32.3498C39.3047 32.6632 39.3047 32.9767 39.3047 33.2901L41.998 49.2766C42.2973 50.217 41.1002 50.8439 40.5017 50.5304L26.4367 43.3208C26.1375 43.3208 25.8382 43.3208 25.539 43.3208L11.7732 50.8439C10.8754 51.1573 9.97763 50.5304 10.2769 49.59L12.9702 33.6036C12.9702 33.2901 12.9702 32.9767 12.671 32.6632L1.29923 21.0652C0.700724 20.4383 0.999979 19.4979 1.89775 19.4979L17.1598 17.3037C17.459 17.3037 17.7583 16.9903 18.0575 16.6768L24.9404 1.6307C25.539 0.69032 26.736 0.69032 27.0352 1.6307Z"
-											fill="currentColor"
-										></path>
+											fill="currentColor"></path>
 									</svg>
 									<svg
 										class="size-4 text-gray-800 dark:text-neutral-200"
@@ -112,8 +137,7 @@ export const getStaticPaths = () =>
 									>
 										<path
 											d="M27.0352 1.6307L33.9181 16.3633C34.2173 16.6768 34.5166 16.9903 34.8158 16.9903L50.0779 19.1845C50.9757 19.1845 51.275 20.4383 50.6764 21.0652L39.604 32.3498C39.3047 32.6632 39.3047 32.9767 39.3047 33.2901L41.998 49.2766C42.2973 50.217 41.1002 50.8439 40.5017 50.5304L26.4367 43.3208C26.1375 43.3208 25.8382 43.3208 25.539 43.3208L11.7732 50.8439C10.8754 51.1573 9.97763 50.5304 10.2769 49.59L12.9702 33.6036C12.9702 33.2901 12.9702 32.9767 12.671 32.6632L1.29923 21.0652C0.700724 20.4383 0.999979 19.4979 1.89775 19.4979L17.1598 17.3037C17.459 17.3037 17.7583 16.9903 18.0575 16.6768L24.9404 1.6307C25.539 0.69032 26.736 0.69032 27.0352 1.6307Z"
-											fill="currentColor"
-										></path>
+											fill="currentColor"></path>
 									</svg>
 									<svg
 										class="size-4 text-gray-800 dark:text-neutral-200"
@@ -125,8 +149,7 @@ export const getStaticPaths = () =>
 									>
 										<path
 											d="M27.0352 1.6307L33.9181 16.3633C34.2173 16.6768 34.5166 16.9903 34.8158 16.9903L50.0779 19.1845C50.9757 19.1845 51.275 20.4383 50.6764 21.0652L39.604 32.3498C39.3047 32.6632 39.3047 32.9767 39.3047 33.2901L41.998 49.2766C42.2973 50.217 41.1002 50.8439 40.5017 50.5304L26.4367 43.3208C26.1375 43.3208 25.8382 43.3208 25.539 43.3208L11.7732 50.8439C10.8754 51.1573 9.97763 50.5304 10.2769 49.59L12.9702 33.6036C12.9702 33.2901 12.9702 32.9767 12.671 32.6632L1.29923 21.0652C0.700724 20.4383 0.999979 19.4979 1.89775 19.4979L17.1598 17.3037C17.459 17.3037 17.7583 16.9903 18.0575 16.6768L24.9404 1.6307C25.539 0.69032 26.736 0.69032 27.0352 1.6307Z"
-											fill="currentColor"
-										></path>
+											fill="currentColor"></path>
 									</svg>
 								</div>
 
@@ -146,27 +169,20 @@ export const getStaticPaths = () =>
 									>
 										<path
 											d="M20.558 9.74046H11.576V12.3752H17.9632C17.6438 16.0878 14.5301 17.7245 11.6159 17.7245C7.86341 17.7245 4.58995 14.7704 4.58995 10.6586C4.58995 6.62669 7.70373 3.51291 11.6159 3.51291C14.6498 3.51291 16.4063 5.42908 16.4063 5.42908L18.2426 3.51291C18.2426 3.51291 15.8474 0.878184 11.4961 0.878184C5.94724 0.838264 1.67578 5.50892 1.67578 10.5788C1.67578 15.5289 5.70772 20.3592 11.6558 20.3592C16.8854 20.3592 20.7177 16.8063 20.7177 11.4969C20.7177 10.3792 20.558 9.74046 20.558 9.74046Z"
-											fill="currentColor"
-										></path>
+											fill="currentColor"></path>
 										<path
 											d="M27.8621 7.78442C24.1894 7.78442 21.5547 10.6587 21.5547 14.012C21.5547 17.4451 24.1096 20.3593 27.9419 20.3593C31.415 20.3593 34.2094 17.7645 34.2094 14.0918C34.1695 9.94011 30.896 7.78442 27.8621 7.78442ZM27.902 10.2994C29.6984 10.2994 31.415 11.7764 31.415 14.0918C31.415 16.4072 29.7383 17.8842 27.902 17.8842C25.906 17.8842 24.3491 16.2874 24.3491 14.0519C24.3092 11.8962 25.8661 10.2994 27.902 10.2994Z"
-											fill="currentColor"
-										></path>
+											fill="currentColor"></path>
 										<path
 											d="M41.5964 7.78442C37.9238 7.78442 35.2891 10.6587 35.2891 14.012C35.2891 17.4451 37.844 20.3593 41.6763 20.3593C45.1493 20.3593 47.9438 17.7645 47.9438 14.0918C47.9038 9.94011 44.6304 7.78442 41.5964 7.78442ZM41.6364 10.2994C43.4328 10.2994 45.1493 11.7764 45.1493 14.0918C45.1493 16.4072 43.4727 17.8842 41.6364 17.8842C39.6404 17.8842 38.0835 16.2874 38.0835 14.0519C38.0436 11.8962 39.6004 10.2994 41.6364 10.2994Z"
-											fill="currentColor"
-										></path>
+											fill="currentColor"></path>
 										<path
 											d="M55.0475 7.82434C51.6543 7.82434 49.0195 10.7784 49.0195 14.0918C49.0195 17.8443 52.0934 20.3992 54.9676 20.3992C56.764 20.3992 57.6822 19.7205 58.4407 18.8822V20.1198C58.4407 22.2754 57.1233 23.5928 55.1273 23.5928C53.2111 23.5928 52.2531 22.1557 51.8938 21.3573L49.4587 22.3553C50.297 24.1517 52.0135 26.0279 55.0874 26.0279C58.4407 26.0279 60.9956 23.9122 60.9956 19.481V8.18362H58.3608V9.26147C57.6423 8.38322 56.5245 7.82434 55.0475 7.82434ZM55.287 10.2994C56.9237 10.2994 58.6403 11.7365 58.6403 14.1317C58.6403 16.6068 56.9636 17.9241 55.2471 17.9241C53.4507 17.9241 51.774 16.4471 51.774 14.1716C51.8139 11.6966 53.5305 10.2994 55.287 10.2994Z"
-											fill="currentColor"
-										></path>
+											fill="currentColor"></path>
 										<path
 											d="M72.8136 7.78442C69.62 7.78442 66.9453 10.2994 66.9453 14.0519C66.9453 18.004 69.9393 20.3593 73.093 20.3593C75.7278 20.3593 77.4044 18.8822 78.3625 17.6048L76.1669 16.1277C75.608 17.006 74.6499 17.8443 73.093 17.8443C71.3365 17.8443 70.5381 16.8862 70.0192 15.9281L78.4423 12.4152L78.0032 11.3772C77.1649 9.46107 75.2886 7.78442 72.8136 7.78442ZM72.8934 10.2196C74.0511 10.2196 74.8495 10.8184 75.2487 11.5768L69.6599 13.9321C69.3405 12.0958 71.097 10.2196 72.8934 10.2196Z"
-											fill="currentColor"
-										></path>
-										<path
-											d="M62.9531 19.9999H65.7076V1.47693H62.9531V19.9999Z"
-											fill="currentColor"
+											fill="currentColor"></path>
+										<path d="M62.9531 19.9999H65.7076V1.47693H62.9531V19.9999Z" fill="currentColor"
 										></path>
 									</svg>
 									<!-- End Star -->
@@ -187,8 +203,7 @@ export const getStaticPaths = () =>
 									>
 										<path
 											d="M27.0352 1.6307L33.9181 16.3633C34.2173 16.6768 34.5166 16.9903 34.8158 16.9903L50.0779 19.1845C50.9757 19.1845 51.275 20.4383 50.6764 21.0652L39.604 32.3498C39.3047 32.6632 39.3047 32.9767 39.3047 33.2901L41.998 49.2766C42.2973 50.217 41.1002 50.8439 40.5017 50.5304L26.4367 43.3208C26.1375 43.3208 25.8382 43.3208 25.539 43.3208L11.7732 50.8439C10.8754 51.1573 9.97763 50.5304 10.2769 49.59L12.9702 33.6036C12.9702 33.2901 12.9702 32.9767 12.671 32.6632L1.29923 21.0652C0.700724 20.4383 0.999979 19.4979 1.89775 19.4979L17.1598 17.3037C17.459 17.3037 17.7583 16.9903 18.0575 16.6768L24.9404 1.6307C25.539 0.69032 26.736 0.69032 27.0352 1.6307Z"
-											fill="currentColor"
-										></path>
+											fill="currentColor"></path>
 									</svg>
 									<svg
 										class="size-4 text-gray-800 dark:text-neutral-200"
@@ -200,8 +215,7 @@ export const getStaticPaths = () =>
 									>
 										<path
 											d="M27.0352 1.6307L33.9181 16.3633C34.2173 16.6768 34.5166 16.9903 34.8158 16.9903L50.0779 19.1845C50.9757 19.1845 51.275 20.4383 50.6764 21.0652L39.604 32.3498C39.3047 32.6632 39.3047 32.9767 39.3047 33.2901L41.998 49.2766C42.2973 50.217 41.1002 50.8439 40.5017 50.5304L26.4367 43.3208C26.1375 43.3208 25.8382 43.3208 25.539 43.3208L11.7732 50.8439C10.8754 51.1573 9.97763 50.5304 10.2769 49.59L12.9702 33.6036C12.9702 33.2901 12.9702 32.9767 12.671 32.6632L1.29923 21.0652C0.700724 20.4383 0.999979 19.4979 1.89775 19.4979L17.1598 17.3037C17.459 17.3037 17.7583 16.9903 18.0575 16.6768L24.9404 1.6307C25.539 0.69032 26.736 0.69032 27.0352 1.6307Z"
-											fill="currentColor"
-										></path>
+											fill="currentColor"></path>
 									</svg>
 									<svg
 										class="size-4 text-gray-800 dark:text-neutral-200"
@@ -213,8 +227,7 @@ export const getStaticPaths = () =>
 									>
 										<path
 											d="M27.0352 1.6307L33.9181 16.3633C34.2173 16.6768 34.5166 16.9903 34.8158 16.9903L50.0779 19.1845C50.9757 19.1845 51.275 20.4383 50.6764 21.0652L39.604 32.3498C39.3047 32.6632 39.3047 32.9767 39.3047 33.2901L41.998 49.2766C42.2973 50.217 41.1002 50.8439 40.5017 50.5304L26.4367 43.3208C26.1375 43.3208 25.8382 43.3208 25.539 43.3208L11.7732 50.8439C10.8754 51.1573 9.97763 50.5304 10.2769 49.59L12.9702 33.6036C12.9702 33.2901 12.9702 32.9767 12.671 32.6632L1.29923 21.0652C0.700724 20.4383 0.999979 19.4979 1.89775 19.4979L17.1598 17.3037C17.459 17.3037 17.7583 16.9903 18.0575 16.6768L24.9404 1.6307C25.539 0.69032 26.736 0.69032 27.0352 1.6307Z"
-											fill="currentColor"
-										></path>
+											fill="currentColor"></path>
 									</svg>
 									<svg
 										class="size-4 text-gray-800 dark:text-neutral-200"
@@ -226,8 +239,7 @@ export const getStaticPaths = () =>
 									>
 										<path
 											d="M27.0352 1.6307L33.9181 16.3633C34.2173 16.6768 34.5166 16.9903 34.8158 16.9903L50.0779 19.1845C50.9757 19.1845 51.275 20.4383 50.6764 21.0652L39.604 32.3498C39.3047 32.6632 39.3047 32.9767 39.3047 33.2901L41.998 49.2766C42.2973 50.217 41.1002 50.8439 40.5017 50.5304L26.4367 43.3208C26.1375 43.3208 25.8382 43.3208 25.539 43.3208L11.7732 50.8439C10.8754 51.1573 9.97763 50.5304 10.2769 49.59L12.9702 33.6036C12.9702 33.2901 12.9702 32.9767 12.671 32.6632L1.29923 21.0652C0.700724 20.4383 0.999979 19.4979 1.89775 19.4979L17.1598 17.3037C17.459 17.3037 17.7583 16.9903 18.0575 16.6768L24.9404 1.6307C25.539 0.69032 26.736 0.69032 27.0352 1.6307Z"
-											fill="currentColor"
-										></path>
+											fill="currentColor"></path>
 									</svg>
 									<svg
 										class="size-4 text-gray-800 dark:text-neutral-200"
@@ -239,12 +251,10 @@ export const getStaticPaths = () =>
 									>
 										<path
 											d="M49.6867 20.0305C50.2889 19.3946 49.9878 18.1228 49.0846 18.1228L33.7306 15.8972C33.4296 15.8972 33.1285 15.8972 32.8275 15.2613L25.9032 0.317944C25.6021 0 25.3011 0 25 0V42.6046C25 42.6046 25.3011 42.6046 25.6021 42.6046L39.7518 49.9173C40.3539 50.2352 41.5581 49.5994 41.2571 48.6455L38.5476 32.4303C38.5476 32.1124 38.5476 31.7944 38.8486 31.4765L49.6867 20.0305Z"
-											fill="transparent"
-										></path>
+											fill="transparent"></path>
 										<path
 											d="M0.313299 20.0305C-0.288914 19.3946 0.0122427 18.1228 0.915411 18.1228L16.2694 15.8972C16.5704 15.8972 16.8715 15.8972 17.1725 15.2613L24.0968 0.317944C24.3979 0 24.6989 0 25 0V42.6046C25 42.6046 24.6989 42.6046 24.3979 42.6046L10.2482 49.9173C9.64609 50.2352 8.44187 49.5994 8.74292 48.6455L11.4524 32.4303C11.4524 32.1124 11.4524 31.7944 11.1514 31.4765L0.313299 20.0305Z"
-											fill="currentColor"
-										></path>
+											fill="currentColor"></path>
 									</svg>
 								</div>
 
@@ -264,12 +274,10 @@ export const getStaticPaths = () =>
 									>
 										<path
 											d="M66.6601 8.35107C64.8995 8.35107 63.5167 8.72875 62.1331 9.48265C62.1331 5.4582 62.1331 1.81143 62.2594 0.554199L53.8321 2.06273V2.81736L54.7124 2.94301C55.8433 3.19431 56.2224 3.82257 56.4715 5.33255C56.725 8.35107 56.5979 24.4496 56.4715 27.0912C58.7354 27.5945 61.1257 27.9722 63.5159 27.9722C70.1819 27.9722 74.2064 23.8213 74.2064 17.281C74.2064 12.1249 70.9366 8.35107 66.6601 8.35107ZM63.7672 26.5878C63.2639 26.5878 62.6342 26.5878 62.258 26.4629C62.1316 24.7023 62.0067 17.281 62.1316 10.7413C62.8862 10.4893 63.3888 10.3637 64.0185 10.3637C66.7872 10.3637 68.2965 13.6335 68.2965 17.6572C68.2957 22.6898 66.4088 26.5878 63.7672 26.5878ZM22.1363 1.0568H0V2.18838L1.25796 2.31403C2.89214 2.56533 3.52184 3.57127 3.77242 5.9608C4.15082 10.4886 4.02445 18.6646 3.77242 22.5619C3.52112 24.9522 2.89287 26.0845 1.25796 26.2087L0 26.4615V27.4674H14.2123V26.4615L12.703 26.2087C11.0681 26.0838 10.4392 24.9522 10.1879 22.5619C10.0615 20.9263 9.93583 18.2847 9.93583 15.0156L12.9543 15.1413C14.8413 15.1413 15.7208 16.6505 16.0985 18.7881H17.2308V9.86106H16.0985C15.7201 11.9993 14.8413 13.5078 12.9543 13.5078L9.93655 13.6342C9.93655 9.35773 10.0622 5.33328 10.1886 2.94374H14.59C17.9869 2.94374 19.7475 5.08125 21.0047 8.85513L22.2626 8.47745L22.1363 1.0568Z"
-											fill="currentColor"
-										></path>
+											fill="currentColor"></path>
 										<path
 											d="M29.3053 8.09998C35.5944 8.09998 38.7385 12.3764 38.7385 18.0358C38.7385 23.4439 35.2167 27.9731 28.9276 27.9731C22.6393 27.9731 19.4951 23.6959 19.4951 18.0358C19.4951 12.6277 23.0162 8.09998 29.3053 8.09998ZM28.9276 9.35793C26.1604 9.35793 25.4058 13.1311 25.4058 18.0358C25.4058 22.8149 26.6637 26.7137 29.1796 26.7137C32.0703 26.7137 32.8264 22.9405 32.8264 18.0358C32.8264 13.2567 31.5699 9.35793 28.9276 9.35793ZM75.8403 18.1622C75.8403 13.0054 79.1101 8.09998 85.5248 8.09998C90.8057 8.09998 93.3224 11.9995 93.3224 17.1555H81.6253C81.4989 21.8089 83.7628 25.2051 88.2913 25.2051C90.3038 25.2051 91.3098 24.7033 92.5685 23.8223L93.0703 24.4505C91.8124 26.2111 89.0459 27.9731 85.5248 27.9731C79.8647 27.9724 75.8403 23.9479 75.8403 18.1622ZM81.6253 15.7726L87.5366 15.6463C87.5366 13.1311 87.159 9.35793 85.0214 9.35793C82.8839 9.35793 81.7502 12.8791 81.6253 15.7726ZM108.291 9.10663C106.782 8.47693 104.77 8.09998 102.506 8.09998C97.8538 8.09998 94.9594 10.8665 94.9594 14.137C94.9594 17.4075 97.0955 18.7904 100.118 19.7971C103.261 20.9279 104.142 21.8089 104.142 23.3182C104.142 24.8275 103.01 26.2103 100.997 26.2103C98.6084 26.2103 96.8464 24.8275 95.4635 21.0536L94.5825 21.3063L94.7089 26.84C96.2181 27.4683 98.9846 27.9724 101.375 27.9724C106.28 27.9724 109.425 25.4557 109.425 21.5576C109.425 18.9161 108.041 17.4075 104.771 16.1489C101.249 14.766 99.992 13.8857 99.992 12.2501C99.992 10.6152 101.126 9.48286 102.635 9.48286C104.897 9.48286 106.407 10.8665 107.54 14.2627L108.42 14.0114L108.291 9.10663ZM55.0883 8.6033C52.9508 7.3468 49.1769 7.97433 47.1651 12.5028L47.29 8.1007L38.8642 9.73561V10.4902L39.7444 10.6159C40.8775 10.7423 41.3794 11.3705 41.5057 13.0062C41.757 16.0247 41.6314 21.3078 41.5057 23.9486C41.3794 25.4564 40.8775 26.2111 39.7444 26.3374L38.8642 26.4638V27.4697H50.5606V26.4638L49.0513 26.3374C47.7941 26.2111 47.4164 25.4564 47.29 23.9486C47.0387 21.5584 47.0387 16.7793 47.1651 13.7608C47.7933 12.8798 50.5606 12.1259 53.0757 13.7608L55.0883 8.6033Z"
-											fill="currentColor"
-										></path>
+											fill="currentColor"></path>
 									</svg>
 									<!-- End Star -->
 								</div>
@@ -280,12 +288,8 @@ export const getStaticPaths = () =>
 					</div>
 					<!-- End Col -->
 
-					<div class="relative ms-4">
-						<Safari
-							url="my.dbinvesting.com"
-							className="size-full"
-							src={MetaTraderMockImage.src}
-						/>
+					<div class="relative sm:ms-4">
+						<Safari url="my.dbinvesting.com" className="size-full" src={MetaTraderMockImage.src} />
 					</div>
 					<!-- End Col -->
 				</div>
@@ -293,24 +297,46 @@ export const getStaticPaths = () =>
 				<!-- Grid -->
 				<div class="grid gap-4 md:grid-cols-2 md:items-center md:gap-8 xl:gap-20">
 					<div class="relative ms-4 flex justify-center">
-						<Iphone15Pro
-							url="my.dbinvesting.com"
-							className="h-[520px] w-auto"
-							videosrc="true"
-						/>
+						<Iphone15Pro url="my.dbinvesting.com" className="h-[520px] w-auto" videosrc="true" />
 					</div>
 
 					<div>
 						<h1
 							class="block text-3xl font-bold text-gray-800 dark:text-white sm:text-4xl lg:text-6xl lg:leading-tight"
-						>
-							More power, <span class="text-green-500">more instruments</span>
-						</h1>
+							set:html={t({
+								en: "More power, <span class='text-green-500'>more instruments</span>",
+								ar: "مزيد من القوة، <span class='text-green-500'>مزيد من الأدوات</span>",
+								es: "Más poder, <span class='text-green-500'>más instrumentos</span>",
+								fr: "Plus de puissance, <span class='text-green-500'>plus d'instruments</span>",
+								hi: "अधिक शक्ति, <span class='text-green-500'>अधिक उपकरण</span>",
+								id: "Lebih banyak kekuatan, <span class='text-green-500'>lebih banyak instrumen</span>",
+								ms: "Lebih kuasa, <span class='text-green-500'>lebih banyak instrumen</span>",
+								th: "พลังมากขึ้น, <span class='text-green-500'>เครื่องมือมากขึ้น</span>",
+								vi: "Nhiều sức mạnh hơn, <span class='text-green-500'>nhiều công cụ hơn</span>",
+								bn: "আরও শক্তি, <span class='text-green-500'>আরও যন্ত্র</span>",
+								'zh-hans': "更多的力量，<span class='text-green-500'>更多的工具</span>",
+								'pt-br': "Mais poder, <span class='text-green-500'>mais instrumentos</span>"
+							})}
+						/>
 						<p class="mt-3 text-lg text-gray-800 dark:text-neutral-400">
-							Trading with <strong>DB Investing on MT5</strong> lets you trade a wider
-							array of instruments, including Real Stocks. Trade Forex, Real Stocks and
-							CFDs on Futures using the best tools for comprehensive price analysis, algorithmic
-							trading and copy trading.
+							{
+								t({
+									en: 'Trading with <strong>DB Investing on MT5</strong> lets you trade a wider array of instruments, including Real Stocks. Trade Forex, Real Stocks and CFDs on Futures using the best tools for comprehensive price analysis, algorithmic trading and copy trading.',
+									ar: 'التداول مع <strong>DB Investing على MT5</strong> يتيح لك تداول مجموعة واسعة من الأدوات، بما في ذلك الأسهم الحقيقية. تداول الفوركس، الأسهم الحقيقية وعقود الفروقات على العقود الآجلة باستخدام أفضل الأدوات لتحليل الأسعار الشامل، التداول الخوارزمي والتداول بالنسخ.',
+									es: 'Operar con <strong>DB Investing en MT5</strong> te permite negociar una amplia gama de instrumentos, incluidas Acciones Reales. Opera Forex, Acciones Reales y CFDs sobre Futuros utilizando las mejores herramientas para el análisis integral de precios, el comercio algorítmico y el copy trading.',
+									fr: "Le trading avec <strong>DB Investing sur MT5</strong> vous permet de négocier une gamme plus large d'instruments, y compris des actions réelles. Tradez sur le Forex, les actions réelles et les CFD sur les futures en utilisant les meilleurs outils pour une analyse complète des prix, le trading algorithmique et le copy trading.",
+									hi: '<strong>MT5 पर DB Investing</strong> के साथ व्यापार करना आपको अधिक विविध साधनों के साथ व्यापार करने की अनुमति देता है, जिसमें वास्तविक स्टॉक्स शामिल हैं। सबसे अच्छे उपकरणों का उपयोग करते हुए, फॉरेक्स, वास्तविक स्टॉक्स और फ्यूचर्स पर CFDs का व्यापार करें जो संपूर्ण मूल्य विश्लेषण, स्वचालित ट्रेडिंग और कॉपी ट्रेडिंग के लिए हैं।',
+									id: 'Berdagang dengan <strong>DB Investing di MT5</strong> memungkinkan Anda untuk memperdagangkan lebih banyak instrumen, termasuk Saham Nyata. Perdagangkan Forex, Saham Nyata, dan CFD pada Futures menggunakan alat terbaik untuk analisis harga yang komprehensif, perdagangan algoritmik, dan perdagangan salinan.',
+									ms: 'Berdagang dengan <strong>DB Investing di MT5</strong> membolehkan anda berdagang lebih banyak instrumen, termasuk Saham Sebenar. Berdagang Forex, Saham Sebenar dan CFD pada Niaga Hadapan menggunakan alat terbaik untuk analisis harga yang komprehensif, perdagangan algoritma dan perdagangan salinan.',
+									th: 'การซื้อขายกับ <strong>DB Investing บน MT5</strong> ให้คุณสามารถซื้อขายเครื่องมือที่หลากหลายมากขึ้น รวมถึงหุ้นจริง ซื้อขายฟอเร็กซ์ หุ้นจริง และ CFDs บนฟิวเจอร์ส โดยใช้เครื่องมือที่ดีที่สุดสำหรับการวิเคราะห์ราคาที่ครอบคลุม การซื้อขายอัลกอริทึม และการซื้อขายคัดลอก',
+									vi: 'Giao dịch với <strong>DB Investing trên MT5</strong> cho phép bạn giao dịch nhiều loại công cụ hơn, bao gồm Cổ phiếu Thực. Giao dịch Forex, Cổ phiếu Thực và CFD trên Hợp đồng tương lai bằng các công cụ tốt nhất để phân tích giá toàn diện, giao dịch thuật toán và giao dịch sao chép.',
+									bn: '<strong>MT5-এ DB ইনভেস্টিং</strong> এর সাথে ট্রেডিং আপনাকে আরও বিস্তৃত ইন্সট্রুমেন্ট ট্রেড করার অনুমতি দেয়, যার মধ্যে রয়েছে বাস্তব স্টক৷ ব্যাপক মূল্য বিশ্লেষণ, অ্যালগরিদমিক ট্রেডিং এবং কপি ট্রেডিংয়ের জন্য সেরা টুল ব্যবহার করে ফরেক্স, রিয়েল স্টক এবং ফিউচারগুলিতে CFDs ট্রেড করুন।',
+									'zh-hans':
+										'使用<strong>DB Investing 在 MT5</strong>进行交易可以让您交易更多种类的工具，包括真实股票。使用最好的工具进行全面的价格分析、算法交易和复制交易，交易外汇、真实股票和期货差价合约。',
+									'pt-br':
+										'Operar com <strong>DB Investing no MT5</strong> permite que você negocie uma gama mais ampla de instrumentos, incluindo Ações Reais. Negocie Forex, Ações Reais e CFDs sobre Futuros usando as melhores ferramentas para análise de preços abrangente, negociação algorítmica e copy trading.'
+								})
+							}
 						</p>
 						<!-- List -->
 						<ul class="mt-4 space-y-2 text-sm sm:text-base">
@@ -328,12 +354,26 @@ export const getStaticPaths = () =>
 										stroke="currentColor"
 										stroke-width="2"
 										stroke-linecap="round"
-										stroke-linejoin="round"
-										><polyline points="20 6 9 17 4 12"></polyline></svg
+										stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg
 									>
 								</span>
 								<span class="text-gray-800 dark:text-neutral-200">
-									Transfer funds between accounts
+									{
+										t({
+											en: 'Transfer funds between accounts',
+											ar: 'تحويل الأموال بين الحسابات',
+											es: 'Transferir fondos entre cuentas',
+											fr: 'Transférer des fonds entre comptes',
+											hi: 'खातों के बीच धनराशि स्थानांतरित करें',
+											id: 'Transfer dana antar akun',
+											ms: 'Pindahkan dana antara akaun',
+											th: 'โอนเงินระหว่างบัญชี',
+											vi: 'Chuyển tiền giữa các tài khoản',
+											bn: 'হিসাবগুলির মধ্যে অর্থ স্থানান্তর করুন',
+											'zh-hans': '在账户之间转移资金',
+											'pt-br': 'Transferir fundos entre contas'
+										})
+									}
 								</span>
 							</li>
 							<li class="flex gap-x-3">
@@ -350,12 +390,62 @@ export const getStaticPaths = () =>
 										stroke="currentColor"
 										stroke-width="2"
 										stroke-linecap="round"
-										stroke-linejoin="round"
-										><polyline points="20 6 9 17 4 12"></polyline></svg
+										stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg
 									>
 								</span>
 								<span class="text-gray-800 dark:text-neutral-200">
-									38 technical objects
+									{
+										t({
+											en: '38 technical objects',
+											ar: '38 كائنًا تقنيًا',
+											es: '38 objetos técnicos',
+											fr: '38 objets techniques',
+											hi: '38 तकनीकी वस्तुएं',
+											id: '38 objek teknis',
+											ms: '38 objek teknikal',
+											th: 'วัตถุทางเทคนิค 38 รายการ',
+											vi: '38 đối tượng kỹ thuật',
+											bn: '৩৮টি প্রযুক্তিগত বস্তু',
+											'zh-hans': '38 个技术对象',
+											'pt-br': '38 objetos técnicos'
+										})
+									}</span
+								>
+							</li>
+							<li class="flex gap-x-3">
+								<span
+									class="mt-0.5 flex size-5 items-center justify-center rounded-full bg-blue-50 text-dbgreen-600 dark:bg-dbgreen-800/30 dark:text-dbgreen-500"
+								>
+									<svg
+										class="size-3.5 shrink-0"
+										xmlns="http://www.w3.org/2000/svg"
+										width="24"
+										height="24"
+										viewBox="0 0 24 24"
+										fill="none"
+										stroke="currentColor"
+										stroke-width="2"
+										stroke-linecap="round"
+										stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg
+									>
+								</span>
+								<span class="text-gray-800 dark:text-neutral-200">
+									{
+										t({
+											en: '44 graphing objects',
+											ar: '44 كائنًا بيانيًا',
+											es: '44 objetos de gráficos',
+											fr: '44 objets de graphiques',
+											hi: '44 ग्राफिंग ऑब्जेक्ट्स',
+											id: '44 objek grafik',
+											ms: '44 objek grafik',
+											th: '44 วัตถุกราฟ',
+											vi: '44 đối tượng biểu đồ',
+											bn: '৪৪টি গ্রাফিং বস্তু',
+											'zh-hans': '44 个图形对象',
+											'pt-br': '44 objetos de gráficos'
+										})
+									}
 								</span>
 							</li>
 							<li class="flex gap-x-3">
@@ -372,12 +462,26 @@ export const getStaticPaths = () =>
 										stroke="currentColor"
 										stroke-width="2"
 										stroke-linecap="round"
-										stroke-linejoin="round"
-										><polyline points="20 6 9 17 4 12"></polyline></svg
+										stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg
 									>
 								</span>
 								<span class="text-gray-800 dark:text-neutral-200">
-									44 graphing objects
+									{
+										t({
+											en: '6 pending order types',
+											ar: '6 أنواع من الأوامر المعلقة',
+											es: '6 tipos de órdenes pendientes',
+											fr: "6 types d'ordres en attente",
+											hi: '6 लंबित ऑर्डर प्रकार',
+											id: '6 jenis pesanan tertunda',
+											ms: '6 jenis pesanan tertunda',
+											th: 'คำสั่งซื้อที่รอดำเนินการ 6 ประเภท',
+											vi: '6 loại lệnh chờ',
+											bn: '৬টি মুলতুবি আদেশের ধরন',
+											'zh-hans': '6 种挂单类型',
+											'pt-br': '6 tipos de ordens pendentes'
+										})
+									}
 								</span>
 							</li>
 							<li class="flex gap-x-3">
@@ -394,34 +498,26 @@ export const getStaticPaths = () =>
 										stroke="currentColor"
 										stroke-width="2"
 										stroke-linecap="round"
-										stroke-linejoin="round"
-										><polyline points="20 6 9 17 4 12"></polyline></svg
+										stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg
 									>
 								</span>
 								<span class="text-gray-800 dark:text-neutral-200">
-									6 pending order types
-								</span>
-							</li>
-							<li class="flex gap-x-3">
-								<span
-									class="mt-0.5 flex size-5 items-center justify-center rounded-full bg-blue-50 text-dbgreen-600 dark:bg-dbgreen-800/30 dark:text-dbgreen-500"
-								>
-									<svg
-										class="size-3.5 shrink-0"
-										xmlns="http://www.w3.org/2000/svg"
-										width="24"
-										height="24"
-										viewBox="0 0 24 24"
-										fill="none"
-										stroke="currentColor"
-										stroke-width="2"
-										stroke-linecap="round"
-										stroke-linejoin="round"
-										><polyline points="20 6 9 17 4 12"></polyline></svg
-									>
-								</span>
-								<span class="text-gray-800 dark:text-neutral-200">
-									4 order execution types
+									{
+										t({
+											en: '4 order execution types',
+											ar: '4 أنواع من تنفيذ الأوامر',
+											es: '4 tipos de ejecución de órdenes',
+											fr: "4 types d'exécution d'ordres",
+											hi: '4 ऑर्डर निष्पादन प्रकार',
+											id: '4 jenis eksekusi pesanan',
+											ms: '4 jenis pelaksanaan pesanan',
+											th: 'ประเภทการดำเนินการตามคำสั่งซื้อ 4 ประเภท',
+											vi: '4 loại thực hiện lệnh',
+											bn: '৪টি আদেশ বাস্তবায়ন প্রকার',
+											'zh-hans': '4 种订单执行类型',
+											'pt-br': '4 tipos de execução de ordens'
+										})
+									}
 								</span>
 							</li>
 						</ul>
@@ -429,7 +525,20 @@ export const getStaticPaths = () =>
 						<Button
 							data-aos="fade-up-sm"
 							data-aos-delay="150"
-							text="Download MT5"
+							text={t({
+								en: 'Download MT5',
+								ar: 'تحميل MT5',
+								es: 'Descargar MT5',
+								fr: 'Télécharger MT5',
+								hi: 'MT5 डाउनलोड करें',
+								id: 'Unduh MT5',
+								ms: 'Muat Turun MT5',
+								th: 'ดาวน์โหลด MT5',
+								vi: 'Tải xuống MT5',
+								bn: 'MT5 ডাউনলোড করুন',
+								'zh-hans': '下载 MT5',
+								'pt-br': 'Baixar MT5'
+							})}
 							primary={false}
 							rippleEffect="true"
 							primary="true"
@@ -453,9 +562,7 @@ export const getStaticPaths = () =>
 						class="relative col-span-full overflow-hidden rounded-2xl border-2 p-4 transition hover:border-dbgreen-900 dark:border-neutral-600 dark:hover:border-dbgreen-900 sm:p-8 md:p-5 lg:col-span-2"
 					>
 						<div class="h-full">
-							<div
-								class="relative flex h-full flex-col justify-between space-y-8 lg:space-y-6"
-							>
+							<div class="relative flex h-full flex-col justify-between space-y-8 lg:space-y-6">
 								<div
 									class="relative flex aspect-square size-12 items-center justify-center rounded-full border before:absolute before:-inset-2 before:rounded-full before:border dark:border-white/10 dark:bg-white/5 dark:before:border-white/5 dark:before:bg-white/5"
 								>
@@ -464,16 +571,45 @@ export const getStaticPaths = () =>
 										icon="fluent:star-settings-24-filled"
 										width="30"
 										height="30"
-										class="text-dbgreen-500"
-									></iconify-icon>
+										class="text-dbgreen-500"></iconify-icon>
 								</div>
 								<div class="space-y-2">
 									<h2 class="text-xl font-bold text-neutral-800 dark:text-white">
-										Advanced platform for advanced traders
+										{
+											t({
+												en: 'Advanced platform for advanced traders',
+												ar: 'منصة متقدمة للمتداولين المتقدمين',
+												es: 'Plataforma avanzada para traders avanzados',
+												fr: 'Plateforme avancée pour traders avancés',
+												hi: 'उन्नत व्यापारियों के लिए उन्नत प्लेटफॉर्म',
+												id: 'Platform canggih untuk trader canggih',
+												ms: 'Platform maju untuk pedagang maju',
+												th: 'แพลตฟอร์มขั้นสูงสำหรับนักเทรดขั้นสูง',
+												vi: 'Nền tảng nâng cao cho các nhà giao dịch nâng cao',
+												bn: 'উন্নত ব্যবসায়ীদের জন্য উন্নত প্ল্যাটফর্ম',
+												'zh-hans': '为高级交易者提供的高级平台',
+												'pt-br': 'Plataforma avançada para traders avançados'
+											})
+										}
 									</h2>
 									<p class="text-base text-neutral-700 dark:text-neutral-300">
-										Use an extensive range of order types, graphings tools and
-										more for a trading-oriented experience
+										{
+											t({
+												en: 'Use an extensive range of order types, graphing tools and more for a trading-oriented experience',
+												ar: 'استخدم مجموعة واسعة من أنواع الطلبات وأدوات الرسم وأكثر من ذلك لتجربة موجهة نحو التداول',
+												es: 'Utiliza una amplia gama de tipos de órdenes, herramientas de gráficos y más para una experiencia orientada al trading',
+												fr: "Utilisez une large gamme de types d'ordres, d'outils de graphique et plus encore pour une expérience orientée trading",
+												hi: 'व्यापार-उन्मुख अनुभव के लिए ऑर्डर प्रकारों, ग्राफिंग टूल और अधिक की विस्तृत रेंज का उपयोग करें',
+												id: 'Gunakan berbagai jenis pesanan, alat grafik, dan lainnya untuk pengalaman yang berorientasi pada perdagangan',
+												ms: 'Gunakan pelbagai jenis pesanan, alat grafik dan banyak lagi untuk pengalaman yang berorientasikan perdagangan',
+												th: 'ใช้ประเภทคำสั่งที่หลากหลาย เครื่องมือกราฟและอื่น ๆ เพื่อประสบการณ์การเทรดที่มุ่งเน้น',
+												vi: 'Sử dụng nhiều loại lệnh, công cụ đồ họa và nhiều hơn nữa cho trải nghiệm giao dịch định hướng',
+												bn: 'ট্রেডিং-ভিত্তিক অভিজ্ঞতার জন্য অর্ডারের বিভিন্ন ধরন, গ্রাফিং টুল এবং আরও অনেক কিছু ব্যবহার করুন',
+												'zh-hans': '使用广泛的订单类型、图形工具等，以获得以交易为导向的体验',
+												'pt-br':
+													'Use uma ampla gama de tipos de ordens, ferramentas de gráficos e mais para uma experiência voltada para o comércio'
+											})
+										}
 									</p>
 								</div>
 							</div>
@@ -487,9 +623,7 @@ export const getStaticPaths = () =>
 						class="relative col-span-full overflow-hidden rounded-2xl border-2 p-4 transition hover:border-dbgreen-900 dark:border-neutral-600 dark:hover:border-dbgreen-900 sm:p-8 md:p-5 lg:col-span-2"
 					>
 						<div class="h-full">
-							<div
-								class="relative flex h-full flex-col justify-between space-y-8 lg:space-y-6"
-							>
+							<div class="relative flex h-full flex-col justify-between space-y-8 lg:space-y-6">
 								<div
 									class="relative flex aspect-square size-12 items-center justify-center rounded-full border before:absolute before:-inset-2 before:rounded-full before:border dark:border-white/10 dark:bg-white/5 dark:before:border-white/5 dark:before:bg-white/5"
 								>
@@ -498,16 +632,45 @@ export const getStaticPaths = () =>
 										icon="fluent:edit-settings-24-regular"
 										width="30"
 										height="30"
-										class="text-dbgreen-500"
-									></iconify-icon>
+										class="text-dbgreen-500"></iconify-icon>
 								</div>
 								<div class="space-y-2">
 									<h2 class="text-xl font-bold text-neutral-800 dark:text-white">
-										Customize your trading experience
+										{
+											t({
+												en: 'Customize your trading experience',
+												ar: 'خصص تجربة التداول الخاصة بك',
+												es: 'Personaliza tu experiencia de trading',
+												fr: 'Personnalisez votre expérience de trading',
+												hi: 'अपने व्यापार के अनुभव को अनुकूलित करें',
+												id: 'Sesuaikan pengalaman trading Anda',
+												ms: 'Sesuaikan pengalaman perdagangan anda',
+												th: 'ปรับแต่งประสบการณ์การเทรดของคุณ',
+												vi: 'Tùy chỉnh trải nghiệm giao dịch của bạn',
+												bn: 'আপনার ট্রেডিং অভিজ্ঞতা কাস্টমাইজ করুন',
+												'zh-hans': '自定义您的交易体验',
+												'pt-br': 'Personalize sua experiência de negociação'
+											})
+										}
 									</h2>
 									<p class="text-base text-neutral-700 dark:text-neutral-300">
-										Tailor your personal indicators, toolbars and much more to
-										match your trading style
+										{
+											t({
+												en: 'Tailor your personal indicators, toolbars and much more to match your trading style',
+												ar: 'خصص مؤشراتك الشخصية وأشرطة الأدوات وأكثر من ذلك لتتناسب مع أسلوب تداولك',
+												es: 'Personaliza tus indicadores personales, barras de herramientas y mucho más para que coincidan con tu estilo de trading',
+												fr: "Personnalisez vos indicateurs personnels, barres d'outils et bien plus encore pour correspondre à votre style de trading",
+												hi: 'अपने व्यक्तिगत संकेतकों, टूलबार और अधिक को अपने व्यापार के शैली के अनुसार अनुकूलित करें',
+												id: 'Sesuaikan indikator pribadi, bilah alat, dan banyak lagi agar sesuai dengan gaya perdagangan Anda',
+												ms: 'Sesuaikan indikator peribadi, bar alat dan banyak lagi untuk disesuaikan dengan gaya perdagangan anda',
+												th: 'ปรับแต่งตัวชี้วัดส่วนบุคคล แถบเครื่องมือ และอื่น ๆ ให้เข้ากับสไตล์การเทรดของคุณ',
+												vi: 'Tùy chỉnh các chỉ báo cá nhân, thanh công cụ và nhiều thứ khác để phù hợp với phong cách giao dịch của bạn',
+												bn: 'আপনার ব্যক্তিগত সূচক, টুলবার এবং আপনার ট্রেডিং শৈলীর সাথে মেলাতে আরও অনেক কিছুকে কাস্টমাইজ করুন',
+												'zh-hans': '调整您的个人指标、工具栏等，以匹配您的交易风格',
+												'pt-br':
+													'Ajuste seus indicadores pessoais, barras de ferramentas e muito mais para combinar com seu estilo de negociação'
+											})
+										}
 									</p>
 								</div>
 							</div>
@@ -521,9 +684,7 @@ export const getStaticPaths = () =>
 						class="relative col-span-full overflow-hidden rounded-2xl border-2 p-4 transition hover:border-dbgreen-900 dark:border-neutral-600 dark:hover:border-dbgreen-900 sm:p-8 md:p-5 lg:col-span-2"
 					>
 						<div class="h-full">
-							<div
-								class="relative flex h-full flex-col justify-between space-y-8 lg:space-y-6"
-							>
+							<div class="relative flex h-full flex-col justify-between space-y-8 lg:space-y-6">
 								<div
 									class="relative flex aspect-square size-12 items-center justify-center rounded-full border before:absolute before:-inset-2 before:rounded-full before:border dark:border-white/10 dark:bg-white/5 dark:before:border-white/5 dark:before:bg-white/5"
 								>
@@ -532,16 +693,46 @@ export const getStaticPaths = () =>
 										icon="arcticons:metatrader-5"
 										width="30"
 										height="30"
-										class="text-dbgreen-500"
-									></iconify-icon>
+										class="text-dbgreen-500"></iconify-icon>
 								</div>
 								<div class="space-y-2">
 									<h2 class="text-xl font-bold text-neutral-800 dark:text-white">
-										Trade on the go
+										{
+											t({
+												en: 'Trade on the go',
+												ar: 'تداول أثناء التنقل',
+												es: 'Negocia en movimiento',
+												fr: 'Tradez en déplacement',
+												hi: 'चलते-फिरते व्यापार करें',
+												id: 'Perdagangan di mana saja',
+												ms: 'Berdagang di mana sahaja',
+												th: 'เทรดได้ทุกที่',
+												vi: 'Giao dịch mọi lúc mọi nơi',
+												bn: 'মোবাইল ট্রেডিং করুন',
+												'zh-hans': '随时交易',
+												'pt-br': 'Negocie em movimento'
+											})
+										}
 									</h2>
 									<p class="text-base text-neutral-700 dark:text-neutral-300">
-										Use MT both on iOS, Android, mac OS and Windows platforms
-										and trade on DB Investing wherever you are
+										{
+											t({
+												en: 'Use MT both on iOS, Android, macOS, and Windows platforms and trade on DB Investing wherever you are',
+												ar: 'استخدم MT على منصات iOS وAndroid وmacOS وWindows وتداول على DB Investing أينما كنت',
+												es: 'Usa MT en plataformas iOS, Android, macOS y Windows y opera en DB Investing dondequiera que estés',
+												fr: 'Utilisez MT à la fois sur les plateformes iOS, Android, macOS et Windows et tradez sur DB Investing où que vous soyez',
+												hi: 'iOS, Android, macOS और Windows प्लेटफार्मों पर MT का उपयोग करें और जहां भी हों, DB Investing पर व्यापार करें',
+												id: 'Gunakan MT di platform iOS, Android, macOS, dan Windows dan berdagang di DB Investing di mana saja Anda berada',
+												ms: 'Gunakan MT di platform iOS, Android, macOS dan Windows dan berdagang di DB Investing di mana sahaja anda berada',
+												th: 'ใช้ MT ทั้งในระบบ iOS, Android, macOS และ Windows และซื้อขายใน DB Investing ได้ทุกที่',
+												vi: 'Sử dụng MT trên các nền tảng iOS, Android, macOS và Windows và giao dịch trên DB Investing bất cứ nơi nào bạn ở',
+												bn: 'iOS, Android, macOS এবং Windows প্ল্যাটফর্মে MT ব্যবহার করুন এবং যেখানে থাকুন না কেন DB Investing-এ ট্রেড করুন',
+												'zh-hans':
+													'在 iOS、Android、macOS 和 Windows 平台上使用 MT，并在您所在的任何地方都可以在 DB Investing 上交易',
+												'pt-br':
+													'Use o MT nas plataformas iOS, Android, macOS e Windows e negocie na DB Investing onde quer que esteja'
+											})
+										}
 									</p>
 								</div>
 							</div>
@@ -554,7 +745,22 @@ export const getStaticPaths = () =>
 				<h1
 					class="mb-4 block text-center text-3xl font-bold text-gray-800 dark:text-white sm:text-4xl lg:text-6xl lg:leading-tight"
 				>
-					Download MT5
+					{
+						t({
+							en: 'Download MT5',
+							ar: 'تحميل MT5',
+							es: 'Descargar MT5',
+							fr: 'Télécharger MT5',
+							hi: 'MT5 डाउनलोड करें',
+							id: 'Unduh MT5',
+							ms: 'Muat Turun MT5',
+							th: 'ดาวน์โหลด MT5',
+							vi: 'Tải xuống MT5',
+							bn: 'MT5 ডাউনলোড করুন',
+							'zh-hans': '下载 MT5',
+							'pt-br': 'Baixar MT5'
+						})
+					}
 				</h1>
 				<div class="relative grid grid-cols-4 gap-3">
 					<!-- card start -->
@@ -568,23 +774,32 @@ export const getStaticPaths = () =>
 							target="_blank"
 							class="h-full w-full"
 						>
-							<div
-								class="relative flex h-full flex-row items-center justify-center gap-8"
-							>
+							<div class="relative flex h-full flex-row items-center justify-center gap-8">
 								<div
 									class="relative flex aspect-square size-12 items-center justify-center rounded-full border before:absolute before:-inset-2 before:rounded-full before:border dark:border-white/10 dark:bg-white/5 dark:before:border-white/5 dark:before:bg-white/5"
 								>
 									<!-- <Icon name="market_icon" class="" href="#" /> -->
 
-									<iconify-icon
-										width="30"
-										height="30"
-										icon="logos:google-play-icon"
-									></iconify-icon>
+									<iconify-icon width="30" height="30" icon="logos:google-play-icon"></iconify-icon>
 								</div>
 								<div class="">
 									<h2 class="text-xl font-bold text-neutral-800 dark:text-white">
-										Google Pay
+										{
+											t({
+												en: 'Google Pay',
+												ar: 'جوجل باي',
+												es: 'Google Pay',
+												fr: 'Google Pay',
+												hi: 'गूगल पे',
+												id: 'Google Pay',
+												ms: 'Google Pay',
+												th: 'Google Pay',
+												vi: 'Google Pay',
+												bn: 'গুগল পে',
+												'zh-hans': 'Google Pay',
+												'pt-br': 'Google Pay'
+											})
+										}
 									</h2>
 								</div>
 							</div>
@@ -602,23 +817,32 @@ export const getStaticPaths = () =>
 							target="_blank"
 							class="h-full w-full"
 						>
-							<div
-								class="relative flex h-full flex-row items-center justify-center gap-8"
-							>
+							<div class="relative flex h-full flex-row items-center justify-center gap-8">
 								<div
 									class="relative flex aspect-square size-12 items-center justify-center rounded-full border before:absolute before:-inset-2 before:rounded-full before:border dark:border-white/10 dark:bg-white/5 dark:before:border-white/5 dark:before:bg-white/5"
 								>
 									<!-- <Icon name="market_icon" class="" href="#" /> -->
 
-									<iconify-icon
-										width="30"
-										height="30"
-										icon="logos:apple-app-store"
-									></iconify-icon>
+									<iconify-icon width="30" height="30" icon="logos:apple-app-store"></iconify-icon>
 								</div>
 								<div class="">
 									<h2 class="text-xl font-bold text-neutral-800 dark:text-white">
-										Apple Store
+										{
+											t({
+												en: 'Apple Store',
+												ar: 'متجر آبل',
+												es: 'Apple Store',
+												fr: 'Apple Store',
+												hi: 'एप्पल स्टोर',
+												id: 'Apple Store',
+												ms: 'Apple Store',
+												th: 'Apple Store',
+												vi: 'Cửa hàng Apple',
+												bn: 'অ্যাপল স্টোর',
+												'zh-hans': '苹果商店',
+												'pt-br': 'Apple Store'
+											})
+										}
 									</h2>
 								</div>
 							</div>
@@ -636,23 +860,32 @@ export const getStaticPaths = () =>
 							target="_blank"
 							class="h-full w-full"
 						>
-							<div
-								class="relative flex h-full flex-row items-center justify-center gap-8"
-							>
+							<div class="relative flex h-full flex-row items-center justify-center gap-8">
 								<div
 									class="relative flex aspect-square size-12 items-center justify-center rounded-full border before:absolute before:-inset-2 before:rounded-full before:border dark:border-white/10 dark:bg-white/5 dark:before:border-white/5 dark:before:bg-white/5"
 								>
 									<!-- <Icon name="market_icon" class="" href="#" /> -->
 
-									<iconify-icon
-										width="30"
-										height="30"
-										icon="simple-icons:macos"
-									></iconify-icon>
+									<iconify-icon width="30" height="30" icon="simple-icons:macos"></iconify-icon>
 								</div>
 								<div class="">
 									<h2 class="text-xl font-bold text-neutral-800 dark:text-white">
-										Mac OS
+										{
+											t({
+												en: 'Mac OS',
+												ar: 'ماك أو إس',
+												es: 'Mac OS',
+												fr: 'Mac OS',
+												hi: 'मैक ओएस',
+												id: 'Mac OS',
+												ms: 'Mac OS',
+												th: 'Mac OS',
+												vi: 'Mac OS',
+												bn: 'ম্যাক ওএস',
+												'zh-hans': 'Mac OS',
+												'pt-br': 'Mac OS'
+											})
+										}
 									</h2>
 								</div>
 							</div>
@@ -670,23 +903,32 @@ export const getStaticPaths = () =>
 							target="_blank"
 							class="h-full w-full"
 						>
-							<div
-								class="relative flex h-full flex-row items-center justify-center gap-8"
-							>
+							<div class="relative flex h-full flex-row items-center justify-center gap-8">
 								<div
 									class="relative flex aspect-square size-12 items-center justify-center rounded-full border before:absolute before:-inset-2 before:rounded-full before:border dark:border-white/10 dark:bg-white/5 dark:before:border-white/5 dark:before:bg-white/5"
 								>
 									<!-- <Icon name="market_icon" class="" href="#" /> -->
 
-									<iconify-icon
-										width="30"
-										height="30"
-										icon="devicon:windows8"
-									></iconify-icon>
+									<iconify-icon width="30" height="30" icon="devicon:windows8"></iconify-icon>
 								</div>
 								<div class="">
 									<h2 class="text-xl font-bold text-neutral-800 dark:text-white">
-										Windows
+										{
+											t({
+												en: 'Windows',
+												ar: 'ويندوز',
+												es: 'Windows',
+												fr: 'Windows',
+												hi: 'विंडोज़',
+												id: 'Windows',
+												ms: 'Windows',
+												th: 'Windows',
+												vi: 'Windows',
+												bn: 'উইন্ডোজ',
+												'zh-hans': 'Windows',
+												'pt-br': 'Windows'
+											})
+										}
 									</h2>
 								</div>
 							</div>

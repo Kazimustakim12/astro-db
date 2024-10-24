@@ -16,31 +16,27 @@ export const getStaticPaths = () =>
 <Layout title="Regulations of DB investing:">
 	<section>
 		<div
-			class="relative z-20 w-full overflow-hidden bg-gray-100 py-3 before:absolute before:start-1/2 before:top-0 before:-z-[1] before:size-full before:-translate-x-1/2 before:transform before:bg-[url('/src/images/world_bg.png')] before:bg-center before:bg-no-repeat before:opacity-45 before:hue-rotate-60 dark:bg-black dark:before:bg-[url('/src/images/world_bg.png')]"
+			class="relative z-20 w-full overflow-hidden bg-gray-100 py-3 before:absolute before:top-0 before:-z-[1] before:size-full before:transform before:bg-[url('/src/images/world_bg.png')] before:bg-center before:bg-no-repeat before:opacity-45 before:hue-rotate-60 dark:bg-black dark:before:bg-[url('/src/images/world_bg.png')]"
 		>
-			<div
-				class="container flex flex-col items-center justify-between gap-6 py-10 sm:flex-row"
-			>
+			<div class="container flex flex-col items-center justify-between gap-6 py-10 sm:flex-row">
 				<div>
 					<h1
 						class="block text-center text-4xl font-bold text-gray-800 dark:text-neutral-200 md:text-4xl lg:text-5xl"
-						set:html={
-								t({
-									en: '<strong class="text-green-500">Regulatory </strong> Environment',
-									ar: '<strong class="text-green-500">البيئة </strong> التنظيمية',
-									es: '<strong class="text-green-500">Entorno </strong> regulatorio',
-									fr: '<strong class="text-green-500">Environnement </strong> réglementaire',
-									hi: '<strong class="text-green-500">नियामक </strong> वातावरण',
-									id: '<strong class="text-green-500">Lingkungan </strong> regulasi',
-									ms: '<strong class="text-green-500">Persekitaran </strong> pengawalseliaan',
-									th: '<strong class="text-green-500">สิ่งแวดล้อม </strong> ระเบียบ',
-									vi: '<strong class="text-green-500">Môi trường </strong> pháp lý',
-									bn: '<strong class="text-green-500">নিয়ন্ত্রক </strong> পরিবেশ',
-									'zh-hans': '<strong class="text-green-500">监管 </strong> 环境',
-									'pt-br': '<strong class="text-green-500">Ambiente </strong> regulatório'
-								})
-							}>
-					</h1>
+						set:html={t({
+							en: '<strong class="text-green-500">Regulatory </strong> Environment',
+							ar: '<strong class="text-green-500">البيئة </strong> التنظيمية',
+							es: '<strong class="text-green-500">Entorno </strong> regulatorio',
+							fr: '<strong class="text-green-500">Environnement </strong> réglementaire',
+							hi: '<strong class="text-green-500">नियामक </strong> वातावरण',
+							id: '<strong class="text-green-500">Lingkungan </strong> regulasi',
+							ms: '<strong class="text-green-500">Persekitaran </strong> pengawalseliaan',
+							th: '<strong class="text-green-500">สิ่งแวดล้อม </strong> ระเบียบ',
+							vi: '<strong class="text-green-500">Môi trường </strong> pháp lý',
+							bn: '<strong class="text-green-500">নিয়ন্ত্রক </strong> পরিবেশ',
+							'zh-hans': '<strong class="text-green-500">监管 </strong> 环境',
+							'pt-br': '<strong class="text-green-500">Ambiente </strong> regulatório'
+						})}
+					/>
 				</div>
 				<div>
 					<svg
@@ -61,27 +57,24 @@ export const getStaticPaths = () =>
 			<div class="container py-10">
 				<h1 class="mb-6 text-xl font-semibold">
 					{
-    t({
-        en: 'Regulation of DB Investing',
-        ar: 'تنظيم DB Investing',
-        es: 'Regulación de DB Investing',
-        fr: 'Réglementation de DB Investing',
-        hi: 'DB Investing का नियमन',
-        id: 'Regulasi DB Investing',
-        ms: 'Peraturan DB Investing',
-        th: 'การควบคุมของ DB Investing',
-        vi: 'Quy định của DB Investing',
-        bn: 'DB Investing এর নিয়ম',
-        'zh-hans': 'DB Investing 的监管',
-        'pt-br': 'Regulamentação da DB Investing'
-    })
-}
-
+						t({
+							en: 'Regulation of DB Investing',
+							ar: 'تنظيم DB Investing',
+							es: 'Regulación de DB Investing',
+							fr: 'Réglementation de DB Investing',
+							hi: 'DB Investing का नियमन',
+							id: 'Regulasi DB Investing',
+							ms: 'Peraturan DB Investing',
+							th: 'การควบคุมของ DB Investing',
+							vi: 'Quy định của DB Investing',
+							bn: 'DB Investing এর নিয়ম',
+							'zh-hans': 'DB Investing 的监管',
+							'pt-br': 'Regulamentação da DB Investing'
+						})
+					}
 				</h1>
 				<div class="flex flex-col gap-10">
-					<div
-						class="flex flex-col flex-wrap items-start gap-4 md:flex-row md:flex-nowrap"
-					>
+					<div class="flex flex-col flex-wrap items-start gap-4 md:flex-row md:flex-nowrap">
 						<div class="w-full max-w-[80px]">
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
@@ -93,21 +86,14 @@ export const getStaticPaths = () =>
 									fill="#d62828"
 									d="M32 5h-7.833L1.129 29.785l.001.001q.228.236.493.431l.001.001L36 13.667V9a4 4 0 0 0-4-4"
 								></path>
-								<path
-									fill="#fcd856"
-									d="M.763 29.35q.168.231.367.435L24.167 5H12zq-.002-.002 0 0"
+								<path fill="#fcd856" d="M.763 29.35q.168.231.367.435L24.167 5H12zq-.002-.002 0 0"
 								></path>
-								<path
-									fill="#003f87"
-									d="M12 5H4a4 4 0 0 0-4 4v18c0 .878.283 1.689.762 2.349z"
+								<path fill="#003f87" d="M12 5H4a4 4 0 0 0-4 4v18c0 .878.283 1.689.762 2.349z"
 								></path>
 								<path
 									fill="#eee"
-									d="m2.063 30.501l.004.002L36 22.333v-8.667L1.624 30.218q.21.155.439.283"
-								></path>
-								<path
-									fill="#007a3d"
-									d="M4 31h28a4 4 0 0 0 4-4v-4.667L2.067 30.502A4 4 0 0 0 4 31"
+									d="m2.063 30.501l.004.002L36 22.333v-8.667L1.624 30.218q.21.155.439.283"></path>
+								<path fill="#007a3d" d="M4 31h28a4 4 0 0 0 4-4v-4.667L2.067 30.502A4 4 0 0 0 4 31"
 								></path>
 							</svg>
 						</div>
@@ -117,62 +103,62 @@ export const getStaticPaths = () =>
 							<h2 class="text-2xl font-semibold text-dbgreen-500">FSA</h2>
 							<p class="text-sm font-thin">
 								{
-    t({
-        en: 'Financial Services Authority (Seychelles)',
-        ar: 'السلطة المعنية بالخدمات المالية (سيشل)',
-        es: 'Autoridad de Servicios Financieros (Seychelles)',
-        fr: 'Autorité des services financiers (Seychelles)',
-        hi: 'वित्तीय सेवा प्राधिकरण (सेशेल्स)',
-        id: 'Otoritas Jasa Keuangan (Seychelles)',
-        ms: 'Pihak Berkuasa Perkhidmatan Kewangan (Seychelles)',
-        th: 'หน่วยงานบริการทางการเงิน (เซเชลส์)',
-        vi: 'Cơ quan Dịch vụ Tài chính (Seychelles)',
-        bn: 'ফাইন্যান্সিয়াল সার্ভিসেস অথরিটি (সেশেলস)',
-        'zh-hans': '金融服务管理局（塞舌尔）',
-        'pt-br': 'Autoridade de Serviços Financeiros (Seicheles)'
-    })
-}
-
+									t({
+										en: 'Financial Services Authority (Seychelles)',
+										ar: 'السلطة المعنية بالخدمات المالية (سيشل)',
+										es: 'Autoridad de Servicios Financieros (Seychelles)',
+										fr: 'Autorité des services financiers (Seychelles)',
+										hi: 'वित्तीय सेवा प्राधिकरण (सेशेल्स)',
+										id: 'Otoritas Jasa Keuangan (Seychelles)',
+										ms: 'Pihak Berkuasa Perkhidmatan Kewangan (Seychelles)',
+										th: 'หน่วยงานบริการทางการเงิน (เซเชลส์)',
+										vi: 'Cơ quan Dịch vụ Tài chính (Seychelles)',
+										bn: 'ফাইন্যান্সিয়াল সার্ভিসেস অথরিটি (সেশেলস)',
+										'zh-hans': '金融服务管理局（塞舌尔）',
+										'pt-br': 'Autoridade de Serviços Financeiros (Seicheles)'
+									})
+								}
 							</p>
 							<br />
-							<p class="text-gray-600 dark:text-gray-400" set:html={
-    t({
-        en: '<strong>DB Investing Limited </strong> is a Security Dealer registered, authorized and regulated company by the Financial Services Authority (FSA) in Seychelles with license SD053.',
-        ar: '<strong>DB Investing Limited </strong> هي شركة وساطة للأوراق المالية مسجلة ومرخصة ومنظمة من قبل هيئة الخدمات المالية (FSA) في سيشل برقم ترخيص SD053.',
-        es: '<strong>DB Investing Limited </strong> es un distribuidor de valores registrado, autorizado y regulado por la Autoridad de Servicios Financieros (FSA) en Seychelles con la licencia SD053.',
-        fr: '<strong>DB Investing Limited </strong> est un courtier en valeurs mobilières enregistré, autorisé et réglementé par l’Autorité des services financiers (FSA) aux Seychelles avec la licence SD053.',
-        hi: '<strong>DB Investing Limited </strong> एक सुरक्षा डीलर है जो सेशेल्स में वित्तीय सेवा प्राधिकरण (FSA) द्वारा पंजीकृत, अधिकृत और विनियमित कंपनी है, लाइसेंस संख्या SD053 के साथ।',
-        id: '<strong>DB Investing Limited </strong> adalah dealer sekuritas yang terdaftar, diotorisasi, dan diatur oleh Otoritas Jasa Keuangan (FSA) di Seychelles dengan lisensi SD053.',
-        ms: '<strong>DB Investing Limited </strong> adalah peniaga sekuriti yang berdaftar, diberi kuasa dan dikawal selia oleh Pihak Berkuasa Perkhidmatan Kewangan (FSA) di Seychelles dengan lesen SD053.',
-        th: '<strong>DB Investing Limited </strong> เป็นบริษัทตัวแทนจำหน่ายหลักทรัพย์ที่จดทะเบียน ได้รับอนุญาต และอยู่ภายใต้การควบคุมโดยหน่วยงานบริการทางการเงิน (FSA) ในเซเชลส์ โดยมีหมายเลขใบอนุญาต SD053.',
-        vi: '<strong>DB Investing Limited </strong> là một nhà giao dịch chứng khoán được đăng ký, được cấp phép và được quản lý bởi Cơ quan Dịch vụ Tài chính (FSA) ở Seychelles với giấy phép SD053.',
-        bn: '<strong>DB Investing Limited </strong> হল একটি নিরাপত্তা ডিলার যা সেশেলসে ফাইন্যান্সিয়াল সার্ভিসেস অথরিটি (FSA) দ্বারা নিবন্ধিত, অনুমোদিত এবং নিয়ন্ত্রিত কোম্পানি লাইসেন্স SD053 নিয়ে।',
-        'zh-hans': '<strong>DB Investing Limited </strong> 是一家注册、授权和受塞舌尔金融服务管理局（FSA）监管的证券经销商，持有许可证SD053。',
-        'pt-br': '<strong>DB Investing Limited </strong> é uma corretora de valores registrada, autorizada e regulada pela Autoridade de Serviços Financeiros (FSA) das Seychelles com a licença SD053.'
-    })
-}
->
-								
-							</p>
+							<p
+								class="text-gray-600 dark:text-gray-400"
+								set:html={t({
+									en: '<strong>DB Investing Limited </strong> is a Security Dealer registered, authorized and regulated company by the Financial Services Authority (FSA) in Seychelles with license SD053.',
+									ar: '<strong>DB Investing Limited </strong> هي شركة وساطة للأوراق المالية مسجلة ومرخصة ومنظمة من قبل هيئة الخدمات المالية (FSA) في سيشل برقم ترخيص SD053.',
+									es: '<strong>DB Investing Limited </strong> es un distribuidor de valores registrado, autorizado y regulado por la Autoridad de Servicios Financieros (FSA) en Seychelles con la licencia SD053.',
+									fr: '<strong>DB Investing Limited </strong> est un courtier en valeurs mobilières enregistré, autorisé et réglementé par l’Autorité des services financiers (FSA) aux Seychelles avec la licence SD053.',
+									hi: '<strong>DB Investing Limited </strong> एक सुरक्षा डीलर है जो सेशेल्स में वित्तीय सेवा प्राधिकरण (FSA) द्वारा पंजीकृत, अधिकृत और विनियमित कंपनी है, लाइसेंस संख्या SD053 के साथ।',
+									id: '<strong>DB Investing Limited </strong> adalah dealer sekuritas yang terdaftar, diotorisasi, dan diatur oleh Otoritas Jasa Keuangan (FSA) di Seychelles dengan lisensi SD053.',
+									ms: '<strong>DB Investing Limited </strong> adalah peniaga sekuriti yang berdaftar, diberi kuasa dan dikawal selia oleh Pihak Berkuasa Perkhidmatan Kewangan (FSA) di Seychelles dengan lesen SD053.',
+									th: '<strong>DB Investing Limited </strong> เป็นบริษัทตัวแทนจำหน่ายหลักทรัพย์ที่จดทะเบียน ได้รับอนุญาต และอยู่ภายใต้การควบคุมโดยหน่วยงานบริการทางการเงิน (FSA) ในเซเชลส์ โดยมีหมายเลขใบอนุญาต SD053.',
+									vi: '<strong>DB Investing Limited </strong> là một nhà giao dịch chứng khoán được đăng ký, được cấp phép và được quản lý bởi Cơ quan Dịch vụ Tài chính (FSA) ở Seychelles với giấy phép SD053.',
+									bn: '<strong>DB Investing Limited </strong> হল একটি নিরাপত্তা ডিলার যা সেশেলসে ফাইন্যান্সিয়াল সার্ভিসেস অথরিটি (FSA) দ্বারা নিবন্ধিত, অনুমোদিত এবং নিয়ন্ত্রিত কোম্পানি লাইসেন্স SD053 নিয়ে।',
+									'zh-hans':
+										'<strong>DB Investing Limited </strong> 是一家注册、授权和受塞舌尔金融服务管理局（FSA）监管的证券经销商，持有许可证SD053。',
+									'pt-br':
+										'<strong>DB Investing Limited </strong> é uma corretora de valores registrada, autorizada e regulada pela Autoridade de Serviços Financeiros (FSA) das Seychelles com a licença SD053.'
+								})}
+							/>
 							<br />
 							<p class="text-gray-600 dark:text-gray-400">
 								{
-    t({
-        en: 'The Seychelles Financial Services Authority is the autonomous regulatory body responsible for the non-bank financial services in the Seychelles. Established under the Financial Services Authority Act, 2013, the Authority is responsible to license, regulate, enforce regulatory and compliance requirements, monitor and supervise the conduct of business in the non-bank financial services sector in Seychelles. These regulated activities are Fiduciary Services, Capital Market & Collective Investment Schemes and Insurance.',
-        ar: 'الهيئة المالية للخدمات في سيشل هي الهيئة التنظيمية المستقلة المسؤولة عن الخدمات المالية غير المصرفية في سيشل. تأسست بموجب قانون الهيئة المالية للخدمات، 2013، وتكون الهيئة مسؤولة عن ترخيص وتنظيم وإنفاذ المتطلبات التنظيمية والامتثال، ومراقبة والإشراف على ممارسة الأعمال في قطاع الخدمات المالية غير المصرفية في سيشل. تشمل هذه الأنشطة الخاضعة للتنظيم الخدمات الائتمانية، وسوق رأس المال، والبرامج الاستثمارية الجماعية، والتأمين.',
-        es: 'La Autoridad de Servicios Financieros de Seychelles es el organismo regulador autónomo responsable de los servicios financieros no bancarios en Seychelles. Establecida bajo la Ley de la Autoridad de Servicios Financieros de 2013, la Autoridad es responsable de licenciar, regular, hacer cumplir los requisitos regulatorios y de cumplimiento, y supervisar la conducta de negocios en el sector de servicios financieros no bancarios en Seychelles. Estas actividades reguladas son Servicios Fiduciarios, Mercado de Capitales y Esquemas de Inversión Colectiva y Seguros.',
-        fr: 'L\'Autorité des Services Financiers des Seychelles est l\'organe régulateur autonome responsable des services financiers non bancaires aux Seychelles. Établie en vertu de la Loi sur l\'Autorité des Services Financiers de 2013, l\'Autorité est responsable de la délivrance de licences, de la régulation, de l\'application des exigences réglementaires et de conformité, ainsi que de la surveillance et de l\'encadrement des activités commerciales dans le secteur des services financiers non bancaires aux Seychelles. Ces activités réglementées comprennent les Services Fiduciaires, le Marché des Capitaux et les Schémas d\'Investissement Collectif, ainsi que les Assurances.',
-        hi: 'सेशेल्स वित्तीय सेवा प्राधिकरण सेशेल्स में गैर-बैंकिंग वित्तीय सेवाओं के लिए जिम्मेदार स्वायत्त नियामक निकाय है। वित्तीय सेवा प्राधिकरण अधिनियम, 2013 के तहत स्थापित, प्राधिकरण लाइसेंस देने, विनियमित करने, नियामक और अनुपालन आवश्यकताओं को लागू करने, निगरानी करने और सेशेल्स में गैर-बैंकिंग वित्तीय सेवाओं के क्षेत्र में व्यवसाय conduct की देखरेख करने के लिए जिम्मेदार है। ये विनियमित गतिविधियाँ फिडूसियरी सेवाएँ, पूंजी बाजार और सामूहिक निवेश योजनाएँ और बीमा हैं।',
-        id: 'Otoritas Jasa Keuangan Seychelles adalah badan regulasi otonom yang bertanggung jawab atas layanan keuangan non-bank di Seychelles. Didirikan di bawah Undang-Undang Otoritas Jasa Keuangan 2013, Otoritas bertanggung jawab untuk melisensikan, mengatur, menegakkan persyaratan regulasi dan kepatuhan, memantau dan mengawasi pelaksanaan bisnis di sektor layanan keuangan non-bank di Seychelles. Kegiatan yang diatur ini meliputi Layanan Fidusia, Pasar Modal & Skema Investasi Kolektif, dan Asuransi.',
-        ms: 'Pihak Berkuasa Perkhidmatan Kewangan Seychelles adalah badan pengawalseliaan autonomi yang bertanggungjawab untuk perkhidmatan kewangan bukan bank di Seychelles. Ditubuhkan di bawah Akta Pihak Berkuasa Perkhidmatan Kewangan 2013, Pihak Berkuasa bertanggungjawab untuk memberi lesen, mengawal selia, menguatkuasakan keperluan pengawalan dan pematuhan, memantau dan menyelia tingkah laku perniagaan di sektor perkhidmatan kewangan bukan bank di Seychelles. Aktiviti yang dikawal selia ini adalah Perkhidmatan Fidusiari, Pasaran Modal & Skim Pelaburan Kolektif dan Insurans.',
-        th: 'หน่วยงานบริการทางการเงินของเซเชลส์เป็นหน่วยงานกำกับดูแลอิสระที่รับผิดชอบด้านบริการทางการเงินที่ไม่ใช่ธนาคารในเซเชลส์ ตั้งขึ้นภายใต้พระราชบัญญัติหน่วยงานบริการทางการเงิน พ.ศ. 2556 หน่วยงานนี้มีหน้าที่ในการออกใบอนุญาต กำกับดูแล บังคับใช้ข้อกำหนดด้านการกำกับดูแลและการปฏิบัติตาม กำกับดูแล และตรวจสอบพฤติกรรมทางธุรกิจในภาคบริการทางการเงินที่ไม่ใช่ธนาคารในเซเชลส์ กิจกรรมที่อยู่ภายใต้การกำกับดูแล ได้แก่ บริการทรัสต์ ตลาดทุน และแผนการลงทุนรวมถึงการประกันภัย',
-        vi: 'Cơ quan Dịch vụ Tài chính Seychelles là cơ quan quản lý độc lập chịu trách nhiệm về các dịch vụ tài chính không phải ngân hàng tại Seychelles. Được thành lập theo Luật Cơ quan Dịch vụ Tài chính năm 2013, Cơ quan này có trách nhiệm cấp phép, quản lý, thực thi các yêu cầu về quy định và tuân thủ, theo dõi và giám sát hoạt động kinh doanh trong lĩnh vực dịch vụ tài chính không ngân hàng tại Seychelles. Những hoạt động được quy định này bao gồm Dịch vụ Ủy thác, Thị trường Vốn & Các Chương trình Đầu tư Tập thể và Bảo hiểm.',
-        bn: 'সেশেলসের আর্থিক পরিষেবা কর্তৃপক্ষ হল সেশেলসে অ-বাণিজ্যিক আর্থিক পরিষেবার জন্য দায়ী একটি স্বায়ত্তশাসিত নিয়ন্ত্রক সংস্থা। ২০১৩ সালের আর্থিক পরিষেবা কর্তৃপক্ষ আইনের অধীনে প্রতিষ্ঠিত, কর্তৃপক্ষ লাইসেন্স দেওয়া, নিয়ন্ত্রণ, নিয়ম এবং অঙ্গীকারের প্রয়োজনীয়তা কার্যকর করা, এবং সেশেলসে অ-বাণিজ্যিক আর্থিক পরিষেবার ক্ষেত্রে ব্যবসার আচরণ পর্যবেক্ষণ এবং তদারকি করার দায়িত্বে রয়েছে। এই নিয়ন্ত্রিত কার্যকলাপগুলির মধ্যে রয়েছে ফিডুশিয়ারি পরিষেবা, ক্যাপিটাল মার্কেট এবং যৌথ বিনিয়োগ প্রকল্প এবং বীমা।',
-        'zh-hans': '塞舌尔金融服务管理局是负责塞舌尔非银行金融服务的自治监管机构。根据2013年《金融服务管理局法》成立，管理局负责对非银行金融服务领域的业务进行许可、监管、执行监管和合规要求、监测和监督其经营行为。这些受监管的活动包括信托服务、资本市场和集体投资计划以及保险。',
-        'pt-br': 'A Autoridade de Serviços Financeiros das Seychelles é o órgão regulador autônomo responsável pelos serviços financeiros não bancários nas Seychelles. Estabelecida sob a Lei da Autoridade de Serviços Financeiros de 2013, a Autoridade é responsável por licenciar, regular, fazer cumprir os requisitos regulatórios e de conformidade, monitorar e supervisionar a condução dos negócios no setor de serviços financeiros não bancários nas Seychelles. Essas atividades regulamentadas incluem Serviços Fiduciários, Mercado de Capitais e Esquemas de Investimento Coletivo e Seguro.'
-    })
-}
-
+									t({
+										en: 'The Seychelles Financial Services Authority is the autonomous regulatory body responsible for the non-bank financial services in the Seychelles. Established under the Financial Services Authority Act, 2013, the Authority is responsible to license, regulate, enforce regulatory and compliance requirements, monitor and supervise the conduct of business in the non-bank financial services sector in Seychelles. These regulated activities are Fiduciary Services, Capital Market & Collective Investment Schemes and Insurance.',
+										ar: 'الهيئة المالية للخدمات في سيشل هي الهيئة التنظيمية المستقلة المسؤولة عن الخدمات المالية غير المصرفية في سيشل. تأسست بموجب قانون الهيئة المالية للخدمات، 2013، وتكون الهيئة مسؤولة عن ترخيص وتنظيم وإنفاذ المتطلبات التنظيمية والامتثال، ومراقبة والإشراف على ممارسة الأعمال في قطاع الخدمات المالية غير المصرفية في سيشل. تشمل هذه الأنشطة الخاضعة للتنظيم الخدمات الائتمانية، وسوق رأس المال، والبرامج الاستثمارية الجماعية، والتأمين.',
+										es: 'La Autoridad de Servicios Financieros de Seychelles es el organismo regulador autónomo responsable de los servicios financieros no bancarios en Seychelles. Establecida bajo la Ley de la Autoridad de Servicios Financieros de 2013, la Autoridad es responsable de licenciar, regular, hacer cumplir los requisitos regulatorios y de cumplimiento, y supervisar la conducta de negocios en el sector de servicios financieros no bancarios en Seychelles. Estas actividades reguladas son Servicios Fiduciarios, Mercado de Capitales y Esquemas de Inversión Colectiva y Seguros.',
+										fr: "L'Autorité des Services Financiers des Seychelles est l'organe régulateur autonome responsable des services financiers non bancaires aux Seychelles. Établie en vertu de la Loi sur l'Autorité des Services Financiers de 2013, l'Autorité est responsable de la délivrance de licences, de la régulation, de l'application des exigences réglementaires et de conformité, ainsi que de la surveillance et de l'encadrement des activités commerciales dans le secteur des services financiers non bancaires aux Seychelles. Ces activités réglementées comprennent les Services Fiduciaires, le Marché des Capitaux et les Schémas d'Investissement Collectif, ainsi que les Assurances.",
+										hi: 'सेशेल्स वित्तीय सेवा प्राधिकरण सेशेल्स में गैर-बैंकिंग वित्तीय सेवाओं के लिए जिम्मेदार स्वायत्त नियामक निकाय है। वित्तीय सेवा प्राधिकरण अधिनियम, 2013 के तहत स्थापित, प्राधिकरण लाइसेंस देने, विनियमित करने, नियामक और अनुपालन आवश्यकताओं को लागू करने, निगरानी करने और सेशेल्स में गैर-बैंकिंग वित्तीय सेवाओं के क्षेत्र में व्यवसाय conduct की देखरेख करने के लिए जिम्मेदार है। ये विनियमित गतिविधियाँ फिडूसियरी सेवाएँ, पूंजी बाजार और सामूहिक निवेश योजनाएँ और बीमा हैं।',
+										id: 'Otoritas Jasa Keuangan Seychelles adalah badan regulasi otonom yang bertanggung jawab atas layanan keuangan non-bank di Seychelles. Didirikan di bawah Undang-Undang Otoritas Jasa Keuangan 2013, Otoritas bertanggung jawab untuk melisensikan, mengatur, menegakkan persyaratan regulasi dan kepatuhan, memantau dan mengawasi pelaksanaan bisnis di sektor layanan keuangan non-bank di Seychelles. Kegiatan yang diatur ini meliputi Layanan Fidusia, Pasar Modal & Skema Investasi Kolektif, dan Asuransi.',
+										ms: 'Pihak Berkuasa Perkhidmatan Kewangan Seychelles adalah badan pengawalseliaan autonomi yang bertanggungjawab untuk perkhidmatan kewangan bukan bank di Seychelles. Ditubuhkan di bawah Akta Pihak Berkuasa Perkhidmatan Kewangan 2013, Pihak Berkuasa bertanggungjawab untuk memberi lesen, mengawal selia, menguatkuasakan keperluan pengawalan dan pematuhan, memantau dan menyelia tingkah laku perniagaan di sektor perkhidmatan kewangan bukan bank di Seychelles. Aktiviti yang dikawal selia ini adalah Perkhidmatan Fidusiari, Pasaran Modal & Skim Pelaburan Kolektif dan Insurans.',
+										th: 'หน่วยงานบริการทางการเงินของเซเชลส์เป็นหน่วยงานกำกับดูแลอิสระที่รับผิดชอบด้านบริการทางการเงินที่ไม่ใช่ธนาคารในเซเชลส์ ตั้งขึ้นภายใต้พระราชบัญญัติหน่วยงานบริการทางการเงิน พ.ศ. 2556 หน่วยงานนี้มีหน้าที่ในการออกใบอนุญาต กำกับดูแล บังคับใช้ข้อกำหนดด้านการกำกับดูแลและการปฏิบัติตาม กำกับดูแล และตรวจสอบพฤติกรรมทางธุรกิจในภาคบริการทางการเงินที่ไม่ใช่ธนาคารในเซเชลส์ กิจกรรมที่อยู่ภายใต้การกำกับดูแล ได้แก่ บริการทรัสต์ ตลาดทุน และแผนการลงทุนรวมถึงการประกันภัย',
+										vi: 'Cơ quan Dịch vụ Tài chính Seychelles là cơ quan quản lý độc lập chịu trách nhiệm về các dịch vụ tài chính không phải ngân hàng tại Seychelles. Được thành lập theo Luật Cơ quan Dịch vụ Tài chính năm 2013, Cơ quan này có trách nhiệm cấp phép, quản lý, thực thi các yêu cầu về quy định và tuân thủ, theo dõi và giám sát hoạt động kinh doanh trong lĩnh vực dịch vụ tài chính không ngân hàng tại Seychelles. Những hoạt động được quy định này bao gồm Dịch vụ Ủy thác, Thị trường Vốn & Các Chương trình Đầu tư Tập thể và Bảo hiểm.',
+										bn: 'সেশেলসের আর্থিক পরিষেবা কর্তৃপক্ষ হল সেশেলসে অ-বাণিজ্যিক আর্থিক পরিষেবার জন্য দায়ী একটি স্বায়ত্তশাসিত নিয়ন্ত্রক সংস্থা। ২০১৩ সালের আর্থিক পরিষেবা কর্তৃপক্ষ আইনের অধীনে প্রতিষ্ঠিত, কর্তৃপক্ষ লাইসেন্স দেওয়া, নিয়ন্ত্রণ, নিয়ম এবং অঙ্গীকারের প্রয়োজনীয়তা কার্যকর করা, এবং সেশেলসে অ-বাণিজ্যিক আর্থিক পরিষেবার ক্ষেত্রে ব্যবসার আচরণ পর্যবেক্ষণ এবং তদারকি করার দায়িত্বে রয়েছে। এই নিয়ন্ত্রিত কার্যকলাপগুলির মধ্যে রয়েছে ফিডুশিয়ারি পরিষেবা, ক্যাপিটাল মার্কেট এবং যৌথ বিনিয়োগ প্রকল্প এবং বীমা।',
+										'zh-hans':
+											'塞舌尔金融服务管理局是负责塞舌尔非银行金融服务的自治监管机构。根据2013年《金融服务管理局法》成立，管理局负责对非银行金融服务领域的业务进行许可、监管、执行监管和合规要求、监测和监督其经营行为。这些受监管的活动包括信托服务、资本市场和集体投资计划以及保险。',
+										'pt-br':
+											'A Autoridade de Serviços Financeiros das Seychelles é o órgão regulador autônomo responsável pelos serviços financeiros não bancários nas Seychelles. Estabelecida sob a Lei da Autoridade de Serviços Financeiros de 2013, a Autoridade é responsável por licenciar, regular, fazer cumprir os requisitos regulatórios e de conformidade, monitorar e supervisionar a condução dos negócios no setor de serviços financeiros não bancários nas Seychelles. Essas atividades regulamentadas incluem Serviços Fiduciários, Mercado de Capitais e Esquemas de Investimento Coletivo e Seguro.'
+									})
+								}
 							</p>
 						</div>
 						<div class="ml-4 w-full max-w-[240px] md:m-auto">
@@ -181,36 +167,29 @@ export const getStaticPaths = () =>
 								download
 								class="flex flex-col items-center justify-center"
 							>
-								<Image
-									src={FSALicense}
-									alt="Licenece Image"
-									width={290}
-									height={290}
-								/>
+								<Image src={FSALicense} alt="Licenece Image" width={290} height={290} />
 								<p class="mt-3 text-center font-semibold text-dbgreen-500">
 									{
 										t({
-    "en": "FSA License Certificate",
-    "ar": "شهادة ترخيص الهيئة المالية",
-    "es": "Certificado de Licencia de la FSA",
-    "fr": "Certificat de Licence FSA",
-    "hi": "एफएसए लाइसेंस प्रमाणपत्र",
-    "id": "Sertifikat Lisensi FSA",
-    "ms": "Sijil Lesen FSA",
-    "th": "ใบรับรองใบอนุญาต FSA",
-    "vi": "Chứng nhận Giấy phép FSA",
-    "bn": "এফএসএ লাইসেন্স সনদ",
-    "zh-hans": "FSA许可证证书",
-    "pt-br": "Certificado de Licença da FSA"
-})
+											en: 'FSA License Certificate',
+											ar: 'شهادة ترخيص الهيئة المالية',
+											es: 'Certificado de Licencia de la FSA',
+											fr: 'Certificat de Licence FSA',
+											hi: 'एफएसए लाइसेंस प्रमाणपत्र',
+											id: 'Sertifikat Lisensi FSA',
+											ms: 'Sijil Lesen FSA',
+											th: 'ใบรับรองใบอนุญาต FSA',
+											vi: 'Chứng nhận Giấy phép FSA',
+											bn: 'এফএসএ লাইসেন্স সনদ',
+											'zh-hans': 'FSA许可证证书',
+											'pt-br': 'Certificado de Licença da FSA'
+										})
 									}
 								</p>
 							</a>
 						</div>
 					</div>
-					<div
-						class="flex flex-col flex-wrap items-start gap-4 md:flex-row md:flex-nowrap"
-					>
+					<div class="flex flex-col flex-wrap items-start gap-4 md:flex-row md:flex-nowrap">
 						<div class="w-full max-w-[80px]">
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
@@ -218,22 +197,10 @@ export const getStaticPaths = () =>
 								height="auto"
 								viewBox="0 0 36 36"
 							>
-								<path
-									fill="#068241"
-									d="M32 5H9v9h27V9a4 4 0 0 0-4-4"
-								></path>
-								<path
-									fill="#eee"
-									d="M9 14h27v8H9z"
-								></path>
-								<path
-									fill="#141414"
-									d="M9 31h23a4 4 0 0 0 4-4v-5H9z"
-								></path>
-								<path
-									fill="#ec2028"
-									d="M4 5a4 4 0 0 0-4 4v18a4 4 0 0 0 4 4h5V5z"
-								></path>
+								<path fill="#068241" d="M32 5H9v9h27V9a4 4 0 0 0-4-4"></path>
+								<path fill="#eee" d="M9 14h27v8H9z"></path>
+								<path fill="#141414" d="M9 31h23a4 4 0 0 0 4-4v-5H9z"></path>
+								<path fill="#ec2028" d="M4 5a4 4 0 0 0-4 4v18a4 4 0 0 0 4 4h5V5z"></path>
 							</svg>
 						</div>
 						<div
@@ -243,20 +210,19 @@ export const getStaticPaths = () =>
 							<p class="text-sm font-thin">
 								{
 									t({
-    "en": "Securities & Commodities Authority (UAE)",
-    "ar": "الهيئة العامة للمال والأوراق المالية (الإمارات)",
-    "es": "Autoridad de Valores y Productos Básicos (EAU)",
-    "fr": "Autorité des Valeurs Mobilières et des Produits de Base (ÉAU)",
-    "hi": "सिक्योरिटीज और कमोडिटी प्राधिकरण (यूएई)",
-    "id": "Otoritas Sekuritas dan Komoditas (UAE)",
-    "ms": "Pihak Berkuasa Sekuriti dan Komoditi (UAE)",
-    "th": "หน่วยงานหลักทรัพย์และสินค้าโภคภัณฑ์ (สหรัฐอาหรับเอมิเรตส์)",
-    "vi": "Cơ quan Chứng khoán và Hàng hóa (UAE)",
-    "bn": "সিকিউরিটিজ এবং পণ্য কর্তৃপক্ষ (UAE)",
-    "zh-hans": "证券与商品管理局（阿联酋）",
-    "pt-br": "Autoridade de Valores Mobiliários e Commodities (EAU)"
-}
-)
+										en: 'Securities & Commodities Authority (UAE)',
+										ar: 'الهيئة العامة للمال والأوراق المالية (الإمارات)',
+										es: 'Autoridad de Valores y Productos Básicos (EAU)',
+										fr: 'Autorité des Valeurs Mobilières et des Produits de Base (ÉAU)',
+										hi: 'सिक्योरिटीज और कमोडिटी प्राधिकरण (यूएई)',
+										id: 'Otoritas Sekuritas dan Komoditas (UAE)',
+										ms: 'Pihak Berkuasa Sekuriti dan Komoditi (UAE)',
+										th: 'หน่วยงานหลักทรัพย์และสินค้าโภคภัณฑ์ (สหรัฐอาหรับเอมิเรตส์)',
+										vi: 'Cơ quan Chứng khoán và Hàng hóa (UAE)',
+										bn: 'সিকিউরিটিজ এবং পণ্য কর্তৃপক্ষ (UAE)',
+										'zh-hans': '证券与商品管理局（阿联酋）',
+										'pt-br': 'Autoridade de Valores Mobiliários e Commodities (EAU)'
+									})
 								}
 							</p>
 							<br />
@@ -264,39 +230,42 @@ export const getStaticPaths = () =>
 								<strong>DBInvest Financial Services LLC</strong>,
 								{
 									t({
-    "en": "rgistered, authorized and regulated company by the Securities & Commodities Authority (SCA) in the United Arab Emirates with license 20200000197, category 5, Arrangement and advice.",
-    "ar": "، شركة مسجلة ومرخصة ومنظمة من قبل هيئة الأوراق المالية والسلع (SCA) في دولة الإمارات العربية المتحدة برخصة 20200000197، الفئة 5، ترتيب ونصيحة.",
-    "es": ",empresa registrada, autorizada y regulada por la Autoridad de Valores y Productos Básicos (SCA) en los Emiratos Árabes Unidos con licencia 20200000197, categoría 5, Organización y asesoramiento.",
-    "fr": ",entreprise enregistrée, autorisée et régulée par l'Autorité des Valeurs Mobilières et des Produits de Base (SCA) aux Émirats Arabes Unis avec la licence 20200000197, catégorie 5, Arrangement et conseil.",
-    "hi": ",संयुक्त अरब अमीरात में प्रतिभूति और वस्तुओं प्राधिकरण (SCA) द्वारा पंजीकृत, अधिकृत और विनियमित कंपनी है, जिसके पास लाइसेंस 20200000197, श्रेणी 5, व्यवस्था और सलाह है।",
-    "id": ",perusahaan terdaftar, disetujui, dan diatur oleh Otoritas Sekuritas dan Komoditas (SCA) di Uni Emirat Arab dengan lisensi 20200000197, kategori 5, Pengaturan dan nasihat.",
-    "ms": ",syarikat yang berdaftar, diluluskan dan dikawal selia oleh Pihak Berkuasa Sekuriti dan Komoditi (SCA) di Emiriah Arab Bersatu dengan lesen 20200000197, kategori 5, Pengaturan dan nasihat.",
-    "th": "เป็นบริษัทที่จดทะเบียน มีใบอนุญาตและควบคุมโดยหน่วยงานหลักทรัพย์และสินค้าโภคภัณฑ์ (SCA) ในสหรัฐอาหรับเอมิเรตส์ โดยมีหมายเลขใบอนุญาต 20200000197 ประเภท 5 การจัดการและคำแนะนำ.",
-    "vi": ",công ty được đăng ký, được ủy quyền và được quản lý bởi Cơ quan Chứng khoán và Hàng hóa (SCA) ở Các Tiểu vương quốc Ả Rập Thống nhất với giấy phép 20200000197, loại 5, Sắp xếp và tư vấn.",
-    "bn": ",সংযুক্ত আরব আমিরাতের সিকিউরিটিজ এবং পণ্য কর্তৃপক্ষ (SCA) দ্বারা নিবন্ধিত, অনুমোদিত এবং নিয়ন্ত্রিত কোম্পানি, যার লাইসেন্স 20200000197, শ্রেণী 5, ব্যবস্থা এবং পরামর্শ।",
-    "zh-hans": "，在阿拉伯联合酋长国由证券与商品管理局（SCA）注册、授权和监管，许可证号20200000197，类别5，安排和建议。",
-    "pt-br": ",empresa registrada, autorizada e regulamentada pela Autoridade de Valores Mobiliários e Commodities (SCA) nos Emirados Árabes Unidos com licença 20200000197, categoria 5, Arranjo e aconselhamento."
-})
+										en: 'rgistered, authorized and regulated company by the Securities & Commodities Authority (SCA) in the United Arab Emirates with license 20200000197, category 5, Arrangement and advice.',
+										ar: '، شركة مسجلة ومرخصة ومنظمة من قبل هيئة الأوراق المالية والسلع (SCA) في دولة الإمارات العربية المتحدة برخصة 20200000197، الفئة 5، ترتيب ونصيحة.',
+										es: ',empresa registrada, autorizada y regulada por la Autoridad de Valores y Productos Básicos (SCA) en los Emiratos Árabes Unidos con licencia 20200000197, categoría 5, Organización y asesoramiento.',
+										fr: ",entreprise enregistrée, autorisée et régulée par l'Autorité des Valeurs Mobilières et des Produits de Base (SCA) aux Émirats Arabes Unis avec la licence 20200000197, catégorie 5, Arrangement et conseil.",
+										hi: ',संयुक्त अरब अमीरात में प्रतिभूति और वस्तुओं प्राधिकरण (SCA) द्वारा पंजीकृत, अधिकृत और विनियमित कंपनी है, जिसके पास लाइसेंस 20200000197, श्रेणी 5, व्यवस्था और सलाह है।',
+										id: ',perusahaan terdaftar, disetujui, dan diatur oleh Otoritas Sekuritas dan Komoditas (SCA) di Uni Emirat Arab dengan lisensi 20200000197, kategori 5, Pengaturan dan nasihat.',
+										ms: ',syarikat yang berdaftar, diluluskan dan dikawal selia oleh Pihak Berkuasa Sekuriti dan Komoditi (SCA) di Emiriah Arab Bersatu dengan lesen 20200000197, kategori 5, Pengaturan dan nasihat.',
+										th: 'เป็นบริษัทที่จดทะเบียน มีใบอนุญาตและควบคุมโดยหน่วยงานหลักทรัพย์และสินค้าโภคภัณฑ์ (SCA) ในสหรัฐอาหรับเอมิเรตส์ โดยมีหมายเลขใบอนุญาต 20200000197 ประเภท 5 การจัดการและคำแนะนำ.',
+										vi: ',công ty được đăng ký, được ủy quyền và được quản lý bởi Cơ quan Chứng khoán và Hàng hóa (SCA) ở Các Tiểu vương quốc Ả Rập Thống nhất với giấy phép 20200000197, loại 5, Sắp xếp và tư vấn.',
+										bn: ',সংযুক্ত আরব আমিরাতের সিকিউরিটিজ এবং পণ্য কর্তৃপক্ষ (SCA) দ্বারা নিবন্ধিত, অনুমোদিত এবং নিয়ন্ত্রিত কোম্পানি, যার লাইসেন্স 20200000197, শ্রেণী 5, ব্যবস্থা এবং পরামর্শ।',
+										'zh-hans':
+											'，在阿拉伯联合酋长国由证券与商品管理局（SCA）注册、授权和监管，许可证号20200000197，类别5，安排和建议。',
+										'pt-br':
+											',empresa registrada, autorizada e regulamentada pela Autoridade de Valores Mobiliários e Commodities (SCA) nos Emirados Árabes Unidos com licença 20200000197, categoria 5, Arranjo e aconselhamento.'
+									})
 								}
 							</p>
 							<br />
 							<p class="text-gray-600 dark:text-gray-400">
 								{
 									t({
-    "en": "The Securities and Commodities Authority has been keen on putting the objectives stated in the Federal Law No. (4) of 2000 into effect by sparing no effort to strengthen the legislative structure through issuing such regulations and instructions that ensure the development of the organizational and supervisory framework of the list joint-stock companies and other companies operating in the securities field. Besides, the Authority has introduced some controls and criteria that would contribute positively to enhancing the investors' trust in the Authority.",
-    "ar": "لقد كانت هيئة الأوراق المالية والسلع حريصة على تنفيذ الأهداف المنصوص عليها في القانون الاتحادي رقم (4) لسنة 2000 من خلال عدم ادخار أي جهد لتعزيز الهيكل التشريعي من خلال إصدار اللوائح والتعليمات التي تضمن تطوير الإطار التنظيمي والرقابي للشركات المساهمة العامة وغيرها من الشركات العاملة في مجال الأوراق المالية. بالإضافة إلى ذلك، قدمت الهيئة بعض الضوابط والمعايير التي من شأنها أن تسهم بشكل إيجابي في تعزيز ثقة المستثمرين في الهيئة.",
-    "es": "La Autoridad de Valores y Productos Básicos ha estado interesada en poner en práctica los objetivos establecidos en la Ley Federal No. (4) de 2000, no escatimando esfuerzos para fortalecer la estructura legislativa mediante la emisión de regulaciones e instrucciones que aseguren el desarrollo del marco organizativo y de supervisión de las empresas que cotizan en bolsa y otras empresas que operan en el campo de los valores. Además, la Autoridad ha introducido algunos controles y criterios que contribuirían positivamente a mejorar la confianza de los inversores en la Autoridad.",
-    "fr": "L'Autorité des Valeurs Mobilières et des Produits de Base a été soucieuse de mettre en œuvre les objectifs énoncés dans la Loi Fédérale n° (4) de 2000 en ne ménageant aucun effort pour renforcer la structure législative par l'émission de réglementations et d'instructions qui garantissent le développement du cadre organisationnel et de supervision des sociétés cotées en bourse et d'autres sociétés opérant dans le domaine des valeurs mobilières. De plus, l'Autorité a introduit certains contrôles et critères qui contribueraient positivement à renforcer la confiance des investisseurs envers l'Autorité.",
-    "hi": "सिक्योरिटीज और कमोडिटीज अथॉरिटी ने संघीय कानून संख्या (4) 2000 में निर्दिष्ट उद्देश्यों को लागू करने के लिए प्रयास किया है, जिसमें ऐसी नियमावली और निर्देश जारी करने में कोई कसर नहीं छोड़ी गई है जो सूचीबद्ध शेयरधारिता कंपनियों और प्रतिभूति क्षेत्र में काम करने वाली अन्य कंपनियों के संगठनात्मक और पर्यवेक्षी ढांचे के विकास को सुनिश्चित करती है। इसके अलावा, प्राधिकरण ने कुछ नियंत्रण और मानदंडों को पेश किया है जो निवेशकों के विश्वास को बढ़ाने में सकारात्मक योगदान देंगे।",
-    "id": "Otoritas Sekuritas dan Komoditas telah berusaha untuk menerapkan tujuan yang dinyatakan dalam Undang-Undang Federal No. (4) tahun 2000 dengan tidak mengurangi upaya untuk memperkuat struktur legislasi melalui penerbitan peraturan dan petunjuk yang memastikan pengembangan kerangka organisasi dan pengawasan dari perusahaan publik terdaftar dan perusahaan lain yang beroperasi di bidang sekuritas. Selain itu, Otoritas telah memperkenalkan beberapa kontrol dan kriteria yang akan berkontribusi secara positif terhadap meningkatkan kepercayaan investor terhadap Otoritas.",
-    "ms": "Pihak Berkuasa Sekuriti dan Komoditi telah berusaha untuk melaksanakan objektif yang dinyatakan dalam Undang-Undang Persekutuan No. (4) tahun 2000 dengan tidak mengira usaha untuk memperkuat struktur perundangan melalui penerbitan peraturan dan arahan yang memastikan pembangunan rangka kerja organisasi dan pengawasan syarikat awam yang disenaraikan dan syarikat lain yang beroperasi dalam bidang sekuriti. Selain itu, Pihak Berkuasa telah memperkenalkan beberapa kawalan dan kriteria yang akan menyumbang secara positif kepada peningkatan kepercayaan pelabur terhadap Pihak Berkuasa.",
-    "th": "สำนักงานคณะกรรมการกำกับหลักทรัพย์และตลาดหลักทรัพย์ได้ให้ความสำคัญกับการดำเนินการตามวัตถุประสงค์ที่กำหนดไว้ในกฎหมายของรัฐบาลกลางหมายเลข (4) ปี 2000 โดยไม่เก็บความพยายามในการเสริมสร้างโครงสร้างทางกฎหมายโดยการออกระเบียบและคำแนะนำที่รับประกันการพัฒนาโครงสร้างองค์กรและการกำกับดูแลของบริษัทจดทะเบียนและบริษัทอื่นๆ ที่ดำเนินการในด้านหลักทรัพย์ นอกจากนี้ สำนักงานยังได้แนะนำการควบคุมและเกณฑ์บางประการที่จะช่วยเพิ่มความเชื่อมั่นของนักลงทุนในสำนักงานอีกด้วย",
-    "vi": "Cơ quan Chứng khoán và Hàng hóa đã rất chú trọng đến việc thực hiện các mục tiêu được nêu trong Luật Liên bang số (4) năm 2000 bằng cách không tiếc công sức để tăng cường cấu trúc pháp lý thông qua việc ban hành các quy định và hướng dẫn đảm bảo sự phát triển của khuôn khổ tổ chức và giám sát của các công ty cổ phần niêm yết và các công ty khác hoạt động trong lĩnh vực chứng khoán. Bên cạnh đó, Cơ quan cũng đã giới thiệu một số kiểm soát và tiêu chí sẽ góp phần tích cực vào việc nâng cao niềm tin của các nhà đầu tư vào Cơ quan.",
-    "bn": "সিকিউরিটিজ এবং কমোডিটিজ অথরিটি ফেডারেল আইন নং (4) 2000-এ উল্লিখিত উদ্দেশ্যগুলি কার্যকর করার জন্য যত্নশীল, আইনী কাঠামোকে শক্তিশালী করতে সমস্ত প্রচেষ্টা ব্যয় করেছে এবং নিয়ম ও নির্দেশাবলী জারি করেছে যা তালিকাভুক্ত শেয়ারহোল্ডার কোম্পানি এবং অন্যান্য কোম্পানিগুলির সংগঠন ও তত্ত্বাবধানের কাঠামোর উন্নয়ন নিশ্চিত করে। এছাড়াও, কর্তৃপক্ষ কিছু নিয়ন্ত্রণ এবং মানদণ্ড প্রবর্তন করেছে যা বিনিয়োগকারীদের কর্তৃপক্ষের প্রতি আস্থা বাড়াতে ইতিবাচকভাবে অবদান রাখবে।",
-    "zh-hans": "证券与商品管理局一直致力于将《联邦法第（4）号》中的目标付诸实施，不遗余力地通过发布相关法规和指示来加强立法结构，以确保上市股份公司的组织和监督框架的发展，以及其他在证券领域运营的公司。此外，管理局还引入了一些控制和标准，以积极促进增强投资者对管理局的信任。",
-    "pt-br": "A Autoridade de Valores Mobiliários e Commodities tem se esforçado para colocar em prática os objetivos estabelecidos na Lei Federal nº (4) de 2000, não poupando esforços para fortalecer a estrutura legislativa por meio da emissão de regulamentações e instruções que garantam o desenvolvimento da estrutura organizacional e de supervisão das empresas de capital aberto e de outras empresas que atuam no setor de valores mobiliários. Além disso, a Autoridade introduziu alguns controles e critérios que contribuiriam positivamente para aumentar a confiança dos investidores na Autoridade."
-}
-)
+										en: "The Securities and Commodities Authority has been keen on putting the objectives stated in the Federal Law No. (4) of 2000 into effect by sparing no effort to strengthen the legislative structure through issuing such regulations and instructions that ensure the development of the organizational and supervisory framework of the list joint-stock companies and other companies operating in the securities field. Besides, the Authority has introduced some controls and criteria that would contribute positively to enhancing the investors' trust in the Authority.",
+										ar: 'لقد كانت هيئة الأوراق المالية والسلع حريصة على تنفيذ الأهداف المنصوص عليها في القانون الاتحادي رقم (4) لسنة 2000 من خلال عدم ادخار أي جهد لتعزيز الهيكل التشريعي من خلال إصدار اللوائح والتعليمات التي تضمن تطوير الإطار التنظيمي والرقابي للشركات المساهمة العامة وغيرها من الشركات العاملة في مجال الأوراق المالية. بالإضافة إلى ذلك، قدمت الهيئة بعض الضوابط والمعايير التي من شأنها أن تسهم بشكل إيجابي في تعزيز ثقة المستثمرين في الهيئة.',
+										es: 'La Autoridad de Valores y Productos Básicos ha estado interesada en poner en práctica los objetivos establecidos en la Ley Federal No. (4) de 2000, no escatimando esfuerzos para fortalecer la estructura legislativa mediante la emisión de regulaciones e instrucciones que aseguren el desarrollo del marco organizativo y de supervisión de las empresas que cotizan en bolsa y otras empresas que operan en el campo de los valores. Además, la Autoridad ha introducido algunos controles y criterios que contribuirían positivamente a mejorar la confianza de los inversores en la Autoridad.',
+										fr: "L'Autorité des Valeurs Mobilières et des Produits de Base a été soucieuse de mettre en œuvre les objectifs énoncés dans la Loi Fédérale n° (4) de 2000 en ne ménageant aucun effort pour renforcer la structure législative par l'émission de réglementations et d'instructions qui garantissent le développement du cadre organisationnel et de supervision des sociétés cotées en bourse et d'autres sociétés opérant dans le domaine des valeurs mobilières. De plus, l'Autorité a introduit certains contrôles et critères qui contribueraient positivement à renforcer la confiance des investisseurs envers l'Autorité.",
+										hi: 'सिक्योरिटीज और कमोडिटीज अथॉरिटी ने संघीय कानून संख्या (4) 2000 में निर्दिष्ट उद्देश्यों को लागू करने के लिए प्रयास किया है, जिसमें ऐसी नियमावली और निर्देश जारी करने में कोई कसर नहीं छोड़ी गई है जो सूचीबद्ध शेयरधारिता कंपनियों और प्रतिभूति क्षेत्र में काम करने वाली अन्य कंपनियों के संगठनात्मक और पर्यवेक्षी ढांचे के विकास को सुनिश्चित करती है। इसके अलावा, प्राधिकरण ने कुछ नियंत्रण और मानदंडों को पेश किया है जो निवेशकों के विश्वास को बढ़ाने में सकारात्मक योगदान देंगे।',
+										id: 'Otoritas Sekuritas dan Komoditas telah berusaha untuk menerapkan tujuan yang dinyatakan dalam Undang-Undang Federal No. (4) tahun 2000 dengan tidak mengurangi upaya untuk memperkuat struktur legislasi melalui penerbitan peraturan dan petunjuk yang memastikan pengembangan kerangka organisasi dan pengawasan dari perusahaan publik terdaftar dan perusahaan lain yang beroperasi di bidang sekuritas. Selain itu, Otoritas telah memperkenalkan beberapa kontrol dan kriteria yang akan berkontribusi secara positif terhadap meningkatkan kepercayaan investor terhadap Otoritas.',
+										ms: 'Pihak Berkuasa Sekuriti dan Komoditi telah berusaha untuk melaksanakan objektif yang dinyatakan dalam Undang-Undang Persekutuan No. (4) tahun 2000 dengan tidak mengira usaha untuk memperkuat struktur perundangan melalui penerbitan peraturan dan arahan yang memastikan pembangunan rangka kerja organisasi dan pengawasan syarikat awam yang disenaraikan dan syarikat lain yang beroperasi dalam bidang sekuriti. Selain itu, Pihak Berkuasa telah memperkenalkan beberapa kawalan dan kriteria yang akan menyumbang secara positif kepada peningkatan kepercayaan pelabur terhadap Pihak Berkuasa.',
+										th: 'สำนักงานคณะกรรมการกำกับหลักทรัพย์และตลาดหลักทรัพย์ได้ให้ความสำคัญกับการดำเนินการตามวัตถุประสงค์ที่กำหนดไว้ในกฎหมายของรัฐบาลกลางหมายเลข (4) ปี 2000 โดยไม่เก็บความพยายามในการเสริมสร้างโครงสร้างทางกฎหมายโดยการออกระเบียบและคำแนะนำที่รับประกันการพัฒนาโครงสร้างองค์กรและการกำกับดูแลของบริษัทจดทะเบียนและบริษัทอื่นๆ ที่ดำเนินการในด้านหลักทรัพย์ นอกจากนี้ สำนักงานยังได้แนะนำการควบคุมและเกณฑ์บางประการที่จะช่วยเพิ่มความเชื่อมั่นของนักลงทุนในสำนักงานอีกด้วย',
+										vi: 'Cơ quan Chứng khoán và Hàng hóa đã rất chú trọng đến việc thực hiện các mục tiêu được nêu trong Luật Liên bang số (4) năm 2000 bằng cách không tiếc công sức để tăng cường cấu trúc pháp lý thông qua việc ban hành các quy định và hướng dẫn đảm bảo sự phát triển của khuôn khổ tổ chức và giám sát của các công ty cổ phần niêm yết và các công ty khác hoạt động trong lĩnh vực chứng khoán. Bên cạnh đó, Cơ quan cũng đã giới thiệu một số kiểm soát và tiêu chí sẽ góp phần tích cực vào việc nâng cao niềm tin của các nhà đầu tư vào Cơ quan.',
+										bn: 'সিকিউরিটিজ এবং কমোডিটিজ অথরিটি ফেডারেল আইন নং (4) 2000-এ উল্লিখিত উদ্দেশ্যগুলি কার্যকর করার জন্য যত্নশীল, আইনী কাঠামোকে শক্তিশালী করতে সমস্ত প্রচেষ্টা ব্যয় করেছে এবং নিয়ম ও নির্দেশাবলী জারি করেছে যা তালিকাভুক্ত শেয়ারহোল্ডার কোম্পানি এবং অন্যান্য কোম্পানিগুলির সংগঠন ও তত্ত্বাবধানের কাঠামোর উন্নয়ন নিশ্চিত করে। এছাড়াও, কর্তৃপক্ষ কিছু নিয়ন্ত্রণ এবং মানদণ্ড প্রবর্তন করেছে যা বিনিয়োগকারীদের কর্তৃপক্ষের প্রতি আস্থা বাড়াতে ইতিবাচকভাবে অবদান রাখবে।',
+										'zh-hans':
+											'证券与商品管理局一直致力于将《联邦法第（4）号》中的目标付诸实施，不遗余力地通过发布相关法规和指示来加强立法结构，以确保上市股份公司的组织和监督框架的发展，以及其他在证券领域运营的公司。此外，管理局还引入了一些控制和标准，以积极促进增强投资者对管理局的信任。',
+										'pt-br':
+											'A Autoridade de Valores Mobiliários e Commodities tem se esforçado para colocar em prática os objetivos estabelecidos na Lei Federal nº (4) de 2000, não poupando esforços para fortalecer a estrutura legislativa por meio da emissão de regulamentações e instruções que garantam o desenvolvimento da estrutura organizacional e de supervisão das empresas de capital aberto e de outras empresas que atuam no setor de valores mobiliários. Além disso, a Autoridade introduziu alguns controles e critérios que contribuiriam positivamente para aumentar a confiança dos investidores na Autoridade.'
+									})
 								}
 							</p>
 						</div>
@@ -306,29 +275,23 @@ export const getStaticPaths = () =>
 								download
 								class="flex flex-col items-center justify-center"
 							>
-								<Image
-									src={SCALicense}
-									alt="SCA Licenece Image"
-									width={290}
-									height={290}
-								/>
+								<Image src={SCALicense} alt="SCA Licenece Image" width={290} height={290} />
 								<p class="mt-3 text-center font-semibold text-dbgreen-500">
 									{
 										t({
-    "en": "SCA License Certificate",
-    "ar": "شهادة ترخيص هيئة الأوراق المالية والسلع",
-    "es": "Certificado de Licencia de la SCA",
-    "fr": "Certificat de Licence de la SCA",
-    "hi": "एससीए लाइसेंस प्रमाणपत्र",
-    "id": "Sertifikat Lisensi SCA",
-    "ms": "Sijil Lesen SCA",
-    "th": "ใบรับรองใบอนุญาต SCA",
-    "vi": "Giấy chứng nhận giấy phép SCA",
-    "bn": "এসসিএ লাইসেন্স সার্টিফিকেট",
-    "zh-hans": "SCA 许可证证书",
-    "pt-br": "Certificado de Licença da SCA"
-}
-)
+											en: 'SCA License Certificate',
+											ar: 'شهادة ترخيص هيئة الأوراق المالية والسلع',
+											es: 'Certificado de Licencia de la SCA',
+											fr: 'Certificat de Licence de la SCA',
+											hi: 'एससीए लाइसेंस प्रमाणपत्र',
+											id: 'Sertifikat Lisensi SCA',
+											ms: 'Sijil Lesen SCA',
+											th: 'ใบรับรองใบอนุญาต SCA',
+											vi: 'Giấy chứng nhận giấy phép SCA',
+											bn: 'এসসিএ লাইসেন্স সার্টিফিকেট',
+											'zh-hans': 'SCA 许可证证书',
+											'pt-br': 'Certificado de Licença da SCA'
+										})
 									}
 								</p>
 							</a>

@@ -1,26 +1,55 @@
 ---
-import { LOCALES } from '@/i18n'
+import { LOCALES, useTranslations, type Lang } from '@/i18n'
 import Layout from '@/layouts/Layout.astro'
 import { YouTube } from 'astro-embed'
+const t = useTranslations(Astro.currentLocale as Lang)
+
 export const getStaticPaths = () =>
 	Object.keys(LOCALES).map((lang) => ({
 		params: { lang }
 	}))
 ---
 
-<Layout title="Platform Tutorials">
+<Layout
+	title={t({
+		en: 'Platform Video Tutorials',
+		ar: 'دروس الفيديو للمنصة',
+		es: 'Tutoriales en video de la plataforma',
+		fr: 'Tutoriels vidéo de la plateforme',
+		hi: 'प्लेटफ़ॉर्म वीडियो ट्यूटोरियल',
+		id: 'Tutorial Video Platform',
+		ms: 'Tutorial Video Platform',
+		th: 'วิดีโอสอนการใช้งานแพลตฟอร์ม',
+		vi: 'Video Hướng Dẫn Nền Tảng',
+		bn: 'প্ল্যাটফর্ম ভিডিও টিউটোরিয়াল',
+		'zh-hans': '平台视频教程',
+		'pt-br': 'Tutoriais em vídeo da plataforma'
+	})}
+>
 	<section>
 		<div
-			class="relative z-20 w-full overflow-hidden bg-gray-100 py-3 before:absolute before:start-1/2 before:top-0 before:-z-[1] before:size-full before:-translate-x-1/2 before:transform before:bg-[url('/src/images/world_bg.png')] before:bg-center before:bg-no-repeat before:opacity-45 before:hue-rotate-60 dark:bg-black dark:before:bg-[url('/src/images/world_bg.png')]"
+			class="relative z-20 w-full overflow-hidden bg-gray-100 py-3 before:absolute before:top-0 before:-z-[1] before:size-full before:transform before:bg-[url('/src/images/world_bg.png')] before:bg-center before:bg-no-repeat before:opacity-45 before:hue-rotate-60 dark:bg-black dark:before:bg-[url('/src/images/world_bg.png')]"
 		>
 			<div class="container flex flex-col items-center justify-between gap-6 py-10 sm:flex-row">
 				<div>
 					<h1
 						class="block text-center text-4xl font-bold text-gray-800 dark:text-neutral-200 sm:text-left md:text-4xl lg:text-5xl"
-					>
-						DB Investing Platform <br />
-						<strong class="text-green-500"> video Tutorials </strong>
-					</h1>
+						set:html={t({
+							en: 'DB Investing Platform <br /> <strong class="text-green-500"> video Tutorials </strong>',
+							ar: 'منصة DB للاستثمار <br /> <strong class="text-green-500"> دروس الفيديو </strong>',
+							es: 'Plataforma de Inversión DB <br /> <strong class="text-green-500"> tutoriales en video </strong>',
+							fr: 'Plateforme d\'investissement DB <br /> <strong class="text-green-500"> tutoriels vidéo </strong>',
+							hi: 'डीबी निवेश मंच <br /> <strong class="text-green-500"> वीडियो ट्यूटोरियल </strong>',
+							id: 'Platform Investasi DB <br /> <strong class="text-green-500"> tutorial video </strong>',
+							ms: 'Platform Pelaburan DB <br /> <strong class="text-green-500"> tutorial video </strong>',
+							th: 'แพลตฟอร์มการลงทุน DB <br /> <strong class="text-green-500"> วิดีโอแนะนำ </strong>',
+							vi: 'Nền tảng Đầu tư DB <br /> <strong class="text-green-500"> video Hướng dẫn </strong>',
+							bn: 'ডিবি বিনিয়োগ প্ল্যাটফর্ম <br /> <strong class="text-green-500"> ভিডিও টিউটোরিয়াল </strong>',
+							'zh-hans': 'DB投资平台 <br /> <strong class="text-green-500"> 视频教程 </strong>',
+							'pt-br':
+								'Plataforma de Investimento DB <br /> <strong class="text-green-500"> tutoriais em vídeo </strong>'
+						})}
+					/>
 				</div>
 				<div>
 					<svg
@@ -41,30 +70,128 @@ export const getStaticPaths = () =>
 			<h1
 				class="mb-3 block text-2xl font-bold capitalize text-gray-800 dark:text-white sm:text-2xl md:text-3xl lg:text-3xl"
 			>
-				English languages
+				{
+					t({
+						en: 'English languages',
+						ar: 'اللغات الإنجليزية',
+						es: 'Idiomas ingleses',
+						fr: 'Langues anglaises',
+						hi: 'अंग्रेजी भाषाएँ',
+						id: 'Bahasa Inggris',
+						ms: 'Bahasa Inggeris',
+						th: 'ภาษาอังกฤษ',
+						vi: 'Ngôn ngữ tiếng Anh',
+						bn: 'ইংরেজি ভাষাসমূহ',
+						'zh-hans': '英语语言',
+						'pt-br': 'Idiomas ingleses'
+					})
+				}
 			</h1>
 			<div class="flex w-full flex-wrap gap-4">
 				<div class="w-full rounded-xl bg-dbgreen-600 md:max-w-[48%] lg:max-w-[32%]">
 					<YouTube id="https://youtu.be/VELVShkVg5M?si=M8W3aikYmyZ1aK9T" class="rounded-t-xl" />
-					<p class="p-4 text-center font-semibold">How to Open a Demo Account</p>
+					<p class="p-4 text-center font-semibold">
+						{
+							t({
+								en: 'How to Open a Demo Account',
+								ar: 'كيفية فتح حساب تجريبي',
+								es: 'Cómo abrir una cuenta demo',
+								fr: 'Comment ouvrir un compte démo',
+								hi: 'डेमो खाता कैसे खोलें',
+								id: 'Cara Membuka Akun Demo',
+								ms: 'Cara Membuka Akaun Demo',
+								th: 'วิธีเปิดบัญชีทดลอง',
+								vi: 'Cách mở tài khoản Demo',
+								bn: 'ডেমো অ্যাকাউন্ট কীভাবে খুলবেন',
+								'zh-hans': '如何开设模拟账户',
+								'pt-br': 'Como abrir uma conta demo'
+							})
+						}
+					</p>
 				</div>
 				<div class="w-full rounded-xl bg-dbgreen-600 md:max-w-[48%] lg:max-w-[32%]">
 					<YouTube id="https://youtu.be/RNxlmqmqk-U?si=tRDmzsiAjMs9zGuT" class="rounded-t-xl" />
-					<p class="p-4 text-center font-semibold">How to open MT5 live account</p>
+					<p class="p-4 text-center font-semibold">
+						{
+							t({
+								en: 'How to open MT5 live account',
+								ar: 'كيفية فتح حساب MT5 حقيقي',
+								es: 'Cómo abrir una cuenta real en MT5',
+								fr: 'Comment ouvrir un compte réel MT5',
+								hi: 'MT5 लाइव खाता कैसे खोलें',
+								id: 'Cara Membuka Akun Live MT5',
+								ms: 'Cara Membuka Akaun Langsung MT5',
+								th: 'วิธีเปิดบัญชีสด MT5',
+								vi: 'Cách mở tài khoản MT5 trực tiếp',
+								bn: 'কিভাবে MT5 লাইভ অ্যাকাউন্ট খুলবেন',
+								'zh-hans': '如何开设MT5实盘账户',
+								'pt-br': 'Como abrir uma conta real no MT5'
+							})
+						}
+					</p>
 				</div>
 				<div class="w-full rounded-xl bg-dbgreen-600 md:max-w-[48%] lg:max-w-[32%]">
 					<YouTube id="https://youtu.be/PNzxuu8DSSk?si=9-tGZoCsOaWRqy4z" class="rounded-t-xl" />
-					<p class="p-4 text-center font-semibold">How to deposit into your DB Investing account</p>
+					<p class="p-4 text-center font-semibold">
+						{
+							t({
+								en: 'How to deposit into your DB Investing account',
+								ar: 'كيفية الإيداع في حساب DB Investing الخاص بك',
+								es: 'Cómo depositar en tu cuenta de DB Investing',
+								fr: 'Comment déposer sur votre compte DB Investing',
+								hi: 'अपने DB Investing खाते में जमा कैसे करें',
+								id: 'Cara menyetor ke akun DB Investing Anda',
+								ms: 'Cara mendeposit ke akaun DB Investing anda',
+								th: 'วิธีฝากเงินเข้าบัญชี DB Investing ของคุณ',
+								vi: 'Cách nạp tiền vào tài khoản DB Investing của bạn',
+								bn: 'কিভাবে আপনার DB Investing অ্যাকাউন্টে জমা করবেন',
+								'zh-hans': '如何存入您的DB Investing账户',
+								'pt-br': 'Como depositar na sua conta DB Investing'
+							})
+						}
+					</p>
 				</div>
 				<div class="w-full rounded-xl bg-dbgreen-600 md:max-w-[48%] lg:max-w-[32%]">
 					<YouTube id="https://youtu.be/MG-2SXW99Eg?si=8wsYpw7LsfZD5D-G" class="rounded-t-xl" />
 					<p class="p-4 text-center font-semibold">
-						How to withdraw from your DB Investing account
+						{
+							t({
+								en: 'How to withdraw from your DB Investing account',
+								ar: 'كيفية السحب من حساب DB Investing الخاص بك',
+								es: 'Cómo retirar de tu cuenta de DB Investing',
+								fr: 'Comment retirer de votre compte DB Investing',
+								hi: 'अपने DB Investing खाते से निकासी कैसे करें',
+								id: 'Cara menarik dari akun DB Investing Anda',
+								ms: 'Cara mengeluarkan dari akaun DB Investing anda',
+								th: 'วิธีถอนเงินจากบัญชี DB Investing ของคุณ',
+								vi: 'Cách rút tiền từ tài khoản DB Investing của bạn',
+								bn: 'কিভাবে আপনার DB Investing অ্যাকাউন্ট থেকে উত্তোলন করবেন',
+								'zh-hans': '如何从您的DB Investing账户提款',
+								'pt-br': 'Como sacar da sua conta DB Investing'
+							})
+						}
 					</p>
 				</div>
 				<div class="w-full rounded-xl bg-dbgreen-600 md:max-w-[48%] lg:max-w-[32%]">
 					<YouTube id="https://youtu.be/P3S1MPYmsIY?si=tqhffwMqwyv3Es4k" class="rounded-t-xl" />
-					<p class="p-4 text-center font-semibold">How to open a live account with DB investing</p>
+					<p class="p-4 text-center font-semibold">
+						{
+							t({
+								en: 'How to open a live account with DB investing',
+								ar: 'كيفية فتح حساب حقيقي مع DB Investing',
+								es: 'Cómo abrir una cuenta real con DB Investing',
+								fr: 'Comment ouvrir un compte réel avec DB Investing',
+								hi: 'DB Investing के साथ लाइव खाता कैसे खोलें',
+								id: 'Cara membuka akun live dengan DB Investing',
+								ms: 'Cara membuka akaun live dengan DB Investing',
+								th: 'วิธีเปิดบัญชีจริงกับ DB Investing',
+								vi: 'Cách mở tài khoản live với DB Investing',
+								bn: 'DB Investing এর সাথে একটি লাইভ অ্যাকাউন্ট কিভাবে খুলবেন',
+								'zh-hans': '如何在DB Investing开设真实账户',
+								'pt-br': 'Como abrir uma conta real com a DB Investing'
+							})
+						}
+					</p>
 				</div>
 			</div>
 		</div>
@@ -72,28 +199,128 @@ export const getStaticPaths = () =>
 			<h1
 				class="mb-3 block text-2xl font-bold capitalize text-gray-800 dark:text-white sm:text-2xl md:text-3xl lg:text-3xl"
 			>
-				Arabic Language
+				{
+					t({
+						en: 'Arabic Language',
+						ar: 'اللغة العربية',
+						es: 'Idioma árabe',
+						fr: 'Langue arabe',
+						hi: 'अरबी भाषा',
+						id: 'Bahasa Arab',
+						ms: 'Bahasa Arab',
+						th: 'ภาษาอาหรับ',
+						vi: 'Ngôn ngữ Ả Rập',
+						bn: 'আরবী ভাষা',
+						'zh-hans': '阿拉伯语',
+						'pt-br': 'Idioma árabe'
+					})
+				}
 			</h1>
 			<div class="flex w-full flex-wrap gap-4">
 				<div class="w-full rounded-xl bg-dbgreen-600 md:max-w-[48%] lg:max-w-[32%]">
 					<YouTube id="https://youtu.be/L45NzGeVkc4?si=T_uDJKA_8am3w5MA" class="rounded-t-xl" />
-					<p class="p-4 text-center font-semibold">كيفية فتح حساب تجريبي</p>
+					<p class="p-4 text-center font-semibold">
+						{
+							t({
+								en: 'How to Open a Demo Account',
+								ar: 'كيفية فتح حساب تجريبي',
+								es: 'Cómo abrir una cuenta demo',
+								fr: 'Comment ouvrir un compte démo',
+								hi: 'डेमो खाता कैसे खोलें',
+								id: 'Cara Membuka Akun Demo',
+								ms: 'Cara Membuka Akaun Demo',
+								th: 'วิธีเปิดบัญชีทดลอง',
+								vi: 'Cách mở tài khoản Demo',
+								bn: 'ডেমো অ্যাকাউন্ট কীভাবে খুলবেন',
+								'zh-hans': '如何开设模拟账户',
+								'pt-br': 'Como abrir uma conta demo'
+							})
+						}
+					</p>
 				</div>
 				<div class="w-full rounded-xl bg-dbgreen-600 md:max-w-[48%] lg:max-w-[32%]">
 					<YouTube id="https://youtu.be/FGZkLFxfi5A?si=c_aweppsRSUt97L6" class="rounded-t-xl" />
-					<p class="p-4 text-center font-semibold">كيفية فتح حساب تداول ميتاتريدر</p>
+					<p class="p-4 text-center font-semibold">
+						{
+							t({
+								en: 'How to open a MetaTrader trading account',
+								ar: 'كيفية فتح حساب تداول ميتاتريدر',
+								es: 'Cómo abrir una cuenta de trading en MetaTrader',
+								fr: 'Comment ouvrir un compte de trading MetaTrader',
+								hi: 'मेटाट्रेडर ट्रेडिंग खाता कैसे खोलें',
+								id: 'Cara membuka akun trading MetaTrader',
+								ms: 'Cara membuka akaun dagangan MetaTrader',
+								th: 'วิธีเปิดบัญชีซื้อขาย MetaTrader',
+								vi: 'Cách mở tài khoản giao dịch MetaTrader',
+								bn: 'কিভাবে একটি মেটাট্রেডার ট্রেডিং অ্যাকাউন্ট খুলবেন',
+								'zh-hans': '如何开设MetaTrader交易账户',
+								'pt-br': 'Como abrir uma conta de negociação MetaTrader'
+							})
+						}
+					</p>
 				</div>
 				<div class="w-full rounded-xl bg-dbgreen-600 md:max-w-[48%] lg:max-w-[32%]">
 					<YouTube id="https://youtu.be/haqpUyt4lUw?si=xq7SwYSVj1ifQqN-" class="rounded-t-xl" />
-					<p class="p-4 text-center font-semibold">كيفية فتح حساب في شركة DB investing</p>
+					<p class="p-4 text-center font-semibold">
+						{
+							t({
+								en: 'How to open a live account with DB investing',
+								ar: 'كيفية فتح حساب حقيقي مع DB Investing',
+								es: 'Cómo abrir una cuenta real con DB Investing',
+								fr: 'Comment ouvrir un compte réel avec DB Investing',
+								hi: 'DB Investing के साथ लाइव खाता कैसे खोलें',
+								id: 'Cara membuka akun live dengan DB Investing',
+								ms: 'Cara membuka akaun live dengan DB Investing',
+								th: 'วิธีเปิดบัญชีจริงกับ DB Investing',
+								vi: 'Cách mở tài khoản live với DB Investing',
+								bn: 'DB Investing এর সাথে একটি লাইভ অ্যাকাউন্ট কিভাবে খুলবেন',
+								'zh-hans': '如何在DB Investing开设真实账户',
+								'pt-br': 'Como abrir uma conta real com a DB Investing'
+							})
+						}
+					</p>
 				</div>
 				<div class="w-full rounded-xl bg-dbgreen-600 md:max-w-[48%] lg:max-w-[32%]">
 					<YouTube id="https://youtu.be/LpN7AdeUbaA?si=4NFI7i--LKFGG2HL" class="rounded-t-xl" />
-					<p class="p-4 text-center font-semibold">كيفية إيداع الأموال في حسابك لدى DB Investing</p>
+					<p class="p-4 text-center font-semibold">
+						{
+							t({
+								en: 'How to deposit funds into your DB Investing account',
+								ar: 'كيفية إيداع الأموال في حسابك لدى DB Investing',
+								es: 'Cómo depositar fondos en tu cuenta de DB Investing',
+								fr: 'Comment déposer des fonds sur votre compte DB Investing',
+								hi: 'DB Investing खाते में पैसे कैसे जमा करें',
+								id: 'Cara menyetor dana ke akun DB Investing Anda',
+								ms: 'Cara mendepositkan wang ke akaun DB Investing anda',
+								th: 'วิธีฝากเงินเข้าบัญชี DB Investing ของคุณ',
+								vi: 'Cách nạp tiền vào tài khoản DB Investing của bạn',
+								bn: 'কিভাবে আপনার DB Investing অ্যাকাউন্টে অর্থ জমা করবেন',
+								'zh-hans': '如何向您的DB Investing账户存款',
+								'pt-br': 'Como depositar fundos na sua conta DB Investing'
+							})
+						}
+					</p>
 				</div>
 				<div class="w-full rounded-xl bg-dbgreen-600 md:max-w-[48%] lg:max-w-[32%]">
 					<YouTube id="https://youtu.be/yN2DnWgAk6c?si=2ejbLWEfLsqPRj4s" class="rounded-t-xl" />
-					<p class="p-4 text-center font-semibold">كيفية سحب الأموال من حسابك في DB Investing</p>
+					<p class="p-4 text-center font-semibold">
+						{
+							t({
+								en: 'How to withdraw funds from your DB Investing account',
+								ar: 'كيفية سحب الأموال من حسابك في DB Investing',
+								es: 'Cómo retirar fondos de tu cuenta de DB Investing',
+								fr: 'Comment retirer des fonds de votre compte DB Investing',
+								hi: 'DB Investing खाते से पैसे कैसे निकालें',
+								id: 'Cara menarik dana dari akun DB Investing Anda',
+								ms: 'Cara mengeluarkan wang daripada akaun DB Investing anda',
+								th: 'วิธีถอนเงินจากบัญชี DB Investing ของคุณ',
+								vi: 'Cách rút tiền từ tài khoản DB Investing của bạn',
+								bn: 'কিভাবে আপনার DB Investing অ্যাকাউন্ট থেকে অর্থ তুলে নিবেন',
+								'zh-hans': '如何从您的DB Investing账户提款',
+								'pt-br': 'Como retirar fundos da sua conta DB Investing'
+							})
+						}
+					</p>
 				</div>
 			</div>
 		</div>
@@ -101,16 +328,65 @@ export const getStaticPaths = () =>
 			<h1
 				class="mb-3 block text-2xl font-bold capitalize text-gray-800 dark:text-white sm:text-2xl md:text-3xl lg:text-3xl"
 			>
-				Hindi Language
+				{
+					t({
+						en: 'Hindi Language',
+						ar: 'اللغة الهندية',
+						es: 'Idioma hindi',
+						fr: 'Langue hindi',
+						hi: 'हिंदी भाषा',
+						id: 'Bahasa Hindi',
+						ms: 'Bahasa Hindi',
+						th: 'ภาษาอินเดีย',
+						vi: 'Ngôn ngữ Hindi',
+						bn: 'হিন্দি ভাষা',
+						'zh-hans': '印地语',
+						'pt-br': 'Idioma hindi'
+					})
+				}
 			</h1>
 			<div class="flex w-full flex-wrap gap-4">
 				<div class="w-full rounded-xl bg-dbgreen-600 md:max-w-[48%] lg:max-w-[32%]">
 					<YouTube id="https://youtu.be/mZJsw0HSoXg?si=hich8mBAUQu7JTh0" class="rounded-t-xl" />
-					<p class="p-4 text-center font-semibold">अपने डीबी निवेश खाते से कैसे निकालें</p>
+					<p class="p-4 text-center font-semibold">
+						{
+							t({
+								en: 'How to withdraw from your DB Investing account',
+								ar: 'كيفية سحب الأموال من حسابك في DB Investing',
+								es: 'Cómo retirar fondos de tu cuenta de DB Investing',
+								fr: 'Comment retirer des fonds de votre compte DB Investing',
+								hi: 'अपने डीबी निवेश खाते से कैसे निकालें',
+								id: 'Cara menarik dana dari akun DB Investing Anda',
+								ms: 'Cara mengeluarkan wang daripada akaun DB Investing anda',
+								th: 'วิธีถอนเงินจากบัญชี DB Investing ของคุณ',
+								vi: 'Cách rút tiền từ tài khoản DB Investing của bạn',
+								bn: 'আপনার DB Investing অ্যাকাউন্ট থেকে কীভাবে টাকা তুলবেন',
+								'zh-hans': '如何从您的DB Investing账户提款',
+								'pt-br': 'Como retirar fundos da sua conta DB Investing'
+							})
+						}
+					</p>
 				</div>
 				<div class="w-full rounded-xl bg-dbgreen-600 md:max-w-[48%] lg:max-w-[32%]">
 					<YouTube id="https://youtu.be/nkwHIUx6svw?si=z6NI3B4MVV6yM5d1" class="rounded-t-xl" />
-					<p class="p-4 text-center font-semibold">अपने डीबी निवेश खाते से कैसे निकालें</p>
+					<p class="p-4 text-center font-semibold">
+						{
+							t({
+								en: 'How to withdraw from your DB Investing account',
+								ar: 'كيفية سحب الأموال من حسابك في DB Investing',
+								es: 'Cómo retirar fondos de tu cuenta de DB Investing',
+								fr: 'Comment retirer des fonds de votre compte DB Investing',
+								hi: 'अपने डीबी निवेश खाते से कैसे निकालें',
+								id: 'Cara menarik dana dari akun DB Investing Anda',
+								ms: 'Cara mengeluarkan wang daripada akaun DB Investing anda',
+								th: 'วิธีถอนเงินจากบัญชี DB Investing ของคุณ',
+								vi: 'Cách rút tiền từ tài khoản DB Investing của bạn',
+								bn: 'আপনার DB Investing অ্যাকাউন্ট থেকে কীভাবে টাকা তুলবেন',
+								'zh-hans': '如何从您的DB Investing账户提款',
+								'pt-br': 'Como retirar fundos da sua conta DB Investing'
+							})
+						}
+					</p>
 				</div>
 			</div>
 		</div>
@@ -118,19 +394,64 @@ export const getStaticPaths = () =>
 			<h1
 				class="mb-3 block text-2xl font-bold capitalize text-gray-800 dark:text-white sm:text-2xl md:text-3xl lg:text-3xl"
 			>
-				Bengali Language
+				{
+					t({
+						en: 'Bengali Language',
+						ar: 'اللغة البنغالية',
+						es: 'Idioma bengalí',
+						fr: 'Langue bengali',
+						hi: 'बंगाली भाषा',
+						id: 'Bahasa Bengali',
+						ms: 'Bahasa Bengali',
+						th: 'ภาษาเบงกาลี',
+						vi: 'Ngôn ngữ Bengali',
+						bn: 'বাংলা ভাষা',
+						'zh-hans': '孟加拉语',
+						'pt-br': 'Idioma bengali'
+					})
+				}
 			</h1>
 			<div class="flex w-full flex-wrap gap-4">
 				<div class="w-full rounded-xl bg-dbgreen-600 md:max-w-[48%] lg:max-w-[32%]">
 					<YouTube id="https://youtu.be/_Y7XHjnOJMk?si=faszeDn8t2Q_28rj" class="rounded-t-xl" />
 					<p class="p-4 text-center font-semibold">
-						আপনার DB Investing অ্যাকাউন্ট থেকে কীভাবে উত্তোলন করবেন
+						{
+							t({
+								en: 'How to withdraw from your DB Investing account',
+								ar: 'كيفية سحب الأموال من حسابك في DB Investing',
+								es: 'Cómo retirar fondos de tu cuenta de DB Investing',
+								fr: 'Comment retirer des fonds de votre compte DB Investing',
+								hi: 'अपने डीबी निवेश खाते से कैसे निकालें',
+								id: 'Cara menarik dana dari akun DB Investing Anda',
+								ms: 'Cara mengeluarkan wang daripada akaun DB Investing anda',
+								th: 'วิธีถอนเงินจากบัญชี DB Investing ของคุณ',
+								vi: 'Cách rút tiền từ tài khoản DB Investing của bạn',
+								bn: 'আপনার DB Investing অ্যাকাউন্ট থেকে কীভাবে উত্তোলন করবেন',
+								'zh-hans': '如何从您的DB Investing账户提款',
+								'pt-br': 'Como retirar fundos da sua conta DB Investing'
+							})
+						}
 					</p>
 				</div>
 				<div class="w-full rounded-xl bg-dbgreen-600 md:max-w-[48%] lg:max-w-[32%]">
 					<YouTube id="https://youtu.be/CXnci9wlQmI?si=PQCDo-WajOmOOcYN" class="rounded-t-xl" />
 					<p class="p-4 text-center font-semibold">
-						আপনার DB Investing অ্যাকাউন্টে কীভাবে জমা করবেন
+						{
+							t({
+								en: 'How to deposit into your DB Investing account',
+								ar: 'كيفية إيداع الأموال في حسابك لدى DB Investing',
+								es: 'Cómo depositar en tu cuenta de DB Investing',
+								fr: "Comment déposer de l'argent sur votre compte DB Investing",
+								hi: 'अपने डीबी निवेश खाते में कैसे जमा करें',
+								id: 'Cara menyetor ke akun DB Investing Anda',
+								ms: 'Cara mendeposit ke dalam akaun DB Investing anda',
+								th: 'วิธีฝากเงินเข้าบัญชี DB Investing ของคุณ',
+								vi: 'Cách gửi tiền vào tài khoản DB Investing của bạn',
+								bn: 'আপনার DB Investing অ্যাকাউন্টে কীভাবে জমা করবেন',
+								'zh-hans': '如何向您的DB Investing账户存款',
+								'pt-br': 'Como depositar na sua conta DB Investing'
+							})
+						}
 					</p>
 				</div>
 			</div>

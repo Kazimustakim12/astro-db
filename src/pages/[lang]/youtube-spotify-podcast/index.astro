@@ -1,7 +1,9 @@
 ---
-import { LOCALES } from '@/i18n'
+import { LOCALES, useTranslations, type Lang } from '@/i18n'
 import Layout from '@/layouts/Layout.astro'
 import { YouTube, LinkPreview } from 'astro-embed'
+
+const t = useTranslations(Astro.currentLocale as Lang)
 
 export const getStaticPaths = () =>
 	Object.keys(LOCALES).map((lang) => ({
@@ -9,19 +11,45 @@ export const getStaticPaths = () =>
 	}))
 ---
 
-<Layout title="Youtube & Spotify Podcast">
+<Layout
+	title={t({
+		en: 'Youtube & Spotify Podcast ',
+		ar: 'يوتيوب وسبوتيفاي   بودكاست ',
+		es: 'Youtube y Spotify Podcast ',
+		fr: 'Youtube et Spotify Podcast ',
+		hi: 'यूट्यूब और स्पॉटिफाई पॉडकास्ट ',
+		id: 'Youtube & Spotify Podcast ',
+		ms: 'Youtube & Spotify Podcast ',
+		th: 'ยูทูบและสปอติฟาย พอดแคสต์ ',
+		vi: 'Youtube & Spotify Podcast ',
+		bn: 'ইউটিউব এবং স্পটিফাই পডকাস্ট ',
+		'zh-hans': 'Youtube 和 Spotify 播客 ',
+		'pt-br': 'Youtube & Spotify Podcast '
+	})}
+>
 	<section>
 		<div
-			class="relative z-20 w-full overflow-hidden bg-gray-100 py-3 before:absolute before:start-1/2 before:top-0 before:-z-[1] before:size-full before:-translate-x-1/2 before:transform before:bg-[url('/src/images/world_bg.png')] before:bg-center before:bg-no-repeat before:opacity-45 before:hue-rotate-60 dark:bg-black dark:before:bg-[url('/src/images/world_bg.png')]"
+			class="relative z-20 w-full overflow-hidden bg-gray-100 py-3 before:absolute before:top-0 before:-z-[1] before:size-full before:transform before:bg-[url('/src/images/world_bg.png')] before:bg-center before:bg-no-repeat before:opacity-45 before:hue-rotate-60 dark:bg-black dark:before:bg-[url('/src/images/world_bg.png')]"
 		>
 			<div class="container flex flex-col items-center justify-between gap-6 py-10 sm:flex-row">
 				<div>
 					<h1
 						class="block text-center text-4xl font-bold text-gray-800 dark:text-neutral-200 sm:text-left md:text-4xl lg:text-5xl"
-					>
-						Youtube & Spotify <br />
-						<strong class="text-green-500"> Poadcast </strong>
-					</h1>
+						set:html={t({
+							en: 'Youtube & Spotify <br /> <strong class="text-green-500"> Podcast </strong>',
+							ar: 'يوتيوب وسبوتيفاي <br /> <strong class="text-green-500"> بودكاست </strong>',
+							es: 'Youtube y Spotify <br /> <strong class="text-green-500"> Podcast </strong>',
+							fr: 'Youtube et Spotify <br /> <strong class="text-green-500"> Podcast </strong>',
+							hi: 'यूट्यूब और स्पॉटिफाई <br /> <strong class="text-green-500"> पॉडकास्ट </strong>',
+							id: 'Youtube & Spotify <br /> <strong class="text-green-500"> Podcast </strong>',
+							ms: 'Youtube & Spotify <br /> <strong class="text-green-500"> Podcast </strong>',
+							th: 'ยูทูบและสปอติฟาย <br /> <strong class="text-green-500"> พอดแคสต์ </strong>',
+							vi: 'Youtube & Spotify <br /> <strong class="text-green-500"> Podcast </strong>',
+							bn: 'ইউটিউব এবং স্পটিফাই <br /> <strong class="text-green-500"> পডকাস্ট </strong>',
+							'zh-hans': 'Youtube 和 Spotify <br /> <strong class="text-green-500"> 播客 </strong>',
+							'pt-br': 'Youtube & Spotify <br /> <strong class="text-green-500"> Podcast </strong>'
+						})}
+					/>
 				</div>
 				<div>
 					<svg
@@ -42,7 +70,22 @@ export const getStaticPaths = () =>
 			<h1
 				class="mb-3 block text-2xl font-bold capitalize text-gray-800 dark:text-white sm:text-2xl md:text-3xl lg:text-3xl"
 			>
-				YouTube Podcast
+				{
+					t({
+						en: 'YouTube Podcast',
+						ar: 'بودكاست يوتيوب',
+						es: 'Podcast de YouTube',
+						fr: 'Podcast YouTube',
+						hi: 'यूट्यूब पॉडकास्ट',
+						id: 'Podcast YouTube',
+						ms: 'Podcast YouTube',
+						th: 'พอดแคสต์ YouTube',
+						vi: 'Podcast YouTube',
+						bn: 'ইউটিউব পডকাস্ট',
+						'zh-hans': 'YouTube 播客',
+						'pt-br': 'Podcast do YouTube'
+					})
+				}
 			</h1>
 			<div class="m-auto my-4 w-full md:max-w-[60%]">
 				<YouTube
@@ -53,7 +96,22 @@ export const getStaticPaths = () =>
 			<h1
 				class="mb-3 mt-6 block text-2xl font-bold capitalize text-gray-800 dark:text-white sm:text-2xl md:text-3xl lg:text-3xl"
 			>
-				Spotify Podcast
+				{
+					t({
+						en: 'Spotify Podcast',
+						ar: 'بودكاست سبوتيفاي',
+						es: 'Podcast de Spotify',
+						fr: 'Podcast Spotify',
+						hi: 'स्पॉटिफाई पॉडकास्ट',
+						id: 'Podcast Spotify',
+						ms: 'Podcast Spotify',
+						th: 'พอดแคสต์ Spotify',
+						vi: 'Podcast Spotify',
+						bn: 'স্পটিফাই পডকাস্ট',
+						'zh-hans': 'Spotify 播客',
+						'pt-br': 'Podcast do Spotify'
+					})
+				}
 			</h1>
 			<div class="m-auto my-4 w-full md:max-w-[60%]">
 				<iframe

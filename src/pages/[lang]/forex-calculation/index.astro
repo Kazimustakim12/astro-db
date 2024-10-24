@@ -1,7 +1,9 @@
 ---
-import { LOCALES } from '@/i18n'
+import { LOCALES, useTranslations, type Lang } from '@/i18n'
+const t = useTranslations(Astro.currentLocale as Lang)
 import Layout from '@/layouts/Layout.astro'
 
+const lang = Astro.params.lang || 'en'
 export const getStaticPaths = () =>
 	Object.keys(LOCALES).map((lang) => ({
 		params: { lang }
@@ -11,15 +13,27 @@ export const getStaticPaths = () =>
 <Layout title="Trading Hours">
 	<section>
 		<div
-			class="relative z-20 w-full overflow-hidden bg-gray-100 py-3 before:absolute before:start-1/2 before:top-0 before:-z-[1] before:size-full before:-translate-x-1/2 before:transform before:bg-[url('/src/images/world_bg.png')] before:bg-center before:bg-no-repeat before:opacity-45 before:hue-rotate-60 dark:bg-black dark:before:bg-[url('/src/images/world_bg.png')]"
+			class="relative z-20 w-full overflow-hidden bg-gray-100 py-3 before:absolute before:top-0 before:-z-[1] before:size-full before:transform before:bg-[url('/src/images/world_bg.png')] before:bg-center before:bg-no-repeat before:opacity-45 before:hue-rotate-60 dark:bg-black dark:before:bg-[url('/src/images/world_bg.png')]"
 		>
 			<div class="container flex flex-col items-center justify-between gap-6 py-10 sm:flex-row">
 				<div>
 					<h1
 						class="block text-center text-4xl font-bold text-gray-800 dark:text-neutral-200 md:text-4xl lg:text-5xl"
-					>
-						<strong class="text-green-500">Forex </strong> Calculation
-					</h1>
+						set:html={t({
+							en: "<strong class='text-green-500'>Forex </strong> Calculation",
+							ar: "<strong class='text-green-500'>فوركس </strong> حساب",
+							es: "<strong class='text-green-500'>Forex </strong> Cálculo",
+							fr: "<strong class='text-green-500'>Forex </strong> Calcul",
+							hi: "<strong class='text-green-500'>फॉरेक्स </strong> गणना",
+							id: "<strong class='text-green-500'>Forex </strong> Perhitungan",
+							ms: "<strong class='text-green-500'>Forex </strong> Pengiraan",
+							th: "<strong class='text-green-500'>Forex </strong> การคำนวณ",
+							vi: "<strong class='text-green-500'>Forex </strong> Tính toán",
+							bn: "<strong class='text-green-500'>ফরেক্স </strong> গণনা",
+							'zh-hans': "<strong class='text-green-500'>Forex </strong> 计算",
+							'pt-br': "<strong class='text-green-500'>Forex </strong> Cálculo"
+						})}
+					/>
 				</div>
 				<div>
 					<svg
@@ -42,7 +56,22 @@ export const getStaticPaths = () =>
 					<h1
 						class="mb-5 block text-2xl font-bold capitalize text-gray-800 dark:text-white sm:text-2xl md:text-3xl lg:text-3xl"
 					>
-						Compounding Calculator
+						{
+							t({
+								en: 'Compounding Calculator',
+								ar: 'حاسبة الفائدة المركبة',
+								es: 'Calculadora de Interés Compuesto',
+								fr: "Calculatrice d'Intérêts Composés",
+								hi: 'चक्रवृद्धि ब्याज कैलकुलेटर',
+								id: 'Kalkulator Bunga Majemuk',
+								ms: 'Kalkulator Faedah Kompaun',
+								th: 'เครื่องคำนวณดอกเบี้ยทบต้น',
+								vi: 'Máy Tính Lãi Kép',
+								bn: 'চক্রবৃদ্ধি ক্যালকুলেটর',
+								'zh-hans': '复利计算器',
+								'pt-br': 'Calculadora de Juros Compostos'
+							})
+						}
 					</h1>
 					<div id="compounding-calculator" class="bg-white dark:bg-neutral-900"></div>
 				</div>
@@ -50,7 +79,22 @@ export const getStaticPaths = () =>
 					<h1
 						class="mb-5 block text-2xl font-bold capitalize text-gray-800 dark:text-white sm:text-2xl md:text-3xl lg:text-3xl"
 					>
-						Pivot Points Calculator
+						{
+							t({
+								en: 'Pivot Points Calculator',
+								ar: 'حاسبة النقاط المحورية',
+								es: 'Calculadora de Puntos Pivote',
+								fr: 'Calculateur de Points Pivot',
+								hi: 'पिवट पॉइंट कैलकुलेटर',
+								id: 'Kalkulator Titik Pivot',
+								ms: 'Kalkulator Titik Pivot',
+								th: 'เครื่องคำนวณ Pivot Points',
+								vi: 'Máy Tính Điểm Xoay',
+								bn: 'পিভট পয়েন্ট ক্যালকুলেটর',
+								'zh-hans': '支点计算器',
+								'pt-br': 'Calculadora de Pontos de Pivô'
+							})
+						}
 					</h1>
 
 					<div id="pivot-point-calculator" class="bg-white dark:bg-neutral-900"></div>
@@ -59,7 +103,22 @@ export const getStaticPaths = () =>
 					<h1
 						class="mb-5 block text-2xl font-bold capitalize text-gray-800 dark:text-white sm:text-2xl md:text-3xl lg:text-3xl"
 					>
-						Profit Calculator
+						{
+							t({
+								en: 'Profit Calculator',
+								ar: 'حاسبة الأرباح',
+								es: 'Calculadora de Beneficios',
+								fr: 'Calculateur de Profit',
+								hi: 'लाभ कैलकुलेटर',
+								id: 'Kalkulator Keuntungan',
+								ms: 'Kalkulator Keuntungan',
+								th: 'เครื่องคำนวณกำไร',
+								vi: 'Máy Tính Lợi Nhuận',
+								bn: 'মুনাফা ক্যালকুলেটর',
+								'zh-hans': '利润计算器',
+								'pt-br': 'Calculadora de Lucro'
+							})
+						}
 					</h1>
 
 					<div id="profit-calculator" class="bg-white dark:bg-neutral-900"></div>
@@ -71,7 +130,8 @@ export const getStaticPaths = () =>
 
 <script type="text/javascript" src="/src/lib/remote-widget-js/cashbackforexWidget.js"></script>
 
-<script type="text/javascript">
+<script type="text/javascript" define:vars={{ lang: lang }}>
+	console.log(lang, 'from server ')
 	const isDark = localStorage.getItem('theme-toggle') === 'dark' ? true : false
 	const RemoteCalcCompounding = RemoteCalc({
 		Url: 'https://www.cashbackforex.com',

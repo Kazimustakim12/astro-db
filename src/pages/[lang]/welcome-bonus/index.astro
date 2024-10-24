@@ -1,19 +1,37 @@
 ---
-import { LOCALES } from '@/i18n'
+import { LOCALES, useTranslations, type Lang } from '@/i18n'
 import Layout from '@/layouts/Layout.astro'
+const t = useTranslations(Astro.currentLocale as Lang)
+const lang = Astro.params.lang || 'en'
 import { Image } from 'astro:assets'
 import BonusImage from '@/images/50_box.png'
 import Button from '@/components/ui/Button.astro'
 import HandClickImg from '@/images/click_img.webp'
 import PromoDepositImg from '@/images/promotions_deposit.webp'
 import PromoRewardImg from '@/images/promotions_get_rewarded.webp'
+
 export const getStaticPaths = () =>
 	Object.keys(LOCALES).map((lang) => ({
 		params: { lang }
 	}))
 ---
 
-<Layout title="Trading Hours">
+<Layout
+	title={t({
+		en: 'Welcome Bonus',
+		ar: 'مكافأة الترحيب',
+		es: 'Bono de bienvenida',
+		fr: 'Bonus de bienvenue',
+		hi: 'स्वागत बोनस',
+		id: 'Bonus Selamat Datang',
+		ms: 'Bonus Selamat Datang',
+		th: 'โบนัสต้อนรับ',
+		vi: 'Tiền thưởng chào mừng',
+		bn: 'স্বাগত বোনাস',
+		'zh-hans': '欢迎奖金',
+		'pt-br': 'Bônus de boas-vindas'
+	})}
+>
 	<section>
 		<div class="container py-20">
 			<div class="grid gap-3 md:grid-cols-2">
@@ -22,7 +40,22 @@ export const getStaticPaths = () =>
 						<span
 							class="rounded-full border border-neutral-200 px-4 py-2 font-semibold shadow-lg dark:border-neutral-700"
 						>
-							Reate 4.5 of 5
+							{
+								t({
+									en: 'Rate 4.5 of 5',
+									ar: 'تقييم 4.5 من 5',
+									es: 'Calificación de 4.5 sobre 5',
+									fr: 'Évaluation de 4,5 sur 5',
+									hi: '4.5 में से 5 की रेटिंग',
+									id: 'Rating 4,5 dari 5',
+									ms: 'Penilaian 4.5 daripada 5',
+									th: 'คะแนน 4.5 จาก 5',
+									vi: 'Đánh giá 4.5 trên 5',
+									bn: '৫ এর মধ্যে ৪.৫ রেটিং',
+									'zh-hans': '评分4.5/5',
+									'pt-br': 'Avaliação de 4,5 de 5'
+								})
+							}
 						</span>
 						<span class="gap- flex items-center">
 							<iconify-icon icon="line-md:star-filled" width="32" height="32"></iconify-icon>
@@ -35,9 +68,21 @@ export const getStaticPaths = () =>
 					<div class="my-6">
 						<span
 							class="rounded-full border border-neutral-200 px-4 py-2 font-semibold shadow-lg dark:border-neutral-700"
-						>
-							Start now and <span class="text-dbgreen-500">#Ensure</span> a...
-						</span>
+							set:html={t({
+								en: 'Start now and <span class="text-dbgreen-500">#Ensure</span> a...',
+								ar: 'ابدأ الآن و <span class="text-dbgreen-500">#تأكد</span> من...',
+								es: 'Comienza ahora y <span class="text-dbgreen-500">#Asegura</span> un...',
+								fr: 'Commencez maintenant et <span class="text-dbgreen-500">#Assurez</span> un...',
+								hi: 'अब शुरू करें और <span class="text-dbgreen-500">#सुनिश्चित</span> करें कि...',
+								id: 'Mulai sekarang dan <span class="text-dbgreen-500">#Pastikan</span> a...',
+								ms: 'Mulakan sekarang dan <span class="text-dbgreen-500">#Pastikan</span> a...',
+								th: 'เริ่มตอนนี้และ <span class="text-dbgreen-500">#รับประกัน</span> a...',
+								vi: 'Bắt đầu ngay và <span class="text-dbgreen-500">#Đảm bảo</span> một...',
+								bn: 'এখনই শুরু করুন এবং <span class="text-dbgreen-500">#নিশ্চিত</span> করুন যে...',
+								'zh-hans': '现在开始并 <span class="text-dbgreen-500">#确保</span> 一个...',
+								'pt-br': 'Comece agora e <span class="text-dbgreen-500">#Assegure</span> um...'
+							})}
+						/>
 					</div>
 					<div class="flex items-center pt-3">
 						<div class="">
@@ -48,19 +93,63 @@ export const getStaticPaths = () =>
 							</h1>
 						</div>
 						<h1 class="block px-4 text-3xl font-bold text-black dark:text-white">
-							First Deposit Bonus
+							{
+								t({
+									en: 'First Deposit Bonus',
+									ar: 'مكافأة الإيداع الأولى',
+									es: 'Bono de Primer Depósito',
+									fr: 'Bonus de Premier Dépôt',
+									hi: 'पहली जमा बोनस',
+									id: 'Bonus Setoran Pertama',
+									ms: 'Bonus Deposit Pertama',
+									th: 'โบนัสฝากเงินครั้งแรก',
+									vi: 'Thưởng Gửi Tiền Đầu Tiên',
+									bn: 'প্রথম ডিপোজিট বোনাস',
+									'zh-hans': '首存奖金',
+									'pt-br': 'Bônus de Primeiro Depósito'
+								})
+							}
 						</h1>
 					</div>
 					<p class="text-color my-5">
-						Take the first step, increase your funds and margin for sustained growth and enhanced
-						prosperity.
+						{
+							t({
+								en: 'Take the first step, increase your funds and margin for sustained growth and enhanced prosperity.',
+								ar: 'اتخذ الخطوة الأولى، وزد من أموالك وهامشك لتحقيق نمو مستدام وازدهار متزايد.',
+								es: 'Da el primer paso, aumenta tus fondos y margen para un crecimiento sostenido y una prosperidad mejorada.',
+								fr: 'Faites le premier pas, augmentez vos fonds et votre marge pour une croissance soutenue et une prospérité accrue.',
+								hi: 'पहला कदम उठाएं, अपने फंड और मार्जिन को बढ़ाएं ताकि स्थायी विकास और बेहतर समृद्धि प्राप्त हो सके।',
+								id: 'Ambil langkah pertama, tingkatkan dana dan margin Anda untuk pertumbuhan yang berkelanjutan dan kemakmuran yang lebih baik.',
+								ms: 'Ambil langkah pertama, tingkatkan dana dan margin anda untuk pertumbuhan berterusan dan kemakmuran yang lebih baik.',
+								th: 'ก้าวแรก เพิ่มเงินทุนและมาร์จิ้นของคุณเพื่อการเติบโตที่ยั่งยืนและความเจริญรุ่งเรืองที่เพิ่มขึ้น',
+								vi: 'Hãy thực hiện bước đầu tiên, tăng quỹ và tỷ lệ ký quỹ của bạn để đạt được sự tăng trưởng bền vững và thịnh vượng nâng cao.',
+								bn: 'প্রথম পদক্ষেপ নিন, আপনার তহবিল এবং মার্জিন বাড়ান স্থায়ী বৃদ্ধি এবং উন্নত সমৃদ্ধির জন্য।',
+								'zh-hans': '迈出第一步，增加您的资金和保证金，实现可持续增长和增强繁荣。',
+								'pt-br':
+									'Dê o primeiro passo, aumente seus fundos e margem para um crescimento sustentável e uma prosperidade aprimorada.'
+							})
+						}
 					</p>
 					<Button
 						primary={true}
 						rippleEffect={true}
-						text="Get Rewards Now!"
+						text={t({
+							en: 'Get Rewards Now!',
+							ar: 'احصل على المكافآت الآن!',
+							es: '¡Obtén recompensas ahora!',
+							fr: 'Obtenez des récompenses maintenant !',
+							hi: 'अभी पुरस्कार प्राप्त करें!',
+							id: 'Dapatkan Hadiah Sekarang!',
+							ms: 'Dapatkan Ganjaran Sekarang!',
+							th: 'รับรางวัลตอนนี้!',
+							vi: 'Nhận phần thưởng ngay bây giờ!',
+							bn: 'এখনই পুরস্কার পান!',
+							'zh-hans': '立即获得奖励！',
+							'pt-br': 'Obtenha Recompensas Agora!'
+						})}
 						class="rounded-full"
-						href="#"
+						href="https://my.dbinvesting.com/register/"
+						traget="_blank"
 						buttonIcon={' <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 2048 2048"> <path fill="currentColor" d="M192 480q-23-54-64-95t-96-65q54-23 95-64t65-96q23 54 64 95t96 65q-54 23-95 64t-65 96m1664 64q23 54 64 95t96 65q-54 23-95 64t-65 96q-23-54-64-95t-96-65q54-23 95-64t65-96m-384 96q-47-109-129-191t-191-129q109-47 191-129T1472 0q47 109 129 191t191 129q-109 47-191 129t-129 191m0-446q-56 71-126 126q70 56 126 126q55-70 126-126q-71-55-126-126M747 785q-47 0-88-19t-73-53t-48-76t-18-89q0-59 24-110t66-90t94-61t112-23q84 0 149 35t111 94t68 132t24 151q0 105-34 196t-93 167t-141 132t-174 97q-9 4-23 4q-23 0-39-16t-16-40q0-36 34-52q76-36 140-77t113-95t79-122t40-158q1-10 1-19t1-20q0-52-15-105t-45-96t-75-69t-105-27q-34 0-67 13t-59 37t-42 54t-16 68q0 23 9 45t24 40t37 29t46 11t38-7t23-20t14-25t12-25t17-19t29-8q23 0 40 17t17 40q0 5-2 13q-8 32-26 59t-44 46t-55 30t-64 11m880 111l274 275l-90 90l-147-146v933H256v-933l-147 146l-90-90l274-275h555q-35 41-77 72t-91 56H384v896h1152v-896h-331q17-31 31-63t25-65z" /> </svg>'}
 					/>
 				</div>
@@ -68,7 +157,7 @@ export const getStaticPaths = () =>
 					<Image
 						src={BonusImage}
 						alt="bonus-img"
-						class="animate animate-bouncemove relative m-auto w-full max-w-[480px]"
+						class="animate relative m-auto w-full max-w-[480px] animate-bouncemove"
 					/>
 				</div>
 			</div>
@@ -96,8 +185,42 @@ export const getStaticPaths = () =>
 							</svg>
 						</div>
 						<div class="">
-							<h2 class="text-xl font-bold text-neutral-800 dark:text-white">Zero Restriction</h2>
-							<p class="">Withdraw profits, no restrictions</p>
+							<h2 class="text-xl font-bold text-neutral-800 dark:text-white">
+								{
+									t({
+										en: 'Zero Restriction',
+										ar: 'لا قيود',
+										es: 'Cero Restricciones',
+										fr: 'Aucune Restriction',
+										hi: 'कोई प्रतिबंध नहीं',
+										id: 'Tidak Ada Pembatasan',
+										ms: 'Tiada Sekatan',
+										th: 'ไม่มีข้อจำกัด',
+										vi: 'Không có giới hạn',
+										bn: 'শূন্য বিধিনিষেধ',
+										'zh-hans': '零限制',
+										'pt-br': 'Zero Restrições'
+									})
+								}
+							</h2>
+							<p class="">
+								{
+									t({
+										en: 'Withdraw profits, no restrictions',
+										ar: 'سحب الأرباح، لا قيود',
+										es: 'Retirar ganancias, sin restricciones',
+										fr: 'Retirez les bénéfices, sans restrictions',
+										hi: 'लाभ निकालें, कोई प्रतिबंध नहीं',
+										id: 'Tarik keuntungan, tanpa batasan',
+										ms: 'Keluarkan keuntungan, tiada sekatan',
+										th: 'ถอนกำไร ไม่มีข้อจำกัด',
+										vi: 'Rút lợi nhuận, không có hạn chế',
+										bn: 'লাভ তুলুন, কোনো বিধিনিষেধ নেই',
+										'zh-hans': '提取利润，无限制',
+										'pt-br': 'Retire lucros, sem restrições'
+									})
+								}
+							</p>
 						</div>
 					</div>
 				</div>
@@ -122,8 +245,42 @@ export const getStaticPaths = () =>
 							</svg>
 						</div>
 						<div class="">
-							<h2 class="text-xl font-bold text-neutral-800 dark:text-white">Stronger Start</h2>
-							<p class="">Stronger Start Boost your trading with more margin</p>
+							<h2 class="text-xl font-bold text-neutral-800 dark:text-white">
+								{
+									t({
+										en: 'Stronger Start',
+										ar: 'بداية أقوى',
+										es: 'Inicio más fuerte',
+										fr: 'Début plus fort',
+										hi: 'मजबूत शुरुआत',
+										id: 'Awal yang lebih kuat',
+										ms: 'Permulaan yang lebih kuat',
+										th: 'เริ่มต้นที่แข็งแกร่งขึ้น',
+										vi: 'Khởi đầu mạnh mẽ hơn',
+										bn: 'শক্তিশালী শুরু',
+										'zh-hans': '更强的开始',
+										'pt-br': 'Começo mais forte'
+									})
+								}
+							</h2>
+							<p class="">
+								{
+									t({
+										en: 'Stronger Start Boost your trading with more margin',
+										ar: 'بداية أقوى عزز تداولك مع مزيد من الهامش',
+										es: 'Inicio más fuerte Impulsa tu trading con más margen',
+										fr: 'Début plus fort Renforcez votre trading avec plus de marge',
+										hi: 'मजबूत शुरुआत अपने ट्रेडिंग को अधिक मार्जिन के साथ बढ़ाएं',
+										id: 'Awal yang lebih kuat Tingkatkan perdagangan Anda dengan lebih banyak margin',
+										ms: 'Permulaan yang lebih kuat Tingkatkan perdagangan anda dengan lebih banyak margin',
+										th: 'เริ่มต้นที่แข็งแกร่งขึ้น เพิ่มการซื้อขายของคุณด้วยมาร์จิ้นที่มากขึ้น',
+										vi: 'Khởi đầu mạnh mẽ Hãy tăng cường giao dịch của bạn với nhiều margin hơn',
+										bn: 'শক্তিশালী শুরু আপনার ট্রেডিংকে আরও মার্জিনের সাথে বাড়িয়ে দিন',
+										'zh-hans': '更强的开始 用更多的保证金提升你的交易',
+										'pt-br': 'Começo mais forte Aumente suas operações com mais margem'
+									})
+								}
+							</p>
 						</div>
 					</div>
 				</div>
@@ -187,8 +344,42 @@ export const getStaticPaths = () =>
 							</svg>
 						</div>
 						<div class="">
-							<h2 class="text-xl font-bold text-neutral-800 dark:text-white">Simple Terms</h2>
-							<p class="">Gain bonus without complex rules</p>
+							<h2 class="text-xl font-bold text-neutral-800 dark:text-white">
+								{
+									t({
+										en: 'Simple Terms',
+										ar: 'شروط بسيطة',
+										es: 'Términos simples',
+										fr: 'Conditions simples',
+										hi: 'सरल शर्तें',
+										id: 'Syarat Sederhana',
+										ms: 'Terma Mudah',
+										th: 'ข้อกำหนดง่ายๆ',
+										vi: 'Điều khoản đơn giản',
+										bn: 'সোজা শর্তাবলী',
+										'zh-hans': '简单条款',
+										'pt-br': 'Termos simples'
+									})
+								}
+							</h2>
+							<p class="">
+								{
+									t({
+										en: 'Gain bonus without complex rules',
+										ar: 'احصل على مكافأة دون قواعد معقدة',
+										es: 'Obtén un bono sin reglas complejas',
+										fr: 'Obtenez un bonus sans règles complexes',
+										hi: 'जटिल नियमों के बिना बोनस प्राप्त करें',
+										id: 'Dapatkan bonus tanpa aturan yang rumit',
+										ms: 'Dapatkan bonus tanpa peraturan yang kompleks',
+										th: 'รับโบนัสโดยไม่มีข้อกำหนดที่ซับซ้อน',
+										vi: 'Nhận thưởng mà không có quy tắc phức tạp',
+										bn: 'জটিল নিয়ম ছাড়াই বোনাস পান',
+										'zh-hans': '在没有复杂规则的情况下获得奖金',
+										'pt-br': 'Ganhe bônus sem regras complexas'
+									})
+								}
+							</p>
 						</div>
 					</div>
 				</div>
@@ -197,10 +388,40 @@ export const getStaticPaths = () =>
 		<div class="container py-10">
 			<div class="mb-6 text-center">
 				<h1 class="mb-3 block px-4 text-3xl font-bold text-black dark:text-white md:text-5xl">
-					How It Works
+					{
+						t({
+							en: 'How It Works',
+							ar: 'كيف يعمل',
+							es: 'Cómo funciona',
+							fr: 'Comment ça marche',
+							hi: 'यह कैसे काम करता है',
+							id: 'Cara Kerjanya',
+							ms: 'Bagaimana Ia Berfungsi',
+							th: 'มันทำงานอย่างไร',
+							vi: 'Cách nó hoạt động',
+							bn: 'এটি কিভাবে কাজ করে',
+							'zh-hans': '它是如何工作的',
+							'pt-br': 'Como Funciona'
+						})
+					}
 				</h1>
 				<p class="text-md text-color font-semibold">
-					Match up to 50% of your deposit with trading credits.
+					{
+						t({
+							en: 'Match up to 50% of your deposit with trading credits.',
+							ar: 'مطابقة تصل إلى 50٪ من إيداعك مع ائتمانات التداول.',
+							es: 'Coincide hasta el 50% de tu depósito con créditos de trading.',
+							fr: "Correspondre jusqu'à 50% de votre dépôt avec des crédits de trading.",
+							hi: 'अपने जमा राशि का 50% ट्रेडिंग क्रेडिट के साथ मिलाएं।',
+							id: 'Cocokkan hingga 50% dari setoran Anda dengan kredit perdagangan.',
+							ms: 'Padankan hingga 50% daripada deposit anda dengan kredit dagangan.',
+							th: 'ตรงกันสูงสุด 50% ของเงินฝากของคุณด้วยเครดิตการเทรด',
+							vi: 'Khớp tới 50% số tiền gửi của bạn với tín dụng giao dịch.',
+							bn: 'আপনার জমার 50% পর্যন্ত ট্রেডিং ক্রেডিটের সাথে মেলান।',
+							'zh-hans': '与交易信用匹配您存款的50%。',
+							'pt-br': 'Combine até 50% do seu depósito com créditos de negociação.'
+						})
+					}
 				</p>
 			</div>
 			<div class="flex flex-col gap-8">
@@ -217,9 +438,42 @@ export const getStaticPaths = () =>
 						/>
 
 						<div class="w-full max-w-[480px]">
-							<h2 class="font-bold text-dbgreen-500 md:text-3xl lg:text-4xl">Activate</h2>
+							<h2 class="font-bold text-dbgreen-500 md:text-3xl lg:text-4xl">
+								{
+									t({
+										en: 'Activate',
+										ar: 'تفعيل',
+										es: 'Activar',
+										fr: 'Activer',
+										hi: 'सक्रिय करें',
+										id: 'Aktifkan',
+										ms: 'Aktifkan',
+										th: 'เปิดใช้งาน',
+										vi: 'Kích hoạt',
+										bn: 'সক্রিয় করুন',
+										'zh-hans': '激活',
+										'pt-br': 'Ativar'
+									})
+								}
+							</h2>
 							<p class="">
-								Head to your Client Portal to activate the promotion under the “Promotions” tab.
+								{
+									t({
+										en: 'Head to your Client Portal to activate the promotion under the “Promotions” tab.',
+										ar: "انتقل إلى بوابة العملاء الخاصة بك لتفعيل العرض في علامة التبويب 'العروض'.",
+										es: "Dirígete a tu Portal del Cliente para activar la promoción en la pestaña 'Promociones'.",
+										fr: "Rendez-vous sur votre portail client pour activer la promotion sous l'onglet « Promotions ». ",
+										hi: "अपने क्लाइंट पोर्टल पर जाएं और 'प्रमोशन्स' टैब के तहत प्रमोशन को सक्रिय करें।",
+										id: "Pergi ke Portal Klien Anda untuk mengaktifkan promosi di bawah tab 'Promosi'.",
+										ms: "Pergi ke Portal Klien anda untuk mengaktifkan promosi di bawah tab 'Promosi'.",
+										th: "ไปที่พอร์ทัลลูกค้าของคุณเพื่อเปิดใช้งานโปรโมชั่นในแท็บ 'โปรโมชั่น'",
+										vi: "Truy cập Cổng thông tin Khách hàng của bạn để kích hoạt khuyến mại trong tab 'Khuyến mại'.",
+										bn: "আপনার ক্লায়েন্ট পোর্টালে যান এবং 'প্রমোশন' ট্যাবের অধীনে প্রমোশন সক্রিয় করুন।",
+										'zh-hans': '前往您的客户门户，在“促销”选项卡下激活促销活动。',
+										'pt-br':
+											"Acesse seu Portal do Cliente para ativar a promoção na guia 'Promoções'."
+									})
+								}
 							</p>
 						</div>
 					</div>
@@ -237,8 +491,42 @@ export const getStaticPaths = () =>
 						/>
 
 						<div class="w-full max-w-[480px]">
-							<h2 class="font-bold text-dbgreen-500 md:text-3xl lg:text-4xl">Deposit</h2>
-							<p class="">Make your deposit only after the promotion has been activated.</p>
+							<h2 class="font-bold text-dbgreen-500 md:text-3xl lg:text-4xl">
+								{
+									t({
+										en: 'Deposit',
+										ar: 'إيداع',
+										es: 'Depósito',
+										fr: 'Dépôt',
+										hi: 'जमा',
+										id: 'Setoran',
+										ms: 'Deposit',
+										th: 'ฝากเงิน',
+										vi: 'Tiền gửi',
+										bn: 'ডিপোজিট',
+										'zh-hans': '存款',
+										'pt-br': 'Depósito'
+									})
+								}
+							</h2>
+							<p class="">
+								{
+									t({
+										en: 'Make your deposit only after the promotion has been activated.',
+										ar: 'قم بإيداعك فقط بعد تنشيط العرض الترويجي.',
+										es: 'Haz tu depósito solo después de que se haya activado la promoción.',
+										fr: 'Effectuez votre dépôt uniquement après que la promotion ait été activée.',
+										hi: 'प्रोमोशन सक्रिय होने के बाद ही अपनी जमा राशि डालें।',
+										id: 'Lakukan setoran Anda hanya setelah promosi diaktifkan.',
+										ms: 'Lakukan deposit anda hanya selepas promosi telah diaktifkan.',
+										th: 'ทำการฝากเงินของคุณเฉพาะหลังจากที่โปรโมชั่นถูกเปิดใช้งานแล้ว',
+										vi: 'Hãy thực hiện khoản tiền gửi của bạn chỉ sau khi chương trình khuyến mãi được kích hoạt.',
+										bn: 'প্রমোশন সক্রিয় হওয়ার পরে আপনার ডিপোজিট করুন।',
+										'zh-hans': '在促销活动被激活后再进行存款。',
+										'pt-br': 'Faça seu depósito somente após a promoção ter sido ativada.'
+									})
+								}
+							</p>
 						</div>
 					</div>
 				</div>
@@ -255,18 +543,83 @@ export const getStaticPaths = () =>
 						/>
 
 						<div class="w-full max-w-[480px]">
-							<h2 class="font-bold text-dbgreen-500 md:text-3xl lg:text-4xl">Get Rewarded</h2>
+							<h2 class="font-bold text-dbgreen-500 md:text-3xl lg:text-4xl">
+								{
+									t({
+										en: 'Get Rewarded',
+										ar: 'احصل على المكافأة',
+										es: 'Obtén Recompensas',
+										fr: 'Soyez Récompensé',
+										hi: 'इनाम पाएं',
+										id: 'Dapatkan Hadiah',
+										ms: 'Dapatkan Ganjaran',
+										th: 'รับรางวัล',
+										vi: 'Nhận Thưởng',
+										bn: 'পুরস্কার পান',
+										'zh-hans': '获得奖励',
+										'pt-br': 'Seja Recompensado'
+									})
+								}
+							</h2>
 							<p class="">
-								50% of the first $1000 of your deposit will be awarded as credits. Subsequent
-								deposits are subject to a 20% bonus, up to a maximum total of $10,000.
+								{
+									t({
+										en: '50% of the first $1000 of your deposit will be awarded as credits. Subsequent deposits are subject to a 20% bonus, up to a maximum total of $10,000.',
+										ar: 'سيتم منح 50٪ من أول 1000 دولار من إيداعك كأرصدة. الإيداعات اللاحقة تخضع لمكافأة بنسبة 20٪، بحد أقصى إجمالي قدره 10,000 دولار.',
+										es: 'El 50% de los primeros $1000 de su depósito se otorgará como créditos. Los depósitos posteriores están sujetos a un bono del 20%, hasta un total máximo de $10,000.',
+										fr: "50 % des premiers 1 000 $ de votre dépôt seront attribués sous forme de crédits. Les dépôts ultérieurs sont soumis à un bonus de 20 %, jusqu'à un maximum total de 10 000 $.",
+										hi: 'आपके जमा के पहले $1000 का 50% क्रेडिट के रूप में दिया जाएगा। इसके बाद के जमों पर 20% बोनस लागू होगा, कुल मिलाकर अधिकतम $10,000 तक।',
+										id: '50% dari $1000 pertama dari setoran Anda akan diberikan sebagai kredit. Setoran selanjutnya dikenakan bonus 20%, hingga maksimum total $10,000.',
+										ms: '50% daripada $1000 pertama daripada deposit anda akan dianugerahkan sebagai kredit. Deposit seterusnya tertakluk kepada bonus 20%, sehingga jumlah maksimum $10,000.',
+										th: '50% ของเงินฝากแรก $1000 ของคุณจะได้รับเป็นเครดิต เงินฝากถัดไปจะอยู่ภายใต้โบนัส 20% สูงสุด $10,000 รวม',
+										vi: '50% số tiền gửi đầu tiên 1000 đô la của bạn sẽ được trao dưới dạng tín dụng. Các khoản tiền gửi tiếp theo sẽ được áp dụng bonus 20%, tối đa là 10.000 đô la.',
+										bn: 'আপনার আমানতের প্রথম $1000 এর 50% ক্রেডিট হিসাবে প্রদান করা হবে। পরবর্তী আমানত 20% বোনাসের আওতায় থাকবে, সর্বাধিক মোট $10,000 পর্যন্ত।',
+										'zh-hans':
+											'您存款的前1000美元的50%将作为积分奖励。后续存款将享受20%的奖金，最高总额为10,000美元。',
+										'pt-br':
+											'50% do primeiro depósito de $1000 será concedido como créditos. Depósitos subsequentes estão sujeitos a um bônus de 20%, até um total máximo de $10.000.'
+									})
+								}
 							</p>
 						</div>
 					</div>
 				</div>
 				<div class="my-4">
 					<p class="text-center text-sm font-semibold">
-						Terms and Conditions apply.
-						<span class="text-dbgreen-500">Read More.</span>
+						{
+							t({
+								en: 'Terms and Conditions apply.',
+								ar: 'تطبق الشروط والأحكام.',
+								es: 'Se aplican términos y condiciones.',
+								fr: "Des termes et conditions s'appliquent.",
+								hi: 'नियम और शर्तें लागू होती हैं।',
+								id: 'Syarat dan ketentuan berlaku.',
+								ms: 'Terma dan syarat dikenakan.',
+								th: 'ข้อตกลงและเงื่อนไขมีผลบังคับใช้',
+								vi: 'Áp dụng điều khoản và điều kiện.',
+								bn: 'শর্তাবলী প্রযোজ্য।',
+								'zh-hans': '条款和条件适用。',
+								'pt-br': 'Termos e Condições se aplicam.'
+							})
+						}
+						<span class="text-dbgreen-500"
+							>{
+								t({
+									en: 'Read More.',
+									ar: 'اقرأ المزيد.',
+									es: 'Leer más.',
+									fr: 'Lire la suite.',
+									hi: 'और पढ़ें।',
+									id: 'Baca lebih lanjut.',
+									ms: 'Baca selanjutnya.',
+									th: 'อ่านเพิ่มเติม.',
+									vi: 'Đọc thêm.',
+									bn: 'আরো পড়ুন।',
+									'zh-hans': '阅读更多。',
+									'pt-br': 'Leia mais.'
+								})
+							}</span
+						>
 					</p>
 				</div>
 			</div>
@@ -274,11 +627,41 @@ export const getStaticPaths = () =>
 		<div class="container pb-20 pt-5">
 			<div class="flex flex-wrap gap-3">
 				<div class="w-full text-center lg:max-w-[24%] lg:text-left">
-					<h3 class="mb-8 text-3xl font-semibold">Fast And Easy Account Opening</h3>
+					<h3 class="mb-8 text-3xl font-semibold">
+						{
+							t({
+								en: 'Fast And Easy Account Opening',
+								ar: 'فتح حساب سريع وسهل',
+								es: 'Apertura de Cuenta Rápida y Fácil',
+								fr: 'Ouverture de Compte Rapide et Facile',
+								hi: 'तेज़ और आसान खाता खोलना',
+								id: 'Pembukaan Akun Cepat dan Mudah',
+								ms: 'Pembukaan Akaun Pantas dan Mudah',
+								th: 'การเปิดบัญชีอย่างรวดเร็วและง่ายดาย',
+								vi: 'Mở Tài Khoản Nhanh Chóng và Dễ Dàng',
+								bn: 'দ্রুত এবং সহজ একাউন্ট খোলার',
+								'zh-hans': '快速简便的账户开设',
+								'pt-br': 'Abertura de Conta Rápida e Fácil'
+							})
+						}
+					</h3>
 					<Button
 						primary={true}
 						rippleEffect={true}
-						text="Create Live Account!"
+						text={t({
+							en: 'Create Live Account!',
+							ar: 'إنشاء حساب مباشر!',
+							es: '¡Crea una Cuenta Real!',
+							fr: 'Créer un Compte Live !',
+							hi: 'लाइव खाता बनाएं!',
+							id: 'Buat Akun Live!',
+							ms: 'Buat Akaun Live!',
+							th: 'สร้างบัญชีสด!',
+							vi: 'Tạo Tài Khoản Thật!',
+							bn: 'লাইভ অ্যাকাউন্ট তৈরি করুন!',
+							'zh-hans': '创建真实账户！',
+							'pt-br': 'Crie uma Conta ao Vivo!'
+						})}
 						class="rounded-full"
 						href="#"
 						buttonIcon={' <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 2048 2048"> <path fill="currentColor" d="M192 480q-23-54-64-95t-96-65q54-23 95-64t65-96q23 54 64 95t96 65q-54 23-95 64t-65 96m1664 64q23 54 64 95t96 65q-54 23-95 64t-65 96q-23-54-64-95t-96-65q54-23 95-64t65-96m-384 96q-47-109-129-191t-191-129q109-47 191-129T1472 0q47 109 129 191t191 129q-109 47-191 129t-129 191m0-446q-56 71-126 126q70 56 126 126q55-70 126-126q-71-55-126-126M747 785q-47 0-88-19t-73-53t-48-76t-18-89q0-59 24-110t66-90t94-61t112-23q84 0 149 35t111 94t68 132t24 151q0 105-34 196t-93 167t-141 132t-174 97q-9 4-23 4q-23 0-39-16t-16-40q0-36 34-52q76-36 140-77t113-95t79-122t40-158q1-10 1-19t1-20q0-52-15-105t-45-96t-75-69t-105-27q-34 0-67 13t-59 37t-42 54t-16 68q0 23 9 45t24 40t37 29t46 11t38-7t23-20t14-25t12-25t17-19t29-8q23 0 40 17t17 40q0 5-2 13q-8 32-26 59t-44 46t-55 30t-64 11m880 111l274 275l-90 90l-147-146v933H256v-933l-147 146l-90-90l274-275h555q-35 41-77 72t-91 56H384v896h1152v-896h-331q17-31 31-63t25-65z" /> </svg>'}
@@ -287,24 +670,126 @@ export const getStaticPaths = () =>
 				<div class="w-full text-center md:max-w-[32%] md:text-left lg:max-w-[24%]">
 					<div><span class="text-7xl font-bold md:text-8xl">1</span></div>
 					<div>
-						<h3 class="mb-1 text-2xl font-semibold text-dbgreen-500 md:text-4xl">Register</h3>
-						<p>Sign up for a Account with our hassle-free process.</p>
+						<h3 class="mb-1 text-2xl font-semibold text-dbgreen-500 md:text-4xl">
+							{
+								t({
+									en: 'Register',
+									ar: 'تسجيل',
+									es: 'Registrarse',
+									fr: "S'inscrire",
+									hi: 'रजिस्टर करें',
+									id: 'Daftar',
+									ms: 'Daftar',
+									th: 'ลงทะเบียน',
+									vi: 'Đăng ký',
+									bn: 'নিবন্ধন করুন',
+									'zh-hans': '注册',
+									'pt-br': 'Registrar'
+								})
+							}
+						</h3>
+						<p>
+							{
+								t({
+									en: 'Sign up for an Account with our hassle-free process.',
+									ar: 'سجل للحصول على حساب مع عمليتنا السهلة.',
+									es: 'Regístrate para una cuenta con nuestro proceso sin complicaciones.',
+									fr: 'Inscrivez-vous pour un compte avec notre processus sans tracas.',
+									hi: 'हमारी परेशानी मुक्त प्रक्रिया के साथ खाते के लिए साइन अप करें।',
+									id: 'Daftar untuk Akun dengan proses mudah kami.',
+									ms: 'Daftar untuk Akaun dengan proses tanpa masalah kami.',
+									th: 'ลงทะเบียนเพื่อเปิดบัญชีด้วยกระบวนการที่ไม่มีปัญหาของเรา.',
+									vi: 'Đăng ký một tài khoản với quy trình không rắc rối của chúng tôi.',
+									bn: 'আমাদের ঝামেলামুক্ত প্রক্রিয়ার মাধ্যমে একটি অ্যাকাউন্টের জন্য সাইন আপ করুন।',
+									'zh-hans': '通过我们的无忧流程注册账户。',
+									'pt-br': 'Cadastre-se para uma Conta com nosso processo sem complicações.'
+								})
+							}
+						</p>
 					</div>
 				</div>
 				<div class="w-full text-center md:max-w-[32%] md:text-left lg:max-w-[24%]">
 					<div><span class="text-7xl font-bold md:text-8xl">2</span></div>
 					<div>
-						<h3 class="mb-1 text-2xl font-semibold text-dbgreen-500 md:text-4xl">Fund</h3>
+						<h3 class="mb-1 text-2xl font-semibold text-dbgreen-500 md:text-4xl">
+							{
+								t({
+									en: 'Fund',
+									ar: 'صندوق',
+									es: 'Fondo',
+									fr: 'Fonds',
+									hi: 'कोष',
+									id: 'Dana',
+									ms: 'Dana',
+									th: 'กองทุน',
+									vi: 'Quỹ',
+									bn: 'ফান্ড',
+									'zh-hans': '资金',
+									'pt-br': 'Fundo'
+								})
+							}
+						</h3>
 						<p>
-							Effortlessly fund your account with a wide range of channels and accepted currencies.
+							{
+								t({
+									en: 'Effortlessly fund your account with a wide range of channels and accepted currencies.',
+									ar: 'قم بتمويل حسابك بسهولة من خلال مجموعة واسعة من القنوات والعملات المقبولة.',
+									es: 'Financia tu cuenta sin esfuerzo con una amplia gama de canales y monedas aceptadas.',
+									fr: 'Alimentez facilement votre compte avec une large gamme de canaux et de devises acceptées.',
+									hi: 'आप कई चैनलों और स्वीकार्य मुद्राओं के साथ आसानी से अपने खाते को फंड कर सकते हैं।',
+									id: 'Dana akun Anda dengan mudah melalui berbagai saluran dan mata uang yang diterima.',
+									ms: 'Caj dana ke dalam akaun anda dengan mudah melalui pelbagai saluran dan mata wang yang diterima.',
+									th: 'เติมเงินเข้าบัญชีของคุณได้อย่างง่ายดายด้วยช่องทางและสกุลเงินที่หลากหลายที่ยอมรับ',
+									vi: 'Nạp tiền vào tài khoản của bạn một cách dễ dàng thông qua nhiều kênh và loại tiền tệ được chấp nhận.',
+									bn: 'বিভিন্ন চ্যানেল এবং গ্রহণযোগ্য মুদ্রার মাধ্যমে আপনার অ্যাকাউন্ট সহজেই তহবিল করুন।',
+									'zh-hans': '通过多种渠道和接受的货币轻松为您的账户注资。',
+									'pt-br':
+										'Financie sua conta facilmente com uma ampla gama de canais e moedas aceitas.'
+								})
+							}
 						</p>
 					</div>
 				</div>
 				<div class="w-full text-center md:max-w-[32%] md:text-left lg:max-w-[24%]">
 					<div><span class="text-7xl font-bold md:text-8xl">3</span></div>
 					<div>
-						<h3 class="mb-1 text-2xl font-semibold text-dbgreen-500 md:text-4xl">Start Trading</h3>
-						<p>Access hundreds of instruments under market-leading trading conditions.</p>
+						<h3 class="mb-1 text-2xl font-semibold text-dbgreen-500 md:text-4xl">
+							{
+								t({
+									en: 'Start Trading',
+									ar: 'ابدأ التداول',
+									es: 'Comenzar a negociar',
+									fr: 'Commencer le trading',
+									hi: 'व्यापार शुरू करें',
+									id: 'Mulai Berdagang',
+									ms: 'Mulakan Dagangan',
+									th: 'เริ่มการเทรด',
+									vi: 'Bắt đầu giao dịch',
+									bn: 'বাণিজ্য শুরু করুন',
+									'zh-hans': '开始交易',
+									'pt-br': 'Comece a negociar'
+								})
+							}
+						</h3>
+						<p>
+							{
+								t({
+									en: 'Access hundreds of instruments under market-leading trading conditions.',
+									ar: 'الوصول إلى مئات من الأدوات تحت ظروف تداول رائدة في السوق.',
+									es: 'Accede a cientos de instrumentos bajo condiciones de trading líderes en el mercado.',
+									fr: "Accédez à des centaines d'instruments dans des conditions de trading de premier plan.",
+									hi: 'बाजार में सबसे अच्छी व्यापारिक शर्तों के तहत सैकड़ों उपकरणों तक पहुँचें।',
+									id: 'Akses ratusan instrumen dengan kondisi trading terkemuka di pasar.',
+									ms: 'Akses ratusan instrumen di bawah syarat perdagangan terkemuka di pasaran.',
+									th: 'เข้าถึงเครื่องมือหลายร้อยรายการภายใต้เงื่อนไขการซื้อขายชั้นนำในตลาด',
+									vi: 'Truy cập hàng trăm công cụ dưới các điều kiện giao dịch hàng đầu thị trường.',
+									bn: 'বাজারের নেতৃস্থানীয় ট্রেডিং শর্তগুলির অধীনে শত শত যন্ত্রের অ্যাক্সেস পান।',
+									'zh-hans': '在市场领先的交易条件下访问数百种工具。',
+									'pt-br':
+										'Acesse centenas de instrumentos sob condições de negociação líderes de mercado.'
+								})
+							}
+						</p>
 					</div>
 				</div>
 			</div>

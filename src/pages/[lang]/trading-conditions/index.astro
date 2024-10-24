@@ -1,6 +1,7 @@
 ---
-import { LOCALES } from '@/i18n'
+import { LOCALES, useTranslations, type Lang } from '@/i18n'
 import Layout from '@/layouts/Layout.astro'
+const t = useTranslations(Astro.currentLocale as Lang)
 
 export const getStaticPaths = () =>
 	Object.keys(LOCALES).map((lang) => ({
@@ -11,15 +12,27 @@ export const getStaticPaths = () =>
 <Layout title="Trading Conditions">
 	<section>
 		<div
-			class="relative z-20 w-full overflow-hidden bg-gray-100 py-3 before:absolute before:start-1/2 before:top-0 before:-z-[1] before:size-full before:-translate-x-1/2 before:transform before:bg-[url('/src/images/world_bg.png')] before:bg-center before:bg-no-repeat before:opacity-45 before:hue-rotate-60 dark:bg-black dark:before:bg-[url('/src/images/world_bg.png')]"
+			class="relative z-20 w-full overflow-hidden bg-gray-100 py-3 before:absolute before:top-0 before:-z-[1] before:size-full before:transform before:bg-[url('/src/images/world_bg.png')] before:bg-center before:bg-no-repeat before:opacity-45 before:hue-rotate-60 dark:bg-black dark:before:bg-[url('/src/images/world_bg.png')]"
 		>
 			<div class="container flex flex-col items-center justify-between gap-6 py-10 sm:flex-row">
 				<div>
 					<h1
 						class="block text-center text-4xl font-bold text-gray-800 dark:text-neutral-200 md:text-4xl lg:text-5xl"
-					>
-						<strong class="text-green-500">Trading</strong> Conditions
-					</h1>
+						set:html={t({
+							en: '<strong class="text-green-500">Trading</strong> Conditions',
+							ar: '<strong class="text-green-500">شروط</strong> التداول',
+							es: '<strong class="text-green-500">Condiciones</strong> de trading',
+							fr: '<strong class="text-green-500">Conditions</strong> de trading',
+							hi: '<strong class="text-green-500">व्यापार</strong> की शर्तें',
+							id: '<strong class="text-green-500">Ketentuan</strong> Perdagangan',
+							ms: '<strong class="text-green-500">Keadaan</strong> Perdagangan',
+							th: '<strong class="text-green-500">เงื่อนไข</strong> การซื้อขาย',
+							vi: '<strong class="text-green-500">Điều kiện</strong> giao dịch',
+							bn: '<strong class="text-green-500">ট্রেডিং</strong> শর্তাবলী',
+							'zh-hans': '<strong class="text-green-500">交易</strong> 条件',
+							'pt-br': '<strong class="text-green-500">Condições</strong> de Negociação'
+						})}
+					/>
 				</div>
 				<div>
 					<svg
@@ -44,65 +57,381 @@ export const getStaticPaths = () =>
 			<h2
 				class="mb-5 block text-2xl font-bold capitalize text-gray-800 dark:text-white sm:text-2xl md:text-3xl lg:text-3xl"
 			>
-				Costs and associated charges for the provision of Investment and Ancillary Services
+				{
+					t({
+						en: 'Costs and associated charges for the provision of Investment and Ancillary Services',
+						ar: 'التكاليف والرسوم المرتبطة بتقديم خدمات الاستثمار والخدمات المساعدة',
+						es: 'Costos y cargos asociados a la prestación de Servicios de Inversión y Servicios Auxiliares',
+						fr: "Coûts et frais associés à la fourniture de Services d'Investissement et de Services Annexes",
+						hi: 'निवेश और सहायक सेवाओं के प्रावधान के लिए लागत और संबंधित शुल्क',
+						id: 'Biaya dan biaya terkait untuk penyediaan Layanan Investasi dan Layanan Tambahan',
+						ms: 'Kos dan caj berkaitan untuk penyediaan Perkhidmatan Pelaburan dan Perkhidmatan Tambahan',
+						th: 'ค่าใช้จ่ายและค่าธรรมเนียมที่เกี่ยวข้องกับการให้บริการลงทุนและบริการเสริม',
+						vi: 'Chi phí và các khoản phí liên quan đến việc cung cấp Dịch vụ Đầu tư và Dịch vụ Phụ trợ',
+						bn: 'নিবেশ এবং সহায়ক পরিষেবার প্রদান সংক্রান্ত ব্যয় এবং সম্পর্কিত চার্জ',
+						'zh-hans': '提供投资及附属服务的成本和相关费用',
+						'pt-br':
+							'Custos e encargos associados à prestação de Serviços de Investimento e Serviços Auxiliares'
+					})
+				}
 			</h2>
 			<p class="text-color mb-6">
-				<span class="font-semibold">SPREAD:</span>
-				The spread is the difference between the buy (bid) and the sell (ask) prices of a financial instrument.
-				The spread itself fluctuates depending on market conditions. Under normal market conditions,
-				spreads remain stable; however, spreads may widen due to announcements, volatile markets, and
-				at the close and opening of the market.
+				<span class="font-semibold"
+					>{
+						t({
+							en: 'SPREAD:',
+							ar: ':الفارق',
+							es: 'DIFERENCIAL:',
+							fr: 'ÉCART:',
+							hi: 'स्प्रेड:',
+							id: 'SPREAD:',
+							ms: 'SPREAD:',
+							th: 'สเปรด:',
+							vi: 'CHÊNH LỆCH:',
+							bn: 'স্প্রেড:',
+							'zh-hans': '差价:',
+							'pt-br': 'SPREAD:'
+						})
+					}</span
+				>
+				{
+					t({
+						en: 'The spread is the difference between the buy (bid) and the sell (ask) prices of a financial instrument. The spread itself fluctuates depending on market conditions. Under normal market conditions, spreads remain stable; however, spreads may widen due to announcements, volatile markets, and at the close and opening of the market.',
+						ar: 'الفارق هو الفرق بين أسعار الشراء (العطاء) وأسعار البيع (السعر المطلوب) لأداة مالية. يتقلب الفارق اعتمادًا على ظروف السوق. في ظل ظروف السوق العادية، يبقى الفارق مستقرًا؛ ومع ذلك، قد يتسع الفارق بسبب الإعلانات والأسواق المتقلبة، وعند إغلاق السوق وفتحه.',
+						es: 'El spread es la diferencia entre los precios de compra (bid) y los precios de venta (ask) de un instrumento financiero. El spread en sí fluctúa dependiendo de las condiciones del mercado. En condiciones normales del mercado, los spreads permanecen estables; sin embargo, los spreads pueden ampliarse debido a anuncios, mercados volátiles y al cierre y apertura del mercado.',
+						fr: "Le spread est la différence entre les prix d'achat (bid) et les prix de vente (ask) d'un instrument financier. Le spread lui-même fluctue en fonction des conditions du marché. Dans des conditions de marché normales, les spreads restent stables ; cependant, les spreads peuvent s'élargir en raison d'annonces, de marchés volatils et à la fermeture et à l'ouverture du marché.",
+						hi: 'स्प्रेड एक वित्तीय उपकरण की खरीद (बिड) और बिक्री (आस्क) कीमतों के बीच का अंतर है। स्प्रेड अपने आप में बाजार की परिस्थितियों के अनुसार बदलता रहता है। सामान्य बाजार की परिस्थितियों में, स्प्रेड स्थिर रहते हैं; हालाँकि, घोषणाओं, अस्थिर बाजारों, और बाजार के बंद होने और खुलने के समय स्प्रेड चौड़े हो सकते हैं।',
+						id: 'Spread adalah selisih antara harga beli (bid) dan harga jual (ask) dari suatu instrumen keuangan. Spread itu sendiri berfluktuasi tergantung pada kondisi pasar. Dalam kondisi pasar normal, spread tetap stabil; namun, spread dapat melebar karena pengumuman, pasar yang volatile, dan pada saat penutupan dan pembukaan pasar.',
+						ms: 'Spread adalah perbezaan antara harga beli (bid) dan harga jual (ask) bagi instrumen kewangan. Spread itu sendiri berfluktuasi bergantung kepada keadaan pasaran. Dalam keadaan pasaran yang normal, spread tetap stabil; bagaimanapun, spread boleh melebar disebabkan oleh pengumuman, pasaran yang tidak menentu, dan pada penutupan dan pembukaan pasaran.',
+						th: 'สเปรดคือความแตกต่างระหว่างราคาซื้อ (bid) และราคาขาย (ask) ของเครื่องมือทางการเงิน สเปรดเองจะแปรผันตามสภาพตลาด ในสภาพตลาดปกติ สเปรดจะคงที่ อย่างไรก็ตาม สเปรดอาจกว้างขึ้นได้เนื่องจากการประกาศ ตลาดที่ผันผวน และเมื่อปิดและเปิดตลาด',
+						vi: 'Spread là sự chênh lệch giữa giá mua (bid) và giá bán (ask) của một công cụ tài chính. Spread tự nó dao động tùy thuộc vào điều kiện thị trường. Trong điều kiện thị trường bình thường, spread vẫn ổn định; tuy nhiên, spread có thể mở rộng do thông báo, thị trường biến động và vào thời điểm đóng và mở thị trường.',
+						bn: 'স্প্রেড হল একটি আর্থিক যন্ত্রের ক্রয় (বিড) এবং বিক্রয় (আস্ক) মূল্যের মধ্যে পার্থক্য। স্প্রেড নিজেই বাজারের অবস্থার উপর নির্ভর করে পরিবর্তিত হয়। সাধারণ বাজারের অবস্থায়, স্প্রেডগুলি স্থিতিশীল থাকে; তবে, ঘোষণার কারণে, অস্থিতিশীল বাজার এবং বাজারের বন্ধ ও খোলার সময় স্প্রেড প্রসারিত হতে পারে।',
+						'zh-hans':
+							'点差是金融工具的买入（出价）和卖出（询价）价格之间的差异。点差本身会根据市场状况波动。在正常市场条件下，点差保持稳定；然而，由于公告、波动的市场以及在市场关闭和开盘时，点差可能会扩大。',
+						'pt-br':
+							'O spread é a diferença entre os preços de compra (bid) e os preços de venda (ask) de um instrumento financeiro. O spread em si flutua dependendo das condições de mercado. Em condições normais de mercado, os spreads permanecem estáveis; no entanto, os spreads podem se alargar devido a anúncios, mercados voláteis e no fechamento e abertura do mercado.'
+					})
+				}
 			</p>
 			<p class="text-color mb-6">
-				<span class="font-semibold">COMMISSIONS:</span>
-				Commissions charged for the execution of orders in CFDs on Stocks are visible on the client’s
-				trading platform and calculated on the basis of trading volume in the quote currency.
+				<span class="font-semibold"
+					>{
+						t({
+							en: 'COMMISSIONS:',
+							ar: 'العمولات:',
+							es: 'COMISIONES:',
+							fr: 'COMMISSIONS :',
+							hi: 'आयोग:',
+							id: 'KOMISI:',
+							ms: 'KOMISYEN:',
+							th: 'ค่าคอมมิชชั่น:',
+							vi: 'HỒI TIẾN:',
+							bn: 'কমিশন:',
+							'zh-hans': '佣金：',
+							'pt-br': 'COMISSÕES:'
+						})
+					}</span
+				>
+				{
+					t({
+						en: 'Commissions charged for the execution of orders in CFDs on Stocks are visible on the client’s trading platform and calculated on the basis of trading volume in the quote currency.',
+						ar: 'العمولات المفروضة على تنفيذ الطلبات في العقود مقابل الفروقات على الأسهم مرئية على منصة تداول العميل ويتم احتسابها بناءً على حجم التداول بالعملة المقتبسة.',
+						es: 'Las comisiones cobradas por la ejecución de órdenes en CFDs sobre acciones son visibles en la plataforma de trading del cliente y se calculan en función del volumen de trading en la moneda de cotización.',
+						fr: "Les commissions appliquées pour l'exécution des ordres dans les CFD sur actions sont visibles sur la plateforme de trading du client et sont calculées sur la base du volume de trading dans la devise de cotation.",
+						hi: 'CFDs पर स्टॉक्स के आदेशों के निष्पादन के लिए लगाए गए कमीशन ग्राहक के ट्रेडिंग प्लेटफॉर्म पर दिखाई देते हैं और इसे उद्धरण मुद्रा में ट्रेडिंग वॉल्यूम के आधार पर गणना की जाती है।',
+						id: 'Komisi yang dikenakan untuk pelaksanaan pesanan dalam CFD pada Saham terlihat di platform trading klien dan dihitung berdasarkan volume trading dalam mata uang kutipan.',
+						ms: 'Komisyen yang dikenakan untuk pelaksanaan pesanan dalam CFD pada Saham boleh dilihat di platform perdagangan pelanggan dan dikira berdasarkan jumlah dagangan dalam mata wang petikan.',
+						th: 'ค่าคอมมิชชั่นที่เรียกเก็บสำหรับการดำเนินการคำสั่งใน CFDs บนหุ้นสามารถมองเห็นได้ในแพลตฟอร์มการซื้อขายของลูกค้าและคำนวณตามปริมาณการซื้อขายในสกุลเงินอ้างอิง',
+						vi: 'Phí hoa hồng tính cho việc thực hiện lệnh trong CFDs trên Cổ phiếu có thể nhìn thấy trên nền tảng giao dịch của khách hàng và được tính toán dựa trên khối lượng giao dịch bằng đồng tiền báo giá.',
+						bn: 'CFDs উপর স্টকের জন্য আদেশ কার্যকর করার জন্য চার্জ করা কমিশন ক্লায়েন্টের ট্রেডিং প্ল্যাটফর্মে দৃশ্যমান এবং উদ্ধৃতি মুদ্রায় ট্রেডিং ভলিউমের ভিত্তিতে গণনা করা হয়।',
+						'zh-hans':
+							'在股票的CFD订单执行中收取的佣金在客户的交易平台上可见，并根据报价货币中的交易量进行计算。',
+						'pt-br':
+							'As comissões cobradas pela execução de ordens em CFDs sobre Ações são visíveis na plataforma de negociação do cliente e calculadas com base no volume de negociação na moeda da cotação.'
+					})
+				}
 			</p>
 			<p class="text-color mb-6">
-				<span class="font-semibold">Overnight Financing Fee (Swaps)</span>
-				is the fee charged for all positions held open overnight at the end of the daily trading session
-				(22:00GMT and 21:00GMT during DST) and may be subject to credit or debit depending on the prevailing
-				market. The Company applies a 3-day rollover strategy on Wednesday for all positions held open
-				on FX , Energies and Metals, a 3-day rollover strategy on Thursday for all positions held open
-				on Cryptos and 3-day rollover strategy on Friday for indices. Tripled Swap Explanation: This
-				is an industry standard and is due to the T+2 settlement date of financial instruments to cover
-				the charges incurred by the interbank market over the weekend. Please refer to our website for
-				more information on the swap values. <br />
-				The swap values are received from the Company’s Execution Venues.
+				<span class="font-semibold">
+					{
+						t({
+							en: 'Overnight Financing Fee (Swaps)',
+							ar: 'رسوم التمويل ليلاً (التبادلات)',
+							es: 'Tarifa de financiación nocturna (swaps)',
+							fr: 'Frais de financement de nuit (swaps)',
+							hi: 'रातोंरात वित्तपोषण शुल्क (स्वैप)',
+							id: 'Biaya Pembiayaan Semalam (Swap)',
+							ms: 'Yuran Pembiayaan Semalaman (Swap)',
+							th: 'ค่าธรรมเนียมการเงินข้ามคืน (สวอป)',
+							vi: 'Phí tài trợ qua đêm (Swaps)',
+							bn: 'রাতারাতি অর্থায়ন ফি (সোয়াপ)',
+							'zh-hans': '隔夜融资费用（掉期）',
+							'pt-br': 'Taxa de Financiamento Overnight (Swaps)'
+						})
+					}
+				</span>
+				{
+					t({
+						en: 'is the fee charged for all positions held open overnight at the end of the daily trading session (22:00GMT and 21:00GMT during DST) and may be subject to credit or debit depending on the prevailing market. The Company applies a 3-day rollover strategy on Wednesday for all positions held open on FX, Energies, and Metals, a 3-day rollover strategy on Thursday for all positions held open on Cryptos, and a 3-day rollover strategy on Friday for indices. Tripled Swap Explanation: This is an industry standard and is due to the T+2 settlement date of financial instruments to cover the charges incurred by the interbank market over the weekend. Please refer to our website for more information on the swap values. <br /> The swap values are received from the Company’s Execution Venues.',
+						ar: 'هو الرسوم المقررة على جميع المراكز المفتوحة خلال الليل في نهاية جلسة التداول اليومية (22:00 بتوقيت غرينتش و21:00 بتوقيت غرينتش خلال التوقيت الصيفي) وقد تكون خاضعة للاعتماد أو الخصم حسب السوق السائد. تطبق الشركة استراتيجية ترحيل لمدة 3 أيام يوم الأربعاء لجميع المراكز المفتوحة على الفوركس والطاقات والمعادن، واستراتيجية ترحيل لمدة 3 أيام يوم الخميس لجميع المراكز المفتوحة على العملات المشفرة، واستراتيجية ترحيل لمدة 3 أيام يوم الجمعة للمؤشرات. شرح تيرادات ثلاثية: هذا هو معيار الصناعة ويعود إلى تاريخ تسوية T+2 للأدوات المالية لتغطية الرسوم التي تتحملها سوق بين البنوك خلال عطلة نهاية الأسبوع. يرجى الرجوع إلى موقعنا على الويب لمزيد من المعلومات حول قيم التبديل. <br /> يتم استلام قيم التبديل من أماكن تنفيذ الشركة.',
+						es: 'es la tarifa que se cobra por todas las posiciones mantenidas abiertas durante la noche al final de la sesión de negociación diaria (22:00 GMT y 21:00 GMT durante el horario de verano) y puede estar sujeta a crédito o débito dependiendo del mercado vigente. La empresa aplica una estrategia de rollover de 3 días el miércoles para todas las posiciones mantenidas abiertas en FX, Energías y Metales, una estrategia de rollover de 3 días el jueves para todas las posiciones mantenidas abiertas en Cripto y una estrategia de rollover de 3 días el viernes para índices. Explicación del Swap Triplicado: Este es un estándar de la industria y se debe a la fecha de liquidación T+2 de los instrumentos financieros para cubrir los cargos incurridos por el mercado interbancario durante el fin de semana. Por favor, consulte nuestro sitio web para obtener más información sobre los valores del swap. <br /> Los valores del swap se reciben de los lugares de ejecución de la empresa.',
+						fr: "est la commission appliquée à toutes les positions ouvertes pendant la nuit à la fin de la session de trading quotidienne (22h00 GMT et 21h00 GMT pendant l'heure d'été) et peut être soumise à un crédit ou un débit selon le marché en cours. La société applique une stratégie de rollover de 3 jours le mercredi pour toutes les positions maintenues ouvertes sur FX, Énergies et Métaux, une stratégie de rollover de 3 jours le jeudi pour toutes les positions maintenues ouvertes sur les Cryptos et une stratégie de rollover de 3 jours le vendredi pour les indices. Explication du Swap Tripartite : C'est une norme de l'industrie et cela est dû à la date de règlement T+2 des instruments financiers pour couvrir les frais encourus par le marché interbancaire pendant le week-end. Veuillez consulter notre site Web pour plus d'informations sur les valeurs de swap. <br /> Les valeurs de swap sont reçues des lieux d'exécution de la société.",
+						hi: 'रात भर खुले रखी गई सभी स्थितियों के लिए शुल्क है जो दैनिक ट्रेडिंग सत्र (22:00GMT और DST के दौरान 21:00GMT) के अंत में होती है और मौजूदा बाजार के आधार पर क्रेडिट या डेबिट के अधीन हो सकती है। कंपनी FX, ऊर्जा और धातुओं पर खोले गए सभी पदों के लिए बुधवार को 3-दिन की रोलओवर रणनीति लागू करती है, क्रिप्टो पर खोले गए सभी पदों के लिए गुरुवार को 3-दिन की रोलओवर रणनीति और सूचियों के लिए शुक्रवार को 3-दिन की रोलओवर रणनीति लागू करती है। त्रि-स्वैप व्याख्या: यह एक उद्योग मानक है और यह वित्तीय उपकरणों के T+2 निपटान तिथि के कारण है, जो सप्ताहांत के दौरान इंटरबैंक मार्केट द्वारा लगाए गए चार्जों को कवर करने के लिए है। कृपया स्वैप मानों के बारे में अधिक जानकारी के लिए हमारी वेबसाइट देखें। <br /> स्वैप मान कंपनी के निष्पादन स्थलों से प्राप्त किए जाते हैं।',
+						id: 'adalah biaya yang dikenakan untuk semua posisi yang dibuka semalaman pada akhir sesi perdagangan harian (22:00 GMT dan 21:00 GMT selama DST) dan dapat dikenakan kredit atau debit tergantung pada pasar yang berlaku. Perusahaan menerapkan strategi rollover 3 hari pada hari Rabu untuk semua posisi yang dibuka pada FX, Energi, dan Logam, strategi rollover 3 hari pada hari Kamis untuk semua posisi yang dibuka pada Kripto, dan strategi rollover 3 hari pada hari Jumat untuk indeks. Penjelasan Swap Tripel: Ini adalah standar industri dan disebabkan oleh tanggal penyelesaian T+2 dari instrumen keuangan untuk menutupi biaya yang dikeluarkan oleh pasar antar bank selama akhir pekan. Silakan merujuk ke situs web kami untuk informasi lebih lanjut tentang nilai swap. <br /> Nilai swap diterima dari Tempat Eksekusi Perusahaan.',
+						ms: 'ialah yuran yang dikenakan untuk semua kedudukan yang dibuka semalaman pada akhir sesi perdagangan harian (22:00GMT dan 21:00GMT semasa DST) dan mungkin tertakluk kepada kredit atau debit bergantung kepada pasaran semasa. Syarikat ini menerapkan strategi rollover 3 hari pada hari Rabu untuk semua kedudukan yang dibuka pada FX, Tenaga dan Logam, strategi rollover 3 hari pada hari Khamis untuk semua kedudukan yang dibuka pada Kripto dan strategi rollover 3 hari pada hari Jumaat untuk indeks. Penjelasan Swap Tiga Kali: Ini adalah piawaian industri dan disebabkan oleh tarikh penyelesaian T+2 instrumen kewangan untuk menampung caj yang dikenakan oleh pasaran antara bank pada hujung minggu. Sila rujuk laman web kami untuk maklumat lanjut tentang nilai swap. <br /> Nilai swap diterima daripada Venue Pelaksanaan Syarikat.',
+						th: 'คือค่าธรรมเนียมที่เรียกเก็บสำหรับตำแหน่งทั้งหมดที่ถืออยู่เปิดตลอดคืนที่สิ้นสุดการซื้อขายประจำวัน (22:00 GMT และ 21:00 GMT ในช่วงเวลาทำการตามฤดูกาล) และอาจอยู่ภายใต้เครดิตหรือหักตามสภาพตลาดที่มีอยู่ บริษัทจะใช้กลยุทธ์การ rollover 3 วันในวันพุธสำหรับตำแหน่งทั้งหมดที่ถืออยู่เปิดใน FX, พลังงานและโลหะกลยุทธ์การ rollover 3 วันในวันพฤหัสบดีสำหรับตำแหน่งทั้งหมดที่ถืออยู่เปิดในคริปโตและกลยุทธ์การ rollover 3 วันในวันศุกร์สำหรับดัชนี คำอธิบาย Swap Dreble: นี่เป็นมาตรฐานอุตสาหกรรมและเกิดจากวันที่ตั้งถิ่นฐาน T+2 ของเครื่องมือทางการเงินเพื่อชดเชยค่าใช้จ่ายที่เกิดขึ้นจากตลาดระหว่างธนาคารในช่วงสุดสัปดาห์ โปรดดูเว็บไซต์ของเราเพื่อข้อมูลเพิ่มเติมเกี่ยวกับมูลค่าการแลกเปลี่ยน <br /> มูลค่าการแลกเปลี่ยนได้รับจากสถานที่ดำเนินการของบริษัท',
+						vi: 'là phí được tính cho tất cả các vị trí giữ mở qua đêm vào cuối phiên giao dịch hàng ngày (22:00 GMT và 21:00 GMT trong giờ DST) và có thể bị tính phí tín dụng hoặc ghi nợ tùy thuộc vào thị trường hiện hành. Công ty áp dụng chiến lược rollover 3 ngày vào thứ Tư cho tất cả các vị trí giữ mở trên FX, Năng lượng và Kim loại, chiến lược rollover 3 ngày vào thứ Năm cho tất cả các vị trí giữ mở trên Crypto và chiến lược rollover 3 ngày vào thứ Sáu cho các chỉ số. Giải thích Swap Ba lần: Đây là tiêu chuẩn của ngành và là do ngày thanh toán T+2 của các công cụ tài chính để trang trải các khoản phí phát sinh bởi thị trường ngân hàng liên ngân hàng trong suốt cuối tuần. Vui lòng tham khảo trang web của chúng tôi để biết thêm thông tin về giá trị hoán đổi. <br /> Giá trị hoán đổi được nhận từ các Địa điểm Thực hiện của Công ty.',
+						bn: 'রাতারাতি খোলা রাখা সমস্ত অবস্থানের জন্য চার্জ করা হয় (22:00GMT এবং DST সময়ে 21:00GMT) এবং প্রযোজ্য বাজারের উপর নির্ভর করে ক্রেডিট বা ডেবিটের সম্মুখীন হতে পারে। কোম্পানি FX, এনার্জি এবং মেটালসের ওপরে খোলা রাখা সমস্ত অবস্থানের জন্য বুধবার 3 দিনের রোলওভার কৌশল প্রয়োগ করে, ক্রিপ্টোতে খোলা রাখা সমস্ত অবস্থানের জন্য বৃহস্পতিবার 3 দিনের রোলওভার কৌশল এবং সূচকের জন্য শুক্রবার 3 দিনের রোলওভার কৌশল প্রয়োগ করে। ট্রিপল সোয়াপ ব্যাখ্যা: এটি একটি শিল্প মান এবং এটি T+2 ন্যস্তের কারণে এবং সপ্তাহান্তে আন্তঃব্যাংক বাজার দ্বারা সৃষ্ট চার্জগুলি কভার করার জন্য। সোয়াপ মানগুলির জন্য আরও তথ্যের জন্য অনুগ্রহ করে আমাদের ওয়েবসাইটটি দেখুন। <br /> সোয়াপ মানগুলি কোম্পানির কার্যকর স্থানগুলি থেকে প্রাপ্ত হয়।',
+						'zh-hans':
+							'是针对所有在每日交易时段结束时持有过夜头寸收取的费用（22:00GMT和夏令时期间的21:00GMT），并可能根据当前市场情况而进行信贷或借记。公司在周三对所有持有的外汇、能源和贵金属头寸应用三天的隔夜利息策略，在周四对所有持有的加密货币头寸应用三天的隔夜利息策略，在周五对指数应用三天的隔夜利息策略。三重掉期解释：这是行业标准，并且是由于金融工具的T+2结算日期，以覆盖周末间银行间市场产生的费用。有关掉期价值的更多信息，请参阅我们的网站。<br /> 掉期价值来自公司的执行场所。',
+						'pt-br':
+							'é a taxa cobrada por todas as posições mantidas abertas durante a noite no final da sessão de negociação diária (22:00 GMT e 21:00 GMT durante o horário de verão) e pode estar sujeita a crédito ou débito dependendo do mercado prevalecente. A empresa aplica uma estratégia de rollover de 3 dias na quarta-feira para todas as posições mantidas abertas em FX, Energias e Metais, uma estratégia de rollover de 3 dias na quinta-feira para todas as posições mantidas abertas em Cripto e uma estratégia de rollover de 3 dias na sexta-feira para índices. Explicação do Swap Triplo: Este é um padrão da indústria e deve-se à data de liquidação T+2 dos instrumentos financeiros para cobrir as taxas incorridas pelo mercado interbancário durante o fim de semana. Consulte nosso site para mais informações sobre os valores do swap. <br /> Os valores do swap são recebidos dos locais de execução da empresa.'
+					})
+				}
 			</p>
 			<h2
 				class="mb-5 block text-2xl font-bold capitalize text-gray-800 dark:text-white sm:text-2xl md:text-3xl lg:text-3xl"
 			>
-				Calculation Methology
+				{
+					t({
+						en: 'Calculation Methodology',
+						ar: 'منهجية الحساب',
+						es: 'Metodología de Cálculo',
+						fr: 'Méthodologie de Calcul',
+						hi: 'गणना पद्धति',
+						id: 'Metodologi Perhitungan',
+						ms: 'Metodologi Pengiraan',
+						th: 'ระเบียบวิธีการคำนวณ',
+						vi: 'Phương pháp Tính toán',
+						bn: 'গণনা পদ্ধতি',
+						'zh-hans': '计算方法论',
+						'pt-br': 'Metodologia de Cálculo'
+					})
+				}
 			</h2>
 			<ul class="text-color mb-6 list-disc space-y-3 pl-8">
-				<li>Spread= (Bid Price – Ask Price) × Volume × Contract Size</li>
-				<li>Commission= Commission (Per Lot) × Volume</li>
-				<li>Swap Fee= Swap Long/short Points × Volume × Contract Size × Point Size* × Days</li>
-				<li>*The point size depends on the decimal digits of each CFD Instrument.</li>
-				<li>Point Size for 5 decimal digits = 0.00001</li>
-				<li>Point Size for 3 decimal digits = 0.001</li>
-				<li>Point Size for 2 decimal digits = 0.01</li>
-				<li>Point Size for 1 decimal digits = 0.1</li>
-				<li>Convesrion fee= market exchange rate + fee</li>
+				<li>
+					{
+						t({
+							en: 'Spread = (Bid Price – Ask Price) × Volume × Contract Size',
+							ar: 'الفرق = (سعر العرض - سعر الطلب) × الحجم × حجم العقد',
+							es: 'Spread = (Precio de Oferta - Precio de Demanda) × Volumen × Tamaño del Contrato',
+							fr: "Spread = (Prix d'Achat - Prix de Vente) × Volume × Taille du Contrat",
+							hi: 'स्प्रेड = (बिड़ मूल्य - पूछ मूल्य) × मात्रा × अनुबंध का आकार',
+							id: 'Spread = (Harga Bid - Harga Ask) × Volume × Ukuran Kontrak',
+							ms: 'Spread = (Harga Tawaran - Harga Permintaan) × Jumlah × Saiz Kontrak',
+							th: 'สเปรด = (ราคาเสนอซื้อ - ราคาเสนอขาย) × ปริมาณ × ขนาดสัญญา',
+							vi: 'Spread = (Giá đặt mua - Giá đặt bán) × Khối lượng × Kích thước hợp đồng',
+							bn: 'স্প্রেড = (বিড মূল্য - অ্যাস্ক মূল্য) × পরিমাণ × চুক্তির আকার',
+							'zh-hans': '点差 = (买入价 - 卖出价) × 交易量 × 合同大小',
+							'pt-br': 'Spread = (Preço de Compra - Preço de Venda) × Volume × Tamanho do Contrato'
+						})
+					}
+				</li>
+				<li>
+					{
+						t({
+							en: 'Commission = Commission (Per Lot) × Volume',
+							ar: 'العمولة = العمولة (لكل لوت) × الحجم',
+							es: 'Comisión = Comisión (Por Lote) × Volumen',
+							fr: 'Commission = Commission (Par Lot) × Volume',
+							hi: 'कमीशन = कमीशन (प्रति लॉट) × मात्रा',
+							id: 'Komisi = Komisi (Per Lot) × Volume',
+							ms: 'Komisen = Komisen (Setiap Lot) × Jumlah',
+							th: 'ค่าคอมมิชชั่น = ค่าคอมมิชชั่น (ต่อล็อต) × ปริมาณ',
+							vi: 'Hoa hồng = Hoa hồng (Mỗi Lô) × Khối lượng',
+							bn: 'কমিশন = কমিশন (প্রতি লট) × পরিমাণ',
+							'zh-hans': '佣金 = 佣金（每手）× 交易量',
+							'pt-br': 'Comissão = Comissão (Por Lote) × Volume'
+						})
+					}
+				</li>
+				<li>
+					{
+						t({
+							en: 'Swap Fee = Swap Long/Short Points × Volume × Contract Size × Point Size* × Days',
+							ar: 'رسوم التبادل = نقاط التبادل الطويلة / القصيرة × الحجم × حجم العقد × حجم النقطة * × الأيام',
+							es: 'Tarifa de Swap = Puntos de Swap Largo/Corto × Volumen × Tamaño del Contrato × Tamaño del Punto * × Días',
+							fr: 'Frais de Swap = Points de Swap Long/Court × Volume × Taille du Contrat × Taille du Point * × Jours',
+							hi: 'स्वैप शुल्क = स्वैप लंबा/छोटा अंक × मात्रा × अनुबंध आकार × अंक आकार * × दिन',
+							id: 'Biaya Swap = Poin Swap Long/Short × Volume × Ukuran Kontrak × Ukuran Poin * × Hari',
+							ms: 'Yuran Swap = Poin Swap Panjang/Pendek × Jumlah × Saiz Kontrak × Saiz Poin * × Hari',
+							th: 'ค่าธรรมเนียมสวอป = จุดสวอปยาว/สั้น × ปริมาณ × ขนาดสัญญา × ขนาดจุด * × วัน',
+							vi: 'Phí Swap = Điểm Swap Dài/Ngắn × Khối lượng × Kích thước Hợp đồng × Kích thước Điểm * × Ngày',
+							bn: 'সোয়াপ ফি = সোয়াপ লং/শর্ট পয়েন্ট × ভলিউম × চুক্তির আকার × পয়েন্ট সাইজ * × দিন',
+							'zh-hans': '掉期费 = 长/短掉期点 × 交易量 × 合同大小 × 点大小 * × 天数',
+							'pt-br':
+								'Taxa de Swap = Pontos de Swap Longo/Curto × Volume × Tamanho do Contrato × Tamanho do Ponto * × Dias'
+						})
+					}
+				</li>
+				<li>
+					{
+						t({
+							en: '*The point size depends on the decimal digits of each CFD Instrument.',
+							ar: '*حجم النقطة يعتمد على الأرقام العشرية لكل أداة CFD.',
+							es: '*El tamaño del punto depende de los dígitos decimales de cada instrumento CFD.',
+							fr: '*La taille du point dépend des chiffres décimaux de chaque instrument CFD.',
+							hi: '*पॉइंट का आकार प्रत्येक CFD उपकरण के दशमलव अंकों पर निर्भर करता है।',
+							id: '*Ukuran poin tergantung pada digit desimal dari setiap Instrumen CFD.',
+							ms: '*Saiz poin bergantung kepada digit perpuluhan setiap Instrumen CFD.',
+							th: '*ขนาดจุดขึ้นอยู่กับจำนวนจุดทศนิยมของแต่ละเครื่องมือ CFD.',
+							vi: '*Kích thước điểm phụ thuộc vào chữ số thập phân của từng công cụ CFD.',
+							bn: '*পয়েন্টের আকার প্রতিটি CFD যন্ত্রের দশমিক সংখ্যা উপর নির্ভর করে।',
+							'zh-hans': '*点的大小取决于每个 CFD 工具的小数位数。',
+							'pt-br': '*O tamanho do ponto depende dos dígitos decimais de cada instrumento CFD.'
+						})
+					}
+				</li>
+				<li>
+					{
+						t({
+							en: 'Point Size for 5 decimal digits = 0.00001',
+							ar: 'حجم النقطة لخمسة أرقام عشرية = 0.00001',
+							es: 'Tamaño del punto para 5 dígitos decimales = 0.00001',
+							fr: 'Taille du point pour 5 chiffres décimaux = 0.00001',
+							hi: '5 दशमलव अंकों के लिए पॉइंट का आकार = 0.00001',
+							id: 'Ukuran poin untuk 5 digit desimal = 0.00001',
+							ms: 'Saiz poin untuk 5 digit perpuluhan = 0.00001',
+							th: 'ขนาดจุดสำหรับ 5 ตำแหน่งทศนิยม = 0.00001',
+							vi: 'Kích thước điểm cho 5 chữ số thập phân = 0.00001',
+							bn: '5টি দশমিক অঙ্কের জন্য পয়েন্টের আকার = 0.00001',
+							'zh-hans': '5个小数位的点大小 = 0.00001',
+							'pt-br': 'Tamanho do ponto para 5 dígitos decimais = 0.00001'
+						})
+					}
+				</li>
+				<li>
+					{
+						t({
+							en: 'Point Size for 3 decimal digits = 0.001',
+							ar: 'حجم النقطة لثلاثة أرقام عشرية = 0.001',
+							es: 'Tamaño del punto para 3 dígitos decimales = 0.001',
+							fr: 'Taille du point pour 3 chiffres décimaux = 0.001',
+							hi: '3 दशमलव अंकों के लिए पॉइंट का आकार = 0.001',
+							id: 'Ukuran poin untuk 3 digit desimal = 0.001',
+							ms: 'Saiz poin untuk 3 digit perpuluhan = 0.001',
+							th: 'ขนาดจุดสำหรับ 3 ตำแหน่งทศนิยม = 0.001',
+							vi: 'Kích thước điểm cho 3 chữ số thập phân = 0.001',
+							bn: '3টি দশমিক অঙ্কের জন্য পয়েন্টের আকার = 0.001',
+							'zh-hans': '3个小数位的点大小 = 0.001',
+							'pt-br': 'Tamanho do ponto para 3 dígitos decimais = 0.001'
+						})
+					}
+				</li>
+				<li>
+					{
+						t({
+							en: 'Point Size for 2 decimal digits = 0.01',
+							ar: 'حجم النقطة لرقمين عشريين = 0.01',
+							es: 'Tamaño del punto para 2 dígitos decimales = 0.01',
+							fr: 'Taille du point pour 2 chiffres décimaux = 0.01',
+							hi: '2 दशमलव अंकों के लिए पॉइंट का आकार = 0.01',
+							id: 'Ukuran poin untuk 2 digit desimal = 0.01',
+							ms: 'Saiz poin untuk 2 digit perpuluhan = 0.01',
+							th: 'ขนาดจุดสำหรับ 2 ตำแหน่งทศนิยม = 0.01',
+							vi: 'Kích thước điểm cho 2 chữ số thập phân = 0.01',
+							bn: '2টি দশমিক অঙ্কের জন্য পয়েন্টের আকার = 0.01',
+							'zh-hans': '2个小数位的点大小 = 0.01',
+							'pt-br': 'Tamanho do ponto para 2 dígitos decimais = 0.01'
+						})
+					}
+				</li>
+				<li>
+					{
+						t({
+							en: 'Point Size for 1 decimal digits = 0.1',
+							ar: 'حجم النقطة لرقم عشري واحد = 0.1',
+							es: 'Tamaño del punto para 1 dígito decimal = 0.1',
+							fr: 'Taille du point pour 1 chiffre décimal = 0.1',
+							hi: '1 दशमलव अंक के लिए पॉइंट का आकार = 0.1',
+							id: 'Ukuran poin untuk 1 digit desimal = 0.1',
+							ms: 'Saiz poin untuk 1 digit perpuluhan = 0.1',
+							th: 'ขนาดจุดสำหรับ 1 ตำแหน่งทศนิยม = 0.1',
+							vi: 'Kích thước điểm cho 1 chữ số thập phân = 0.1',
+							bn: '1টি দশমিক অঙ্কের জন্য পয়েন্টের আকার = 0.1',
+							'zh-hans': '1个小数位的点大小 = 0.1',
+							'pt-br': 'Tamanho do ponto para 1 dígito decimal = 0.1'
+						})
+					}
+				</li>
+				<li>
+					{
+						t({
+							en: 'Conversion fee = market exchange rate + fee',
+							ar: 'رسوم التحويل = سعر الصرف في السوق + الرسوم',
+							es: 'Tarifa de conversión = tipo de cambio del mercado + tarifa',
+							fr: 'Frais de conversion = taux de change du marché + frais',
+							hi: 'परिवर्तन शुल्क = बाजार विनिमय दर + शुल्क',
+							id: 'Biaya konversi = kurs pasar + biaya',
+							ms: 'Yuran penukaran = kadar pertukaran pasaran + yuran',
+							th: 'ค่าธรรมเนียมการแปลง = อัตราแลกเปลี่ยนตลาด + ค่าธรรมเนียม',
+							vi: 'Phí chuyển đổi = tỷ giá thị trường + phí',
+							bn: 'রূপান্তর ফি = বাজারের বিনিময় হার + ফি',
+							'zh-hans': '转换费 = 市场汇率 + 费用',
+							'pt-br': 'Taxa de conversão = taxa de câmbio do mercado + taxa'
+						})
+					}
+				</li>
 			</ul>
 			<p class="text-color mb-6">
-				The spread is the actual cost to those who open an account to trade with Forex. Who usually
-				invests in the stock market operates by opening a trading account with a broker and deposit
-				their funds into it, leaving it to the broker the various movements. The broker then
-				provides a service and acts investor faith, asking to be compensated for any transaction
-				with the “spread”, the difference between the price BID and ASK price on the currency pair
-				that is traded. The broker adds the spread within the trade price and keeps for himself by
-				covering the costs of management and obtaining a revenue.
+				{
+					t({
+						en: 'The spread is the actual cost to those who open an account to trade with Forex. Who usually invests in the stock market operates by opening a trading account with a broker and deposit their funds into it, leaving it to the broker the various movements. The broker then provides a service and acts investor faith, asking to be compensated for any transaction with the “spread”, the difference between the price BID and ASK price on the currency pair that is traded. The broker adds the spread within the trade price and keeps for himself by covering the costs of management and obtaining a revenue.',
+						ar: 'الفارق هو التكلفة الفعلية لأولئك الذين يفتحون حسابًا للتداول في الفوركس. من يستثمر عادة في سوق الأسهم يعمل من خلال فتح حساب تداول مع وسيط وإيداع أمواله فيه، تاركًا للوسيط التحركات المختلفة. بعد ذلك يقدم الوسيط خدمة ويعمل بإيمان المستثمر، ويطلب تعويضه عن أي معاملة من خلال "الفارق"، وهو الفرق بين سعر BID وسعر ASK على زوج العملات الذي يتم تداوله. يضيف الوسيط الفارق داخل سعر الصفقة ويحتفظ به لنفسه من خلال تغطية تكاليف الإدارة والحصول على إيرادات.',
+						es: 'El spread es el costo real para aquellos que abren una cuenta para operar con Forex. Quien normalmente invierte en el mercado de valores opera abriendo una cuenta de trading con un bróker y depositando sus fondos en ella, dejando al bróker los diversos movimientos. El bróker entonces proporciona un servicio y actúa en nombre del inversor, pidiendo ser compensado por cualquier transacción con el “spread”, la diferencia entre el precio BID y el precio ASK en el par de divisas que se negocia. El bróker añade el spread dentro del precio de la operación y lo mantiene para sí mismo cubriendo los costos de gestión y obteniendo un ingreso.',
+						fr: 'Le spread est le coût réel pour ceux qui ouvrent un compte pour trader avec le Forex. Ceux qui investissent habituellement dans le marché boursier fonctionnent en ouvrant un compte de trading auprès d\'un courtier et en y déposant leurs fonds, laissant au courtier les différents mouvements. Le courtier fournit alors un service et agit au nom de l\'investisseur, demandant à être compensé pour toute transaction par le "spread", la différence entre le prix BID et le prix ASK sur la paire de devises qui est échangée. Le courtier ajoute le spread dans le prix de la transaction et le garde pour lui-même en couvrant les coûts de gestion et en obtenant des revenus.',
+						hi: 'स्प्रेड उन लोगों के लिए वास्तविक लागत है जो विदेशी मुद्रा के साथ व्यापार करने के लिए खाता खोलते हैं। जो आमतौर पर स्टॉक मार्केट में निवेश करते हैं, वे एक ब्रोकर के साथ एक ट्रेडिंग खाता खोलकर और उसमें अपने फंड जमा करके काम करते हैं, ब्रोकर को विभिन्न आंदोलनों के लिए छोड़ देते हैं। फिर ब्रोकर एक सेवा प्रदान करता है और निवेशक के विश्वास के रूप में कार्य करता है, किसी भी लेनदेन के लिए "स्प्रेड" के साथ मुआवजा मांगा जाता है, जो ट्रेड किए गए मुद्रा जोड़ी पर BID और ASK मूल्य के बीच का अंतर है। ब्रोकर स्प्रेड को ट्रेड मूल्य में जोड़ता है और प्रबंधन के खर्चों को कवर करने और आय प्राप्त करने के लिए अपने पास रखता है।',
+						id: 'Spread adalah biaya aktual bagi mereka yang membuka akun untuk berdagang dengan Forex. Siapa pun yang biasanya berinvestasi di pasar saham beroperasi dengan membuka akun perdagangan dengan broker dan menyetorkan dana mereka ke dalamnya, menyerahkan berbagai pergerakan kepada broker. Broker kemudian menyediakan layanan dan bertindak atas nama investor, meminta untuk dibayar untuk setiap transaksi dengan "spread", perbedaan antara harga BID dan harga ASK pada pasangan mata uang yang diperdagangkan. Broker menambahkan spread ke dalam harga perdagangan dan menyimpannya untuk dirinya sendiri dengan menutupi biaya manajemen dan mendapatkan pendapatan.',
+						ms: 'Spread adalah kos sebenar bagi mereka yang membuka akaun untuk berdagang dengan Forex. Siapa yang biasanya melabur di pasaran saham beroperasi dengan membuka akaun dagangan dengan broker dan menyimpan dana mereka di dalamnya, meninggalkan pergerakan yang berbeza kepada broker. Broker kemudian menyediakan perkhidmatan dan bertindak atas nama pelabur, meminta untuk dibayar bagi mana-mana transaksi dengan "spread", perbezaan antara harga BID dan harga ASK pada pasangan mata wang yang diperdagangkan. Broker menambah spread dalam harga dagangan dan menyimpannya untuk dirinya sendiri dengan menampung kos pengurusan dan memperoleh pendapatan.',
+						th: 'สเปรดคือค่าใช้จ่ายจริงสำหรับผู้ที่เปิดบัญชีเพื่อซื้อขายกับฟอเร็กซ์ ผู้ที่มักจะลงทุนในตลาดหุ้นดำเนินการโดยการเปิดบัญชีซื้อขายกับโบรกเกอร์และฝากเงินเข้าไป โดยทิ้งให้โบรกเกอร์จัดการการเคลื่อนไหวต่างๆ จากนั้นโบรกเกอร์จะให้บริการและทำหน้าที่แทนผู้ลงทุน โดยขอค่าตอบแทนสำหรับการทำธุรกรรมใด ๆ ด้วย "สเปรด" ซึ่งเป็นความแตกต่างระหว่างราคาซื้อ (BID) และราคาขาย (ASK) ในคู่สกุลเงินที่ซื้อขาย โบรกเกอร์จะเพิ่มสเปรดในราคาซื้อขายและเก็บไว้สำหรับตนเองโดยการชดเชยค่าใช้จ่ายในการจัดการและรับรายได้',
+						vi: 'Spread là chi phí thực tế cho những người mở tài khoản để giao dịch với Forex. Những ai thường đầu tư vào thị trường chứng khoán hoạt động bằng cách mở tài khoản giao dịch với một nhà môi giới và gửi tiền của họ vào đó, để nhà môi giới quản lý các biến động khác nhau. Sau đó, nhà môi giới cung cấp dịch vụ và hành động thay mặt cho nhà đầu tư, yêu cầu được bồi thường cho bất kỳ giao dịch nào bằng "spread", là sự khác biệt giữa giá BID và giá ASK trên cặp tiền tệ được giao dịch. Nhà môi giới thêm spread vào giá giao dịch và giữ cho mình bằng cách trang trải chi phí quản lý và thu được doanh thu.',
+						bn: 'স্প্রেড হল ফরেক্সের সাথে ব্যবসা করার জন্য একটি অ্যাকাউন্ট খুলতে যাওয়া লোকেদের জন্য প্রকৃত খরচ। যিনি সাধারণত স্টক মার্কেটে বিনিয়োগ করেন, তিনি একটি ব্রোকারের সাথে একটি ট্রেডিং অ্যাকাউন্ট খুলে এবং তাতে তাদের তহবিল জমা রেখে বিভিন্ন আন্দোলনগুলিতে ব্রোকারকে ছেড়ে দেন। তারপর ব্রোকার একটি পরিষেবা প্রদান করে এবং বিনিয়োগকারীর বিশ্বাসের ভিত্তিতে কাজ করে, "স্প্রেড" দ্বারা যে কোনও লেনদেনে ক্ষতিপূরণ দেওয়ার জন্য জিজ্ঞাসা করে, যা ট্রেড করা মুদ্রা জোড়ার BID এবং ASK মূল্যের মধ্যে পার্থক্য। ব্রোকার স্প্রেডটি ট্রেড মূল্যের মধ্যে যোগ করে এবং পরিচালনার খরচ পূরণ করে এবং আয় অর্জন করে নিজে জন্য রাখে।',
+						'zh-hans':
+							'点差是那些开设外汇交易账户的实际成本。通常投资于股市的人通过开设经纪商的交易账户并将资金存入其中来运作，将各种波动留给经纪商。经纪商随后提供服务，并以投资者的名义进行操作，要求以“点差”作为任何交易的补偿，即所交易货币对的买入价（BID）和卖出价（ASK）之间的差额。经纪商在交易价格中加上点差，并通过覆盖管理成本和获取收入来保留给自己。',
+						'pt-br':
+							'O spread é o custo real para aqueles que abrem uma conta para negociar com Forex. Quem normalmente investe no mercado de ações opera abrindo uma conta de negociação com um corretor e depositando seus fundos nela, deixando para o corretor os diversos movimentos. O corretor então fornece um serviço e atua em nome do investidor, pedindo para ser compensado por qualquer transação com o “spread”, a diferença entre o preço BID e o preço ASK no par de moedas que está sendo negociado. O corretor adiciona o spread ao preço da negociação e o mantém para si, cobrindo os custos de gerenciamento e obtendo uma receita.'
+					})
+				}
 			</p>
 			<p class="text-color mb-6">
-				The spreads may also vary depending on the type of account that is opened and are different
-				between the various products.
+				{
+					t({
+						en: 'The spreads may also vary depending on the type of account that is opened and are different between the various products.',
+						ar: 'يمكن أن تختلف الفروق أيضًا اعتمادًا على نوع الحساب الذي تم فتحه وتختلف بين المنتجات المختلفة.',
+						es: 'Los spreads también pueden variar según el tipo de cuenta que se abra y son diferentes entre los diversos productos.',
+						fr: 'Les spreads peuvent également varier en fonction du type de compte ouvert et diffèrent entre les différents produits.',
+						hi: 'स्प्रेड उस प्रकार के खाते के आधार पर भी भिन्न हो सकते हैं जो खोला गया है और विभिन्न उत्पादों के बीच भिन्न होते हैं।',
+						id: 'Spread juga dapat bervariasi tergantung pada jenis akun yang dibuka dan berbeda antara berbagai produk.',
+						ms: 'Spread juga mungkin berbeza bergantung kepada jenis akaun yang dibuka dan berbeza antara pelbagai produk.',
+						th: 'สเปรดอาจแตกต่างกันไปขึ้นอยู่กับประเภทบัญชีที่เปิดและแตกต่างกันระหว่างผลิตภัณฑ์ต่างๆ',
+						vi: 'Spread cũng có thể thay đổi tùy thuộc vào loại tài khoản được mở và khác nhau giữa các sản phẩm khác nhau.',
+						bn: 'স্প্রেডও খোলা একাউন্টের ধরণের উপর নির্ভর করে পরিবর্তিত হতে পারে এবং বিভিন্ন পণ্যগুলির মধ্যে ভিন্ন হয়।',
+						'zh-hans': '点差也可能会根据所开账户的类型而有所不同，并且在各种产品之间也有所不同。',
+						'pt-br':
+							'Os spreads também podem variar dependendo do tipo de conta que é aberta e são diferentes entre os diversos produtos.'
+					})
+				}
 			</p>
 			<p class="text-color mb-6">
-				A Standard account will have higher spreads than a Professional account because it is
-				assumed that an account of a professional trader makes several changes on the market (or use
-				the scalping technique) compared to an account of a novice trader.
+				{
+					t({
+						en: 'A Standard account will have higher spreads than a Professional account because it is assumed that an account of a professional trader makes several changes on the market (or uses the scalping technique) compared to an account of a novice trader.',
+						ar: 'سيكون لدى الحساب القياسي فروق أسعار أعلى من الحساب المحترف لأنه يُفترض أن حساب المتداول المحترف يُجري عدة تغييرات في السوق (أو يستخدم تقنية السكالبينغ) مقارنة بحساب المتداول المبتدئ.',
+						es: 'Una cuenta estándar tendrá spreads más altos que una cuenta profesional porque se supone que una cuenta de un trader profesional realiza varios cambios en el mercado (o utiliza la técnica de scalping) en comparación con una cuenta de un trader novato.',
+						fr: "Un compte standard aura des spreads plus élevés qu'un compte professionnel car on suppose qu'un compte de trader professionnel effectue plusieurs changements sur le marché (ou utilise la technique de scalping) par rapport à un compte de trader novice.",
+						hi: 'एक मानक खाता एक पेशेवर खाते की तुलना में उच्च स्प्रेड होगा क्योंकि यह माना जाता है कि एक पेशेवर व्यापारी का खाता बाजार में कई परिवर्तन करता है (या स्कैल्पिंग तकनीक का उपयोग करता है) जबकि एक नौसिखिया व्यापारी का खाता।',
+						id: 'Akun Standar akan memiliki spread yang lebih tinggi dibandingkan akun Profesional karena diasumsikan bahwa akun trader profesional melakukan beberapa perubahan di pasar (atau menggunakan teknik scalping) dibandingkan dengan akun trader pemula.',
+						ms: 'Akaun Standard akan mempunyai spread yang lebih tinggi daripada akaun Profesional kerana ia diandaikan bahawa akaun peniaga profesional membuat beberapa perubahan di pasaran (atau menggunakan teknik scalping) berbanding dengan akaun peniaga pemula.',
+						th: 'บัญชีมาตรฐานจะมีสเปรดสูงกว่าบัญชีมืออาชีพเพราะถือว่าบัญชีของนักเทรดมืออาชีพทำการเปลี่ยนแปลงหลายอย่างในตลาด (หรือต้องใช้เทคนิคการเทรดแบบสเกลป์ปิ้ง) เมื่อเปรียบเทียบกับบัญชีของนักเทรดมือใหม่',
+						vi: 'Tài khoản Standard sẽ có spread cao hơn tài khoản Professional vì có giả định rằng một tài khoản của một nhà giao dịch chuyên nghiệp thực hiện nhiều thay đổi trên thị trường (hoặc sử dụng kỹ thuật scalping) so với một tài khoản của nhà giao dịch mới.',
+						bn: 'একটি স্ট্যান্ডার্ড অ্যাকাউন্টের স্প্রেড পেশাদার অ্যাকাউন্টের চেয়ে বেশি হবে কারণ এটি ধরা হয় যে একজন পেশাদার ট্রেডারের অ্যাকাউন্ট বাজারে বেশ কয়েকটি পরিবর্তন করে (অথবা স্কাল্পিং কৌশল ব্যবহার করে) একটি নবাগত ট্রেডারের অ্যাকাউন্টের তুলনায়।',
+						'zh-hans':
+							'标准账户的点差将高于专业账户，因为假设专业交易者的账户在市场上进行多次变动（或使用剥头皮技术），而初学者交易者的账户则相对较少。',
+						'pt-br':
+							'Uma conta Standard terá spreads mais altos do que uma conta Profissional, pois se presume que uma conta de um trader profissional faz várias mudanças no mercado (ou utiliza a técnica de scalping) em comparação com uma conta de um trader novato.'
+					})
+				}
 			</p>
 
 			<div class="flex-wrap gap-6 md:flex">
@@ -120,17 +449,64 @@ export const getStaticPaths = () =>
 											<th
 												scope="col"
 												class="px-6 py-3 text-start text-xs font-medium uppercase text-dbgreen-500"
-												>STANDARD</th
+											>
+												{
+													t({
+														en: 'STANDARD',
+														ar: 'قياسي',
+														es: 'ESTÁNDAR',
+														fr: 'STANDARD',
+														hi: 'मानक',
+														id: 'STANDAR',
+														ms: 'STANDARD',
+														th: 'มาตรฐาน',
+														vi: 'TIÊU CHUẨN',
+														bn: 'মানক',
+														'zh-hans': '标准',
+														'pt-br': 'PADRÃO'
+													})
+												}</th
 											>
 											<th
 												scope="col"
 												class="px-6 py-3 text-start text-xs font-medium uppercase text-dbgreen-500"
-												>PRO</th
 											>
+												{
+													t({
+														en: 'PRO',
+														ar: 'محترف',
+														es: 'PRO',
+														fr: 'PRO',
+														hi: 'प्रो',
+														id: 'PRO',
+														ms: 'PRO',
+														th: 'มืออาชีพ',
+														vi: 'CHUYÊN NGHIỆP',
+														bn: 'প্রো',
+														'zh-hans': '专业',
+														'pt-br': 'PRO'
+													})
+												}
+											</th>
 											<th
 												scope="col"
 												class="px-6 py-3 text-end text-xs font-medium uppercase text-dbgreen-500"
-												>ECN</th
+												>{
+													t({
+														en: 'ECN',
+														ar: 'ECN',
+														es: 'ECN',
+														fr: 'ECN',
+														hi: 'ईसीएन',
+														id: 'ECN',
+														ms: 'ECN',
+														th: 'ECN',
+														vi: 'ECN',
+														bn: 'ইসিএন',
+														'zh-hans': 'ECN',
+														'pt-br': 'ECN'
+													})
+												}</th
 											>
 										</tr>
 									</thead>
@@ -138,7 +514,22 @@ export const getStaticPaths = () =>
 										<tr>
 											<td
 												class="whitespace-nowrap px-6 py-4 text-sm font-medium text-gray-800 dark:text-neutral-200"
-												>Forex</td
+												>{
+													t({
+														en: 'Forex',
+														ar: 'فوركس',
+														es: 'Forex',
+														fr: 'Forex',
+														hi: 'फॉरेक्स',
+														id: 'Forex',
+														ms: 'Forex',
+														th: 'ฟอเร็กซ์',
+														vi: 'Forex',
+														bn: 'ফরেক্স',
+														'zh-hans': '外汇',
+														'pt-br': 'Forex'
+													})
+												}</td
 											>
 											<td
 												class="whitespace-nowrap px-6 py-4 text-sm text-gray-800 dark:text-neutral-200"
@@ -155,7 +546,22 @@ export const getStaticPaths = () =>
 										<tr>
 											<td
 												class="whitespace-nowrap px-6 py-4 text-sm font-medium text-gray-800 dark:text-neutral-200"
-												>Metals</td
+												>{
+													t({
+														en: 'Metals',
+														ar: 'المعادن',
+														es: 'Metales',
+														fr: 'Métaux',
+														hi: 'धातु',
+														id: 'Logam',
+														ms: 'Logam',
+														th: 'โลหะ',
+														vi: 'Kim loại',
+														bn: 'মেটাল',
+														'zh-hans': '金属',
+														'pt-br': 'Metais'
+													})
+												}</td
 											>
 											<td
 												class="whitespace-nowrap px-6 py-4 text-sm text-gray-800 dark:text-neutral-200"
@@ -172,7 +578,22 @@ export const getStaticPaths = () =>
 										<tr>
 											<td
 												class="whitespace-nowrap px-6 py-4 text-sm font-medium text-gray-800 dark:text-neutral-200"
-												>Indices</td
+												>{
+													t({
+														en: 'Indices',
+														ar: 'المؤشرات',
+														es: 'Índices',
+														fr: 'Indices',
+														hi: 'सूचकांक',
+														id: 'Indeks',
+														ms: 'Indeks',
+														th: 'ดัชนี',
+														vi: 'Chỉ số',
+														bn: 'সূচক',
+														'zh-hans': '指数',
+														'pt-br': 'Índices'
+													})
+												}</td
 											>
 											<td
 												class="whitespace-nowrap px-6 py-4 text-sm text-gray-800 dark:text-neutral-200"
@@ -189,7 +610,22 @@ export const getStaticPaths = () =>
 										<tr>
 											<td
 												class="whitespace-nowrap px-6 py-4 text-sm font-medium text-gray-800 dark:text-neutral-200"
-												>Commodities</td
+												>{
+													t({
+														en: 'Commodities',
+														ar: 'سلع',
+														es: 'Materias primas',
+														fr: 'Matières premières',
+														hi: 'कमोडिटीज़',
+														id: 'Komoditas',
+														ms: 'Komoditi',
+														th: 'สินค้าโภคภัณฑ์',
+														vi: 'Hàng hóa',
+														bn: 'পণ্য',
+														'zh-hans': '商品',
+														'pt-br': 'Commodities'
+													})
+												}</td
 											>
 											<td
 												class="whitespace-nowrap px-6 py-4 text-sm text-gray-800 dark:text-neutral-200"
@@ -206,7 +642,22 @@ export const getStaticPaths = () =>
 										<tr>
 											<td
 												class="whitespace-nowrap px-6 py-4 text-sm font-medium text-gray-800 dark:text-neutral-200"
-												>Stocks</td
+												>{
+													t({
+														en: 'Stocks',
+														ar: 'أسهم',
+														es: 'Acciones',
+														fr: 'Actions',
+														hi: 'शेयर',
+														id: 'Saham',
+														ms: 'Saham',
+														th: 'หุ้น',
+														vi: 'Cổ phiếu',
+														bn: 'স্টক',
+														'zh-hans': '股票',
+														'pt-br': 'Ações'
+													})
+												}</td
 											>
 											<td
 												class="whitespace-nowrap px-6 py-4 text-sm text-gray-800 dark:text-neutral-200"
@@ -223,7 +674,22 @@ export const getStaticPaths = () =>
 										<tr>
 											<td
 												class="whitespace-nowrap px-6 py-4 text-sm font-medium text-gray-800 dark:text-neutral-200"
-												>Cryptocurrencies</td
+												>{
+													t({
+														en: 'Cryptocurrencies',
+														ar: 'عملات مشفرة',
+														es: 'Criptomonedas',
+														fr: 'Cryptomonnaies',
+														hi: 'क्रिप्टोकरेन्सी',
+														id: 'Cryptocurrency',
+														ms: 'Cryptocurrency',
+														th: 'สกุลเงินดิจิทัล',
+														vi: 'Tiền điện tử',
+														bn: 'ক্রিপ্টোকারেন্সি',
+														'zh-hans': '加密货币',
+														'pt-br': 'Criptomoedas'
+													})
+												}</td
 											>
 											<td
 												class="whitespace-nowrap px-6 py-4 text-sm text-gray-800 dark:text-neutral-200"
@@ -257,69 +723,267 @@ export const getStaticPaths = () =>
 											<th
 												scope="col"
 												class="px-6 py-3 text-start text-xs font-medium uppercase text-dbgreen-500"
-												>Rollover Fee</th
 											>
+												{
+													t({
+														en: 'Rollover Fee',
+														ar: 'رسوم التمديد',
+														es: 'Tarifa de Rollover',
+														fr: 'Frais de Rollover',
+														hi: 'रोलओवर शुल्क',
+														id: 'Biaya Rollover',
+														ms: 'Yuran Rollover',
+														th: 'ค่าธรรมเนียมการต่ออายุ',
+														vi: 'Phí Rollover',
+														bn: 'রোলওভার ফি',
+														'zh-hans': '滚存费用',
+														'pt-br': 'Taxa de Rollover'
+													})
+												}
+											</th>
 										</tr>
 									</thead>
 									<tbody class="divide-y divide-gray-200 dark:divide-neutral-700">
 										<tr>
 											<td
 												class="whitespace-nowrap px-6 py-4 text-sm font-medium text-gray-800 dark:text-neutral-200"
-												>Forex</td
+												>{
+													t({
+														en: 'Forex',
+														ar: 'فوركس',
+														es: 'Forex',
+														fr: 'Forex',
+														hi: 'फॉरेक्स',
+														id: 'Forex',
+														ms: 'Forex',
+														th: 'ฟอเร็กซ์',
+														vi: 'Forex',
+														bn: 'ফরেক্স',
+														'zh-hans': '外汇',
+														'pt-br': 'Forex'
+													})
+												}</td
 											>
 											<td
 												class="whitespace-nowrap px-6 py-4 text-sm text-gray-800 dark:text-neutral-200"
-												>0.017% of the overnight exposure</td
+											>
+												{
+													t({
+														en: '0.017% of the overnight exposure',
+														ar: '0.017٪ من التعرض لليلة واحدة',
+														es: '0.017% de la exposición nocturna',
+														fr: "0,017 % de l'exposition nocturne",
+														hi: 'रात भर के एक्सपोजर का 0.017%',
+														id: '0,017% dari paparan semalam',
+														ms: '0.017% daripada pendedahan semalaman',
+														th: '0.017% ของการเปิดรับข้ามคืน',
+														vi: '0,017% của sự phơi bày qua đêm',
+														bn: 'রাতারাতি এক্সপোজারের 0.017%',
+														'zh-hans': '隔夜风险的0.017%',
+														'pt-br': '0,017% da exposição overnight'
+													})
+												}
+											</td>
+										</tr>
+										<tr>
+											<td
+												class="whitespace-nowrap px-6 py-4 text-sm font-medium text-gray-800 dark:text-neutral-200"
+												>{
+													t({
+														en: 'Metals',
+														ar: 'المعادن',
+														es: 'Metales',
+														fr: 'Métaux',
+														hi: 'धातु',
+														id: 'Logam',
+														ms: 'Logam',
+														th: 'โลหะ',
+														vi: 'Kim loại',
+														bn: 'মেটাল',
+														'zh-hans': '金属',
+														'pt-br': 'Metais'
+													})
+												}</td
+											>
+											<td
+												class="whitespace-nowrap px-6 py-4 text-sm text-gray-800 dark:text-neutral-200"
+											>
+												{
+													t({
+														en: '0.017% of the overnight exposure',
+														ar: '0.017٪ من التعرض لليلة واحدة',
+														es: '0.017% de la exposición nocturna',
+														fr: "0,017 % de l'exposition nocturne",
+														hi: 'रात भर के एक्सपोजर का 0.017%',
+														id: '0,017% dari paparan semalam',
+														ms: '0.017% daripada pendedahan semalaman',
+														th: '0.017% ของการเปิดรับข้ามคืน',
+														vi: '0,017% của sự phơi bày qua đêm',
+														bn: 'রাতারাতি এক্সপোজারের 0.017%',
+														'zh-hans': '隔夜风险的0.017%',
+														'pt-br': '0,017% da exposição overnight'
+													})
+												}
+											</td>
+										</tr>
+										<tr>
+											<td
+												class="whitespace-nowrap px-6 py-4 text-sm font-medium text-gray-800 dark:text-neutral-200"
+												>{
+													t({
+														en: 'Indices',
+														ar: 'المؤشرات',
+														es: 'Índices',
+														fr: 'Indices',
+														hi: 'सूचकांक',
+														id: 'Indeks',
+														ms: 'Indeks',
+														th: 'ดัชนี',
+														vi: 'Chỉ số',
+														bn: 'সূচক',
+														'zh-hans': '指数',
+														'pt-br': 'Índices'
+													})
+												}</td
+											>
+											<td
+												class="whitespace-nowrap px-6 py-4 text-sm text-gray-800 dark:text-neutral-200"
+												>{
+													t({
+														en: '0.017% of the overnight exposure',
+														ar: '0.017٪ من التعرض لليلة واحدة',
+														es: '0.017% de la exposición nocturna',
+														fr: "0,017 % de l'exposition nocturne",
+														hi: 'रात भर के एक्सपोजर का 0.017%',
+														id: '0,017% dari paparan semalam',
+														ms: '0.017% daripada pendedahan semalaman',
+														th: '0.017% ของการเปิดรับข้ามคืน',
+														vi: '0,017% của sự phơi bày qua đêm',
+														bn: 'রাতারাতি এক্সপোজারের 0.017%',
+														'zh-hans': '隔夜风险的0.017%',
+														'pt-br': '0,017% da exposição overnight'
+													})
+												}</td
 											>
 										</tr>
 										<tr>
 											<td
 												class="whitespace-nowrap px-6 py-4 text-sm font-medium text-gray-800 dark:text-neutral-200"
-												>Metals</td
+												>{
+													t({
+														en: 'Commodities',
+														ar: 'سلع',
+														es: 'Materias primas',
+														fr: 'Matières premières',
+														hi: 'कमोडिटीज़',
+														id: 'Komoditas',
+														ms: 'Komoditi',
+														th: 'สินค้าโภคภัณฑ์',
+														vi: 'Hàng hóa',
+														bn: 'পণ্য',
+														'zh-hans': '商品',
+														'pt-br': 'Commodities'
+													})
+												}</td
 											>
 											<td
 												class="whitespace-nowrap px-6 py-4 text-sm text-gray-800 dark:text-neutral-200"
-												>0.017% of the overnight exposure</td
+												>{
+													t({
+														en: '0.017% of the overnight exposure',
+														ar: '0.017٪ من التعرض لليلة واحدة',
+														es: '0.017% de la exposición nocturna',
+														fr: "0,017 % de l'exposition nocturne",
+														hi: 'रात भर के एक्सपोजर का 0.017%',
+														id: '0,017% dari paparan semalam',
+														ms: '0.017% daripada pendedahan semalaman',
+														th: '0.017% ของการเปิดรับข้ามคืน',
+														vi: '0,017% của sự phơi bày qua đêm',
+														bn: 'রাতারাতি এক্সপোজারের 0.017%',
+														'zh-hans': '隔夜风险的0.017%',
+														'pt-br': '0,017% da exposição overnight'
+													})
+												}</td
 											>
 										</tr>
 										<tr>
 											<td
 												class="whitespace-nowrap px-6 py-4 text-sm font-medium text-gray-800 dark:text-neutral-200"
-												>Indices</td
+												>{
+													t({
+														en: 'Stocks',
+														ar: 'أسهم',
+														es: 'Acciones',
+														fr: 'Actions',
+														hi: 'शेयर',
+														id: 'Saham',
+														ms: 'Saham',
+														th: 'หุ้น',
+														vi: 'Cổ phiếu',
+														bn: 'স্টক',
+														'zh-hans': '股票',
+														'pt-br': 'Ações'
+													})
+												}</td
 											>
 											<td
 												class="whitespace-nowrap px-6 py-4 text-sm text-gray-800 dark:text-neutral-200"
-												>0.017% of the overnight exposure</td
+												>{
+													t({
+														en: '0.017% of the overnight exposure',
+														ar: '0.017٪ من التعرض لليلة واحدة',
+														es: '0.017% de la exposición nocturna',
+														fr: "0,017 % de l'exposition nocturne",
+														hi: 'रात भर के एक्सपोजर का 0.017%',
+														id: '0,017% dari paparan semalam',
+														ms: '0.017% daripada pendedahan semalaman',
+														th: '0.017% ของการเปิดรับข้ามคืน',
+														vi: '0,017% của sự phơi bày qua đêm',
+														bn: 'রাতারাতি এক্সপোজারের 0.017%',
+														'zh-hans': '隔夜风险的0.017%',
+														'pt-br': '0,017% da exposição overnight'
+													})
+												}</td
 											>
 										</tr>
 										<tr>
 											<td
 												class="whitespace-nowrap px-6 py-4 text-sm font-medium text-gray-800 dark:text-neutral-200"
-												>Commodities</td
+												>{
+													t({
+														en: 'Cryptocurrencies',
+														ar: 'عملات مشفرة',
+														es: 'Criptomonedas',
+														fr: 'Cryptomonnaies',
+														hi: 'क्रिप्टोकरेन्सी',
+														id: 'Cryptocurrency',
+														ms: 'Cryptocurrency',
+														th: 'สกุลเงินดิจิทัล',
+														vi: 'Tiền điện tử',
+														bn: 'ক্রিপ্টোকারেন্সি',
+														'zh-hans': '加密货币',
+														'pt-br': 'Criptomoedas'
+													})
+												}</td
 											>
 											<td
 												class="whitespace-nowrap px-6 py-4 text-sm text-gray-800 dark:text-neutral-200"
-												>0.017% of the overnight exposure</td
-											>
-										</tr>
-										<tr>
-											<td
-												class="whitespace-nowrap px-6 py-4 text-sm font-medium text-gray-800 dark:text-neutral-200"
-												>Stocks</td
-											>
-											<td
-												class="whitespace-nowrap px-6 py-4 text-sm text-gray-800 dark:text-neutral-200"
-												>0.017% of the overnight exposure</td
-											>
-										</tr>
-										<tr>
-											<td
-												class="whitespace-nowrap px-6 py-4 text-sm font-medium text-gray-800 dark:text-neutral-200"
-												>Cryptocurrencies</td
-											>
-											<td
-												class="whitespace-nowrap px-6 py-4 text-sm text-gray-800 dark:text-neutral-200"
-												>0.017% of the overnight exposure</td
+												>{
+													t({
+														en: '0.017% of the overnight exposure',
+														ar: '0.017٪ من التعرض لليلة واحدة',
+														es: '0.017% de la exposición nocturna',
+														fr: "0,017 % de l'exposition nocturne",
+														hi: 'रात भर के एक्सपोजर का 0.017%',
+														id: '0,017% dari paparan semalam',
+														ms: '0.017% daripada pendedahan semalaman',
+														th: '0.017% ของการเปิดรับข้ามคืน',
+														vi: '0,017% của sự phơi bày qua đêm',
+														bn: 'রাতারাতি এক্সপোজারের 0.017%',
+														'zh-hans': '隔夜风险的0.017%',
+														'pt-br': '0,017% da exposição overnight'
+													})
+												}</td
 											>
 										</tr>
 									</tbody>
@@ -342,20 +1006,66 @@ export const getStaticPaths = () =>
 											<th
 												scope="col"
 												class="px-6 py-3 text-start text-xs font-medium uppercase text-dbgreen-500"
-												>ISLAMIC</th
+												>{
+													t({
+														en: 'ISLAMIC',
+														ar: 'إسلامي',
+														es: 'ISLÁMICO',
+														fr: 'ISLAMIQUE',
+														hi: 'इस्लामी',
+														id: 'ISLAM',
+														ms: 'ISLAMIK',
+														th: 'อิสลาม',
+														vi: 'Hồi giáo',
+														bn: 'ইসলামী',
+														'zh-hans': '伊斯兰教',
+														'pt-br': 'ISLÂMICO'
+													})
+												}</th
 											>
 											<th
 												scope="col"
 												class="px-6 py-3 text-start text-xs font-medium uppercase text-dbgreen-500"
-												>ISLAMIC VIP</th
 											>
+												{
+													t({
+														en: 'ISLAMIC VIP',
+														ar: 'إسلامي VIP',
+														es: 'ISLÁMICO VIP',
+														fr: 'ISLAMIQUE VIP',
+														hi: 'इस्लामी VIP',
+														id: 'ISLAMIK VIP',
+														ms: 'ISLAMIK VIP',
+														th: 'อิสลาม VIP',
+														vi: 'Hồi giáo VIP',
+														bn: 'ইসলামী VIP',
+														'zh-hans': '伊斯兰 VIP',
+														'pt-br': 'ISLÂMICO VIP'
+													})
+												}
+											</th>
 										</tr>
 									</thead>
 									<tbody class="divide-y divide-gray-200 dark:divide-neutral-700">
 										<tr>
 											<td
 												class="whitespace-nowrap px-6 py-4 text-sm font-medium text-gray-800 dark:text-neutral-200"
-												>Forex</td
+												>{
+													t({
+														en: 'Forex',
+														ar: 'فوركس',
+														es: 'Forex',
+														fr: 'Forex',
+														hi: 'फॉरेक्स',
+														id: 'Forex',
+														ms: 'Forex',
+														th: 'ฟอเร็กซ์',
+														vi: 'Forex',
+														bn: 'ফরেক্স',
+														'zh-hans': '外汇',
+														'pt-br': 'Forex'
+													})
+												}</td
 											>
 											<td
 												class="whitespace-nowrap px-6 py-4 text-sm text-gray-800 dark:text-neutral-200"
@@ -371,7 +1081,22 @@ export const getStaticPaths = () =>
 										<tr>
 											<td
 												class="whitespace-nowrap px-6 py-4 text-sm font-medium text-gray-800 dark:text-neutral-200"
-												>Metals</td
+												>{
+													t({
+														en: 'Metals',
+														ar: 'المعادن',
+														es: 'Metales',
+														fr: 'Métaux',
+														hi: 'धातु',
+														id: 'Logam',
+														ms: 'Logam',
+														th: 'โลหะ',
+														vi: 'Kim loại',
+														bn: 'মেটাল',
+														'zh-hans': '金属',
+														'pt-br': 'Metais'
+													})
+												}</td
 											>
 											<td
 												class="whitespace-nowrap px-6 py-4 text-sm text-gray-800 dark:text-neutral-200"
@@ -387,7 +1112,22 @@ export const getStaticPaths = () =>
 										<tr>
 											<td
 												class="whitespace-nowrap px-6 py-4 text-sm font-medium text-gray-800 dark:text-neutral-200"
-												>Indices</td
+												>{
+													t({
+														en: 'Indices',
+														ar: 'المؤشرات',
+														es: 'Índices',
+														fr: 'Indices',
+														hi: 'सूचकांक',
+														id: 'Indeks',
+														ms: 'Indeks',
+														th: 'ดัชนี',
+														vi: 'Chỉ số',
+														bn: 'সূচক',
+														'zh-hans': '指数',
+														'pt-br': 'Índices'
+													})
+												}</td
 											>
 											<td
 												class="whitespace-nowrap px-6 py-4 text-sm text-gray-800 dark:text-neutral-200"
@@ -403,7 +1143,22 @@ export const getStaticPaths = () =>
 										<tr>
 											<td
 												class="whitespace-nowrap px-6 py-4 text-sm font-medium text-gray-800 dark:text-neutral-200"
-												>Commodities</td
+												>{
+													t({
+														en: 'Commodities',
+														ar: 'سلع',
+														es: 'Materias primas',
+														fr: 'Matières premières',
+														hi: 'कमोडिटीज़',
+														id: 'Komoditas',
+														ms: 'Komoditi',
+														th: 'สินค้าโภคภัณฑ์',
+														vi: 'Hàng hóa',
+														bn: 'পণ্য',
+														'zh-hans': '商品',
+														'pt-br': 'Commodities'
+													})
+												}</td
 											>
 											<td
 												class="whitespace-nowrap px-6 py-4 text-sm text-gray-800 dark:text-neutral-200"
@@ -419,7 +1174,22 @@ export const getStaticPaths = () =>
 										<tr>
 											<td
 												class="whitespace-nowrap px-6 py-4 text-sm font-medium text-gray-800 dark:text-neutral-200"
-												>Stocks</td
+												>{
+													t({
+														en: 'Stocks',
+														ar: 'أسهم',
+														es: 'Acciones',
+														fr: 'Actions',
+														hi: 'शेयर',
+														id: 'Saham',
+														ms: 'Saham',
+														th: 'หุ้น',
+														vi: 'Cổ phiếu',
+														bn: 'স্টক',
+														'zh-hans': '股票',
+														'pt-br': 'Ações'
+													})
+												}</td
 											>
 											<td
 												class="whitespace-nowrap px-6 py-4 text-sm text-gray-800 dark:text-neutral-200"
@@ -435,7 +1205,22 @@ export const getStaticPaths = () =>
 										<tr>
 											<td
 												class="whitespace-nowrap px-6 py-4 text-sm font-medium text-gray-800 dark:text-neutral-200"
-												>Cryptocurrencies</td
+												>{
+													t({
+														en: 'Cryptocurrencies',
+														ar: 'عملات مشفرة',
+														es: 'Criptomonedas',
+														fr: 'Cryptomonnaies',
+														hi: 'क्रिप्टोकरेन्सी',
+														id: 'Cryptocurrency',
+														ms: 'Cryptocurrency',
+														th: 'สกุลเงินดิจิทัล',
+														vi: 'Tiền điện tử',
+														bn: 'ক্রিপ্টোকারেন্সি',
+														'zh-hans': '加密货币',
+														'pt-br': 'Criptomoedas'
+													})
+												}</td
 											>
 											<td
 												class="whitespace-nowrap px-6 py-4 text-sm text-gray-800 dark:text-neutral-200"
@@ -468,7 +1253,22 @@ export const getStaticPaths = () =>
 											<th
 												scope="col"
 												class="px-6 py-3 text-start text-xs font-medium uppercase text-dbgreen-500"
-												>Rollover Fee</th
+												>{
+													t({
+														en: 'Rollover Fee',
+														ar: 'رسوم التمديد',
+														es: 'Tarifa de Rollover',
+														fr: 'Frais de Rollover',
+														hi: 'रोलओवर शुल्क',
+														id: 'Biaya Rollover',
+														ms: 'Yuran Rollover',
+														th: 'ค่าธรรมเนียมการต่ออายุ',
+														vi: 'Phí Rollover',
+														bn: 'রোলওভার ফি',
+														'zh-hans': '滚存费用',
+														'pt-br': 'Taxa de Rollover'
+													})
+												}</th
 											>
 										</tr>
 									</thead>
@@ -476,61 +1276,247 @@ export const getStaticPaths = () =>
 										<tr>
 											<td
 												class="whitespace-nowrap px-6 py-4 text-sm font-medium text-gray-800 dark:text-neutral-200"
-												>Forex</td
+												>{
+													t({
+														en: 'Forex',
+														ar: 'فوركس',
+														es: 'Forex',
+														fr: 'Forex',
+														hi: 'फॉरेक्स',
+														id: 'Forex',
+														ms: 'Forex',
+														th: 'ฟอเร็กซ์',
+														vi: 'Forex',
+														bn: 'ফরেক্স',
+														'zh-hans': '外汇',
+														'pt-br': 'Forex'
+													})
+												}</td
 											>
 											<td
 												class="whitespace-nowrap px-6 py-4 text-sm text-gray-800 dark:text-neutral-200"
-												>0.0% of the overnight exposure</td
+											>
+												{
+													t({
+														en: '0.0% of the overnight exposure',
+														ar: '0.0٪ من التعرض لليلة واحدة',
+														es: '0.0% de la exposición nocturna',
+														fr: "0,0 % de l'exposition nocturne",
+														hi: 'रातोंरात एक्सपोजर का 0.0%',
+														id: '0.0% dari eksposur semalam',
+														ms: '0.0% daripada pendedahan semalaman',
+														th: '0.0% ของการเปิดเผยข้ามคืน',
+														vi: '0,0% của mức độ tiếp xúc qua đêm',
+														bn: 'রাতের এক্সপোজারের 0.0%',
+														'zh-hans': '夜间风险的 0.0%',
+														'pt-br': '0,0% da exposição noturna'
+													})
+												}</td
 											>
 										</tr>
 										<tr>
 											<td
 												class="whitespace-nowrap px-6 py-4 text-sm font-medium text-gray-800 dark:text-neutral-200"
-												>Metals</td
+												>{
+													t({
+														en: 'Metals',
+														ar: 'المعادن',
+														es: 'Metales',
+														fr: 'Métaux',
+														hi: 'धातु',
+														id: 'Logam',
+														ms: 'Logam',
+														th: 'โลหะ',
+														vi: 'Kim loại',
+														bn: 'মেটাল',
+														'zh-hans': '金属',
+														'pt-br': 'Metais'
+													})
+												}</td
 											>
 											<td
 												class="whitespace-nowrap px-6 py-4 text-sm text-gray-800 dark:text-neutral-200"
-												>0.0% of the overnight exposure</td
+											>
+												{
+													t({
+														en: '0.0% of the overnight exposure',
+														ar: '0.0٪ من التعرض لليلة واحدة',
+														es: '0.0% de la exposición nocturna',
+														fr: "0,0 % de l'exposition nocturne",
+														hi: 'रातोंरात एक्सपोजर का 0.0%',
+														id: '0.0% dari eksposur semalam',
+														ms: '0.0% daripada pendedahan semalaman',
+														th: '0.0% ของการเปิดเผยข้ามคืน',
+														vi: '0,0% của mức độ tiếp xúc qua đêm',
+														bn: 'রাতের এক্সপোজারের 0.0%',
+														'zh-hans': '夜间风险的 0.0%',
+														'pt-br': '0,0% da exposição noturna'
+													})
+												}</td
 											>
 										</tr>
 										<tr>
 											<td
 												class="whitespace-nowrap px-6 py-4 text-sm font-medium text-gray-800 dark:text-neutral-200"
-												>Indices</td
+												>{
+													t({
+														en: 'Indices',
+														ar: 'المؤشرات',
+														es: 'Índices',
+														fr: 'Indices',
+														hi: 'सूचकांक',
+														id: 'Indeks',
+														ms: 'Indeks',
+														th: 'ดัชนี',
+														vi: 'Chỉ số',
+														bn: 'সূচক',
+														'zh-hans': '指数',
+														'pt-br': 'Índices'
+													})
+												}</td
 											>
 											<td
 												class="whitespace-nowrap px-6 py-4 text-sm text-gray-800 dark:text-neutral-200"
-												>0.0% of the overnight exposure</td
+											>
+												{
+													t({
+														en: '0.0% of the overnight exposure',
+														ar: '0.0٪ من التعرض لليلة واحدة',
+														es: '0.0% de la exposición nocturna',
+														fr: "0,0 % de l'exposition nocturne",
+														hi: 'रातोंरात एक्सपोजर का 0.0%',
+														id: '0.0% dari eksposur semalam',
+														ms: '0.0% daripada pendedahan semalaman',
+														th: '0.0% ของการเปิดเผยข้ามคืน',
+														vi: '0,0% của mức độ tiếp xúc qua đêm',
+														bn: 'রাতের এক্সপোজারের 0.0%',
+														'zh-hans': '夜间风险的 0.0%',
+														'pt-br': '0,0% da exposição noturna'
+													})
+												}</td
 											>
 										</tr>
 										<tr>
 											<td
 												class="whitespace-nowrap px-6 py-4 text-sm font-medium text-gray-800 dark:text-neutral-200"
-												>Commodities</td
+												>{
+													t({
+														en: 'Commodities',
+														ar: 'سلع',
+														es: 'Materias primas',
+														fr: 'Matières premières',
+														hi: 'कमोडिटीज़',
+														id: 'Komoditas',
+														ms: 'Komoditi',
+														th: 'สินค้าโภคภัณฑ์',
+														vi: 'Hàng hóa',
+														bn: 'পণ্য',
+														'zh-hans': '商品',
+														'pt-br': 'Commodities'
+													})
+												}</td
 											>
 											<td
 												class="whitespace-nowrap px-6 py-4 text-sm text-gray-800 dark:text-neutral-200"
-												>0.0% of the overnight exposure</td
+											>
+												{
+													t({
+														en: '0.0% of the overnight exposure',
+														ar: '0.0٪ من التعرض لليلة واحدة',
+														es: '0.0% de la exposición nocturna',
+														fr: "0,0 % de l'exposition nocturne",
+														hi: 'रातोंरात एक्सपोजर का 0.0%',
+														id: '0.0% dari eksposur semalam',
+														ms: '0.0% daripada pendedahan semalaman',
+														th: '0.0% ของการเปิดเผยข้ามคืน',
+														vi: '0,0% của mức độ tiếp xúc qua đêm',
+														bn: 'রাতের এক্সপোজারের 0.0%',
+														'zh-hans': '夜间风险的 0.0%',
+														'pt-br': '0,0% da exposição noturna'
+													})
+												}</td
 											>
 										</tr>
 										<tr>
 											<td
 												class="whitespace-nowrap px-6 py-4 text-sm font-medium text-gray-800 dark:text-neutral-200"
-												>Stocks</td
+												>{
+													t({
+														en: 'Stocks',
+														ar: 'أسهم',
+														es: 'Acciones',
+														fr: 'Actions',
+														hi: 'शेयर',
+														id: 'Saham',
+														ms: 'Saham',
+														th: 'หุ้น',
+														vi: 'Cổ phiếu',
+														bn: 'স্টক',
+														'zh-hans': '股票',
+														'pt-br': 'Ações'
+													})
+												}</td
 											>
 											<td
 												class="whitespace-nowrap px-6 py-4 text-sm text-gray-800 dark:text-neutral-200"
-												>0.0% of the overnight exposure</td
+											>
+												{
+													t({
+														en: '0.0% of the overnight exposure',
+														ar: '0.0٪ من التعرض لليلة واحدة',
+														es: '0.0% de la exposición nocturna',
+														fr: "0,0 % de l'exposition nocturne",
+														hi: 'रातोंरात एक्सपोजर का 0.0%',
+														id: '0.0% dari eksposur semalam',
+														ms: '0.0% daripada pendedahan semalaman',
+														th: '0.0% ของการเปิดเผยข้ามคืน',
+														vi: '0,0% của mức độ tiếp xúc qua đêm',
+														bn: 'রাতের এক্সপোজারের 0.0%',
+														'zh-hans': '夜间风险的 0.0%',
+														'pt-br': '0,0% da exposição noturna'
+													})
+												}</td
 											>
 										</tr>
 										<tr>
 											<td
 												class="whitespace-nowrap px-6 py-4 text-sm font-medium text-gray-800 dark:text-neutral-200"
-												>Cryptocurrencies</td
+												>{
+													t({
+														en: 'Cryptocurrencies',
+														ar: 'عملات مشفرة',
+														es: 'Criptomonedas',
+														fr: 'Cryptomonnaies',
+														hi: 'क्रिप्टोकरेन्सी',
+														id: 'Cryptocurrency',
+														ms: 'Cryptocurrency',
+														th: 'สกุลเงินดิจิทัล',
+														vi: 'Tiền điện tử',
+														bn: 'ক্রিপ্টোকারেন্সি',
+														'zh-hans': '加密货币',
+														'pt-br': 'Criptomoedas'
+													})
+												}</td
 											>
 											<td
 												class="whitespace-nowrap px-6 py-4 text-sm text-gray-800 dark:text-neutral-200"
-												>0.0% of the overnight exposure</td
+											>
+												{
+													t({
+														en: '0.0% of the overnight exposure',
+														ar: '0.0٪ من التعرض لليلة واحدة',
+														es: '0.0% de la exposición nocturna',
+														fr: "0,0 % de l'exposition nocturne",
+														hi: 'रातोंरात एक्सपोजर का 0.0%',
+														id: '0.0% dari eksposur semalam',
+														ms: '0.0% daripada pendedahan semalaman',
+														th: '0.0% ของการเปิดเผยข้ามคืน',
+														vi: '0,0% của mức độ tiếp xúc qua đêm',
+														bn: 'রাতের এক্সপোজারের 0.0%',
+														'zh-hans': '夜间风险的 0.0%',
+														'pt-br': '0,0% da exposição noturna'
+													})
+												}</td
 											>
 										</tr>
 									</tbody>

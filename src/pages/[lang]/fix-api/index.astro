@@ -1,6 +1,7 @@
 ---
-import { LOCALES } from '@/i18n'
+import { LOCALES, useTranslations, type Lang } from '@/i18n'
 import Layout from '@/layouts/Layout.astro'
+const t = useTranslations(Astro.currentLocale as Lang)
 import { Icon } from 'astro-icon/components'
 import FIXAPIImg from '@/images/fix-api-one.jpg'
 import { Image } from 'astro:assets'
@@ -14,25 +15,88 @@ export const getStaticPaths = () =>
 <Layout title="FIX API ">
 	<section>
 		<div
-			class="relative z-20 w-full overflow-hidden bg-gray-100 py-3 before:absolute before:start-1/2 before:top-0 before:-z-[1] before:size-full before:-translate-x-1/2 before:transform before:bg-[url('/src/images/world_bg.png')] before:bg-center before:bg-no-repeat before:opacity-45 before:hue-rotate-60 dark:bg-black dark:before:bg-[url('/src/images/world_bg.png')]"
+			class="relative z-20 w-full overflow-hidden bg-gray-100 py-3 before:absolute before:top-0 before:-z-[1] before:size-full before:transform before:bg-[url('/src/images/world_bg.png')] before:bg-center before:bg-no-repeat before:opacity-45 before:hue-rotate-60 dark:bg-black dark:before:bg-[url('/src/images/world_bg.png')]"
 		>
 			<div class="container flex flex-col items-center justify-between gap-6 py-10 sm:flex-row">
-				<div class="md:max-w-[70%] w-full">
+				<div class="w-full md:max-w-[70%]">
 					<h1
-						class="block  text-4xl font-bold text-gray-800 dark:text-neutral-200 sm:text-left md:text-4xl lg:text-5xl"
+						class="block text-4xl font-bold text-gray-800 dark:text-neutral-200 md:text-4xl lg:text-5xl"
 					>
-						<strong class="text-green-500">FIX-API STP A-Book </strong> <br> 4.4 New Service
-					</h1>
-					<p class="mt-3 mb-3 text-lg text-gray-800 dark:text-neutral-400">
-						<strong>Global communication exchange</strong>
+						<strong class="text-green-500">FIX-API STP A-Book </strong>
 						<br />
-						Unlock Direct Trading Power with FIX API - Your Gateway to Seamless Financial Connectivity!
+						{
+							t({
+								en: '4.4 New Service',
+								ar: '4.4 خدمة جديدة',
+								es: '4.4 Nuevo Servicio',
+								fr: '4.4 Nouveau Service',
+								hi: '4.4 नई सेवा',
+								id: '4.4 Layanan Baru',
+								ms: '4.4 Perkhidmatan Baru',
+								th: '4.4 บริการใหม่',
+								vi: '4.4 Dịch Vụ Mới',
+								bn: '4.4 নতুন সেবা',
+								'zh-hans': '4.4 新服务',
+								'pt-br': '4.4 Novo Serviço'
+							})
+						}
+					</h1>
+					<p class="mb-3 mt-3 text-lg text-gray-800 dark:text-neutral-400">
+						<strong
+							>{
+								t({
+									en: 'Global communication exchange',
+									ar: 'تبادل الاتصالات العالمية',
+									es: 'Intercambio de comunicación global',
+									fr: 'Échange de communication mondiale',
+									hi: 'वैश्विक संचार विनिमय',
+									id: 'Pertukaran komunikasi global',
+									ms: 'Pertukaran komunikasi global',
+									th: 'การแลกเปลี่ยนการสื่อสารระดับโลก',
+									vi: 'Trao đổi thông tin toàn cầu',
+									bn: 'গ্লোবাল যোগাযোগ বিনিময়',
+									'zh-hans': '全球通信交换',
+									'pt-br': 'Troca de comunicação global'
+								})
+							}</strong
+						>
+						<br />
+						{
+							t({
+								en: 'Unlock Direct Trading Power with FIX API - Your Gateway to Seamless Financial Connectivity!',
+								ar: 'افتح قوة التداول المباشر مع FIX API - بوابتك إلى الاتصال المالي السلس!',
+								es: '¡Desbloquea el poder de trading directo con FIX API - Tu puerta de entrada a una conectividad financiera sin interrupciones!',
+								fr: 'Débloquez le pouvoir de trading direct avec FIX API - Votre passerelle vers une connectivité financière sans faille!',
+								hi: 'FIX API के साथ डायरेक्ट ट्रेडिंग पावर अनलॉक करें - आपकी निर्बाध वित्तीय कनेक्टिविटी का गेटवे!',
+								id: 'Buka Kekuatan Perdagangan Langsung dengan FIX API - Gerbang Anda untuk Konektivitas Keuangan yang Mulus!',
+								ms: 'Buka Kuasa Perdagangan Langsung dengan FIX API - Pintu Masuk Anda ke Konektiviti Kewangan Tanpa Hala!',
+								th: 'ปลดล็อกพลังการซื้อขายโดยตรงด้วย FIX API - ประตูสู่การเชื่อมต่อทางการเงินที่ราบรื่น!',
+								vi: 'Mở khóa sức mạnh giao dịch trực tiếp với FIX API - Cổng kết nối tài chính liền mạch của bạn!',
+								bn: 'FIX API এর মাধ্যমে ডাইরেক্ট ট্রেডিং পাওয়ার আনলক করুন - আপনার অখণ্ড আর্থিক সংযোগের প্রবেশদ্বার!',
+								'zh-hans': '通过FIX API解锁直接交易能力 - 您通往无缝金融连接的门户！',
+								'pt-br':
+									'Desbloqueie o Poder de Negociação Direta com FIX API - Seu Portal para Conectividade Financeira Sem Costura!'
+							})
+						}
 					</p>
 					<Button
 						primary={true}
 						rippleEffect={true}
-						text='Start Investing'
-						class="rounded-full mt-5"
+						text={t({
+							en: 'Start Investing',
+							ar: 'ابدأ الاستثمار',
+							es: 'Comienza a invertir',
+							fr: 'Commencer à investir',
+							hi: 'निवेश करना शुरू करें',
+							id: 'Mulai Berinvestasi',
+							ms: 'Mulakan Melabur',
+							th: 'เริ่มลงทุน',
+							vi: 'Bắt đầu đầu tư',
+							bn: 'নिवেশ শুরু করুন',
+							'zh-hans': '开始投资',
+							'pt-br': 'Comece a investir'
+						})}
+						class="mt-5 rounded-full"
 						href="#"
 						buttonIcon={' <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" ><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2" ><path stroke-dasharray="20" stroke-dashoffset="20" d="M3 21V20C3 17.7909 4.79086 16 7 16H11C13.2091 16 15 17.7909 15 20V21" ><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.4s" values="20;0" ></animate></path><path stroke-dasharray="20" stroke-dashoffset="20" d="M9 13C7.34315 13 6 11.6569 6 10C6 8.34315 7.34315 7 9 7C10.6569 7 12 8.34315 12 10C12 11.6569 10.6569 13 9 13Z" ><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.5s" dur="0.4s" values="20;0" ></animate></path><path stroke-dasharray="8" stroke-dashoffset="8" d="M15 6H21" ><animate fill="freeze" attributeName="stroke-dashoffset" begin="1s" dur="0.2s" values="8;0" ></animate></path><path stroke-dasharray="8" stroke-dashoffset="8" d="M18 3V9" ><animate fill="freeze" attributeName="stroke-dashoffset" begin="1.2s" dur="0.2s" values="8;0" ></animate></path></g></svg>'}
 					/>
@@ -62,70 +126,193 @@ export const getStaticPaths = () =>
 			</div>
 		</div>
 		<div class="container py-10">
-			<div class="my-10 flex items-center gap-5 rounded-2xl p-4 shadow-xl sm:p-8 flex-wrap bg-neutral-200 dark:bg-neutral-700">
-				<div class="w-full md:max-w-[38%] overflow-hidden rounded-xl">
-					<Image src={FIXAPIImg} alt="fix-api-img" width="400" height="400"  class='m-auto rounded-xl'/>
+			<div
+				class="my-10 flex flex-wrap items-center gap-5 rounded-2xl bg-neutral-200 p-4 shadow-xl dark:bg-neutral-700 sm:p-8"
+			>
+				<div class="w-full overflow-hidden rounded-xl md:max-w-[38%]">
+					<Image
+						src={FIXAPIImg}
+						alt="fix-api-img"
+						width="400"
+						height="400"
+						class="m-auto rounded-xl"
+					/>
 				</div>
 				<div class="w-full md:max-w-[58%]">
 					<h1
 						class="mb-5 block text-2xl font-bold capitalize text-gray-800 dark:text-white sm:text-2xl md:text-3xl lg:text-4xl"
-					>
-						<span class="text-dbgreen-500"> FIX API</span> (Financial Information Exchange application
-						programming interface)
-					</h1>
+						set:html={t({
+							en: '<span class="text-dbgreen-500"> FIX API</span> (Financial Information Exchange application programming interface)',
+							ar: '<span class="text-dbgreen-500"> FIX API</span> (واجهة برمجة تطبيقات تبادل المعلومات المالية)',
+							es: '<span class="text-dbgreen-500"> FIX API</span> (interfaz de programación de aplicaciones de intercambio de información financiera)',
+							fr: "<span class=\"text-dbgreen-500\"> FIX API</span> (interface de programmation d'application d'échange d'informations financières)",
+							hi: '<span class="text-dbgreen-500"> FIX API</span> (वित्तीय जानकारी विनिमय अनुप्रयोग प्रोग्रामिंग इंटरफेस)',
+							id: '<span class="text-dbgreen-500"> FIX API</span> (antarmuka pemrograman aplikasi pertukaran informasi keuangan)',
+							ms: '<span class="text-dbgreen-500"> FIX API</span> (antaramuka pengaturcaraan aplikasi pertukaran maklumat kewangan)',
+							th: '<span class="text-dbgreen-500"> FIX API</span> (อินเทอร์เฟซโปรแกรมประยุกต์การแลกเปลี่ยนข้อมูลทางการเงิน)',
+							vi: '<span class="text-dbgreen-500"> FIX API</span> (giao diện lập trình ứng dụng trao đổi thông tin tài chính)',
+							bn: '<span class="text-dbgreen-500"> FIX API</span> (আর্থিক তথ্য বিনিময় অ্যাপ্লিকেশন প্রোগ্রামিং ইন্টারফেস)',
+							'zh-hans':
+								'<span class="text-dbgreen-500"> FIX API</span> (金融信息交换应用程序编程接口)',
+							'pt-br':
+								'<span class="text-dbgreen-500"> FIX API</span> (interface de programação de aplicativos de troca de informações financeiras)'
+						})}
+					/>
 					<p class="mt-3 text-lg text-gray-800 dark:text-neutral-400">
-						It is a specialized protocol catering to traders and investors seeking direct connection
-						to trading servers, bypassing intermediary platforms like MT4 or MT5. With FIX API,
-						traders enjoy the flexibility to connect to a broker using their preferred trading
-						interface while ensuring minimal latency.
+						{
+							t({
+								en: 'It is a specialized protocol catering to traders and investors seeking direct connection to trading servers, bypassing intermediary platforms like MT4 or MT5. With FIX API, traders enjoy the flexibility to connect to a broker using their preferred trading interface while ensuring minimal latency.',
+								ar: 'إنها بروتوكول متخصص يلبي احتياجات المتداولين والمستثمرين الذين يسعون للحصول على اتصال مباشر بخوادم التداول، متجاوزين المنصات الوسيطة مثل MT4 أو MT5. مع FIX API، يتمتع المتداولون بالمرونة للاتصال بوسيط باستخدام واجهة التداول المفضلة لديهم مع ضمان الحد الأدنى من التأخير.',
+								es: 'Es un protocolo especializado que atiende a traders e inversores que buscan una conexión directa con los servidores de trading, evitando plataformas intermedias como MT4 o MT5. Con FIX API, los traders disfrutan de la flexibilidad de conectarse a un bróker utilizando su interfaz de trading preferida, asegurando al mismo tiempo una latencia mínima.',
+								fr: "C'est un protocole spécialisé destiné aux traders et aux investisseurs recherchant une connexion directe aux serveurs de trading, contournant les plateformes intermédiaires comme MT4 ou MT5. Avec FIX API, les traders bénéficient de la flexibilité de se connecter à un courtier en utilisant leur interface de trading préférée tout en garantissant une latence minimale.",
+								hi: 'यह एक विशेष प्रोटोकॉल है जो व्यापारियों और निवेशकों को सीधे व्यापार सर्वरों से कनेक्शन की तलाश में है, मध्यस्थ प्लेटफार्मों जैसे MT4 या MT5 को दरकिनार करते हुए। FIX API के साथ, व्यापारी अपनी पसंद की व्यापार इंटरफेस का उपयोग करते हुए एक ब्रोकर से कनेक्ट करने की लचीलापन का आनंद लेते हैं, जबकि न्यूनतम विलंबता सुनिश्चित करते हैं।',
+								id: 'Ini adalah protokol khusus yang melayani trader dan investor yang mencari koneksi langsung ke server trading, menghindari platform perantara seperti MT4 atau MT5. Dengan FIX API, trader menikmati fleksibilitas untuk terhubung ke broker menggunakan antarmuka trading pilihan mereka sambil memastikan latensi minimal.',
+								ms: 'Ia adalah protokol khusus yang memenuhi keperluan peniaga dan pelabur yang mencari sambungan langsung ke pelayan dagangan, mengelakkan platform perantaraan seperti MT4 atau MT5. Dengan FIX API, peniaga menikmati fleksibiliti untuk menyambung ke broker menggunakan antara muka dagangan pilihan mereka sambil memastikan latensi yang minimum.',
+								th: 'มันเป็นโปรโตคอลเฉพาะที่ตอบสนองนักเทรดและนักลงทุนที่ต้องการเชื่อมต่อโดยตรงกับเซิร์ฟเวอร์การซื้อขาย โดยข้ามแพลตฟอร์มกลางเช่น MT4 หรือ MT5 ด้วย FIX API นักเทรดจะเพลิดเพลินกับความยืดหยุ่นในการเชื่อมต่อกับโบรกเกอร์โดยใช้ส่วนต่อประสานการซื้อขายที่ต้องการในขณะเดียวกันก็รับประกันความล่าช่าที่น้อยที่สุด',
+								vi: 'Đó là một giao thức chuyên biệt phục vụ cho các trader và nhà đầu tư đang tìm kiếm kết nối trực tiếp đến các máy chủ giao dịch, bỏ qua các nền tảng trung gian như MT4 hoặc MT5. Với FIX API, các trader tận hưởng sự linh hoạt để kết nối với một nhà môi giới bằng cách sử dụng giao diện giao dịch mà họ ưa thích, đồng thời đảm bảo độ trễ tối thiểu.',
+								bn: 'এটি একটি বিশেষীকৃত প্রোটোকল যা ব্যবসায়ী এবং বিনিয়োগকারীদের জন্য সরাসরি ট্রেডিং সার্ভারগুলিতে সংযোগের সন্ধানে সহায়তা করে, MT4 বা MT5-এর মতো মধ্যস্থতাকারী প্ল্যাটফর্মগুলি বাইপাস করে। FIX API-এর মাধ্যমে ব্যবসায়ীরা তাদের পছন্দের ট্রেডিং ইন্টারফেস ব্যবহার করে ব্রোকারের সাথে সংযোগ করার নমনীয়তা উপভোগ করেন, যখন সর্বনিম্ন লেটেন্সি নিশ্চিত করা হয়।',
+								'zh-hans':
+									'这是一种专门的协议，旨在满足寻求直接连接交易服务器的交易者和投资者的需求，绕过像MT4或MT5这样的中介平台。使用FIX API，交易者可以灵活地使用自己喜欢的交易界面连接到经纪商，同时确保延迟最小。',
+								'pt-br':
+									'É um protocolo especializado que atende traders e investidores em busca de conexão direta com servidores de negociação, evitando plataformas intermediárias como MT4 ou MT5. Com o FIX API, os traders desfrutam da flexibilidade de se conectar a um corretor usando sua interface de negociação preferida, garantindo ao mesmo tempo uma latência mínima.'
+							})
+						}
 					</p>
 				</div>
 			</div>
 			<div>
 				<p class="mt-3 text-lg text-gray-800 dark:text-neutral-400">
-					Ideal for traders with specific needs, FIX API is a go-to solution for advanced
-					algorithimic traders and high-frequency traders. This robust protocol empowers user to
-					tailor their trading experience, ensuring precision and efficiency. It’s your key to a
-					customized and direct trading relationship with the market.
+					{
+						t({
+							en: 'Ideal for traders with specific needs, FIX API is a go-to solution for advanced algorithmic traders and high-frequency traders. This robust protocol empowers users to tailor their trading experience, ensuring precision and efficiency. It’s your key to a customized and direct trading relationship with the market.',
+							ar: 'مثالي للمتداولين ذوي الاحتياجات المحددة، يعتبر FIX API الحل المفضل للمتداولين الخوارزميين المتقدمين والمتداولين ذوي التردد العالي. يمكّن هذا البروتوكول القوي المستخدمين من تخصيص تجربتهم في التداول، مما يضمن الدقة والكفاءة. إنه مفتاحك لعلاقة تداول مخصصة ومباشرة مع السوق.',
+							es: 'Ideal para traders con necesidades específicas, el FIX API es una solución de referencia para traders algorítmicos avanzados y traders de alta frecuencia. Este robusto protocolo permite a los usuarios personalizar su experiencia de trading, asegurando precisión y eficiencia. Es tu llave para una relación de trading personalizada y directa con el mercado.',
+							fr: "Idéal pour les traders ayant des besoins spécifiques, le FIX API est une solution incontournable pour les traders algorithmiques avancés et les traders à haute fréquence. Ce protocole robuste permet aux utilisateurs de personnaliser leur expérience de trading, garantissant précision et efficacité. C'est la clé d'une relation de trading personnalisée et directe avec le marché.",
+							hi: 'विशिष्ट आवश्यकताओं वाले व्यापारियों के लिए आदर्श, FIX API उन्नत एल्गोरिदम व्यापारियों और उच्च-आवृत्ति व्यापारियों के लिए एक पसंदीदा समाधान है। यह मजबूत प्रोटोकॉल उपयोगकर्ताओं को अपने ट्रेडिंग अनुभव को अनुकूलित करने का अधिकार देता है, जिससे सटीकता और दक्षता सुनिश्चित होती है। यह आपके लिए बाजार के साथ एक कस्टमाइज्ड और सीधे ट्रेडिंग संबंध की कुंजी है।',
+							id: 'Ideal untuk trader dengan kebutuhan spesifik, FIX API adalah solusi yang diandalkan bagi trader algoritmik tingkat lanjut dan trader frekuensi tinggi. Protokol kuat ini memberdayakan pengguna untuk menyesuaikan pengalaman trading mereka, memastikan presisi dan efisiensi. Ini adalah kunci Anda untuk hubungan trading yang disesuaikan dan langsung dengan pasar.',
+							ms: 'Ideal untuk peniaga dengan keperluan tertentu, FIX API adalah penyelesaian pilihan bagi peniaga algoritma maju dan peniaga frekuensi tinggi. Protokol yang kukuh ini memberi kuasa kepada pengguna untuk menyesuaikan pengalaman perdagangan mereka, memastikan ketepatan dan kecekapan. Ia adalah kunci anda untuk hubungan perdagangan yang disesuaikan dan langsung dengan pasaran.',
+							th: 'เหมาะสำหรับนักเทรดที่มีความต้องการเฉพาะ FIX API เป็นโซลูชันที่เหมาะสำหรับนักเทรดอัลกอริธึมขั้นสูงและนักเทรดความถี่สูง โปรโตคอลที่แข็งแกร่งนี้ช่วยให้ผู้ใช้สามารถปรับแต่งประสบการณ์การซื้อขายของตนได้อย่างแม่นยำและมีประสิทธิภาพ นี่คือกุญแจสู่ความสัมพันธ์การซื้อขายที่ปรับแต่งและตรงกับตลาด',
+							vi: 'Lý tưởng cho các trader có nhu cầu cụ thể, FIX API là giải pháp hàng đầu cho các trader thuật toán tiên tiến và các trader tần suất cao. Giao thức mạnh mẽ này giúp người dùng tùy chỉnh trải nghiệm giao dịch của họ, đảm bảo độ chính xác và hiệu quả. Đây là chìa khóa của bạn để có được một mối quan hệ giao dịch tùy chỉnh và trực tiếp với thị trường.',
+							bn: 'নির্দিষ্ট চাহিদা নিয়ে ব্যবসায়ীদের জন্য আদর্শ, FIX API উন্নত অ্যালগরিদমিক ব্যবসায়ী এবং উচ্চ-ফ্রিকোয়েন্সি ব্যবসায়ীদের জন্য একটি পছন্দের সমাধান। এই শক্তিশালী প্রোটোকল ব্যবহারকারীদের তাদের ট্রেডিং অভিজ্ঞতা কাস্টমাইজ করার ক্ষমতা দেয়, যা সঠিকতা এবং দক্ষতা নিশ্চিত করে। এটি আপনার জন্য বাজারের সাথে একটি কাস্টমাইজড এবং সরাসরি ট্রেডিং সম্পর্কের চাবিকাঠি।',
+							'zh-hans':
+								'FIX API是针对有特定需求的交易者的理想选择，是高级算法交易者和高频交易者的首选解决方案。这个强大的协议使用户能够定制他们的交易体验，确保精确性和效率。它是您与市场建立定制化和直接交易关系的关键。',
+							'pt-br':
+								'Ideal para traders com necessidades específicas, o FIX API é uma solução preferida para traders algorítmicos avançados e traders de alta frequência. Este robusto protocolo capacita os usuários a personalizar sua experiência de trading, garantindo precisão e eficiência. É a sua chave para um relacionamento de trading personalizado e direto com o mercado.'
+						})
+					}
 				</p>
 				<p class="mt-3 text-lg text-gray-800 dark:text-neutral-400">
-					It’s important to note that FIX API solution are Often tailored for traders with Unique
-					requirements. Whether you’re and advaced alogrithmic trader or a high-frequency trader,
-					FIX API puts the controls back in your hands. However, be aware that some brokers may have
-					substantial minimum desposit and/or trading volume requirements to unlock the full
-					benefits of FIX API. Elevate your trading experience, Optimize your strategies, and take
-					control back in your financial journey with FIX API – the bridge to direct and efficient
-					trading in the financial markets.
+					{
+						t({
+							en: 'It’s important to note that FIX API solutions are often tailored for traders with unique requirements. Whether you’re an advanced algorithmic trader or a high-frequency trader, FIX API puts the controls back in your hands. However, be aware that some brokers may have substantial minimum deposit and/or trading volume requirements to unlock the full benefits of FIX API. Elevate your trading experience, optimize your strategies, and take control back in your financial journey with FIX API – the bridge to direct and efficient trading in the financial markets.',
+							ar: 'من المهم أن نلاحظ أن حلول FIX API غالبًا ما تكون مصممة لتلبية احتياجات التجار الفريدة. سواء كنت تاجرًا خوارزميًا متقدمًا أو تاجرًا عالي التردد، فإن FIX API يعيد السيطرة إلى يديك. ومع ذلك، يجب أن تكون على علم بأن بعض الوسطاء قد يكون لديهم متطلبات حد أدنى للإيداع و/أو حجم التداول كبيرة لفتح الفوائد الكاملة لـ FIX API. ارتقِ بتجربتك في التداول، وحسّن استراتيجياتك، واستعد السيطرة في رحلتك المالية مع FIX API - الجسر إلى التداول المباشر والفعال في الأسواق المالية.',
+							es: 'Es importante señalar que las soluciones FIX API a menudo están personalizadas para traders con requisitos únicos. Ya seas un trader algorítmico avanzado o un trader de alta frecuencia, FIX API te devuelve el control. Sin embargo, ten en cuenta que algunos brokers pueden tener requisitos mínimos de depósito y/o volumen de trading sustanciales para desbloquear todos los beneficios de FIX API. Eleva tu experiencia de trading, optimiza tus estrategias y recupera el control de tu viaje financiero con FIX API: el puente hacia un trading directo y eficiente en los mercados financieros.',
+							fr: 'Il est important de noter que les solutions FIX API sont souvent adaptées aux traders ayant des besoins uniques. Que vous soyez un trader algorithmique avancé ou un trader à haute fréquence, le FIX API remet le contrôle entre vos mains. Cependant, sachez que certains courtiers peuvent avoir des exigences minimales de dépôt et/ou de volume de trading substantielles pour débloquer tous les avantages du FIX API. Élevez votre expérience de trading, optimisez vos stratégies et reprenez le contrôle de votre parcours financier avec le FIX API - le pont vers un trading direct et efficace sur les marchés financiers.',
+							hi: 'यह ध्यान में रखना महत्वपूर्ण है कि FIX API समाधान अक्सर व्यापारियों की अनूठी आवश्यकताओं के लिए अनुकूलित होते हैं। चाहे आप एक उन्नत एल्गोरिदमिक व्यापारी हों या एक उच्च-फ्रीक्वेंसी व्यापारी, FIX API नियंत्रण को आपकी हाथों में वापस लाता है। हालाँकि, यह जानना महत्वपूर्ण है कि कुछ दलालों में पूर्ण FIX API लाभ प्राप्त करने के लिए पर्याप्त न्यूनतम जमा और/या ट्रेडिंग वॉल्यूम आवश्यकताएँ हो सकती हैं। अपनी ट्रेडिंग अनुभव को ऊंचा करें, अपनी रणनीतियों को अनुकूलित करें, और FIX API के साथ अपनी वित्तीय यात्रा में फिर से नियंत्रण प्राप्त करें - जो वित्तीय बाजारों में सीधे और प्रभावी ट्रेडिंग का पुल है।',
+							id: 'Penting untuk dicatat bahwa solusi FIX API sering disesuaikan untuk trader dengan kebutuhan unik. Baik Anda trader algoritmik tingkat lanjut atau trader frekuensi tinggi, FIX API mengembalikan kendali ke tangan Anda. Namun, perlu dicatat bahwa beberapa broker mungkin memiliki persyaratan setoran minimum dan/atau volume trading yang substansial untuk membuka semua manfaat FIX API. Tingkatkan pengalaman trading Anda, optimalkan strategi Anda, dan ambil kembali kendali dalam perjalanan keuangan Anda dengan FIX API - jembatan menuju trading langsung dan efisien di pasar keuangan.',
+							ms: 'Penting untuk diingat bahawa penyelesaian FIX API sering disesuaikan untuk peniaga dengan keperluan unik. Sama ada anda seorang peniaga algoritma yang maju atau peniaga frekuensi tinggi, FIX API meletakkan kawalan semula di tangan anda. Walau bagaimanapun, perlu diingat bahawa beberapa broker mungkin mempunyai keperluan deposit minimum dan/atau volum perdagangan yang besar untuk membuka semua manfaat FIX API. Tingkatkan pengalaman perdagangan anda, optimakan strategi anda, dan ambil kembali kawalan dalam perjalanan kewangan anda dengan FIX API - jambatan untuk perdagangan langsung dan berkesan di pasaran kewangan.',
+							th: 'สิ่งสำคัญคือต้องทราบว่าการแก้ไข API FIX มักจะปรับให้เหมาะสมกับนักเทรดที่มีความต้องการเฉพาะ ไม่ว่าคุณจะเป็นนักเทรดอัลกอริธึมขั้นสูงหรือนักเทรดความถี่สูง FIX API จะนำการควบคุมกลับมาสู่มือของคุณ อย่างไรก็ตาม โปรดทราบว่าโบรกเกอร์บางรายอาจมีกำหนดการฝากขั้นต่ำและ/หรือลูกค้าทำการซื้อขายจำนวนมาก เพื่อปลดล็อกผลประโยชน์ของ FIX API อย่างเต็มที่ ยกระดับประสบการณ์การซื้อขายของคุณ ปรับแต่งกลยุทธ์ของคุณ และควบคุมการเดินทางทางการเงินของคุณอีกครั้งด้วย FIX API - สะพานสู่การซื้อขายที่ตรงไปตรงมาและมีประสิทธิภาพในตลาดการเงิน',
+							vi: 'Điều quan trọng cần lưu ý là các giải pháp FIX API thường được điều chỉnh cho các nhà giao dịch có yêu cầu độc đáo. Cho dù bạn là một nhà giao dịch thuật toán tiên tiến hay một nhà giao dịch tần suất cao, FIX API đưa quyền kiểm soát trở lại tay bạn. Tuy nhiên, hãy lưu ý rằng một số nhà môi giới có thể có yêu cầu về số tiền gửi tối thiểu và/hoặc khối lượng giao dịch lớn để mở khóa tất cả lợi ích của FIX API. Nâng cao trải nghiệm giao dịch của bạn, tối ưu hóa chiến lược của bạn và lấy lại quyền kiểm soát trong hành trình tài chính của bạn với FIX API - cầu nối đến giao dịch trực tiếp và hiệu quả trên các thị trường tài chính.',
+							bn: 'এটি লক্ষ্য করা গুরুত্বপূর্ণ যে FIX API সমাধানগুলি প্রায়শই অনন্য চাহিদার সঙ্গে ব্যবসায়ীদের জন্য কাস্টমাইজ করা হয়। আপনি যদি একজন উন্নত অ্যালগরিদমিক ব্যবসায়ী বা একটি উচ্চ-ফ্রিকোয়েন্সি ব্যবসায়ী হন, FIX API আবার নিয়ন্ত্রণ আপনার হাতে দেয়। তবে, কিছু দালালের জন্য সম্পূর্ণ FIX API সুবিধাগুলি আনলক করতে উল্লেখযোগ্য ন্যূনতম আমানত এবং/অথবা ট্রেডিং ভলিউমের প্রয়োজন হতে পারে তা জানার জন্য সতর্ক থাকুন। আপনার ট্রেডিং অভিজ্ঞতা উন্নত করুন, আপনার কৌশলগুলি অপ্টিমাইজ করুন এবং FIX API এর মাধ্যমে আপনার আর্থিক যাত্রায় নিয়ন্ত্রণ আবার হাতে নিন - যা আর্থিক বাজারে সরাসরি এবং দক্ষ ট্রেডিংয়ের সেতু।',
+							'zh-hans':
+								'重要的是要注意，FIX API解决方案通常针对具有独特需求的交易者量身定制。无论您是高级算法交易者还是高频交易者，FIX API都将控制权重新掌握在您手中。不过，请注意，一些经纪商可能会有相当高的最低存款和/或交易量要求，以解锁FIX API的全部好处。提升您的交易体验，优化您的策略，并通过FIX API重新掌控您的财务旅程——这是通往金融市场直接高效交易的桥梁。',
+							'pt-br':
+								'É importante notar que as soluções FIX API costumam ser personalizadas para traders com necessidades exclusivas. Seja você um trader algorítmico avançado ou um trader de alta frequência, o FIX API coloca o controle de volta em suas mãos. No entanto, esteja ciente de que alguns corretores podem ter requisitos mínimos substanciais de depósito e/ou volume de negociação para desbloquear todos os benefícios do FIX API. Eleve sua experiência de negociação, otimize suas estratégias e recupere o controle de sua jornada financeira com o FIX API - a ponte para negociações diretas e eficientes nos mercados financeiros.'
+						})
+					}
 				</p>
 			</div>
-			<div class="my-10 flex items-center gap-5 rounded-2xl p-4 shadow-xl sm:p-8 bg-neutral-200 dark:bg-neutral-700 flex-wrap">
+			<div
+				class="my-10 flex flex-wrap items-center gap-5 rounded-2xl bg-neutral-200 p-4 shadow-xl dark:bg-neutral-700 sm:p-8"
+			>
 				<div class="w-full md:max-w-[58%]">
 					<h1
 						class="mb-5 block text-2xl font-bold capitalize text-gray-800 dark:text-white sm:text-2xl md:text-3xl lg:text-4xl"
-					>
-						Why use a<span class="text-dbgreen-500"> FIX API? </span>
-					</h1>
+						set:html={t({
+							en: 'Why use a<span class="text-dbgreen-500"> FIX API? </span>',
+							ar: 'لماذا تستخدم<span class="text-dbgreen-500"> API FIX؟ </span>',
+							es: '¿Por qué usar un<span class="text-dbgreen-500"> API FIX? </span>',
+							fr: 'Pourquoi utiliser un<span class="text-dbgreen-500"> API FIX? </span>',
+							hi: 'एक<span class="text-dbgreen-500"> FIX API का उपयोग क्यों करें? </span>',
+							id: 'Mengapa menggunakan<span class="text-dbgreen-500"> API FIX? </span>',
+							ms: 'Mengapa menggunakan<span class="text-dbgreen-500"> API FIX? </span>',
+							th: 'ทำไมต้องใช้<span class="text-dbgreen-500"> API FIX? </span>',
+							vi: 'Tại sao sử dụng<span class="text-dbgreen-500"> API FIX? </span>',
+							bn: 'কেন একটি<span class="text-dbgreen-500"> FIX API ব্যবহার করবেন? </span>',
+							'zh-hans': '为什么使用<span class="text-dbgreen-500"> FIX API? </span>',
+							'pt-br': 'Por que usar um<span class="text-dbgreen-500"> API FIX? </span>'
+						})}
+					/>
 					<p class="mt-3 text-lg text-gray-800 dark:text-neutral-400">
-						FIX API is best suited to experienced traders who want the flexibility to use any
-						programming language they desire.
+						{
+							t({
+								en: 'FIX API is best suited to experienced traders who want the flexibility to use any programming language they desire.',
+								ar: 'يعتبر FIX API الأنسب للمتداولين ذوي الخبرة الذين يريدون المرونة لاستخدام أي لغة برمجة يرغبون فيها.',
+								es: 'FIX API es más adecuado para traders experimentados que desean la flexibilidad de usar cualquier lenguaje de programación que deseen.',
+								fr: "FIX API est mieux adapté aux traders expérimentés qui souhaitent la flexibilité d'utiliser n'importe quel langage de programmation de leur choix.",
+								hi: 'FIX API उन अनुभवी व्यापारियों के लिए सबसे उपयुक्त है जो अपनी इच्छानुसार किसी भी प्रोग्रामिंग भाषा का उपयोग करने की लचीलापन चाहते हैं।',
+								id: 'FIX API paling cocok untuk trader berpengalaman yang menginginkan fleksibilitas untuk menggunakan bahasa pemrograman apa pun yang mereka inginkan.',
+								ms: 'FIX API paling sesuai untuk pedagang berpengalaman yang mahukan fleksibiliti untuk menggunakan sebarang bahasa pengaturcaraan yang mereka inginkan.',
+								th: 'FIX API เหมาะที่สุดสำหรับผู้ค้าประสบการณ์ที่ต้องการความยืดหยุ่นในการใช้ภาษาโปรแกรมใดๆ ที่ต้องการ',
+								vi: 'FIX API phù hợp nhất với những trader có kinh nghiệm muốn linh hoạt sử dụng bất kỳ ngôn ngữ lập trình nào họ muốn.',
+								bn: 'FIX API অভিজ্ঞ ব্যবসায়ীদের জন্য সবচেয়ে উপযুক্ত যারা যে কোনও প্রোগ্রামিং ভাষা ব্যবহারের জন্য নমনীয়তা চান।',
+								'zh-hans': 'FIX API 最适合希望灵活使用任何他们想要的编程语言的经验丰富的交易者。',
+								'pt-br':
+									'O FIX API é mais adequado para traders experientes que desejam a flexibilidade de usar qualquer linguagem de programação que desejarem.'
+							})
+						}
 					</p>
 					<p class="mt-3 text-lg text-gray-800 dark:text-neutral-400">
-						When using FIX API, you are getting a high-speed connection directly to our trading
-						servers. You don’t have to go through third party programs such as MetaTrader 4, and you
-						will generally see latency as low as 1 millisecond.
+						{
+							t({
+								en: 'When using FIX API, you are getting a high-speed connection directly to our trading servers. You don’t have to go through third-party programs such as MetaTrader 4, and you will generally see latency as low as 1 millisecond.',
+								ar: 'عند استخدام FIX API، ستحصل على اتصال عالي السرعة مباشرة إلى خوادم التداول الخاصة بنا. لا تحتاج للمرور عبر برامج طرف ثالث مثل MetaTrader 4، وعادةً ما سترى زمن الاستجابة منخفضًا يصل إلى 1 مللي ثانية.',
+								es: 'Al usar FIX API, obtienes una conexión de alta velocidad directamente a nuestros servidores de trading. No tienes que pasar por programas de terceros como MetaTrader 4, y generalmente verás una latencia tan baja como 1 milisegundo.',
+								fr: "Lorsque vous utilisez FIX API, vous obtenez une connexion haute vitesse directement à nos serveurs de trading. Vous n'avez pas besoin de passer par des programmes tiers tels que MetaTrader 4, et vous constaterez généralement une latence aussi basse que 1 milliseconde.",
+								hi: 'FIX API का उपयोग करते समय, आपको हमारे ट्रेडिंग सर्वरों से सीधे उच्च-गति कनेक्शन मिल रहा है। आपको मेटाट्रेडर 4 जैसे तीसरे पक्ष के कार्यक्रमों के माध्यम से नहीं जाना है, और आपको आमतौर पर 1 मिलीसेकंड तक की कम देरी दिखाई देगी।',
+								id: 'Saat menggunakan FIX API, Anda mendapatkan koneksi berkecepatan tinggi langsung ke server trading kami. Anda tidak perlu melalui program pihak ketiga seperti MetaTrader 4, dan Anda umumnya akan melihat latensi serendah 1 milidetik.',
+								ms: 'Apabila menggunakan FIX API, anda mendapatkan sambungan berkelajuan tinggi terus ke pelayan perdagangan kami. Anda tidak perlu melalui program pihak ketiga seperti MetaTrader 4, dan secara amnya anda akan melihat latensi serendah 1 milisaat.',
+								th: 'เมื่อใช้ FIX API คุณจะได้รับการเชื่อมต่อความเร็วสูงโดยตรงกับเซิร์ฟเวอร์การเทรดของเรา คุณไม่จำเป็นต้องผ่านโปรแกรมของบุคคลที่สาม เช่น MetaTrader 4 และโดยทั่วไปคุณจะเห็นความล่าช้าต่ำถึง 1 มิลลิวินาที',
+								vi: 'Khi sử dụng FIX API, bạn đang có một kết nối tốc độ cao trực tiếp đến các máy chủ giao dịch của chúng tôi. Bạn không cần phải sử dụng các chương trình bên thứ ba như MetaTrader 4, và bạn sẽ thường thấy độ trễ thấp tới 1 mili giây.',
+								bn: 'FIX API ব্যবহার করার সময়, আপনি আমাদের ট্রেডিং সার্ভারগুলিতে সরাসরি উচ্চ-গতি সংযোগ পাচ্ছেন। আপনাকে মেটাট্রেডার 4 এর মতো তৃতীয় পক্ষের প্রোগ্রামের মধ্য দিয়ে যেতে হবে না, এবং আপনি সাধারণত 1 মিলিসেকেন্ড পর্যন্ত নিম্নলিখিত লেটেন্সি দেখতে পাবেন।',
+								'zh-hans':
+									'使用FIX API时，您将直接获得与我们的交易服务器的高速连接。您不必通过像MetaTrader 4这样的第三方程序，并且通常会看到延迟低至1毫秒。',
+								'pt-br':
+									'Ao usar o FIX API, você está obtendo uma conexão de alta velocidade diretamente com nossos servidores de negociação. Você não precisa passar por programas de terceiros como o MetaTrader 4 e, geralmente, verá uma latência tão baixa quanto 1 milissegundo.'
+							})
+						}
 					</p>
 				</div>
-				<div class="w-full md:max-w-[38%] overflow-hidden rounded-xl">
-					<Image src={FIXAPIImg} alt="fix-api-img" width="400" height="400" class='m-auto rounded-xl' />
+				<div class="w-full overflow-hidden rounded-xl md:max-w-[38%]">
+					<Image
+						src={FIXAPIImg}
+						alt="fix-api-img"
+						width="400"
+						height="400"
+						class="m-auto rounded-xl"
+					/>
 				</div>
 			</div>
 		</div>
 		<div class="container py-10">
 			<h1
 				class="mb-10 block text-center text-2xl font-bold capitalize text-gray-800 dark:text-white sm:text-2xl md:text-3xl lg:text-4xl"
-			>
-				And also here you<span class="text-dbgreen-500"> find our benefits:</span>
-			</h1>
+				set:html={t({
+					en: 'And also here you<span class="text-dbgreen-500"> find our benefits:</span>',
+					ar: 'وهنا أيضًا يمكنك<span class="text-dbgreen-500"> العثور على فوائدنا:</span>',
+					es: 'Y también aquí puedes<span class="text-dbgreen-500"> encontrar nuestros beneficios:</span>',
+					fr: 'Et aussi ici, vous<span class="text-dbgreen-500"> trouverez nos avantages :</span>',
+					hi: 'और यहां आप<span class="text-dbgreen-500"> हमारे लाभ पाएंगे:</span>',
+					id: 'Dan juga di sini Anda<span class="text-dbgreen-500"> menemukan manfaat kami:</span>',
+					ms: 'Dan juga di sini anda<span class="text-dbgreen-500"> menemukan manfaat kami:</span>',
+					th: 'และที่นี่คุณ<span class="text-dbgreen-500"> จะพบกับประโยชน์ของเรา:</span>',
+					vi: 'Và cũng ở đây bạn<span class="text-dbgreen-500"> tìm thấy lợi ích của chúng tôi:</span>',
+					bn: 'এবং এখানে আপনি<span class="text-dbgreen-500"> আমাদের সুবিধাগুলি পাবেন:</span>',
+					'zh-hans': '在这里，您<span class="text-dbgreen-500">可以找到我们的好处：</span>',
+					'pt-br':
+						'E também aqui você<span class="text-dbgreen-500"> encontra nossos benefícios:</span>'
+				})}
+			/>
 			<div class="mt-5 grid grid-cols-1 gap-3 md:grid-cols-3">
 				<div
 					class="broder col-span-1 flex flex-col items-center justify-center rounded-xl border-2 p-3 hover:border-dbgreen-500 dark:border-neutral-600 dark:hover:border-dbgreen-600"
@@ -138,7 +325,22 @@ export const getStaticPaths = () =>
 					<h4
 						class="text-center text-lg font-semibold text-gray-800 dark:text-neutral-200 sm:text-xl"
 					>
-						Direct Connections to our LPs
+						{
+							t({
+								en: 'Direct Connections to our LPs',
+								ar: 'اتصالات مباشرة مع مزودي السيولة لدينا',
+								es: 'Conexiones directas a nuestros proveedores de liquidez',
+								fr: 'Connexions directes à nos fournisseurs de liquidité',
+								hi: 'हमारे तरलता प्रदाताओं से सीधे कनेक्शन',
+								id: 'Koneksi langsung ke penyedia likuiditas kami',
+								ms: 'Sambungan langsung kepada penyedia likuiditi kami',
+								th: 'การเชื่อมต่อโดยตรงกับผู้ให้บริการสภาพคล่องของเรา',
+								vi: 'Kết nối trực tiếp đến các nhà cung cấp thanh khoản của chúng tôi',
+								bn: 'আমাদের লিকুইডিটি প্রোভাইডারদের সাথে সরাসরি সংযোগ',
+								'zh-hans': '与我们的流动性提供商的直接连接',
+								'pt-br': 'Conexões diretas com nossos fornecedores de liquidez'
+							})
+						}
 					</h4>
 				</div>
 				<div
@@ -152,7 +354,22 @@ export const getStaticPaths = () =>
 					<h4
 						class="text-center text-lg font-semibold text-gray-800 dark:text-neutral-200 sm:text-xl"
 					>
-						STP to the market, no relay, no delay
+						{
+							t({
+								en: 'STP to the market, no relay, no delay',
+								ar: 'STP إلى السوق، لا تتابع، لا تأخير',
+								es: 'STP al mercado, sin relevo, sin demora',
+								fr: 'STP vers le marché, sans relais, sans délai',
+								hi: 'बाजार में STP, बिना रिले, बिना देरी',
+								id: 'STP ke pasar, tanpa relai, tanpa penundaan',
+								ms: 'STP ke pasaran, tanpa relay, tanpa kelewatan',
+								th: 'STP สู่ตลาด ไม่มีการส่งต่อ ไม่มีความล่าช้า',
+								vi: 'STP đến thị trường, không tiếp nối, không trì hoãn',
+								bn: 'বাজারে STP, কোন রিলে, কোন বিলম্ব নেই',
+								'zh-hans': '直接进入市场，无中转，无延迟',
+								'pt-br': 'STP para o mercado, sem relé, sem atraso'
+							})
+						}
 					</h4>
 				</div>
 				<div
@@ -166,7 +383,22 @@ export const getStaticPaths = () =>
 					<h4
 						class="text-center text-lg font-semibold text-gray-800 dark:text-neutral-200 sm:text-xl"
 					>
-						Minimum Latency, up to 0.60 ms
+						{
+							t({
+								en: 'Minimum Latency, up to 0.60 ms',
+								ar: 'أقل زمن انتقال، يصل إلى 0.60 مللي ثانية',
+								es: 'Latencia mínima, hasta 0.60 ms',
+								fr: "Latence minimale, jusqu'à 0,60 ms",
+								hi: 'न्यूनतम लेटेंसी, 0.60 मिलीसेकंड तक',
+								id: 'Latensi minimum, hingga 0,60 ms',
+								ms: 'Latensi minimum, sehingga 0.60 ms',
+								th: 'ความล่าช่าชั้นต่ำ, สูงสุด 0.60 มิลลิวินาที',
+								vi: 'Độ trễ tối thiểu, lên đến 0.60 ms',
+								bn: 'ন্যূনতম বিলম্ব, 0.60 মিলিসেকেন্ড পর্যন্ত',
+								'zh-hans': '最小延迟，最高 0.60 毫秒',
+								'pt-br': 'Latência mínima, até 0,60 ms'
+							})
+						}
 					</h4>
 				</div>
 				<div
@@ -180,9 +412,41 @@ export const getStaticPaths = () =>
 					<h4
 						class="text-center text-lg font-semibold text-gray-800 dark:text-neutral-200 sm:text-xl"
 					>
-						Raw-spread from our LP
+						{
+							t({
+								en: 'Raw-spread from our LP',
+								ar: 'الفرق الخام من مزود السيولة لدينا',
+								es: 'Spread bruto de nuestro proveedor de liquidez',
+								fr: 'Écart brut de notre fournisseur de liquidités',
+								hi: 'हमारे तरलता प्रदाता से कच्चा स्प्रेड',
+								id: 'Spread mentah dari penyedia likuiditas kami',
+								ms: 'Spread mentah daripada penyedia kecairan kami',
+								th: 'สเปรดดิบจากผู้ให้บริการสภาพคล่องของเรา',
+								vi: 'Spread thô từ nhà cung cấp thanh khoản của chúng tôi',
+								bn: 'আমাদের তরলতা প্রদানকারীর কাছ থেকে কাঁচা স্প্রেড',
+								'zh-hans': '来自我们流动性供应商的原始点差',
+								'pt-br': 'Spread bruto do nosso fornecedor de liquidez'
+							})
+						}
 					</h4>
-					<p class="text-color text-center text-sm">we will change you just commissions per lot</p>
+					<p class="text-color text-center text-sm">
+						{
+							t({
+								en: 'We will charge you just commissions per lot',
+								ar: 'سوف نفرض عليك فقط عمولات لكل عقد',
+								es: 'te cobraremos solo comisiones por lote',
+								fr: 'nous vous facturerons uniquement des commissions par lot',
+								hi: 'हम आपसे केवल प्रति लॉट कमीशन वसूल करेंगे',
+								id: 'kami hanya akan mengenakan biaya komisi per lot',
+								ms: 'kami hanya akan mengenakan komisi per lot',
+								th: 'เราจะเรียกเก็บค่าคอมมิชชั่นต่อล็อตเท่านั้น',
+								vi: 'chúng tôi sẽ chỉ tính phí hoa hồng theo lô',
+								bn: 'আমরা আপনার কাছ থেকে শুধু প্রতি লটের কমিশন নেব',
+								'zh-hans': '我们只会收取每手的佣金',
+								'pt-br': 'cobramos apenas comissões por lote'
+							})
+						}
+					</p>
 				</div>
 				<div
 					class="broder col-span-1 flex flex-col items-center justify-center rounded-xl border-2 p-3 hover:border-dbgreen-500 dark:border-neutral-600 dark:hover:border-dbgreen-600"
@@ -195,9 +459,41 @@ export const getStaticPaths = () =>
 					<h4
 						class="text-center text-lg font-semibold text-gray-800 dark:text-neutral-200 sm:text-xl"
 					>
-						Dedicated Margin Account
+						{
+							t({
+								en: 'Dedicated Margin Account',
+								ar: 'حساب هامش مخصص',
+								es: 'Cuenta de margen dedicada',
+								fr: 'Compte de marge dédié',
+								hi: 'समर्पित मार्जिन खाता',
+								id: 'Akun margin khusus',
+								ms: 'Akaun margin khusus',
+								th: 'บัญชีมาร์จิ้นเฉพาะ',
+								vi: 'Tài khoản ký quỹ chuyên dụng',
+								bn: 'নির্দিষ্ট মার্জিন অ্যাকাউন্ট',
+								'zh-hans': '专用保证金账户',
+								'pt-br': 'Conta de margem dedicada'
+							})
+						}
 					</h4>
-					<p class="text-color text-center text-sm">Can be directly managed by you</p>
+					<p class="text-color text-center text-sm">
+						{
+							t({
+								en: 'Can be directly managed by you',
+								ar: 'يمكن إدارته مباشرة من قبلك',
+								es: 'Puede ser gestionado directamente por ti',
+								fr: 'Peut être géré directement par vous',
+								hi: 'इसे सीधे आपके द्वारा प्रबंधित किया जा सकता है',
+								id: 'Dapat dikelola langsung oleh Anda',
+								ms: 'Boleh diuruskan terus oleh anda',
+								th: 'สามารถจัดการโดยตรงโดยคุณ',
+								vi: 'Có thể được quản lý trực tiếp bởi bạn',
+								bn: 'সোজাসুজি আপনার দ্বারা পরিচালিত হতে পারে',
+								'zh-hans': '可以直接由您管理',
+								'pt-br': 'Pode ser gerenciado diretamente por você'
+							})
+						}
+					</p>
 				</div>
 				<div
 					class="broder col-span-1 flex flex-col items-center justify-center rounded-xl border-2 p-3 hover:border-dbgreen-500 dark:border-neutral-600 dark:hover:border-dbgreen-600"
@@ -210,10 +506,40 @@ export const getStaticPaths = () =>
 					<h4
 						class="text-center text-lg font-semibold text-gray-800 dark:text-neutral-200 sm:text-xl"
 					>
-						Margin Account Funding
+						{
+							t({
+								en: 'Margin Account Funding',
+								ar: 'تمويل حساب الهامش',
+								es: 'Financiación de cuenta de margen',
+								fr: 'Financement de compte sur marge',
+								hi: 'मार्जिन खाता फंडिंग',
+								id: 'Pendanaan Akun Margin',
+								ms: 'Pembiayaan Akaun Margin',
+								th: 'การระดมทุนบัญชีมาร์จิ้น',
+								vi: 'Tài trợ tài khoản ký quỹ',
+								bn: 'মার্জিন অ্যাকাউন্ট তহবিল',
+								'zh-hans': '保证金账户资金',
+								'pt-br': 'Financiamento de conta de margem'
+							})
+						}
 					</h4>
 					<p class="text-color text-center text-sm">
-						Available also in Crypto with immediate funds loading
+						{
+							t({
+								en: 'Available also in Crypto with immediate funds loading',
+								ar: 'متاح أيضًا في العملات المشفرة مع تحميل فوري للأموال',
+								es: 'También disponible en criptomonedas con carga de fondos inmediata',
+								fr: 'Également disponible en crypto avec chargement immédiat des fonds',
+								hi: 'तुरंत धन लोडिंग के साथ क्रिप्टो में भी उपलब्ध है',
+								id: 'Juga tersedia dalam Crypto dengan pengisian dana segera',
+								ms: 'Juga tersedia dalam Crypto dengan pemuatan dana segera',
+								th: 'มีให้บริการใน Crypto พร้อมการโหลดเงินทันที',
+								vi: 'Cũng có sẵn trong Crypto với việc nạp tiền ngay lập tức',
+								bn: 'তাত্ক্ষণিক তহবিল লোডিংয়ের সাথে ক্রিপ্টোতে উপলব্ধ',
+								'zh-hans': '也可在加密货币中使用，资金即时加载',
+								'pt-br': 'Disponível também em Cripto com carregamento imediato de fundos'
+							})
+						}
 					</p>
 				</div>
 			</div>
@@ -222,59 +548,225 @@ export const getStaticPaths = () =>
 			<h1
 				class="mb-5 block text-center text-2xl font-bold capitalize text-gray-800 dark:text-white sm:text-2xl md:text-3xl lg:text-4xl"
 			>
-				<span class="text-dbgreen-500"> REGISTRATION</span>
+				<span class="text-dbgreen-500">
+					{
+						t({
+							en: 'Registration',
+							ar: 'تسجيل',
+							es: 'Registro',
+							fr: 'Inscription',
+							hi: 'पंजीकरण',
+							id: 'Pendaftaran',
+							ms: 'Pendaftaran',
+							th: 'การลงทะเบียน',
+							vi: 'Đăng ký',
+							bn: 'নিবন্ধন',
+							'zh-hans': '注册',
+							'pt-br': 'Registro'
+						})
+					}
+				</span>
 			</h1>
-			<p class="text-center text-lg text-gray-800 dark:text-neutral-400">
-				In order to register for using the service, you will have to send us request to <a
-					href="mailto:partnership@dbinvesting.com"
-					class="font-bold text-dbgreen-500">partnership@dbinvesting.com</a
-				> with your full name, company name, address and contact details as well as a brief description
-				of your system.
-			</p>
+			<p
+				class="text-center text-lg text-gray-800 dark:text-neutral-400"
+				set:html={t({
+					en: 'In order to register for using the service, you will have to send us a request to <a href="mailto:partnership@dbinvesting.com" class="font-bold text-dbgreen-500">partnership@dbinvesting.com</a> with your full name, company name, address, and contact details as well as a brief description of your system.',
+					ar: 'لتسجيل استخدام الخدمة، يجب عليك إرسال طلب لنا على <a href="mailto:partnership@dbinvesting.com" class="font-bold text-dbgreen-500">partnership@dbinvesting.com</a> مع اسمك الكامل، اسم الشركة، العنوان وتفاصيل الاتصال، بالإضافة إلى وصف موجز لنظامك.',
+					es: 'Para registrarse para usar el servicio, deberá enviarnos una solicitud a <a href="mailto:partnership@dbinvesting.com" class="font-bold text-dbgreen-500">partnership@dbinvesting.com</a> con su nombre completo, nombre de la empresa, dirección y detalles de contacto, así como una breve descripción de su sistema.',
+					fr: 'Pour vous inscrire à l\'utilisation du service, vous devrez nous envoyer une demande à <a href="mailto:partnership@dbinvesting.com" class="font-bold text-dbgreen-500">partnership@dbinvesting.com</a> avec votre nom complet, le nom de votre entreprise, votre adresse et vos coordonnées, ainsi qu\'une brève description de votre système.',
+					hi: 'सेवा का उपयोग करने के लिए पंजीकरण करने के लिए, आपको हमें एक अनुरोध भेजना होगा <a href="mailto:partnership@dbinvesting.com" class="font-bold text-dbgreen-500">partnership@dbinvesting.com</a> पर अपने पूर्ण नाम, कंपनी का नाम, पता और संपर्क विवरण के साथ-साथ अपने सिस्टम का संक्षिप्त विवरण।',
+					id: 'Untuk mendaftar menggunakan layanan, Anda harus mengirimkan permintaan kepada kami di <a href="mailto:partnership@dbinvesting.com" class="font-bold text-dbgreen-500">partnership@dbinvesting.com</a> dengan nama lengkap Anda, nama perusahaan, alamat, dan detail kontak Anda serta deskripsi singkat tentang sistem Anda.',
+					ms: 'Untuk mendaftar menggunakan perkhidmatan, anda perlu menghantar permohonan kepada kami di <a href="mailto:partnership@dbinvesting.com" class="font-bold text-dbgreen-500">partnership@dbinvesting.com</a> dengan nama penuh anda, nama syarikat, alamat dan butiran hubungan serta penerangan ringkas mengenai sistem anda.',
+					th: 'เพื่อลงทะเบียนเพื่อใช้บริการ คุณจะต้องส่งคำขอถึงเราไปที่ <a href="mailto:partnership@dbinvesting.com" class="font-bold text-dbgreen-500">partnership@dbinvesting.com</a> พร้อมชื่อเต็ม ชื่อบริษัท ที่อยู่ และข้อมูลติดต่อของคุณ รวมทั้งคำอธิบายสั้น ๆ เกี่ยวกับระบบของคุณ',
+					vi: 'Để đăng ký sử dụng dịch vụ, bạn sẽ phải gửi cho chúng tôi yêu cầu đến <a href="mailto:partnership@dbinvesting.com" class="font-bold text-dbgreen-500">partnership@dbinvesting.com</a> với tên đầy đủ, tên công ty, địa chỉ và thông tin liên hệ của bạn cũng như mô tả ngắn gọn về hệ thống của bạn.',
+					bn: 'সেবাটি ব্যবহারের জন্য নিবন্ধন করতে, আপনাকে আমাদের কাছে একটি অনুরোধ পাঠাতে হবে <a href="mailto:partnership@dbinvesting.com" class="font-bold text-dbgreen-500">partnership@dbinvesting.com</a> এ আপনার পূর্ণ নাম, কোম্পানির নাম, ঠিকানা এবং যোগাযোগের বিবরণ সহ আপনার সিস্টেমের একটি সংক্ষিপ্ত বিবরণ সহ।',
+					'zh-hans':
+						'为了注册使用该服务，您必须向我们发送请求至 <a href="mailto:partnership@dbinvesting.com" class="font-bold text-dbgreen-500">partnership@dbinvesting.com</a>，提供您的全名、公司名称、地址和联系方式，以及您系统的简要描述。',
+					'pt-br':
+						'Para se registrar para usar o serviço, você terá que nos enviar um pedido para <a href="mailto:partnership@dbinvesting.com" class="font-bold text-dbgreen-500">partnership@dbinvesting.com</a> com seu nome completo, nome da empresa, endereço e detalhes de contato, além de uma breve descrição de seu sistema.'
+				})}
+			/>
 			<div class="mt-5 grid grid-cols-1 gap-3 md:grid-cols-3">
 				<div
 					class="broder col-span-1 flex flex-col items-center justify-center rounded-xl border-2 p-3 hover:border-dbgreen-500 dark:border-neutral-600 dark:hover:border-dbgreen-600"
 				>
 					<h4 class="mb-4 text-center text-lg font-semibold text-dbgreen-500 sm:text-xl">
-						Minimum Conditions:
+						{
+							t({
+								en: 'Minimum Conditions:',
+								ar: 'الحد الأدنى من الشروط:',
+								es: 'Condiciones Mínimas:',
+								fr: 'Conditions Minimales :',
+								hi: 'न्यूनतम शर्तें:',
+								id: 'Kondisi Minimum:',
+								ms: 'Syarat Minimum:',
+								th: 'เงื่อนไขขั้นต่ำ:',
+								vi: 'Điều kiện tối thiểu:',
+								bn: 'ন্যূনতম শর্তাবলী:',
+								'zh-hans': '最低条件：',
+								'pt-br': 'Condições Mínimas:'
+							})
+						}
 					</h4>
 					<p class="text-color text-center text-lg">
-						Minimal Deposit - USD 100.000 (Gives an access to API development with full support of
-						DB Investing IT Department).
+						{
+							t({
+								en: 'Minimal Deposit - USD 100.000 (Gives an access to API development with full support of DB Investing IT Department).',
+								ar: 'الحد الأدنى للإيداع - 100,000 دولار أمريكي (يمنح الوصول إلى تطوير واجهة برمجة التطبيقات مع الدعم الكامل من قسم تكنولوجيا المعلومات في DB Investing).',
+								es: 'Depósito Mínimo - USD 100,000 (Proporciona acceso al desarrollo de API con el soporte completo del Departamento de TI de DB Investing).',
+								fr: 'Dépôt Minimal - 100 000 USD (Donne accès au développement API avec le soutien complet du Département IT de DB Investing).',
+								hi: 'न्यूनतम जमा - USD 100,000 (DB Investing IT विभाग के पूर्ण समर्थन के साथ API विकास का एक्सेस देता है)।',
+								id: 'Setoran Minimal - USD 100.000 (Memberikan akses ke pengembangan API dengan dukungan penuh dari Departemen TI DB Investing).',
+								ms: 'Deposit Minimum - USD 100,000 (Memberi akses kepada pembangunan API dengan sokongan penuh daripada Jabatan IT DB Investing).',
+								th: 'เงินฝากขั้นต่ำ - 100,000 ดอลลาร์สหรัฐ (ให้การเข้าถึงการพัฒนา API พร้อมการสนับสนุนเต็มรูปแบบจากแผนก IT ของ DB Investing)',
+								vi: 'Số tiền gửi tối thiểu - 100.000 USD (Cung cấp quyền truy cập vào phát triển API với sự hỗ trợ đầy đủ từ Phòng IT của DB Investing).',
+								bn: 'ন্যূনতম জমা - USD 100,000 (DB Investing IT বিভাগের পূর্ণ সমর্থনের সাথে API উন্নয়নের অ্যাক্সেস দেয়)।',
+								'zh-hans':
+									'最低存款 - 100,000美元（在DB Investing IT部门的全力支持下，可以访问API开发）。',
+								'pt-br':
+									'Depósito Mínimo - USD 100.000 (Dá acesso ao desenvolvimento de API com total suporte do Departamento de TI da DB Investing).'
+							})
+						}
 					</p>
 					<p class="mt-2 text-center text-[12px] font-bold">
-						Restrictions on minimal amount of deposit are applied only for traders’ accounts.
+						{
+							t({
+								en: 'Restrictions on minimal amount of deposit are applied only for traders’ accounts.',
+								ar: 'تُطبق قيود على الحد الأدنى لمبلغ الإيداع فقط على حسابات المتداولين.',
+								es: 'Las restricciones sobre la cantidad mínima de depósito se aplican solo a las cuentas de los traders.',
+								fr: "Les restrictions sur le montant minimal du dépôt ne s'appliquent qu'aux comptes de traders.",
+								hi: 'न्यूनतम जमा राशि पर प्रतिबंध केवल व्यापारियों के खातों पर लागू होते हैं।',
+								id: 'Pembatasan jumlah setoran minimum hanya diterapkan untuk akun trader.',
+								ms: 'Sekatan mengenai jumlah deposit minimum hanya dikenakan untuk akaun peniaga.',
+								th: 'ข้อจำกัดเกี่ยวกับจำนวนเงินฝากขั้นต่ำจะมีผลเฉพาะกับบัญชีนักเทรดเท่านั้น',
+								vi: 'Các hạn chế về số tiền gửi tối thiểu chỉ được áp dụng cho tài khoản của nhà giao dịch.',
+								bn: 'ন্যূনতম জমার পরিমাণের উপর নিষেধাজ্ঞা শুধুমাত্র ব্যবসায়ীদের অ্যাকাউন্টের জন্য প্রযোজ্য।',
+								'zh-hans': '最低存款金额的限制仅适用于交易者账户。',
+								'pt-br':
+									'As restrições sobre o valor mínimo do depósito se aplicam apenas às contas dos traders.'
+							})
+						}
 					</p>
 				</div>
 				<div
 					class="broder col-span-1 flex flex-col items-center justify-center rounded-xl border-2 p-3 hover:border-dbgreen-500 dark:border-neutral-600 dark:hover:border-dbgreen-600"
 				>
 					<h4 class="mb-4 text-center text-lg font-semibold text-dbgreen-500 sm:text-xl">
-						Commissions:
+						{
+							t({
+								en: 'Commissions:',
+								ar: 'العمولات:',
+								es: 'Comisiones:',
+								fr: 'Commissions :',
+								hi: 'आयोग:',
+								id: 'Komisi:',
+								ms: 'Komisyen:',
+								th: 'ค่าคอมมิชชั่น:',
+								vi: 'Hoa hồng:',
+								bn: 'কমিশন:',
+								'zh-hans': '佣金：',
+								'pt-br': 'Comissões:'
+							})
+						}
 					</h4>
 					<p class="text-color text-center text-lg">
-						A commission plan will be applied on top of the raw spread
+						{
+							t({
+								en: 'A commission plan will be applied on top of the raw spread.',
+								ar: 'سيتم تطبيق خطة عمولة على الهامش الخام.',
+								es: 'Se aplicará un plan de comisiones sobre el spread bruto.',
+								fr: 'Un plan de commission sera appliqué sur le spread brut.',
+								hi: 'कच्चे स्प्रेड के ऊपर एक कमीशन योजना लागू की जाएगी।',
+								id: 'Rencana komisi akan diterapkan di atas spread mentah.',
+								ms: 'Pelan komisyen akan dikenakan di atas spread mentah.',
+								th: 'แผนค่าคอมมิชชั่นจะถูกนำไปใช้เพิ่มเติมจากสเปรดดิบ',
+								vi: 'Một kế hoạch hoa hồng sẽ được áp dụng trên chênh lệch thô.',
+								bn: 'কাঁচা স্প্রেডের উপরে একটি কমিশন পরিকল্পনা প্রয়োগ করা হবে।',
+								'zh-hans': '佣金计划将适用于原始点差之上。',
+								'pt-br': 'Um plano de comissão será aplicado sobre o spread bruto.'
+							})
+						}
 					</p>
 					<p class="text-color text-center text-lg">
-						A minimum of 2000$ monthly fees will be applied.
+						{
+							t({
+								en: 'A minimum of 2000$ monthly fees will be applied.',
+								ar: 'سيتم تطبيق رسوم شهرية بقيمة 2000$ كحد أدنى.',
+								es: 'Se aplicará una tarifa mensual mínima de 2000$.',
+								fr: 'Des frais mensuels minimum de 2000$ seront appliqués.',
+								hi: 'न्यूनतम 2000$ मासिक शुल्क लागू किया जाएगा।',
+								id: 'Biaya bulanan minimum sebesar 2000$ akan diterapkan.',
+								ms: 'Yuran bulanan minimum sebanyak 2000$ akan dikenakan.',
+								th: 'จะมีการเรียกเก็บค่าธรรมเนียมรายเดือนขั้นต่ำ 2000$',
+								vi: 'Phí tối thiểu hàng tháng là 2000$ sẽ được áp dụng.',
+								bn: 'কমপক্ষে 2000$ মাসিক ফি প্রযোজ্য হবে।',
+								'zh-hans': '将收取最低2000$的月费。',
+								'pt-br': 'Uma taxa mensal mínima de 2000$ será aplicada.'
+							})
+						}
 					</p>
 				</div>
 				<div
 					class="broder col-span-1 flex flex-col items-center justify-center rounded-xl border-2 p-3 hover:border-dbgreen-500 dark:border-neutral-600 dark:hover:border-dbgreen-600"
 				>
 					<h4 class="mb-4 text-center text-lg font-semibold text-dbgreen-500 sm:text-xl">
-						Funding:
+						{
+							t({
+								en: 'Funding:',
+								ar: 'التمويل:',
+								es: 'Financiamiento:',
+								fr: 'Financement :',
+								hi: 'फंडिंग:',
+								id: 'Pendanaan:',
+								ms: 'Pembiayaan:',
+								th: 'การระดมทุน:',
+								vi: 'Quỹ:',
+								bn: 'ফান্ডিং:',
+								'zh-hans': '资金:',
+								'pt-br': 'Financiamento:'
+							})
+						}
 					</h4>
 					<p class="text-color text-center text-lg">
-						A dedicated crypto wallet is available for the client, totally separated and segregated
-						from the other clients.
+						{
+							t({
+								en: 'A dedicated crypto wallet is available for the client, totally separated and segregated from the other clients.',
+								ar: 'محفظة تشفير مخصصة متاحة للعميل، مفصولة تمامًا وم segregated عن العملاء الآخرين.',
+								es: 'Una billetera de criptomonedas dedicada está disponible para el cliente, completamente separada y segregada de los otros clientes.',
+								fr: 'Un portefeuille crypto dédié est disponible pour le client, totalement séparé et segregé des autres clients.',
+								hi: 'एक समर्पित क्रिप्टो वॉलेट ग्राहक के लिए उपलब्ध है, जो अन्य ग्राहकों से पूरी तरह से अलग और विभाजित है।',
+								id: 'Dompet kripto khusus tersedia untuk klien, sepenuhnya terpisah dan terpisah dari klien lainnya.',
+								ms: 'Dompet kripto khusus tersedia untuk pelanggan, sepenuhnya terpisah dan dipisahkan dari pelanggan lain.',
+								th: 'กระเป๋าเงินคริปโตที่จัดเตรียมไว้สำหรับลูกค้า ซึ่งแยกออกและแยกจากลูกค้าคนอื่นๆ อย่างสิ้นเชิง',
+								vi: 'Một ví tiền điện tử dành riêng cho khách hàng, hoàn toàn tách biệt và phân chia khỏi các khách hàng khác.',
+								bn: 'একটি নিবেদিত ক্রিপ্টো ওয়ালেট ক্লায়েন্টের জন্য উপলব্ধ, সম্পূর্ণরূপে অন্যান্য ক্লায়েন্টদের থেকে পৃথক এবং আলাদা।',
+								'zh-hans': '为客户提供专用的加密钱包，完全与其他客户隔离和分离。',
+								'pt-br':
+									'Uma carteira de criptomoedas dedicada está disponível para o cliente, totalmente separada e segregada dos outros clientes.'
+							})
+						}
 					</p>
 				</div>
 			</div>
 			<p class="mt-4 text-center text-[12px] font-bold">
-				*Please note that DB Investing will conduct a short screening process in order to ascertain
-				whether DB Investing is inclined to form a partnership with a certain individual or
-				corporation.
+				{
+					t({
+						en: '*Please note that DB Investing will conduct a short screening process in order to ascertain whether DB Investing is inclined to form a partnership with a certain individual or corporation.',
+						ar: '*يرجى ملاحظة أن DB Investing ستجري عملية فرز قصيرة لتحديد ما إذا كانت DB Investing تميل إلى تشكيل شراكة مع فرد معين أو شركة.',
+						es: '*Tenga en cuenta que DB Investing llevará a cabo un breve proceso de selección para determinar si DB Investing está inclinada a formar una asociación con un individuo o corporación en particular.',
+						fr: '*Veuillez noter que DB Investing effectuera un court processus de sélection afin de déterminer si DB Investing est enclin à établir un partenariat avec un individu ou une entreprise.',
+						hi: '*कृपया ध्यान दें कि DB Investing एक संक्षिप्त स्क्रीनिंग प्रक्रिया का संचालन करेगा ताकि यह निर्धारित किया जा सके कि क्या DB Investing किसी विशेष व्यक्ति या निगम के साथ साझेदारी बनाने के लिए इच्छुक है।',
+						id: '*Harap dicatat bahwa DB Investing akan melakukan proses penyaringan singkat untuk menentukan apakah DB Investing cenderung membentuk kemitraan dengan individu atau perusahaan tertentu.',
+						ms: '*Sila ambil perhatian bahawa DB Investing akan menjalankan proses saringan pendek untuk menentukan sama ada DB Investing cenderung untuk membentuk kerjasama dengan individu atau syarikat tertentu.',
+						th: '*โปรดทราบว่า DB Investing จะดำเนินการตรวจสอบอย่างสั้นเพื่อพิจารณาว่า DB Investing มีแนวโน้มที่จะสร้างความร่วมมือกับบุคคลหรือบริษัทใดบริษัทหนึ่งหรือไม่',
+						vi: '*Xin lưu ý rằng DB Investing sẽ thực hiện một quy trình sàng lọc ngắn để xác định xem DB Investing có xu hướng hình thành quan hệ đối tác với một cá nhân hoặc công ty nào đó hay không.',
+						bn: '*দয়া করে লক্ষ্য করুন যে DB Investing একটি সংক্ষিপ্ত স্ক্রীনিং প্রক্রিয়া পরিচালনা করবে যাতে নির্ধারণ করা যায় যে DB Investing একটি নির্দিষ্ট ব্যক্তি বা কর্পোরেশনের সাথে অংশীদারিত্ব গঠন করতে আগ্রহী কিনা।',
+						'zh-hans':
+							'*请注意，DB Investing将进行简短的筛选过程，以确定DB Investing是否倾向于与某个个人或公司建立合作关系。',
+						'pt-br':
+							'*Por favor, note que a DB Investing realizará um breve processo de triagem para determinar se a DB Investing está inclinada a formar uma parceria com um determinado indivíduo ou corporação.'
+					})
+				}
 			</p>
 		</div>
 	</section>

@@ -4,12 +4,13 @@ import Button from '@/components/ui/Button.astro'
 import { LOCALES, useTranslations, type Lang } from '@/i18n'
 import Layout from '@/layouts/Layout.astro'
 const t = useTranslations(Astro.currentLocale as Lang)
-import MetaTraderMockImage from '@/images/mettrader-mock.png'
-import { Iphone15Pro } from '@/components/magicui/Iphone15Pro'
 import { Image } from 'astro:assets'
 import TradingHardImg from '@/images/trading-is-hard-creative.png'
 import BeatImg from '@/images/winner.png'
 import HowItWorkImg from '@/images/How-it-works-creative.png'
+import ZulutradeTopTrader from '@/components/ui/ZulutradeTopTrader'
+
+const lang = Astro.params.lang || 'en'
 
 export const getStaticPaths = () =>
 	Object.keys(LOCALES).map((lang) => ({
@@ -17,26 +18,105 @@ export const getStaticPaths = () =>
 	}))
 ---
 
-<Layout title="Social Trading On ZuluTrader">
+<Layout
+	title={t({
+		en: 'Social Trading On ZuluTrader',
+		ar: 'التداول الاجتماعي على ZuluTrader',
+		es: 'Trading Social en ZuluTrader',
+		fr: 'Trading Social sur ZuluTrader',
+		hi: 'ज़ुलु ट्रेडर पर सोशल ट्रेडिंग',
+		id: 'Perdagangan Sosial di ZuluTrader',
+		ms: 'Perdagangan Sosial di ZuluTrader',
+		th: 'การซื้อขายสังคมบน ZuluTrader',
+		vi: 'Giao dịch xã hội trên ZuluTrader',
+		bn: 'জুলু ট্রেডারে সামাজিক ট্রেডিং',
+		'zh-hans': '在ZuluTrader上进行社交交易',
+		'pt-br': 'Trading Social no ZuluTrader'
+	})}
+>
 	<section>
 		<!-- Hero -->
-		<div class="container relative mx-auto px-4 py-10 sm:px-6 lg:px-8">
+		<div class="container relative mx-auto max-w-[1200px] px-4 py-10 sm:px-6 lg:px-8">
 			<!-- Grid -->
-			<div class="grid gap-4 pb-20 md:items-center md:gap-8 lg:grid-cols-2 xl:gap-20">
-				<div>
+			<div class="grid pb-20 md:items-center lg:grid-cols-1">
+				<div class="col-span-1">
 					<h1
-						class="block text-3xl font-bold text-gray-800 dark:text-white sm:text-4xl lg:text-6xl lg:leading-tight"
+						class="block text-center text-3xl font-bold text-gray-800 dark:text-white sm:text-4xl lg:text-6xl lg:leading-tight"
+						set:html={t({
+							en: 'Social Trading with <span class="text-green-500">ZuluTrade</span>',
+							ar: 'التداول الاجتماعي مع <span class="text-green-500">ZuluTrade</span>',
+							es: 'Trading social con <span class="text-green-500">ZuluTrade</span>',
+							fr: 'Trading social avec <span class="text-green-500">ZuluTrade</span>',
+							hi: 'ज़ुलु ट्रेड के साथ सामाजिक व्यापार <span class="text-green-500">ZuluTrade</span>',
+							id: 'Trading sosial dengan <span class="text-green-500">ZuluTrade</span>',
+							ms: 'Perdagangan Sosial dengan <span class="text-green-500">ZuluTrade</span>',
+							th: 'การซื้อขายสังคมกับ <span class="text-green-500">ZuluTrade</span>',
+							vi: 'Giao dịch xã hội với <span class="text-green-500">ZuluTrade</span>',
+							bn: 'সামাজিক ট্রেডিং <span class="text-green-500">ZuluTrade</span> এর সাথে',
+							'zh-hans': '与 <span class="text-green-500">ZuluTrade</span> 进行社交交易',
+							'pt-br': 'Trading Social com <span class="text-green-500">ZuluTrade</span>'
+						})}
 					>
-						Social Trading with <span class="text-green-500">ZuluTrade</span>
+						<!-- Social Trading with <span class="text-green-500">ZuluTrade</span> -->
 					</h1>
-					<h3 class="text-2xl font-semibold">Go long or short? Go Zulu!</h3>
-					<p class="mt-3 text-lg text-gray-800 dark:text-neutral-400">
-						Join the most transparent social trading network! Copy Top Performing
-						Leaders from different Brokers easily and reach your investment goals!
+					<h3 class="my-3 text-center text-2xl font-semibold">
+						{
+							t({
+								en: 'Go long or short? Go Zulu!',
+								ar: 'طويل أم قصير؟ اذهب إلى زولو!',
+								es: '¿Ir largo o corto? ¡Ve Zulu!',
+								fr: 'Long ou court ? Allez Zulu !',
+								hi: 'लंबा या छोटा? ज़ुलु जाओ!',
+								id: 'Beli atau Jual? Ayo Zulu!',
+								ms: 'Pergi panjang atau pendek? Pergi Zulu!',
+								th: 'จะยาวหรือตัวสั้น? ไป Zulu!',
+								vi: 'Đi dài hay ngắn? Đi Zulu!',
+								bn: 'দীর্ঘ বা স্বল্প? জুলু যান!',
+								'zh-hans': '做多还是做空？去 Zulu！',
+								'pt-br': 'Ir longo ou curto? Vá Zulu!'
+							})
+						}
+					</h3>
+					<p class="mt-3 text-center text-lg text-gray-800 dark:text-neutral-400">
+						{
+							t({
+								en: 'Join the most transparent social trading network!',
+								ar: 'انضم إلى شبكة التداول الاجتماعي الأكثر شفافية!',
+								es: '¡Únete a la red de trading social más transparente!',
+								fr: 'Rejoignez le réseau de trading social le plus transparent !',
+								hi: 'सबसे पारदर्शी सामाजिक व्यापार नेटवर्क में शामिल हों!',
+								id: 'Bergabunglah dengan jaringan trading sosial paling transparan!',
+								ms: 'Sertai rangkaian perdagangan sosial yang paling telus!',
+								th: 'เข้าร่วมเครือข่ายการเทรดสังคมที่โปร่งใสที่สุด!',
+								vi: 'Tham gia mạng lưới giao dịch xã hội minh bạch nhất!',
+								bn: 'সর্বাধিক স্বচ্ছ সামাজিক ট্রেডিং নেটওয়ার্কে যোগ দিন!',
+								'zh-hans': '加入最透明的社交交易网络！',
+								'pt-br': 'Junte-se à rede de trading social mais transparente!'
+							})
+						}
+					</p>
+					<p class="mt-3 text-center text-lg text-gray-800 dark:text-neutral-400">
+						{
+							t({
+								en: 'Copy Top Performing Leaders from different Brokers easily and reach your investment goals!',
+								ar: 'انسخ القادة الأعلى أداءً من وسطاء مختلفين بسهولة وحقق أهداف استثمارك!',
+								es: 'Copia a los líderes de alto rendimiento de diferentes corredores fácilmente y alcanza tus objetivos de inversión.',
+								fr: "Copiez facilement les leaders les plus performants de différents courtiers et atteignez vos objectifs d'investissement !",
+								hi: 'विभिन्न ब्रोकरों से शीर्ष प्रदर्शन करने वाले नेताओं की कॉपी करें और अपने निवेश के लक्ष्यों को प्राप्त करें!',
+								id: 'Salin Pemimpin Berkinerja Terbaik dari berbagai Broker dengan mudah dan capai tujuan investasi Anda!',
+								ms: 'Salin Pemimpin Berkinerja Terbaik dari pelbagai Broker dengan mudah dan capai matlamat pelaburan anda!',
+								th: 'คัดลอกผู้นำที่ทำงานได้ดีที่สุดจากโบรกเกอร์ต่างๆ ได้อย่างง่ายดายและบรรลุเป้าหมายการลงทุนของคุณ!',
+								vi: 'Sao chép các Nhà lãnh đạo hàng đầu từ các Nhà môi giới khác nhau một cách dễ dàng và đạt được mục tiêu đầu tư của bạn!',
+								bn: 'বিভিন্ন দালাল থেকে শীর্ষ পারফরম্যান্স নেতাদের সহজেই অনুকরণ করুন এবং আপনার বিনিয়োগের লক্ষ্য অর্জন করুন!',
+								'zh-hans': '轻松复制来自不同经纪商的顶尖表现领导者，达到您的投资目标！',
+								'pt-br':
+									'Copie os Líderes com Desempenho Superior de diferentes Corretoras com facilidade e alcance seus objetivos de investimento!'
+							})
+						}
 					</p>
 
 					<!-- Buttons -->
-					<div class="mt-7 grid w-full gap-3 sm:inline-flex">
+					<div class="mt-7 w-full items-center justify-center gap-3 text-center sm:inline-flex">
 						<Button
 							primary={true}
 							rippleEffect={true}
@@ -51,39 +131,124 @@ export const getStaticPaths = () =>
 					<div class="mt-6 grid grid-cols-3 gap-x-5 lg:mt-10">
 						<!-- awward -->
 						<div class="ourAward relative col-span-1">
-							<div class="maskIcon relative">
-								<span class="award-text">UF AWARDS</span><span class="award-text"
-									>CYPRUS, 2022</span
-								>
+							<div
+								class="maskIcon award-text relative"
+								set:html={t({
+									en: '<span class="award-text">UF AWARDS</span><br /><span class="award-text">CYPRUS, 2022</span>',
+									ar: '<span class="award-text">جوائز UF</span><br /><span class="award-text">قبرص، 2022</span>',
+									es: '<span class="award-text">PREMIOS UF</span><br /><span class="award-text">CIPRÉS, 2022</span>',
+									fr: '<span class="award-text">PRIX UF</span><br /><span class="award-text">CHYPRE, 2022</span>',
+									hi: '<span class="award-text">यूएफ पुरस्कार</span><br /><span class="award-text">साइप्रस, 2022</span>',
+									id: '<span class="award-text">UF AWARDS</span><br /><span class="award-text">CYPRUS, 2022</span>',
+									ms: '<span class="award-text">ANUGERAH UF</span><br /><span class="award-text">CYPRUS, 2022</span>',
+									th: '<span class="award-text">UF AWARDS</span><br /><span class="award-text">ไซปรัส, 2022</span>',
+									vi: '<span class="award-text">GIẢI THƯỞNG UF</span><br /><span class="award-text">CYPRUS, 2022</span>',
+									bn: '<span class="award-text">ইউএফ অ্যাওয়ার্ডস</span><br /><span class="award-text">সাইপ্রাস, 2022</span>',
+									'zh-hans':
+										'<span class="award-text">UF 奖项</span><br /><span class="award-text">塞浦路斯，2022</span>',
+									'pt-br':
+										'<span class="award-text">PRÊMIOS UF</span><br /><span class="award-text">CIPRO, 2022</span>'
+								})}
+							>
+								<!-- <span class="award-text">UF AWARDS</span><span class="award-text">CYPRUS, 2022</span> -->
 							</div>
-							<h4 class="awwardName text-center font-bold">
-								Best Social Trading <span>Solution</span>
-							</h4>
+							<h4
+								class="awwardName text-center font-bold"
+								set:html={t({
+									en: 'Best Social Trading <br />Solution',
+									ar: 'أفضل حل للتداول الاجتماعي <br />',
+									es: 'Mejor Solución de Trading Social <br />',
+									fr: 'Meilleure Solution de Trading Social <br />',
+									hi: 'सर्वश्रेष्ठ सामाजिक व्यापार <br /> समाधान',
+									id: 'Solusi Perdagangan Sosial Terbaik <br />',
+									ms: 'Penyelesaian Perdagangan Sosial Terbaik <br />',
+									th: 'โซลูชันการเทรดสังคมที่ดีที่สุด <br />',
+									vi: 'Giải pháp Giao dịch Xã hội Tốt nhất <br />',
+									bn: 'সেরা সামাজিক ব্যবসা <br /> সমাধান',
+									'zh-hans': '最佳社交交易 <br /> 解决方案',
+									'pt-br': 'Melhor Solução de Trading Social <br />'
+								})}
+							/>
 						</div>
 						<!-- awward End  -->
 						<!-- awward -->
 						<div class="ourAward relative col-span-1">
-							<div class="maskIcon relative">
-								<span class="award-text">FOREX EXPO</span><span class="award-text"
-									>DUBAI, 2022</span
-								>
-							</div>
-							<h4 class="awwardName text-center font-bold">
-								Best Social Wealth
-								<span>Management Platform</span>
-							</h4>
+							<div
+								class="maskIcon award-text relative"
+								set:html={t({
+									en: '<span class="award-text">FOREX EXPO</span><br /><span class="award-text">DUBAI, 2022</span>',
+									ar: '<span class="award-text">معرض الفوركس</span><br /><span class="award-text">دبي، 2022</span>',
+									es: '<span class="award-text">EXPO FOREX</span><br /><span class="award-text">DUBÁI, 2022</span>',
+									fr: '<span class="award-text">EXPO FOREX</span><br /><span class="award-text">DUBAÏ, 2022</span>',
+									hi: '<span class="award-text">फॉरेक्स एक्सपो</span><br /><span class="award-text">दुबई, 2022</span>',
+									id: '<span class="award-text">FOREX EXPO</span><br /><span class="award-text">DUBAI, 2022</span>',
+									ms: '<span class="award-text">EKSPOS FOREX</span><br /><span class="award-text">DUBAI, 2022</span>',
+									th: '<span class="award-text">FOREX EXPO</span><br /><span class="award-text">ดูไบ, 2022</span>',
+									vi: '<span class="award-text">HỘI CHỢ FOREX</span><br /><span class="award-text">DUBAI, 2022</span>',
+									bn: '<span class="award-text">ফরেক্স এক্সপো</span><br /><span class="award-text">দুবাই, 2022</span>',
+									'zh-hans':
+										'<span class="award-text">外汇博览会</span><br /><span class="award-text">迪拜，2022</span>',
+									'pt-br':
+										'<span class="award-text">EXPO FOREX</span><br /><span class="award-text">DUBAI, 2022</span>'
+								})}
+							/>
+							<h4
+								class="awwardName text-center font-bold"
+								set:html={t({
+									en: 'Best Social Wealth<br />Management Platform',
+									ar: 'أفضل منصة لإدارة الثروات الاجتماعية<br />',
+									es: 'Mejor Plataforma de Gestión de Riqueza Social<br />',
+									fr: 'Meilleure Plateforme de Gestion de Patrimoine Social<br />',
+									hi: 'सर्वश्रेष्ठ सामाजिक धन<br /> प्रबंधन प्लेटफ़ॉर्म',
+									id: 'Platform Manajemen Kekayaan Sosial Terbaik<br />',
+									ms: 'Platform Pengurusan Kekayaan Sosial Terbaik<br />',
+									th: 'แพลตฟอร์มการจัดการความมั่งคั่งทางสังคมที่ดีที่สุด<br />',
+									vi: 'Nền tảng Quản lý Tài sản Xã hội Tốt nhất<br />',
+									bn: 'সেরা সামাজিক সম্পদ<br /> ব্যবস্থাপনা প্ল্যাটফর্ম',
+									'zh-hans': '最佳社交财富<br />管理平台',
+									'pt-br': 'Melhor Plataforma de Gestão de Riqueza Social<br />'
+								})}
+							/>
 						</div>
 						<!-- awward End  -->
 						<!-- awward -->
 						<div class="ourAward relative col-span-1">
-							<div class="maskIcon relative">
-								<span class="award-text">UF AWARDS</span><span class="award-text"
-									>DUBAI, 2023</span
-								>
-							</div>
-							<h4 class="awwardName text-center font-bold">
-								Best Social Trading <span>Solution in MEA</span>
-							</h4>
+							<div
+								class="maskIcon award-text relative"
+								set:html={t({
+									en: '<span class="award-text">UF AWARDS</span><br /><span class="award-text">DUBAI, 2023</span>',
+									ar: '<span class="award-text">جوائز UF</span><br /><span class="award-text">دبي، 2023</span>',
+									es: '<span class="award-text">PREMIOS UF</span><br /><span class="award-text">DUBÁI, 2023</span>',
+									fr: '<span class="award-text">PRIX UF</span><br /><span class="award-text">DUBAÏ, 2023</span>',
+									hi: '<span class="award-text">यूएफ पुरस्कार</span><br /><span class="award-text">दुबई, 2023</span>',
+									id: '<span class="award-text">UF AWARDS</span><br /><span class="award-text">DUBAI, 2023</span>',
+									ms: '<span class="award-text">ANUGERAH UF</span><br /><span class="award-text">DUBAI, 2023</span>',
+									th: '<span class="award-text">UF AWARDS</span><br /><span class="award-text">ดูไบ, 2023</span>',
+									vi: '<span class="award-text">GIẢI THƯỞNG UF</span><br /><span class="award-text">DUBAI, 2023</span>',
+									bn: '<span class="award-text">ইউএফ অ্যাওয়ার্ডস</span><br /><span class="award-text">দুবাই, 2023</span>',
+									'zh-hans':
+										'<span class="award-text">UF 奖项</span><br /><span class="award-text">迪拜，2023</span>',
+									'pt-br':
+										'<span class="award-text">PRÊMIOS UF</span><br /><span class="award-text">DUBAI, 2023</span>'
+								})}
+							/>
+							<h4
+								class="awwardName text-center font-bold"
+								set:html={t({
+									en: 'Best Social Trading <br />Solution in MEA',
+									ar: 'أفضل حل للتداول الاجتماعي <br />في منطقة الشرق الأوسط وأفريقيا',
+									es: 'Mejor Solución de Trading Social <br />en MEA',
+									fr: 'Meilleure Solution de Trading Social <br />dans la région MEA',
+									hi: 'सर्वश्रेष्ठ सामाजिक व्यापार <br />MEA में समाधान',
+									id: 'Solusi Perdagangan Sosial Terbaik <br />di MEA',
+									ms: 'Penyelesaian Perdagangan Sosial Terbaik <br />di MEA',
+									th: 'โซลูชันการเทรดสังคมที่ดีที่สุด <br />ใน MEA',
+									vi: 'Giải pháp Giao dịch Xã hội Tốt nhất <br />tại MEA',
+									bn: 'সেরা সামাজিক ব্যবসা <br />MEA-এ সমাধান',
+									'zh-hans': '最佳社交交易 <br />MEA地区解决方案',
+									'pt-br': 'Melhor Solução de Trading Social <br />na MEA'
+								})}
+							/>
 						</div>
 						<!-- awward End  -->
 					</div>
@@ -91,12 +256,8 @@ export const getStaticPaths = () =>
 				</div>
 				<!-- End Col -->
 
-				<div class="relative">
-					<Safari
-						url="dbinvesting.zulutrade.com"
-						className="size-full"
-						ifrmaeSrc="https://www.zulutrade.com/widgets/performance"
-					/>
+				<div class="relative col-span-1">
+					<ZulutradeTopTrader client:only="react" lang={lang} />
 				</div>
 				<!-- End Col -->
 			</div>
@@ -104,17 +265,47 @@ export const getStaticPaths = () =>
 			<!-- Grid -->
 			<div class="grid gap-4 pb-20 md:grid-cols-2 md:items-center md:gap-8 xl:gap-2">
 				<div class="relative ms-4 flex justify-center">
-					<Image
-						src={TradingHardImg}
-						alt="Trade img "
-					/>
+					<Image src={TradingHardImg} alt="Trade img " />
 				</div>
 
 				<div>
 					<h1
 						class="block text-3xl font-bold text-gray-800 dark:text-white sm:text-4xl lg:text-5xl lg:leading-tight"
 					>
-						Truth is... <br /><span class="text-green-500">Trading is not easy</span>
+						{
+							t({
+								en: 'Truth is...',
+								ar: 'الحقيقة هي...',
+								es: 'La verdad es...',
+								fr: 'La vérité est...',
+								hi: 'सच्चाई है...',
+								id: 'Kebenaran adalah...',
+								ms: 'Kebenaran adalah...',
+								th: 'ความจริงคือ...',
+								vi: 'Sự thật là...',
+								bn: 'সত্য হচ্ছে...',
+								'zh-hans': '真相是...',
+								'pt-br': 'A verdade é...'
+							})
+						}
+						<br /><span class="text-green-500"
+							>{
+								t({
+									en: 'Trading is not easy',
+									ar: 'التداول ليس سهلاً',
+									es: 'El trading no es fácil',
+									fr: "Le trading n'est pas facile",
+									hi: 'व्यापार करना आसान नहीं है',
+									id: 'Trading tidak mudah',
+									ms: 'Perdagangan tidak mudah',
+									th: 'การเทรดไม่ใช่เรื่องง่าย',
+									vi: 'Giao dịch không dễ',
+									bn: 'বাণিজ্য সহজ নয়',
+									'zh-hans': '交易并不简单',
+									'pt-br': 'A negociação não é fácil'
+								})
+							}</span
+						>
 					</h1>
 
 					<!-- List -->
@@ -133,12 +324,26 @@ export const getStaticPaths = () =>
 									stroke="currentColor"
 									stroke-width="2"
 									stroke-linecap="round"
-									stroke-linejoin="round"
-									><polyline points="20 6 9 17 4 12"></polyline></svg
+									stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg
 								>
 							</span>
 							<span class="text-gray-800 dark:text-neutral-200">
-								Studying the market takes time
+								{
+									t({
+										en: 'Studying the market takes time',
+										ar: 'دراسة السوق تستغرق وقتًا',
+										es: 'Estudiar el mercado lleva tiempo',
+										fr: 'Étudier le marché prend du temps',
+										hi: 'बाजार का अध्ययन करने में समय लगता है',
+										id: 'Mempelajari pasar memerlukan waktu',
+										ms: 'Mempelajari pasaran memerlukan masa',
+										th: 'การศึกษาตลาดต้องใช้เวลา',
+										vi: 'Nghiên cứu thị trường tốn thời gian',
+										bn: 'বাজার অধ্যয়ন করতে সময় লাগে',
+										'zh-hans': '研究市场需要时间',
+										'pt-br': 'Estudar o mercado leva tempo'
+									})
+								}
 							</span>
 						</li>
 						<li class="flex gap-x-3">
@@ -155,18 +360,47 @@ export const getStaticPaths = () =>
 									stroke="currentColor"
 									stroke-width="2"
 									stroke-linecap="round"
-									stroke-linejoin="round"
-									><polyline points="20 6 9 17 4 12"></polyline></svg
+									stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg
 								>
 							</span>
 							<span class="text-gray-800 dark:text-neutral-200">
-								Building and maintaining a trading strategy is hard
+								{
+									t({
+										en: 'Building and maintaining a trading strategy is hard',
+										ar: 'بناء وصيانة استراتيجية تداول أمر صعب',
+										es: 'Construir y mantener una estrategia de trading es difícil',
+										fr: 'Construire et maintenir une stratégie de trading est difficile',
+										hi: 'एक व्यापारिक रणनीति बनाना और बनाए रखना कठिन है',
+										id: 'Membangun dan mempertahankan strategi perdagangan itu sulit',
+										ms: 'Membina dan mengekalkan strategi perdagangan adalah sukar',
+										th: 'การสร้างและรักษากลยุทธ์การเทรดเป็นเรื่องยาก',
+										vi: 'Xây dựng và duy trì một chiến lược giao dịch là khó',
+										bn: 'একটি ট্রেডিং কৌশল তৈরি এবং রক্ষণাবেক্ষণ করা কঠিন',
+										'zh-hans': '建立和维护交易策略很困难',
+										'pt-br': 'Construir e manter uma estratégia de negociação é difícil'
+									})
+								}
 							</span>
 						</li>
 					</ul>
 					<!-- End List -->
 					<p class="mt-3 text-lg text-gray-800 dark:text-neutral-400">
-						That’s why only 11-26% of manual investors end up winning.
+						{
+							t({
+								en: 'That’s why only 11-26% of manual investors end up winning.',
+								ar: 'لهذا السبب ينتهي الأمر فقط 11-26% من المستثمرين اليدويين بالفوز.',
+								es: 'Por eso, solo el 11-26% de los inversores manuales terminan ganando.',
+								fr: "C'est pourquoi seuls 11-26% des investisseurs manuels finissent par gagner.",
+								hi: 'इसलिए केवल 11-26% मैनुअल निवेशक जीतने में सफल होते हैं।',
+								id: 'Itulah mengapa hanya 11-26% investor manual yang akhirnya menang.',
+								ms: 'Itulah sebabnya hanya 11-26% pelabur manual yang akhirnya menang.',
+								th: 'นั่นคือเหตุผลที่มีเพียง 11-26% ของนักลงทุนด้วยตนเองที่ชนะในที่สุด',
+								vi: 'Đó là lý do tại sao chỉ có 11-26% nhà đầu tư thủ công cuối cùng thắng.',
+								bn: 'এবং এ কারণে মাত্র 11-26% ম্যানুয়াল বিনিয়োগকারী শেষ পর্যন্ত জিততে সক্ষম হন।',
+								'zh-hans': '这就是为什么只有11-26%的手动投资者最终获胜。',
+								'pt-br': 'É por isso que apenas 11-26% dos investidores manuais acabam ganhando.'
+							})
+						}
 					</p>
 				</div>
 			</div>
@@ -176,19 +410,60 @@ export const getStaticPaths = () =>
 				<div>
 					<h1
 						class="block text-3xl font-bold text-gray-800 dark:text-white sm:text-4xl lg:text-5xl lg:leading-tight"
-					>
-						Beat the odds with <br /><span class="text-green-500">Copy Trading</span>
-					</h1>
+						set:html={t({
+							en: 'Beat the odds with <br /><span class="text-green-500">Copy Trading</span>',
+							ar: 'تغلب على الاحتمالات مع <br /><span class="text-green-500">تداول النسخ</span>',
+							es: 'Supera las probabilidades con <br /><span class="text-green-500">Copy Trading</span>',
+							fr: 'Battez les cotes avec <br /><span class="text-green-500">Copy Trading</span>',
+							hi: 'संभावनाओं को हराएं <br /><span class="text-green-500">कॉपी ट्रेडिंग</span>',
+							id: 'Kalahkan peluang dengan <br /><span class="text-green-500">Copy Trading</span>',
+							ms: 'Kalahkan peluang dengan <br /><span class="text-green-500">Copy Trading</span>',
+							th: 'เอาชนะโอกาสด้วย <br /><span class="text-green-500">การซื้อขายแบบคัดลอก</span>',
+							vi: 'Đánh bại xác suất với <br /><span class="text-green-500">Giao dịch sao chép</span>',
+							bn: 'সুযোগকে হারান <br /><span class="text-green-500">কপি ট্রেডিং</span>',
+							'zh-hans': '打破概率与 <br /><span class="text-green-500">复制交易</span>',
+							'pt-br':
+								'Supere as probabilidades com <br /><span class="text-green-500">Copy Trading</span>'
+						})}
+					/>
 
 					<p class="mt-3 text-lg text-gray-800 dark:text-neutral-400">
-						Did you know that 73% of our investors make profit when copying top leaders
-						correctly?
+						{
+							t({
+								en: 'Did you know that 73% of our investors make profit when copying top leaders correctly?',
+								ar: 'هل كنت تعلم أن 73% من مستثمرينا يحققون أرباحًا عند نسخ القادة الأعلى بشكل صحيح؟',
+								es: '¿Sabías que el 73% de nuestros inversores obtienen ganancias al copiar a los principales líderes correctamente?',
+								fr: 'Saviez-vous que 73 % de nos investisseurs réalisent des bénéfices en copiant correctement les meilleurs leaders ?',
+								hi: 'क्या आप जानते हैं कि 73% हमारे निवेशकों को शीर्ष नेताओं को सही ढंग से कॉपी करने पर लाभ होता है?',
+								id: 'Tahukah Anda bahwa 73% investor kami mendapatkan keuntungan saat menyalin pemimpin teratas dengan benar?',
+								ms: 'Tahukah anda bahawa 73% pelabur kami memperoleh keuntungan apabila menyalin pemimpin teratas dengan betul?',
+								th: 'คุณรู้หรือไม่ว่า 73% ของนักลงทุนของเราทำกำไรเมื่อคัดลอกผู้นำชั้นนำอย่างถูกต้อง?',
+								vi: 'Bạn có biết rằng 73% nhà đầu tư của chúng tôi có lãi khi sao chép các nhà lãnh đạo hàng đầu một cách chính xác không?',
+								bn: 'আপনি কি জানেন যে 73% আমাদের বিনিয়োগকারীরা শীর্ষ নেতাদের সঠিকভাবে কপি করার সময় লাভ করে?',
+								'zh-hans': '你知道73%的投资者在正确复制顶尖领导者时会获利吗？',
+								'pt-br':
+									'Você sabia que 73% dos nossos investidores lucram ao copiar os principais líderes corretamente?'
+							})
+						}
 					</p>
 					<Button
 						href="https://dbinvesting.zulutrade.com/register/"
 						data-aos="fade-up-sm"
 						data-aos-delay="150"
-						text="Try it Yourself"
+						text={t({
+							en: 'Try it Yourself',
+							ar: 'جربها بنفسك',
+							es: 'Pruébalo tú mismo',
+							fr: 'Essayez-le vous-même',
+							hi: 'खुद आजमाएं',
+							id: 'Coba sendiri',
+							ms: 'Cuba sendiri',
+							th: 'ลองด้วยตัวคุณเอง',
+							vi: 'Hãy thử nó một mình',
+							bn: 'এটা নিজেই চেষ্টা করুন',
+							'zh-hans': '自己试试',
+							'pt-br': 'Experimente você mesmo'
+						})}
 						primary={false}
 						rippleEffect="true"
 						primary="true"
@@ -197,28 +472,34 @@ export const getStaticPaths = () =>
 					/>
 				</div>
 				<div class="relative ms-4 flex justify-center">
-					<Image
-						src={BeatImg}
-						alt="Trade img "
-					/>
+					<Image src={BeatImg} alt="Trade img " />
 				</div>
 			</div>
 			<!-- End Grid -->
 			<!-- Grid -->
 			<div class="grid gap-4 pt-20 md:grid-cols-2 md:items-center md:gap-8 xl:gap-2">
 				<div class="relative ms-4 flex justify-center">
-					<Image
-						src={HowItWorkImg}
-						alt="Trade img "
-					/>
+					<Image src={HowItWorkImg} alt="Trade img " />
 				</div>
 
 				<div>
 					<h1
 						class="block text-3xl font-bold text-gray-800 dark:text-white sm:text-4xl lg:text-5xl lg:leading-tight"
-					>
-						How it <span class="text-green-500"> works</span>
-					</h1>
+						set:html={t({
+							en: 'How it <span class="text-green-500">works</span>',
+							ar: 'كيف <span class="text-green-500">يعمل</span>',
+							es: 'Cómo <span class="text-green-500">funciona</span>',
+							fr: 'Comment <span class="text-green-500">ça fonctionne</span>',
+							hi: 'यह <span class="text-green-500">कैसे काम करता है</span>',
+							id: 'Bagaimana <span class="text-green-500">bekerja</span>',
+							ms: 'Bagaimana ia <span class="text-green-500">berfungsi</span>',
+							th: 'มัน <span class="text-green-500">ทำงานอย่างไร</span>',
+							vi: 'Nó <span class="text-green-500">hoạt động như thế nào</span>',
+							bn: 'এটি <span class="text-green-500">কিভাবে কাজ করে</span>',
+							'zh-hans': '它是如何 <span class="text-green-500">工作的</span>',
+							'pt-br': 'Como <span class="text-green-500">funciona</span>'
+						})}
+					/>
 
 					<!-- List -->
 					<ul class="mt-4 space-y-2 text-sm sm:text-base">
@@ -226,48 +507,81 @@ export const getStaticPaths = () =>
 							<span
 								class="mt-0.5 flex size-8 items-center justify-center rounded-full bg-blue-50 text-dbgreen-600 dark:bg-dbgreen-800/30 dark:text-dbgreen-500"
 							>
-								<iconify-icon
-									class="shrink-0"
-									width="30px"
-									height="30px"
-									icon="mynaui:one-waves"
+								<iconify-icon class="shrink-0" width="30px" height="30px" icon="mynaui:one-waves"
 								></iconify-icon>
 							</span>
 							<span class="text-gray-800 dark:text-neutral-200">
-								Leaders join ZuluTrade, connect their account and share their
-								trading strategy
+								{
+									t({
+										en: 'Leaders join ZuluTrade, connect their account and share their trading strategy',
+										ar: 'ينضم القادة إلى ZuluTrade، ويربطون حساباتهم ويشاركون استراتيجياتهم في التداول',
+										es: 'Los líderes se unen a ZuluTrade, conectan su cuenta y comparten su estrategia de trading',
+										fr: 'Les leaders rejoignent ZuluTrade, connectent leur compte et partagent leur stratégie de trading',
+										hi: 'नेता ज़ुलु ट्रेड से जुड़ते हैं, अपना खाता जोड़ते हैं और अपनी व्यापार रणनीति साझा करते हैं',
+										id: 'Para pemimpin bergabung dengan ZuluTrade, menghubungkan akun mereka, dan berbagi strategi trading mereka',
+										ms: 'Pemimpin menyertai ZuluTrade, menyambungkan akaun mereka dan berkongsi strategi dagangan mereka',
+										th: 'ผู้นำเข้าร่วม ZuluTrade เชื่อมต่อบัญชีของตนและแชร์กลยุทธ์การเทรดของตน',
+										vi: 'Các nhà lãnh đạo tham gia ZuluTrade, kết nối tài khoản của họ và chia sẻ chiến lược giao dịch của họ',
+										bn: 'নেতারা জুলু ট্রেডে যোগদান করেন, তাদের অ্যাকাউন্ট সংযুক্ত করেন এবং তাদের ট্রেডিং কৌশল শেয়ার করেন',
+										'zh-hans': '领导者加入ZuluTrade，连接他们的账户并分享他们的交易策略',
+										'pt-br':
+											'Líderes se juntam ao ZuluTrade, conectam suas contas e compartilham suas estratégias de negociação'
+									})
+								}
 							</span>
 						</li>
 						<li class="flex gap-x-3">
 							<span
 								class="mt-0.5 flex size-8 items-center justify-center rounded-full bg-blue-50 text-dbgreen-600 dark:bg-dbgreen-800/30 dark:text-dbgreen-500"
 							>
-								<iconify-icon
-									class="shrink-0"
-									width="30px"
-									height="30px"
-									icon="mynaui:two-waves"
+								<iconify-icon class="shrink-0" width="30px" height="30px" icon="mynaui:two-waves"
 								></iconify-icon>
 							</span>
 							<span class="text-gray-800 dark:text-neutral-200">
-								ZuluTrade ranks Leaders based on performance, stability, behavior
-								and outlook
+								{
+									t({
+										en: 'ZuluTrade ranks Leaders based on performance, stability, behavior and outlook',
+										ar: 'تقوم ZuluTrade بتصنيف القادة بناءً على الأداء والاستقرار والسلوك والتطلعات',
+										es: 'ZuluTrade clasifica a los líderes en función del rendimiento, la estabilidad, el comportamiento y las perspectivas',
+										fr: 'ZuluTrade classe les leaders en fonction de la performance, de la stabilité, du comportement et des perspectives',
+										hi: 'ज़ुलु ट्रेड नेताओं को प्रदर्शन, स्थिरता, व्यवहार और दृष्टिकोण के आधार पर रैंक करता है',
+										id: 'ZuluTrade memberi peringkat kepada para pemimpin berdasarkan kinerja, stabilitas, perilaku, dan prospek',
+										ms: 'ZuluTrade menyenaraikan pemimpin berdasarkan prestasi, kestabilan, tingkah laku dan pandangan',
+										th: 'ZuluTrade จัดอันดับผู้นำตามประสิทธิภาพ ความเสถียร พฤติกรรม และแนวโน้ม',
+										vi: 'ZuluTrade xếp hạng các nhà lãnh đạo dựa trên hiệu suất, tính ổn định, hành vi và triển vọng',
+										bn: 'ZuluTrade নেতাদের কর্মক্ষমতা, স্থিতিশীলতা, আচরণ এবং দৃষ্টিভঙ্গির উপর ভিত্তি করে র‍্যাঙ্ক করে',
+										'zh-hans': 'ZuluTrade根据表现、稳定性、行为和前景对领导者进行排名',
+										'pt-br':
+											'ZuluTrade classifica os líderes com base no desempenho, estabilidade, comportamento e perspectivas'
+									})
+								}
 							</span>
 						</li>
 						<li class="flex gap-x-3">
 							<span
 								class="mt-0.5 flex size-8 items-center justify-center rounded-full bg-blue-50 text-dbgreen-600 dark:bg-dbgreen-800/30 dark:text-dbgreen-500"
 							>
-								<iconify-icon
-									class="shrink-0"
-									width="30px"
-									height="30px"
-									icon="mynaui:three-waves"
+								<iconify-icon class="shrink-0" width="30px" height="30px" icon="mynaui:three-waves"
 								></iconify-icon>
 							</span>
 							<span class="text-gray-800 dark:text-neutral-200">
-								Investors select the Leaders to copy according to their investment
-								capital and risk appetite and outlook
+								{
+									t({
+										en: 'Investors select the Leaders to copy according to their investment capital and risk appetite and outlook',
+										ar: 'يختار المستثمرون القادة لنسخهم وفقًا لرأس المال الاستثماري الخاص بهم ورغبتهم في تحمل المخاطر وتطلعاتهم',
+										es: 'Los inversores seleccionan a los líderes para copiar según su capital de inversión, apetito de riesgo y perspectivas',
+										fr: "Les investisseurs sélectionnent les leaders à copier en fonction de leur capital d'investissement, de leur appétit pour le risque et de leurs perspectives",
+										hi: 'निवेशक अपनी निवेश पूंजी, जोखिम की भूख और दृष्टिकोण के अनुसार कॉपी करने के लिए नेताओं का चयन करते हैं',
+										id: 'Investor memilih pemimpin untuk disalin sesuai dengan modal investasi dan selera risiko serta prospek mereka',
+										ms: 'Pelabur memilih pemimpin untuk disalin berdasarkan modal pelaburan, selera risiko, dan pandangan mereka',
+										th: 'นักลงทุนเลือกผู้นำที่จะแอบอ้างตามเงินลงทุนและความสามารถในการรับความเสี่ยงและแนวโน้ม',
+										vi: 'Các nhà đầu tư chọn các nhà lãnh đạo để sao chép dựa trên vốn đầu tư và khẩu vị rủi ro cũng như triển vọng của họ',
+										bn: 'নিবেশকরা তাদের বিনিয়োগ মূলধন এবং ঝুঁকির ক্ষুধা ও দৃষ্টিভঙ্গির ভিত্তিতে কপি করার জন্য নেতাদের নির্বাচন করেন',
+										'zh-hans': '投资者根据他们的投资资本、风险承受能力和前景选择要复制的领导者',
+										'pt-br':
+											'Os investidores selecionam os líderes para copiar de acordo com seu capital de investimento, apetite de risco e perspectivas'
+									})
+								}
 							</span>
 						</li>
 					</ul>
@@ -276,7 +590,20 @@ export const getStaticPaths = () =>
 						href="https://dbinvesting.zulutrade.com/register/"
 						data-aos="fade-up-sm"
 						data-aos-delay="150"
-						text="Try it Yourself"
+						text={t({
+							en: 'Try it Yourself',
+							ar: 'جربها بنفسك',
+							es: 'Pruébalo tú mismo',
+							fr: 'Essayez-le vous-même',
+							hi: 'खुद आजमाएं',
+							id: 'Coba sendiri',
+							ms: 'Cuba sendiri',
+							th: 'ลองด้วยตัวคุณเอง',
+							vi: 'Hãy thử nó một mình',
+							bn: 'এটা নিজেই চেষ্টা করুন',
+							'zh-hans': '自己试试',
+							'pt-br': 'Experimente você mesmo'
+						})}
 						primary={false}
 						rippleEffect="true"
 						primary="true"

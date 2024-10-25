@@ -746,6 +746,27 @@ const isActive = (path: string) => getRelativeLocaleUrl(locale, path) === Astro.
 																	</a> -->
 																	<a
 																		class="navLinkStyle"
+																		href={getRelativeLocaleUrl(locale, '/mena-stocks')}
+																	>
+																		{
+																			t({
+																				en: 'MENA CFDs stocks',
+																				ar: 'أسهم عقود الفروقات في منطقة الشرق الأوسط وشمال إفريقيا',
+																				es: 'Acciones de CFDs MENA',
+																				fr: 'Actions CFD MENA',
+																				hi: 'MENA सीएफडी स्टॉक्स',
+																				id: 'Saham CFD MENA',
+																				ms: 'Stok CFD MENA',
+																				th: 'หุ้น CFD MENA',
+																				vi: 'Cổ phiếu CFD MENA',
+																				bn: 'মেনা সিএফডি স্টক',
+																				'zh-hans': 'MENA差价合约股票',
+																				'pt-br': 'Ações de CFDs MENA'
+																			})
+																		}
+																	</a>
+																	<a
+																		class="navLinkStyle"
 																		href={getRelativeLocaleUrl(locale, '/real-stocks')}
 																	>
 																		{
@@ -1013,6 +1034,27 @@ const isActive = (path: string) => getRelativeLocaleUrl(locale, path) === Astro.
 																					bn: 'মেটাট্রেডার 5',
 																					'zh-hans': 'MetaTrader 5',
 																					'pt-br': 'MetaTrade 5'
+																				})
+																			}
+																		</a>
+																		<a
+																			class="navLinkStyle"
+																			href={getRelativeLocaleUrl(locale, '/zulu-trade')}
+																		>
+																			{
+																				t({
+																					en: 'Social Trading on Zulu Trading',
+																					ar: 'التداول الاجتماعي على زولو تريدنج',
+																					es: 'Trading Social en Zulu Trading',
+																					fr: 'Trading social sur Zulu Trading',
+																					hi: 'जुलु ट्रेडिंग पर सामाजिक व्यापार',
+																					id: 'Trading Sosial di Zulu Trading',
+																					ms: 'Perdagangan Sosial di Zulu Trading',
+																					th: 'การซื้อขายสังคมบน Zulu Trading',
+																					vi: 'Giao dịch xã hội trên Zulu Trading',
+																					bn: 'জুলু ট্রেডিংয়ে সামাজিক ট্রেডিং',
+																					'zh-hans': 'Zulu Trading上的社交交易',
+																					'pt-br': 'Trading Social na Zulu Trading'
 																				})
 																			}
 																		</a>

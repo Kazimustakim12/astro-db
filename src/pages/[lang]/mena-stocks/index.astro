@@ -1,0 +1,110 @@
+---
+import Button from '@/components/ui/Button.astro'
+import { LOCALES, useTranslations, type Lang } from '@/i18n'
+import Layout from '@/layouts/Layout.astro'
+const t = useTranslations(Astro.currentLocale as Lang)
+export const getStaticPaths = () =>
+	Object.keys(LOCALES).map((lang) => ({
+		params: { lang }
+	}))
+---
+
+<Layout
+	title={t({
+		en: 'MENA CFDs stocks',
+		ar: 'أسهم عقود الفروقات في منطقة الشرق الأوسط وشمال إفريقيا',
+		es: 'Acciones de CFDs MENA',
+		fr: 'Actions CFD MENA',
+		hi: 'MENA सीएफडी स्टॉक्स',
+		id: 'Saham CFD MENA',
+		ms: 'Stok CFD MENA',
+		th: 'หุ้น CFD MENA',
+		vi: 'Cổ phiếu CFD MENA',
+		bn: 'মেনা সিএফডি স্টক',
+		'zh-hans': 'MENA差价合约股票',
+		'pt-br': 'Ações de CFDs MENA'
+	})}
+>
+	<section>
+		<div
+			class="relative z-20 w-full overflow-hidden bg-gray-100 pb-[20px] pt-10 before:absolute before:top-0 before:-z-[1] before:size-full before:transform before:bg-[url('/src/images/world_bg.png')] before:bg-center before:bg-no-repeat before:opacity-45 before:hue-rotate-60 dark:bg-black dark:before:bg-[url('/src/images/world_bg.png')]"
+		>
+			<div class="container flex flex-col items-center justify-center gap-6 md:flex-row">
+				<div class="m-auto w-full text-center md:max-w-[60%]" data-aos="fade-up-sm">
+					<h1
+						class="block text-4xl font-bold text-gray-800 dark:text-neutral-200 md:text-5xl lg:text-6xl"
+					>
+						<span class="text-dbgreen-500">600+</span> MENA CFDs stocks
+					</h1>
+					<ul class="my-6 text-center">
+						<li
+							class="relative inline-block pe-8 text-xl before:absolute before:end-3 before:top-1/2 before:-translate-y-1/2 before:text-gray-300 before:content-['/'] last:pe-0 last-of-type:before:hidden dark:before:text-neutral-600"
+						>
+							ZERO cost
+						</li>
+						<li
+							class="relative inline-block pe-8 text-xl before:absolute before:end-3 before:top-1/2 before:-translate-y-1/2 before:text-gray-300 before:content-['/'] last:pe-0 last-of-type:before:hidden dark:before:text-neutral-600"
+						>
+							No commissions
+						</li>
+						<li
+							class="relative inline-block pe-8 text-xl before:absolute before:end-3 before:top-1/2 before:-translate-y-1/2 before:text-gray-300 before:content-['/'] last:pe-0 last-of-type:before:hidden dark:before:text-neutral-600"
+						>
+							No clearing fees
+						</li>
+						<li
+							class="relative inline-block pe-8 text-xl before:absolute before:end-3 before:top-1/2 before:-translate-y-1/2 before:text-gray-300 before:content-['/'] last:pe-0 last-of-type:before:hidden dark:before:text-neutral-600"
+						>
+							No exchange fees*
+						</li>
+					</ul>
+					<p class="mt-6 text-lg text-gray-800 dark:text-neutral-400">
+						(on first $100K of investments)
+					</p>
+					<div class="mt-6">
+						<Button
+							text={t({
+								en: 'Trade Mena Stocks',
+								ar: 'تداول أسهم مينا',
+								es: 'Comerciar Acciones Mena',
+								fr: 'Trader des Actions Mena',
+								hi: 'मेन स्टॉक्स का व्यापार करें',
+								id: 'Perdagangan Saham Mena',
+								ms: 'Perdagangan Saham Mena',
+								th: 'ซื้อขายหุ้น Mena',
+								vi: 'Giao dịch Cổ phiếu Mena',
+								bn: 'মেনা স্টক ট্রেড করুন',
+								'zh-hans': '交易Mena股票',
+								'pt-br': 'Negociar Ações Mena'
+							})}
+							primary={false}
+							rippleEffect="true"
+							primary="true"
+							class="mt-6 rounded-full"
+							href="https://my.dbinvesting.com/register/"
+							target="_blank"
+						/>
+					</div>
+				</div>
+			</div>
+			<div class="mt-[45px] border-t border-dbgreen-500 pt-[20px] text-center dark:border-white">
+				<p>Trade confidently with a broker trusted by 250,000+ traders across MENA!</p>
+			</div>
+		</div>
+		<div class="container m-auto max-w-[1200px] py-10 text-center">
+			<h1
+				class="mb-5 block text-4xl font-bold text-gray-800 dark:text-neutral-200 md:text-5xl lg:text-6xl"
+			>
+				Top traded MENA stocks
+			</h1>
+			<p class="text-xl">
+				<strong>Trade MENA stocks with ZERO cost</strong>. ZERO commissions, ZERO exchange fees,
+				ZERO clearing fees on your first $100,000 investment. After that, <strong
+					>our cost is your cost</strong
+				>. We only charge you what the exchange/clearer charges us.
+			</p>
+			<p class="my-6 text-xl">Explore top traded stocks like Salik, Emaar, ADCB, and more.</p>
+		</div>
+		<!-- <MenaStocksTabsTable /> -->
+	</section>
+</Layout>

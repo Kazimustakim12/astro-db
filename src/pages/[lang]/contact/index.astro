@@ -1,112 +1,79 @@
 ---
-import { LOCALES } from '@/i18n'
+import { LOCALES, useTranslations, type Lang } from '@/i18n'
 import Layout from '@/layouts/Layout.astro'
 import MapBg from '@/images/map-bg.png'
 import { Image } from 'astro:assets'
 import ContactForm from '@/components/ui/Forms/ContactForm'
-
+const t = useTranslations(Astro.currentLocale as Lang)
+const lang = Astro.params.lang || 'en'
 export const getStaticPaths = () =>
 	Object.keys(LOCALES).map((lang) => ({
 		params: { lang }
 	}))
 ---
 
-<Layout title="Contact Us">
+<Layout
+	title={t({
+		en: 'Contact Us',
+		ar: 'اتصل بنا',
+		es: 'Contáctanos',
+		fr: 'Contactez-nous',
+		hi: 'हमसे संपर्क करें',
+		id: 'Hubungi Kami',
+		ms: 'Hubungi Kami',
+		th: 'ติดต่อเรา',
+		vi: 'Liên hệ với chúng tôi',
+		bn: 'আমাদের যোগাযোগ করুন',
+		'zh-hans': '联系我们',
+		'pt-br': 'Entre em contato conosco'
+	})}
+>
 	<div class="py-20">
 		<div class="container">
 			<!-- Contact Form and World Map Section -->
 			<div class="mb-14 grid grid-cols-1 gap-0 md:grid-cols-5 lg:grid-cols-6">
 				<!-- Form Section -->
 				<div class="col-span-2 rounded-lg bg-black p-4 dark:bg-neutral-800 md:p-5 lg:p-6">
-					<h2 class="mb-6 text-2xl font-bold text-white">Contact Us:</h2>
-					<!-- <form>
-						<label class="text-md mb-2 block font-bold text-green-500"
-							>Existing Client: <span class="text-red-500">*</span></label
+					<h2 class="mb-6 text-2xl font-bold text-white">
+						{
+							t({
+								en: 'Contact Us',
+								ar: 'اتصل بنا',
+								es: 'Contáctanos',
+								fr: 'Contactez-nous',
+								hi: 'हमसे संपर्क करें',
+								id: 'Hubungi Kami',
+								ms: 'Hubungi Kami',
+								th: 'ติดต่อเรา',
+								vi: 'Liên hệ với chúng tôi',
+								bn: 'আমাদের যোগাযোগ করুন',
+								'zh-hans': '联系我们',
+								'pt-br': 'Entre em contato conosco'
+							})
+						}
+					</h2>
+					<div class="spinner flex h-full items-center justify-center">
+						<svg
+							class="text-white"
+							xmlns="http://www.w3.org/2000/svg"
+							width="32"
+							height="32"
+							viewBox="0 0 24 24"
 						>
-						<select class="mb-4 w-full rounded border border-gray-600 p-2">
-							<option>No</option>
-							<option>No</option>
-
-							<option>Yes</option>
-						</select>
-
-						<label class="text-md mb-2 block font-bold text-green-500"
-							>Full Name: <span class="text-red-500">*</span></label
-						>
-						<input
-							type="text"
-							class="mb-4 w-full rounded border border-gray-600 p-2"
-							placeholder="Full Name"
-						/>
-
-						<label class="text-md mb-2 block font-bold text-green-500"
-							>Type of Query: <span class="text-red-500">*</span></label
-						>
-						<select class="mb-4 w-full rounded border border-gray-600 p-2">
-							<option>General Enquiry (No Client)</option>
-						</select>
-
-						<label class="text-md mb-2 block font-bold text-green-500"
-							>Language preferred for support: <span class="text-red-500">*</span></label
-						>
-						<select class="mb-4 w-full rounded border border-gray-600 p-2">
-							<option>English</option>
-						</select>
-
-						<label class="text-md mb-2 block font-bold text-green-500"
-							>Email: <span class="text-red-500">*</span></label
-						>
-						<input
-							type="email"
-							class="mb-4 w-full rounded border border-gray-600 p-2 placeholder:text-neutral-400"
-							placeholder="Email"
-						/>
-
-						<label class="text-md mb-2 block font-bold text-green-500"
-							>Phone: <span class="text-red-500">*</span></label
-						>
-						<input
-							type="text"
-							class="mb-4 w-full rounded border border-gray-600 p-2 placeholder:text-neutral-400"
-							placeholder="Phone"
-						/>
-
-						<label class="text-md mb-2 block font-bold text-green-500"
-							>How may we contact you? <span class="text-red-500">*</span></label
-						>
-						<div class="mb-4 flex items-center gap-4">
-							<label class="flex items-center">
-								<input type="checkbox" class="mr-2" />
-								<span>Email</span>
-							</label>
-							<label class="flex items-center">
-								<input type="checkbox" class="mr-2" />
-								<span>Phone</span>
-							</label>
-						</div>
-
-						<label class="text-md mb-2 block font-bold text-green-500"
-							>Subject: <span class="text-red-500">*</span></label
-						>
-						<input
-							type="text"
-							class="mb-4 w-full rounded border border-gray-600 p-2 placeholder:text-neutral-400"
-							placeholder="Subject"
-						/>
-
-						<label class="text-md mb-2 block font-bold text-green-500"
-							>Message: <span class="text-red-500">*</span></label
-						>
-						<textarea
-							rows="3"
-							class="mb-4 w-full rounded border border-gray-600 p-2 placeholder:text-neutral-400"
-							placeholder="Your Message"></textarea>
-
-						<button class="w-full rounded bg-green-600 p-3 text-white hover:bg-green-700"
-							>Submit</button
-						>
-					</form> -->
-					<ContactForm client:only="react" />
+							<path
+								fill="currentColor"
+								d="M12,23a9.63,9.63,0,0,1-8-9.5,9.51,9.51,0,0,1,6.79-9.1A1.66,1.66,0,0,0,12,2.81h0a1.67,1.67,0,0,0-1.94-1.64A11,11,0,0,0,12,23Z"
+							>
+								<animateTransform
+									attributeName="transform"
+									dur="0.75s"
+									repeatCount="indefinite"
+									type="rotate"
+									values="0 12 12;360 12 12"></animateTransform>
+							</path>
+						</svg>
+					</div>
+					<ContactForm client:only="react" lang={lang} />
 				</div>
 
 				<!-- Map and Social Media Section -->
@@ -124,8 +91,42 @@ export const getStaticPaths = () =>
 										<div>
 											<!--<img src="" width="100%" height="auto" alt="">-->
 										</div>
-										<h2>Headquarter</h2>
-										<p>119 Triq Tas-Sliema, 2nd floor Gzira, Malta</p>
+										<h2>
+											{
+												t({
+													en: 'Headquarter',
+													ar: 'المقر الرئيسي',
+													es: 'Sede',
+													fr: 'Siège',
+													hi: 'मुख्यालय',
+													id: 'Kantor Pusat',
+													ms: 'Ibu Pejabat',
+													th: 'สำนักงานใหญ่',
+													vi: 'Trụ sở chính',
+													bn: 'প্রধান কার্যালয়',
+													'zh-hans': '总部',
+													'pt-br': 'Sede'
+												})
+											}
+										</h2>
+										<p>
+											{
+												t({
+													en: '119 Triq Tas-Sliema, 2nd floor Gzira, Malta',
+													ar: '119 طريق تاس-سليما، الطابق الثاني جzira، مالطا',
+													es: '119 Triq Tas-Sliema, 2° piso, Gzira, Malta',
+													fr: '119 Triq Tas-Sliema, 2e étage, Gzira, Malte',
+													hi: '119 त्रिक तस-स्लीमा, दूसरी मंजिल ग़ज़ीरा, माल्टा',
+													id: '119 Triq Tas-Sliema, lantai 2, Gzira, Malta',
+													ms: '119 Triq Tas-Sliema, tingkat 2, Gzira, Malta',
+													th: '119 Triq Tas-Sliema ชั้น 2 Gzira มอลตา',
+													vi: '119 Triq Tas-Sliema, tầng 2, Gzira, Malta',
+													bn: '১১৯ ত্রিক তাস-স্লিমা, ২য় তলা, গজিরা, মাল্টা',
+													'zh-hans': '马耳他戈齐拉Triq Tas-Sliema街119号2楼',
+													'pt-br': '119 Triq Tas-Sliema, 2º andar, Gzira, Malta'
+												})
+											}
+										</p>
 									</div>
 								</div>
 							</button>
@@ -140,8 +141,44 @@ export const getStaticPaths = () =>
 												alt=""
 											/>
 										</div>
-										<h2>Headquarter</h2>
-										<p>Limassol, Cyprus - Griva Degeni Avenue, Office 103, Agios Nikolaos</p>
+										<h2>
+											{
+												t({
+													en: 'Headquarter',
+													ar: 'المقر الرئيسي',
+													es: 'Sede',
+													fr: 'Siège',
+													hi: 'मुख्यालय',
+													id: 'Kantor Pusat',
+													ms: 'Ibu Pejabat',
+													th: 'สำนักงานใหญ่',
+													vi: 'Trụ sở chính',
+													bn: 'প্রধান কার্যালয়',
+													'zh-hans': '总部',
+													'pt-br': 'Sede'
+												})
+											}
+										</h2>
+										<p>
+											{
+												t({
+													en: 'Limassol, Cyprus - Griva Degeni Avenue, Office 103, Agios Nikolaos',
+													ar: 'ليماسول، قبرص - جادة غريفا ديغيني، مكتب 103، أجيوس نيكولاوس',
+													es: 'Limassol, Chipre - Avenida Griva Degeni, Oficina 103, Agios Nikolaos',
+													fr: 'Limassol, Chypre - Avenue Griva Degeni, Bureau 103, Agios Nikolaos',
+													hi: 'लिमासोल, साइप्रस - ग्रिवा डेगेनी एवेन्यू, कार्यालय 103, एजिओस निकोलास',
+													id: 'Limassol, Siprus - Griva Degeni Avenue, Kantor 103, Agios Nikolaos',
+													ms: 'Limassol, Cyprus - Griva Degeni Avenue, Pejabat 103, Agios Nikolaos',
+													th: 'ลีมาซอล ไซปรัส - ถนน Griva Degeni, สำนักงาน 103, Agios Nikolaos',
+													vi: 'Limassol, Síp - Đại lộ Griva Degeni, Văn phòng 103, Agios Nikolaos',
+													bn: 'লিমাসল, সাইপ্রাস - গ্রিভা ডিগেনি অ্যাভিনিউ, অফিস ১০৩, এজিওস নিকোলাওস',
+													'zh-hans':
+														'塞浦路斯利马索尔 - Griva Degeni 大道，103 办公室，Agios Nikolaos',
+													'pt-br':
+														'Limassol, Chipre - Avenida Griva Degeni, Escritório 103, Agios Nikolaos'
+												})
+											}
+										</p>
 									</div>
 								</div>
 							</button>
@@ -157,10 +194,41 @@ export const getStaticPaths = () =>
 												alt=""
 											/>
 										</div>
-										<h2>Seychelles,<span>Licensed Office</span></h2>
+										<h2
+											set:html={t({
+												en: 'Seychelles,<span>Licensed Office</span>',
+												ar: 'سيشل،<span>المكتب المرخص</span>',
+												es: 'Seychelles,<span>Oficina Licenciada</span>',
+												fr: 'Seychelles,<span>Bureau agréé</span>',
+												hi: 'सेशेल्स,<span>लाइसेंस प्राप्त कार्यालय</span>',
+												id: 'Seychelles,<span>Kantor Berlisensi</span>',
+												ms: 'Seychelles,<span>Pejabat Berlesen</span>',
+												th: 'เซเชลส์,<span>สำนักงานที่ได้รับใบอนุญาต</span>',
+												vi: 'Seychelles,<span>Văn phòng được cấp phép</span>',
+												bn: 'সেশেলস,<span>লাইসেন্সকৃত অফিস</span>',
+												'zh-hans': '塞舌尔,<span>持牌办公室</span>',
+												'pt-br': 'Seychelles,<span>Escritório Licenciado</span>'
+											})}
+										/>
 										<p>
-											Mahè, Seychelles - Abis Centre, Office 15, Avenue D’Arhoa, Providence
-											Industrial Estate.
+											{
+												t({
+													en: 'Mahè, Seychelles - Abis Centre, Office 15, Avenue D’Arhoa, Providence Industrial Estate.',
+													ar: 'ماهي، سيشل - مركز أبس، مكتب 15، شارع دارهو، منطقة بروفيدنس الصناعية.',
+													es: "Mahè, Seychelles - Centro Abis, Oficina 15, Avenida D'Arhoa, Parque Industrial Providence.",
+													fr: 'Mahè, Seychelles - Centre Abis, Bureau 15, Avenue D’Arhoa, Zone Industrielle de Providence.',
+													hi: "मह, सेशेल्स - अबिस सेंटर, कार्यालय 15, एवेन्यू डी'आरोआ, प्रोविडेंस इंडस्ट्रियल एस्टेट.",
+													id: 'Mahè, Seychelles - Abis Centre, Kantor 15, Avenue D’Arhoa, Kawasan Industri Providence.',
+													ms: 'Mahè, Seychelles - Pusat Abis, Pejabat 15, Avenue D’Arhoa, Kawasan Perindustrian Providence.',
+													th: 'มาเฮ เซเชลส์ - ศูนย์ Abis, สำนักงาน 15, ถนน D’Arhoa, นิคมอุตสาหกรรม Providence',
+													vi: 'Mahè, Seychelles - Trung tâm Abis, Văn phòng 15, Đại lộ D’Arhoa, Khu Công nghiệp Providence.',
+													bn: "মাহে, সেশেলস - আবিস সেন্টার, অফিস ১৫, এভিনিউ ডি'আরোয়া, প্রভিডেন্স ইন্ডাস্ট্রিয়াল এস্টেট।",
+													'zh-hans':
+														'马埃岛，塞舌尔 - Abis 中心，办公室15，D’Arhoa大道，普罗维登斯工业区。',
+													'pt-br':
+														'Mahè, Seychelles - Centro Abis, Escritório 15, Avenida D’Arhoa, Parque Industrial Providence.'
+												})
+											}
 										</p>
 									</div>
 								</div>
@@ -176,10 +244,43 @@ export const getStaticPaths = () =>
 												alt=""
 											/>
 										</div>
-										<h2>Nigeria</h2>
+										<h2>
+											{
+												t({
+													en: 'Nigeria',
+													ar: 'نيجيريا',
+													es: 'Nigeria',
+													fr: 'Nigeria',
+													hi: 'नाइजीरिया',
+													id: 'Nigeria',
+													ms: 'Nigeria',
+													th: 'ไนจีเรีย',
+													vi: 'Nigeria',
+													bn: 'নাইজেরিয়া',
+													'zh-hans': '尼日利亚',
+													'pt-br': 'Nigéria'
+												})
+											}
+										</h2>
 										<p>
-											Nigeria Training and Representative Office - Lagos, Nigeria - No.2 Soji
-											Adepegba close, Off Allen Avenue, Ikeja.
+											{
+												t({
+													en: 'Nigeria Training and Representative Office - Lagos, Nigeria - No.2 Soji Adepegba close, Off Allen Avenue, Ikeja.',
+													ar: 'مكتب التدريب والتمثيل في نيجيريا - لاغوس، نيجيريا - رقم 2 شارع سوجي أديبيبجا، بالقرب من شارع ألين، إكيجا.',
+													es: 'Oficina de Entrenamiento y Representación en Nigeria - Lagos, Nigeria - No.2 Soji Adepegba close, Off Allen Avenue, Ikeja.',
+													fr: 'Bureau de formation et de représentation du Nigeria - Lagos, Nigeria - No.2 Soji Adepegba close, Off Allen Avenue, Ikeja.',
+													hi: 'नाइजीरिया प्रशिक्षण और प्रतिनिधि कार्यालय - लागोस, नाइजीरिया - नंबर 2, सोजी अडेपग्बा क्लोज़, एलन एवेन्यू से बाहर, इकेजा।',
+													id: 'Kantor Pelatihan dan Perwakilan Nigeria - Lagos, Nigeria - No.2 Soji Adepegba close, Off Allen Avenue, Ikeja.',
+													ms: 'Pejabat Latihan dan Wakil Nigeria - Lagos, Nigeria - No.2 Soji Adepegba close, Off Allen Avenue, Ikeja.',
+													th: 'สำนักงานฝึกอบรมและตัวแทนไนจีเรีย - ลากอส, ไนจีเรีย - เลขที่ 2 Soji Adepegba ปิด, นอก Allen Avenue, Ikeja.',
+													vi: 'Văn phòng Đào tạo và Đại diện Nigeria - Lagos, Nigeria - Số 2 Soji Adepegba close, Ngoài Allen Avenue, Ikeja.',
+													bn: 'নাইজেরিয়া প্রশিক্ষণ এবং প্রতিনিধি অফিস - লাগোস, নাইজেরিয়া - নং ২ সোজি আদেপেগবা ক্লোজ, অ্যালেন এভিনিউ এর বাইরে, ইকেজা।',
+													'zh-hans':
+														'尼日利亚培训和代表办公室 - 拉各斯，尼日利亚 - Soji Adepegba 2号，艾伦大道附近，伊凯贾。',
+													'pt-br':
+														'Escritório de Treinamento e Representação da Nigéria - Lagos, Nigéria - Nº 2 Soji Adepegba close, Off Allen Avenue, Ikeja.'
+												})
+											}
 										</p>
 									</div>
 								</div>
@@ -195,10 +296,42 @@ export const getStaticPaths = () =>
 												alt=""
 											/>
 										</div>
-										<h2>Dubai</h2>
+										<h2>
+											{
+												t({
+													en: 'Dubai',
+													ar: 'دبي',
+													es: 'Dubái',
+													fr: 'Dubaï',
+													hi: 'दुबई',
+													id: 'Dubai',
+													ms: 'Dubai',
+													th: 'ดูไบ',
+													vi: 'Dubai',
+													bn: 'দুবাই',
+													'zh-hans': '迪拜',
+													'pt-br': 'Dubai'
+												})
+											}
+										</h2>
 										<p>
-											Dubai Representative Office - Dubai, UAE - Opal Tower. Office 1010, Business
-											Bay
+											{
+												t({
+													en: 'Dubai Representative Office - Dubai, UAE - Opal Tower. Office 1010, Business Bay',
+													ar: 'مكتب تمثيل دبي - دبي، الإمارات العربية المتحدة - برج أوبال. المكتب 1010، الخليج التجاري',
+													es: 'Oficina de Representación de Dubái - Dubái, EAU - Torre Opal. Oficina 1010, Business Bay',
+													fr: 'Bureau de Représentation de Dubaï - Dubaï, Émirats Arabes Unis - Tour Opal. Bureau 1010, Business Bay',
+													hi: 'दुबई प्रतिनिधि कार्यालय - दुबई, यूएई - ओपल टॉवर। कार्यालय 1010, बिजनेस बे',
+													id: 'Kantor Perwakilan Dubai - Dubai, UAE - Opal Tower. Kantor 1010, Business Bay',
+													ms: 'Pejabat Perwakilan Dubai - Dubai, UAE - Menara Opal. Pejabat 1010, Business Bay',
+													th: 'สำนักงานตัวแทนดูไบ - ดูไบ สหรัฐอาหรับเอมิเรตส์ - อาคารโอปอล สำนักงาน 1010, เบย์ธุรกิจ',
+													vi: 'Văn phòng Đại diện Dubai - Dubai, UAE - Tòa nhà Opal. Văn phòng 1010, Khu thương mại',
+													bn: 'দুবাই প্রতিনিধি অফিস - দুবাই, ইউএই - ওপাল টাওয়ার। অফিস ১০১০, বিজনেস বে',
+													'zh-hans': '迪拜代表处 - 迪拜，阿联酋 - 欧泊大厦。办公室1010，商业湾',
+													'pt-br':
+														'Escritório de Representação de Dubai - Dubai, UAE - Opal Tower. Escritório 1010, Business Bay'
+												})
+											}
 										</p>
 									</div>
 								</div>
@@ -210,13 +343,44 @@ export const getStaticPaths = () =>
 					>
 						<div class="flex w-full flex-col items-center justify-center px-4 py-8 text-left">
 							<div class="relative max-w-[80%] md:max-w-[90%] lg:max-w-[65%]">
-								<h2 class="mb-2 text-3xl font-medium text-black dark:text-white">
-									Our offices have a presence <span class="font-bold text-green-700">Worldwide</span
-									>
-								</h2>
+								<h2
+									class="mb-2 text-3xl font-medium text-black dark:text-white"
+									set:html={t({
+										en: 'Our offices have a presence <span class="font-bold text-green-700">Worldwide</span>',
+										ar: 'مكاتبنا لها وجود <span class="font-bold text-green-700">في جميع أنحاء العالم</span>',
+										es: 'Nuestras oficinas tienen presencia <span class="font-bold text-green-700">en todo el mundo</span>',
+										fr: 'Nos bureaux ont une présence <span class="font-bold text-green-700">dans le monde entier</span>',
+										hi: 'हमारे कार्यालयों की उपस्थिति <span class="font-bold text-green-700">दुनियाभर में</span>',
+										id: 'Kantor kami memiliki keberadaan <span class="font-bold text-green-700">Di Seluruh Dunia</span>',
+										ms: 'Pejabat kami mempunyai kehadiran <span class="font-bold text-green-700">di Seluruh Dunia</span>',
+										th: 'สำนักงานของเรามีการปรากฏตัว <span class="font-bold text-green-700">ทั่วโลก</span>',
+										vi: 'Văn phòng của chúng tôi có mặt <span class="font-bold text-green-700">trên toàn cầu</span>',
+										bn: 'আমাদের অফিসের বিশ্বব্যাপী উপস্থিতি আছে <span class="font-bold text-green-700">বিশ্বব্যাপী</span>',
+										'zh-hans':
+											'我们的办公室在<span class="font-bold text-green-700">全球</span>都有存在',
+										'pt-br':
+											'Nossos escritórios têm presença <span class="font-bold text-green-700">em todo o mundo</span>'
+									})}
+								/>
 								<p class="mb-6 text-gray-600 dark:text-neutral-400">
-									Offices and employees ready to support your needs. You can contact us via email,
-									chat, phone, WhatsApp, Telegram, and more.
+									{
+										t({
+											en: 'Offices and employees ready to support your needs. You can contact us via email, chat, phone, WhatsApp, Telegram, and more.',
+											ar: 'المكاتب والموظفون مستعدون لدعم احتياجاتك. يمكنك الاتصال بنا عبر البريد الإلكتروني والدردشة والهاتف وواتساب وتيليجرام والمزيد.',
+											es: 'Oficinas y empleados listos para apoyar tus necesidades. Puedes contactarnos por correo electrónico, chat, teléfono, WhatsApp, Telegram y más.',
+											fr: 'Bureaux et employés prêts à répondre à vos besoins. Vous pouvez nous contacter par email, chat, téléphone, WhatsApp, Telegram, et plus encore.',
+											hi: 'आपकी जरूरतों का समर्थन करने के लिए कार्यालय और कर्मचारी तैयार हैं। आप हमें ईमेल, चैट, फोन, व्हाट्सएप, टेलीग्राम और अधिक के माध्यम से संपर्क कर सकते हैं।',
+											id: 'Kantor dan karyawan siap mendukung kebutuhan Anda. Anda dapat menghubungi kami melalui email, obrolan, telepon, WhatsApp, Telegram, dan lainnya.',
+											ms: 'Pejabat dan pekerja sedia untuk menyokong keperluan anda. Anda boleh menghubungi kami melalui email, chat, telefon, WhatsApp, Telegram, dan banyak lagi.',
+											th: 'สำนักงานและพนักงานพร้อมสนับสนุนความต้องการของคุณ คุณสามารถติดต่อเราผ่านทางอีเมล แชท โทรศัพท์ WhatsApp Telegram และอื่นๆ',
+											vi: 'Các văn phòng và nhân viên sẵn sàng hỗ trợ nhu cầu của bạn. Bạn có thể liên hệ với chúng tôi qua email, chat, điện thoại, WhatsApp, Telegram và hơn thế nữa.',
+											bn: 'অফিস এবং কর্মচারীরা আপনার চাহিদার সমর্থনে প্রস্তুত। আপনি আমাদের সাথে ইমেল, চ্যাট, ফোন, হোয়াটসঅ্যাপ, টেলিগ্রাম এবং আরও অনেক কিছুর মাধ্যমে যোগাযোগ করতে পারেন।',
+											'zh-hans':
+												'办公室和员工随时准备支持您的需求。您可以通过电子邮件、聊天、电话、WhatsApp、Telegram等与我们联系。',
+											'pt-br':
+												'Escritórios e funcionários prontos para apoiar suas necessidades. Você pode entrar em contato conosco por e-mail, chat, telefone, WhatsApp, Telegram e muito mais.'
+										})
+									}
 								</p>
 								<div class="absolute z-10 flex space-x-4">
 									<a
@@ -310,7 +474,24 @@ export const getStaticPaths = () =>
 				<div
 					class="relative overflow-hidden rounded-2xl border-2 p-4 hover:border-dbgreen-900 dark:border-neutral-600 dark:hover:border-dbgreen-900 sm:col-span-full sm:p-8 md:col-span-2 md:p-5 lg:col-span-1"
 				>
-					<h3 class="text-xl font-bold text-green-600">Cyprus Office</h3>
+					<h3 class="text-xl font-bold text-green-600">
+						{
+							t({
+								en: 'Cyprus Office',
+								ar: 'مكتب قبرص',
+								es: 'Oficina de Chipre',
+								fr: 'Bureau de Chypre',
+								hi: 'साइप्रस कार्यालय',
+								id: 'Kantor Siprus',
+								ms: 'Pejabat Cyprus',
+								th: 'สำนักงานไซปรัส',
+								vi: 'Văn phòng Cyprus',
+								bn: 'সাইপ্রাস অফিস',
+								'zh-hans': '塞浦路斯办公室',
+								'pt-br': 'Escritório de Chipre'
+							})
+						}
+					</h3>
 					<a href="tel:+35725205222" class="text-neutral-600 dark:text-gray-300">+357 25 205 222</a>
 				</div>
 
@@ -318,7 +499,24 @@ export const getStaticPaths = () =>
 				<div
 					class="relative overflow-hidden rounded-2xl border-2 p-4 hover:border-dbgreen-900 dark:border-neutral-600 dark:hover:border-dbgreen-900 sm:col-span-full sm:p-8 md:col-span-2 md:p-5 lg:col-span-1"
 				>
-					<h3 class="text-xl font-bold text-green-600">Seychelles Office</h3>
+					<h3 class="text-xl font-bold text-green-600">
+						{
+							t({
+								en: 'Seychelles Office',
+								ar: 'مكتب سيشل',
+								es: 'Oficina de Seychelles',
+								fr: 'Bureau des Seychelles',
+								hi: 'सेशेल्स कार्यालय',
+								id: 'Kantor Seychelles',
+								ms: 'Pejabat Seychelles',
+								th: 'สำนักงานเซเชลส์',
+								vi: 'Văn phòng Seychelles',
+								bn: 'সেশেলস অফিস',
+								'zh-hans': '塞舌尔办公室',
+								'pt-br': 'Escritório das Seychelles'
+							})
+						}
+					</h3>
 					<a href="tel:+2484679200" class="text-neutral-600 dark:text-gray-300">+248 467 9200</a>
 				</div>
 
@@ -326,7 +524,24 @@ export const getStaticPaths = () =>
 				<div
 					class="relative overflow-hidden rounded-2xl border-2 p-4 hover:border-dbgreen-900 dark:border-neutral-600 dark:hover:border-dbgreen-900 sm:col-span-full sm:p-8 md:col-span-2 md:p-5 lg:col-span-1"
 				>
-					<h3 class="text-xl font-bold text-green-600">Nigeria Office</h3>
+					<h3 class="text-xl font-bold text-green-600">
+						{
+							t({
+								en: 'Nigeria Office',
+								ar: 'مكتب نيجيريا',
+								es: 'Oficina de Nigeria',
+								fr: 'Bureau du Nigeria',
+								hi: 'नाइजीरिया कार्यालय',
+								id: 'Kantor Nigeria',
+								ms: 'Pejabat Nigeria',
+								th: 'สำนักงานไนजीरिया',
+								vi: 'Văn phòng Nigeria',
+								bn: 'নাইজেরিয়া অফিস',
+								'zh-hans': '尼日利亚办公室',
+								'pt-br': 'Escritório da Nigéria'
+							})
+						}
+					</h3>
 					<a href="tel:+2347060519223" class="text-neutral-600 dark:text-gray-300"
 						>+234 706 051 9223</a
 					>
@@ -336,7 +551,24 @@ export const getStaticPaths = () =>
 				<div
 					class="relative overflow-hidden rounded-2xl border-2 p-4 hover:border-dbgreen-900 dark:border-neutral-600 dark:hover:border-dbgreen-900 sm:col-span-full sm:p-8 md:col-span-2 md:p-5 lg:col-span-1"
 				>
-					<h3 class="text-xl font-bold text-green-600">Dubai Office</h3>
+					<h3 class="text-xl font-bold text-green-600">
+						{
+							t({
+								en: 'Dubai Office',
+								ar: 'مكتب دبي',
+								es: 'Oficina de Dubái',
+								fr: 'Bureau de Dubaï',
+								hi: 'दुबई कार्यालय',
+								id: 'Kantor Dubai',
+								ms: 'Pejabat Dubai',
+								th: 'สำนักงานดูไบ',
+								vi: 'Văn phòng Dubai',
+								bn: 'দুবাই অফিস',
+								'zh-hans': '迪拜办公室',
+								'pt-br': 'Escritório de Dubai'
+							})
+						}
+					</h3>
 					<a href="tel:+97145519613" class="text-neutral-600 dark:text-gray-300">+971 455 19613</a>
 				</div>
 				<!--WhatApp Numer Dubai Office -->
@@ -376,7 +608,24 @@ export const getStaticPaths = () =>
 								d="M96.678 74.148c-2.386-5.303-4.897-5.41-7.166-5.503c-1.858-.08-3.982-.074-6.104-.074c-2.124 0-5.575.799-8.492 3.984c-2.92 3.188-11.148 10.892-11.148 26.561s11.413 30.813 13.004 32.94c1.593 2.123 22.033 35.307 54.405 48.073c26.904 10.609 32.379 8.499 38.218 7.967c5.84-.53 18.844-7.702 21.497-15.139c2.655-7.436 2.655-13.81 1.859-15.142c-.796-1.327-2.92-2.124-6.105-3.716s-18.844-9.298-21.763-10.361c-2.92-1.062-5.043-1.592-7.167 1.597c-2.124 3.184-8.223 10.356-10.082 12.48c-1.857 2.129-3.716 2.394-6.9.801c-3.187-1.598-13.444-4.957-25.613-15.806c-9.468-8.442-15.86-18.867-17.718-22.056c-1.858-3.184-.199-4.91 1.398-6.497c1.431-1.427 3.186-3.719 4.78-5.578c1.588-1.86 2.118-3.187 3.18-5.311c1.063-2.126.531-3.986-.264-5.579c-.798-1.593-6.987-17.343-9.819-23.64"
 							></path>
 						</svg>
-						<h3 class="text-xl font-bold text-green-600">Whatsapp (UAE)</h3></a
+						<h3 class="text-xl font-bold text-green-600">
+							{
+								t({
+									en: 'Whatsapp (UAE)',
+									ar: 'واتساب (الإمارات)',
+									es: 'Whatsapp (EAU)',
+									fr: 'Whatsapp (EAU)',
+									hi: 'व्हाट्सएप (यूएई)',
+									id: 'Whatsapp (UAE)',
+									ms: 'Whatsapp (UAE)',
+									th: 'WhatsApp (สหรัฐอาหรับเอมิเรตส์)',
+									vi: 'Whatsapp (UAE)',
+									bn: 'হোয়াটসঅ্যাপ (UAE)',
+									'zh-hans': 'WhatsApp（阿联酋）',
+									'pt-br': 'Whatsapp (EAU)'
+								})
+							}
+						</h3></a
 					>
 				</div>
 				<!--WhatApp Numer Main Office -->
@@ -416,7 +665,24 @@ export const getStaticPaths = () =>
 								d="M96.678 74.148c-2.386-5.303-4.897-5.41-7.166-5.503c-1.858-.08-3.982-.074-6.104-.074c-2.124 0-5.575.799-8.492 3.984c-2.92 3.188-11.148 10.892-11.148 26.561s11.413 30.813 13.004 32.94c1.593 2.123 22.033 35.307 54.405 48.073c26.904 10.609 32.379 8.499 38.218 7.967c5.84-.53 18.844-7.702 21.497-15.139c2.655-7.436 2.655-13.81 1.859-15.142c-.796-1.327-2.92-2.124-6.105-3.716s-18.844-9.298-21.763-10.361c-2.92-1.062-5.043-1.592-7.167 1.597c-2.124 3.184-8.223 10.356-10.082 12.48c-1.857 2.129-3.716 2.394-6.9.801c-3.187-1.598-13.444-4.957-25.613-15.806c-9.468-8.442-15.86-18.867-17.718-22.056c-1.858-3.184-.199-4.91 1.398-6.497c1.431-1.427 3.186-3.719 4.78-5.578c1.588-1.86 2.118-3.187 3.18-5.311c1.063-2.126.531-3.986-.264-5.579c-.798-1.593-6.987-17.343-9.819-23.64"
 							></path>
 						</svg>
-						<h3 class="text-xl font-bold text-green-600">Whatsapp</h3></a
+						<h3 class="text-xl font-bold text-green-600">
+							{
+								t({
+									en: 'Whatsapp ',
+									ar: 'واتساب ',
+									es: 'Whatsapp ',
+									fr: 'Whatsapp ',
+									hi: 'व्हाट्सएप ',
+									id: 'Whatsapp ',
+									ms: 'Whatsapp ',
+									th: 'WhatsApp ',
+									vi: 'Whatsapp ',
+									bn: 'হোয়াটসঅ্যাপ ',
+									'zh-hans': 'WhatsApp',
+									'pt-br': 'Whatsapp'
+								})
+							}
+						</h3></a
 					>
 				</div>
 				<!--WhatApp Numer Nigeria  Office -->
@@ -456,7 +722,24 @@ export const getStaticPaths = () =>
 								d="M96.678 74.148c-2.386-5.303-4.897-5.41-7.166-5.503c-1.858-.08-3.982-.074-6.104-.074c-2.124 0-5.575.799-8.492 3.984c-2.92 3.188-11.148 10.892-11.148 26.561s11.413 30.813 13.004 32.94c1.593 2.123 22.033 35.307 54.405 48.073c26.904 10.609 32.379 8.499 38.218 7.967c5.84-.53 18.844-7.702 21.497-15.139c2.655-7.436 2.655-13.81 1.859-15.142c-.796-1.327-2.92-2.124-6.105-3.716s-18.844-9.298-21.763-10.361c-2.92-1.062-5.043-1.592-7.167 1.597c-2.124 3.184-8.223 10.356-10.082 12.48c-1.857 2.129-3.716 2.394-6.9.801c-3.187-1.598-13.444-4.957-25.613-15.806c-9.468-8.442-15.86-18.867-17.718-22.056c-1.858-3.184-.199-4.91 1.398-6.497c1.431-1.427 3.186-3.719 4.78-5.578c1.588-1.86 2.118-3.187 3.18-5.311c1.063-2.126.531-3.986-.264-5.579c-.798-1.593-6.987-17.343-9.819-23.64"
 							></path>
 						</svg>
-						<h3 class="text-xl font-bold text-green-600">Whatsapp (Nigeria)</h3></a
+						<h3 class="text-xl font-bold text-green-600">
+							{
+								t({
+									en: 'Whatsapp (Nigeria)',
+									ar: 'واتساب (نيجيريا)',
+									es: 'Whatsapp (Nigeria)',
+									fr: 'Whatsapp (Nigeria)',
+									hi: 'व्हाट्सएप (नाइजीरिया)',
+									id: 'Whatsapp (Nigeria)',
+									ms: 'Whatsapp (Nigeria)',
+									th: 'WhatsApp (ไนจีเรีย)',
+									vi: 'Whatsapp (Nigeria)',
+									bn: 'হোয়াটসঅ্যাপ (নাইজেরিয়া)',
+									'zh-hans': 'WhatsApp（尼日利亚）',
+									'pt-br': 'Whatsapp (Nigéria)'
+								})
+							}
+						</h3></a
 					>
 				</div>
 				<!--Telegram Numer Nigeria  Office -->
@@ -489,7 +772,24 @@ export const getStaticPaths = () =>
 								d="M57.94 126.648q55.98-24.384 74.64-32.152c35.56-14.786 42.94-17.354 47.76-17.441c1.06-.017 3.42.245 4.96 1.49c1.28 1.05 1.64 2.47 1.82 3.467c.16.996.38 3.266.2 5.038c-1.92 20.24-10.26 69.356-14.5 92.026c-1.78 9.592-5.32 12.808-8.74 13.122c-7.44.684-13.08-4.912-20.28-9.63c-11.26-7.386-17.62-11.982-28.56-19.188c-12.64-8.328-4.44-12.906 2.76-20.386c1.88-1.958 34.64-31.748 35.26-34.45c.08-.338.16-1.598-.6-2.262c-.74-.666-1.84-.438-2.64-.258c-1.14.256-19.12 12.152-54 35.686c-5.1 3.508-9.72 5.218-13.88 5.128c-4.56-.098-13.36-2.584-19.9-4.708c-8-2.606-14.38-3.984-13.82-8.41c.28-2.304 3.46-4.662 9.52-7.072"
 							></path>
 						</svg>
-						<h3 class="text-xl font-bold text-green-600">Telegram</h3></a
+						<h3 class="text-xl font-bold text-green-600">
+							{
+								t({
+									en: 'Telegram',
+									ar: 'تيليجرام',
+									es: 'Telegram',
+									fr: 'Telegram',
+									hi: 'टेलीग्राम',
+									id: 'Telegram',
+									ms: 'Telegram',
+									th: 'เทเลแกรม',
+									vi: 'Telegram',
+									bn: 'টেলিগ্রাম',
+									'zh-hans': '电报',
+									'pt-br': 'Telegram'
+								})
+							}
+						</h3></a
 					>
 				</div>
 			</div>
@@ -501,8 +801,42 @@ export const getStaticPaths = () =>
 					class="relative flex items-center justify-center gap-3 overflow-hidden rounded-2xl border-2 p-4 hover:border-dbgreen-900 dark:border-neutral-600 dark:hover:border-dbgreen-900 sm:col-span-full sm:p-8 md:col-span-1 md:p-5 lg:col-span-1"
 				>
 					<div>
-						<h3 class="text-xl font-bold text-green-600">Questions?</h3>
-						<p class="font-thin text-neutral-600 dark:text-gray-300">Chat with Us!</p>
+						<h3 class="text-xl font-bold text-green-600">
+							{
+								t({
+									en: 'Questions?',
+									ar: 'أسئلة؟',
+									es: '¿Preguntas?',
+									fr: 'Questions ?',
+									hi: 'प्रश्न?',
+									id: 'Pertanyaan?',
+									ms: 'Soalan?',
+									th: 'คำถาม?',
+									vi: 'Câu hỏi?',
+									bn: 'প্রশ্ন?',
+									'zh-hans': '问题？',
+									'pt-br': 'Perguntas?'
+								})
+							}
+						</h3>
+						<p class="font-thin text-neutral-600 dark:text-gray-300">
+							{
+								t({
+									en: 'Chat with Us!',
+									ar: 'تحدث معنا!',
+									es: '¡Chatea con nosotros!',
+									fr: 'Discutez avec nous !',
+									hi: 'हमसे चैट करें!',
+									id: 'Obrol dengan Kami!',
+									ms: 'Berbual dengan Kami!',
+									th: 'แชทกับเรา!',
+									vi: 'Chat với chúng tôi!',
+									bn: 'আমাদের সাথে চ্যাট করুন!',
+									'zh-hans': '与我们聊天！',
+									'pt-br': 'Converse conosco!'
+								})
+							}
+						</p>
 					</div>
 					<div class="">
 						<img src="https://placehold.co/60x60" alt="QR Code" class="mx-auto" />
@@ -513,7 +847,24 @@ export const getStaticPaths = () =>
 				<div
 					class="relative overflow-hidden rounded-2xl border-2 p-4 hover:border-dbgreen-900 dark:border-neutral-600 dark:hover:border-dbgreen-900 sm:col-span-full sm:p-8 md:col-span-1 md:p-5 lg:col-span-1"
 				>
-					<h3 class="text-xl font-bold text-green-600">Send Email</h3>
+					<h3 class="text-xl font-bold text-green-600">
+						{
+							t({
+								en: 'Send Email',
+								ar: 'إرسال بريد إلكتروني',
+								es: 'Enviar correo electrónico',
+								fr: 'Envoyer un email',
+								hi: 'ईमेल भेजें',
+								id: 'Kirim Email',
+								ms: 'Hantar Email',
+								th: 'ส่งอีเมล',
+								vi: 'Gửi Email',
+								bn: 'ইমেইল পাঠান',
+								'zh-hans': '发送电子邮件',
+								'pt-br': 'Enviar Email'
+							})
+						}
+					</h3>
 					<a href="mailto:support@dbinvesting.com" class="mt-2 text-neutral-600 dark:text-gray-300"
 						>Support@dbinvesting.com</a
 					>
